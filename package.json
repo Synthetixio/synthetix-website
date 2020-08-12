@@ -5,11 +5,39 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build",
-    "start": "next start"
+    "start": "next start --port 8888",
+    "start:tunnel": "ngrok http 8888",
+    "analyse:bundle": "ANALYZE_BUNDLE=true npm start"
   },
   "dependencies": {
     "next": "9.5.2",
     "react": "16.13.1",
-    "react-dom": "16.13.1"
+    "react-dom": "16.13.1",
+    "styled-components": "^5.1.1"
+  },
+  "devDependencies": {
+    "@next/bundle-analyzer": "9.4.1",
+    "@svgr/cli": "5.4.0",
+    "@types/react": "16.9.35",
+    "@types/styled-components": "^5.1.2",
+    "@types/webfontloader": "1.6.30",
+    "@types/webpack-env": "1.15.2",
+    "@typescript-eslint/eslint-plugin": "2.33.0",
+    "@typescript-eslint/parser": "2.33.0",
+    "@zeit/next-source-maps": "0.0.4-canary.1",
+    "babel-plugin-styled-components": "^1.11.1",
+    "cross-env": "7.0.2",
+    "cypress": "4.8.0",
+    "del-cli": "3.0.1",
+    "dotenv": "8.2.0",
+    "eslint": "7.0.0",
+    "eslint-plugin-jsx-a11y": "6.2.3",
+    "eslint-plugin-react": "7.20.0",
+    "eslint-plugin-react-hooks": "4.0.2",
+    "eslint-watch": "6.0.1",
+    "ngrok": "^3.2.7",
+    "now": "19.1.0",
+    "typescript": "^3.9.7",
+    "version-bump-prompt": "6.0.3"
   }
 }
