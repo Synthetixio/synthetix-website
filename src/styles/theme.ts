@@ -1,3 +1,5 @@
+import { css } from "styled-components";
+
 export const theme = {
   colors: {
     // Gray palette
@@ -25,13 +27,13 @@ export const theme = {
 	},
 
 	fonts: {
-		body: `
+		body: css`
 			font-family: Inter;
 			font-size: 14px;
 			line-height: 20px;
 			color: #FFFFFF;
 		`,
-		headline: `
+		headline: css`
 			font-family: GT America;
 			font-weight: 900;
 			font-size: 40px;

@@ -84,7 +84,7 @@ const Main = styled.main`
 `
 
 const Title = styled.h1`
-	${theme.fonts.headline}
+	${theme.fonts.headline};
 
 	a {
 		text-decoration: none;
@@ -102,7 +102,7 @@ const Title = styled.h1`
 `
 
 const Description = styled.p`
-	${theme.fonts.body}
+	${theme.fonts.body};
 	text-align: center;
 `
 
@@ -144,16 +144,18 @@ const Card = styled.a`
 
 	h3 {
 		margin: 0 0 1rem 0;
-		${theme.fonts.body}
+		${theme.fonts.body};
 	}
 
 	p {
 		margin: 0;
-		${theme.fonts.body}
+		${theme.fonts.body};
 	}
 `
 
 const Footer = styled.footer`
+	${theme.fonts.body};
+
   width: 100%;
   height: 100px;
   border-top: 1px solid #eaeaea;
@@ -161,7 +163,6 @@ const Footer = styled.footer`
   justify-content: center;
   align-items: center;
 
-	${theme.fonts.body}
 
 	img {
  		margin-left: 0.5rem;
