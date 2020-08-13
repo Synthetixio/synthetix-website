@@ -2,16 +2,16 @@ import styled from 'styled-components'
 import { Logo, Menu } from './'
 
 
-const HeaderComponent = () => {
+const FooterComponent = () => {
 	return (
-		<Header>
-			<Logo />
+		<Footer>
+			<Logo small={true} />
 			<Menu />
-		</Header>
+		</Footer>
 	)
 }
 
-const Header = styled.header`
+const Footer = styled.footer`
 	height: 100px;
 	width: 100%;
 	padding: 0 56px;
@@ -23,4 +23,4 @@ const Header = styled.header`
 	border-bottom: 1px solid rgba(255, 255, 255, 0.1);
 `
 
-export default HeaderComponent
+export default FooterComponent

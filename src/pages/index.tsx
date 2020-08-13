@@ -2,7 +2,7 @@ import Head from 'next/head'
 import styled, { createGlobalStyle } from 'styled-components';
 import { theme } from '../styles/theme';
 
-import { Logo, Layout, Header } from '../components'
+import { Logo, Layout, Header, Footer } from '../components'
 
 export default function Home() {
   return (
@@ -55,16 +55,7 @@ export default function Home() {
         </Grid>
       </Main>
 
-      <Footer>
-        <a
-          href="https://synthetix.io"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Powered by{' '}
-          <Logo />
-        </a>
-      </Footer>
+      <Footer />
     </Layout>
   )
 }
@@ -145,26 +136,5 @@ const Card = styled.a`
 	p {
 		margin: 0;
 		${theme.fonts.body};
-	}
-`
-
-const Footer = styled.footer`
-	${theme.fonts.body};
-
-  width: 100%;
-  height: 100px;
-  border-top: 1px solid #eaeaea;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-
-
-	img {
- 		margin-left: 0.5rem;
-	}
-	a {
-		display: flex;
-		justify-content: center;
-		align-items: center;
 	}
 `
