@@ -40,6 +40,25 @@ export const theme = {
 			line-height: 48px;
 			text-transform: uppercase;
 			color: #FFFFFF;
+		`,
+
+		subHeadline: css`
+			font-family: GT America;
+			font-weight: 700;
+			font-size: 32px;
+			line-height: 24px;
+			text-transform: uppercase;
+			color: #FFFFFF;
+		`,
+
+		menu: css`
+			font-family: GT America;
+			font-style: normal;
+			font-weight: 700;
+			font-size: 13px;
+			line-height: 24px;
+			color: #FFFFFF;
+			text-transform: uppercase;
 		`
 	}
 }

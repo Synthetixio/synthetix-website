@@ -1,6 +1,9 @@
 import { createGlobalStyle } from "styled-components";
+import reset from 'styled-reset'
 
 export const GlobalStyle = createGlobalStyle`
+	${reset}
+
 	html,
 	body {
 		padding: 0;
@@ -18,6 +21,7 @@ export const GlobalStyle = createGlobalStyle`
 
 	* {
 		box-sizing: border-box;
+		-webkit-font-smoothing: antialiased;
 	}
 
 	@font-face {

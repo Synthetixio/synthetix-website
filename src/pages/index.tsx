@@ -2,13 +2,17 @@ import Head from 'next/head'
 import styled, { createGlobalStyle } from 'styled-components';
 import { theme } from '../styles/theme';
 
+import { Logo, Layout, Header } from '../components'
+
 export default function Home() {
   return (
-    <Container>
+    <Layout>
       <Head>
         <title>Create Next App</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
+
+			<Header />
 
       <Main>
        <Title>
@@ -53,26 +57,17 @@ export default function Home() {
 
       <Footer>
         <a
-          href="https://vercel.com?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
+          href="https://synthetix.io"
           target="_blank"
           rel="noopener noreferrer"
         >
           Powered by{' '}
-          <Logo src="/vercel.svg" alt="Vercel Logo" />
+          <Logo />
         </a>
       </Footer>
-    </Container>
+    </Layout>
   )
 }
-
-const Container = styled.div`
-	min-height: 100vh;
-	padding: 0 0.5rem;
-	display: flex;
-	flex-direction: column;
-	justify-content: center;
-	align-items: center;
-`
 
 const Main = styled.main`
 	padding: 5rem 0;
@@ -172,8 +167,4 @@ const Footer = styled.footer`
 		justify-content: center;
 		align-items: center;
 	}
-`
-
-const Logo = styled.img`
-	height: 1em;
 `
