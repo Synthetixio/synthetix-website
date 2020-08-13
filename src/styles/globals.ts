@@ -1,17 +1,18 @@
 import { createGlobalStyle } from "styled-components";
 import reset from 'styled-reset'
+import { theme } from "./theme";
 
 export const GlobalStyle = createGlobalStyle`
 	${reset}
 
 	html,
 	body {
+		${theme.fonts.body};
+
 		padding: 0;
 		margin: 0;
-		font-family: Inter -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
-			Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
-		font-weight: 400;
-		background-color: ${props => (props.theme as any).colors.grayBlack30};
+		background-color: ${props => (props.theme as any).colors.bgBlack};
+
 	}
 
 	a {

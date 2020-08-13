@@ -15,7 +15,6 @@ const Header = styled.header`
 	height: 100px;
 	width: 100%;
 	padding: 0 56px;
-	background-color: ${props => props.theme.colors.grayBlack30};
 
 	display: flex;
 	align-items: center;

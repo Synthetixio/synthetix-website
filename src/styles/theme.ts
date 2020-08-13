@@ -23,7 +23,9 @@ export const theme = {
     // Secondary palette
     green: '#31D8A4',
     orange: '#FC8738',
-    yellow: '#FFD75C',
+		yellow: '#FFD75C',
+
+		bgBlack: '#06061B',
 	},
 
 	fonts: {
@@ -31,7 +33,7 @@ export const theme = {
 			font-family: Inter;
 			font-size: 14px;
 			line-height: 20px;
-			color: #FFFFFF;
+			color: rgba(255, 255, 255, 0.7);
 		`,
 		headline: css`
 			font-family: GT America;
@@ -58,6 +60,16 @@ export const theme = {
 			font-size: 13px;
 			line-height: 24px;
 			color: #FFFFFF;
+			text-transform: uppercase;
+		`,
+
+		button: css`
+			font-family: GT America;
+			font-style: normal;
+			font-weight: bold;
+			font-size: 14px;
+			line-height: 24px;
+			text-align: center;
 			text-transform: uppercase;
 		`
 	}
