@@ -40,6 +40,7 @@ export const theme = {
 			font-weight: 900;
 			font-size: 40px;
 			line-height: 48px;
+			font-stretch: expanded;
 			text-transform: uppercase;
 			color: #FFFFFF;
 		`,
@@ -47,6 +48,7 @@ export const theme = {
 		subHeadline: css`
 			font-family: GT America;
 			font-weight: 700;
+			font-stretch: condensed;
 			font-size: 32px;
 			line-height: 24px;
 			text-transform: uppercase;
@@ -57,6 +59,7 @@ export const theme = {
 			font-family: GT America;
 			font-style: normal;
 			font-weight: 700;
+			font-stretch: condensed;
 			font-size: 13px;
 			line-height: 24px;
 			color: #FFFFFF;
@@ -67,6 +70,7 @@ export const theme = {
 			font-family: GT America;
 			font-style: normal;
 			font-weight: bold;
+			font-stretch: condensed;
 			font-size: 14px;
 			line-height: 24px;
 			text-align: center;

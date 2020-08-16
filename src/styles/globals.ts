@@ -28,18 +28,20 @@ export const GlobalStyle = createGlobalStyle`
 	@font-face {
 		font-family: 'GT America';
 		src: local('GT America'), local('GTAmerica'),
-		url('/fonts/GTAmericaBold.woff2') format('woff2'),
-		url('/fonts/GTAmericaBold.woff') format('woff');
+		url('/fonts/GT-America-Condensed-Bold.woff2') format('woff2'),
+		url('/fonts/GT-America-Condensed-Bold.woff') format('woff');
 		font-weight: 700;
 		font-style: normal;
+		font-stretch: condensed;
 	}
 
 	@font-face {
 		font-family: 'GT America';
 		src: local('GT America'), local('GTAmerica'),
-		url('/fonts/GTAmericaExpandedBold.woff2') format('woff2'),
-		url('/fonts/GTAmericaExpandedBold.woff') format('woff');
+		url('/fonts/GT-America-Expanded-Black.woff2') format('woff2'),
+		url('/fonts/GT-America-Expanded-Black.woff') format('woff');
 		font-weight: 900;
 		font-style: normal;
+		font-stretch: expanded;
 	}
 `
