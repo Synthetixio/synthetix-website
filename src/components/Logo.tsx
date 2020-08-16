@@ -1,16 +1,11 @@
 import styled from 'styled-components'
+import LogoFull from '../svg/Logo'
+import LogoX from '../svg/LogoX'
 
 interface LogoProps { readonly small?: boolean }
 
 const LogoComponent = ({ small }: LogoProps) => (
-	<a href="/"><Logo small={small} /></a>
+	<a href="/">{ small ? <LogoX /> : <LogoFull /> }</a>
 )
-
-const Logo = styled.img.attrs((props: LogoProps) => ({
-	src: props.small ? '/logo-x.svg' : '/logo.svg',
-	alt: 'Synthetix Logo'
-}))<LogoProps>`
-	color: red;
-`
 
 export default LogoComponent

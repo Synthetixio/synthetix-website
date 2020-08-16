@@ -1,12 +1,17 @@
 import styled from 'styled-components'
-import { Logo, Menu } from './'
-
+import { Logo, Menu, Socials } from './'
 
 const FooterComponent = () => {
 	return (
 		<Footer>
-			<Logo small={true} />
-			<Menu />
+			<Left>
+				<Logo small={true} />
+				<Copyright>Copyright © Synthetix 2020</Copyright>
+			</Left>
+			<Right>
+				<Menu />
+				<FooterSocials />
+			</Right>
 		</Footer>
 	)
 }
@@ -14,13 +19,35 @@ const FooterComponent = () => {
 const Footer = styled.footer`
 	height: 159px;
 	width: 100%;
-	padding: 0 114px 0 56px;
+	padding: 0 66px 0 114px;
 	background-color: ${props => props.theme.colors.bgBlack};
 
 	display: flex;
 	align-items: center;
 	justify-content: space-between;
 	border-top: 1px solid rgba(255, 255, 255, 0.1);
+`
+
+const Left = styled.div`
+	display: flex;
+	max-width: 399px;
+	justify-content: space-between;
+	align-items: center;
+`
+
+const Right = styled.div`
+	display: flex;
+	align-items: center;
+	justify-content: flex-start;
+`
+
+const FooterSocials = styled(Socials)`
+	position: relative;
+	top: 2px;
+`
+
+const Copyright = styled.p`
+	margin-left: 38px;
 `
 
 export default FooterComponent

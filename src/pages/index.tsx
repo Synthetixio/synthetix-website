@@ -15,8 +15,6 @@ export default function Home() {
       <Layout>
 				<MainSection />
       </Layout>
-
-      <Footer />
     </>
   )
 }

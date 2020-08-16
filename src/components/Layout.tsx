@@ -1,5 +1,5 @@
 import styled from 'styled-components'
-import { Header } from '.'
+import { Header, Footer } from '.'
 
 const Layout = ({ children } : { children: React.ReactNode }) => {
 	return (
@@ -11,6 +11,7 @@ const Layout = ({ children } : { children: React.ReactNode }) => {
 				</Container>
 			</ContentContainer>
 			<BgGradient />
+			<Footer />
 		</LayoutContainer>
 	)
 }
