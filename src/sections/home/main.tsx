@@ -14,7 +14,7 @@ const MainSection = () => (
 )
 
 const MainContainer = styled(Section)`
-	min-height: 1200px;
+	min-height: 753px;
 `
 
 const Left = styled.div`

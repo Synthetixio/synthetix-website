@@ -30,7 +30,7 @@ const BgGradient = styled.div`
 	top: 0;
 	left: 0;
 	width: 100%;
-	height: 1021px;
+	height: 853px;
 	background: linear-gradient(180deg, #08021E 0%, #120446 146.21%);
 	pointer-events: none;
 	z-index: 5;
@@ -38,7 +38,6 @@ const BgGradient = styled.div`
 
 const Container = styled.div`
 	min-height: 100vh;
-	padding: 0 0.5rem;
 	display: flex;
 	flex-direction: column;
 	justify-content: center;

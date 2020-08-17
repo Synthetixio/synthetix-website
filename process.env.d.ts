@@ -20,7 +20,6 @@ declare global {
       NEXT_PUBLIC_APP_STAGE: 'test' | 'development' | 'staging' | 'production';
       NEXT_PUBLIC_BUILD_TIME: string;
       NEXT_PUBLIC_BUILD_TIMESTAMP: string;
-=
     }
   }
 }
