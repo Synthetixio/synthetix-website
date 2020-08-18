@@ -6,6 +6,7 @@ import Socials from './Socials'
 import Footer from './Footer'
 import Section from './Section'
 import Button from './Button'
+import Line from './Line'
 
 export {
 	Header,
@@ -15,5 +16,6 @@ export {
 	Footer,
 	Section,
 	Button,
-	Socials
+	Socials,
+	Line
 }

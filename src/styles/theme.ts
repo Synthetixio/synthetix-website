@@ -71,7 +71,7 @@ export const theme = {
 			font-style: normal;
 			font-weight: bold;
 			font-stretch: condensed;
-			font-size: 14px;
+			font-size: 13px;
 			line-height: 24px;
 			text-align: center;
 			text-transform: uppercase;

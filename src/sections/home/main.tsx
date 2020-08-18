@@ -5,8 +5,8 @@ import { Section, Button } from "../../components"
 const MainSection = () => (
 	<MainContainer>
 		<Left>
-			<Title>THE DERIVATIVES LIQUIDITY PROTOCOL</Title>
-			<Description>Synthetix is a protocol that enables developers to tokenize assets and indexes across industries in order to construct an ecosystem of unstoppable financial tools.</Description>
+			<h1>THE DERIVATIVES LIQUIDITY PROTOCOL</h1>
+			<p>Synthetix is a protocol that enables developers to tokenize assets and indexes across industries in order to construct an ecosystem of unstoppable financial tools.</p>
 			<LearnMoreButton link="/learn-more">Learn More</LearnMoreButton>
 		</Left>
 		<Right src="/home/wave.png" />
@@ -31,16 +31,7 @@ const Right = styled.img`
 	left: 348px;
 	top: 144px;
 	position: absolute;
-`
-
-const Title = styled.h1`
-	text-decoration: uppercase;
-	${theme.fonts.headline}
-`
-
-const Description = styled.p`
-	margin-top: 15px;
-	margin-left: 2px;
+	pointer-events: none;
 `
 
 const LearnMoreButton = styled(Button)`

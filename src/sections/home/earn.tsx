@@ -1,25 +1,26 @@
 import styled from "styled-components"
 import { theme } from "../../styles/theme"
 import { Section, Button, Line } from "../../components"
-import BuildCircle from '../../svg/BuildCircle'
+import EarnPicture from '../../svg/Earn'
 
-const BuildSection = () => (
-	<BuildContainer>
+const EarnSection = () => (
+	<EarnContainer>
 		<Columns>
 			<Left>
-				<GlowingBuildCircle />
+				<h2>earn</h2>
+				<p>Make your idle funds work harder for you by fueling the Synthetix ecosystem to earn weekly rewards.</p>
+				<EarnButton buttonType="secondary" link="/stake">Stake</EarnButton>
 			</Left>
 			<Right>
-				<h2>build</h2>
-				<p>Harness the price action of important assets across industries to power a new era of financial tools.</p>
-				<BuildButton buttonType="secondary" link="/build">Build</BuildButton>
+				<EarnPicture />
 			</Right>
 		</Columns>
 		<Line />
-	</BuildContainer>
+	</EarnContainer>
 )
 
-const BuildContainer = styled(Section)`
+const EarnContainer = styled(Section)`
+	padding: 0 163px;
 	min-height: 891px;
 	display: flex;
 	justify-content: center;
@@ -37,20 +38,16 @@ const Columns = styled.div`
 
 const Left = styled.div`
 	position: relative;
-	text-align: center;
+	text-align: left;
 `
 const Right = styled.div`
 
 `
 
-const GlowingBuildCircle = styled(BuildCircle)`
-	filter: drop-shadow(0px 0px 25.9037px rgba(0, 209, 255, 0.63));
-`
-
-const BuildButton = styled(Button)`
+const EarnButton = styled(Button)`
 	margin-top: 40px;
 	width: 147px;
 	height: 56px;
 `
 
-export default BuildSection
+export default EarnSection

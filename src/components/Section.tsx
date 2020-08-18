@@ -1,10 +1,27 @@
 import styled from 'styled-components'
+import { theme } from '../styles/theme'
 
-const Section = styled.div`
+export const sectionMixin = `
 	width: 100%;
 	position: relative;
-	padding: 0 114px;
 	overflow: hidden;
+
+	h1, h2 {
+		text-decoration: uppercase;
+		${theme.fonts.headline};
+	}
 `
+
+const Section = styled.div`
+	${sectionMixin}
+
+	padding: 0 114px;
+	p {
+		margin-top: 15px;
+		margin-left: 2px;
+		max-width: 386px;
+	}
+`
+
 
 export default Section

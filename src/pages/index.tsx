@@ -6,6 +6,9 @@ import { Logo, Layout, Header, Footer } from '../components'
 import MainSection from '../sections/home/main';
 import BuildSection from '../sections/home/build';
 import TotalSection from '../sections/home/total';
+import EarnSection from '../sections/home/earn';
+import BuildWithSynthetix from '../sections/home/buildWithSynthetix';
+import PartnersSection from '../sections/home/partners';
 
 export default function Home() {
   return (
@@ -18,6 +21,9 @@ export default function Home() {
 				<MainSection />
 				<TotalSection />
 				<BuildSection />
+				<EarnSection />
+				<BuildWithSynthetix />
+				<PartnersSection />
       </Layout>
     </>
   )
