@@ -25,7 +25,6 @@ const Footer = styled.footer`
 	display: flex;
 	align-items: center;
 	justify-content: space-between;
-	border-top: 1px solid rgba(255, 255, 255, 0.1);
 `
 
 const Left = styled.div`
