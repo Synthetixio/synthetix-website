@@ -5,8 +5,8 @@ import { Section, Button } from "../../components"
 const MainSection = () => (
 	<MainContainer>
 		<Left>
-			<h1>THE DERIVATIVES LIQUIDITY PROTOCOL</h1>
-			<p>Synthetix is a protocol that enables developers to tokenize assets and indexes across industries in order to construct an ecosystem of unstoppable financial tools.</p>
+			<h1>The derivatives liquidity protocol</h1>
+			<p>Synthetix is the backbone for derivatives trading in DeFi, allowing anyone, anywhere to gain on-chain exposure to a vast range of assets.</p>
 			<LearnMoreButton link="/learn-more">Learn More</LearnMoreButton>
 		</Left>
 		<Right src="/home/wave.png" />

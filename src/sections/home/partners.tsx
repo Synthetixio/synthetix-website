@@ -5,17 +5,24 @@ import { sectionMixin } from "../../components/Section"
 import PFramework from '../../svg/PFramework'
 import PXbto from '../../svg/PXbto'
 import PHashed from '../../svg/PHashed'
-import PParity from '../../svg/PParity'
+import PParafi from '../../svg/PParafi'
+import PThreeArrows from '../../svg/PThreeArrows'
+import PDtc from '../../svg/PDtc'
+
 
 const PartnersSection = () => (
 	<>
 	<PartnersContainer>
-		<h3>our Liquidity Partners</h3>
+		<h3>Our liquidity partners</h3>
 		<StyledPartners>
 			<PFramework />
+			<PParafi />
+			<PThreeArrows />
 			<PXbto />
+			<PDtc />
 			<PHashed />
-			<PParity />
+			<Iosg src="/home/iosg.png" />
+			<Spartan src="/home/spartan.png" />
 		</StyledPartners>
 	</PartnersContainer>
 	<Line />
@@ -40,13 +47,32 @@ const PartnersContainer = styled.div`
 	}
 `
 
+const gap = 110
 const StyledPartners = styled.div`
-	margin-top: 28px;
-	width: 898px;
-	display: flex;
+	width: 100%;
+	display: inline-flex;
+	margin: -20px 0 0 -${gap}px;
+  width: calc(100% + ${gap}px);
+	flex-wrap: wrap;
 
-	justify-content: space-between;
+	justify-content: center;
 	align-items: center;
+
+	img {
+		object-fit: cover;
+		max-width: 240px;
+		max-height: 57px;
+	}
+
+	> * {
+		margin: 48px 0 0 ${gap}px;
+	}
+`
+
+const Iosg = styled.img`
+	padding-top: 10px;
+`
+const Spartan = styled.img`
 `
 
 

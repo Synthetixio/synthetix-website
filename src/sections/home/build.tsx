@@ -11,8 +11,8 @@ const BuildSection = () => (
 			</Left>
 			<Right>
 				<h2>build</h2>
-				<p>Harness the price action of important assets across industries to power a new era of financial tools.</p>
-				<BuildButton buttonType="secondary" link="/build">Build</BuildButton>
+				<p>Harness the deep liquidity of synthetic assets to power a new era of financial tools.</p>
+				<BuildButton buttonType="secondary" link="https://docs.synthetix.io/">Build</BuildButton>
 			</Right>
 		</Columns>
 		<Line />

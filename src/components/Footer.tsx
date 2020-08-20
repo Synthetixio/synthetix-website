@@ -6,7 +6,6 @@ const FooterComponent = () => {
 		<Footer>
 			<Left>
 				<Logo small={true} />
-				<Copyright>Copyright © Synthetix 2020</Copyright>
 			</Left>
 			<Right>
 				<Menu />

@@ -8,8 +8,8 @@ const EarnSection = () => (
 		<Columns>
 			<Left>
 				<h2>earn</h2>
-				<p>Make your idle funds work harder for you by fueling the Synthetix ecosystem to earn weekly rewards.</p>
-				<EarnButton buttonType="secondary" link="/stake">Stake</EarnButton>
+				<p>Earn rewards by providing collateral to the Synthetix protocol.</p>
+				<EarnButton buttonType="secondary" link="https://staking.synthetix.io">Stake</EarnButton>
 			</Left>
 			<Right>
 				<EarnPicture />

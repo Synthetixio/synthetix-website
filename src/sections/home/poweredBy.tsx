@@ -3,14 +3,14 @@ import { theme } from "../../styles/theme"
 import { Button, Line } from "../../components"
 import { sectionMixin } from "../../components/Section"
 
-const BuildWithSynthetix = () => (
-	<BuildWithContainer>
-		<h2>build with synthetix</h2>
-		<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec pharetra, turpis id scelerisque venenatis, justo nisl facilisis. Lorem ipsum dolor sit amet, consectetur</p>
-	</BuildWithContainer>
+const PoweredBy = () => (
+	<PoweredByContainer>
+		<h2>Powered by Synthetix</h2>
+		<p>Many platforms, projects, and interfaces are already using the derivatives liquidity enabled by Synthetix.</p>
+	</PoweredByContainer>
 )
 
-const BuildWithContainer = styled.div`
+const PoweredByContainer = styled.div`
 	${sectionMixin}
 
 	padding: 0 156px;
@@ -33,4 +33,4 @@ const BuildWithContainer = styled.div`
 	}
 `
 
-export default BuildWithSynthetix
+export default PoweredBy

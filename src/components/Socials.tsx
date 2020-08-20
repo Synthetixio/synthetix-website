@@ -6,7 +6,7 @@ import Link from 'next/link'
 import { Props } from 'react'
 
 const data = [{
-	link: 'https://discord.gg/AEdUHzt',
+	link: 'https://discord.com/invite/AEdUHzt',
 	label: 'discord',
 	image: <Discord />
 }, {

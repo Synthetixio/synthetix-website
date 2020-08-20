@@ -10,7 +10,7 @@ const stakedValue = 435603623
 const TotalSection = () => (
 	<TotalContainer>
 			<TotalStakedBar>
-				<StakedHeader>TOTAL VALUE LOCKED IN SYNTHETIX</StakedHeader>
+				<StakedHeader>Total value locked in Synthetix</StakedHeader>
 				<StakedValue>{numeral(stakedValue).format(currencyFormat)}</StakedValue>
 			</TotalStakedBar>
 			<Line />

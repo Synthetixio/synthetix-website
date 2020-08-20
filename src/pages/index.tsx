@@ -7,7 +7,7 @@ import MainSection from '../sections/home/main';
 import BuildSection from '../sections/home/build';
 import TotalSection from '../sections/home/total';
 import EarnSection from '../sections/home/earn';
-import BuildWithSynthetix from '../sections/home/buildWithSynthetix';
+import PoweredBySection from '../sections/home/poweredBy';
 import PartnersSection from '../sections/home/partners';
 
 export default function Home() {
@@ -22,7 +22,7 @@ export default function Home() {
 				<TotalSection />
 				<BuildSection />
 				<EarnSection />
-				<BuildWithSynthetix />
+				<PoweredBySection />
 				<PartnersSection />
       </Layout>
     </>
