@@ -24,6 +24,11 @@ const Footer = styled.footer`
 	display: flex;
 	align-items: center;
 	justify-content: space-between;
+
+	${props => props.theme.animations.show};
+
+	animation-delay: 200ms;
+	opacity: 0;
 `
 
 const Left = styled.div`

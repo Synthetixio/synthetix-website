@@ -14,6 +14,10 @@ const MainSection = () => (
 )
 
 const MainContainer = styled(Section)`
+	${props => props.theme.animations.show};
+
+	opacity: 0;
+	animation-delay: 400ms;
 	min-height: 753px;
 `
 

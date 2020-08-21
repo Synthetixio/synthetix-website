@@ -1,5 +1,21 @@
 import { css } from "styled-components";
 
+const keyframes = {
+  show: `@keyframes show {
+    to {
+      opacity: 1;
+      transform: none;
+    }
+  }`
+}
+
+const animations = {
+  show: `
+    animation: show 500ms ease-out forwards;
+    ${keyframes.show}
+  `
+}
+
 export const theme = {
   colors: {
     // Gray palette
@@ -55,6 +71,20 @@ export const theme = {
 			color: #FFFFFF;
 		`,
 
+		smallHeadline: css`
+			font-family: GT America;
+			font-style: normal;
+			font-stretch: expanded;
+			font-weight: 900;
+			font-size: 16px;
+			line-height: 48px;
+
+			text-align: center;
+			text-transform: uppercase;
+
+			color: #FFFFFF;
+		`,
+
 		menu: css`
 			font-family: GT America;
 			font-style: normal;
@@ -75,6 +105,28 @@ export const theme = {
 			line-height: 24px;
 			text-align: center;
 			text-transform: uppercase;
+		`,
+
+		tab: css`
+			font-family: GT America;
+			font-style: normal;
+			font-weight: 900;
+			font-size: 14px;
+			line-height: 48px;
+			font-stretch: expanded;
+			text-align: center;
+			text-transform: uppercase;
+
+			color: ${(props: any) => props.active ? '#00D1FF' : 'rgba(255, 255, 255, 0.5)'};
+
+			&:hover {
+				color: #00D1FF;
+			}
+
+			transition: color 0.2s ease-out;
+			cursor: pointer;
 		`
-	}
+	},
+
+	animations
 }

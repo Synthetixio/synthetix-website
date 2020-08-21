@@ -12,6 +12,10 @@ const HeaderComponent = () => {
 }
 
 const Header = styled.header`
+	${props => props.theme.animations.show};
+
+	animation-delay: 200ms;
+	opacity: 0;
 	height: 100px;
 	width: 100%;
 	padding: 0 56px;
