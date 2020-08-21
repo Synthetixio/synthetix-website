@@ -7,7 +7,7 @@ const MainSection = () => (
 		<Left>
 			<h1>The derivatives liquidity protocol</h1>
 			<p>Synthetix is the backbone for derivatives trading in DeFi, allowing anyone, anywhere to gain on-chain exposure to a vast range of assets.</p>
-			<LearnMoreButton link="/learn-more">Learn More</LearnMoreButton>
+			<LearnMoreButton link="https://docs.synthetix.io/litepaper/">Learn More</LearnMoreButton>
 		</Left>
 		<Right src="/home/wave.png" />
 	</MainContainer>

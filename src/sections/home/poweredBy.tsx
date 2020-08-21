@@ -155,7 +155,7 @@ const LogoContainer = styled.div`
 
 	border-radius: 100%;
 	position: relative;
-	margin: 34px auto 0 auto;
+	margin: 14px auto 0 auto;
 
 `
 
@@ -169,7 +169,7 @@ const CardTitle = styled.h4`
 	${props => props.theme.fonts.smallHeadline};
 
 	text-align: center;
-	margin-top: 7px auto 0 auto;
+	margin-top: 27px auto 0 auto;
 `
 
 const CardDescription = styled.p`
