@@ -1,7 +1,7 @@
 import styled from "styled-components"
 import { theme } from "../../styles/theme"
 import { Button, Line } from "../../components"
-import { sectionMixin } from "../../components/Section"
+import { sectionMixin, SectionDescription } from "../../components/Section"
 import { useState } from "react"
 
 import { AnimateOnChange } from 'react-animation'
@@ -49,7 +49,7 @@ const PoweredBy = () => {
 	return (
 		<PoweredByContainer>
 			<h2>Powered by Synthetix</h2>
-			<p>Many platforms, projects, and interfaces are already using the derivatives liquidity enabled by Synthetix.</p>
+			<SectionDescription style={{maxWidth: 360}}>Many platforms, projects, and interfaces are already using the derivatives liquidity enabled by Synthetix.</SectionDescription>
 
 			<Tabs>
 				{Object.keys(CARDS).map(t => <Tab key={t} active={t === tab} onClick={() => setTab(t)}>{t}</Tab>)}
@@ -58,7 +58,7 @@ const PoweredBy = () => {
 			<AnimateOnChange>
 				<Cards>
 						{currentCards.map(card => (
-							<Card>
+							<Card key={card.name}>
 								<LogoContainer><CardLogo src={card.logo} /></LogoContainer>
 								<CardGradient />
 								<CardTitle>{card.name}</CardTitle>

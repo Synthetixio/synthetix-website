@@ -16,12 +16,12 @@ const Section = styled.div`
 	${sectionMixin}
 
 	padding: 0 114px;
-	> p {
-		margin-top: 15px;
-		margin-left: 2px;
-		max-width: 386px;
-	}
 `
 
+export const SectionDescription = styled.p`
+	margin-top: 15px;
+	margin-left: 2px;
+	max-width: 386px;
+`
 
 export default Section

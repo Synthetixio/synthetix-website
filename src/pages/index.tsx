@@ -1,16 +1,18 @@
 import Head from 'next/head'
-import styled, { createGlobalStyle } from 'styled-components';
+import { GetStaticProps, GetStaticPaths, GetServerSideProps } from 'next'
 
-import { theme } from '../styles/theme';
-import { Logo, Layout, Header, Footer } from '../components'
 import MainSection from '../sections/home/main';
 import BuildSection from '../sections/home/build';
 import TotalSection from '../sections/home/total';
 import EarnSection from '../sections/home/earn';
-// import PoweredBySection from '../sections/home/poweredBy';
 import PartnersSection from '../sections/home/partners';
-
 import dynamic from 'next/dynamic'
+import { Layout } from '../components';
+import { fetchTotalLocked } from '../../lib/exchange-api';
+
+export interface ApiStatsProps {
+	totalLocked?: number
+}
 
 const DynamicComponentWithNoSSR = dynamic(
   () => import('../sections/home/poweredBy'),
@@ -18,7 +20,7 @@ const DynamicComponentWithNoSSR = dynamic(
 )
 
 
-export default function Home() {
+const Home = ({ totalLocked }: ApiStatsProps) => {
   return (
     <>
       <Head>
@@ -27,7 +29,7 @@ export default function Home() {
       </Head>
       <Layout>
 				<MainSection />
-				<TotalSection />
+				<TotalSection totalLocked={totalLocked} />
 				<BuildSection />
 				<EarnSection />
 				<DynamicComponentWithNoSSR />
@@ -36,3 +38,13 @@ export default function Home() {
     </>
   )
 }
+
+export const getStaticProps: GetStaticProps = async (context) => {
+	const totalLocked = await fetchTotalLocked()
+
+  return { props: {
+		totalLocked
+	 }}
+}
+
+export default Home

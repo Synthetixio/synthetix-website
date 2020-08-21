@@ -33,6 +33,7 @@ export const GlobalStyle = createGlobalStyle`
 		font-weight: 700;
 		font-style: normal;
 		font-stretch: condensed;
+		font-display: auto;
 	}
 
 	@font-face {
@@ -43,5 +44,6 @@ export const GlobalStyle = createGlobalStyle`
 		font-weight: 900;
 		font-style: normal;
 		font-stretch: expanded;
+		font-display: auto;
 	}
 `

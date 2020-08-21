@@ -3,10 +3,10 @@ import { Logo } from './'
 import { theme } from '../styles/theme'
 
 const data = [{
-	link: 'https://stats.synthetix.io',
+	link: 'https://dashboard.synthetix.io',
 	label: 'stats'
 }, {
-	link: 'https://staking.synthetix.io',
+	link: 'https://mintr.synthetix.io',
 	label: 'staking'
 }, {
 	link: 'https://docs.synthetix.io/',

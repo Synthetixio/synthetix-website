@@ -1,11 +1,14 @@
 import styled from 'styled-components'
-import LogoFull from '../svg/Logo'
-import LogoX from '../svg/LogoX'
 
 interface LogoProps { readonly small?: boolean }
 
-const LogoComponent = ({ small }: LogoProps) => (
-	<a href="/">{ small ? <LogoX /> : <LogoFull /> }</a>
-)
+
+const LogoComponent = ({ small }: LogoProps) => {
+	const src = small ? '/logo-x.svg' : 'logo.svg'
+
+	return (
+		<a href="/"><img src={src} /></a>
+	)
+}
 
 export default LogoComponent

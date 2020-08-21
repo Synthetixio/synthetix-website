@@ -2,14 +2,15 @@ import styled from "styled-components"
 import { theme } from "../../styles/theme"
 import { Section, Button, Line } from "../../components"
 import EarnPicture from '../../svg/Earn'
+import { SectionDescription } from "../../components/Section"
 
 const EarnSection = () => (
 	<EarnContainer>
 		<Columns>
 			<Left>
 				<h2>earn</h2>
-				<p>Earn rewards by providing collateral to the Synthetix protocol.</p>
-				<EarnButton buttonType="secondary" link="https://staking.synthetix.io">Stake</EarnButton>
+				<SectionDescription>Earn rewards by providing collateral to the Synthetix protocol.</SectionDescription>
+				<EarnButton buttonType="secondary" link="https://mintr.synthetix.io">Stake</EarnButton>
 			</Left>
 			<Right>
 				<EarnPicture />

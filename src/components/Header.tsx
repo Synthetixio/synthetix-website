@@ -11,12 +11,14 @@ const HeaderComponent = () => {
 	)
 }
 
+export const headerHeight = 100
+
 const Header = styled.header`
 	${props => props.theme.animations.show};
 
 	animation-delay: 200ms;
 	opacity: 0;
-	height: 100px;
+	height: ${headerHeight}px;
 	width: 100%;
 	padding: 0 56px;
 

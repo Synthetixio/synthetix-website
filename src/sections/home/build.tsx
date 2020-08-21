@@ -2,6 +2,7 @@ import styled from "styled-components"
 import { theme } from "../../styles/theme"
 import { Section, Button, Line } from "../../components"
 import BuildCircle from '../../svg/BuildCircle'
+import { SectionDescription } from "../../components/Section"
 
 const BuildSection = () => (
 	<BuildContainer>
@@ -11,7 +12,7 @@ const BuildSection = () => (
 			</Left>
 			<Right>
 				<h2>build</h2>
-				<p>Harness the deep liquidity of synthetic assets to power a new era of financial tools.</p>
+				<SectionDescription style={{maxWidth: 360}}>Harness the deep liquidity of synthetic assets to power a new era of financial tools.</SectionDescription>
 				<BuildButton buttonType="secondary" link="https://docs.synthetix.io/">Build</BuildButton>
 			</Right>
 		</Columns>

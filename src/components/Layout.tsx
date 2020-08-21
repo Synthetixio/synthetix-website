@@ -1,5 +1,6 @@
 import styled from 'styled-components'
 import { Header, Footer } from '.'
+import { headerHeight } from './Header'
 
 const Layout = ({ children } : { children: React.ReactNode }) => {
 	return (
@@ -30,7 +31,8 @@ const BgGradient = styled.div`
 	top: 0;
 	left: 0;
 	width: 100%;
-	height: 853px;
+	height: 100vh;
+	min-height: 853px;
 	background: linear-gradient(180deg, #08021E 0%, #120446 146.21%);
 	pointer-events: none;
 	z-index: 5;

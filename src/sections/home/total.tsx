@@ -3,19 +3,28 @@ import styled from "styled-components"
 import numeral from 'numeral'
 import { theme } from "../../styles/theme"
 import { Section, Button, Line } from "../../components"
+import useSWR from 'swr'
+import { ApiStatsProps } from "../../pages"
+import { ExchangeApiFetcher } from "../../../lib/exchange-api"
 
 const currencyFormat = '$0,0'
-const stakedValue = 435603623
 
-const TotalSection = () => (
-	<TotalContainer>
-			<TotalStakedBar>
-				<StakedHeader>Total value locked in Synthetix</StakedHeader>
-				<StakedValue>{numeral(stakedValue).format(currencyFormat)}</StakedValue>
-			</TotalStakedBar>
-			<Line />
-	</TotalContainer>
-)
+const TotalSection = ({ totalLocked }: ApiStatsProps) => {
+	const { data, error } = useSWR('/total-locked', ExchangeApiFetcher, { initialData: { totalLocked } })
+	let stakedValue = totalLocked || 0
+	console.log(data, error)
+	if (data && data.totalLocked) { stakedValue = data.totalLocked }
+
+	return (
+		<TotalContainer>
+				<TotalStakedBar>
+					<StakedHeader>Total value locked in Synthetix</StakedHeader>
+					<StakedValue>{stakedValue ? numeral(stakedValue).format(currencyFormat): 'Loading...'}</StakedValue>
+				</TotalStakedBar>
+				<Line />
+		</TotalContainer>
+	)
+}
 
 const TotalContainer = styled(Section)`
 	height: 285px;
