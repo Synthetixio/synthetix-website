@@ -22,7 +22,7 @@ const EarnSection = () => (
 
 const EarnContainer = styled(Section)`
 	padding: 0 163px;
-	min-height: 891px;
+	min-height: 818px;
 	display: flex;
 	justify-content: center;
 	align-items: center;
@@ -31,6 +31,7 @@ const EarnContainer = styled(Section)`
 const Columns = styled.div`
 	width: 100%;
 	height: 100%;
+	max-width: 1200px;
 	margin-top: 4px;
 	display: flex;
 	align-items: center;

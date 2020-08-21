@@ -83,11 +83,12 @@ const PoweredByContainer = styled.div`
 	padding: 0 156px;
 	min-height: 770px;
 
-	background: linear-gradient(0deg, rgba(0, 0, 0, 0.47), rgba(0, 0, 0, 0.47)), #160654;
+	/* background: linear-gradient(0deg, rgba(0, 0, 0, 0.47), rgba(0, 0, 0, 0.47)), #160654; */
+	background-image: url('/home/bg-grid.svg');
 	text-align: center;
 
 	h2 {
-		margin-top: 101px;
+		margin-top: 95px;
 	}
 
 	& > p {

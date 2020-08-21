@@ -34,6 +34,7 @@ const PartnersContainer = styled.div`
 
 	min-height: 340px;
 	padding: 79px 271px 131px 271px;
+	text-align: center;
 
 	h3 {
 		font-family: GT America;
@@ -54,6 +55,7 @@ const StyledPartners = styled.div`
 	margin: -20px 0 0 -${gap}px;
   width: calc(100% + ${gap}px);
 	flex-wrap: wrap;
+	max-width: 1400px;
 
 	justify-content: center;
 	align-items: center;

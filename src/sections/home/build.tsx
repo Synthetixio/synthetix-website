@@ -22,6 +22,7 @@ const BuildSection = () => (
 
 const BuildContainer = styled(Section)`
 	min-height: 891px;
+
 	display: flex;
 	justify-content: center;
 	align-items: center;
@@ -30,6 +31,7 @@ const BuildContainer = styled(Section)`
 const Columns = styled.div`
 	width: 100%;
 	height: 100%;
+	max-width: 1160px;
 	margin-top: 4px;
 	display: flex;
 	align-items: center;
@@ -39,6 +41,7 @@ const Columns = styled.div`
 const Left = styled.div`
 	position: relative;
 	text-align: center;
+	left: -49px;
 `
 const Right = styled.div`
 

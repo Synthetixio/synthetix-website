@@ -1,5 +1,6 @@
 import styled from 'styled-components'
 import { theme } from '../styles/theme'
+import media from 'styled-media-query'
 
 export const sectionMixin = `
 	width: 100%;
@@ -16,6 +17,10 @@ const Section = styled.div`
 	${sectionMixin}
 
 	padding: 0 114px;
+
+	${media.greaterThan('large')`
+		padding: 0 159px;
+	`}
 `
 
 export const SectionDescription = styled.p`

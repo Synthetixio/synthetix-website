@@ -1,4 +1,5 @@
 import styled from "styled-components"
+import media from "styled-media-query";
 import { theme } from "../../styles/theme"
 import { Section, Button } from "../../components"
 import { SectionDescription } from "../../components/Section"
@@ -39,6 +40,11 @@ const Right = styled.img`
 	top: 144px;
 	position: absolute;
 	pointer-events: none;
+
+	${media.greaterThan('1700px')`
+		left: auto;
+		right: -100px;
+	`}
 `
 
 const LearnMoreButton = styled(Button)`
