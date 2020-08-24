@@ -12,7 +12,7 @@ const MainSection = () => (
 			<SectionDescription>Synthetix is the backbone for derivatives trading in DeFi, allowing anyone, anywhere to gain on-chain exposure to a vast range of assets.</SectionDescription>
 			<LearnMoreButton link="https://docs.synthetix.io/litepaper/">Learn More</LearnMoreButton>
 		</Left>
-		<Right src="/home/wave.png" />
+		<Right src="/home/snx-wave.svg" />
 	</MainContainer>
 )
 
@@ -38,13 +38,13 @@ const Left = styled.div`
 const Right = styled.img`
 	width: 1406px;
 	height: 444px;
-	left: 348px;
+	left: 148px;
 	position: absolute;
 	pointer-events: none;
 
 	${media.greaterThan('1700px' as any)`
 		left: auto;
-		right: -100px;
+		right: 0;
 	`}
 `
 
