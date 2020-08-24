@@ -23,13 +23,15 @@ const MainContainer = styled(Section)`
 	animation-delay: 400ms;
 	height: calc(100vh - ${headerHeight}px);
 	min-height: 753px;
+	display: flex;
+	align-items: center;
 `
 
 const Left = styled.div`
 	max-width: 397px;
 	height: 364px;
 	position: absolute;
-	top: 134px;
+	margin-top: -84px;
 
 `
 
@@ -37,11 +39,10 @@ const Right = styled.img`
 	width: 1406px;
 	height: 444px;
 	left: 348px;
-	top: 144px;
 	position: absolute;
 	pointer-events: none;
 
-	${media.greaterThan('1700px')`
+	${media.greaterThan('1700px' as any)`
 		left: auto;
 		right: -100px;
 	`}

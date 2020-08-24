@@ -13,7 +13,7 @@ const CARDS = {
 		description: 'A decentralised asset management protocol offering non-custodial mimetic trading',
 		linkLabel: 'Visit dHedge',
 		link: 'https://www.dhedge.org/',
-		logo: '/home/dHedge-logo.png'
+		logo: '/home/dHedge-logo.svg'
 	}, {
 		name: 'Curve',
 		description: 'An exchange liquidity pool on Ethereum (like Uniswap) designed for: 1) extremely efficient asset trading; and 2) low risk, supplemental fee income for liquidity providers, without an opportunity cost.',
@@ -39,7 +39,7 @@ const CARDS = {
 		description: 'A non-custodial portfolio management platform for Synthetix stakers and/or Synth traders',
 		linkLabel: 'Visit SNX.link',
 		link: 'https://snx.link',
-		logo: '/home/snx-link-logo.png'
+		logo: '/home/snx-link-logo.svg'
 	}]
 }
 const PoweredBy = () => {
@@ -49,7 +49,7 @@ const PoweredBy = () => {
 	return (
 		<PoweredByContainer>
 			<h2>Powered by Synthetix</h2>
-			<SectionDescription style={{maxWidth: 360}}>Many platforms, projects, and interfaces are already using the derivatives liquidity enabled by Synthetix.</SectionDescription>
+			<SectionDescription style={{maxWidth: 706}}>Many platforms, projects, and interfaces are already using the derivatives liquidity enabled by Synthetix.</SectionDescription>
 
 			<Tabs>
 				{Object.keys(CARDS).map(t => <Tab key={t} active={t === tab} onClick={() => setTab(t)}>{t}</Tab>)}
@@ -157,12 +157,17 @@ const LogoContainer = styled.div`
 	border-radius: 100%;
 	position: relative;
 	margin: 14px auto 0 auto;
+	background: rgba(255, 255, 255, 0.12);
+	overflow: hidden;
 
+	display: flex;
+	align-items: center;
+	justify-content: center;
 `
 
 const CardLogo = styled.img`
-	width: 80px;
-	height: 80px;
+	max-width: 69px;
+	max-height: 69px;
 	object-fit: contain;
 `
 

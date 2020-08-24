@@ -16,13 +16,15 @@ const TotalSection = ({ totalLocked }: ApiStatsProps) => {
 	if (data && data.totalLocked) { stakedValue = data.totalLocked }
 
 	return (
+		<>
 		<TotalContainer>
 				<TotalStakedBar>
 					<StakedHeader>Total value locked in Synthetix</StakedHeader>
 					<StakedValue>{stakedValue ? numeral(stakedValue).format(currencyFormat): 'Loading...'}</StakedValue>
 				</TotalStakedBar>
-				<Line />
 		</TotalContainer>
+		<Line static/>
+		</>
 	)
 }
 

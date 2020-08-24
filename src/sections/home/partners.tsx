@@ -25,7 +25,7 @@ const PartnersSection = () => (
 			<Spartan src="/home/spartan.png" />
 		</StyledPartners>
 	</PartnersContainer>
-	<Line />
+	<Line/>
 	</>
 )
 
