@@ -6,6 +6,7 @@ import { useState } from "react"
 
 import { AnimateOnChange } from 'react-animation'
 import Link from "next/link"
+import media from "styled-media-query"
 
 const CARDS = {
 	Trading: [{
@@ -49,7 +50,7 @@ const PoweredBy = () => {
 	return (
 		<PoweredByContainer>
 			<h2>Powered by Synthetix</h2>
-			<SectionDescription style={{maxWidth: 706}}>Many platforms, projects, and interfaces are already using the derivatives liquidity enabled by Synthetix.</SectionDescription>
+			<SectionDescription style={{maxWidth: 706, padding: '0 59px'}}>Many platforms, projects, and interfaces are already using the derivatives liquidity enabled by Synthetix.</SectionDescription>
 
 			<Tabs>
 				{Object.keys(CARDS).map(t => <Tab key={t} active={t === tab} onClick={() => setTab(t)}>{t}</Tab>)}
@@ -80,13 +81,6 @@ interface TabProps {
 const PoweredByContainer = styled.div`
 	${sectionMixin}
 
-	padding: 0 156px;
-	min-height: 770px;
-
-	/* background: linear-gradient(0deg, rgba(0, 0, 0, 0.47), rgba(0, 0, 0, 0.47)), #160654; */
-	background-image: url('/home/bg-grid.svg');
-	text-align: center;
-
 	h2 {
 		margin-top: 95px;
 	}
@@ -99,18 +93,56 @@ const PoweredByContainer = styled.div`
 		max-width: 706px;
 		text-align: center;
 	}
+
+	${media.lessThan('medium')`
+		padding: 0 20px;
+
+		h1, h2 {
+			font-size: 32px;
+			line-height: 38px;
+			margin-top: 60px;
+			padding: 0 59px;
+		}
+	`};
+
+	padding: 0 156px;
+	min-height: 770px;
+
+	/* background: linear-gradient(0deg, rgba(0, 0, 0, 0.47), rgba(0, 0, 0, 0.47)), #160654; */
+	background-image: url('/home/bg-grid-mobile.svg');
+
+	text-align: center;
+
+
+	${media.lessThan('medium')`
+		min-height: auto;
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		justify-content: flex-start;
+	`}
 `
 
 const Tabs = styled.ul`
 	display: flex;
 	justify-content: center;
-	margin: 74px auto 0 auto;
+	margin: 61px auto 0 auto;
 	max-width: 546px;
 	text-align: center;
-`
 
+	${media.lessThan('medium')`
+		width: 339px;
+		max-width: 339px;
+	`}
+`
 const Tab = styled.li<TabProps>`
 	${theme.fonts.tab};
+
+	${media.lessThan('medium')`
+		font-size: 12px;
+		line-height: 48px;
+		margin-right: 36px;
+	`}
 
 	margin-right: 77px;
 
@@ -125,13 +157,18 @@ const Cards = styled.div`
 	display: flex;
 	align-items: center;
 	justify-content: center;
+
+	${media.lessThan('medium')`
+		margin-top: 48px;
+		flex-direction: column;
+	`};
 `
 
 const Card = styled.div`
 	width: 360px;
 	height: 298px;
 	position: relative;
-	padding: 24px 0;
+	padding: 18px 0;
 
 	background: #1C1C3D;
 	box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.2);
@@ -140,6 +177,17 @@ const Card = styled.div`
 	&:last-child {
 		margin-right: 0
 	}
+
+	${media.lessThan('medium')`
+		width: 295px;
+		height: 298px;
+		margin-right: 0;
+		margin-bottom: 30px;
+
+		&:last-child {
+			margin-bottom: 0;
+		}
+	`}
 `
 
 const CardGradient = styled.div`

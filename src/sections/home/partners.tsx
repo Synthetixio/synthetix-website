@@ -8,6 +8,7 @@ import PHashed from '../../svg/PHashed'
 import PParafi from '../../svg/PParafi'
 import PThreeArrows from '../../svg/PThreeArrows'
 import PDtc from '../../svg/PDtc'
+import media from "styled-media-query"
 
 
 const PartnersSection = () => (
@@ -46,6 +47,10 @@ const PartnersContainer = styled.div`
 		text-transform: uppercase;
 		color: white;
 	}
+
+	${media.lessThan('medium')`
+		padding: 184px 40px 33px 40px;
+	`};
 `
 
 const gap = 110
@@ -69,10 +74,36 @@ const StyledPartners = styled.div`
 	> * {
 		margin: 48px 0 0 ${gap}px;
 	}
+
+	${media.lessThan('medium')`
+		display: flex;
+		flex-direction: column;
+		max-width: auto;
+		width: auto;
+		margin: 31px 0 0 0;
+
+		img {
+			max-width: 233px;
+			max-height: 54px;
+		}
+
+		> * {
+			margin: 0 0 53px 0;
+
+			&:l
+
+		}
+
+	`}
 `
 
 const Iosg = styled.img`
 	padding-top: 10px;
+
+	${media.lessThan('medium')`
+		padding-top: 0;
+		width: 141px;
+	`}
 `
 const Spartan = styled.img`
 `

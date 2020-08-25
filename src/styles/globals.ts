@@ -9,6 +9,10 @@ export const GlobalStyle = createGlobalStyle`
 	body {
 		${theme.fonts.body};
 
+		&.fixed {
+			overflow: hidden;
+		}
+
 		padding: 0;
 		margin: 0;
 		background-color: ${props => (props.theme as any).colors.bgBlack};

@@ -34,7 +34,7 @@ const MenuComponent = (props: MenuProps) => {
 
 const Menu = styled.ul`
 	transition: left 0.3s ease-out;
-
+	z-index: 101;
 
 	${media.lessThan('medium')`
 		position: fixed;
@@ -44,7 +44,8 @@ const Menu = styled.ul`
 		padding-top: 100px;
 		left: -100%;
 		width: 100%;
-		height: 100%;
+		height: 100vh;
+		overflow: hidden;
 		background: linear-gradient(180deg, #08021E 0%, #120446 146.21%);
 	`}
 

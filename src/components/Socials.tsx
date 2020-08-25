@@ -4,6 +4,7 @@ import Twitter from '../svg/Twitter'
 import Github from '../svg/Github'
 import Link from 'next/link'
 import { Props } from 'react'
+import media from 'styled-media-query'
 
 const data = [{
 	link: 'https://discord.com/invite/AEdUHzt',
@@ -37,6 +38,10 @@ const SocialsContainer = styled.ul`
 	justify-content: flex-start;
 
 	margin-left: 35px;
+
+	${media.lessThan('medium')`
+		margin-left: 0;
+	`}
 `
 
 const Social = styled.li`

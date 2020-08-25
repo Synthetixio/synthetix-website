@@ -35,6 +35,10 @@ const Footer = styled.footer`
 		${Menu as any} {
 			display: none;
 		}
+
+		flex-direction: column;
+		justify-column: center;
+		padding: 25px 29px;
 	`}
 `
 
@@ -43,6 +47,11 @@ const Left = styled.div`
 	max-width: 399px;
 	justify-content: space-between;
 	align-items: center;
+
+	${media.lessThan('medium')`
+		max-width: 100%;
+		justify-content: center;
+	`}
 `
 
 const Right = styled.div`

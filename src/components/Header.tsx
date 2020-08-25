@@ -8,16 +8,16 @@ import { CSSTransition } from 'react-transition-group';
 const HeaderComponent = () => {
 	const [isOpen, setIsOpen] = useState(false);
 
-	// useEffect(
-	// 	function() {
-	// 		if (isOpen) {
-	// 			document.body.classList.add('fixed');
-	// 		} else {
-	// 			document.body.classList.remove('fixed');
-	// 		}
-	// 	},
-	// 	[isOpen],
-	// );
+	useEffect(
+		function() {
+			if (isOpen) {
+				document.body.classList.add('fixed');
+			} else {
+				document.body.classList.remove('fixed');
+			}
+		},
+		[isOpen],
+	);
 
 	const clickMenu = () => {
 		setIsOpen(!isOpen);

@@ -1,0 +1,38 @@
+<svg width="375" height="1350" viewBox="0 0 375 1350" fill="none" xmlns="http://www.w3.org/2000/svg">
+<rect width="375" height="1350" fill="#160654"/>
+<rect width="375" height="1350" fill="black" fill-opacity="0.47"/>
+<g style="mix-blend-mode:overlay">
+<line x1="23.25" y1="5.00012" x2="23.25" y2="776" stroke="white" stroke-width="0.5" stroke-dasharray="2 5"/>
+<line x1="123.25" y1="5.00012" x2="123.25" y2="776" stroke="white" stroke-width="0.5" stroke-dasharray="2 5"/>
+<line x1="223.25" y1="5.00012" x2="223.25" y2="776" stroke="white" stroke-width="0.5" stroke-dasharray="2 5"/>
+<line x1="323.25" y1="5.00012" x2="323.25" y2="776" stroke="white" stroke-width="0.5" stroke-dasharray="2 5"/>
+<line x1="-177" y1="1140.25" x2="1323" y2="1140.25" stroke="white" stroke-width="0.5" stroke-dasharray="2 5"/>
+<line x1="-177" y1="740.25" x2="1323" y2="740.25" stroke="white" stroke-width="0.5" stroke-dasharray="2 5"/>
+<line x1="-177" y1="640.25" x2="1323" y2="640.25" stroke="white" stroke-width="0.5" stroke-dasharray="2 5"/>
+<line x1="-177" y1="540.25" x2="1323" y2="540.25" stroke="white" stroke-width="0.5" stroke-dasharray="2 5"/>
+<line x1="-177" y1="440.25" x2="1323" y2="440.25" stroke="white" stroke-width="0.5" stroke-dasharray="2 5"/>
+<line x1="-177" y1="340.25" x2="1323" y2="340.25" stroke="white" stroke-width="0.5" stroke-dasharray="2 5"/>
+<line x1="-177" y1="240.25" x2="1323" y2="240.25" stroke="white" stroke-width="0.5" stroke-dasharray="2 5"/>
+<line x1="-177" y1="140.25" x2="1323" y2="140.25" stroke="white" stroke-width="0.5" stroke-dasharray="2 5"/>
+<line x1="-177" y1="40.2501" x2="1323" y2="40.2501" stroke="white" stroke-width="0.5" stroke-dasharray="2 5"/>
+</g>
+<g style="mix-blend-mode:overlay" opacity="0.5">
+<line x1="23.25" y1="5" x2="23.2499" y2="1297" stroke="white" stroke-width="0.5" stroke-dasharray="2 5"/>
+<line x1="123.25" y1="5" x2="123.25" y2="1297" stroke="white" stroke-width="0.5" stroke-dasharray="2 5"/>
+<line x1="223.25" y1="5" x2="223.25" y2="1297" stroke="white" stroke-width="0.5" stroke-dasharray="2 5"/>
+<line x1="323.25" y1="5" x2="323.25" y2="1297" stroke="white" stroke-width="0.5" stroke-dasharray="2 5"/>
+<line x1="-177" y1="1140.25" x2="1323" y2="1140.25" stroke="white" stroke-width="0.5" stroke-dasharray="2 5"/>
+<line x1="-177" y1="740.25" x2="1323" y2="740.25" stroke="white" stroke-width="0.5" stroke-dasharray="2 5"/>
+<line x1="-177" y1="890.25" x2="1323" y2="890.25" stroke="white" stroke-width="0.5" stroke-dasharray="2 5"/>
+<line x1="-177" y1="1040.25" x2="1323" y2="1040.25" stroke="white" stroke-width="0.5" stroke-dasharray="2 5"/>
+<line x1="-177" y1="1190.25" x2="1323" y2="1190.25" stroke="white" stroke-width="0.5" stroke-dasharray="2 5"/>
+<line x1="-177" y1="1340.25" x2="1323" y2="1340.25" stroke="white" stroke-width="0.5" stroke-dasharray="2 5"/>
+<line x1="-177" y1="640.25" x2="1323" y2="640.25" stroke="white" stroke-width="0.5" stroke-dasharray="2 5"/>
+<line x1="-177" y1="540.25" x2="1323" y2="540.25" stroke="white" stroke-width="0.5" stroke-dasharray="2 5"/>
+<line x1="-177" y1="440.25" x2="1323" y2="440.25" stroke="white" stroke-width="0.5" stroke-dasharray="2 5"/>
+<line x1="-177" y1="340.25" x2="1323" y2="340.25" stroke="white" stroke-width="0.5" stroke-dasharray="2 5"/>
+<line x1="-177" y1="240.25" x2="1323" y2="240.25" stroke="white" stroke-width="0.5" stroke-dasharray="2 5"/>
+<line x1="-177" y1="140.25" x2="1323" y2="140.25" stroke="white" stroke-width="0.5" stroke-dasharray="2 5"/>
+<line x1="-177" y1="40.25" x2="1323" y2="40.25" stroke="white" stroke-width="0.5" stroke-dasharray="2 5"/>
+</g>
+</svg>
