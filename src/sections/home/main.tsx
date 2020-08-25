@@ -9,7 +9,7 @@ const MainSection = () => (
 	<MainContainer>
 		<Left>
 			<h1>The derivatives liquidity protocol</h1>
-			<SectionDescription>Synthetix is the backbone for derivatives trading in DeFi, allowing anyone, anywhere to gain on-chain exposure to a vast range of assets.</SectionDescription>
+			<SectionDescription main={true}>Synthetix is the backbone for derivatives trading in DeFi, allowing anyone, anywhere to gain on-chain exposure to a vast range of assets.</SectionDescription>
 			<LearnMoreButton link="https://docs.synthetix.io/litepaper/">Learn More</LearnMoreButton>
 		</Left>
 		<Right src="/home/snx-wave.svg" />
@@ -25,6 +25,13 @@ const MainContainer = styled(Section)`
 	min-height: 753px;
 	display: flex;
 	align-items: center;
+	overflow: hidden;
+
+	${media.lessThan('medium')`
+		flex-direction: column;
+		height: 634px;
+		min-height: 634px;
+	`}
 `
 
 const Left = styled.div`
@@ -32,6 +39,14 @@ const Left = styled.div`
 	height: 364px;
 	position: absolute;
 	margin-top: -84px;
+
+	${media.lessThan('medium')`
+		margin-top: 11px;
+		max-width: 295px;
+		height: 338px;
+		position: relative;
+		text-align: center;
+	`}
 
 `
 
@@ -45,6 +60,14 @@ const Right = styled.img`
 	${media.greaterThan('1700px' as any)`
 		left: auto;
 		right: 0;
+
+	`}
+
+	${media.lessThan('medium')`
+		left: -25%;
+		margin-top: 26px;
+		position: relative;
+		height: 272px;
 	`}
 `
 
@@ -52,6 +75,10 @@ const LearnMoreButton = styled(Button)`
 	margin-top: 40px;
 	width: 147px;
 	height: 56px;
+
+	${media.lessThan('medium')`
+		margin-top: 30px;
+	`}
 `
 
 export default MainSection

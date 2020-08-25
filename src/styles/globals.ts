@@ -12,6 +12,7 @@ export const GlobalStyle = createGlobalStyle`
 		padding: 0;
 		margin: 0;
 		background-color: ${props => (props.theme as any).colors.bgBlack};
+		-webkit-tap-highlight-color: transparent;
 
 	}
 

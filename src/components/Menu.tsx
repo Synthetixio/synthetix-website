@@ -1,6 +1,8 @@
 import styled from 'styled-components'
 import { Logo } from './'
 import { theme } from '../styles/theme'
+import media from 'styled-media-query'
+import { headerHeight } from './Header'
 
 const data = [{
 	link: 'https://dashboard.synthetix.io',
@@ -16,9 +18,13 @@ const data = [{
 	label: 'community'
 }]
 
-const MenuComponent = () => {
+interface MenuProps {
+	isOpen?: boolean
+}
+
+const MenuComponent = (props: MenuProps) => {
 	return (
-		<Menu>
+		<Menu {...props}>
 			{data.map(item => (
 				<MenuItem key={item.label}><a href={item.link} target="_blank">{item.label}</a></MenuItem>
 			))}
@@ -27,19 +33,45 @@ const MenuComponent = () => {
 }
 
 const Menu = styled.ul`
+	transition: left 0.3s ease-out;
+
+
+	${media.lessThan('medium')`
+		position: fixed;
+		display: flex;
+		flex-direction: column;
+		top: 0;
+		padding-top: 100px;
+		left: -100%;
+		width: 100%;
+		height: 100%;
+		background: linear-gradient(180deg, #08021E 0%, #120446 146.21%);
+	`}
+
+	&.enter-active, &.enter-done {
+		left: 0;
+	}
 `
 
 const MenuItem = styled.li`
 	display: inline-block;
 
-	a {
-		${theme.fonts.menu};
-	}
-
 	margin-right: 32px;
 	&:last-child {
 		margin-right: 0;
 	}
+
+	a {
+		${theme.fonts.menu};
+	}
+
+	${media.lessThan('medium')`
+	margin: 0 0 51px 20px;
+		a {
+			font-size: 32px;
+			line-height: 24px;
+		}
+	`}
 `
 
 export default MenuComponent

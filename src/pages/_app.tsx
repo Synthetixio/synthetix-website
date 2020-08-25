@@ -4,6 +4,9 @@ import { ThemeProvider } from 'styled-components'
 import { theme } from '../styles/theme'
 import { GlobalStyle } from '../styles/globals'
 
+import initReactFastclick from 'react-fastclick';
+initReactFastclick();
+
 export default class MyApp extends App {
 	render() {
 		const { Component, pageProps } = this.props

@@ -1,6 +1,8 @@
 import styled from 'styled-components'
 import { Header, Footer } from '.'
 import { headerHeight } from './Header'
+import media from 'styled-media-query'
+
 
 const Layout = ({ children } : { children: React.ReactNode }) => {
 	return (
@@ -36,6 +38,11 @@ const BgGradient = styled.div`
 	background: linear-gradient(180deg, #08021E 0%, #120446 146.21%);
 	pointer-events: none;
 	z-index: 5;
+
+	${media.lessThan('medium')`
+		height: 734px;
+		min-height: auto;
+	`}
 `
 
 const Container = styled.div`

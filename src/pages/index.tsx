@@ -14,11 +14,10 @@ export interface ApiStatsProps {
 	totalLocked?: number
 }
 
-const DynamicComponentWithNoSSR = dynamic(
+const PoweredBy = dynamic(
   () => import('../sections/home/poweredBy'),
   { ssr: false }
 )
-
 
 const Home = ({ totalLocked }: ApiStatsProps) => {
   return (
@@ -32,7 +31,7 @@ const Home = ({ totalLocked }: ApiStatsProps) => {
 				<TotalSection totalLocked={totalLocked} />
 				<BuildSection />
 				<EarnSection />
-				<DynamicComponentWithNoSSR />
+				<PoweredBy />
 				<PartnersSection />
       </Layout>
     </>

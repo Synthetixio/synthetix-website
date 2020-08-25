@@ -1,5 +1,6 @@
 import styled from 'styled-components'
 import { Logo, Menu, Socials } from './'
+import media from 'styled-media-query'
 
 const FooterComponent = () => {
 	return (
@@ -29,6 +30,12 @@ const Footer = styled.footer`
 
 	animation-delay: 200ms;
 	opacity: 0;
+
+	${media.lessThan('medium')`
+		${Menu as any} {
+			display: none;
+		}
+	`}
 `
 
 const Left = styled.div`

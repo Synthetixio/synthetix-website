@@ -6,13 +6,13 @@ import { Section, Button, Line } from "../../components"
 import useSWR from 'swr'
 import { ApiStatsProps } from "../../pages"
 import { ExchangeApiFetcher } from "../../../lib/exchange-api"
+import media from "styled-media-query"
 
 const currencyFormat = '$0,0'
 
 const TotalSection = ({ totalLocked }: ApiStatsProps) => {
 	const { data, error } = useSWR('/total-locked', ExchangeApiFetcher, { initialData: { totalLocked } })
 	let stakedValue = totalLocked || 0
-	console.log(data, error)
 	if (data && data.totalLocked) { stakedValue = data.totalLocked }
 
 	return (
@@ -31,6 +31,11 @@ const TotalSection = ({ totalLocked }: ApiStatsProps) => {
 const TotalContainer = styled(Section)`
 	height: 285px;
 	padding: 0;
+
+	${media.lessThan('medium')`
+		height: 206px;
+		margin-top: 26px;
+	`}
 `
 
 const TotalStakedBar = styled.div`
@@ -42,7 +47,7 @@ const TotalStakedBar = styled.div`
 	justify-content: center;
 `
 
-const StakedHeader = styled.h2`
+const StakedHeader = styled.h3`
 	font-family: GT America;
 	font-weight: 900;
 	font-size: 29px;
@@ -51,6 +56,12 @@ const StakedHeader = styled.h2`
 	text-transform: uppercase;
 	font-stretch: expanded;
 	color: white;
+
+	${media.lessThan('medium')`
+		font-size: 20px;
+		line-height: 24px;
+		max-width: 295px;
+	`}
 `
 
 const StakedValue = styled.span`
@@ -67,7 +78,13 @@ const StakedValue = styled.span`
 	-webkit-background-clip: text;
 	-webkit-text-fill-color: transparent;
 	text-fill-color: transparent;
-	background-image: linear-gradient(to right, #00D1FF 0%, #ED1EFF 100%);
+	background-image: linear-gradient(to right, #00D1FF 0%, #00D1FF 15%, #ED1EFF 85%, #ED1EFF 100%);
+
+	${media.lessThan('medium')`
+		margin-top: 8px;
+		font-size: 28px;
+		line-height: 48px;
+	`}
 `
 
 export default TotalSection

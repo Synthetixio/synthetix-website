@@ -1,8 +1,8 @@
 import styled from "styled-components"
 import { theme } from "../../styles/theme"
 import { Section, Button, Line } from "../../components"
-import EarnPicture from '../../svg/Earn'
 import { SectionDescription } from "../../components/Section"
+import media from "styled-media-query"
 
 const EarnSection = () => (
 	<EarnContainer>
@@ -13,7 +13,6 @@ const EarnSection = () => (
 				<EarnButton buttonType="secondary" link="https://mintr.synthetix.io">Stake</EarnButton>
 			</Left>
 			<Right>
-				<EarnPicture />
 			</Right>
 		</Columns>
 		<Line />
@@ -26,6 +25,14 @@ const EarnContainer = styled(Section)`
 	display: flex;
 	justify-content: center;
 	align-items: center;
+
+	${media.lessThan('large')`
+		padding: 0 76px;
+	`}
+
+	${media.lessThan('medium')`
+		min-height: 781px;
+	`}
 `
 
 const Columns = styled.div`
@@ -36,20 +43,45 @@ const Columns = styled.div`
 	display: flex;
 	align-items: center;
 	justify-content: space-between;
+
+	${media.lessThan('medium')`
+		flex-direction: column-reverse;
+		justify: center;
+		margin-top: 0
+	`}
 `
 
 const Left = styled.div`
 	position: relative;
 	text-align: left;
+
+	${media.lessThan('medium')`
+		text-align: center;
+		margin-top: 75px;
+	`}
 `
 const Right = styled.div`
+	background-image: '/home/earn.svg';
+	width: 658px;
+	height: 605px;
+	background-size: contain;
+	background-position: center center;
+	background-image: url('/home/earn.svg');
+	background-repeat: no-repeat;
 
+	${media.lessThan('medium')`
+		max-height: 307px;
+	`}
 `
 
 const EarnButton = styled(Button)`
-	margin-top: 40px;
+	margin-top: 54px;
 	width: 147px;
 	height: 56px;
+
+	${media.lessThan('medium')`
+		left: auto;
+	`}
 `
 
 export default EarnSection

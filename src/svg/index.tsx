@@ -1,6 +1,6 @@
 export { default as BuildCircle } from './BuildCircle'
+export { default as BurgerMenu } from './BurgerMenu'
 export { default as Discord } from './Discord'
-export { default as Earn } from './Earn'
 export { default as Github } from './Github'
 export { default as PDtc } from './PDtc'
 export { default as PFramework } from './PFramework'

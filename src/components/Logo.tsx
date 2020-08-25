@@ -1,7 +1,8 @@
 import styled from 'styled-components'
+import { Fixable } from './Header'
+import media from 'styled-media-query'
 
-interface LogoProps { readonly small?: boolean }
-
+type LogoProps = { readonly small?: boolean }
 
 const LogoComponent = ({ small }: LogoProps) => {
 	const src = small ? '/logo-x.svg' : 'logo.svg'

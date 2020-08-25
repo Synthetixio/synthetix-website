@@ -19,10 +19,6 @@ const data = [{
 	image: <Github />
 }]
 
-interface SocialsProps {
-	className?: string
-}
-
 const Socials = ({ className }: React.PropsWithoutRef<JSX.IntrinsicElements["ul"]>) => {
 	return (
 		<SocialsContainer className={className}>
