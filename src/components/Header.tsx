@@ -7,6 +7,7 @@ import { CSSTransition } from 'react-transition-group';
 
 const HeaderComponent = () => {
 	const [isOpen, setIsOpen] = useState(false);
+	let [animationProps, setAnimationProps] = useState({ mountOnEnter: false, unmountOnExit: false })
 
 	useEffect(
 		function() {
@@ -14,6 +15,13 @@ const HeaderComponent = () => {
 				document.body.classList.add('fixed');
 			} else {
 				document.body.classList.remove('fixed');
+				if (window.innerWidth < 768) {
+					setAnimationProps({
+						mountOnEnter: true,
+						unmountOnExit: true,
+
+					})
+				}
 			}
 		},
 		[isOpen],
@@ -40,8 +48,7 @@ const HeaderComponent = () => {
 			<CSSTransition
 				in={isOpen}
 				timeout={300}
-				mountOnEnter
-				unmountOnExit
+				{...animationProps}
 			>
 				<Menu isOpen={isOpen} />
 			</CSSTransition>
