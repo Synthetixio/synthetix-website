@@ -57,7 +57,7 @@ const Right = styled.img`
 	position: absolute;
 	pointer-events: none;
 
-	${media.greaterThan('1700px' as any)`
+	${media.greaterThan('1550px' as any)`
 		left: auto;
 		right: 0;
 
