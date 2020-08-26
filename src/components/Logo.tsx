@@ -1,6 +1,4 @@
 import styled from 'styled-components'
-import { Fixable } from './Header'
-import media from 'styled-media-query'
 
 type LogoProps = { readonly small?: boolean }
 
