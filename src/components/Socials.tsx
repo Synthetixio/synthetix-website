@@ -50,5 +50,15 @@ const Social = styled.li`
 	&:last-child {
 		margin-right: 0;
 	}
+
+	svg * {
+		transition: fill 0.3s ease-out;
+	}
+
+	&:hover {
+		svg * {
+			fill: ${props => props.theme.colors.cyan} !important;
+		}
+	}
 `
 export default Socials

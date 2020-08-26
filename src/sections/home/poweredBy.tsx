@@ -17,7 +17,7 @@ const CARDS = {
 		logo: '/home/dHedge-logo.svg'
 	}, {
 		name: 'Curve',
-		description: 'An exchange liquidity pool on Ethereum (like Uniswap) designed for: 1) extremely efficient asset trading; and 2) low risk, supplemental fee income for liquidity providers, without an opportunity cost.',
+		description: 'An exchange liquidity pool on Ethereum (like Uniswap) designed for stablecoins.',
 		linkLabel: 'Visit Curve',
 		link: 'https://www.curve.fi/',
 		logo: '/home/curve-logo.svg'
@@ -27,14 +27,14 @@ const CARDS = {
 		description: 'A managed fund protocol allowing set-and-forget exposure to SNX staking.',
 		linkLabel: 'Visit xToken',
 		link: 'https://xtoken.market/',
-		logo: '/home/xSNX-logo.png',
+		logo: '/home/xsnx.png',
 	}],
 	Analytics: [{
 		name: 'SNX Tools',
-		description: 'A suite of tools and features to automate, institutionalize and streamline the process flows for stakers, traders or anyone looking to better understand the health of and activity on Synthetix.',
+		description: 'A suite of tools and features to automate, institutionalize and streamline the process flows for stakers or traders.',
 		linkLabel: 'Visit SNX Tools',
 		link: 'https://snx.tools',
-		logo: '/home/snx-tools-logo.png'
+		logo: '/home/snx.png'
 	}, {
 		name: 'SNX.link',
 		description: 'A non-custodial portfolio management platform for Synthetix stakers and/or Synth traders',
@@ -59,13 +59,15 @@ const PoweredBy = () => {
 			<AnimateOnChange>
 				<Cards>
 						{currentCards.map(card => (
-							<Card key={card.name}>
-								<LogoContainer><CardLogo src={card.logo} /></LogoContainer>
-								<CardGradient />
-								<CardTitle>{card.name}</CardTitle>
-								<CardDescription>{card.description}</CardDescription>
-								<Link href={card.link} passHref={true}><CardLink target="_blank">{card.linkLabel}</CardLink></Link>
-							</Card>
+							<Link href={card.link} passHref={true}><CardA target="_blank">
+								<Card key={card.name}>
+									<LogoContainer><CardLogo src={card.logo} /></LogoContainer>
+									<CardGradient />
+									<CardTitle>{card.name}</CardTitle>
+									<CardDescription>{card.description}</CardDescription>
+									<CardLink>{card.linkLabel}</CardLink>
+								</Card>
+								</CardA></Link>
 						))}
 
 				</Cards>
@@ -95,7 +97,7 @@ const PoweredByContainer = styled.div`
 	}
 
 	${media.lessThan('medium')`
-		padding: 0 20px;
+		padding: 0 20px 56px 20px;
 
 		h1, h2 {
 			font-size: 32px;
@@ -168,19 +170,33 @@ const Card = styled.div`
 	width: 360px;
 	height: 298px;
 	position: relative;
-	padding: 18px 0;
+	padding: 24px 0;
 
 	background: #1C1C3D;
 	box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.2);
-	margin-right: 24px;
-
-	&:last-child {
-		margin-right: 0
-	}
 
 	${media.lessThan('medium')`
 		width: 295px;
 		height: 298px;
+	`}
+`
+
+const CardA = styled.a`
+	display: block;
+	margin-right: 24px;
+
+	&:last-child {
+		margin-right: 0;
+	}
+
+	transition: transform 0.3s ease-out;
+
+	&:hover {
+		transform: translateY(-4px);
+	}
+
+
+	${media.lessThan('medium')`
 		margin-right: 0;
 		margin-bottom: 30px;
 
@@ -215,8 +231,8 @@ const LogoContainer = styled.div`
 `
 
 const CardLogo = styled.img`
-	max-width: 69px;
-	max-height: 69px;
+	max-width: 64px;
+	max-height: 64px;
 	object-fit: contain;
 `
 
@@ -233,7 +249,7 @@ const CardDescription = styled.p`
 	max-width: 290px;
 `
 
-const CardLink = styled.a`
+const CardLink = styled.p`
 	position: absolute;
 	text-align: center;
 

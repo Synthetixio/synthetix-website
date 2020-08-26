@@ -62,8 +62,14 @@ const MenuItem = styled.li`
 		margin-right: 0;
 	}
 
+
 	a {
 		${theme.fonts.menu};
+		transition: color 0.3s ease-out;
+
+		&:hover {
+			color: ${theme.colors.cyan}
+		}
 	}
 
 	${media.lessThan('medium')`

@@ -3,7 +3,7 @@ import styled from "styled-components"
 import numeral from 'numeral'
 import { theme } from "../../styles/theme"
 import { Section, Button, Line } from "../../components"
-import useSWR from 'swr'
+
 import { ApiStatsProps } from "../../pages"
 import { ExchangeApiFetcher } from "../../../lib/exchange-api"
 import media from "styled-media-query"
@@ -11,16 +11,12 @@ import media from "styled-media-query"
 const currencyFormat = '$0,0'
 
 const TotalSection = ({ totalLocked }: ApiStatsProps) => {
-	const { data, error } = useSWR('/total-locked', ExchangeApiFetcher, { initialData: { totalLocked } })
-	let stakedValue = totalLocked || 0
-	if (data && data.totalLocked) { stakedValue = data.totalLocked }
-
 	return (
 		<>
 		<TotalContainer>
 				<TotalStakedBar>
 					<StakedHeader>Total value locked in Synthetix</StakedHeader>
-					<StakedValue>{stakedValue ? numeral(stakedValue).format(currencyFormat): 'Loading...'}</StakedValue>
+					<StakedValue>{numeral(totalLocked).format(currencyFormat)}</StakedValue>
 				</TotalStakedBar>
 		</TotalContainer>
 		<Line static/>

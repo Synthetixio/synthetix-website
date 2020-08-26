@@ -38,7 +38,7 @@ const Home = ({ totalLocked }: ApiStatsProps) => {
   )
 }
 
-export const getStaticProps: GetStaticProps = async (context) => {
+export const getServerSideProps: GetServerSideProps = async (context) => {
 	const totalLocked = await fetchTotalLocked()
 
   return { props: {
