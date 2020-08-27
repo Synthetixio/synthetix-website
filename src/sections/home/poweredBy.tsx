@@ -10,11 +10,18 @@ import media from "styled-media-query"
 
 const CARDS = {
 	Trading: [{
+		name: 'Synthetix.Exchange',
+		description: 'A dApp providing the most complete, permissionless trading experience in DeFi.',
+		linkLabel: 'Visit Synthetix.Exchange',
+		link: 'https://synthetix.exchange/',
+		logo: '/home/snx.png'
+	}, {
 		name: 'dHedge',
-		description: 'A decentralised asset management protocol offering non-custodial mimetic trading',
+		description: 'A decentralised asset management protocol offering non-custodial mimetic trading.',
 		linkLabel: 'Visit dHedge',
 		link: 'https://www.dhedge.org/',
-		logo: '/home/dHedge-logo.svg'
+		logo: '/home/dHedge-logo.svg',
+		style: { maxWidth: 72, maxHeight: 72 }
 	}, {
 		name: 'Curve',
 		description: 'An exchange liquidity pool on Ethereum (like Uniswap) designed for stablecoins.',
@@ -37,7 +44,7 @@ const CARDS = {
 		logo: '/home/snx.png'
 	}, {
 		name: 'SNX.link',
-		description: 'A non-custodial portfolio management platform for Synthetix stakers and/or Synth traders',
+		description: 'A non-custodial portfolio management platform for Synthetix stakers and/or Synth traders.',
 		linkLabel: 'Visit SNX.link',
 		link: 'https://snx.link',
 		logo: '/home/snx-link-logo.svg'
@@ -61,7 +68,7 @@ const PoweredBy = () => {
 						{currentCards.map(card => (
 							<Link href={card.link} passHref={true}><CardA target="_blank">
 								<Card key={card.name}>
-									<LogoContainer><CardLogo src={card.logo} /></LogoContainer>
+									<LogoContainer><CardLogo style={card.style} src={card.logo} /></LogoContainer>
 									<CardGradient />
 									<CardTitle>{card.name}</CardTitle>
 									<CardDescription>{card.description}</CardDescription>

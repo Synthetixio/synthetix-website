@@ -6,7 +6,6 @@ import PFramework from '../../svg/PFramework'
 import PXbto from '../../svg/PXbto'
 import PHashed from '../../svg/PHashed'
 import PParafi from '../../svg/PParafi'
-import PThreeArrows from '../../svg/PThreeArrows'
 import PDtc from '../../svg/PDtc'
 import media from "styled-media-query"
 
@@ -18,7 +17,7 @@ const PartnersSection = () => (
 		<StyledPartners>
 			<PFramework />
 			<PParafi />
-			<PThreeArrows />
+			<PThreeArrows src="/home/three-arrows-logo.png" />
 			<PXbto />
 			<PDtc />
 			<PHashed />
@@ -95,6 +94,10 @@ const StyledPartners = styled.div`
 		}
 
 	`}
+`
+
+const PThreeArrows = styled.img`
+
 `
 
 const Iosg = styled.img`

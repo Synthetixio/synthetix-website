@@ -48,6 +48,10 @@ const Left = styled.div`
 		text-align: center;
 	`}
 
+	${media.greaterThan('1550px' as any)`
+		margin-left: 10vw;
+	`}
+
 `
 
 const Right = styled.img`
@@ -59,6 +63,8 @@ const Right = styled.img`
 
 	${media.greaterThan('1550px' as any)`
 		left: auto;
+		width: 60vw;
+		height: auto;
 		right: 0;
 
 	`}
