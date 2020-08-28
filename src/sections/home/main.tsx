@@ -32,6 +32,10 @@ const MainContainer = styled(Section)`
 		height: 634px;
 		min-height: 634px;
 	`}
+
+	${media.greaterThan('1350px' as any)`
+		padding: 0 0 0 153px;
+	`}
 `
 
 const Left = styled.div`
@@ -47,11 +51,6 @@ const Left = styled.div`
 		position: relative;
 		text-align: center;
 	`}
-
-	${media.greaterThan('1550px' as any)`
-		margin-left: 10vw;
-	`}
-
 `
 
 const Right = styled.img`
@@ -61,12 +60,11 @@ const Right = styled.img`
 	position: absolute;
 	pointer-events: none;
 
-	${media.greaterThan('1550px' as any)`
+	${media.greaterThan('1350px' as any)`
+		width: 81%;
+		height: 31vw;
 		left: auto;
-		width: 60vw;
-		height: auto;
 		right: 0;
-
 	`}
 
 	${media.lessThan('medium')`
