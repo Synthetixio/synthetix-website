@@ -1,42 +1,51 @@
-import styled from 'styled-components'
-import { Logo } from './'
-import { theme } from '../styles/theme'
-import media from 'styled-media-query'
-import { headerHeight } from './Header'
+import styled from "styled-components";
+import { Logo } from "./";
+import { theme } from "../styles/theme";
+import media from "styled-media-query";
+import { headerHeight } from "./Header";
 
-const data = [{
-	link: 'https://dashboard.synthetix.io',
-	label: 'stats'
-}, {
-	link: 'https://mintr.synthetix.io',
-	label: 'staking'
-}, {
-	link: 'https://docs.synthetix.io/',
-	label: 'build'
-}, {
-	link: 'https://discord.com/invite/AEdUHzt',
-	label: 'community'
-}]
+const data = [
+	{
+		link: "https://stats.synthetix.io",
+		label: "stats",
+	},
+	{
+		link: "https://mintr.synthetix.io",
+		label: "staking",
+	},
+	{
+		link: "https://docs.synthetix.io/",
+		label: "build",
+	},
+	{
+		link: "https://discord.com/invite/AEdUHzt",
+		label: "community",
+	},
+];
 
 interface MenuProps {
-	isOpen?: boolean
+	isOpen?: boolean;
 }
 
 const MenuComponent = (props: MenuProps) => {
 	return (
 		<Menu {...props}>
-			{data.map(item => (
-				<MenuItem key={item.label}><a href={item.link} target="_blank">{item.label}</a></MenuItem>
+			{data.map((item) => (
+				<MenuItem key={item.label}>
+					<a href={item.link} target="_blank">
+						{item.label}
+					</a>
+				</MenuItem>
 			))}
 		</Menu>
-	)
-}
+	);
+};
 
 const Menu = styled.ul`
 	transition: left 0.3s ease-out;
 	z-index: 101;
 
-	${media.lessThan('medium')`
+	${media.lessThan("medium")`
 		position: fixed;
 		display: flex;
 		flex-direction: column;
@@ -52,7 +61,7 @@ const Menu = styled.ul`
 	&.enter-active, &.enter-done {
 		left: 0;
 	}
-`
+`;
 
 const MenuItem = styled.li`
 	display: inline-block;
@@ -62,23 +71,22 @@ const MenuItem = styled.li`
 		margin-right: 0;
 	}
 
-
 	a {
 		${theme.fonts.menu};
 		transition: color 0.3s ease-out;
 
 		&:hover {
-			color: ${theme.colors.cyan}
+			color: ${theme.colors.cyan};
 		}
 	}
 
-	${media.lessThan('medium')`
+	${media.lessThan("medium")`
 	margin: 0 0 51px 20px;
 		a {
 			font-size: 32px;
 			line-height: 24px;
 		}
 	`}
-`
+`;
 
-export default MenuComponent
+export default MenuComponent;
