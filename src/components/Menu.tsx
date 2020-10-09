@@ -21,6 +21,14 @@ const data = [
 		link: "https://discord.com/invite/AEdUHzt",
 		label: "community",
 	},
+	{
+		link: "https://blog.synthetix.io/",
+		label: "blog",
+	},
+	{
+		link: "https://research.synthetix.io/",
+		label: "research",
+	},
 ];
 
 interface MenuProps {
