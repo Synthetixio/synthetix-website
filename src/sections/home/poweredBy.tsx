@@ -104,7 +104,7 @@ const CARDS: Record<string, Card[]> = {
 
 const TABS_SECTIONS = Object.keys(CARDS);
 
-function NextArrow({ className, onClick }) {
+function NextArrow({ className, onClick }: { className: string; onClick: () => void }) {
 	return (
 		<div className={className} onClick={onClick}>
 			<Arrow />
@@ -112,7 +112,7 @@ function NextArrow({ className, onClick }) {
 	);
 }
 
-function PrevArrow({ className, onClick }) {
+function PrevArrow({ className, onClick }: { className: string; onClick: () => void }) {
 	return (
 		<div className={className} onClick={onClick}>
 			<Arrow style={{ transform: 'rotate(180deg)' }} />
