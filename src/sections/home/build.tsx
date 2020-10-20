@@ -1,24 +1,27 @@
-import styled from "styled-components"
-import { theme } from "../../styles/theme"
-import { Section, Button, Line } from "../../components"
-import { SectionDescription } from "../../components/Section"
-import media from "styled-media-query"
+import styled from 'styled-components';
+import { Section, Button, Line } from '../../components';
+import { SectionDescription } from '../../components/Section';
+import media from 'styled-media-query';
 
 const BuildSection = () => (
 	<BuildContainer>
 		<Columns>
 			<Left>
-				<GlowingBuildCircle  />
+				<GlowingBuildCircle />
 			</Left>
 			<Right>
 				<h2>build</h2>
-				<SectionDescription style={{maxWidth: 360}}>Harness the deep liquidity of synthetic assets to power a new era of financial tools.</SectionDescription>
-				<BuildButton buttonType="secondary" link="https://docs.synthetix.io/">Build</BuildButton>
+				<SectionDescription style={{ maxWidth: 360 }}>
+					Harness the deep liquidity of synthetic assets to power a new era of financial tools.
+				</SectionDescription>
+				<BuildButton buttonType="secondary" link="https://docs.synthetix.io/">
+					Build
+				</BuildButton>
 			</Right>
 		</Columns>
 		<Line />
 	</BuildContainer>
-)
+);
 
 const BuildContainer = styled(Section)`
 	min-height: 891px;
@@ -31,7 +34,7 @@ const BuildContainer = styled(Section)`
 		padding: 0 76px;
 		min-height: 742px;
 	`}
-`
+`;
 
 const Columns = styled.div`
 	width: 100%;
@@ -47,7 +50,7 @@ const Columns = styled.div`
 		margin-top: 40px;
 		justify-content: flex-start;
 	`}
-`
+`;
 
 const Left = styled.div`
 	position: relative;
@@ -60,7 +63,7 @@ const Left = styled.div`
 		left: auto;
 		position: relative;
 	`}
-`
+`;
 const Right = styled.div`
 	${media.lessThan('large')`
 		margin-left: -49px;
@@ -72,7 +75,7 @@ const Right = styled.div`
 		margin-top: 58px;
 		margin-bottom: 80px;
 	`}
-`
+`;
 
 const GlowingBuildCircle = styled.div`
 	filter: drop-shadow(0px 0px 25.9037px rgba(0, 209, 255, 0.63));
@@ -88,12 +91,12 @@ const GlowingBuildCircle = styled.div`
 		height: 298px;
 		width: 298px;
 	`}
-`
+`;
 
 const BuildButton = styled(Button)`
 	margin-top: 54px;
 	width: 147px;
 	height: 56px;
-`
+`;
 
-export default BuildSection
+export default BuildSection;

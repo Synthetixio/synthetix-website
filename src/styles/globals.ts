@@ -1,6 +1,6 @@
-import { createGlobalStyle } from "styled-components";
-import reset from 'styled-reset'
-import { theme } from "./theme";
+import { createGlobalStyle } from 'styled-components';
+import reset from 'styled-reset';
+import { theme } from './theme';
 
 export const GlobalStyle = createGlobalStyle`
 	${reset}
@@ -15,7 +15,7 @@ export const GlobalStyle = createGlobalStyle`
 
 		padding: 0;
 		margin: 0;
-		background-color: ${props => (props.theme as any).colors.bgBlack};
+		background-color: ${(props) => (props.theme as any).colors.bgBlack};
 		-webkit-tap-highlight-color: transparent;
 
 	}
@@ -51,4 +51,4 @@ export const GlobalStyle = createGlobalStyle`
 		font-stretch: expanded;
 		font-display: auto;
 	}
-`
+`;

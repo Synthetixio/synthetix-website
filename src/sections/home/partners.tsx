@@ -1,33 +1,31 @@
-import styled from "styled-components"
-import { theme } from "../../styles/theme"
-import { Button, Line } from "../../components"
-import { sectionMixin } from "../../components/Section"
-import PFramework from '../../svg/PFramework'
-import PXbto from '../../svg/PXbto'
-import PHashed from '../../svg/PHashed'
-import PParafi from '../../svg/PParafi'
-import PDtc from '../../svg/PDtc'
-import media from "styled-media-query"
-
+import styled from 'styled-components';
+import { Line } from '../../components';
+import { sectionMixin } from '../../components/Section';
+import PFramework from '../../svg/PFramework';
+import PXbto from '../../svg/PXbto';
+import PHashed from '../../svg/PHashed';
+import PParafi from '../../svg/PParafi';
+import PDtc from '../../svg/PDtc';
+import media from 'styled-media-query';
 
 const PartnersSection = () => (
 	<>
-	<PartnersContainer>
-		<h3>Our liquidity partners</h3>
-		<StyledPartners>
-			<PFramework />
-			<PParafi />
-			<PThreeArrows src="/home/three-arrows-logo.png" />
-			<PXbto />
-			<PDtc />
-			<PHashed />
-			<Iosg src="/home/iosg.png" />
-			<Spartan src="/home/spartan.png" />
-		</StyledPartners>
-	</PartnersContainer>
-	<Line/>
+		<PartnersContainer>
+			<h3>Our liquidity partners</h3>
+			<StyledPartners>
+				<PFramework />
+				<PParafi />
+				<PThreeArrows src="/home/three-arrows-logo.png" />
+				<PXbto />
+				<PDtc />
+				<PHashed />
+				<Iosg src="/home/iosg.png" />
+				<Spartan src="/home/spartan.png" />
+			</StyledPartners>
+		</PartnersContainer>
+		<Line />
 	</>
-)
+);
 
 const PartnersContainer = styled.div`
 	${sectionMixin}
@@ -50,14 +48,14 @@ const PartnersContainer = styled.div`
 	${media.lessThan('medium')`
 		padding: 184px 40px 33px 40px;
 	`};
-`
+`;
 
-const gap = 110
+const gap = 110;
 const StyledPartners = styled.div`
 	width: 100%;
 	display: inline-flex;
 	margin: -20px 0 0 -${gap}px;
-  width: calc(100% + ${gap}px);
+	width: calc(100% + ${gap}px);
 	flex-wrap: wrap;
 	max-width: 1400px;
 
@@ -94,11 +92,9 @@ const StyledPartners = styled.div`
 		}
 
 	`}
-`
+`;
 
-const PThreeArrows = styled.img`
-
-`
+const PThreeArrows = styled.img``;
 
 const Iosg = styled.img`
 	padding-top: 10px;
@@ -107,9 +103,7 @@ const Iosg = styled.img`
 		padding-top: 0;
 		width: 141px;
 	`}
-`
-const Spartan = styled.img`
-`
+`;
+const Spartan = styled.img``;
 
-
-export default PartnersSection
+export default PartnersSection;

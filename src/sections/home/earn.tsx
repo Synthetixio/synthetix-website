@@ -1,23 +1,25 @@
-import styled from "styled-components"
-import { theme } from "../../styles/theme"
-import { Section, Button, Line } from "../../components"
-import { SectionDescription } from "../../components/Section"
-import media from "styled-media-query"
+import styled from 'styled-components';
+import { Section, Button, Line } from '../../components';
+import { SectionDescription } from '../../components/Section';
+import media from 'styled-media-query';
 
 const EarnSection = () => (
 	<EarnContainer>
 		<Columns>
 			<Left>
 				<h2>earn</h2>
-				<SectionDescription>Earn rewards by providing collateral to the Synthetix protocol.</SectionDescription>
-				<EarnButton buttonType="secondary" link="https://mintr.synthetix.io">Stake</EarnButton>
+				<SectionDescription>
+					Earn rewards by providing collateral to the Synthetix protocol.
+				</SectionDescription>
+				<EarnButton buttonType="secondary" link="https://mintr.synthetix.io">
+					Stake
+				</EarnButton>
 			</Left>
-			<Right>
-			</Right>
+			<Right></Right>
 		</Columns>
 		<Line />
 	</EarnContainer>
-)
+);
 
 const EarnContainer = styled(Section)`
 	padding: 0 163px;
@@ -33,7 +35,7 @@ const EarnContainer = styled(Section)`
 	${media.lessThan('medium')`
 		min-height: 781px;
 	`}
-`
+`;
 
 const Columns = styled.div`
 	width: 100%;
@@ -49,7 +51,7 @@ const Columns = styled.div`
 		justify: center;
 		margin-top: 0
 	`}
-`
+`;
 
 const Left = styled.div`
 	position: relative;
@@ -59,7 +61,7 @@ const Left = styled.div`
 		text-align: center;
 		margin-top: 75px;
 	`}
-`
+`;
 const Right = styled.div`
 	background-image: '/home/earn.svg';
 	width: 658px;
@@ -72,7 +74,7 @@ const Right = styled.div`
 	${media.lessThan('medium')`
 		max-height: 307px;
 	`}
-`
+`;
 
 const EarnButton = styled(Button)`
 	margin-top: 54px;
@@ -82,6 +84,6 @@ const EarnButton = styled(Button)`
 	${media.lessThan('medium')`
 		left: auto;
 	`}
-`
+`;
 
-export default EarnSection
+export default EarnSection;
