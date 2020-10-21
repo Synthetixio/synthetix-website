@@ -12,6 +12,7 @@ import { sectionMixin, SectionDescription } from '../../components/Section';
 
 import { ExternalLink } from '../../styles/common';
 import { theme } from '../../styles/theme';
+import { breakpoints } from '../../styles/media';
 
 const getLogoURL = (logo: string) => `/home/powered-by/${logo}`;
 
@@ -104,7 +105,12 @@ const CARDS: Record<string, Card[]> = {
 
 const TABS_SECTIONS = Object.keys(CARDS);
 
-function NextArrow({ className, onClick }: { className: string; onClick: () => void }) {
+type CustomSliderArrow = {
+	className: string;
+	onClick: () => void;
+};
+
+function NextArrow({ className, onClick }: CustomSliderArrow) {
 	return (
 		<div className={className} onClick={onClick}>
 			<Arrow />
@@ -112,13 +118,18 @@ function NextArrow({ className, onClick }: { className: string; onClick: () => v
 	);
 }
 
-function PrevArrow({ className, onClick }: { className: string; onClick: () => void }) {
+function PrevArrow({ className, onClick }: CustomSliderArrow) {
 	return (
 		<div className={className} onClick={onClick}>
 			<Arrow style={{ transform: 'rotate(180deg)' }} />
 		</div>
 	);
 }
+
+const slideShowBreakpoints = {
+	sm: 880,
+	md: 1250,
+};
 
 const PoweredBy = () => {
 	const [tab, setTab] = useState(TABS_SECTIONS[0]);
@@ -133,13 +144,13 @@ const PoweredBy = () => {
 					<CardGradient />
 					<CardTitle>{card.name}</CardTitle>
 					<CardDescription>{card.description}</CardDescription>
-					<CardLink>take action</CardLink>
+					<CardLink>Visit {card.name}</CardLink>
 				</Card>
 			</CardA>
 		</Link>
 	));
 
-	const isTabletOrMobile = useMediaQuery({ query: '(max-width: 768px)' });
+	const isTabletOrMobile = useMediaQuery({ query: `(max-width: ${breakpoints.md}px)` });
 
 	return (
 		<PoweredByContainer>
@@ -173,6 +184,20 @@ const PoweredBy = () => {
 									nextArrow={<NextArrow />}
 									// @ts-ignore
 									prevArrow={<PrevArrow />}
+									responsive={[
+										{
+											breakpoint: slideShowBreakpoints.md,
+											settings: {
+												slidesToShow: 2,
+											},
+										},
+										{
+											breakpoint: slideShowBreakpoints.sm,
+											settings: {
+												slidesToShow: 1,
+											},
+										},
+									]}
 								>
 									{currentCards}
 								</Slider>
@@ -218,7 +243,7 @@ const PoweredByContainer = styled.div`
 		}
 	`};
 
-	padding: 0 156px;
+	padding: 0;
 	min-height: 770px;
 
 	/* background: linear-gradient(0deg, rgba(0, 0, 0, 0.47), rgba(0, 0, 0, 0.47)), #160654; */
@@ -255,7 +280,6 @@ const Tab = styled.li<TabProps>`
 		line-height: 48px;
 		margin-right: 18px;
 	`}
-
 	margin-right: 77px;
 
 	&:last-child {
@@ -286,7 +310,7 @@ const Card = styled.div`
 	box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.2);
 
 	${media.lessThan('medium')`
-		width: 295px;
+		width: 310px;
 	`}
 `;
 
@@ -378,9 +402,15 @@ const CardLink = styled.p`
 `;
 
 const SliderContainer = styled.div`
-	max-width: 1152px;
+	max-width: 1176px;
+	@media (max-width: ${slideShowBreakpoints.md}px) {
+		max-width: 790px;
+	}
+	@media (max-width: ${slideShowBreakpoints.sm}px) {
+		max-width: 400px;
+	}
 	.slick-list {
-		margin-left: 18px;
+		margin-left: 20px;
 	}
 	.slick-prev:before {
 		display: none;
