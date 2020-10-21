@@ -1,4 +1,4 @@
-import React from "react";
+import React from 'react';
 
 const SvgPFramework = (props: Props): JSX.Element => {
 	return (
@@ -11,10 +11,7 @@ const SvgPFramework = (props: Props): JSX.Element => {
 					width={1}
 					height={1}
 				>
-					<use
-						xlinkHref="#p-framework_svg__image0"
-						transform="matrix(.00245 0 0 .01587 -.01 0)"
-					/>
+					<use xlinkHref="#p-framework_svg__image0" transform="matrix(.00245 0 0 .01587 -.01 0)" />
 				</pattern>
 				<image
 					id="p-framework_svg__image0"

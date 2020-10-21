@@ -1,28 +1,25 @@
+import styled from 'styled-components';
+import numeral from 'numeral';
+import { Section, Line } from '../../components';
 
-import styled from "styled-components"
-import numeral from 'numeral'
-import { theme } from "../../styles/theme"
-import { Section, Button, Line } from "../../components"
+import { ApiStatsProps } from '../../pages';
+import media from 'styled-media-query';
 
-import { ApiStatsProps } from "../../pages"
-import { ExchangeApiFetcher } from "../../../lib/exchange-api"
-import media from "styled-media-query"
-
-const currencyFormat = '$0,0'
+const currencyFormat = '$0,0';
 
 const TotalSection = ({ totalLocked }: ApiStatsProps) => {
 	return (
 		<>
-		<TotalContainer>
+			<TotalContainer>
 				<TotalStakedBar>
 					<StakedHeader>Total value locked in Synthetix</StakedHeader>
 					<StakedValue>{numeral(totalLocked).format(currencyFormat)}</StakedValue>
 				</TotalStakedBar>
-		</TotalContainer>
-		<Line static/>
+			</TotalContainer>
+			<Line static />
 		</>
-	)
-}
+	);
+};
 
 const TotalContainer = styled(Section)`
 	height: 285px;
@@ -32,7 +29,7 @@ const TotalContainer = styled(Section)`
 		height: 206px;
 		margin-top: 26px;
 	`}
-`
+`;
 
 const TotalStakedBar = styled.div`
 	width: 100%;
@@ -41,7 +38,7 @@ const TotalStakedBar = styled.div`
 	flex-direction: column;
 	align-items: center;
 	justify-content: center;
-`
+`;
 
 const StakedHeader = styled.h3`
 	font-family: GT America;
@@ -58,7 +55,7 @@ const StakedHeader = styled.h3`
 		line-height: 24px;
 		max-width: 295px;
 	`}
-`
+`;
 
 const StakedValue = styled.span`
 	font-family: GT America;
@@ -74,13 +71,13 @@ const StakedValue = styled.span`
 	-webkit-background-clip: text;
 	-webkit-text-fill-color: transparent;
 	text-fill-color: transparent;
-	background-image: linear-gradient(to right, #00D1FF 0%, #00D1FF 15%, #ED1EFF 85%, #ED1EFF 100%);
+	background-image: linear-gradient(to right, #00d1ff 0%, #00d1ff 15%, #ed1eff 85%, #ed1eff 100%);
 
 	${media.lessThan('medium')`
 		margin-top: 8px;
 		font-size: 28px;
 		line-height: 48px;
 	`}
-`
+`;
 
-export default TotalSection
+export default TotalSection;

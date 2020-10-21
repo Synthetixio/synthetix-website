@@ -1,4 +1,4 @@
-import React from "react";
+import React from 'react';
 
 const SvgBuildCircle = (props: Props): JSX.Element => {
 	return (
@@ -288,15 +288,26 @@ const SvgBuildCircle = (props: Props): JSX.Element => {
 			/>
 			<defs>
 				<linearGradient
-					id="build-circle_svg__paint0_linear"
-					x1={361.596}
-					y1={89.804}
-					x2={361.596}
-					y2={632.354}
+					id="build-circle_svg__paint18_linear"
+					x1={361.129}
+					y1={103.035}
+					x2={361.129}
+					y2={619.122}
 					gradientUnits="userSpaceOnUse"
 				>
 					<stop stopColor="#ED1EFF" />
 					<stop offset={1} stopColor="#00D1FF" />
+				</linearGradient>
+				<linearGradient
+					id="build-circle_svg__paint36_linear"
+					x1={360.698}
+					y1={280.92}
+					x2={360.698}
+					y2={441.51}
+					gradientUnits="userSpaceOnUse"
+				>
+					<stop stopColor="#00D1FF" />
+					<stop offset={1} stopColor="#00D1FF" stopOpacity={0.51} />
 				</linearGradient>
 				<linearGradient
 					id="build-circle_svg__paint1_linear"
@@ -486,11 +497,11 @@ const SvgBuildCircle = (props: Props): JSX.Element => {
 					<stop offset={1} stopColor="#00D1FF" />
 				</linearGradient>
 				<linearGradient
-					id="build-circle_svg__paint18_linear"
-					x1={361.129}
-					y1={103.035}
-					x2={361.129}
-					y2={619.122}
+					id="build-circle_svg__paint0_linear"
+					x1={361.596}
+					y1={89.804}
+					x2={361.596}
+					y2={632.354}
 					gradientUnits="userSpaceOnUse"
 				>
 					<stop stopColor="#ED1EFF" />
@@ -683,17 +694,6 @@ const SvgBuildCircle = (props: Props): JSX.Element => {
 					<stop stopColor="#ED1EFF" />
 					<stop offset={1} stopColor="#00D1FF" />
 				</linearGradient>
-				<linearGradient
-					id="build-circle_svg__paint36_linear"
-					x1={360.698}
-					y1={280.92}
-					x2={360.698}
-					y2={441.51}
-					gradientUnits="userSpaceOnUse"
-				>
-					<stop stopColor="#00D1FF" />
-					<stop offset={1} stopColor="#00D1FF" stopOpacity={0.51} />
-				</linearGradient>
 				<filter
 					id="build-circle_svg__filter0_d"
 					x={264.281}
@@ -704,10 +704,7 @@ const SvgBuildCircle = (props: Props): JSX.Element => {
 					colorInterpolationFilters="sRGB"
 				>
 					<feFlood floodOpacity={0} result="BackgroundImageFix" />
-					<feColorMatrix
-						in="SourceAlpha"
-						values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0"
-					/>
+					<feColorMatrix in="SourceAlpha" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" />
 					<feOffset />
 					<feGaussianBlur stdDeviation={8.061} />
 					<feColorMatrix values="0 0 0 0 0 0 0 0 0 0.819608 0 0 0 0 1 0 0 0 0.6 0" />

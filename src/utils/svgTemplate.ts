@@ -8,16 +8,10 @@
  */
 /* @ts-ignore */
 // eslint-disable-next-line @typescript-eslint/explicit-function-return-type
-function template(
-  { template },
-  opts,
-  {
-    imports, componentName, props, jsx, exports,
-  },
-) {
-  const typeScriptTpl = template.smart({ plugins: ['typescript'] });
+function template({ template }, opts, { imports, componentName, props, jsx, exports }) {
+	const typeScriptTpl = template.smart({ plugins: ['typescript'] });
 
-  return typeScriptTpl.ast`
+	return typeScriptTpl.ast`
 import React from 'react';
 
 const ${componentName} = (props: Props): JSX.Element => {
