@@ -1,33 +1,33 @@
-import styled from "styled-components";
-import { Logo } from "./";
-import { theme } from "../styles/theme";
-import media from "styled-media-query";
-import { headerHeight } from "./Header";
+import styled from 'styled-components';
+import media from 'styled-media-query';
+
+import { theme } from '../styles/theme';
+import { ExternalLink } from '../styles/common';
 
 const data = [
 	{
-		link: "https://stats.synthetix.io",
-		label: "stats",
+		link: 'https://stats.synthetix.io',
+		label: 'stats',
 	},
 	{
-		link: "https://mintr.synthetix.io",
-		label: "staking",
+		link: 'https://mintr.synthetix.io',
+		label: 'staking',
 	},
 	{
-		link: "https://docs.synthetix.io/",
-		label: "build",
+		link: 'https://docs.synthetix.io/',
+		label: 'build',
 	},
 	{
-		link: "https://discord.com/invite/AEdUHzt",
-		label: "community",
+		link: 'https://discord.com/invite/AEdUHzt',
+		label: 'community',
 	},
 	{
-		link: "https://blog.synthetix.io/",
-		label: "blog",
+		link: 'https://blog.synthetix.io/',
+		label: 'blog',
 	},
 	{
-		link: "https://research.synthetix.io/",
-		label: "research",
+		link: 'https://research.synthetix.io/',
+		label: 'research',
 	},
 ];
 
@@ -40,9 +40,7 @@ const MenuComponent = (props: MenuProps) => {
 		<Menu {...props}>
 			{data.map((item) => (
 				<MenuItem key={item.label}>
-					<a href={item.link} target="_blank">
-						{item.label}
-					</a>
+					<ExternalLink href={item.link}>{item.label}</ExternalLink>
 				</MenuItem>
 			))}
 		</Menu>
@@ -53,7 +51,7 @@ const Menu = styled.ul`
 	transition: left 0.3s ease-out;
 	z-index: 101;
 
-	${media.lessThan("medium")`
+	${media.lessThan('medium')`
 		position: fixed;
 		display: flex;
 		flex-direction: column;
@@ -88,7 +86,7 @@ const MenuItem = styled.li`
 		}
 	}
 
-	${media.lessThan("medium")`
+	${media.lessThan('medium')`
 	margin: 0 0 51px 20px;
 		a {
 			font-size: 32px;

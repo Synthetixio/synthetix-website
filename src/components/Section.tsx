@@ -1,6 +1,6 @@
-import styled from 'styled-components'
-import { theme } from '../styles/theme'
-import media from 'styled-media-query'
+import styled from 'styled-components';
+import { theme } from '../styles/theme';
+import media from 'styled-media-query';
 
 interface DescriptionProps {
 	main?: boolean;
@@ -14,7 +14,7 @@ export const sectionMixin = `
 	h1, h2 {
 		${theme.fonts.headline};
 	}
-`
+`;
 
 const Section = styled.div`
 	${sectionMixin}
@@ -33,7 +33,7 @@ const Section = styled.div`
 	${media.greaterThan('large')`
 		padding: 0 159px;
 	`}
-`
+`;
 
 export const SectionDescription = styled.p<DescriptionProps>`
 	margin-top: 15px;
@@ -42,9 +42,9 @@ export const SectionDescription = styled.p<DescriptionProps>`
 
 	${media.lessThan('medium')`
 		max-width: 285px;
-		margin-top: ${props => (props as DescriptionProps).main ? 27 : 11}px;
+		margin-top: ${(props) => ((props as DescriptionProps).main ? 27 : 11)}px;
 		margin-left: 0;
 	`}
-`
+`;
 
-export default Section
+export default Section;

@@ -1,45 +1,44 @@
-import { css } from "styled-components";
-import media from "styled-media-query";
+import { css } from 'styled-components';
 
 const keyframes = {
-  show: `@keyframes show {
+	show: `@keyframes show {
     to {
       opacity: 1;
       transform: none;
     }
-  }`
-}
+  }`,
+};
 
 const animations = {
-  show: `
+	show: `
     animation: show 500ms ease-out forwards;
     ${keyframes.show}
-  `
-}
+  `,
+};
 
 export const theme = {
-  colors: {
-    // Gray palette
-    grayBlack70: '#030C17',
-    grayBlack30: '#061B36',
-    grayBlackBase: '#09274D',
+	colors: {
+		// Gray palette
+		grayBlack70: '#030C17',
+		grayBlack30: '#061B36',
+		grayBlackBase: '#09274D',
 
-    gray60: '#6B7D94',
-    gray50: '#8493A6',
-    gray30: '#B5BECA',
+		gray60: '#6B7D94',
+		gray50: '#8493A6',
+		gray30: '#B5BECA',
 
-    gray10: '#E6E9ED',
-    gray6: '#F0F2F4',
-    gray2: '#FAFBFB',
+		gray10: '#E6E9ED',
+		gray6: '#F0F2F4',
+		gray2: '#FAFBFB',
 
-    // Primary palette
-    cyan: '#00D1FF',
-    purple: '#402FC8',
-    pink: 'ED1EFF',
+		// Primary palette
+		cyan: '#00D1FF',
+		purple: '#402FC8',
+		pink: 'ED1EFF',
 
-    // Secondary palette
-    green: '#31D8A4',
-    orange: '#FC8738',
+		// Secondary palette
+		green: '#31D8A4',
+		orange: '#FC8738',
 		yellow: '#FFD75C',
 
 		bgBlack: '#06061B',
@@ -59,7 +58,7 @@ export const theme = {
 			line-height: 48px;
 			font-stretch: expanded;
 			text-transform: uppercase;
-			color: #FFFFFF;
+			color: #ffffff;
 		`,
 
 		subHeadline: css`
@@ -69,7 +68,7 @@ export const theme = {
 			font-size: 32px;
 			line-height: 24px;
 			text-transform: uppercase;
-			color: #FFFFFF;
+			color: #ffffff;
 		`,
 
 		smallHeadline: css`
@@ -83,7 +82,7 @@ export const theme = {
 			text-align: center;
 			text-transform: uppercase;
 
-			color: #FFFFFF;
+			color: #ffffff;
 		`,
 
 		menu: css`
@@ -93,7 +92,7 @@ export const theme = {
 			font-stretch: condensed;
 			font-size: 13px;
 			line-height: 24px;
-			color: #FFFFFF;
+			color: #ffffff;
 			text-transform: uppercase;
 		`,
 
@@ -118,16 +117,17 @@ export const theme = {
 			text-align: center;
 			text-transform: uppercase;
 
-			color: ${(props: any) => props.active ? '#00D1FF' : 'rgba(255, 255, 255, 0.5)'};
+			color: ${(props: any) => (props.active ? '#00D1FF' : 'rgba(255, 255, 255, 0.5)')};
+			white-space: nowrap;
 
 			&:hover {
-				color: #00D1FF;
+				color: #00d1ff;
 			}
 
 			transition: color 0.2s ease-out;
 			cursor: pointer;
-		`
+		`,
 	},
 
-	animations
-}
+	animations,
+};

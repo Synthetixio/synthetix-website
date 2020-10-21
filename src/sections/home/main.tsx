@@ -1,23 +1,25 @@
-import styled from "styled-components"
-import media from "styled-media-query";
-import { theme } from "../../styles/theme"
-import { Section, Button } from "../../components"
-import { SectionDescription } from "../../components/Section"
-import { headerHeight } from "../../components/Header"
+import styled from 'styled-components';
+import media from 'styled-media-query';
+import { Section, Button } from '../../components';
+import { SectionDescription } from '../../components/Section';
+import { headerHeight } from '../../components/Header';
 
 const MainSection = () => (
 	<MainContainer>
 		<Left>
 			<h1>The derivatives liquidity protocol</h1>
-			<SectionDescription main={true}>Synthetix is the backbone for derivatives trading in DeFi, allowing anyone, anywhere to gain on-chain exposure to a vast range of assets.</SectionDescription>
+			<SectionDescription main={true}>
+				Synthetix is the backbone for derivatives trading in DeFi, allowing anyone, anywhere to gain
+				on-chain exposure to a vast range of assets.
+			</SectionDescription>
 			<LearnMoreButton link="https://docs.synthetix.io/litepaper/">Learn More</LearnMoreButton>
 		</Left>
 		<Right src="/home/snx-wave.svg" />
 	</MainContainer>
-)
+);
 
 const MainContainer = styled(Section)`
-	${props => props.theme.animations.show};
+	${(props) => props.theme.animations.show};
 
 	opacity: 0;
 	animation-delay: 400ms;
@@ -36,7 +38,7 @@ const MainContainer = styled(Section)`
 	${media.greaterThan('1350px' as any)`
 		padding: 0 0 0 153px;
 	`}
-`
+`;
 
 const Left = styled.div`
 	max-width: 397px;
@@ -51,7 +53,7 @@ const Left = styled.div`
 		position: relative;
 		text-align: center;
 	`}
-`
+`;
 
 const Right = styled.img`
 	width: 1406px;
@@ -73,7 +75,7 @@ const Right = styled.img`
 		position: relative;
 		height: 272px;
 	`}
-`
+`;
 
 const LearnMoreButton = styled(Button)`
 	margin-top: 40px;
@@ -83,6 +85,6 @@ const LearnMoreButton = styled(Button)`
 	${media.lessThan('medium')`
 		margin-top: 30px;
 	`}
-`
+`;
 
-export default MainSection
+export default MainSection;

@@ -1,6 +1,6 @@
-import styled from 'styled-components'
-import { Logo, Menu, Socials } from './'
-import media from 'styled-media-query'
+import styled from 'styled-components';
+import { Logo, Menu, Socials } from './';
+import media from 'styled-media-query';
 
 const FooterComponent = () => {
 	return (
@@ -13,20 +13,20 @@ const FooterComponent = () => {
 				<FooterSocials />
 			</Right>
 		</Footer>
-	)
-}
+	);
+};
 
 const Footer = styled.footer`
 	height: 159px;
 	width: 100%;
 	padding: 0 66px 0 114px;
-	background-color: ${props => props.theme.colors.bgBlack};
+	background-color: ${(props) => props.theme.colors.bgBlack};
 
 	display: flex;
 	align-items: center;
 	justify-content: space-between;
 
-	${props => props.theme.animations.show};
+	${(props) => props.theme.animations.show};
 
 	animation-delay: 200ms;
 	opacity: 0;
@@ -40,7 +40,7 @@ const Footer = styled.footer`
 		justify-column: center;
 		padding: 25px 29px;
 	`}
-`
+`;
 
 const Left = styled.div`
 	display: flex;
@@ -52,21 +52,17 @@ const Left = styled.div`
 		max-width: 100%;
 		justify-content: center;
 	`}
-`
+`;
 
 const Right = styled.div`
 	display: flex;
 	align-items: center;
 	justify-content: flex-start;
-`
+`;
 
 const FooterSocials = styled(Socials)`
 	position: relative;
 	top: 2px;
-`
+`;
 
-const Copyright = styled.p`
-	margin-left: 38px;
-`
-
-export default FooterComponent
+export default FooterComponent;

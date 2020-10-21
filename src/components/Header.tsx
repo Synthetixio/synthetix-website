@@ -1,16 +1,17 @@
-import styled from 'styled-components'
-import { Logo, Menu } from './'
-import media from 'styled-media-query'
-import HamburgerMenu from 'react-hamburger-menu'
 import { useState, useEffect } from 'react';
+import styled from 'styled-components';
+import media from 'styled-media-query';
+import HamburgerMenu from 'react-hamburger-menu';
 import { CSSTransition } from 'react-transition-group';
 
+import { Logo, Menu } from './';
+
 const HeaderComponent = () => {
-	const [isOpen, setIsOpen] = useState(false);
-	let [animationProps, setAnimationProps] = useState({ mountOnEnter: false, unmountOnExit: false })
+	const [isOpen, setIsOpen] = useState<boolean>(false);
+	let [animationProps, setAnimationProps] = useState({ mountOnEnter: false, unmountOnExit: false });
 
 	useEffect(
-		function() {
+		function () {
 			if (isOpen) {
 				document.body.classList.add('fixed');
 			} else {
@@ -19,17 +20,16 @@ const HeaderComponent = () => {
 					setAnimationProps({
 						mountOnEnter: true,
 						unmountOnExit: true,
-
-					})
+					});
 				}
 			}
 		},
-		[isOpen],
+		[isOpen]
 	);
 
 	const clickMenu = () => {
 		setIsOpen(!isOpen);
-	}
+	};
 
 	return (
 		<Header>
@@ -40,26 +40,22 @@ const HeaderComponent = () => {
 				height={16}
 				strokeWidth={2}
 				rotate={0}
-				color='white'
+				color="white"
 				borderRadius={0}
 				animationDuration={0.3}
 			/>
 			<Logo />
-			<CSSTransition
-				in={isOpen}
-				timeout={300}
-				{...animationProps}
-			>
+			<CSSTransition in={isOpen} timeout={300} {...animationProps}>
 				<Menu isOpen={isOpen} />
 			</CSSTransition>
 		</Header>
-	)
-}
+	);
+};
 
-export const headerHeight = 100
+export const headerHeight = 100;
 
 const Header = styled.header`
-	${props => props.theme.animations.show};
+	${(props) => props.theme.animations.show};
 
 	animation-delay: 200ms;
 	opacity: 0;
@@ -79,7 +75,7 @@ const Header = styled.header`
 		padding: 0 20px;
 		justify-content: center;
 	`}
-`
+`;
 
 const StyledHamburgerMenu = styled(HamburgerMenu)`
 	display: none;
@@ -90,8 +86,8 @@ const StyledHamburgerMenu = styled(HamburgerMenu)`
 		user-select: none;
 		left: 20px;
 		top: 39px;
-		position: ${props  => (props as any).isOpen ? 'fixed' : 'absolute'} !important;
+		position: ${(props) => ((props as any).isOpen ? 'fixed' : 'absolute')} !important;
 		z-index: 999;
 	`}
-`
-export default HeaderComponent
+`;
+export default HeaderComponent;
