@@ -18,6 +18,10 @@ const data = [
 		label: 'build',
 	},
 	{
+		link: 'https://gov.synthetix.io/',
+		label: 'governance',
+	},
+	{
 		link: 'https://discord.com/invite/AEdUHzt',
 		label: 'community',
 	},
