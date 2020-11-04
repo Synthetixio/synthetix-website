@@ -10,7 +10,7 @@
 		"svg": "npx svgr -d src/svg src/svg --ext tsx --template src/utils/svgTemplate.ts",
 		"analyse:bundle": "ANALYZE_BUNDLE=true npm start",
 		"format": "prettier --write \"**/*.{ts,tsx}\"",
-		"lint": "eslint . --ext ts,.tsx",
+		"lint": "eslint . --ext ts,.tsx && tsc",
 		"lint:fix": "eslint . --ext ts,.tsx --fix",
 		"tsc": "tsc --noEmit"
 	},
