@@ -37,6 +37,24 @@
 			]
 		},
 		{
+			"source": "/(.*).(js|css|xml|gz|html)",
+			"headers": [
+				{
+					"key": "Vary",
+					"value": "Accept-Encoding"
+				}
+			]
+		},
+		{
+			"source": "/",
+			"headers": [
+				{
+					"key": "Vary",
+					"value": "Accept-Encoding"
+				}
+			]
+		},
+		{
 			"source": "/(.*)",
 			"headers": [
 				{
