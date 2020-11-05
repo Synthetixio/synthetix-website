@@ -46,6 +46,15 @@
 			]
 		},
 		{
+			"source": "/",
+			"headers": [
+				{
+					"key": "Vary",
+					"value": "Accept-Encoding"
+				}
+			]
+		},
+		{
 			"source": "/(.*)",
 			"headers": [
 				{
