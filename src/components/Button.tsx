@@ -19,7 +19,7 @@ const ButtonComponent: FunctionComponent<ButtonProps> = ({
 	buttonType = 'primary',
 }) => (
 	<Link href={link} passHref={true}>
-		<A className={className} target="_blank">
+		<A className={className} target="_blank" rel="noopener noreferrer">
 			<Button buttonType={buttonType}>{children}</Button>
 		</A>
 	</Link>
