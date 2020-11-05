@@ -29,7 +29,7 @@ const Socials = ({ className }: React.PropsWithoutRef<JSX.IntrinsicElements['ul'
 			{data.map((s) => (
 				<Social key={s.label}>
 					<Link href={s.link}>
-						<a target="_blank">{s.image}</a>
+						<a target="_blank" rel="noopener noreferrer">{s.image}</a>
 					</Link>
 				</Social>
 			))}
