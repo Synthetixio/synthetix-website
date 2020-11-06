@@ -30,6 +30,7 @@ module.exports = withBundleAnalyzer(
 			NEXT_PUBLIC_BUILD_TIMESTAMP: +date,
 			NEXT_PUBLIC_APP_NAME: packageJson.name,
 			NEXT_PUBLIC_APP_VERSION: packageJson.version,
+			CF_IP: process.env.CF_IP,
 		},
 		experimental: {
 			redirects() {
