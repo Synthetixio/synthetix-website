@@ -49,7 +49,7 @@ const Home = ({ totalLocked }: ApiStatsProps) => {
 export const getServerSideProps: GetServerSideProps = async (context) => {
 	if (process.env.CF_IP) {
 		const allowedIps = JSON.parse(`[${process.env.CF_IP}]`);
-		const ip = context.req.headers['x-forwarded-for'] || context.req.connection.remoteAddress;
+		const ip = context.req.connection.remoteAddress;
 		if (typeof ip === 'string' && ipRangeCheck(ip, allowedIps)) {
 			const props = await getProps();
 			return props;
