@@ -19,6 +19,7 @@
 		"@types/react-slick": "^0.23.4",
 		"@types/react-transition-group": "^4.4.0",
 		"axios": "0.20.0",
+		"ip-range-check": "0.2.0",
 		"next": "9.5.5",
 		"numeral": "2.0.6",
 		"react": "16.13.1",
