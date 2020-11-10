@@ -1,0 +1,6 @@
+Sitemap: https://synthetix.io/sitemap.xml
+
+User-agent: *
+Allow: /*
+
+Disallow: /_next/static/
