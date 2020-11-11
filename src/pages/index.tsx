@@ -18,6 +18,8 @@ const PoweredBy = dynamic(() => import('../sections/home/poweredBy'), {
 	ssr: false,
 });
 
+// trigger deploy 5 Nov 2020
+
 const Home = ({ totalLocked }: ApiStatsProps) => {
 	return (
 		<>
