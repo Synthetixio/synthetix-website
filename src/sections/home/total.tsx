@@ -13,7 +13,9 @@ const TotalSection = ({ totalLocked }: ApiStatsProps) => {
 			<TotalContainer>
 				<TotalStakedBar>
 					<StakedHeader>Total value locked in Synthetix</StakedHeader>
-					<StakedValue>{numeral(totalLocked).format(currencyFormat)}</StakedValue>
+					<StakedValue>
+						{totalLocked ? numeral(totalLocked).format(currencyFormat) : '--'}
+					</StakedValue>
 				</TotalStakedBar>
 			</TotalContainer>
 			<Line static />
