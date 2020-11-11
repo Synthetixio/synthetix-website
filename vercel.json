@@ -37,7 +37,7 @@
 			]
 		},
 		{
-			"source": "/(.*).(js|css|xml|gz|html)",
+			"source": "/(.*).(js|css|xml|gz|html|svg)",
 			"headers": [
 				{
 					"key": "Vary",
