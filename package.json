@@ -5,6 +5,7 @@
 	"scripts": {
 		"dev": "next dev",
 		"build": "next build",
+		"postbuild": "if [[ ${BUILD_SITEMAP} ]]; then next-sitemap --config next-sitemap.js; fi",
 		"start": "next start --port 8888",
 		"start:tunnel": "ngrok http 8888",
 		"svg": "npx svgr -d src/svg src/svg --ext tsx --template src/utils/svgTemplate.ts",
