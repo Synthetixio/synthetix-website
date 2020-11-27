@@ -100,6 +100,7 @@ const PThreeArrows = styled.img``;
 
 const Iosg = styled.img`
 	padding-top: 10px;
+	width: 145px;
 	${media.lessThan('medium')`
 		padding-top: 0;
 		width: 141px;
