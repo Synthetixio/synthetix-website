@@ -6,6 +6,7 @@ import PXbto from '../../svg/PXbto';
 import PHashed from '../../svg/PHashed';
 import PParafi from '../../svg/PParafi';
 import PDtc from '../../svg/PDtc';
+import PDefiance from '../../svg/PDefiance';
 import media from 'styled-media-query';
 
 const PartnersSection = () => (
@@ -19,6 +20,7 @@ const PartnersSection = () => (
 				<PXbto />
 				<PDtc />
 				<PHashed />
+				<PDefiance />
 				<Iosg src="/home/iosg.png" />
 				<Spartan src="/home/spartan.png" />
 			</StyledPartners>
@@ -98,7 +100,6 @@ const PThreeArrows = styled.img``;
 
 const Iosg = styled.img`
 	padding-top: 10px;
-
 	${media.lessThan('medium')`
 		padding-top: 0;
 		width: 141px;
