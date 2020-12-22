@@ -10,7 +10,7 @@ const data = [
 		label: 'stats',
 	},
 	{
-		link: 'https://mintr.synthetix.io',
+		link: 'https://staking.synthetix.io',
 		label: 'staking',
 	},
 	{
