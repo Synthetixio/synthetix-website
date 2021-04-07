@@ -85,7 +85,7 @@ jobs:
 
     - name: Archive artifacts
       if: github.ref == 'refs/heads/master' || github.ref == 'refs/heads/dev' || github.event_name == 'pull_request'
-      uses: actions/upload-artifact@27bce4eee761b5bc643f46a8dfb41b430c8d05f6 # pin@v2
+      uses: actions/upload-artifact@ee69f02b3dfdecd58bb31b4d133da38ba6fe3700 # pin@v2
       with:
         name: build
         path: .next
