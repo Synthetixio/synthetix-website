@@ -15,7 +15,7 @@ const data = [
 		label: 'stats',
 	},
 	{
-		externalLink: 'https://mintr.synthetix.io',
+		externalLink: 'https://staking.synthetix.io',
 		label: 'staking',
 	},
 	{
