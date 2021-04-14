@@ -1,36 +1,41 @@
 import styled from 'styled-components';
 import media from 'styled-media-query';
+import Link from 'next/link';
 
 import { theme } from '../styles/theme';
 import { ExternalLink } from '../styles/common';
 
 const data = [
 	{
-		link: 'https://stats.synthetix.io',
+		link: '/synths',
+		label: 'synths',
+	},
+	{
+		externalLink: 'https://stats.synthetix.io',
 		label: 'stats',
 	},
 	{
-		link: 'https://staking.synthetix.io',
+		externalLink: 'https://staking.synthetix.io',
 		label: 'staking',
 	},
 	{
-		link: 'https://docs.synthetix.io/',
+		externalLink: 'https://docs.synthetix.io/',
 		label: 'build',
 	},
 	{
-		link: 'https://gov.synthetix.io/',
+		externalLink: 'https://gov.synthetix.io/',
 		label: 'governance',
 	},
 	{
-		link: 'https://discord.com/invite/AEdUHzt',
+		externalLink: 'https://discord.com/invite/AEdUHzt',
 		label: 'community',
 	},
 	{
-		link: 'https://blog.synthetix.io/',
+		externalLink: 'https://blog.synthetix.io/',
 		label: 'blog',
 	},
 	{
-		link: 'https://research.synthetix.io/',
+		externalLink: 'https://research.synthetix.io/',
 		label: 'research',
 	},
 ];
@@ -44,7 +49,13 @@ const MenuComponent = (props: MenuProps) => {
 		<Menu {...props}>
 			{data.map((item) => (
 				<MenuItem key={item.label}>
-					<ExternalLink href={item.link}>{item.label}</ExternalLink>
+					{item.link ? (
+						<Link href={item.link}>
+							<a>{item.label}</a>
+						</Link>
+					) : (
+						<ExternalLink href={item.externalLink}>{item.label}</ExternalLink>
+					)}
 				</MenuItem>
 			))}
 		</Menu>

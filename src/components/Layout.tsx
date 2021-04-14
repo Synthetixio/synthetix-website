@@ -1,19 +1,24 @@
+import { ReactNode } from 'react';
 import styled from 'styled-components';
 import { Header, Footer } from '.';
 import media from 'styled-media-query';
 
-const Layout = ({ children }: { children: React.ReactNode }) => {
-	return (
-		<LayoutContainer>
-			<ContentContainer>
-				<Header />
-				<Container>{children}</Container>
-			</ContentContainer>
-			<BgGradient />
-			<Footer />
-		</LayoutContainer>
-	);
+type LayoutProps = {
+	children: ReactNode;
+	className?: string;
+	showBgGradient?: boolean;
 };
+
+const Layout = ({ children, showBgGradient = false, ...rest }: LayoutProps) => (
+	<LayoutContainer {...rest}>
+		<ContentContainer className="content">
+			<Header />
+			<Container className="container">{children}</Container>
+		</ContentContainer>
+		{showBgGradient && <BgGradient />}
+		<Footer className="footer" />
+	</LayoutContainer>
+);
 
 const LayoutContainer = styled.div`
 	position: relative;
