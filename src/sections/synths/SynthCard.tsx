@@ -1,0 +1,194 @@
+import { FC } from 'react';
+import styled, { css } from 'styled-components';
+import media from 'styled-media-query';
+
+import {
+	Card,
+	CardGradient,
+	ExternalLink,
+	FlexDivCentered,
+	FlexDivRowCentered,
+} from 'src/styles/common';
+
+import { Synth } from '@synthetixio/contracts-interface';
+
+import { Token } from 'src/queries/tokenLists/types';
+
+enum SynthStatus {
+	LIVE = 'live',
+	FROZEN = 'frozen',
+	PAUSED = 'paused',
+}
+
+type SynthCardProps = {
+	synth: Synth;
+	tokenInfo: Token | null;
+};
+
+const SynthCard: FC<SynthCardProps> = ({ synth, tokenInfo }) => {
+	const logoURI = tokenInfo != null ? tokenInfo.logoURI : null;
+
+	const currencyKey = synth.name;
+
+	let synthDescription = `Tracks the price of ${currencyKey} ${synth.description} through price feeds supplied by an oracle.`;
+
+	if (currencyKey === 'sUSD') {
+		synthDescription =
+			'Tracks the price of a single US Dollar (USD). This Synth always remains constant at 1.';
+	} else if (currencyKey.startsWith('i')) {
+		synthDescription = `Inversely tracks the price of ${currencyKey} ${synth.description} through price feeds supplied by an oracle.`;
+	} else if (synth.category.includes('index')) {
+		synthDescription = `Tracks the price of the index: ${currencyKey} ${synth.description} through price feeds supplied by an oracle.`;
+	}
+
+	return (
+		<ExternalLink href={`https://kwenta.io/exchange/${currencyKey}`}>
+			<StyledCard>
+				<CardGradient />
+				<FlexDivCentered>
+					<SynthImageContainer>
+						{logoURI ? <img src={logoURI} alt="" /> : <Placeholder>{currencyKey}</Placeholder>}
+					</SynthImageContainer>
+					<div>
+						<SynthSymbol>{currencyKey}</SynthSymbol>
+						<div>
+							<SynthPriceLabel>usd price</SynthPriceLabel>
+							<SynthPrice>$400.00</SynthPrice>
+						</div>
+					</div>
+				</FlexDivCentered>
+				<SynthDescription>{synthDescription}</SynthDescription>
+				<FlexDivRowCentered>
+					<FeeInfo>fee: 0.07%</FeeInfo>
+					<Status synthStatus={SynthStatus.LIVE}>
+						<StatusDot /> {SynthStatus.LIVE}
+					</Status>
+				</FlexDivRowCentered>
+			</StyledCard>
+		</ExternalLink>
+	);
+};
+
+const StyledCard = styled(Card)`
+	padding: 30px;
+	${media.lessThan('medium')`
+		width: 100%;
+    	max-width: 360px;
+	`}
+	display: grid;
+	grid-template-rows: auto 1fr auto;
+`;
+
+const Placeholder = styled(FlexDivCentered)`
+	border-radius: 50%;
+	color: ${(props) => props.theme.colors.white};
+	border: 1px solid ${(props) => props.theme.colors.white};
+	font-family: ${(props) => props.theme.fonts.bold};
+	justify-content: center;
+	margin: 0 auto;
+	width: 60px;
+	height: 60px;
+`;
+
+const SynthImageContainer = styled.div`
+	display: flex;
+	padding-right: 25px;
+	img {
+		width: 60px;
+		height: 60px;
+	}
+`;
+
+const SynthSymbol = styled.div`
+	font-family: GT America;
+	font-weight: 900;
+	font-stretch: expanded;
+	font-size: 24px;
+	line-height: 48px;
+	color: ${(props) => props.theme.colors.white};
+`;
+
+const SynthPriceLabel = styled.div`
+	font-family: GT America;
+	font-weight: 700;
+	font-stretch: condensed;
+	color: ${(props) => props.theme.colors.gray55};
+	text-transform: uppercase;
+`;
+
+const SynthPrice = styled.div`
+	font-family: GT America;
+	font-weight: 700;
+	font-stretch: expanded;
+	color: ${(props) => props.theme.colors.white};
+	font-size: 16px;
+`;
+
+const SynthDescription = styled(FlexDivCentered)`
+	font-size: 14px;
+	line-height: 20px;
+	color: ${(props) => props.theme.colors.gray20};
+`;
+
+const FeeInfo = styled.div`
+	color: ${(props) => props.theme.colors.white};
+	font-size: 14px;
+	line-height: 24px;
+	text-transform: uppercase;
+	font-family: GT America;
+	font-weight: 700;
+	font-stretch: condensed;
+`;
+
+const StatusDot = styled.div`
+	width: 10px;
+	height: 10px;
+	box-shadow: 0px 0px 10px rgba(0, 209, 255, 0.5);
+	margin-right: 8px;
+	border-radius: 50%;
+`;
+
+const Status = styled(FlexDivCentered)<{ synthStatus: SynthStatus }>`
+	text-transform: uppercase;
+	font-family: GT America;
+	font-weight: 700;
+	font-stretch: condensed;
+
+	${(props) => {
+		switch (props.synthStatus) {
+			case SynthStatus.LIVE: {
+				return css`
+					color: ${(props) => props.theme.colors.green};
+					${StatusDot} {
+						background: ${(props) => props.theme.colors.green};
+					}
+				`;
+			}
+			case SynthStatus.PAUSED: {
+				return css`
+					color: ${(props) => props.theme.colors.orange};
+					${StatusDot} {
+						background: ${(props) => props.theme.colors.orange};
+					}
+				`;
+			}
+			case SynthStatus.FROZEN: {
+				return css`
+					color: ${(props) => props.theme.colors.pink};
+					${StatusDot} {
+						background: ${(props) => props.theme.colors.pink};
+					}
+				`;
+			}
+			default:
+				return css`
+					color: ${(props) => props.theme.colors.green};
+					${StatusDot} {
+						background: ${(props) => props.theme.colors.green};
+					}
+				`;
+		}
+	}}
+`;
+
+export default SynthCard;

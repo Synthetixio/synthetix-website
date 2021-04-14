@@ -1,14 +1,17 @@
 import App from 'next/app';
 import Head from 'next/head';
 import { ThemeProvider } from 'styled-components';
+import { QueryClient, QueryClientProvider, useQuery } from 'react-query';
+import initReactFastclick from 'react-fastclick';
+
 import { theme } from '../styles/theme';
 import { GlobalStyle } from '../styles/globals';
-
-import initReactFastclick from 'react-fastclick';
 
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
 initReactFastclick();
+
+const queryClient = new QueryClient();
 
 export default class MyApp extends App {
 	render() {
@@ -68,9 +71,17 @@ export default class MyApp extends App {
 					<meta name="msapplication-square150x150logo" content="/favicon/mstile-150x150.png" />
 					<meta name="msapplication-wide310x150logo" content="/favicon/mstile-310x150.png" />
 					<meta name="msapplication-square310x310logo" content="/favicon/mstile-310x310.png" />
+					<link rel="icon" href="/favicon.ico" />
+					<meta
+						name="description"
+						content="Synthetix is a derivatives liquidity protocol providing the backbone for derivatives trading in DeFi, allowing anyone, anywhere to gain on-chain exposure to a vast range of assets."
+					/>
+					<meta name="og:image" content="/public/logo-x.png" />
 				</Head>
 				<GlobalStyle />
-				<Component {...pageProps} />
+				<QueryClientProvider client={queryClient}>
+					<Component {...pageProps} />
+				</QueryClientProvider>
 			</ThemeProvider>
 		);
 	}

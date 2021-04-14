@@ -25,14 +25,8 @@ const Home = ({ totalLocked }: ApiStatsProps) => {
 		<>
 			<Head>
 				<title>Synthetix</title>
-				<link rel="icon" href="/favicon.ico" />
-				<meta
-					name="description"
-					content="Synthetix is a derivatives liquidity protocol providing the backbone for derivatives trading in DeFi, allowing anyone, anywhere to gain on-chain exposure to a vast range of assets."
-				/>
-				<meta name="og:image" content="/public/logo-x.png" />
 			</Head>
-			<Layout>
+			<Layout showBgGradient={true}>
 				<MainSection />
 				<TotalSection totalLocked={totalLocked} />
 				<BuildSection />

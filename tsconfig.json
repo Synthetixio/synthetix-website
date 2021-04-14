@@ -14,7 +14,8 @@
 		"skipLibCheck": true,
 		"sourceMap": true,
 		"strict": true,
-		"target": "es6"
+		"target": "es6",
+		"baseUrl": "."
 	},
 	"exclude": [".github", ".next", "_site", "coverage", "cypress", "node_modules", "public"],
 	"include": ["next-env.d.ts", "**/*.ts", "**/*.tsx"]
