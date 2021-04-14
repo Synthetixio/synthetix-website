@@ -36,8 +36,6 @@ const SynthsInfo = () => {
 		[synths, synthCategory]
 	);
 
-	console.log(synthCategory);
-
 	return (
 		<>
 			<Categories>
