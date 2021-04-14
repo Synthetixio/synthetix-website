@@ -1,4 +1,4 @@
-import { CurrencyKey } from 'constants/currency';
+import { CurrencyKey } from 'src/constants/currency';
 
 export type SynthExchange = {
 	block: number;
@@ -20,30 +20,3 @@ export type SynthExchange = {
 };
 
 export type SynthExchanges = SynthExchange[];
-
-export type BaseRateUpdate = {
-	timestamp: number;
-	rate: number;
-};
-
-export type BaseRateUpdates = BaseRateUpdate[];
-
-export type RateUpdate = BaseRateUpdate & {
-	block: number;
-	synth: CurrencyKey;
-	date: string;
-	hash: string;
-};
-
-export type RateUpdates = RateUpdate[];
-
-export type HistoricalRatesUpdates = {
-	rates: RateUpdates;
-	low: number;
-	high: number;
-	change: number;
-};
-
-export type MarketCap = {
-	marketCap: number;
-};
