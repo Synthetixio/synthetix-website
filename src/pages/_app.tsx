@@ -1,7 +1,7 @@
 import App from 'next/app';
 import Head from 'next/head';
 import { ThemeProvider } from 'styled-components';
-import { QueryClient, QueryClientProvider, useQuery } from 'react-query';
+import { QueryClient, QueryClientProvider } from 'react-query';
 import initReactFastclick from 'react-fastclick';
 
 import { theme } from '../styles/theme';

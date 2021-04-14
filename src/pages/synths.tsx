@@ -29,7 +29,9 @@ const StyledPageCopy = styled(PageCopy)`
 
 const StyledPageLayout = styled(PageLayout)`
 	background: linear-gradient(180deg, #08021e 0%, #120446 146.21%);
-
+	.container {
+		min-height: 1500px;
+	}
 	.footer {
 		&::before {
 			content: '';

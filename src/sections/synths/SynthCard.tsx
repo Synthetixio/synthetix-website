@@ -1,4 +1,4 @@
-import { FC } from 'react';
+import { FC, useMemo } from 'react';
 import styled, { css } from 'styled-components';
 import media from 'styled-media-query';
 
@@ -13,6 +13,8 @@ import {
 import { Synth } from '@synthetixio/contracts-interface';
 
 import { Token } from 'src/queries/tokenLists/types';
+import { formatFiatCurrency, formatPercent } from 'src/utils/formatters/number';
+import useMarketClosed from 'src/hooks/useMarketClosed';
 
 enum SynthStatus {
 	LIVE = 'live',
@@ -23,9 +25,11 @@ enum SynthStatus {
 type SynthCardProps = {
 	synth: Synth;
 	tokenInfo: Token | null;
+	price: number | null;
+	exchangeFeeRate: number;
 };
 
-const SynthCard: FC<SynthCardProps> = ({ synth, tokenInfo }) => {
+const SynthCard: FC<SynthCardProps> = ({ synth, tokenInfo, price, exchangeFeeRate }) => {
 	const logoURI = tokenInfo != null ? tokenInfo.logoURI : null;
 
 	const currencyKey = synth.name;
@@ -41,6 +45,18 @@ const SynthCard: FC<SynthCardProps> = ({ synth, tokenInfo }) => {
 		synthDescription = `Tracks the price of the index: ${currencyKey} ${synth.description} through price feeds supplied by an oracle.`;
 	}
 
+	const marketClosed = useMarketClosed(currencyKey);
+
+	const synthStatus = useMemo(() => {
+		if (marketClosed.isCurrencyFrozen) {
+			return SynthStatus.FROZEN;
+		}
+		if (marketClosed.isMarketClosed) {
+			return SynthStatus.PAUSED;
+		}
+		return SynthStatus.LIVE;
+	}, [marketClosed]);
+
 	return (
 		<ExternalLink href={`https://kwenta.io/exchange/${currencyKey}`}>
 			<StyledCard>
@@ -53,15 +69,17 @@ const SynthCard: FC<SynthCardProps> = ({ synth, tokenInfo }) => {
 						<SynthSymbol>{currencyKey}</SynthSymbol>
 						<div>
 							<SynthPriceLabel>usd price</SynthPriceLabel>
-							<SynthPrice>$400.00</SynthPrice>
+							<SynthPrice>
+								{price != null ? formatFiatCurrency(price, { sign: '$' }) : '-'}
+							</SynthPrice>
 						</div>
 					</div>
 				</FlexDivCentered>
 				<SynthDescription>{synthDescription}</SynthDescription>
 				<FlexDivRowCentered>
-					<FeeInfo>fee: 0.07%</FeeInfo>
-					<Status synthStatus={SynthStatus.LIVE}>
-						<StatusDot /> {SynthStatus.LIVE}
+					<FeeInfo>fee: {formatPercent(exchangeFeeRate)}</FeeInfo>
+					<Status synthStatus={synthStatus}>
+						<StatusDot /> {synthStatus}
 					</Status>
 				</FlexDivRowCentered>
 			</StyledCard>

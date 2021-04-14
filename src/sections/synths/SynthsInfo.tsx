@@ -1,14 +1,16 @@
 import styled from 'styled-components';
 import { useMemo, useState } from 'react';
+import media from 'styled-media-query';
+import { theme } from 'src/styles/theme';
+import { resetButtonCSS } from 'src/styles/common';
 
 import snxjs from 'src/lib/snxjs';
 
 import useSynthetixTokenList from 'src/queries/tokenLists/useSynthetixTokenList';
+import useExchangeRatesQuery from 'src/queries/rates/useExchangeRatesQuery';
 
 import SynthCard from './SynthCard';
-import media from 'styled-media-query';
-import { theme } from 'src/styles/theme';
-import { resetButtonCSS } from 'src/styles/common';
+import { keyBy } from 'lodash';
 
 enum SynthCategory {
 	ALL = 'all',
@@ -20,6 +22,8 @@ enum SynthCategory {
 
 const SYNTH_CATEGORIES = Object.values(SynthCategory);
 
+const DEFAULT_EXCHANGE_FEE = '10000000000000000';
+
 const SynthsInfo = () => {
 	const [synthCategory, setSynthCategory] = useState<SynthCategory>(SynthCategory.ALL);
 	const synthetixTokenListQuery = useSynthetixTokenList();
@@ -28,6 +32,8 @@ const SynthsInfo = () => {
 		: null;
 	const synths = snxjs.synths;
 
+	const synthsMap = useMemo(() => keyBy(synths, 'name'), [synths]);
+
 	const filteredSynths = useMemo(
 		() =>
 			synthCategory !== SynthCategory.ALL
@@ -35,6 +41,9 @@ const SynthsInfo = () => {
 				: synths,
 		[synths, synthCategory]
 	);
+
+	const exchangeRatesQuery = useExchangeRatesQuery();
+	const exchangeRates = exchangeRatesQuery.isSuccess ? exchangeRatesQuery.data ?? null : null;
 
 	return (
 		<>
@@ -60,8 +69,13 @@ const SynthsInfo = () => {
 					const currencyKey = synth.name;
 
 					const tokenInfo = synthetixTokensMap != null ? synthetixTokensMap[currencyKey] : null;
+					const price = exchangeRates != null ? exchangeRates[currencyKey] : null;
+					const category = synthsMap[currencyKey].category;
 
-					return <SynthCard key={currencyKey} {...{ synth, tokenInfo }} />;
+					const exchangeFeeRate =
+						Number(snxjs.defaults.EXCHANGE_FEE_RATES[category] ?? DEFAULT_EXCHANGE_FEE) / 1e18;
+
+					return <SynthCard key={currencyKey} {...{ synth, tokenInfo, price, exchangeFeeRate }} />;
 				})}
 			</Cards>
 		</>
@@ -88,7 +102,7 @@ const Categories = styled.div`
 
 	${media.lessThan('small')`
 		grid-auto-flow: initial;
-    	grid-template-columns: auto auto;
+    	grid-template-columns: repeat(3, auto);
     	margin-bottom: 20px;
 		grid-gap: initial;
 		justify-content: initial;
