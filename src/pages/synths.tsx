@@ -14,7 +14,7 @@ const Synths = () => (
 			<PageTitle>Synths</PageTitle>
 			<StyledPageCopy>
 				Synths are derivative tokens providing exposure to a range of assets. They can be traded
-				with infinite liqiduity and zero slippage by leveraging the Synthetix protocol’s unique
+				with infinite liquidity and zero slippage by leveraging the Synthetix protocol’s unique
 				pooled collateral model. Trades between Synths generate a small fee that is distributed to
 				SNX collateral providers.
 			</StyledPageCopy>
