@@ -11,7 +11,7 @@ const EarnSection = () => (
 				<SectionDescription>
 					Earn rewards by providing collateral to the Synthetix protocol.
 				</SectionDescription>
-				<EarnButton buttonType="secondary" link="https://mintr.synthetix.io">
+				<EarnButton buttonType="secondary" link="https://staking.synthetix.io">
 					Stake
 				</EarnButton>
 			</Left>

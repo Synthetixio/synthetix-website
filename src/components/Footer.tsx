@@ -1,22 +1,26 @@
+import { FC } from 'react';
 import styled from 'styled-components';
 import { Logo, Menu, Socials } from './';
 import media from 'styled-media-query';
 
-const FooterComponent = () => {
-	return (
-		<Footer>
-			<Left>
-				<Logo small={true} />
-			</Left>
-			<Right>
-				<Menu />
-				<FooterSocials />
-			</Right>
-		</Footer>
-	);
+type FooterComponentProps = {
+	className?: string;
 };
 
+const FooterComponent: FC<FooterComponentProps> = ({ className, ...rest }) => (
+	<Footer {...{ className }} {...rest}>
+		<Left>
+			<Logo small={true} />
+		</Left>
+		<Right>
+			<Menu />
+			<FooterSocials />
+		</Right>
+	</Footer>
+);
+
 const Footer = styled.footer`
+	position: relative;
 	height: 159px;
 	width: 100%;
 	padding: 0 66px 0 114px;
