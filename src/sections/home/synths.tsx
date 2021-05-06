@@ -5,24 +5,21 @@ import media from 'styled-media-query';
 
 const SynthSection = () => (
 	<SynthContainer>
-		<Columns>
-			<Left>
-				<SynthGraphic />
-			</Left>
-			<Right>
-				<h2>Synthetic Assets</h2>
-				<SectionDescription style={{ maxWidth: 360 }}>
-					Capture the price movements of popular cryptopcurrencies, fiat currencies, stocks,
-					commodities and more with zero slippage.
-					<br />
-					Synthetic assets or Synths, are assets voted into existence by the community which
-					represent the price of different types of assets.
-				</SectionDescription>
-				<BuildButton buttonType="secondary" link="https://docs.synthetix.io/">
-					Explore
-				</BuildButton>
-			</Right>
-		</Columns>
+		<SynthGraphic src="home/illustration_synths.svg" />
+		<Right>
+			<h2>Synthetic Assets</h2>
+			<SectionDescription>
+				Capture the price movements of popular cryptopcurrencies, fiat currencies, stocks,
+				commodities and more with zero slippage.
+				<br />
+				Synthetic assets or Synths, are assets voted into existence by the community which represent
+				the price of different types of assets.
+			</SectionDescription>
+			<BuildButton buttonType="secondary" link="/synths" external={false}>
+				Explore
+			</BuildButton>
+		</Right>
+
 		<Line />
 	</SynthContainer>
 );
@@ -35,65 +32,49 @@ const SynthContainer = styled(Section)`
 	align-items: center;
 
 	${media.lessThan('large')`
-		padding: 0 76px;
-		min-height: 742px;
+		min-height: 750px;
+		flex-direction: column-reverse;
+		justify-content: center;
+		
 	`}
 `;
 
-const Columns = styled.div`
-	width: 100%;
-	height: 100%;
-	max-width: 1160px;
-	margin-top: 4px;
-	display: flex;
-	align-items: center;
-	justify-content: space-between;
-
-	${media.lessThan('medium')`
-		flex-direction: column;
-		margin-top: 40px;
-		justify-content: flex-start;
-	`}
-`;
-
-const Left = styled.div`
-	position: relative;
-	text-align: center;
-	left: -49px;
-	${media.lessThan('large')`
-		left: -89px;
-	`}
-	${media.lessThan('medium')`
-		left: auto;
-		position: relative;
-	`}
-`;
 const Right = styled.div`
+	position: absolute;
+	right: -100px;
+	width: 50%;
+
 	${media.lessThan('large')`
-		margin-left: -49px;
+		right: 140px;
+		max-width: 200px;
 	`}
 
 	${media.lessThan('medium')`
-		margin-left: 0;
+		position: relative;
 		text-align: center;
-		margin-top: 58px;
-		margin-bottom: 80px;
+		right: 0px;
+		width: 100%;
+		margin: 48px 0px;
 	`}
 `;
 
-const SynthGraphic = styled.div`
-	width: 984px;
-	height: 469px;
-	background-size: cover;
-	background-position: left left;
-	background-image: url('/home/synths-graphic.svg');
-	background-repeat: no-repeat;
+const SynthGraphic = styled.img`
+	position: absolute;
+	left: 0px;
+	height: auto;
+	width: 50%;
+
+	${media.lessThan('large')`
+		width: 65%;
+		right: 0;
+	`}
 
 	${media.lessThan('medium')`
-	background-image: url('/home/synths-graphic.svg');
+		position: relative;
+		width: 100%;
+		right: auto;
+		margin: 48px 0px;
 
-		height: 298px;
-		width: 298px;
 	`}
 `;
 
