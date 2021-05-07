@@ -11,6 +11,7 @@ import EarnSection from '../sections/home/earn';
 import PartnersSection from '../sections/home/partners';
 import { Layout } from '../components';
 import { fetchTotalLocked } from '../../lib/exchange-api';
+import SynthSection from 'src/sections/home/synths';
 
 export interface ApiStatsProps {
 	totalLocked?: number;
@@ -31,6 +32,7 @@ const Home = ({ totalLocked }: ApiStatsProps) => {
 			<Layout showBgGradient={true}>
 				<MainSection />
 				<TotalSection totalLocked={totalLocked} />
+				<SynthSection />
 				<BuildSection />
 				<EarnSection />
 				<PoweredBy />

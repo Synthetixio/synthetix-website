@@ -6,6 +6,7 @@ import { theme } from '../styles/theme';
 type ButtonProps = {
 	readonly link: string;
 	readonly className?: string;
+	readonly external?: boolean;
 } & StyledButton;
 
 type StyledButton = {
@@ -17,9 +18,10 @@ const ButtonComponent: FunctionComponent<ButtonProps> = ({
 	className,
 	children,
 	buttonType = 'primary',
+	external = true,
 }) => (
 	<Link href={link} passHref={true}>
-		<A className={className} target="_blank" rel="noopener noreferrer">
+		<A className={className} target={external ? '_blank' : ''} rel="noopener noreferrer">
 			<Button buttonType={buttonType}>{children}</Button>
 		</A>
 	</Link>
