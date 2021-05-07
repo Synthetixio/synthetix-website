@@ -25,27 +25,16 @@ const SynthSection = () => (
 );
 
 const SynthContainer = styled(Section)`
-	${(props) => props.theme.animations.show};
+	min-height: 891px;
 
-	opacity: 0;
-	animation-delay: 400ms;
-	height: 100vh;
-	min-height: 753px;
 	display: flex;
+	justify-content: center;
 	align-items: center;
-	overflow: hidden;
 
-	${media.lessThan('medium')`
-		flex-direction: column-reverse;
-		height: 634px;
-		min-height: 634px;
-		margin: 80px 0px;
-		height: 100%;
+	${media.lessThan('large')`
+	padding: 0 76px;
+	min-height: 742px;
 `}
-
-	${media.greaterThan('1350px' as any)`
-		padding: 0 0 0 153px;
-	`}
 `;
 
 const Right = styled.div`
