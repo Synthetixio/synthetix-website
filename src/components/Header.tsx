@@ -46,7 +46,7 @@ const HeaderComponent = () => {
 			/>
 			<Logo />
 			<CSSTransition in={isOpen} timeout={300} {...animationProps}>
-				<Menu isOpen={isOpen} />
+				<Menu isHeader={true} isOpen={isOpen} />
 			</CSSTransition>
 		</Header>
 	);
