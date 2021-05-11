@@ -31,6 +31,10 @@ const data = [
 		label: 'community',
 	},
 	{
+		externalLink: 'https://jobs.defialliance.co/jobs?q=synthetix',
+		label: 'careers',
+	},
+	{
 		externalLink: 'https://blog.synthetix.io/',
 		label: 'blog',
 	},
