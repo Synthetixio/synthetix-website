@@ -17,11 +17,12 @@
 		"tsc": "tsc --noEmit"
 	},
 	"dependencies": {
-		"@synthetixio/contracts-interface": "2.41.0-1",
+		"@synthetixio/contracts-interface": "2.45.2",
 		"axios": "0.20.0",
+		"bignumber.js": "9.0.1",
 		"ethers": "5.1.0",
-		"lodash": "4.17.21",
 		"ip-range-check": "0.2.0",
+		"lodash": "4.17.21",
 		"next": "9.5.5",
 		"numeral": "2.0.6",
 		"react": "16.13.1",

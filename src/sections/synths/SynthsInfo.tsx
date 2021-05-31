@@ -7,7 +7,7 @@ import { resetButtonCSS } from 'src/styles/common';
 import snxjs from 'src/lib/snxjs';
 
 import useSynthetixTokenList from 'src/queries/tokenLists/useSynthetixTokenList';
-import useExchangeRatesQuery from 'src/queries/rates/useExchangeRatesQuery';
+import useExchangeInfoQuery from 'src/queries/exchangeInfo/useExchangeInfoQuery';
 
 import SynthCard from './SynthCard';
 import { keyBy } from 'lodash';
@@ -22,8 +22,6 @@ enum SynthCategory {
 
 const SYNTH_CATEGORIES = Object.values(SynthCategory);
 
-const DEFAULT_EXCHANGE_FEE = '10000000000000000';
-
 const SynthsInfo = () => {
 	const [synthCategory, setSynthCategory] = useState<SynthCategory>(SynthCategory.ALL);
 	const synthetixTokenListQuery = useSynthetixTokenList();
@@ -31,8 +29,6 @@ const SynthsInfo = () => {
 		? synthetixTokenListQuery.data.tokensMap ?? null
 		: null;
 	const synths = snxjs.synths;
-
-	const synthsMap = useMemo(() => keyBy(synths, 'name'), [synths]);
 
 	const filteredSynths = useMemo(
 		() =>
@@ -42,8 +38,11 @@ const SynthsInfo = () => {
 		[synths, synthCategory]
 	);
 
-	const exchangeRatesQuery = useExchangeRatesQuery();
-	const exchangeRates = exchangeRatesQuery.isSuccess ? exchangeRatesQuery.data ?? null : null;
+	const exchangeInfoQuery = useExchangeInfoQuery();
+	const exchangeInfo = exchangeInfoQuery.isSuccess ? exchangeInfoQuery.data ?? null : null;
+
+	const exchangeRates = exchangeInfo?.rates ?? null;
+	const exchangeFees = exchangeInfo?.fees ?? null;
 
 	return (
 		<>
@@ -69,11 +68,9 @@ const SynthsInfo = () => {
 					const currencyKey = synth.name;
 
 					const tokenInfo = synthetixTokensMap != null ? synthetixTokensMap[currencyKey] : null;
-					const price = exchangeRates != null ? exchangeRates[currencyKey] : null;
-					const category = synthsMap[currencyKey].category;
 
-					const exchangeFeeRate =
-						Number(snxjs.defaults.EXCHANGE_FEE_RATES[category] ?? DEFAULT_EXCHANGE_FEE) / 1e18;
+					const price = exchangeRates != null ? exchangeRates[currencyKey] : null;
+					const exchangeFeeRate = exchangeFees != null ? exchangeFees[currencyKey] : null;
 
 					return <SynthCard key={currencyKey} {...{ synth, tokenInfo, price, exchangeFeeRate }} />;
 				})}
