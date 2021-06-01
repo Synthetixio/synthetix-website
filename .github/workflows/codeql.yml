@@ -26,13 +26,13 @@ jobs:
         if: ${{ github.event_name == 'pull_request' }}
 
       - name: Initialize CodeQL
-        uses: github/codeql-action/init@v1
+        uses: github/codeql-action/init@4917d3c7e89fbbaf67ce4697fa42cd195979dbbd
         with:
           queries: security-and-quality
           languages: javascript
 
       - name: Autobuild
-        uses: github/codeql-action/autobuild@v1
+        uses: github/codeql-action/autobuild@4917d3c7e89fbbaf67ce4697fa42cd195979dbbd
 
       - name: Perform CodeQL Analysis
-        uses: github/codeql-action/analyze@v1
+        uses: github/codeql-action/analyze@4917d3c7e89fbbaf67ce4697fa42cd195979dbbd
