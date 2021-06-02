@@ -26,7 +26,7 @@ type SynthCardProps = {
 	synth: Synth;
 	tokenInfo: Token | null;
 	price: number | null;
-	exchangeFeeRate: number;
+	exchangeFeeRate: number | null;
 };
 
 const SynthCard: FC<SynthCardProps> = ({ synth, tokenInfo, price, exchangeFeeRate }) => {
@@ -77,7 +77,7 @@ const SynthCard: FC<SynthCardProps> = ({ synth, tokenInfo, price, exchangeFeeRat
 				</FlexDivCentered>
 				<SynthDescription>{synthDescription}</SynthDescription>
 				<FlexDivRowCentered>
-					<FeeInfo>fee: {formatPercent(exchangeFeeRate)}</FeeInfo>
+					<FeeInfo>fee: {exchangeFeeRate != null ? formatPercent(exchangeFeeRate) : '-'}</FeeInfo>
 					<Status synthStatus={synthStatus}>
 						<StatusDot /> {synthStatus}
 					</Status>

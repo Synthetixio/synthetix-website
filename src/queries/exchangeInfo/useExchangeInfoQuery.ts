@@ -8,6 +8,7 @@ import { CurrencyKey } from 'src/constants/currency';
 import { iStandardSynth, synthToAsset } from 'src/utils/currencies';
 
 export type Rates = Record<CurrencyKey, number>;
+export type Fees = Record<CurrencyKey, number>;
 
 type CurrencyRate = BigNumberish;
 type SynthRatesTuple = [string[], CurrencyRate[]];
@@ -15,11 +16,12 @@ type SynthRatesTuple = [string[], CurrencyRate[]];
 // Additional commonly used currencies to fetch, besides the one returned by the SynthUtil.synthsRates
 const additionalCurrencies = ['SNX'].map(ethers.utils.formatBytes32String);
 
-const useExchangeRatesQuery = (options?: UseQueryOptions<Rates>) => {
-	return useQuery<Rates>(
+const useExchangeInfoQuery = (options?: UseQueryOptions<{ rates: Rates; fees: Fees }>) => {
+	return useQuery<{ rates: Rates; fees: Fees }>(
 		QUERY_KEYS.Rates.ExchangeRates,
 		async () => {
 			const exchangeRates: Rates = {};
+			const exchangeFees: Fees = {};
 
 			const [synthsRates, ratesForCurrencies] = (await Promise.all([
 				snxjs.contracts.SynthUtil.synthsRates(),
@@ -29,7 +31,25 @@ const useExchangeRatesQuery = (options?: UseQueryOptions<Rates>) => {
 			const synths = [...synthsRates[0], ...additionalCurrencies] as string[];
 			const rates = [...synthsRates[1], ...ratesForCurrencies] as CurrencyRate[];
 
-			synths.forEach((currencyKeyBytes32: CurrencyKey, idx: number) => {
+			const fees = synths.map(async (currencyKeyBytes32: CurrencyKey, idx: number) => {
+				const currencyKey = ethers.utils.parseBytes32String(currencyKeyBytes32);
+				const exchangeFee = await snxjs.contracts.SystemSettings.exchangeFeeRate(
+					currencyKeyBytes32
+				);
+				const fees = Number(ethers.utils.formatEther(exchangeFee));
+				return {
+					currencyKey,
+					fees,
+				};
+			});
+
+			const feesResolved = await Promise.all(fees);
+
+			feesResolved.forEach((e) => {
+				exchangeFees[e.currencyKey] = e.fees;
+			});
+
+			synths.forEach(async (currencyKeyBytes32: CurrencyKey, idx: number) => {
 				const currencyKey = ethers.utils.parseBytes32String(currencyKeyBytes32);
 				const rate = Number(ethers.utils.formatEther(rates[idx]));
 
@@ -40,10 +60,10 @@ const useExchangeRatesQuery = (options?: UseQueryOptions<Rates>) => {
 				}
 			});
 
-			return exchangeRates;
+			return { rates: exchangeRates, fees: exchangeFees };
 		},
 		options
 	);
 };
 
-export default useExchangeRatesQuery;
+export default useExchangeInfoQuery;
