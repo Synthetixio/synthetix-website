@@ -9,7 +9,7 @@ const SynthSection = () => (
 		<Right>
 			<h2>Synthetic Assets</h2>
 			<SectionDescription>
-				Capture the price movements of popular cryptopcurrencies, fiat currencies, stocks,
+				Capture the price movements of popular cryptocurrencies, fiat currencies, stocks,
 				commodities and more with zero slippage.
 				<br />
 				<br />
