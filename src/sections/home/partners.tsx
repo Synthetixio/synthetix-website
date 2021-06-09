@@ -1,7 +1,6 @@
 import styled from 'styled-components';
 import { Line } from '../../components';
 import { sectionMixin } from '../../components/Section';
-import PFramework from '../../svg/PFramework';
 import PXbto from '../../svg/PXbto';
 import PHashed from '../../svg/PHashed';
 import PParafi from '../../svg/PParafi';
@@ -14,7 +13,6 @@ const PartnersSection = () => (
 		<PartnersContainer>
 			<h3>Our liquidity partners</h3>
 			<StyledPartners>
-				<PFramework />
 				<PParafi />
 				<PThreeArrows src="/home/three-arrows-logo.png" />
 				<PXbto />
