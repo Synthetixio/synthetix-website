@@ -4,7 +4,6 @@ export { default as BurgerMenu } from './BurgerMenu';
 export { default as Discord } from './Discord';
 export { default as Github } from './Github';
 export { default as PDtc } from './PDtc';
-export { default as PFramework } from './PFramework';
 export { default as PHashed } from './PHashed';
 export { default as PParafi } from './PParafi';
 export { default as PThreeArrows } from './PThreeArrows';
