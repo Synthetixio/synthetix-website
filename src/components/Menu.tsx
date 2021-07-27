@@ -37,7 +37,7 @@ const data = [
 		hideOnHeader: false,
 	},
 	{
-		externalLink: 'https://jobs.defialliance.co/jobs?q=synthetix',
+		externalLink: 'https://jobs.defialliance.co/companies/synthetix',
 		label: 'careers',
 		hideOnHeader: true,
 	},
