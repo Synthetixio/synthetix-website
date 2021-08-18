@@ -77,6 +77,22 @@ export default class MyApp extends App {
 						content="Synthetix is a derivatives liquidity protocol providing the backbone for derivatives trading in DeFi, allowing anyone, anywhere to gain on-chain exposure to a vast range of assets."
 					/>
 					<meta name="og:image" content="/public/logo-x.png" />
+					{/* <!-- Matomo --> */}
+					<script>
+						var _paq = window._paq = window._paq || [];
+						/* tracker methods like "setCustomDimension" should be called before "trackPageView" */
+						_paq.push(['trackPageView']);
+						_paq.push(['enableLinkTracking']);
+						(function() {
+							var u="https://analytics.synthetix.io/";
+							_paq.push(['setTrackerUrl', u+'matomo.php']);
+							_paq.push(['setSiteId', '1']);
+							var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0];
+							g.async=true; g.src=u+'matomo.js'; s.parentNode.insertBefore(g,s);
+						})();
+					</script>
+					<noscript><p><img src="https://analytics.synthetix.io/matomo.php?idsite=1&amp;rec=1" style="border:0;" alt="" /></p></noscript>
+					{/* <!-- End Matomo Code --> */}
 				</Head>
 				<GlobalStyle />
 				<QueryClientProvider client={queryClient}>
