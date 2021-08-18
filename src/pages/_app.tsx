@@ -4,16 +4,25 @@ import { ThemeProvider } from 'styled-components';
 import { QueryClient, QueryClientProvider } from 'react-query';
 import initReactFastclick from 'react-fastclick';
 
+import { init } from '@socialgouv/matomo-next';
+
 import { theme } from '../styles/theme';
 import { GlobalStyle } from '../styles/globals';
 
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
+
+const MATOMO_URL = process.env.NEXT_PUBLIC_MATOMO_URL;
+const MATOMO_SITE_ID = process.env.NEXT_PUBLIC_MATOMO_SITE_ID;
+
 initReactFastclick();
 
 const queryClient = new QueryClient();
 
 export default class MyApp extends App {
+	componentDidMount() {
+		init({ url: MATOMO_URL, siteId: MATOMO_SITE_ID });
+	}
 	render() {
 		const { Component, pageProps } = this.props;
 		return (
