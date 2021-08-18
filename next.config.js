@@ -30,6 +30,8 @@ module.exports = withBundleAnalyzer(
 			NEXT_PUBLIC_BUILD_TIMESTAMP: +date,
 			NEXT_PUBLIC_APP_NAME: packageJson.name,
 			NEXT_PUBLIC_APP_VERSION: packageJson.version,
+			NEXT_PUBLIC_MATOMO_URL: process.env.NEXT_PUBLIC_MATOMO_URL,
+			NEXT_PUBLIC_MATOMO_SITE_ID: process.env.NEXT_PUBLIC_MATOMO_SITE_ID,
 			CF_IP: process.env.CF_IP,
 		},
 		experimental: {

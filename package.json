@@ -17,6 +17,7 @@
 		"tsc": "tsc --noEmit"
 	},
 	"dependencies": {
+		"@socialgouv/matomo-next": "1.2.2",
 		"@synthetixio/contracts-interface": "2.45.2",
 		"axios": "0.20.0",
 		"bignumber.js": "9.0.1",
