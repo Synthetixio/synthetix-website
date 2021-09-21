@@ -33,7 +33,7 @@ const SynthsInfo = () => {
 	const filteredSynths = useMemo(
 		() =>
 			synthCategory !== SynthCategory.ALL
-				? synths.filter((synth) => synth.category === synthCategory)
+				? synths.filter((synth) => synth.category.toString() === synthCategory.toString())
 				: synths,
 		[synths, synthCategory]
 	);
