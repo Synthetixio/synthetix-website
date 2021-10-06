@@ -2,7 +2,14 @@ import React from 'react';
 
 const SvgPParafi = (props: Props): JSX.Element => {
 	return (
-		<svg width={180} height={48} viewBox="0 0 400 107" fill="none" {...props}>
+		<svg
+			width={180}
+			height={48}
+			viewBox="0 0 400 107"
+			fill="none"
+			xmlns="http://www.w3.org/2000/svg"
+			{...props}
+		>
 			<path
 				fillRule="evenodd"
 				clipRule="evenodd"

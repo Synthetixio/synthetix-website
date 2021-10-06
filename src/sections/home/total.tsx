@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 import numeral from 'numeral';
-import { Section, Line } from '../../components';
+import { Section } from '../../components';
 
 import { ApiStatsProps } from '../../pages';
 import media from 'styled-media-query';
@@ -18,7 +18,6 @@ const TotalSection = ({ totalLocked }: ApiStatsProps) => {
 					</StakedValue>
 				</TotalStakedBar>
 			</TotalContainer>
-			<Line static />
 		</>
 	);
 };
@@ -44,17 +43,18 @@ const TotalStakedBar = styled.div`
 
 const StakedHeader = styled.h3`
 	font-family: GT America;
+	font-style: normal;
 	font-weight: 900;
-	font-size: 29px;
-	line-height: 39px;
+	font-size: 32px;
+	line-height: 48px;
 	text-align: center;
 	text-transform: uppercase;
 	font-stretch: expanded;
 	color: white;
 
 	${media.lessThan('medium')`
-		font-size: 20px;
-		line-height: 24px;
+		font-size: 16px;
+		line-height: 20px;
 		max-width: 295px;
 	`}
 `;

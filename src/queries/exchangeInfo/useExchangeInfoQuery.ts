@@ -1,11 +1,10 @@
 import { useQuery, UseQueryOptions } from 'react-query';
 import { BigNumberish, ethers } from 'ethers';
 
-import snxjs from 'src/lib/snxjs';
-
 import QUERY_KEYS from 'src/constants/queryKeys';
 import { CurrencyKey } from 'src/constants/currency';
 import { iStandardSynth, synthToAsset } from 'src/utils/currencies';
+import getSNXJS from 'src/lib/snxjs';
 
 export type Rates = Record<CurrencyKey, number>;
 export type Fees = Record<CurrencyKey, number>;
@@ -17,12 +16,12 @@ type SynthRatesTuple = [string[], CurrencyRate[]];
 const additionalCurrencies = ['SNX'].map(ethers.utils.formatBytes32String);
 
 const useExchangeInfoQuery = (options?: UseQueryOptions<{ rates: Rates; fees: Fees }>) => {
+	const snxjs = getSNXJS();
 	return useQuery<{ rates: Rates; fees: Fees }>(
 		QUERY_KEYS.Rates.ExchangeRates,
 		async () => {
 			const exchangeRates: Rates = {};
 			const exchangeFees: Fees = {};
-
 			const [synthsRates, ratesForCurrencies] = (await Promise.all([
 				snxjs.contracts.SynthUtil.synthsRates(),
 				snxjs.contracts.ExchangeRates.ratesForCurrencies(additionalCurrencies),
@@ -31,7 +30,7 @@ const useExchangeInfoQuery = (options?: UseQueryOptions<{ rates: Rates; fees: Fe
 			const synths = [...synthsRates[0], ...additionalCurrencies] as string[];
 			const rates = [...synthsRates[1], ...ratesForCurrencies] as CurrencyRate[];
 
-			const fees = synths.map(async (currencyKeyBytes32: CurrencyKey, idx: number) => {
+			const fees = synths.map(async (currencyKeyBytes32: CurrencyKey) => {
 				const currencyKey = ethers.utils.parseBytes32String(currencyKeyBytes32);
 				const exchangeFee = await snxjs.contracts.SystemSettings.exchangeFeeRate(
 					currencyKeyBytes32
@@ -51,6 +50,7 @@ const useExchangeInfoQuery = (options?: UseQueryOptions<{ rates: Rates; fees: Fe
 
 			synths.forEach(async (currencyKeyBytes32: CurrencyKey, idx: number) => {
 				const currencyKey = ethers.utils.parseBytes32String(currencyKeyBytes32);
+				// @ts-ignore @TODO MF fix it
 				const rate = Number(ethers.utils.formatEther(rates[idx]));
 
 				exchangeRates[currencyKey] = rate;

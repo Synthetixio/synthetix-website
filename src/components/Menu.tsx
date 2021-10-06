@@ -64,19 +64,19 @@ const MenuComponent = (props: MenuProps) => {
 			{data.map((item) => {
 				if (props.isHeader) {
 					return (
-						<>
-							{!item.hideOnHeader && (
-								<MenuItem key={item.label}>
-									{item.link ? (
-										<Link href={item.link}>
-											<a>{item.label}</a>
-										</Link>
-									) : (
-										<ExternalLink href={item.externalLink}>{item.label}</ExternalLink>
-									)}
-								</MenuItem>
-							)}
-						</>
+						!item.hideOnHeader && (
+							<MenuItem key={item.label}>
+								{item.link ? (
+									<Link href={item.link}>
+										<a>{item.label}</a>
+									</Link>
+								) : (
+									<ExternalLink href={item.externalLink} key={item.label}>
+										{item.label}
+									</ExternalLink>
+								)}
+							</MenuItem>
+						)
 					);
 				} else {
 					return (

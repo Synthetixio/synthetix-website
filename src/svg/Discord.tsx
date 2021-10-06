@@ -2,7 +2,7 @@ import React from 'react';
 
 const SvgDiscord = (props: Props): JSX.Element => {
 	return (
-		<svg width={22} height={25} fill="none" {...props}>
+		<svg width={22} height={25} fill="none" xmlns="http://www.w3.org/2000/svg" {...props}>
 			<path
 				d="M8.725 10.488c-.717 0-1.283.625-1.283 1.387s.579 1.387 1.283 1.387c.716 0 1.282-.625 1.282-1.387.013-.762-.566-1.387-1.282-1.387zm4.588 0c-.716 0-1.282.625-1.282 1.387s.578 1.387 1.282 1.387c.717 0 1.282-.625 1.282-1.387s-.565-1.387-1.282-1.387z"
 				fill="#fff"

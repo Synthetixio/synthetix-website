@@ -8,9 +8,7 @@ import { init } from '@socialgouv/matomo-next';
 
 import { theme } from '../styles/theme';
 import { GlobalStyle } from '../styles/globals';
-
-import 'slick-carousel/slick/slick.css';
-import 'slick-carousel/slick/slick-theme.css';
+import smoothscroll from 'smoothscroll-polyfill';
 
 const MATOMO_URL = process.env.NEXT_PUBLIC_MATOMO_URL;
 const MATOMO_SITE_ID = process.env.NEXT_PUBLIC_MATOMO_SITE_ID;
@@ -24,6 +22,10 @@ export default class MyApp extends App {
 		init({ url: MATOMO_URL, siteId: MATOMO_SITE_ID });
 	}
 	render() {
+		/* scroll behavior smooth is not supported by Safari > 15 */
+		if (typeof window !== 'undefined') {
+			smoothscroll.polyfill();
+		}
 		const { Component, pageProps } = this.props;
 		return (
 			<ThemeProvider theme={theme}>

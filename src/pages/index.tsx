@@ -5,23 +5,24 @@ import dynamic from 'next/dynamic';
 import ipRangeCheck from 'ip-range-check';
 
 import MainSection from '../sections/home/main';
-import BuildSection from '../sections/home/build';
+import Futures from '../sections/home/futures';
 import TotalSection from '../sections/home/total';
-import EarnSection from '../sections/home/earn';
 import PartnersSection from '../sections/home/partners';
+import SynthSection from 'src/sections/home/synths';
+import Ecosystem from 'src/sections/home/ecosystem';
+
 import { Layout } from '../components';
 import { fetchTotalLocked } from '../../lib/exchange-api';
-import SynthSection from 'src/sections/home/synths';
-
-export interface ApiStatsProps {
-	totalLocked?: number;
-}
 
 const PoweredBy = dynamic(() => import('../sections/home/poweredBy'), {
 	ssr: false,
 });
 
-// trigger deploy 5 Nov 2020
+export interface ApiStatsProps {
+	totalLocked?: number;
+}
+
+// TODO @MF fix partners page, should look like in the design and write cypress test
 
 const Home = ({ totalLocked }: ApiStatsProps) => {
 	return (
@@ -32,17 +33,17 @@ const Home = ({ totalLocked }: ApiStatsProps) => {
 			<Layout showBgGradient={true}>
 				<MainSection />
 				<TotalSection totalLocked={totalLocked} />
+				<Futures />
 				<SynthSection />
-				<BuildSection />
-				<EarnSection />
 				<PoweredBy />
+				<Ecosystem />
 				<PartnersSection />
 			</Layout>
 		</>
 	);
 };
 
-export const getServerSideProps: GetServerSideProps = async (context) => {
+export const getServerSideProps: GetServerSideProps<{}> = async (context) => {
 	if (process.env.CF_IP) {
 		const allowedIps = JSON.parse(`[${process.env.CF_IP}]`);
 		const ip = context.req.headers['x-forwarded-for'] || context.req.connection.remoteAddress;
@@ -52,7 +53,7 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
 		} else {
 			context.res.statusCode = 403;
 			context.res.end('Your IP is not whitelisted.');
-			return {};
+			return { props: {} };
 		}
 	} else {
 		const props = await getProps();

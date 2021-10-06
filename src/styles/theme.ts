@@ -4,7 +4,6 @@ const keyframes = {
 	show: `@keyframes show {
     to {
       opacity: 1;
-      transform: none;
     }
   }`,
 };
@@ -45,6 +44,7 @@ export const theme = {
 		yellow: '#FFD75C',
 
 		bgBlack: '#06061B',
+		bgBlackHighlighted: '#0e052f',
 	},
 
 	fonts: {
@@ -72,12 +72,13 @@ export const theme = {
 			text-transform: uppercase;
 			color: #ffffff;
 		`,
-		subHeadline: css`
+		sectionTitle: css`
 			font-family: GT America;
-			font-weight: 700;
-			font-stretch: condensed;
+			font-style: normal;
+			font-weight: 900;
 			font-size: 32px;
-			line-height: 24px;
+			font-stretch: expanded;
+			line-height: 48px;
 			text-transform: uppercase;
 			color: #ffffff;
 		`,
@@ -112,7 +113,7 @@ export const theme = {
 			font-style: normal;
 			font-weight: bold;
 			font-stretch: condensed;
-			font-size: 13px;
+			font-size: 14px;
 			line-height: 24px;
 			text-align: center;
 			text-transform: uppercase;

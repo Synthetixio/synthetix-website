@@ -1,2 +1,2 @@
-declare module 'react-animation';
 declare module 'react-fastclick';
+declare module 'smoothscroll-polyfill';

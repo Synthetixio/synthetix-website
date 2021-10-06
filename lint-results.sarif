@@ -1,0 +1,318 @@
+{
+  "version": "2.1.0",
+  "$schema": "http://json.schemastore.org/sarif-2.1.0-rtm.4",
+  "runs": [
+    {
+      "tool": {
+        "driver": {
+          "name": "ESLint",
+          "informationUri": "https://eslint.org",
+          "rules": []
+        }
+      },
+      "artifacts": [
+        {
+          "location": {
+            "uri": "file:///Users/maxfritz/Code/synthetix-website/lib/exchange-api.ts"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///Users/maxfritz/Code/synthetix-website/next-env.d.ts"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///Users/maxfritz/Code/synthetix-website/process.env.d.ts"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///Users/maxfritz/Code/synthetix-website/src/components/Accordion/Accordion.tsx"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///Users/maxfritz/Code/synthetix-website/src/components/Accordion/AccordionItem.tsx"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///Users/maxfritz/Code/synthetix-website/src/components/Button.tsx"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///Users/maxfritz/Code/synthetix-website/src/components/Footer.tsx"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///Users/maxfritz/Code/synthetix-website/src/components/Header.tsx"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///Users/maxfritz/Code/synthetix-website/src/components/Layout.tsx"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///Users/maxfritz/Code/synthetix-website/src/components/Line.tsx"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///Users/maxfritz/Code/synthetix-website/src/components/Logo.tsx"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///Users/maxfritz/Code/synthetix-website/src/components/Menu.tsx"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///Users/maxfritz/Code/synthetix-website/src/components/Section.tsx"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///Users/maxfritz/Code/synthetix-website/src/components/Socials.tsx"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///Users/maxfritz/Code/synthetix-website/src/components/index.ts"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///Users/maxfritz/Code/synthetix-website/src/constants/currency.ts"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///Users/maxfritz/Code/synthetix-website/src/constants/defaults.ts"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///Users/maxfritz/Code/synthetix-website/src/constants/queryKeys.ts"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///Users/maxfritz/Code/synthetix-website/src/hooks/useMarketClosed.ts"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///Users/maxfritz/Code/synthetix-website/src/lib/snxjs.ts"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///Users/maxfritz/Code/synthetix-website/src/pages/_app.tsx"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///Users/maxfritz/Code/synthetix-website/src/pages/_document.tsx"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///Users/maxfritz/Code/synthetix-website/src/pages/index.tsx"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///Users/maxfritz/Code/synthetix-website/src/pages/synths.tsx"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///Users/maxfritz/Code/synthetix-website/src/queries/exchangeInfo/useExchangeInfoQuery.ts"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///Users/maxfritz/Code/synthetix-website/src/queries/synths/useFrozenSynthsQuery.ts"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///Users/maxfritz/Code/synthetix-website/src/queries/synths/useSynthSuspensionQuery.ts"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///Users/maxfritz/Code/synthetix-website/src/queries/tokenLists/types.ts"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///Users/maxfritz/Code/synthetix-website/src/queries/tokenLists/useSynthetixTokenList.ts"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///Users/maxfritz/Code/synthetix-website/src/sections/home/ecosystem.tsx"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///Users/maxfritz/Code/synthetix-website/src/sections/home/futures.tsx"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///Users/maxfritz/Code/synthetix-website/src/sections/home/main.tsx"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///Users/maxfritz/Code/synthetix-website/src/sections/home/partners.tsx"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///Users/maxfritz/Code/synthetix-website/src/sections/home/poweredBy.tsx"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///Users/maxfritz/Code/synthetix-website/src/sections/home/synths.tsx"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///Users/maxfritz/Code/synthetix-website/src/sections/home/total.tsx"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///Users/maxfritz/Code/synthetix-website/src/sections/synths/SynthCard.tsx"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///Users/maxfritz/Code/synthetix-website/src/sections/synths/SynthsInfo.tsx"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///Users/maxfritz/Code/synthetix-website/src/styles/common.tsx"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///Users/maxfritz/Code/synthetix-website/src/styles/globals.ts"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///Users/maxfritz/Code/synthetix-website/src/styles/media.ts"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///Users/maxfritz/Code/synthetix-website/src/styles/theme.ts"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///Users/maxfritz/Code/synthetix-website/src/svg/Arrow.tsx"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///Users/maxfritz/Code/synthetix-website/src/svg/ArrowDown.tsx"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///Users/maxfritz/Code/synthetix-website/src/svg/BuildCircle.tsx"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///Users/maxfritz/Code/synthetix-website/src/svg/BurgerMenu.tsx"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///Users/maxfritz/Code/synthetix-website/src/svg/Discord.tsx"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///Users/maxfritz/Code/synthetix-website/src/svg/Github.tsx"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///Users/maxfritz/Code/synthetix-website/src/svg/PDefiance.tsx"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///Users/maxfritz/Code/synthetix-website/src/svg/PDtc.tsx"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///Users/maxfritz/Code/synthetix-website/src/svg/PHashed.tsx"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///Users/maxfritz/Code/synthetix-website/src/svg/PParafi.tsx"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///Users/maxfritz/Code/synthetix-website/src/svg/PThreeArrows.tsx"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///Users/maxfritz/Code/synthetix-website/src/svg/PXbto.tsx"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///Users/maxfritz/Code/synthetix-website/src/svg/Twitter.tsx"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///Users/maxfritz/Code/synthetix-website/src/svg/index.tsx"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///Users/maxfritz/Code/synthetix-website/src/typings/missing-types.d.ts"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///Users/maxfritz/Code/synthetix-website/src/utils/currencies.ts"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///Users/maxfritz/Code/synthetix-website/src/utils/formatters/number.ts"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///Users/maxfritz/Code/synthetix-website/src/utils/svgTemplate.ts"
+          }
+        }
+      ],
+      "results": []
+    }
+  ]
+}

@@ -2,7 +2,7 @@ import React from 'react';
 
 const SvgGithub = (props: Props): JSX.Element => {
 	return (
-		<svg width={24} height={24} fill="none" {...props}>
+		<svg width={24} height={24} fill="none" xmlns="http://www.w3.org/2000/svg" {...props}>
 			<g clipPath="url(#github_svg__clip0)" fill="#fff">
 				<path
 					fillRule="evenodd"

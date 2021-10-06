@@ -2,7 +2,14 @@ import React from 'react';
 
 const SvgPHashed = (props: Props): JSX.Element => {
 	return (
-		<svg width={141} height={54} fill="none" {...props}>
+		<svg
+			width={141}
+			height={54}
+			fill="none"
+			xmlns="http://www.w3.org/2000/svg"
+			xmlnsXlink="http://www.w3.org/1999/xlink"
+			{...props}
+		>
 			<path fill="url(#p-hashed_svg__pattern0)" d="M0 0h141v54H0z" />
 			<defs>
 				<pattern

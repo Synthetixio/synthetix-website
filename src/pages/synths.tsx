@@ -1,8 +1,6 @@
 import Head from 'next/head';
 import styled from 'styled-components';
-
 import SynthsInfo from 'src/sections/synths/SynthsInfo';
-
 import { PageTitle, PageCopy, PageLayout } from 'src/styles/common';
 
 const Synths = () => (
