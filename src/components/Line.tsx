@@ -9,5 +9,7 @@ const Line = styled.div<{ static?: boolean }>`
 	opacity: 0.39;
 	position: ${(props) => (props.static ? 'static' : 'absolute')};
 	bottom: 0;
+	right: 0;
+	left: 0;
 `;
 export default Line;

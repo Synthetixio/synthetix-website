@@ -4,7 +4,6 @@ const keyframes = {
 	show: `@keyframes show {
     to {
       opacity: 1;
-      transform: none;
     }
   }`,
 };

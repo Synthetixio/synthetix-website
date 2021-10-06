@@ -5,7 +5,7 @@ import dynamic from 'next/dynamic';
 import ipRangeCheck from 'ip-range-check';
 
 import MainSection from '../sections/home/main';
-import BuildSection from '../sections/home/build';
+import Futures from '../sections/home/futures';
 import TotalSection from '../sections/home/total';
 import EarnSection from '../sections/home/earn';
 import PartnersSection from '../sections/home/partners';
@@ -33,7 +33,7 @@ const Home = ({ totalLocked }: ApiStatsProps) => {
 				<MainSection />
 				<TotalSection totalLocked={totalLocked} />
 				<SynthSection />
-				<BuildSection />
+				<Futures />
 				<EarnSection />
 				<PoweredBy />
 				<PartnersSection />

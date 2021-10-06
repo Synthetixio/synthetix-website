@@ -19,6 +19,9 @@ export const sectionMixin = `
 const Section = styled.div`
 	${sectionMixin}
 
+	h3 {
+		font-size: 16px;
+	}
 	${media.lessThan('medium')`
 		padding: 0 59px;
 
@@ -26,6 +29,12 @@ const Section = styled.div`
 			font-size: 32px;
 			line-height: 38px;
 		}
+	`};
+
+	${media.lessThan('small')`
+	h1, h2 {
+		font-size: 24px;
+	}
 	`};
 
 	padding: 0 114px;

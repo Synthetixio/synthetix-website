@@ -15,7 +15,7 @@ const EarnSection = () => (
 					Stake
 				</EarnButton>
 			</Left>
-			<Right></Right>
+			<Right />
 		</Columns>
 		<Line />
 	</EarnContainer>
@@ -63,7 +63,6 @@ const Left = styled.div`
 	`}
 `;
 const Right = styled.div`
-	background-image: '/home/earn.svg';
 	width: 658px;
 	height: 605px;
 	background-size: contain;
