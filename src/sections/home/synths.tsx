@@ -1,10 +1,10 @@
 import styled from 'styled-components';
-import { Section, Line, Button } from '../../components';
+import { Section, Button, ResponsiveLine } from '../../components';
 import media from 'styled-media-query';
 import Accordion, { AccordionItemsType } from 'src/components/Accordion/Accordion';
 import { v4 as uuidv4 } from 'uuid';
 import { useState } from 'react';
-import { FlexDiv, FlexDivRow, SectionTitle } from 'src/styles/common';
+import { FlexDiv, SectionTitle } from 'src/styles/common';
 import { useMediaQuery } from 'react-responsive';
 import { breakpoints } from 'src/styles/media';
 
@@ -40,7 +40,7 @@ const SynthSection = () => {
 
 const SynthContainer = styled(Section)`
 	min-height: 891px;
-	background-color: #0e052f;
+	background-color: ${({ theme }) => theme.colors.bgBlackHighlighted};
 	display: flex;
 	justify-content: flex-end;
 	align-items: center;
@@ -55,12 +55,6 @@ const SynthContainer = styled(Section)`
 		background-color: transparent;
 		min-height: 1100px;
 		padding: 0 8px;
-	`}
-`;
-
-const ResponsiveLine = styled(Line)`
-	${media.lessThan('medium')`
-		display:none;
 	`}
 `;
 
@@ -128,7 +122,7 @@ const SynthGraphic = styled.img<{ isAbsolute?: boolean }>`
 `;
 
 const BuildButton = styled(Button)<{ margin?: string }>`
-	margin: ${({ margin }) => (margin ? margin : '19px 0px 30px')};
+	margin: ${({ margin }) => (margin ? margin : '19px 0px 0px')};
 	width: 147px;
 	height: 56px;
 
@@ -181,7 +175,7 @@ const accordionItems: AccordionItemsType = [
 					link=""
 					external={false}
 					key={uuidv4()}
-					margin="29px 14px 56px 0px"
+					margin="29px 14px 0px 0px"
 				>
 					STAKE NOW
 				</BuildButton>
@@ -190,7 +184,7 @@ const accordionItems: AccordionItemsType = [
 					link=""
 					external={false}
 					key={uuidv4()}
-					margin="29px 14px 56px 0px"
+					margin="29px 14px 0px 0px"
 				>
 					DOCS
 				</BuildButton>
@@ -225,7 +219,7 @@ const accordionItems: AccordionItemsType = [
 				link=""
 				external={false}
 				key={uuidv4()}
-				margin="30px 14px 0px 0px"
+				margin="29px 14px 0px 0px"
 			>
 				DOCS
 			</BuildButton>,

@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import media from 'styled-media-query';
 
 const Line = styled.div<{ static?: boolean }>`
 	width: 100%;
@@ -13,3 +14,9 @@ const Line = styled.div<{ static?: boolean }>`
 	left: 0;
 `;
 export default Line;
+
+export const ResponsiveLine = styled(Line)`
+	${media.lessThan('medium')`
+		display:none;
+	`}
+`;

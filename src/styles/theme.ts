@@ -44,6 +44,7 @@ export const theme = {
 		yellow: '#FFD75C',
 
 		bgBlack: '#06061B',
+		bgBlackHighlighted: '#0e052f',
 	},
 
 	fonts: {

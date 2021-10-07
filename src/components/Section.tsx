@@ -18,10 +18,16 @@ export const sectionMixin = `
 
 const Section = styled.div`
 	${sectionMixin}
+	padding: 0 114px;
 
 	h3 {
 		font-size: 16px;
 	}
+
+	${media.greaterThan('large')`
+		padding: 0 159px;
+	`}
+
 	${media.lessThan('medium')`
 		padding: 0 59px;
 
@@ -32,16 +38,10 @@ const Section = styled.div`
 	`};
 
 	${media.lessThan('small')`
-	h1, h2 {
+		h1, h2 {
 		font-size: 24px;
-	}
+		}
 	`};
-
-	padding: 0 114px;
-
-	${media.greaterThan('large')`
-		padding: 0 159px;
-	`}
 `;
 
 export const SectionDescription = styled.p<DescriptionProps>`

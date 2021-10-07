@@ -20,10 +20,6 @@ export const PageTitle = styled.div`
 
 export const SectionTitle = styled.h2`
 	margin-bottom: 18px;
-
-	${media.lessThan('medium')`
-		font-size: 24px;
-`}
 `;
 
 export const PageCopy = styled.p`

@@ -31,8 +31,8 @@ const MainContainer = styled(Section)`
 
 	${media.lessThan('medium')`
 		flex-direction: column;
-		height: 634px;
-		min-height: 634px;
+		height: 100%;
+		min-height: 614px;
 	`}
 
 	${media.greaterThan('1350px' as any)`
@@ -70,7 +70,7 @@ const Right = styled.img`
 	`}
 
 	${media.lessThan('medium')`
-		left: -25%;
+		left: -15%;
 		margin-top: 26px;
 		position: relative;
 		height: 272px;

@@ -7,7 +7,7 @@ export interface AccordionItemProps {
 	open: boolean;
 	title: string;
 	descriptions: ReactNodeArray;
-	buttons: ReactNodeArray;
+	buttons?: ReactNodeArray;
 	onHeaderClick: () => void;
 	isLast: boolean;
 }
@@ -27,7 +27,7 @@ export default function AccordionItem({
 				<SmallHeadline active={open}>{title}</SmallHeadline>
 			</AccordionItemHeader>
 			{(!isLast || open) && (
-				<AccordionItemInner>
+				<AccordionItemInner isLast={isLast}>
 					{open && (
 						<AnimationContainer>
 							<AccordionItemDescriptionContainer>{descriptions}</AccordionItemDescriptionContainer>
@@ -60,10 +60,11 @@ const AccordionItemInner = styled(FlexDivCol)<ActiveItemProps>`
 	padding-left: 24px;
 	border-left: 1px dashed ${({ theme }) => theme.colors.gray50};
 	min-height: 28px;
+	padding-bottom: ${({ isLast }) => (isLast ? '0px' : '24px')};
 `;
 
-const AnimationContainer = styled.div`
-	${(props) => props.theme.animations.show};
+const AnimationContainer = styled.div<ActiveItemProps>`
+	${({ theme }) => theme.animations.show};
 	animation-delay: 100ms;
 	opacity: 0;
 
@@ -89,7 +90,7 @@ const EndCircle = styled(Circle)`
 `;
 
 const SmallHeadline = styled.h3<ActiveItemProps>`
-	${(props) => props.theme.fonts.subHeadline};
+	${({ theme }) => theme.fonts.subHeadline};
 	color: ${({ active, theme }) => (active ? theme.colors.cyan : theme.colors.gray50)};
 	margin-left: 24px;
 `;
