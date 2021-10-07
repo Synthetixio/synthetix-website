@@ -60,7 +60,7 @@ const AccordionItemInner = styled(FlexDivCol)<ActiveItemProps>`
 	padding-left: 24px;
 	border-left: 1px dashed ${({ theme }) => theme.colors.gray50};
 	min-height: 28px;
-	padding-bottom: ${({ isLast }) => (isLast ? '0px' : '24px')};
+	padding-bottom: ${({ isLast }) => (isLast ? '0px' : '30px')};
 `;
 
 const AnimationContainer = styled.div<ActiveItemProps>`

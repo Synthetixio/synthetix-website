@@ -11,26 +11,19 @@ export const sectionMixin = `
 	position: relative;
 	overflow: hidden;
 
+	`;
+
+const Section = styled.section`
+	${sectionMixin}
 	h1, h2 {
 		${theme.fonts.headline};
 	}
-`;
-
-const Section = styled.div`
-	${sectionMixin}
-	padding: 0 114px;
 
 	h3 {
 		font-size: 16px;
 	}
 
-	${media.greaterThan('large')`
-		padding: 0 159px;
-	`}
-
 	${media.lessThan('medium')`
-		padding: 0 59px;
-
 		h1, h2 {
 			font-size: 32px;
 			line-height: 38px;

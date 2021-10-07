@@ -53,7 +53,7 @@ const SynthContainer = styled(Section)`
 		flex-direction: column;
 		justify-content: flex-start;
 		background-color: transparent;
-		min-height: 1100px;
+		min-height: 1000px;
 		padding: 0 8px;
 	`}
 `;
@@ -96,13 +96,13 @@ const SynthGraphic = styled.img<{ isAbsolute?: boolean }>`
 	animation-delay: 100ms;
 	opacity: 0;
 
-	${media.lessThan('970px' as any)`
-		transform: translate(150px)
-	`}
-
 	${media.greaterThan('1350px' as any)`
 		height: 35vw;
 		right: -120px;
+	`}
+
+	${media.lessThan('970px' as any)`
+		transform: translate(150px)
 	`}
 
 	${({ isAbsolute }) => {
@@ -122,7 +122,7 @@ const SynthGraphic = styled.img<{ isAbsolute?: boolean }>`
 `;
 
 const BuildButton = styled(Button)<{ margin?: string }>`
-	margin: ${({ margin }) => (margin ? margin : '19px 0px 0px')};
+	margin: ${({ margin }) => (margin ? margin : '29px 14px 0px 0px')};
 	width: 147px;
 	height: 56px;
 
@@ -155,7 +155,13 @@ const accordionItems: AccordionItemsType = [
 			</div>,
 		],
 		buttons: [
-			<BuildButton buttonType="secondary" link="" external={false} key={uuidv4()}>
+			<BuildButton
+				buttonType="secondary"
+				link=""
+				external={false}
+				key={uuidv4()}
+				margin="19px 0px 0px"
+			>
 				EXPLORE SYNTHS
 			</BuildButton>,
 		],
@@ -170,22 +176,10 @@ const accordionItems: AccordionItemsType = [
 		],
 		buttons: [
 			<FlexDivRowResponsive>
-				<BuildButton
-					buttonType="primary"
-					link=""
-					external={false}
-					key={uuidv4()}
-					margin="29px 14px 0px 0px"
-				>
+				<BuildButton buttonType="primary" link="" external={false} key={uuidv4()}>
 					STAKE NOW
 				</BuildButton>
-				<BuildButton
-					buttonType="secondary"
-					link=""
-					external={false}
-					key={uuidv4()}
-					margin="29px 14px 0px 0px"
-				>
+				<BuildButton buttonType="secondary" link="" external={false} key={uuidv4()}>
 					DOCS
 				</BuildButton>
 			</FlexDivRowResponsive>,
@@ -200,7 +194,13 @@ const accordionItems: AccordionItemsType = [
 			</div>,
 		],
 		buttons: [
-			<BuildButton buttonType="primary" link="" external={false} key={uuidv4()}>
+			<BuildButton
+				buttonType="primary"
+				link=""
+				external={false}
+				key={uuidv4()}
+				margin="19px 0px 0px"
+			>
 				EXCHANGE SYNTHS
 			</BuildButton>,
 		],
@@ -214,13 +214,7 @@ const accordionItems: AccordionItemsType = [
 			</div>,
 		],
 		buttons: [
-			<BuildButton
-				buttonType="secondary"
-				link=""
-				external={false}
-				key={uuidv4()}
-				margin="29px 14px 0px 0px"
-			>
+			<BuildButton buttonType="secondary" link="" external={false} key={uuidv4()}>
 				DOCS
 			</BuildButton>,
 		],

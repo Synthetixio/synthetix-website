@@ -32,8 +32,6 @@ const FuturesSection = () => {
 	);
 };
 
-// TODO @MF clean styles. Get rid of important
-
 const FuturesContainer = styled(Section)`
 	width: 100%;
 	min-height: 800px;
@@ -42,13 +40,10 @@ const FuturesContainer = styled(Section)`
 	display: flex;
 	justify-content: center;
 	align-items: center;
-	padding: 0 109px 0 0 !important;
+	padding-right: 109px;
 
 	${media.lessThan('large')`
-		padding: 0 8px !important;
-		h2 {
-			font-size: 32px !important;
-		}
+		padding: 0 8px ;
 	`}
 
 	${media.lessThan('medium')`
@@ -56,7 +51,6 @@ const FuturesContainer = styled(Section)`
 		justify-content: flex-start;
 		align-items: flex-start;
 		background-color: transparent;
-		padding: 0 8px;
 	`}
 `;
 
