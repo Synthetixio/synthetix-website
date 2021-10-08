@@ -5,21 +5,15 @@ import Accordion, { AccordionItemsType } from 'src/components/Accordion/Accordio
 import { v4 as uuidv4 } from 'uuid';
 import { useState } from 'react';
 import { FlexDiv, SectionTitle } from 'src/styles/common';
-import { useMediaQuery } from 'react-responsive';
-import { breakpoints } from 'src/styles/media';
 
 const SynthSection = () => {
 	const [activeIndex, setActiveIndex] = useState<number>(0);
-	const isMobile = useMediaQuery({ query: `(max-width: ${breakpoints.md}px)` });
 
 	const graphics = [
 		<SynthGraphic isAbsolute src="home/illustration-synths.svg" key={uuidv4()} />,
 		<SynthGraphic src="/home/earn.svg" key={uuidv4()} />,
 		<SynthGraphic src="/home/trade-synths.svg" key={uuidv4()} />,
-		<SynthGraphic
-			src={isMobile ? '/home/build-circle-mobile.svg' : '/home/build-circle.svg'}
-			key={uuidv4()}
-		/>,
+		<SynthGraphic src="/home/build-circle.svg" key={uuidv4()} />,
 	];
 
 	return (

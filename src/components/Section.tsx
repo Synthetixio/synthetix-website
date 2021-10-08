@@ -43,7 +43,7 @@ export const SectionDescription = styled.p<DescriptionProps>`
 	max-width: 386px;
 
 	${media.lessThan('medium')`
-		max-width: 285px;
+		max-width: 300px;
 		margin-top: ${(props) => ((props as DescriptionProps).main ? 27 : 11)}px;
 		margin-left: 0;
 	`}

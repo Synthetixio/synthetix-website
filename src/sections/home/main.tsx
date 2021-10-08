@@ -28,15 +28,13 @@ const MainContainer = styled(Section)`
 	display: flex;
 	align-items: center;
 	overflow: hidden;
+	padding: 0 0 0 153px;
 
 	${media.lessThan('medium')`
 		flex-direction: column;
 		height: 100%;
 		min-height: 614px;
-	`}
-
-	${media.greaterThan('1350px' as any)`
-		padding: 0 0 0 153px;
+		padding: 0 24px;
 	`}
 `;
 

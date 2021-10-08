@@ -3,7 +3,7 @@ import media from 'styled-media-query';
 import Link from 'next/link';
 
 import { theme } from '../styles/theme';
-import { ExternalLink } from '../styles/common';
+import { ExternalLink, FlexDiv } from '../styles/common';
 
 const data = [
 	{
@@ -64,19 +64,19 @@ const MenuComponent = (props: MenuProps) => {
 			{data.map((item) => {
 				if (props.isHeader) {
 					return (
-						<>
-							{!item.hideOnHeader && (
-								<MenuItem key={item.label}>
-									{item.link ? (
-										<Link href={item.link}>
-											<a>{item.label}</a>
-										</Link>
-									) : (
-										<ExternalLink href={item.externalLink}>{item.label}</ExternalLink>
-									)}
-								</MenuItem>
-							)}
-						</>
+						!item.hideOnHeader && (
+							<MenuItem key={item.label}>
+								{item.link ? (
+									<Link href={item.link}>
+										<a>{item.label}</a>
+									</Link>
+								) : (
+									<ExternalLink href={item.externalLink} key={item.label}>
+										{item.label}
+									</ExternalLink>
+								)}
+							</MenuItem>
+						)
 					);
 				} else {
 					return (
@@ -116,6 +116,11 @@ const Menu = styled.ul`
 	&.enter-active, &.enter-done {
 		left: 0;
 	}
+`;
+
+const MenuItemWrapper = styled(FlexDiv)`
+	display: inline;
+	width: 100%;
 `;
 
 const MenuItem = styled.li`
