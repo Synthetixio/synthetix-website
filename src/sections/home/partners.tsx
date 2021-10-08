@@ -1,5 +1,4 @@
 import styled from 'styled-components';
-import { Line } from '../../components';
 import { sectionMixin } from '../../components/Section';
 import PXbto from '../../svg/PXbto';
 import PHashed from '../../svg/PHashed';
@@ -7,6 +6,7 @@ import PParafi from '../../svg/PParafi';
 import PDtc from '../../svg/PDtc';
 import PDefiance from '../../svg/PDefiance';
 import media from 'styled-media-query';
+import { Line } from 'src/components';
 
 const PartnersSection = () => (
 	<>

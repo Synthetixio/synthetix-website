@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { Section, Button, ResponsiveLine } from '../../components';
+import { Section, Button } from '../../components';
 import media from 'styled-media-query';
 import Accordion, { AccordionItemsType } from 'src/components/Accordion/Accordion';
 import { v4 as uuidv4 } from 'uuid';
@@ -27,7 +27,6 @@ const SynthSection = () => {
 					onAccordionItemChange={setActiveIndex}
 				/>
 			</Left>
-			<ResponsiveLine />
 		</SynthContainer>
 	);
 };
@@ -169,11 +168,11 @@ const accordionItems: AccordionItemsType = [
 			</div>,
 		],
 		buttons: [
-			<FlexDivRowResponsive>
-				<BuildButton buttonType="primary" link="" external={false} key={uuidv4()}>
+			<FlexDivRowResponsive key={uuidv4()}>
+				<BuildButton buttonType="primary" link="" external={false}>
 					STAKE NOW
 				</BuildButton>
-				<BuildButton buttonType="secondary" link="" external={false} key={uuidv4()}>
+				<BuildButton buttonType="secondary" link="" external={false}>
 					DOCS
 				</BuildButton>
 			</FlexDivRowResponsive>,

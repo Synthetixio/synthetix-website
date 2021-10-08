@@ -7,11 +7,11 @@ import ipRangeCheck from 'ip-range-check';
 import MainSection from '../sections/home/main';
 import Futures from '../sections/home/futures';
 import TotalSection from '../sections/home/total';
-import EarnSection from '../sections/home/earn';
 import PartnersSection from '../sections/home/partners';
 import { Layout } from '../components';
 import { fetchTotalLocked } from '../../lib/exchange-api';
 import SynthSection from 'src/sections/home/synths';
+import Ecosystem from 'src/sections/home/ecosystem';
 
 export interface ApiStatsProps {
 	totalLocked?: number;
@@ -20,8 +20,6 @@ export interface ApiStatsProps {
 const PoweredBy = dynamic(() => import('../sections/home/poweredBy'), {
 	ssr: false,
 });
-
-// trigger deploy 5 Nov 2020
 
 const Home = ({ totalLocked }: ApiStatsProps) => {
 	return (
@@ -34,8 +32,8 @@ const Home = ({ totalLocked }: ApiStatsProps) => {
 				<TotalSection totalLocked={totalLocked} />
 				<SynthSection />
 				<Futures />
-				<EarnSection />
 				<PoweredBy />
+				<Ecosystem />
 				<PartnersSection />
 			</Layout>
 		</>

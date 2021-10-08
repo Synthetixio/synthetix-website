@@ -12,11 +12,9 @@ const Line = styled.div<{ static?: boolean }>`
 	bottom: 0;
 	right: 0;
 	left: 0;
-`;
-export default Line;
 
-export const ResponsiveLine = styled(Line)`
 	${media.lessThan('medium')`
 		display:none;
 	`}
 `;
+export default Line;

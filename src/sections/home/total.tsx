@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 import numeral from 'numeral';
-import { Section, ResponsiveLine } from '../../components';
+import { Section } from '../../components';
 
 import { ApiStatsProps } from '../../pages';
 import media from 'styled-media-query';
@@ -18,7 +18,6 @@ const TotalSection = ({ totalLocked }: ApiStatsProps) => {
 					</StakedValue>
 				</TotalStakedBar>
 			</TotalContainer>
-			<ResponsiveLine static />
 		</>
 	);
 };

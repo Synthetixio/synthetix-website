@@ -10,7 +10,6 @@ import useSynthetixTokenList from 'src/queries/tokenLists/useSynthetixTokenList'
 import useExchangeInfoQuery from 'src/queries/exchangeInfo/useExchangeInfoQuery';
 
 import SynthCard from './SynthCard';
-import { keyBy } from 'lodash';
 
 enum SynthCategory {
 	ALL = 'all',

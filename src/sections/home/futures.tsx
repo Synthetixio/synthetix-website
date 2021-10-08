@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { Section, Button, ResponsiveLine } from '../../components';
+import { Section, Button } from '../../components';
 import { v4 as uuidv4 } from 'uuid';
 import media from 'styled-media-query';
 import Accordion, { AccordionItemsType } from 'src/components/Accordion/Accordion';
@@ -27,14 +27,12 @@ const FuturesSection = () => {
 					Trade Now
 				</BuildButton>
 			</AccordionContainer>
-			<ResponsiveLine />
 		</FuturesContainer>
 	);
 };
 
 const FuturesContainer = styled(Section)`
-	width: 100%;
-	min-height: 800px;
+	min-height: 850px;
 	position: relative;
 	background-color: transparent;
 	display: flex;

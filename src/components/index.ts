@@ -7,6 +7,5 @@ import Footer from './Footer';
 import Section from './Section';
 import Button from './Button';
 import Line from './Line';
-import { ResponsiveLine } from './Line';
 
-export { Header, Logo, Layout, Menu, Footer, Section, Button, Socials, Line, ResponsiveLine };
+export { Header, Logo, Layout, Menu, Footer, Section, Button, Socials, Line };
