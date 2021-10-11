@@ -3,7 +3,7 @@ import media from 'styled-media-query';
 import { Arrow } from '../../svg';
 import Section from '../../components/Section';
 import { SectionTitle } from '../../styles/common';
-import { useEffect, useRef, useState } from 'react';
+import { useRef, useState } from 'react';
 
 const getLogoURL = (logo: string) => `/home/powered-by/${logo}`;
 
@@ -96,28 +96,35 @@ const CARDS: Record<string, Card[]> = {
 
 type CustomSliderArrow = {
 	onClick: () => void;
+	disabled?: boolean;
 };
 
-const ArrowWrapper = styled.div`
+const ArrowWrapper = styled.button`
 	cursor: pointer;
 	transition: 100ms ease-in-out;
+	background-color: transparent;
+	border: none;
 	:active {
 		transform: scale(0.9);
 	}
+
+	${media.lessThan('medium')`
+		display: none;
+	`}
 `;
 
-function NextArrow({ onClick }: CustomSliderArrow) {
+function NextArrow({ onClick, disabled }: CustomSliderArrow) {
 	return (
 		<ArrowWrapper onClick={onClick}>
-			<Arrow />
+			<Arrow disabled={disabled} />
 		</ArrowWrapper>
 	);
 }
 
-function PrevArrow({ onClick }: CustomSliderArrow) {
+function PrevArrow({ onClick, disabled }: CustomSliderArrow) {
 	return (
 		<ArrowWrapper onClick={onClick}>
-			<Arrow style={{ transform: 'rotate(180deg)' }} />
+			<Arrow style={{ transform: 'rotate(180deg)' }} disabled={disabled} />
 		</ArrowWrapper>
 	);
 }
@@ -129,31 +136,44 @@ const PoweredBy = () => {
 	const [isScrolling, setIsScrolling] = useState(false);
 	const [accumulatedOffset, setAccumulatedOffset] = useState(0);
 
+	const doesSupportBackdropFilter = CSS.supports('backdrop-filter', 'blur(14px)');
+
 	const handleScroll = (ltr: boolean) => {
 		setIsScrolling(true);
 		if (!isScrolling) {
+			const ref = sliderRef.current!;
 			// plus margin
-			const clientWidth = sliderRef.current!.clientWidth + slideMargin;
-			// handle overflow <0 and >scrollWidth
-			console.log(ltr);
+			const clientWidth = ref.clientWidth + slideMargin;
 			setAccumulatedOffset((state) => {
-				console.log(ltr ? clientWidth + accumulatedOffset : accumulatedOffset - clientWidth);
-				sliderRef.current?.scroll({
-					behavior: 'smooth',
-					left: ltr ? clientWidth + accumulatedOffset : accumulatedOffset - clientWidth,
-				});
-				return ltr ? state - clientWidth : state + clientWidth;
+				const calculatedOffset = ltr ? clientWidth + state : state - clientWidth;
+				if (calculatedOffset <= 0) {
+					scroll(0);
+					return 0;
+					/* If at the beginning (again). We just reset the state to the initial value */
+				} else if (calculatedOffset >= ref.scrollWidth) {
+					scroll(ref.scrollWidth);
+					/* If at the end, we don't want to do anything. Offset doesn't need to be recalculated */
+					return state;
+				} else {
+					scroll(calculatedOffset);
+					return calculatedOffset;
+				}
 			});
-			setTimeout(() => setIsScrolling(false), 800);
 		}
+		// Enable scrolling again after 800ms scrolling again
+		setTimeout(() => {
+			setIsScrolling(false);
+		}, 650);
 	};
 
-	useEffect(() => {
-		if (sliderRef.current) {
-			console.log('rerender');
-			setAccumulatedOffset(sliderRef.current.clientWidth);
-		}
-	}, [sliderRef]);
+	const scroll = (offset: number) => {
+		sliderRef.current
+			? sliderRef.current.scroll({
+					behavior: 'smooth',
+					left: offset,
+			  })
+			: console.warn('SliderRef is undefined');
+	};
 
 	return (
 		<PoweredByContainer>
@@ -163,13 +183,17 @@ const PoweredBy = () => {
 				decentralized perpetual futures, options markets, deal coordination markets, and more.
 			</Subline>
 			<SliderWrapper>
-				<PrevArrow onClick={() => handleScroll(false)} />
+				<PrevArrow onClick={() => handleScroll(false)} disabled={isScrolling} />
 				<Slider ref={sliderRef}>
 					{CARDS.Trading.map((card) => {
-						return <Slide key={card.name}>{card.name}</Slide>;
+						return doesSupportBackdropFilter ? (
+							<Slide key={card.name}>{card.name}</Slide>
+						) : (
+							<SlideBackDropFilterPolyfill key={card.name}>{card.name}</SlideBackDropFilterPolyfill>
+						);
 					})}
 				</Slider>
-				<NextArrow onClick={() => handleScroll(true)} />
+				<NextArrow onClick={() => handleScroll(true)} disabled={isScrolling} />
 			</SliderWrapper>
 		</PoweredByContainer>
 	);
@@ -190,6 +214,7 @@ const PoweredByContainer = styled(Section)`
 	${media.lessThan('medium')`
 		background-color: transparent;
 		background-size: cover;
+		padding: 0 8px;
 	`}
 `;
 
@@ -213,7 +238,13 @@ const Slider = styled.div`
 	width: 1088px;
 
 	${media.lessThan('large')`
-		width: 812px;
+		width: 536px;
+		margin: 0 32px;
+	`}
+
+	${media.lessThan('medium')`
+		overflow: scroll;
+		width: 300px;
 		margin: 0 32px;
 	`}
 `;
@@ -224,6 +255,30 @@ const Slide = styled.div`
 	background: rgba(255, 255, 255, 0.1);
 	backdrop-filter: blur(14px);
 	margin-right: ${slideMargin}px;
+	:last-of-type {
+		margin-right: 0px;
+	}
+`;
+
+const SlideBackDropFilterPolyfill = styled.div`
+	min-width: 260px;
+	position: relative;
+	height: 289px;
+	margin-right: ${slideMargin}px;
+	:last-of-type {
+		margin-right: 0px;
+	}
+
+	::before {
+		position: absolute;
+		content: '';
+		top: 0;
+		left: 0;
+		right: 0;
+		bottom: 0;
+		background: rgba(255, 255, 255, 0.2);
+		filter: blur(3px);
+	}
 `;
 
 export default PoweredBy;
