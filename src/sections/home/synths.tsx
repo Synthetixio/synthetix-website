@@ -45,6 +45,7 @@ const SynthContainer = styled(Section)`
 	${media.lessThan('medium')`
 		flex-direction: column;
 		justify-content: flex-start;
+		align-items: flex-start;
 		background-color: transparent;
 		min-height: 1000px;
 		padding: 0 8px;
@@ -65,18 +66,8 @@ const Left = styled.div`
 
 	${media.lessThan('medium')`
 		position: relative;
-		margin-left: auto;
-		margin-right: auto;
 		margin-top: 60px;
-
-		p {
-			text-align: center;
-			max-width: 100%;
-		}
-
-		br {
-			margin: 8px 0px;
-		}
+		margin-left:0px;
 	`}
 `;
 
