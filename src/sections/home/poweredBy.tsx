@@ -104,7 +104,8 @@ const ArrowWrapper = styled.button`
 	transition: 100ms ease-in-out;
 	background-color: transparent;
 	border: none;
-	:active {
+
+	:active:enabled {
 		transform: scale(0.9);
 	}
 
@@ -115,7 +116,7 @@ const ArrowWrapper = styled.button`
 
 function NextArrow({ onClick, disabled }: CustomSliderArrow) {
 	return (
-		<ArrowWrapper onClick={onClick}>
+		<ArrowWrapper onClick={onClick} disabled={disabled}>
 			<Arrow disabled={disabled} />
 		</ArrowWrapper>
 	);
@@ -123,7 +124,7 @@ function NextArrow({ onClick, disabled }: CustomSliderArrow) {
 
 function PrevArrow({ onClick, disabled }: CustomSliderArrow) {
 	return (
-		<ArrowWrapper onClick={onClick}>
+		<ArrowWrapper onClick={onClick} disabled={disabled}>
 			<Arrow style={{ transform: 'rotate(180deg)' }} disabled={disabled} />
 		</ArrowWrapper>
 	);
@@ -133,39 +134,25 @@ const slideMargin = 16;
 
 const PoweredBy = () => {
 	const sliderRef = useRef<HTMLDivElement>(null);
-	const [isScrolling, setIsScrolling] = useState(false);
-	const [, setAccumulatedOffset] = useState(0);
+	const [accumulatedOffset, setAccumulatedOffset] = useState(0);
 
 	/* Firefox doesn't support that out of the box */
 	const doesSupportBackdropFilter = CSS.supports('backdrop-filter', 'blur(14px)');
 
 	const handleScroll = (ltr: boolean) => {
-		setIsScrolling(true);
-		if (!isScrolling) {
-			const ref = sliderRef.current!;
-			const clientWidthWithMargin = ref.clientWidth + slideMargin;
-			setAccumulatedOffset((state) => {
-				const calculatedOffset = ltr
-					? clientWidthWithMargin + state
-					: state - clientWidthWithMargin;
-				if (calculatedOffset <= 0) {
-					scroll(0);
-					return 0;
-					/* If at the beginning (again). We just reset the state to the initial value */
-				} else if (calculatedOffset >= ref.scrollWidth) {
-					scroll(ref.scrollWidth);
-					/* If at the end, we don't want to do anything. Offset doesn't need to be recalculated */
-					return state;
-				} else {
-					scroll(calculatedOffset);
-					return calculatedOffset;
-				}
-			});
-		}
-		/* Enable scrolling again after 800ms scrolling again */
-		setTimeout(() => {
-			setIsScrolling(false);
-		}, 650);
+		const ref = sliderRef.current!;
+		const clientWidthWithMargin = ref.clientWidth + slideMargin;
+		setAccumulatedOffset((state) => {
+			const calculatedOffset = ltr ? clientWidthWithMargin + state : state - clientWidthWithMargin;
+			/* If returning to the beginning or at the end: set initial value */
+			if (calculatedOffset <= 0 || calculatedOffset >= ref.scrollWidth) {
+				scroll(0);
+				return 0;
+			} else {
+				scroll(calculatedOffset);
+				return calculatedOffset;
+			}
+		});
 	};
 
 	const scroll = (offset: number) => {
@@ -185,7 +172,7 @@ const PoweredBy = () => {
 				decentralized perpetual futures, options markets, deal coordination markets, and more.
 			</Subline>
 			<SliderWrapper>
-				<PrevArrow onClick={() => handleScroll(false)} disabled={isScrolling} />
+				<PrevArrow onClick={() => handleScroll(false)} disabled={accumulatedOffset === 0} />
 				<Slider ref={sliderRef}>
 					{CARDS.Trading.map((card) => {
 						return doesSupportBackdropFilter ? (
@@ -195,7 +182,7 @@ const PoweredBy = () => {
 						);
 					})}
 				</Slider>
-				<NextArrow onClick={() => handleScroll(true)} disabled={isScrolling} />
+				<NextArrow onClick={() => handleScroll(true)} />
 			</SliderWrapper>
 		</PoweredByContainer>
 	);
