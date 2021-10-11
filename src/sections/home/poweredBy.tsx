@@ -134,18 +134,20 @@ const slideMargin = 16;
 const PoweredBy = () => {
 	const sliderRef = useRef<HTMLDivElement>(null);
 	const [isScrolling, setIsScrolling] = useState(false);
-	const [accumulatedOffset, setAccumulatedOffset] = useState(0);
+	const [, setAccumulatedOffset] = useState(0);
 
+	/* Firefox doesn't support that out of the box */
 	const doesSupportBackdropFilter = CSS.supports('backdrop-filter', 'blur(14px)');
 
 	const handleScroll = (ltr: boolean) => {
 		setIsScrolling(true);
 		if (!isScrolling) {
 			const ref = sliderRef.current!;
-			// plus margin
-			const clientWidth = ref.clientWidth + slideMargin;
+			const clientWidthWithMargin = ref.clientWidth + slideMargin;
 			setAccumulatedOffset((state) => {
-				const calculatedOffset = ltr ? clientWidth + state : state - clientWidth;
+				const calculatedOffset = ltr
+					? clientWidthWithMargin + state
+					: state - clientWidthWithMargin;
 				if (calculatedOffset <= 0) {
 					scroll(0);
 					return 0;
@@ -160,7 +162,7 @@ const PoweredBy = () => {
 				}
 			});
 		}
-		// Enable scrolling again after 800ms scrolling again
+		/* Enable scrolling again after 800ms scrolling again */
 		setTimeout(() => {
 			setIsScrolling(false);
 		}, 650);
