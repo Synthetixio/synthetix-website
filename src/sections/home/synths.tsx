@@ -4,16 +4,16 @@ import media from 'styled-media-query';
 import Accordion, { AccordionItemsType } from 'src/components/Accordion/Accordion';
 import { v4 as uuidv4 } from 'uuid';
 import { useState } from 'react';
-import { FlexDiv, SectionTitle } from 'src/styles/common';
+import { SectionTitle } from 'src/styles/common';
 
 const SynthSection = () => {
 	const [activeIndex, setActiveIndex] = useState<number>(0);
 
 	const graphics = [
-		<SynthGraphic isAbsolute src="home/illustration-synths.svg" key={uuidv4()} />,
-		<SynthGraphic src="/home/earn.svg" key={uuidv4()} />,
-		<SynthGraphic src="/home/trade-synths.svg" key={uuidv4()} />,
-		<SynthGraphic src="/home/build-circle.svg" key={uuidv4()} />,
+		<SynthGraphic isAbsolute src="home/illustration-synths.svg" />,
+		<SynthGraphic src="/home/earn.svg" />,
+		<SynthGraphic src="/home/trade-synths.svg" />,
+		<SynthGraphic src="/home/build-circle.svg" />,
 	];
 
 	return (
@@ -93,9 +93,13 @@ const SynthGraphic = styled.img<{ isAbsolute?: boolean }>`
 		return isAbsolute
 			? media.lessThan('medium')`
 		position: static;
-		transform: translate(-150px);
+		transform: translate(0px);
 		margin-bottom: 16px;
-		transform: none
+
+		${media.lessThan('550px' as any)`
+		transform: translate(-150px)
+	`}
+
 		`
 			: media.lessThan('medium')`
 		width: 100%;
@@ -117,7 +121,7 @@ const BuildButton = styled(Button)<{ margin?: string }>`
 	`};
 `;
 
-const FlexDivRowResponsive = styled(FlexDiv)`
+const FlexDivRowResponsive = styled.div`
 	${media.lessThan('medium')`
 		width: 100%;
 	`};

@@ -10,7 +10,6 @@ export const sectionMixin = `
 	width: 100%;
 	position: relative;
 	overflow: hidden;
-
 	`;
 
 const Section = styled.section`
