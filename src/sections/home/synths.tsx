@@ -4,7 +4,7 @@ import media from 'styled-media-query';
 import Accordion, { AccordionItemsType } from 'src/components/Accordion/Accordion';
 import { v4 as uuidv4 } from 'uuid';
 import { useState } from 'react';
-import { SectionTitle } from 'src/styles/common';
+import { FlexDiv, SectionTitle } from 'src/styles/common';
 
 const SynthSection = () => {
 	const [activeIndex, setActiveIndex] = useState<number>(0);
@@ -121,7 +121,7 @@ const BuildButton = styled(Button)<{ margin?: string }>`
 	`};
 `;
 
-const FlexDivRowResponsive = styled.div`
+const FlexDivRowResponsive = styled(FlexDiv)`
 	${media.lessThan('medium')`
 		width: 100%;
 	`};

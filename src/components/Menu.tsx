@@ -118,11 +118,6 @@ const Menu = styled.ul`
 	}
 `;
 
-const MenuItemWrapper = styled(FlexDiv)`
-	display: inline;
-	width: 100%;
-`;
-
 const MenuItem = styled.li`
 	display: inline-block;
 
