@@ -5,8 +5,6 @@ import Section from '../../components/Section';
 import { SectionTitle } from '../../styles/common';
 import { useRef, useState } from 'react';
 
-const getLogoURL = (logo: string) => `/home/powered-by/${logo}`;
-
 type Card = {
 	name: string;
 	description: string;
@@ -14,85 +12,32 @@ type Card = {
 	logo: string;
 };
 
-const CARDS: Record<string, Card[]> = {
-	Trading: [
-		{
-			name: 'Kwenta',
-			description: 'Derivatives trading with infinite liquidity.',
-			link: 'https://kwenta.io',
-			logo: getLogoURL('kwenta.svg'),
-		},
-		{
-			name: 'dHedge',
-			description:
-				'A decentralised asset management protocol offering non-custodial mimetic trading.',
-			link: 'https://dhedge.org',
-			logo: getLogoURL('dhedge.svg'),
-		},
-		{
-			name: 'ParaSwap',
-			description:
-				'DEX aggregator empowering dApps and traders with high liquidity and instant transactions.',
-			link: 'https://paraswap.io',
-			logo: getLogoURL('paraswap.svg'),
-		},
-		{
-			name: '1inch',
-			description: 'DEX aggregator and a single point of entry for DeFi.',
-			link: 'https://1inch.exchange',
-			logo: getLogoURL('1inch.svg'),
-		},
-		{
-			name: 'Zapper',
-			description: 'Allowing users to manage all their DeFi assets from one simple interface.',
-			link: 'https://zapper.fi/',
-			logo: getLogoURL('zapper.svg'),
-		},
-		{
-			name: 'SNX.link',
-			description:
-				'A non-custodial portfolio management platform for Synthetix stakers and/or Synth traders.',
-			link: 'https://snx.link',
-			logo: getLogoURL('snx-link.svg'),
-		},
-		{
-			name: 'Synthetix.Exchange',
-			description: 'A dApp providing the most complete, permissionless trading experience in DeFi.',
-			link: 'https://synthetix.exchange',
-			logo: getLogoURL('sx.svg'),
-		},
-	],
-	'Synth Liquidity': [
-		{
-			name: 'Curve',
-			description:
-				'An exchange liquidity pool on Ethereum (like Uniswap) designed for stablecoins.',
-			link: 'https://www.curve.fi',
-			logo: getLogoURL('curve.svg'),
-		},
-		{
-			name: 'Uniswap',
-			description: 'A protocol for trading and automated liquidity provision on Ethereum.',
-			link: 'https://uniswap.exchange',
-			logo: getLogoURL('uniswap.svg'),
-		},
-	],
-	Staking: [
-		{
-			name: 'xSNX',
-			description: 'A managed fund protocol allowing set-and-forget exposure to SNX staking.',
-			link: 'https://xtoken.market',
-			logo: getLogoURL('xsnx.svg'),
-		},
-		{
-			name: 'SNX Tools',
-			description:
-				'A suite of tools and features to automate, institutionalize and streamline the process flows for stakers or traders.',
-			link: 'https://snx.tools/',
-			logo: getLogoURL('snx-tools.svg'),
-		},
-	],
-};
+const CARDS: Card[] = [
+	{
+		name: 'Kwenta',
+		description: 'Trade with up to 10x leverage and simulated liquidity for the best price fills.',
+		link: 'https://kwenta.io',
+		logo: '/home/powered-by/kwenta.svg',
+	},
+	{
+		name: 'Lyra',
+		description: ' The first completely decentralized options protocol.',
+		link: 'https://www.lyra.finance/',
+		logo: '/home/powered-by/lyra.svg',
+	},
+	{
+		name: 'Thales',
+		description: 'A binary options protocol for trading on price action, sports, and other events.',
+		link: 'https://twitter.com/thalesmarket',
+		logo: 'https://pbs.twimg.com/profile_images/1394863098746621956/CLVZJN_C_400x400.png',
+	},
+	{
+		name: 'Aelin',
+		description: 'A deal coordination protocol built on Ethereum.',
+		link: 'https://pbs.twimg.com/profile_banners/1409488511632232450/1629139136/1500x500',
+		logo: 'https://pbs.twimg.com/profile_banners/1409488511632232450/1629139136/1500x500',
+	},
+];
 
 type CustomSliderArrow = {
 	onClick: () => void;
@@ -108,6 +53,10 @@ const ArrowWrapper = styled.button`
 	:active:enabled {
 		transform: scale(0.9);
 	}
+
+	${media.greaterThan('large')`
+		display: none;
+	`}
 
 	${media.lessThan('medium')`
 		display: none;
@@ -174,9 +123,15 @@ const PoweredBy = () => {
 			<SliderWrapper>
 				<PrevArrow onClick={() => handleScroll(false)} disabled={accumulatedOffset === 0} />
 				<Slider ref={sliderRef}>
-					{CARDS.Trading.map((card) => {
+					{CARDS.map((card) => {
 						return doesSupportBackdropFilter ? (
-							<Slide key={card.name}>{card.name}</Slide>
+							<Slide key={card.name}>
+								<Card>
+									<CardImage src={card.logo} />
+									<CardHeadline>{card.name}</CardHeadline>
+									<p>{card.description}</p>
+								</Card>
+							</Slide>
 						) : (
 							<SlideBackDropFilterPolyfill key={card.name}>{card.name}</SlideBackDropFilterPolyfill>
 						);
@@ -268,6 +223,29 @@ const SlideBackDropFilterPolyfill = styled.div`
 		background: rgba(255, 255, 255, 0.2);
 		filter: blur(3px);
 	}
+`;
+
+const Card = styled.div`
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	height: 100%;
+	padding: 18px;
+
+	p {
+		text-align: center;
+	}
+`;
+
+const CardImage = styled.img`
+	width: 100%;
+	height: 120px;
+	margin-bottom: 16px;
+`;
+
+const CardHeadline = styled.h4`
+	${({ theme }) => theme.fonts.subHeadline};
+	margin-bottom: 16px;
 `;
 
 export default PoweredBy;
