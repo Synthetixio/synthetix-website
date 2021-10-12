@@ -10,15 +10,14 @@ const SynthSection = () => {
 	const [activeIndex, setActiveIndex] = useState<number>(0);
 
 	const graphics = [
-		<SynthGraphic isAbsolute src="home/illustration-synths.svg" />,
-		<SynthGraphic src="/home/earn.svg" />,
-		<SynthGraphic src="/home/trade-synths.svg" />,
-		<SynthGraphic src="/home/build-circle.svg" />,
+		<SynthGraphicAbsolute src="home/illustration-synths.svg" key={uuidv4()} />,
+		<SynthGraphic src="/home/earn.svg" key={uuidv4()} />,
+		<SynthGraphic src="/home/trade-synths.svg" key={uuidv4()} />,
+		<SynthGraphic src="/home/build-circle.svg" key={uuidv4()} />,
 	];
 
 	return (
 		<SynthContainer>
-			{graphics[activeIndex]}
 			<Left>
 				<SectionTitle>Why Synthetix</SectionTitle>
 				<Accordion
@@ -27,86 +26,70 @@ const SynthSection = () => {
 					onAccordionItemChange={setActiveIndex}
 				/>
 			</Left>
+			{graphics[activeIndex]}
 		</SynthContainer>
 	);
 };
 
 const SynthContainer = styled(Section)`
-	min-height: 891px;
+	min-height: 800px;
 	background-color: ${({ theme }) => theme.colors.bgBlackHighlighted};
 	display: flex;
-	justify-content: flex-end;
 	align-items: center;
-
-	${media.lessThan('large')`
-		padding: 0 0 0 76px;
-	`}
+	padding: 0 153px;
 
 	${media.lessThan('medium')`
-		flex-direction: column;
-		justify-content: flex-start;
+		flex-direction: column-reverse;
+		justify-content: flex-end;
 		align-items: flex-start;
 		background-color: transparent;
 		min-height: 1000px;
-		padding: 0 8px;
+		padding: 0 40px;
 	`}
 `;
 
 const Left = styled.div`
 	max-width: 480px;
 	height: 364px;
-	position: absolute;
-	left: 0;
-	margin-left: 50px;
-	margin-top: -84px;
-
-	${media.greaterThan('1350px' as any)`
-		margin-right: 175px;
-	`}
-
-	${media.lessThan('medium')`
-		position: relative;
-		margin-top: 60px;
-		margin-left:0px;
-	`}
+	margin-right: auto;
 `;
 
-const SynthGraphic = styled.img<{ isAbsolute?: boolean }>`
+const SynthGraphicAbsolute = styled.img`
 	height: 444px;
-	position: ${({ isAbsolute }) => (isAbsolute ? 'absolute' : '')};
-	right: -250px;
+	position: absolute;
+	right: -100px;
 	pointer-events: none;
 	${(props) => props.theme.animations.show};
 	animation-delay: 100ms;
 	opacity: 0;
 
-	${media.greaterThan('1350px' as any)`
-		height: 35vw;
-		right: -120px;
+	${media.lessThan('1100px' as any)`
+		left: 480px;
 	`}
 
-	${media.lessThan('970px' as any)`
-		transform: translate(150px)
-	`}
-
-	${({ isAbsolute }) => {
-		return isAbsolute
-			? media.lessThan('medium')`
+	${media.lessThan('medium')`
 		position: static;
-		transform: translate(0px);
+		transform: translate(-100px);
 		margin-bottom: 16px;
+	`}
 
-		${media.lessThan('550px' as any)`
+	${media.lessThan('550px' as any)`
 		transform: translate(-150px)
 	`}
+`;
 
-		`
-			: media.lessThan('medium')`
+const SynthGraphic = styled.img`
+	height: 444px;
+	pointer-events: none;
+	${(props) => props.theme.animations.show};
+	animation-delay: 100ms;
+	opacity: 0;
+
+	${media.lessThan('medium')`
 		width: 100%;
 		margin-bottom: 16px;
 		transform: none;
-		`;
-	}}
+		`}
 `;
 
 const BuildButton = styled(Button)<{ margin?: string }>`

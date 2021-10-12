@@ -115,7 +115,7 @@ const PoweredBy = () => {
 
 	return (
 		<PoweredByContainer>
-			<SectionTitle>Powered by Synthetix</SectionTitle>
+			<CenteredSectionTitle>Powered by Synthetix</CenteredSectionTitle>
 			<Subline>
 				Learn more about the platforms built on top of the Synthetix protocol. Synthetix powers
 				decentralized perpetual futures, options markets, deal coordination markets, and more.
@@ -159,13 +159,16 @@ const PoweredByContainer = styled(Section)`
 	flex-direction: column;
 	align-items: center;
 	background-color: ${({ theme }) => theme.colors.bgBlackHighlighted};
-	padding: 70px 100px;
+	padding: 70px 40px;
 
 	${media.lessThan('medium')`
 		background-color: transparent;
 		background-size: cover;
-		padding: 0 8px;
 	`}
+`;
+
+const CenteredSectionTitle = styled(SectionTitle)`
+	text-align: center;
 `;
 
 const Subline = styled.article`
@@ -263,8 +266,7 @@ const CardImage = styled.img`
 `;
 
 const CardHeadline = styled.h4`
-	${({ theme }) => theme.fonts.subHeadline};
-	margin-bottom: 16px;
+	${({ theme }) => theme.fonts.smallHeadline};
 `;
 
 export default PoweredBy;

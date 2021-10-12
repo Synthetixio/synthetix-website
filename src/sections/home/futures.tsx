@@ -32,16 +32,16 @@ const FuturesSection = () => {
 };
 
 const FuturesContainer = styled(Section)`
-	min-height: 850px;
+	min-height: 950px;
 	position: relative;
 	background-color: transparent;
 	display: flex;
 	justify-content: center;
 	align-items: center;
-	padding-right: 109px;
+	padding: 0 153px;
 
 	${media.lessThan('large')`
-		padding: 0 8px ;
+		padding: 0 40px;
 	`}
 
 	${media.lessThan('medium')`
@@ -57,21 +57,31 @@ const Left = styled.div`
 	width: 100%;
 	min-height: 430px;
 	max-width: 766px;
+	right: 0;
 	background-image: url('/home/graph.svg');
 	background-repeat: no-repeat;
 	background-position: right;
+	background-size: cover;
+
+	${media.lessThan('large')`
+		background-size: cover;
+	`}
+
+	${media.lessThan('medium')`
+		background-size: contain;
+	`}
 
 	${media.lessThan('small')`
-		min-height: 300px;
-		background-size: contain;
+	min-height: 300px;
+	background-size: contain;
 	`}
 `;
 
 const AccordionContainer = styled(FlexDivCol)`
-	max-width: 600px;
-	${media.lessThan('large')`
-		max-width: 700px;
-		padding: 0 8px;
+	width: 600px;
+
+	${media.lessThan('medium')`
+		width: 100%;
 	`}
 `;
 
