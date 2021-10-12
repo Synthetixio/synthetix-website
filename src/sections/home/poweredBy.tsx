@@ -133,7 +133,13 @@ const PoweredBy = () => {
 								</Card>
 							</Slide>
 						) : (
-							<SlideBackDropFilterPolyfill key={card.name}>{card.name}</SlideBackDropFilterPolyfill>
+							<SlideBackDropFilterPolyfill key={card.name}>
+								<Card>
+									<CardImage src={card.logo} />
+									<CardHeadline>{card.name}</CardHeadline>
+									<p>{card.description}</p>
+								</Card>
+							</SlideBackDropFilterPolyfill>
 						);
 					})}
 				</Slider>
@@ -188,12 +194,18 @@ const Slider = styled.div`
 
 	${media.lessThan('medium')`
 		overflow: scroll;
+		overflow-y: hidden;
 		width: 300px;
 		margin: 0 32px;
 	`}
+
+	::-webkit-scrollbar {
+		height: 0px;
+	}
 `;
 
 const Slide = styled.div`
+	position: relative;
 	min-width: 260px;
 	height: 289px;
 	background: rgba(255, 255, 255, 0.1);
@@ -205,8 +217,8 @@ const Slide = styled.div`
 `;
 
 const SlideBackDropFilterPolyfill = styled.div`
-	min-width: 260px;
 	position: relative;
+	min-width: 260px;
 	height: 289px;
 	margin-right: ${slideMargin}px;
 	:last-of-type {
@@ -226,6 +238,13 @@ const SlideBackDropFilterPolyfill = styled.div`
 `;
 
 const Card = styled.div`
+	/* Needs to be absolute and a high z index because of the backdrop polyfill, otherwise font is milkyish */
+	position: absolute;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	z-index: 10;
 	display: flex;
 	flex-direction: column;
 	align-items: center;
