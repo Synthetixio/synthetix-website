@@ -52,7 +52,7 @@ const EcoSystemSection = styled(Section)`
 	flex-direction: column;
 	align-items: center;
 	background-color: ${({ theme }) => theme.colors.bgBlackHighlighted};
-	padding: 0px 100px;
+	padding: 0px 100px 120px;
 
 	${media.lessThan('medium')`
 		align-items: start;

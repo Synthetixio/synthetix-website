@@ -165,7 +165,7 @@ const PoweredByContainer = styled(Section)`
 		align-items: start;
 		background-color: transparent;
 		background-size: 300% 100% ;
-		padding: 0 40px;
+		padding: 20px 40px;
 		min-height: 700px;
 	`}
 `;

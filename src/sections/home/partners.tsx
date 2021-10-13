@@ -1,12 +1,11 @@
 import styled from 'styled-components';
-import { sectionMixin } from '../../components/Section';
 import PXbto from '../../svg/PXbto';
 import PHashed from '../../svg/PHashed';
 import PParafi from '../../svg/PParafi';
 import PDtc from '../../svg/PDtc';
 import PDefiance from '../../svg/PDefiance';
 import media from 'styled-media-query';
-import { Line } from 'src/components';
+import { Line, Section } from 'src/components';
 
 const PartnersSection = () => (
 	<>
@@ -27,11 +26,9 @@ const PartnersSection = () => (
 	</>
 );
 
-const PartnersContainer = styled.div`
-	${sectionMixin}
-
+const PartnersContainer = styled(Section)`
 	min-height: 340px;
-	padding: 79px 271px 131px 271px;
+	padding: 0px 271px 131px 271px;
 	text-align: center;
 
 	h3 {
@@ -46,7 +43,7 @@ const PartnersContainer = styled.div`
 	}
 
 	${media.lessThan('medium')`
-		padding: 184px 40px 33px 40px;
+		padding: 40px 40px 33px 40px;
 	`};
 `;
 
