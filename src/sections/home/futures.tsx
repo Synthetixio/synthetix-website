@@ -112,7 +112,7 @@ const AccordionContainer = styled(FlexDivCol)`
 
 const BuildButton = styled(Button)`
 	width: 146px;
-	height: 43px;
+	height: 56px;
 	margin-top: 32px;
 `;
 
