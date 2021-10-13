@@ -4,7 +4,7 @@ import media from 'styled-media-query';
 import Accordion, { AccordionItemsType } from 'src/components/Accordion/Accordion';
 import { v4 as uuidv4 } from 'uuid';
 import { useState } from 'react';
-import { FlexDiv, SectionTitle } from 'src/styles/common';
+import { FlexDiv } from 'src/styles/common';
 
 const SynthSection = () => {
 	const [activeIndex, setActiveIndex] = useState<number>(0);
@@ -19,7 +19,7 @@ const SynthSection = () => {
 	return (
 		<SynthContainer>
 			<Left>
-				<SectionTitle>Why Synthetix</SectionTitle>
+				<SynthHeadLine>Why Synthetix</SynthHeadLine>
 				<Accordion
 					items={accordionItems}
 					activeIndex={activeIndex}
@@ -47,6 +47,16 @@ const SynthContainer = styled(Section)`
 
 	${media.lessThan('small')`
 		min-height: 1150px;
+	`}
+`;
+
+const SynthHeadLine = styled.h4`
+	${({ theme }) => theme.fonts.sectionTitle}
+	margin-bottom: 14px;
+
+	${media.lessThan('medium')`
+		font-size: 24px;
+		line-height: 28px;
 	`}
 `;
 

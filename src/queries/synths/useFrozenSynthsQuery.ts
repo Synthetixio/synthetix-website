@@ -5,11 +5,12 @@ import { ethers } from 'ethers';
 import QUERY_KEYS from 'src/constants/queryKeys';
 import { CurrencyKey } from 'src/constants/currency';
 
-import snxjs from 'src/lib/snxjs';
+import getSNXJS from 'src/lib/snxjs';
 
 export type FrozenSynths = Set<CurrencyKey>;
 
-const useFrozenSynthsQuery = (options?: UseQueryOptions<FrozenSynths>) => {
+const useFrozenSynthsQuery = (infuraURL: string, options?: UseQueryOptions<FrozenSynths>) => {
+	const snxjs = getSNXJS(infuraURL);
 	return useQuery<FrozenSynths>(
 		QUERY_KEYS.Synths.FrozenSynths,
 		async () => {

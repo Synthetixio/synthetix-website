@@ -3,7 +3,7 @@ import styled from 'styled-components';
 import SynthsInfo from 'src/sections/synths/SynthsInfo';
 import { PageTitle, PageCopy, PageLayout } from 'src/styles/common';
 
-export async function getStaticProps() {
+export function getStaticProps() {
 	return {
 		props: { infuraURL: process.env.INFURA_URL },
 	};

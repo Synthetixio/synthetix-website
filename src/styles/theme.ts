@@ -72,12 +72,13 @@ export const theme = {
 			text-transform: uppercase;
 			color: #ffffff;
 		`,
-		subHeadline: css`
+		sectionTitle: css`
 			font-family: GT America;
-			font-weight: 700;
-			font-stretch: condensed;
+			font-style: normal;
+			font-weight: 900;
 			font-size: 32px;
-			line-height: 24px;
+			font-stretch: expanded;
+			line-height: 48px;
 			text-transform: uppercase;
 			color: #ffffff;
 		`,

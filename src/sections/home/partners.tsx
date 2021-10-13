@@ -28,6 +28,7 @@ const PartnersSection = () => (
 
 const PartnersContainer = styled(Section)`
 	min-height: 340px;
+	margin-top: 40px;
 	padding: 0px 271px 131px 271px;
 	text-align: center;
 

@@ -55,10 +55,14 @@ const FuturesContainer = styled(Section)`
 	`}
 `;
 
-const FuturesHeadLine = styled(SectionTitle)`
-	${({ theme }) => theme.fonts.smallHeadline}
-	font-size: 32px;
-	text-align: start;
+const FuturesHeadLine = styled.h4`
+	${({ theme }) => theme.fonts.sectionTitle}
+	margin-bottom: 14px;
+
+	${media.lessThan('medium')`
+		font-size: 24px;
+		line-height: 28px;
+	`}
 `;
 
 const Left = styled.div`
@@ -93,13 +97,15 @@ const AccordionContainer = styled(FlexDivCol)`
 	max-width: 596px;
 	height: 470px;
 	width: 100%;
+
 	${media.lessThan('medium')`
 		min-width: unset;
 		width: 100%;
-		margin-top: 430px;
+		margin-top: 450px;
 	`}
 
 	${media.lessThan('small')`
+	margin-top: 400px;
 		height: 580px;
 	`}
 `;

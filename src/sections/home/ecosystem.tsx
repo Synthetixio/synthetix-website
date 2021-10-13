@@ -10,19 +10,19 @@ const images: Record<'title' | 'link', string>[] = [
 	},
 	{
 		link: '/home/powered-by/crv.svg',
-		title: '1INCH',
+		title: 'CURVE',
 	},
 	{
 		link: '/home/powered-by/dhedge.svg',
-		title: '1INCH',
+		title: 'DHEDGE',
 	},
 	{
 		link: '/home/powered-by/para.svg',
-		title: '1INCH',
+		title: 'PARASWAP',
 	},
 	{
 		link: '/home/powered-by/yearn.svg',
-		title: '1INCH',
+		title: 'YEARN',
 	},
 ];
 
@@ -36,9 +36,9 @@ export default function Ecosystem() {
 			</Subline>
 			<ImageContainer>
 				{images.map((image) => (
-					<FlexDivColCentered>
+					<FlexDivColCentered key={image.title}>
 						<Image src={image.link} />
-						<span>{image.title}</span>
+						<ImageTitle>{image.title}</ImageTitle>
 					</FlexDivColCentered>
 				))}
 			</ImageContainer>
@@ -58,7 +58,7 @@ const EcoSystemSection = styled(Section)`
 		align-items: start;
 		padding: 0 40px;
 		background-color: transparent;
-	`}
+		`}
 `;
 
 const ImageContainer = styled.div`
@@ -73,9 +73,22 @@ const ImageContainer = styled.div`
 		grid-template-columns: 1fr 1fr;
 		grid-gap: 40px;
 	`}
+
+	${media.lessThan('medium')`
+		margin-bottom: 40px;
+	`}
 `;
 
 const Image = styled.img`
 	width: 114px;
 	height: 114px;
+`;
+
+const ImageTitle = styled.span`
+	font-family: GT America;
+	font-style: normal;
+	font-weight: bold;
+	font-size: 14px;
+	color: white;
+	font-stretch: expanded;
 `;

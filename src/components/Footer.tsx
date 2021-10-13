@@ -2,6 +2,7 @@ import { FC } from 'react';
 import styled from 'styled-components';
 import { Logo, Menu, Socials } from './';
 import media from 'styled-media-query';
+import Line from './Line';
 
 type FooterComponentProps = {
 	className?: string;
@@ -9,6 +10,7 @@ type FooterComponentProps = {
 
 const FooterComponent: FC<FooterComponentProps> = ({ className, ...rest }) => (
 	<Footer {...{ className }} {...rest}>
+		<Line />
 		<Left>
 			<Logo small={true} />
 		</Left>
