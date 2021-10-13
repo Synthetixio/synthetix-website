@@ -2,7 +2,7 @@ import styled from 'styled-components';
 import media from 'styled-media-query';
 import { Arrow } from '../../svg';
 import Section from '../../components/Section';
-import { SectionTitle } from '../../styles/common';
+import { ExternalLink, SectionTitle, Subline } from '../../styles/common';
 import { useRef, useState } from 'react';
 
 type Card = {
@@ -17,25 +17,25 @@ const CARDS: Card[] = [
 		name: 'Kwenta',
 		description: 'Trade with up to 10x leverage and simulated liquidity for the best price fills.',
 		link: 'https://kwenta.io',
-		logo: '/home/powered-by/kwenta.svg',
+		logo: '/home/powered-by/kwenta.png',
 	},
 	{
 		name: 'Lyra',
 		description: ' The first completely decentralized options protocol.',
 		link: 'https://www.lyra.finance/',
-		logo: '/home/powered-by/lyra.svg',
+		logo: '/home/powered-by/lyra.png',
 	},
 	{
 		name: 'Thales',
 		description: 'A binary options protocol for trading on price action, sports, and other events.',
 		link: 'https://twitter.com/thalesmarket',
-		logo: 'https://pbs.twimg.com/profile_images/1394863098746621956/CLVZJN_C_400x400.png',
+		logo: '/home/powered-by/thales.png',
 	},
 	{
 		name: 'Aelin',
 		description: 'A deal coordination protocol built on Ethereum.',
 		link: 'https://pbs.twimg.com/profile_banners/1409488511632232450/1629139136/1500x500',
-		logo: 'https://pbs.twimg.com/profile_banners/1409488511632232450/1629139136/1500x500',
+		logo: '/home/powered-by/aelin.png',
 	},
 ];
 
@@ -115,18 +115,18 @@ const PoweredBy = () => {
 
 	return (
 		<PoweredByContainer>
-			<CenteredSectionTitle>Powered by Synthetix</CenteredSectionTitle>
+			<SectionTitle>Powered by Synthetix</SectionTitle>
 			<Subline>
 				Learn more about the platforms built on top of the Synthetix protocol. Synthetix powers
 				decentralized perpetual futures, options markets, deal coordination markets, and more.
 			</Subline>
 			<SliderWrapper>
 				<PrevArrow onClick={() => handleScroll(false)} disabled={accumulatedOffset === 0} />
-				<Slider ref={sliderRef}>
+				<Slider ref={sliderRef} dir="ltr">
 					{CARDS.map((card) => {
 						return doesSupportBackdropFilter ? (
 							<Slide key={card.name}>
-								<Card>
+								<Card href={card.link}>
 									<CardImage src={card.logo} />
 									<CardHeadline>{card.name}</CardHeadline>
 									<p>{card.description}</p>
@@ -150,11 +150,11 @@ const PoweredBy = () => {
 };
 
 const PoweredByContainer = styled(Section)`
-	background-image: url('/home/powered-by-background.svg');
+	background-image: url('/home/powered-by/powered-by-background.svg');
+	min-height: 1000px;
 	background-position: top center;
 	background-repeat: no-repeat;
-	background-size: contain;
-	min-height: 1050px;
+	background-size: cover;
 	display: flex;
 	flex-direction: column;
 	align-items: center;
@@ -162,23 +162,18 @@ const PoweredByContainer = styled(Section)`
 	padding: 70px 40px;
 
 	${media.lessThan('medium')`
+		align-items: start;
 		background-color: transparent;
-		background-size: cover;
+		background-size: 300% 100% ;
+		padding: 0 40px;
+		min-height: 700px;
 	`}
 `;
 
-const CenteredSectionTitle = styled(SectionTitle)`
-	text-align: center;
-`;
-
-const Subline = styled.article`
-	max-width: 700px;
-	text-align: center;
-`;
-
 const SliderWrapper = styled.div`
-	margin-top: 136px;
+	margin-top: 185px;
 	display: flex;
+	align-self: center;
 	align-items: center;
 	justify-content: space-around;
 `;
@@ -196,8 +191,8 @@ const Slider = styled.div`
 	`}
 
 	${media.lessThan('medium')`
-		overflow: scroll;
-		overflow-y: hidden;
+		overflow: scroll hidden;
+		scroll-snap-type: x mandatory;
 		width: 300px;
 		margin: 0 32px;
 	`}
@@ -214,6 +209,7 @@ const Slide = styled.div`
 	background: rgba(255, 255, 255, 0.1);
 	backdrop-filter: blur(14px);
 	margin-right: ${slideMargin}px;
+	scroll-snap-align: start;
 	:last-of-type {
 		margin-right: 0px;
 	}
@@ -224,6 +220,7 @@ const SlideBackDropFilterPolyfill = styled.div`
 	min-width: 260px;
 	height: 289px;
 	margin-right: ${slideMargin}px;
+	scroll-snap-align: start;
 	:last-of-type {
 		margin-right: 0px;
 	}
@@ -240,7 +237,7 @@ const SlideBackDropFilterPolyfill = styled.div`
 	}
 `;
 
-const Card = styled.div`
+const Card = styled(ExternalLink)`
 	/* Needs to be absolute and a high z index because of the backdrop polyfill, otherwise font is milkyish */
 	position: absolute;
 	top: 0;

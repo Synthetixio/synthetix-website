@@ -22,6 +22,14 @@ export const SectionTitle = styled.h2`
 	margin-bottom: 18px;
 `;
 
+export const Subline = styled.article`
+	max-width: 700px;
+	text-align: center;
+	${media.lessThan('medium')`
+		text-align: start;
+	`};
+`;
+
 export const PageCopy = styled.p`
 	margin: 0;
 	font-size: 14px;

@@ -28,12 +28,6 @@ const Section = styled.section`
 			line-height: 38px;
 		}
 	`};
-
-	${media.lessThan('small')`
-		h1, h2 {
-		font-size: 24px;
-		}
-	`};
 `;
 
 export const SectionDescription = styled.p<DescriptionProps>`

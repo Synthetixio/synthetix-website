@@ -15,9 +15,9 @@ const FuturesSection = () => {
 				<FadeToBlack ltr={true} />
 			</Left>
 			<AccordionContainer>
-				<SectionTitle>
+				<FuturesHeadLine>
 					Decentralized <br /> Perpetual Futures
-				</SectionTitle>
+				</FuturesHeadLine>
 				<Accordion
 					items={accordionItems}
 					activeIndex={activeIndex}
@@ -32,16 +32,17 @@ const FuturesSection = () => {
 };
 
 const FuturesContainer = styled(Section)`
-	min-height: 950px;
+	min-height: 700px;
 	position: relative;
-	background-color: transparent;
+	background-color: ${({ theme }) => theme.colors.bgBlackHighlighted};
 	display: flex;
 	justify-content: center;
 	align-items: center;
-	padding: 0 153px;
+	padding-right: 153px;
 
 	${media.lessThan('large')`
-		padding: 0 40px;
+		padding-right: 40px;
+		min-height: 800px;
 	`}
 
 	${media.lessThan('medium')`
@@ -49,7 +50,14 @@ const FuturesContainer = styled(Section)`
 		justify-content: flex-start;
 		align-items: flex-start;
 		background-color: transparent;
+		padding: 0 40px;
 	`}
+`;
+
+const FuturesHeadLine = styled(SectionTitle)`
+	${({ theme }) => theme.fonts.smallHeadline}
+	font-size: 32px;
+	text-align: start;
 `;
 
 const Left = styled.div`
@@ -61,27 +69,31 @@ const Left = styled.div`
 	background-image: url('/home/graph.svg');
 	background-repeat: no-repeat;
 	background-position: right;
-	background-size: cover;
+	background-size: contain;
 
 	${media.lessThan('large')`
-		background-size: cover;
+		background-size: contain;
 	`}
 
 	${media.lessThan('medium')`
 		background-size: contain;
+		position: absolute;
+		right: 0;
+		left: 0;
 	`}
 
 	${media.lessThan('small')`
-	min-height: 300px;
-	background-size: contain;
+		background-size: contain;
 	`}
 `;
 
 const AccordionContainer = styled(FlexDivCol)`
-	width: 600px;
-
+	max-width: 596px;
+	width: 100%;
 	${media.lessThan('medium')`
+		min-width: unset;
 		width: 100%;
+		margin-top: 430px;
 	`}
 `;
 
@@ -98,14 +110,24 @@ const FadeToBlack = styled.div<{ ltr: boolean }>`
 	z-index: 10;
 	width: 150px;
 
+	${({ ltr, theme }) =>
+		ltr
+			? `right: 0px; background: linear-gradient(90deg, transparent, ${theme.colors.bgBlackHighlighted} 90%);`
+			: `left: 0px; background: linear-gradient(90deg, ${theme.colors.bgBlackHighlighted} 20%, transparent);`}
+
+	${({ ltr, theme }) => {
+		if (!ltr)
+			return media.lessThan('medium')`
+			display: none;`;
+		else
+			return media.lessThan('medium')`
+			background: linear-gradient(90deg, transparent, ${theme.colors.bgBlack} 90%);
+			`;
+	}}
+
 	${media.lessThan('small')`
 		width: 50px;
 	`};
-
-	${({ ltr, theme }) =>
-		ltr
-			? `right: 0px; background: linear-gradient(90deg, transparent, ${theme.colors.bgBlack} 90%);`
-			: `left: 0px; background: linear-gradient(90deg, ${theme.colors.bgBlack} 20%, transparent);`}
 `;
 
 const accordionItems: AccordionItemsType = [

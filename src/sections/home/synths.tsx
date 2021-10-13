@@ -33,7 +33,6 @@ const SynthSection = () => {
 
 const SynthContainer = styled(Section)`
 	min-height: 800px;
-	background-color: ${({ theme }) => theme.colors.bgBlackHighlighted};
 	display: flex;
 	align-items: center;
 	padding: 0 153px;
@@ -42,9 +41,12 @@ const SynthContainer = styled(Section)`
 		flex-direction: column-reverse;
 		justify-content: flex-end;
 		align-items: flex-start;
-		background-color: transparent;
 		min-height: 1000px;
 		padding: 0 40px;
+	`}
+
+	${media.lessThan('small')`
+		min-height: 1150px;
 	`}
 `;
 
@@ -69,12 +71,11 @@ const SynthGraphicAbsolute = styled.img`
 
 	${media.lessThan('medium')`
 		position: static;
-		transform: translate(-100px);
 		margin-bottom: 16px;
 	`}
 
 	${media.lessThan('550px' as any)`
-		transform: translate(-150px)
+		transform: translate(-250px)
 	`}
 `;
 
@@ -128,7 +129,7 @@ const accordionItems: AccordionItemsType = [
 		buttons: [
 			<BuildButton
 				buttonType="secondary"
-				link=""
+				link="/synths"
 				external={false}
 				key={uuidv4()}
 				margin="19px 0px 0px"
@@ -147,10 +148,10 @@ const accordionItems: AccordionItemsType = [
 		],
 		buttons: [
 			<FlexDivRowResponsive key={uuidv4()}>
-				<BuildButton buttonType="primary" link="" external={false}>
+				<BuildButton buttonType="primary" link="https://staking.synthetix.io/" external={true}>
 					STAKE NOW
 				</BuildButton>
-				<BuildButton buttonType="secondary" link="" external={false}>
+				<BuildButton buttonType="secondary" link="https://docs.synthetix.io/" external={true}>
 					DOCS
 				</BuildButton>
 			</FlexDivRowResponsive>,
@@ -167,8 +168,8 @@ const accordionItems: AccordionItemsType = [
 		buttons: [
 			<BuildButton
 				buttonType="primary"
-				link=""
-				external={false}
+				link="https://kwenta.io/"
+				external={true}
 				key={uuidv4()}
 				margin="19px 0px 0px"
 			>
@@ -185,7 +186,12 @@ const accordionItems: AccordionItemsType = [
 			</div>,
 		],
 		buttons: [
-			<BuildButton buttonType="secondary" link="" external={false} key={uuidv4()}>
+			<BuildButton
+				buttonType="secondary"
+				link="https://docs.synthetix.io/"
+				external={true}
+				key={uuidv4()}
+			>
 				DOCS
 			</BuildButton>,
 		],

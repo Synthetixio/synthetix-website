@@ -30,8 +30,8 @@ const Home = ({ totalLocked }: ApiStatsProps) => {
 			<Layout showBgGradient={true}>
 				<MainSection />
 				<TotalSection totalLocked={totalLocked} />
-				<SynthSection />
 				<Futures />
+				<SynthSection />
 				<PoweredBy />
 				<Ecosystem />
 				<PartnersSection />

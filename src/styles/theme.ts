@@ -66,7 +66,7 @@ export const theme = {
 		headline: css`
 			font-family: GT America;
 			font-weight: 900;
-			font-size: 40px;
+			font-size: 32px;
 			line-height: 48px;
 			font-stretch: expanded;
 			text-transform: uppercase;

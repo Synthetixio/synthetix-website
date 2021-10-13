@@ -58,7 +58,7 @@ const AccordionItemHeader = styled(FlexDivRow)`
 
 const AccordionItemInner = styled(FlexDivCol)<ActiveItemProps>`
 	padding-left: 24px;
-	border-left: 1px dashed ${({ theme }) => theme.colors.gray50};
+	border-left: 1px dotted ${({ theme }) => theme.colors.gray50}f8;
 	min-height: 28px;
 	padding-bottom: ${({ isLast }) => (isLast ? '0px' : '30px')};
 `;
@@ -92,6 +92,7 @@ const EndCircle = styled(Circle)`
 const SmallHeadline = styled.h3<ActiveItemProps>`
 	${({ theme }) => theme.fonts.subHeadline};
 	color: ${({ active, theme }) => (active ? theme.colors.cyan : theme.colors.gray50)};
+	font-stretch: expanded;
 	margin-left: 24px;
 `;
 
