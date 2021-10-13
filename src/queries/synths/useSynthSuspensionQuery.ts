@@ -5,6 +5,7 @@ import QUERY_KEYS from 'src/constants/queryKeys';
 import { CurrencyKey } from 'src/constants/currency';
 
 import snxjs from 'src/lib/snxjs';
+import getSNXJS from 'src/lib/snxjs';
 
 /*
 	Suspension Reasons:
@@ -53,7 +54,9 @@ const useSynthSuspensionQuery = (
 	return useQuery<SynthSuspended>(
 		QUERY_KEYS.Synths.Suspension(currencyKey),
 		async () => {
-			const [isSuspended, reason] = (await snxjs.contracts.SystemStatus.synthExchangeSuspension(
+			const [isSuspended, reason] = (await getSNXJS(
+				'https://mainnet.infura.io/v3/9428ac75c6694bf69d325e35e89bd266'
+			).contracts.SystemStatus.synthExchangeSuspension(
 				ethers.utils.formatBytes32String(currencyKey!)
 			)) as [boolean, ethers.BigNumber];
 
