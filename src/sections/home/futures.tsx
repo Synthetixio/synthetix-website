@@ -9,7 +9,7 @@ import { FlexDivCol, SectionTitle } from 'src/styles/common';
 const FuturesSection = () => {
 	const [activeIndex, setActiveIndex] = useState<number>(0);
 	return (
-		<FuturesContainer>
+		<FuturesContainer id="futures">
 			<Left>
 				<FadeToBlack ltr={false} />
 				<FadeToBlack ltr={true} />
@@ -46,6 +46,7 @@ const FuturesContainer = styled(Section)`
 	`}
 
 	${media.lessThan('medium')`
+		min-height: 950px;
 		flex-direction: column;
 		justify-content: flex-start;
 		align-items: flex-start;
@@ -76,7 +77,7 @@ const Left = styled.div`
 	`}
 
 	${media.lessThan('medium')`
-		background-size: contain;
+		background-size: cover;
 		position: absolute;
 		right: 0;
 		left: 0;
@@ -84,16 +85,22 @@ const Left = styled.div`
 
 	${media.lessThan('small')`
 		background-size: contain;
+		transform: scale(1.2);
 	`}
 `;
 
 const AccordionContainer = styled(FlexDivCol)`
 	max-width: 596px;
+	height: 470px;
 	width: 100%;
 	${media.lessThan('medium')`
 		min-width: unset;
 		width: 100%;
 		margin-top: 430px;
+	`}
+
+	${media.lessThan('small')`
+		height: 580px;
 	`}
 `;
 
@@ -105,10 +112,14 @@ const BuildButton = styled(Button)`
 
 const FadeToBlack = styled.div<{ ltr: boolean }>`
 	position: absolute;
-	top: 10px;
+	top: 0;
 	bottom: 10px;
 	z-index: 10;
 	width: 150px;
+
+	${media.lessThan('large')`
+		width: 50px;
+	`}
 
 	${({ ltr, theme }) =>
 		ltr

@@ -28,7 +28,7 @@ const CARDS: Card[] = [
 	{
 		name: 'Thales',
 		description: 'A binary options protocol for trading on price action, sports, and other events.',
-		link: 'https://twitter.com/thalesmarket',
+		link: 'https://thales.market/',
 		logo: '/home/powered-by/thales.png',
 	},
 	{

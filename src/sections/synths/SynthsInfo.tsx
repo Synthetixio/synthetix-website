@@ -4,12 +4,13 @@ import media from 'styled-media-query';
 import { theme } from 'src/styles/theme';
 import { resetButtonCSS } from 'src/styles/common';
 
-import snxjs from 'src/lib/snxjs';
+import getSNXJS from 'src/lib/snxjs';
 
 import useSynthetixTokenList from 'src/queries/tokenLists/useSynthetixTokenList';
 import useExchangeInfoQuery from 'src/queries/exchangeInfo/useExchangeInfoQuery';
 
 import SynthCard from './SynthCard';
+import { SynthsProps } from 'src/pages/synths';
 
 enum SynthCategory {
 	ALL = 'all',
@@ -21,13 +22,13 @@ enum SynthCategory {
 
 const SYNTH_CATEGORIES = Object.values(SynthCategory);
 
-const SynthsInfo = () => {
+const SynthsInfo = ({ infuraURL }: SynthsProps) => {
 	const [synthCategory, setSynthCategory] = useState<SynthCategory>(SynthCategory.ALL);
 	const synthetixTokenListQuery = useSynthetixTokenList();
 	const synthetixTokensMap = synthetixTokenListQuery.isSuccess
 		? synthetixTokenListQuery.data.tokensMap ?? null
 		: null;
-	const synths = snxjs.synths;
+	const synths = getSNXJS(infuraURL).synths;
 
 	const filteredSynths = useMemo(
 		() =>
@@ -37,7 +38,7 @@ const SynthsInfo = () => {
 		[synths, synthCategory]
 	);
 
-	const exchangeInfoQuery = useExchangeInfoQuery();
+	const exchangeInfoQuery = useExchangeInfoQuery(infuraURL);
 	const exchangeInfo = exchangeInfoQuery.isSuccess ? exchangeInfoQuery.data ?? null : null;
 
 	const exchangeRates = exchangeInfo?.rates ?? null;

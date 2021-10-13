@@ -43,6 +43,7 @@ const TotalStakedBar = styled.div`
 
 const StakedHeader = styled.h3`
 	font-family: GT America;
+	font-style: normal;
 	font-weight: 900;
 	font-size: 32px;
 	line-height: 48px;

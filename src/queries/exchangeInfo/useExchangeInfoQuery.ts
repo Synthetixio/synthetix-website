@@ -1,11 +1,10 @@
 import { useQuery, UseQueryOptions } from 'react-query';
 import { BigNumberish, ethers } from 'ethers';
 
-import snxjs from 'src/lib/snxjs';
-
 import QUERY_KEYS from 'src/constants/queryKeys';
 import { CurrencyKey } from 'src/constants/currency';
 import { iStandardSynth, synthToAsset } from 'src/utils/currencies';
+import getSNXJS from 'src/lib/snxjs';
 
 export type Rates = Record<CurrencyKey, number>;
 export type Fees = Record<CurrencyKey, number>;
@@ -16,13 +15,16 @@ type SynthRatesTuple = [string[], CurrencyRate[]];
 // Additional commonly used currencies to fetch, besides the one returned by the SynthUtil.synthsRates
 const additionalCurrencies = ['SNX'].map(ethers.utils.formatBytes32String);
 
-const useExchangeInfoQuery = (options?: UseQueryOptions<{ rates: Rates; fees: Fees }>) => {
+const useExchangeInfoQuery = (
+	infuraURL: string,
+	options?: UseQueryOptions<{ rates: Rates; fees: Fees }>
+) => {
+	const snxjs = getSNXJS(infuraURL);
 	return useQuery<{ rates: Rates; fees: Fees }>(
 		QUERY_KEYS.Rates.ExchangeRates,
 		async () => {
 			const exchangeRates: Rates = {};
 			const exchangeFees: Fees = {};
-
 			const [synthsRates, ratesForCurrencies] = (await Promise.all([
 				snxjs.contracts.SynthUtil.synthsRates(),
 				snxjs.contracts.ExchangeRates.ratesForCurrencies(additionalCurrencies),
