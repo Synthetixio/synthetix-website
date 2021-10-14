@@ -3,7 +3,7 @@ import media from 'styled-media-query';
 import Link from 'next/link';
 
 import { theme } from '../styles/theme';
-import { ExternalLink, FlexDiv } from '../styles/common';
+import { ExternalLink } from '../styles/common';
 
 const data = [
 	{

@@ -1,6 +1,7 @@
 {
 	"extends": ["react-app"],
 	"plugins": ["prettier"],
+	"parser": "@babel/eslint-parser",
 	"rules": {
 		"react/react-in-jsx-scope": "off",
 		"prettier/prettier": "error",

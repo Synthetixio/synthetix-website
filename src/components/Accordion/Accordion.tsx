@@ -1,12 +1,11 @@
-import { useState } from 'react';
 import { FlexDivCol } from 'src/styles/common';
 import styled from 'styled-components';
 import AccordionItem, { AccordionItemProps } from './AccordionItem';
 
-export type AccordionItemsType = Omit<AccordionItemProps, 'onHeaderClick' | 'open' | 'isLast'>[];
+export type AccordionItemsType = Omit<AccordionItemProps, 'onHeaderClick' | 'open' | 'isLast'>;
 
 export interface AccordionProps {
-	items: AccordionItemsType;
+	items: AccordionItemsType[];
 	onAccordionItemChange: (index: number) => void;
 	activeIndex: number;
 }

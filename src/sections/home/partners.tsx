@@ -1,9 +1,9 @@
 import styled from 'styled-components';
-import PXbto from '../../svg/PXbto';
-import PHashed from '../../svg/PHashed';
-import PParafi from '../../svg/PParafi';
-import PDtc from '../../svg/PDtc';
-import PDefiance from '../../svg/PDefiance';
+import { PXbto } from '../../svg';
+import { PHashed } from '../../svg';
+import { PParafi } from '../../svg';
+import { PDtc } from '../../svg';
+import { PDefiance } from '../../svg';
 import media from 'styled-media-query';
 import { Line, Section } from 'src/components';
 

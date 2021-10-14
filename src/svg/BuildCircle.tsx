@@ -2,7 +2,7 @@ import React from 'react';
 
 const SvgBuildCircle = (props: Props): JSX.Element => {
 	return (
-		<svg width={722} height={722} fill="none" {...props}>
+		<svg width={722} height={722} fill="none" xmlns="http://www.w3.org/2000/svg" {...props}>
 			<path
 				d="M361.096 89.804v542.55"
 				stroke="url(#build-circle_svg__paint0_linear)"
@@ -288,26 +288,15 @@ const SvgBuildCircle = (props: Props): JSX.Element => {
 			/>
 			<defs>
 				<linearGradient
-					id="build-circle_svg__paint18_linear"
-					x1={361.129}
-					y1={103.035}
-					x2={361.129}
-					y2={619.122}
+					id="build-circle_svg__paint0_linear"
+					x1={361.596}
+					y1={89.804}
+					x2={361.596}
+					y2={632.354}
 					gradientUnits="userSpaceOnUse"
 				>
 					<stop stopColor="#ED1EFF" />
 					<stop offset={1} stopColor="#00D1FF" />
-				</linearGradient>
-				<linearGradient
-					id="build-circle_svg__paint36_linear"
-					x1={360.698}
-					y1={280.92}
-					x2={360.698}
-					y2={441.51}
-					gradientUnits="userSpaceOnUse"
-				>
-					<stop stopColor="#00D1FF" />
-					<stop offset={1} stopColor="#00D1FF" stopOpacity={0.51} />
 				</linearGradient>
 				<linearGradient
 					id="build-circle_svg__paint1_linear"
@@ -497,11 +486,11 @@ const SvgBuildCircle = (props: Props): JSX.Element => {
 					<stop offset={1} stopColor="#00D1FF" />
 				</linearGradient>
 				<linearGradient
-					id="build-circle_svg__paint0_linear"
-					x1={361.596}
-					y1={89.804}
-					x2={361.596}
-					y2={632.354}
+					id="build-circle_svg__paint18_linear"
+					x1={361.129}
+					y1={103.035}
+					x2={361.129}
+					y2={619.122}
 					gradientUnits="userSpaceOnUse"
 				>
 					<stop stopColor="#ED1EFF" />
@@ -693,6 +682,17 @@ const SvgBuildCircle = (props: Props): JSX.Element => {
 				>
 					<stop stopColor="#ED1EFF" />
 					<stop offset={1} stopColor="#00D1FF" />
+				</linearGradient>
+				<linearGradient
+					id="build-circle_svg__paint36_linear"
+					x1={360.698}
+					y1={280.92}
+					x2={360.698}
+					y2={441.51}
+					gradientUnits="userSpaceOnUse"
+				>
+					<stop stopColor="#00D1FF" />
+					<stop offset={1} stopColor="#00D1FF" stopOpacity={0.51} />
 				</linearGradient>
 				<filter
 					id="build-circle_svg__filter0_d"

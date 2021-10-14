@@ -30,7 +30,7 @@ const useExchangeInfoQuery = (options?: UseQueryOptions<{ rates: Rates; fees: Fe
 			const synths = [...synthsRates[0], ...additionalCurrencies] as string[];
 			const rates = [...synthsRates[1], ...ratesForCurrencies] as CurrencyRate[];
 
-			const fees = synths.map(async (currencyKeyBytes32: CurrencyKey, idx: number) => {
+			const fees = synths.map(async (currencyKeyBytes32: CurrencyKey) => {
 				const currencyKey = ethers.utils.parseBytes32String(currencyKeyBytes32);
 				const exchangeFee = await snxjs.contracts.SystemSettings.exchangeFeeRate(
 					currencyKeyBytes32

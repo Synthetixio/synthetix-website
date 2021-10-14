@@ -4,7 +4,7 @@ import { v4 as uuidv4 } from 'uuid';
 import media from 'styled-media-query';
 import Accordion, { AccordionItemsType } from 'src/components/Accordion/Accordion';
 import { useState } from 'react';
-import { FlexDivCol, SectionTitle } from 'src/styles/common';
+import { FlexDivCol } from 'src/styles/common';
 
 const FuturesSection = () => {
 	const [activeIndex, setActiveIndex] = useState<number>(0);

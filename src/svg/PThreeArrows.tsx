@@ -2,7 +2,15 @@ import React from 'react';
 
 const SvgPThreeArrows = (props: Props): JSX.Element => {
 	return (
-		<svg width={240} height={43} viewBox="0 0 401 72" fill="none" {...props}>
+		<svg
+			width={240}
+			height={43}
+			viewBox="0 0 401 72"
+			fill="none"
+			xmlns="http://www.w3.org/2000/svg"
+			xmlnsXlink="http://www.w3.org/1999/xlink"
+			{...props}
+		>
 			<mask
 				id="p-three-arrows_svg__a"
 				maskUnits="userSpaceOnUse"
