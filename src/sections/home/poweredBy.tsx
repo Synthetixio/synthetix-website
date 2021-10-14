@@ -2,7 +2,7 @@ import styled from 'styled-components';
 import media from 'styled-media-query';
 import { Arrow } from '../../svg';
 import Section from '../../components/Section';
-import { ExternalLink, SectionTitle, Subline } from '../../styles/common';
+import { ExternalLink, Subline } from '../../styles/common';
 import { useRef, useState } from 'react';
 
 type Card = {
@@ -34,7 +34,7 @@ const CARDS: Card[] = [
 	{
 		name: 'Aelin',
 		description: 'A deal coordination protocol built on Ethereum.',
-		link: 'https://pbs.twimg.com/profile_banners/1409488511632232450/1629139136/1500x500',
+		link: 'https://discord.com/invite/YHffnV9sUM',
 		logo: '/home/powered-by/aelin.png',
 	},
 ];
@@ -63,10 +63,10 @@ const ArrowWrapper = styled.button`
 	`}
 `;
 
-function NextArrow({ onClick, disabled }: CustomSliderArrow) {
+function NextArrow({ onClick }: CustomSliderArrow) {
 	return (
-		<ArrowWrapper onClick={onClick} disabled={disabled}>
-			<Arrow disabled={disabled} />
+		<ArrowWrapper onClick={onClick}>
+			<Arrow />
 		</ArrowWrapper>
 	);
 }
@@ -115,11 +115,11 @@ const PoweredBy = () => {
 
 	return (
 		<PoweredByContainer>
-			<SectionTitle>Powered by Synthetix</SectionTitle>
-			<Subline>
+			<PoweredBySectionTitle>Powered by Synthetix</PoweredBySectionTitle>
+			<PoweredBySubline>
 				Learn more about the platforms built on top of the Synthetix protocol. Synthetix powers
 				decentralized perpetual futures, options markets, deal coordination markets, and more.
-			</Subline>
+			</PoweredBySubline>
 			<SliderWrapper>
 				<PrevArrow onClick={() => handleScroll(false)} disabled={accumulatedOffset === 0} />
 				<Slider ref={sliderRef} dir="ltr">
@@ -150,8 +150,9 @@ const PoweredBy = () => {
 };
 
 const PoweredByContainer = styled(Section)`
-	background-image: url('/home/powered-by/powered-by-background.svg');
+	background-image: url('/home/powered-by/background.svg');
 	min-height: 1000px;
+	position: relative;
 	background-position: top center;
 	background-repeat: no-repeat;
 	background-size: cover;
@@ -162,12 +163,34 @@ const PoweredByContainer = styled(Section)`
 	padding: 70px 40px;
 
 	${media.lessThan('medium')`
+		background-image: url('/home/powered-by/background-tablet.svg');
 		align-items: start;
 		background-color: transparent;
-		background-size: 300% 100% ;
 		padding: 20px 40px;
 		min-height: 700px;
 	`}
+
+	${media.lessThan('small')`
+		background-image: url('/home/powered-by/background-mobile.svg');
+		background-size: contain;
+	`}
+`;
+
+const PoweredBySectionTitle = styled.h4`
+	${({ theme }) => theme.fonts.sectionTitle}
+	${media.lessThan('medium')`
+		text-align: center;
+		width: 100%;
+		font-size: 24px;
+		line-height: 28px;
+		margin-bottom: 8px;
+ `}
+`;
+
+const PoweredBySubline = styled(Subline)`
+	${media.lessThan('medium')`
+		text-align:center;
+ `}
 `;
 
 const SliderWrapper = styled.div`
@@ -176,6 +199,11 @@ const SliderWrapper = styled.div`
 	align-self: center;
 	align-items: center;
 	justify-content: space-around;
+
+	${media.lessThan('medium')`
+		margin-top: 0px;
+		padding-top: 135px;
+ `}
 `;
 
 const Slider = styled.div`
@@ -193,9 +221,13 @@ const Slider = styled.div`
 	${media.lessThan('medium')`
 		overflow: scroll hidden;
 		scroll-snap-type: x mandatory;
-		width: 300px;
 		margin: 0 32px;
+		width: 516px;
 	`}
+
+	${media.lessThan('510px' as any)`
+		width: 300px;
+`}
 
 	::-webkit-scrollbar {
 		height: 0px;

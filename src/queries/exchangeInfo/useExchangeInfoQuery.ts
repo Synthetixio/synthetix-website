@@ -15,11 +15,8 @@ type SynthRatesTuple = [string[], CurrencyRate[]];
 // Additional commonly used currencies to fetch, besides the one returned by the SynthUtil.synthsRates
 const additionalCurrencies = ['SNX'].map(ethers.utils.formatBytes32String);
 
-const useExchangeInfoQuery = (
-	infuraURL: string,
-	options?: UseQueryOptions<{ rates: Rates; fees: Fees }>
-) => {
-	const snxjs = getSNXJS(infuraURL);
+const useExchangeInfoQuery = (options?: UseQueryOptions<{ rates: Rates; fees: Fees }>) => {
+	const snxjs = getSNXJS();
 	return useQuery<{ rates: Rates; fees: Fees }>(
 		QUERY_KEYS.Rates.ExchangeRates,
 		async () => {

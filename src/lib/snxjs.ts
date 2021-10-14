@@ -6,11 +6,11 @@ const initSnxJS = (config: Config) => synthetix(config);
 
 let snxjs: SynthetixJS;
 
-const getSNXJS = (infuraURL: string) => {
+const getSNXJS = () => {
 	if (!snxjs)
 		return initSnxJS({
 			networkId: DEFAULT_NETWORK_ID,
-			provider: new providers.JsonRpcProvider(infuraURL),
+			provider: new providers.JsonRpcProvider(process.env.NEXT_PUBLIC_INFURA_URL),
 		});
 	else return snxjs;
 };

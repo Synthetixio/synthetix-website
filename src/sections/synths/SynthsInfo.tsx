@@ -10,25 +10,22 @@ import useSynthetixTokenList from 'src/queries/tokenLists/useSynthetixTokenList'
 import useExchangeInfoQuery from 'src/queries/exchangeInfo/useExchangeInfoQuery';
 
 import SynthCard from './SynthCard';
-import { SynthsProps } from 'src/pages/synths';
 
 enum SynthCategory {
 	ALL = 'all',
 	CRYPTO = 'crypto',
 	FOREX = 'forex',
-	EQUITIES = 'equities',
-	COMMODITY = 'commodity',
 }
 
 const SYNTH_CATEGORIES = Object.values(SynthCategory);
 
-const SynthsInfo = ({ infuraURL }: SynthsProps) => {
+const SynthsInfo = () => {
 	const [synthCategory, setSynthCategory] = useState<SynthCategory>(SynthCategory.ALL);
 	const synthetixTokenListQuery = useSynthetixTokenList();
 	const synthetixTokensMap = synthetixTokenListQuery.isSuccess
 		? synthetixTokenListQuery.data.tokensMap ?? null
 		: null;
-	const synths = getSNXJS(infuraURL).synths;
+	const synths = getSNXJS().synths;
 
 	const filteredSynths = useMemo(
 		() =>
@@ -38,7 +35,7 @@ const SynthsInfo = ({ infuraURL }: SynthsProps) => {
 		[synths, synthCategory]
 	);
 
-	const exchangeInfoQuery = useExchangeInfoQuery(infuraURL);
+	const exchangeInfoQuery = useExchangeInfoQuery();
 	const exchangeInfo = exchangeInfoQuery.isSuccess ? exchangeInfoQuery.data ?? null : null;
 
 	const exchangeRates = exchangeInfo?.rates ?? null;
@@ -83,6 +80,11 @@ const Cards = styled.div`
 	display: grid;
 	grid-template-columns: repeat(3, 1fr);
 	grid-gap: 35px;
+
+	${media.lessThan('large')`
+		grid-template-columns: repeat(2, 1fr);
+		justify-items: center;
+	`}
 
 	${media.lessThan('medium')`
 		grid-template-columns: 1fr;

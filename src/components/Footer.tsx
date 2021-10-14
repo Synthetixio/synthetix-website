@@ -38,6 +38,7 @@ const Footer = styled.footer`
 	opacity: 0;
 
 	${media.lessThan('medium')`
+		background-color: transparent;
 		${Menu as any} {
 			display: none;
 		}

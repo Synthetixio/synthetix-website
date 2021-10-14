@@ -9,8 +9,8 @@ import getSNXJS from 'src/lib/snxjs';
 
 export type FrozenSynths = Set<CurrencyKey>;
 
-const useFrozenSynthsQuery = (infuraURL: string, options?: UseQueryOptions<FrozenSynths>) => {
-	const snxjs = getSNXJS(infuraURL);
+const useFrozenSynthsQuery = (options?: UseQueryOptions<FrozenSynths>) => {
+	const snxjs = getSNXJS();
 	return useQuery<FrozenSynths>(
 		QUERY_KEYS.Synths.FrozenSynths,
 		async () => {
