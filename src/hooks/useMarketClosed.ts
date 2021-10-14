@@ -9,9 +9,7 @@ export type MarketClosureReason = 'frozen' | SynthSuspensionReason;
 export type MarketClosure = ReturnType<typeof useMarketClosed>;
 
 const useMarketClosed = (currencyKey: CurrencyKey) => {
-	const frozenSynthsQuery = useFrozenSynthsQuery(
-		'https://mainnet.infura.io/v3/9428ac75c6694bf69d325e35e89bd266'
-	);
+	const frozenSynthsQuery = useFrozenSynthsQuery();
 	const currencySuspendedQuery = useSynthSuspensionQuery(currencyKey);
 
 	const isCurrencyFrozen =
