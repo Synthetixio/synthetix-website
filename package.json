@@ -31,14 +31,11 @@
 		"react-fastclick": "3.0.2",
 		"react-hamburger-menu": "1.2.1",
 		"react-query": "3.13.5",
-		"react-responsive": "^8.1.0",
 		"react-transition-group": "4.4.1",
-		"slick-carousel": "1.8.1",
 		"smoothscroll-polyfill": "^0.4.4",
 		"styled-components": "5.1.1",
 		"styled-media-query": "2.1.2",
 		"styled-reset": "4.2.2",
-		"swr": "0.3.1",
 		"uuid": "^8.3.2"
 	},
 	"devDependencies": {

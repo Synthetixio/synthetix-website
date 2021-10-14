@@ -10,9 +10,6 @@ import { theme } from '../styles/theme';
 import { GlobalStyle } from '../styles/globals';
 import smoothscroll from 'smoothscroll-polyfill';
 
-import 'slick-carousel/slick/slick.css';
-import 'slick-carousel/slick/slick-theme.css';
-
 const MATOMO_URL = process.env.NEXT_PUBLIC_MATOMO_URL;
 const MATOMO_SITE_ID = process.env.NEXT_PUBLIC_MATOMO_SITE_ID;
 
