@@ -263,11 +263,6 @@
         },
         {
           "location": {
-            "uri": "file:///Users/maxfritz/Code/synthetix-website/src/svg/PFramework.tsx"
-          }
-        },
-        {
-          "location": {
             "uri": "file:///Users/maxfritz/Code/synthetix-website/src/svg/PHashed.tsx"
           }
         },
@@ -317,52 +312,7 @@
           }
         }
       ],
-      "results": [],
-      "invocations": [
-        {
-          "toolConfigurationNotifications": [
-            {
-              "level": "error",
-              "message": {
-                "text": "Parsing error: Cannot read properties of undefined (reading 'map')"
-              },
-              "locations": [
-                {
-                  "physicalLocation": {
-                    "artifactLocation": {
-                      "uri": "file:///Users/maxfritz/Code/synthetix-website/src/queries/exchangeInfo/useExchangeInfoQuery.ts",
-                      "index": 24
-                    }
-                  }
-                }
-              ],
-              "descriptor": {
-                "id": "ESL0999"
-              }
-            },
-            {
-              "level": "error",
-              "message": {
-                "text": "Parsing error: Cannot read properties of undefined (reading 'map')"
-              },
-              "locations": [
-                {
-                  "physicalLocation": {
-                    "artifactLocation": {
-                      "uri": "file:///Users/maxfritz/Code/synthetix-website/src/queries/synths/useSynthSuspensionQuery.ts",
-                      "index": 26
-                    }
-                  }
-                }
-              ],
-              "descriptor": {
-                "id": "ESL0999"
-              }
-            }
-          ],
-          "executionSuccessful": false
-        }
-      ]
+      "results": []
     }
   ]
 }

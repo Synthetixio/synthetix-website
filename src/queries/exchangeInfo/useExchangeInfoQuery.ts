@@ -50,6 +50,7 @@ const useExchangeInfoQuery = (options?: UseQueryOptions<{ rates: Rates; fees: Fe
 
 			synths.forEach(async (currencyKeyBytes32: CurrencyKey, idx: number) => {
 				const currencyKey = ethers.utils.parseBytes32String(currencyKeyBytes32);
+				// @ts-ignore @TODO MF fix it
 				const rate = Number(ethers.utils.formatEther(rates[idx]));
 
 				exchangeRates[currencyKey] = rate;

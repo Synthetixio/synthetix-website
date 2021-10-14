@@ -147,7 +147,7 @@ const FadeToBlack = styled.div<{ ltr: boolean }>`
 	`};
 `;
 
-const accordionItems: AccordionItemsType = [
+const accordionItems: AccordionItemsType[] = [
 	{
 		title: 'Best Price Execution',
 		descriptions: [

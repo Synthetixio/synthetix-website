@@ -125,7 +125,7 @@ const FlexDivRowResponsive = styled(FlexDiv)`
 	`};
 `;
 
-const accordionItems: AccordionItemsType = [
+const accordionItems: AccordionItemsType[] = [
 	{
 		title: 'Synthetix Assets',
 		descriptions: [

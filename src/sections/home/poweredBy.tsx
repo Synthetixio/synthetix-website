@@ -5,14 +5,14 @@ import Section from '../../components/Section';
 import { ExternalLink, Subline } from '../../styles/common';
 import { useRef, useState } from 'react';
 
-type Card = {
+type PoweredByCards = {
 	name: string;
 	description: string;
 	link: string;
 	logo: string;
 };
 
-const CARDS: Card[] = [
+const poweredByCards: PoweredByCards[] = [
 	{
 		name: 'Kwenta',
 		description: 'Trade with up to 10x leverage and simulated liquidity for the best price fills.',
@@ -123,7 +123,7 @@ const PoweredBy = () => {
 			<SliderWrapper>
 				<PrevArrow onClick={() => handleScroll(false)} disabled={accumulatedOffset === 0} />
 				<Slider ref={sliderRef} dir="ltr">
-					{CARDS.map((card) => {
+					{poweredByCards.map((card) => {
 						return doesSupportBackdropFilter ? (
 							<Slide key={card.name}>
 								<Card href={card.link}>
