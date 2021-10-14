@@ -29,7 +29,7 @@ const images: Record<'title' | 'link', string>[] = [
 export default function Ecosystem() {
 	return (
 		<EcoSystemSection>
-			<SectionTitle>SYNTHETIX ECOSYSTEM</SectionTitle>
+			<EcosystemSectionTitle>SYNTHETIX ECOSYSTEM</EcosystemSectionTitle>
 			<Subline>
 				Many platforms already leverage the deep liquidity and composability of Synthetix to deliver
 				better trades with lower slippage, hedging, and other unique use cases.
@@ -52,13 +52,20 @@ const EcoSystemSection = styled(Section)`
 	flex-direction: column;
 	align-items: center;
 	background-color: ${({ theme }) => theme.colors.bgBlackHighlighted};
-	padding: 0px 100px 120px;
+	padding: 50px 100px 120px;
 
 	${media.lessThan('medium')`
 		align-items: start;
 		padding: 0 40px;
 		background-color: transparent;
 		`}
+`;
+
+const EcosystemSectionTitle = styled(SectionTitle)`
+	text-align: center;
+	${media.lessThan('medium')`
+		text-align:start;
+	`}
 `;
 
 const ImageContainer = styled.div`

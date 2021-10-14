@@ -12,14 +12,14 @@ const PartnersSection = () => (
 		<PartnersContainer>
 			<h3>Our liquidity partners</h3>
 			<StyledPartners>
-				<PParafi />
-				<PThreeArrows src="/home/three-arrows-logo.png" />
-				<PXbto />
-				<PDtc />
-				<PHashed />
-				<PDefiance />
-				<Iosg src="/home/iosg.png" />
-				<Spartan src="/home/spartan.png" />
+				<PParafi width="auto" height="150px" />
+				<PThreeArrows width="auto" height="150px" src="/home/three-arrows-logo.png" />
+				<PXbto width="auto" height="150px" />
+				<PDtc width="auto" height="150px" />
+				<PHashed width="auto" height="150px" />
+				<PDefiance width="auto" height="150px" />
+				<Iosg src="/home/iosg.png" width="auto" height="150px" />
+				<Spartan src="/home/spartan.png" width="auto" height="150px" />
 			</StyledPartners>
 		</PartnersContainer>
 		<Line />
@@ -51,44 +51,17 @@ const PartnersContainer = styled(Section)`
 const gap = 110;
 const StyledPartners = styled.div`
 	width: 100%;
-	display: inline-flex;
-	margin: -20px 0 0 -${gap}px;
-	width: calc(100% + ${gap}px);
+	display: flex;
 	flex-wrap: wrap;
 	max-width: 1400px;
-
 	justify-content: center;
 	align-items: center;
 
-	img {
-		object-fit: cover;
-		max-width: 240px;
-		max-height: 57px;
-	}
-
 	> * {
-		margin: 48px 0 0 ${gap}px;
+		max-width: 200px;
 	}
 
 	${media.lessThan('medium')`
-		display: flex;
-		flex-direction: column;
-		max-width: auto;
-		width: auto;
-		margin: 31px 0 0 0;
-
-		img {
-			max-width: 233px;
-			max-height: 54px;
-		}
-
-		> * {
-			margin: 0 0 53px 0;
-
-			&:l
-
-		}
-
 	`}
 `;
 
