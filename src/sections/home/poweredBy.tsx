@@ -170,10 +170,10 @@ const PoweredByContainer = styled(Section)`
 		min-height: 700px;
 	`}
 
-	${media.lessThan('small')`
+	${media.lessThan('550px' as any)`
 		background-image: url('/home/powered-by/background-mobile.svg');
-		background-size: contain;
-	`}
+		background-size: cover;
+`}
 `;
 
 const PoweredBySectionTitle = styled.h4`
@@ -222,10 +222,10 @@ const Slider = styled.div`
 		overflow: scroll hidden;
 		scroll-snap-type: x mandatory;
 		margin: 0 32px;
-		width: 516px;
+		width: 538px;
 	`}
 
-	${media.lessThan('510px' as any)`
+	${media.lessThan('550px' as any)`
 		width: 300px;
 `}
 
