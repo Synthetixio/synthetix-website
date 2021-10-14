@@ -2,7 +2,7 @@ import React from 'react';
 
 type Props = {} & React.SVGProps<SVGSVGElement>;
 
-const ArrowDown = ({ ...props }: Props): JSX.Element => {
+const LearnMoreArrow = ({ ...props }: Props): JSX.Element => {
 	return (
 		<svg
 			width="20"
@@ -20,4 +20,4 @@ const ArrowDown = ({ ...props }: Props): JSX.Element => {
 	);
 };
 
-export default ArrowDown;
+export default LearnMoreArrow;

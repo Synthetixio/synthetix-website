@@ -1,5 +1,6 @@
 import Head from 'next/head';
 import { GetServerSideProps } from 'next';
+import dynamic from 'next/dynamic';
 
 import ipRangeCheck from 'ip-range-check';
 
@@ -9,14 +10,19 @@ import TotalSection from '../sections/home/total';
 import PartnersSection from '../sections/home/partners';
 import SynthSection from 'src/sections/home/synths';
 import Ecosystem from 'src/sections/home/ecosystem';
-import PoweredBy from '../sections/home/poweredBy';
 
 import { Layout } from '../components';
 import { fetchTotalLocked } from '../../lib/exchange-api';
 
+const PoweredBy = dynamic(() => import('../sections/home/poweredBy'), {
+	ssr: false,
+});
+
 export interface ApiStatsProps {
 	totalLocked?: number;
 }
+
+// TODO @MF fix partners page, should look like in the design and write cypress test
 
 const Home = ({ totalLocked }: ApiStatsProps) => {
 	return (

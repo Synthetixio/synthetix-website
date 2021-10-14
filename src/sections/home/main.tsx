@@ -2,7 +2,7 @@ import styled from 'styled-components';
 import media from 'styled-media-query';
 import { Section } from '../../components';
 import { headerHeight } from '../../components/Header';
-import ArrowDown from '../../svg/ArrowDown';
+import { LearnMoreArrow } from '../../svg';
 
 const MainSection = () => {
 	const scrollToFeaturesSection = () => {
@@ -17,7 +17,7 @@ const MainSection = () => {
 					unique derivatives and exposure to real-world assets on the blockchain.
 				</SectionDescription>
 				<LearnMoreButton onClick={scrollToFeaturesSection}>
-					Learn More <ArrowDown />
+					Learn More <LearnMoreArrow />
 				</LearnMoreButton>
 			</Left>
 			<Right src="/home/snx-wave.svg" />

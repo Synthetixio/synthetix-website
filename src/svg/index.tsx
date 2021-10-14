@@ -1,4 +1,4 @@
-export { default as ArrowDown } from './ArrowDown';
+export { default as LearnMoreArrow } from './LearnMoreArrow';
 export { default as Arrow } from './Arrow';
 export { default as BuildCircle } from './BuildCircle';
 export { default as BurgerMenu } from './BurgerMenu';
