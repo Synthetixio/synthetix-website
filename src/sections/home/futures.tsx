@@ -129,8 +129,11 @@ const FadeToBlack = styled.div<{ ltr: boolean }>`
 
 	${({ ltr, theme }) =>
 		ltr
-			? `right: 0px; background: linear-gradient(90deg, transparent, ${theme.colors.bgBlackHighlighted} 90%);`
-			: `left: 0px; background: linear-gradient(90deg, ${theme.colors.bgBlackHighlighted} 20%, transparent);`}
+			? /* We can't use the keyword `transparent` here cause Safari thinks transparent is fade to black and not
+			fade to color from the parent node that has a specified background color. 
+			https://ambientimpact.com/web/snippets/safari-bug-with-gradients-that-fade-to-transparent */
+			  `right: 0px; background: linear-gradient(90deg, rgba(14, 5, 47, 0), ${theme.colors.bgBlackHighlighted} 90%);`
+			: `left: 0px; background: linear-gradient(90deg, ${theme.colors.bgBlackHighlighted} 20%, rgba(14, 5, 47, 0));`}
 
 	${({ ltr, theme }) => {
 		if (!ltr)
