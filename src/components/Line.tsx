@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import media from 'styled-media-query';
 
 const Line = styled.div`
 	width: 100%;
@@ -11,5 +12,9 @@ const Line = styled.div`
 	bottom: 0;
 	right: 0;
 	left: 0;
+
+	${media.lessThan('medium')`
+		display: none;
+	`}
 `;
 export default Line;

@@ -95,17 +95,20 @@ const Right = styled.img`
 const LearnMoreButton = styled.button`
 	display: flex;
 	align-items: center;
-	justify-content: space-around;
 	cursor: pointer;
 	background-color: transparent;
 	margin-top: 21px;
 	width: 150px;
 	border: 0px;
+	padding-left: 0;
 	${({ theme }) => theme.fonts.button};
 	color: ${({ theme }) => theme.colors.cyan};
 
 	:focus {
 		outline: 0;
+	}
+	> * {
+		margin-left: 8px;
 	}
 `;
 

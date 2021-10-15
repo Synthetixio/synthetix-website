@@ -160,7 +160,7 @@ const PoweredByContainer = styled(Section)`
 	flex-direction: column;
 	align-items: center;
 	background-color: ${({ theme }) => theme.colors.bgBlackHighlighted};
-	padding: 70px 40px;
+	padding: 70px 40px 30px;
 
 	${media.lessThan('medium')`
 		background-image: url('/home/powered-by/background-tablet.svg');

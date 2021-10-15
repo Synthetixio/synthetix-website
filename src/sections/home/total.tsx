@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 import numeral from 'numeral';
-import { Section } from '../../components';
+import { Section, Line } from '../../components';
 
 import { ApiStatsProps } from '../../../pages';
 import media from 'styled-media-query';
@@ -9,16 +9,15 @@ const currencyFormat = '$0,0';
 
 const TotalSection = ({ totalLocked }: ApiStatsProps) => {
 	return (
-		<>
-			<TotalContainer>
-				<TotalStakedBar>
-					<StakedHeader>Total value locked in Synthetix</StakedHeader>
-					<StakedValue>
-						{totalLocked ? numeral(totalLocked).format(currencyFormat) : '--'}
-					</StakedValue>
-				</TotalStakedBar>
-			</TotalContainer>
-		</>
+		<TotalContainer>
+			<TotalStakedBar>
+				<StakedHeader>Total value locked in Synthetix</StakedHeader>
+				<StakedValue>
+					{totalLocked ? numeral(totalLocked).format(currencyFormat) : '--'}
+				</StakedValue>
+			</TotalStakedBar>
+			<Line />
+		</TotalContainer>
 	);
 };
 

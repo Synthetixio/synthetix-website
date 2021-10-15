@@ -18,10 +18,6 @@ export const PageTitle = styled.div`
 	`};
 `;
 
-export const SectionTitle = styled.h2`
-	margin-bottom: 18px;
-`;
-
 export const Subline = styled.article`
 	max-width: 700px;
 	text-align: center;

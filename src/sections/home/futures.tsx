@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { Section, Button } from '../../components';
+import { Section, Button, Line } from '../../components';
 import { v4 as uuidv4 } from 'uuid';
 import media from 'styled-media-query';
 import Accordion, { AccordionItemsType } from 'src/components/Accordion/Accordion';
@@ -27,18 +27,19 @@ const FuturesSection = () => {
 					Trade Now
 				</BuildButton>
 			</AccordionContainer>
+			<Line />
 		</FuturesContainer>
 	);
 };
 
 const FuturesContainer = styled(Section)`
-	min-height: 700px;
+	min-height: 600px;
 	position: relative;
-	background-color: ${({ theme }) => theme.colors.bgBlackHighlighted};
 	display: flex;
 	justify-content: center;
 	align-items: center;
 	padding-right: 153px;
+	padding-top: 50px;
 
 	${media.lessThan('large')`
 		padding-right: 40px;
@@ -132,8 +133,8 @@ const FadeToBlack = styled.div<{ ltr: boolean }>`
 			? /* We can't use the keyword `transparent` here cause Safari thinks transparent is fade to black and not
 			fade to color from the parent node that has a specified background color. 
 			https://ambientimpact.com/web/snippets/safari-bug-with-gradients-that-fade-to-transparent */
-			  `right: 0px; background: linear-gradient(90deg, rgba(14, 5, 47, 0), ${theme.colors.bgBlackHighlighted} 90%);`
-			: `left: 0px; background: linear-gradient(90deg, ${theme.colors.bgBlackHighlighted} 20%, rgba(14, 5, 47, 0));`}
+			  `right: 0px; background: linear-gradient(90deg, rgba(6, 6, 27, 0), ${theme.colors.bgBlack} 90%);`
+			: `left: 0px; background: linear-gradient(90deg, ${theme.colors.bgBlack} 20%, rgba(6, 6, 27, 0));`}
 
 	${({ ltr, theme }) => {
 		if (!ltr)

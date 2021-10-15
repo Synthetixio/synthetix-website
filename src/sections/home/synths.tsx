@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { Section, Button } from '../../components';
+import { Section, Button, Line } from '../../components';
 import media from 'styled-media-query';
 import Accordion, { AccordionItemsType } from 'src/components/Accordion/Accordion';
 import { v4 as uuidv4 } from 'uuid';
@@ -27,12 +27,13 @@ const SynthSection = () => {
 				/>
 			</Left>
 			{graphics[activeIndex]}
+			<Line />
 		</SynthContainer>
 	);
 };
 
 const SynthContainer = styled(Section)`
-	min-height: 800px;
+	min-height: 700px;
 	display: flex;
 	align-items: center;
 	padding: 0 153px;

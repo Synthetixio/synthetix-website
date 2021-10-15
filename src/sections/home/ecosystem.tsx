@@ -1,5 +1,5 @@
 import { Line, Section } from 'src/components';
-import { FlexDivColCentered, SectionTitle, Subline } from 'src/styles/common';
+import { FlexDivColCentered, Subline } from 'src/styles/common';
 import styled from 'styled-components';
 import media from 'styled-media-query';
 
@@ -52,18 +52,24 @@ const EcoSystemSection = styled(Section)`
 	flex-direction: column;
 	align-items: center;
 	background-color: ${({ theme }) => theme.colors.bgBlackHighlighted};
-	padding: 50px 100px 120px;
+	padding: 0px 100px 120px;
 
 	${media.lessThan('medium')`
 		align-items: start;
-		padding: 0 40px;
+		padding: 20px 40px;
 		background-color: transparent;
 		`}
 `;
 
-const EcosystemSectionTitle = styled(SectionTitle)`
+const EcosystemSectionTitle = styled.h4`
 	text-align: center;
+	${({ theme }) => theme.fonts.sectionTitle}
+	font-size: 24px;
+	margin-bottom: 14px;
+
 	${media.lessThan('medium')`
+		font-size: 16px;
+		line-height: 28px;
 		text-align:start;
 	`}
 `;
