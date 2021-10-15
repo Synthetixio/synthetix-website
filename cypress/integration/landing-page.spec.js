@@ -7,5 +7,7 @@ describe('Landing Page', () => {
 		cy.get('section[id="futures"]').should('be.visible');
 	});
 
-	it('', () => {});
+	it('Slider arrows should appear on 1024x1024 viewport', () => {
+		cy.viewport(1024, 1024);
+	});
 });

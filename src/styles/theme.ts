@@ -92,7 +92,6 @@ export const theme = {
 			line-height: 48px;
 
 			text-align: center;
-			text-transform: uppercase;
 
 			color: #ffffff;
 		`,

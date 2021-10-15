@@ -226,7 +226,7 @@ const Slider = styled.div`
 	`}
 
 	${media.lessThan('550px' as any)`
-		width: 300px;
+		width: 100vw;
 `}
 
 	::-webkit-scrollbar {
@@ -245,6 +245,16 @@ const Slide = styled.div`
 	:last-of-type {
 		margin-right: 0px;
 	}
+
+	${media.lessThan('medium')`
+	scroll-snap-align: center;
+		:first-of-type {
+			margin-left: 20px;
+		}
+		:last-of-type {
+			margin-right: 20px;
+		}
+	`}
 `;
 
 const SlideBackDropFilterPolyfill = styled.div`
