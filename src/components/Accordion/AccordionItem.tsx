@@ -92,7 +92,6 @@ const EndCircle = styled(Circle)`
 const SmallHeadline = styled.h3<ActiveItemProps>`
 	${({ theme }) => theme.fonts.smallHeadline};
 	color: ${({ active, theme }) => (active ? theme.colors.cyan : theme.colors.gray50)};
-	font-stretch: expanded;
 	margin-left: 24px;
 	line-height: 19px;
 	text-align: start;

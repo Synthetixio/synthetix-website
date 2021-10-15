@@ -1,7 +1,7 @@
 import Head from 'next/head';
 import styled from 'styled-components';
 import SynthsInfo from 'src/sections/synths/SynthsInfo';
-import { PageTitle } from 'src/styles/common';
+import { SectionTitle } from 'src/styles/common';
 import { Layout } from 'src/components';
 import media from 'styled-media-query';
 
@@ -11,7 +11,7 @@ const Synths = () => (
 			<title>Synthetix - Synths</title>
 		</Head>
 		<StyledPageLayout>
-			<PageTitle>Synths</PageTitle>
+			<SectionTitle>Synths</SectionTitle>
 			<StyledPageCopy>
 				Synths are derivative tokens providing exposure to a range of assets. They can be traded
 				with infinite liqiduity and zero slippage by leveraging the Synthetix protocol’s unique

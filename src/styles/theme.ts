@@ -98,9 +98,7 @@ export const theme = {
 			font-weight: 900;
 			font-size: 16px;
 			line-height: 48px;
-
 			text-align: center;
-
 			color: #ffffff;
 		`,
 
