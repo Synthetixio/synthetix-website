@@ -2,7 +2,7 @@ import styled from 'styled-components';
 import numeral from 'numeral';
 import { Section } from '../../components';
 
-import { ApiStatsProps } from '../../pages';
+import { ApiStatsProps } from '../../../pages';
 import media from 'styled-media-query';
 
 const currencyFormat = '$0,0';

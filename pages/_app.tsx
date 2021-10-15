@@ -6,8 +6,8 @@ import initReactFastclick from 'react-fastclick';
 
 import { init } from '@socialgouv/matomo-next';
 
-import { theme } from '../styles/theme';
-import { GlobalStyle } from '../styles/globals';
+import { theme } from '../src/styles/theme';
+import { GlobalStyle } from '../src/styles/globals';
 import smoothscroll from 'smoothscroll-polyfill';
 
 const MATOMO_URL = process.env.NEXT_PUBLIC_MATOMO_URL;

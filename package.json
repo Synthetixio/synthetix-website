@@ -12,7 +12,9 @@
 		"lint": "eslint . --ext ts,.tsx",
 		"lint:fix": "eslint . --ext ts,.tsx --fix",
 		"lint:sarif": "node tests/lint.js . --ext ts,.tsx && tsc",
-		"tsc": "tsc --noEmit"
+		"tsc": "tsc --noEmit",
+		"cypress": "cypress open",
+		"cypress:headless": "cypress run"
 	},
 	"dependencies": {
 		"@socialgouv/matomo-next": "1.2.2",

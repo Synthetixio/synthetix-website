@@ -4,17 +4,17 @@ import dynamic from 'next/dynamic';
 
 import ipRangeCheck from 'ip-range-check';
 
-import MainSection from '../sections/home/main';
-import Futures from '../sections/home/futures';
-import TotalSection from '../sections/home/total';
-import PartnersSection from '../sections/home/partners';
+import MainSection from '../src/sections/home/main';
+import Futures from '../src/sections/home/futures';
+import TotalSection from '../src/sections/home/total';
+import PartnersSection from '../src/sections/home/partners';
 import SynthSection from 'src/sections/home/synths';
 import Ecosystem from 'src/sections/home/ecosystem';
 
-import { Layout } from '../components';
-import { fetchTotalLocked } from '../../lib/exchange-api';
+import { Layout } from '../src/components';
+import { fetchTotalLocked } from '../lib/exchange-api';
 
-const PoweredBy = dynamic(() => import('../sections/home/poweredBy'), {
+const PoweredBy = dynamic(() => import('../src/sections/home/poweredBy'), {
 	ssr: false,
 });
 

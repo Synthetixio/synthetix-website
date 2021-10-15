@@ -16,7 +16,7 @@ const MainSection = () => {
 					Synthetix is a new financial primitive enabling the creation of synthetic assets, offering
 					unique derivatives and exposure to real-world assets on the blockchain.
 				</SectionDescription>
-				<LearnMoreButton onClick={scrollToFeaturesSection}>
+				<LearnMoreButton onClick={scrollToFeaturesSection} data-test-id="learn-more-btn">
 					Learn More <LearnMoreArrow />
 				</LearnMoreButton>
 			</Left>
@@ -103,6 +103,10 @@ const LearnMoreButton = styled.button`
 	border: 0px;
 	${({ theme }) => theme.fonts.button};
 	color: ${({ theme }) => theme.colors.cyan};
+
+	:focus {
+		outline: 0;
+	}
 `;
 
 export default MainSection;

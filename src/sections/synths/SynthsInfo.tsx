@@ -10,7 +10,7 @@ import useSynthetixTokenList from 'src/queries/tokenLists/useSynthetixTokenList'
 import useExchangeInfoQuery from 'src/queries/exchangeInfo/useExchangeInfoQuery';
 
 import SynthCard from './SynthCard';
-
+pages / synths;
 enum SynthCategory {
 	ALL = 'all',
 	CRYPTO = 'crypto',

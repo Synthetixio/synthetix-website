@@ -1,37 +1,37 @@
 import styled from 'styled-components';
-import { PXbto } from '../../svg';
-import { PHashed } from '../../svg';
-import { PParafi } from '../../svg';
-import { PDtc } from '../../svg';
-import { PDefiance } from '../../svg';
+import { Line } from '../../components';
+import { sectionMixin } from '../../components/Section';
+import PXbto from '../../svg/PXbto';
+import PHashed from '../../svg/PHashed';
+import PParafi from '../../svg/PParafi';
+import PDtc from '../../svg/PDtc';
+import PDefiance from '../../svg/PDefiance';
 import media from 'styled-media-query';
-import { Line, Section } from 'src/components';
 
 const PartnersSection = () => (
 	<>
 		<PartnersContainer>
 			<h3>Our liquidity partners</h3>
 			<StyledPartners>
-				<PParafi width="auto" height="150px" />
-				<PThreeArrows width="auto" height="150px" src="/home/three-arrows-logo.png" />
-				<PXbto width="auto" height="150px" />
-				<PDtc width="auto" height="150px" />
-				<PHashed width="auto" height="150px" />
-				<PDefiance width="auto" height="150px" />
-				<Iosg src="/home/iosg.png" width="auto" height="150px" />
-				<Spartan src="/home/spartan.png" width="auto" height="150px" />
+				<PParafi />
+				<PThreeArrows src="/home/three-arrows-logo.png" />
+				<PXbto />
+				<PDtc />
+				<PHashed />
+				<PDefiance />
+				<Iosg src="/home/iosg.png" />
+				<Spartan src="/home/spartan.png" />
 			</StyledPartners>
 		</PartnersContainer>
 		<Line />
 	</>
 );
 
-const PartnersContainer = styled(Section)`
+const PartnersContainer = styled.div`
+	${sectionMixin}
 	min-height: 340px;
-	margin-top: 40px;
-	padding: 0px 271px 131px 271px;
+	padding: 79px 271px 131px 271px;
 	text-align: center;
-
 	h3 {
 		font-family: GT America;
 		font-stretch: expanded;
@@ -42,26 +42,43 @@ const PartnersContainer = styled(Section)`
 		text-transform: uppercase;
 		color: white;
 	}
-
 	${media.lessThan('medium')`
-		padding: 40px 40px 33px 40px;
+		padding: 184px 40px 33px 40px;
 	`};
 `;
 
 const gap = 110;
 const StyledPartners = styled.div`
 	width: 100%;
-	display: flex;
+	display: inline-flex;
+	margin: -20px 0 0 -${gap}px;
+	width: calc(100% + ${gap}px);
 	flex-wrap: wrap;
 	max-width: 1400px;
 	justify-content: center;
 	align-items: center;
-
-	> * {
-		max-width: 200px;
+	img {
+		object-fit: cover;
+		max-width: 240px;
+		max-height: 57px;
 	}
-
+	> * {
+		margin: 48px 0 0 ${gap}px;
+	}
 	${media.lessThan('medium')`
+		display: flex;
+		flex-direction: column;
+		max-width: auto;
+		width: auto;
+		margin: 31px 0 0 0;
+		img {
+			max-width: 233px;
+			max-height: 54px;
+		}
+		> * {
+			margin: 0 0 53px 0;
+			&:l
+		}
 	`}
 `;
 

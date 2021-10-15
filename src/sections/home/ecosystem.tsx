@@ -5,23 +5,23 @@ import media from 'styled-media-query';
 
 const images: Record<'title' | 'link', string>[] = [
 	{
-		link: '/home/powered-by/1inch.svg',
+		link: '/home/powered-by/1inch.png',
 		title: '1INCH',
 	},
 	{
-		link: '/home/powered-by/crv.svg',
+		link: '/home/powered-by/crv.png',
 		title: 'CURVE',
 	},
 	{
-		link: '/home/powered-by/dhedge.svg',
+		link: '/home/powered-by/dhedge.png',
 		title: 'DHEDGE',
 	},
 	{
-		link: '/home/powered-by/para.svg',
+		link: '/home/powered-by/para.png',
 		title: 'PARASWAP',
 	},
 	{
-		link: '/home/powered-by/yearn.svg',
+		link: '/home/powered-by/yearn.png',
 		title: 'YEARN',
 	},
 ];
