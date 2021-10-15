@@ -1,10 +1,10 @@
 import styled from 'styled-components';
-import { Section, Button, Line } from '../../components';
+import { Button } from '../../components';
 import media from 'styled-media-query';
 import Accordion, { AccordionItemsType } from 'src/components/Accordion/Accordion';
 import { v4 as uuidv4 } from 'uuid';
 import { useState } from 'react';
-import { FlexDiv } from 'src/styles/common';
+import { FlexDiv, Line, Section, SectionTitle } from 'src/styles/common';
 
 const SynthSection = () => {
 	const [activeIndex, setActiveIndex] = useState<number>(0);
@@ -19,7 +19,7 @@ const SynthSection = () => {
 	return (
 		<SynthContainer>
 			<Left>
-				<SynthHeadLine>Why Synthetix</SynthHeadLine>
+				<SectionTitle>Why Synthetix</SectionTitle>
 				<Accordion
 					items={accordionItems}
 					activeIndex={activeIndex}
@@ -36,7 +36,7 @@ const SynthContainer = styled(Section)`
 	min-height: 700px;
 	display: flex;
 	align-items: center;
-	padding: 0 153px;
+	padding: 0 0 0 153px;
 
 	${media.lessThan('medium')`
 		flex-direction: column-reverse;
@@ -52,16 +52,6 @@ const SynthContainer = styled(Section)`
 
 	${media.lessThan('320px' as any)`
 		min-height: 1100px;
-	`}
-`;
-
-const SynthHeadLine = styled.h4`
-	${({ theme }) => theme.fonts.sectionTitle}
-	margin-bottom: 14px;
-
-	${media.lessThan('medium')`
-		font-size: 24px;
-		line-height: 28px;
 	`}
 `;
 

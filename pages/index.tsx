@@ -12,7 +12,7 @@ import SynthSection from 'src/sections/home/synths';
 import Ecosystem from 'src/sections/home/ecosystem';
 
 import { Layout } from '../src/components';
-import { fetchTotalLocked } from '../lib/exchange-api';
+import { fetchTotalLocked } from '../src/lib/exchange-api';
 
 const PoweredBy = dynamic(() => import('../src/sections/home/poweredBy'), {
 	ssr: false,

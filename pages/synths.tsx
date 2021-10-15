@@ -1,7 +1,9 @@
 import Head from 'next/head';
 import styled from 'styled-components';
 import SynthsInfo from 'src/sections/synths/SynthsInfo';
-import { PageTitle, PageCopy, PageLayout } from 'src/styles/common';
+import { PageTitle } from 'src/styles/common';
+import { Layout } from 'src/components';
+import media from 'styled-media-query';
 
 const Synths = () => (
 	<>
@@ -21,13 +23,26 @@ const Synths = () => (
 	</>
 );
 
-const StyledPageCopy = styled(PageCopy)`
+const StyledPageCopy = styled.div`
 	max-width: 560px;
+	margin: 0;
+	font-size: 14px;
+	line-height: 20px;
+	padding-bottom: 35px;
 `;
 
-const StyledPageLayout = styled(PageLayout)`
+const StyledPageLayout = styled(Layout)`
 	background: linear-gradient(180deg, #08021e 0%, #120446 146.21%);
 	.container {
+		justify-content: initial;
+		align-items: initial;
+		max-width: 1200px;
+		margin: 0 auto;
+		padding: 125px 20px 0 20px;
+
+		${media.lessThan('medium')`
+			padding-top: 85px;
+		`}
 		min-height: 1500px;
 	}
 	.footer {

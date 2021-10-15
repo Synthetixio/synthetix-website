@@ -1,8 +1,7 @@
 import styled from 'styled-components';
 import media from 'styled-media-query';
 import { Arrow } from '../../svg';
-import Section from '../../components/Section';
-import { ExternalLink, Subline } from '../../styles/common';
+import { ExternalLink, Section, SectionTitle, Subline } from '../../styles/common';
 import { useRef, useState } from 'react';
 
 type PoweredByCards = {
@@ -176,21 +175,15 @@ const PoweredByContainer = styled(Section)`
 `}
 `;
 
-const PoweredBySectionTitle = styled.h4`
-	${({ theme }) => theme.fonts.sectionTitle}
-	${media.lessThan('medium')`
-		text-align: center;
-		width: 100%;
-		font-size: 24px;
-		line-height: 28px;
-		margin-bottom: 8px;
- `}
+const PoweredBySectionTitle = styled(SectionTitle)`
+	width: 100%;
+	text-align: center;
+	margin-bottom: 12px;
 `;
 
 const PoweredBySubline = styled(Subline)`
-	${media.lessThan('medium')`
-		text-align:center;
- `}
+	max-width: 700px;
+	text-align: center;
 `;
 
 const SliderWrapper = styled.div`
@@ -294,6 +287,7 @@ const Card = styled(ExternalLink)`
 	padding: 18px;
 
 	p {
+		${({ theme }) => theme.fonts.subline};
 		text-align: center;
 	}
 `;

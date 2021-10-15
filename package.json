@@ -11,7 +11,7 @@
 		"format": "prettier --write \"**/*.{ts,tsx}\"",
 		"lint": "eslint . --ext ts,.tsx",
 		"lint:fix": "eslint . --ext ts,.tsx --fix",
-		"lint:sarif": "node tests/lint.js . --ext ts,.tsx && tsc",
+		"lint:sarif": "node src/tests/lint.js . --ext ts,.tsx && tsc",
 		"tsc": "tsc --noEmit",
 		"cypress": "cypress open",
 		"cypress:headless": "cypress run"

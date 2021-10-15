@@ -1,10 +1,10 @@
 import styled from 'styled-components';
-import { Section, Button, Line } from '../../components';
+import { Button } from '../../components';
 import { v4 as uuidv4 } from 'uuid';
 import media from 'styled-media-query';
 import Accordion, { AccordionItemsType } from 'src/components/Accordion/Accordion';
 import { useState } from 'react';
-import { FlexDivCol } from 'src/styles/common';
+import { FlexDivCol, Line, Section, SectionTitle } from 'src/styles/common';
 
 const FuturesSection = () => {
 	const [activeIndex, setActiveIndex] = useState<number>(0);
@@ -15,9 +15,9 @@ const FuturesSection = () => {
 				<FadeToBlack ltr={true} />
 			</Left>
 			<AccordionContainer>
-				<FuturesHeadLine>
+				<SectionTitle>
 					Decentralized <br /> Perpetual Futures
-				</FuturesHeadLine>
+				</SectionTitle>
 				<Accordion
 					items={accordionItems}
 					activeIndex={activeIndex}
@@ -53,16 +53,6 @@ const FuturesContainer = styled(Section)`
 		align-items: flex-start;
 		background-color: transparent;
 		padding: 0 40px;
-	`}
-`;
-
-const FuturesHeadLine = styled.h4`
-	${({ theme }) => theme.fonts.sectionTitle}
-	margin-bottom: 14px;
-
-	${media.lessThan('medium')`
-		font-size: 24px;
-		line-height: 28px;
 	`}
 `;
 

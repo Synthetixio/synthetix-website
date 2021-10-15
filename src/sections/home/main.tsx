@@ -1,6 +1,6 @@
+import { Section, Subline } from 'src/styles/common';
 import styled from 'styled-components';
 import media from 'styled-media-query';
-import { Section } from '../../components';
 import { headerHeight } from '../../components/Header';
 import { LearnMoreArrow } from '../../svg';
 
@@ -26,8 +26,7 @@ const MainSection = () => {
 };
 
 const MainContainer = styled(Section)`
-	${(props) => props.theme.animations.show};
-
+	${({ theme }) => theme.animations.show};
 	opacity: 0;
 	animation-delay: 400ms;
 	height: calc(100vh - ${headerHeight}px);
@@ -37,19 +36,26 @@ const MainContainer = styled(Section)`
 	overflow: hidden;
 	padding: 0 0 0 153px;
 
+	h1 {
+		${({ theme }) => theme.fonts.headline};
+	}
+
 	${media.lessThan('medium')`
 		flex-direction: column;
 		height: 100%;
 		min-height: 614px;
 		padding: 0 24px;
+
+		h1 {
+			font-size: 32px;
+			line-height: 38px;
+		}
 	`}
 `;
 
-const SectionDescription = styled.p`
+const SectionDescription = styled(Subline)`
 	margin-top: 18px;
 	max-width: 290px;
-	font-size: 14px;
-	line-height: 20px;
 `;
 
 const Left = styled.div`
@@ -110,6 +116,10 @@ const LearnMoreButton = styled.button`
 	> * {
 		margin-left: 8px;
 	}
+
+	${media.lessThan('medium')`
+		justify-content: center;
+	`}
 `;
 
 export default MainSection;

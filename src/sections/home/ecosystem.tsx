@@ -1,5 +1,5 @@
-import { Line, Section } from 'src/components';
-import { FlexDivColCentered, Subline } from 'src/styles/common';
+import { Section, SectionTitle } from '../../styles/common';
+import { FlexDivColCentered, Subline, Line } from 'src/styles/common';
 import styled from 'styled-components';
 import media from 'styled-media-query';
 
@@ -30,10 +30,10 @@ export default function Ecosystem() {
 	return (
 		<EcoSystemSection>
 			<EcosystemSectionTitle>SYNTHETIX ECOSYSTEM</EcosystemSectionTitle>
-			<Subline>
+			<EcosystemSubline>
 				Many platforms already leverage the deep liquidity and composability of Synthetix to deliver
 				better trades with lower slippage, hedging, and other unique use cases.
-			</Subline>
+			</EcosystemSubline>
 			<ImageContainer>
 				{images.map((image) => (
 					<FlexDivColCentered key={image.title}>
@@ -42,7 +42,7 @@ export default function Ecosystem() {
 					</FlexDivColCentered>
 				))}
 			</ImageContainer>
-			<Line />
+			<Line showOnMobile />
 		</EcoSystemSection>
 	);
 }
@@ -61,15 +61,20 @@ const EcoSystemSection = styled(Section)`
 		`}
 `;
 
-const EcosystemSectionTitle = styled.h4`
+const EcosystemSectionTitle = styled(SectionTitle)`
 	text-align: center;
-	${({ theme }) => theme.fonts.sectionTitle}
-	font-size: 24px;
 	margin-bottom: 14px;
 
 	${media.lessThan('medium')`
-		font-size: 16px;
-		line-height: 28px;
+		text-align:start;
+	`}
+`;
+
+const EcosystemSubline = styled(Subline)`
+	max-width: 700px;
+	text-align: center;
+
+	${media.lessThan('medium')`
 		text-align:start;
 	`}
 `;

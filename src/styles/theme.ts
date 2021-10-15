@@ -82,7 +82,15 @@ export const theme = {
 			text-transform: uppercase;
 			color: #ffffff;
 		`,
-
+		subline: css`
+			font-family: Inter;
+			font-style: normal;
+			font-weight: normal;
+			font-size: 14px;
+			line-height: 20px;
+			color: #ffffff;
+			opacity: 0.7;
+		`,
 		smallHeadline: css`
 			font-family: GT America;
 			font-style: normal;
