@@ -7,5 +7,5 @@ describe('Landing Page', () => {
 		cy.get('section[id="futures"]').should('be.visible');
 	});
 
-	it('');
+	it('', () => {});
 });
