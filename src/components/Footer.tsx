@@ -2,6 +2,8 @@ import { FC } from 'react';
 import styled from 'styled-components';
 import { Logo, Menu, Socials } from './';
 import media from 'styled-media-query';
+import { Line } from '../styles/common';
+import { StyledMenu } from './Menu';
 
 type FooterComponentProps = {
 	className?: string;
@@ -9,6 +11,7 @@ type FooterComponentProps = {
 
 const FooterComponent: FC<FooterComponentProps> = ({ className, ...rest }) => (
 	<Footer {...{ className }} {...rest}>
+		<Line />
 		<Left>
 			<Logo small={true} />
 		</Left>
@@ -36,7 +39,8 @@ const Footer = styled.footer`
 	opacity: 0;
 
 	${media.lessThan('medium')`
-		${Menu as any} {
+		background-color: transparent;
+		${StyledMenu} {
 			display: none;
 		}
 

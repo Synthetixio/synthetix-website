@@ -63,7 +63,6 @@ const Header = styled.header`
 	width: 100%;
 	padding: 0 56px;
 	position: relative;
-	/* background: linear-gradient(180deg, #08021E 0%, #120446 146.21%); */
 	z-index: 100;
 	display: flex;
 	align-items: center;

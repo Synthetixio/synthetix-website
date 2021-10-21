@@ -2,13 +2,7 @@ import { FC, useMemo } from 'react';
 import styled, { css } from 'styled-components';
 import media from 'styled-media-query';
 
-import {
-	Card,
-	CardGradient,
-	ExternalLink,
-	FlexDivCentered,
-	FlexDivRowCentered,
-} from 'src/styles/common';
+import { ExternalLink, FlexDivCentered, FlexDivRowCentered } from 'src/styles/common';
 
 import { Synth } from '@synthetixio/contracts-interface';
 
@@ -86,6 +80,36 @@ const SynthCard: FC<SynthCardProps> = ({ synth, tokenInfo, price, exchangeFeeRat
 		</ExternalLink>
 	);
 };
+
+const CardGradient = styled.div`
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 6px;
+	background: linear-gradient(88.63deg, #00d1ff -14.83%, #ed1eff 108.22%);
+`;
+
+const Card = styled.div`
+	width: 360px;
+	height: 298px;
+	position: relative;
+	padding: 24px 0;
+
+	background: #1c1c3d;
+	box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.2);
+
+	${media.lessThan('medium')`
+		width: 310px;		
+	`}
+
+	&:hover {
+		background: #161b44;
+		${CardGradient} {
+			background: ${(props) => props.theme.colors.cyan};
+		}
+	}
+`;
 
 const StyledCard = styled(Card)`
 	padding: 30px;
