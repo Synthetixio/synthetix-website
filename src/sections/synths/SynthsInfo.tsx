@@ -4,20 +4,17 @@ import media from 'styled-media-query';
 import { theme } from 'src/styles/theme';
 import { resetButtonCSS } from 'src/styles/common';
 
-import snxjs from 'src/lib/snxjs';
+import getSNXJS from 'src/lib/snxjs';
 
 import useSynthetixTokenList from 'src/queries/tokenLists/useSynthetixTokenList';
 import useExchangeInfoQuery from 'src/queries/exchangeInfo/useExchangeInfoQuery';
 
 import SynthCard from './SynthCard';
-import { keyBy } from 'lodash';
 
 enum SynthCategory {
 	ALL = 'all',
 	CRYPTO = 'crypto',
 	FOREX = 'forex',
-	EQUITIES = 'equities',
-	COMMODITY = 'commodity',
 }
 
 const SYNTH_CATEGORIES = Object.values(SynthCategory);
@@ -28,7 +25,7 @@ const SynthsInfo = () => {
 	const synthetixTokensMap = synthetixTokenListQuery.isSuccess
 		? synthetixTokenListQuery.data.tokensMap ?? null
 		: null;
-	const synths = snxjs.synths;
+	const synths = getSNXJS().synths;
 
 	const filteredSynths = useMemo(
 		() =>
@@ -83,6 +80,11 @@ const Cards = styled.div`
 	display: grid;
 	grid-template-columns: repeat(3, 1fr);
 	grid-gap: 35px;
+
+	${media.lessThan('large')`
+		grid-template-columns: repeat(2, 1fr);
+		justify-items: center;
+	`}
 
 	${media.lessThan('medium')`
 		grid-template-columns: 1fr;

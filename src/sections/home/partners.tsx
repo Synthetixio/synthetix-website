@@ -1,6 +1,5 @@
 import styled from 'styled-components';
-import { Line } from '../../components';
-import { sectionMixin } from '../../components/Section';
+import { Line, Section } from '../../styles/common';
 import PXbto from '../../svg/PXbto';
 import PHashed from '../../svg/PHashed';
 import PParafi from '../../svg/PParafi';
@@ -23,17 +22,14 @@ const PartnersSection = () => (
 				<Spartan src="/home/spartan.png" />
 			</StyledPartners>
 		</PartnersContainer>
-		<Line />
+		<Line showOnMobile />
 	</>
 );
 
-const PartnersContainer = styled.div`
-	${sectionMixin}
-
+const PartnersContainer = styled(Section)`
 	min-height: 340px;
 	padding: 79px 271px 131px 271px;
 	text-align: center;
-
 	h3 {
 		font-family: GT America;
 		font-stretch: expanded;
@@ -44,9 +40,8 @@ const PartnersContainer = styled.div`
 		text-transform: uppercase;
 		color: white;
 	}
-
 	${media.lessThan('medium')`
-		padding: 184px 40px 33px 40px;
+		padding: 40px 40px 33px 40px;
 	`};
 `;
 
@@ -58,39 +53,30 @@ const StyledPartners = styled.div`
 	width: calc(100% + ${gap}px);
 	flex-wrap: wrap;
 	max-width: 1400px;
-
 	justify-content: center;
 	align-items: center;
-
 	img {
 		object-fit: cover;
 		max-width: 240px;
 		max-height: 57px;
 	}
-
 	> * {
 		margin: 48px 0 0 ${gap}px;
 	}
-
 	${media.lessThan('medium')`
 		display: flex;
 		flex-direction: column;
 		max-width: auto;
 		width: auto;
 		margin: 31px 0 0 0;
-
 		img {
 			max-width: 233px;
 			max-height: 54px;
 		}
-
 		> * {
 			margin: 0 0 53px 0;
-
 			&:l
-
 		}
-
 	`}
 `;
 
