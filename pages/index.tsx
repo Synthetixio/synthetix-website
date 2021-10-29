@@ -35,7 +35,9 @@ const Home = ({ totalLocked }: ApiStatsProps) => {
 				<SynthSection />
 				<PoweredBy />
 				<Ecosystem />
-				<PartnersSection />
+				{/* 		
+		Maik maybe wants to reposition this section so that is why we hide it for now
+		<PartnersSection /> */}
 			</Layout>
 		</>
 	);
