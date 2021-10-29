@@ -20,7 +20,7 @@ const useFrozenSynthsQuery = (options?: UseQueryOptions<FrozenSynths>) => {
 				...compact(frozenSynths.map(ethers.utils.parseBytes32String)),
 			] as CurrencyKey[]);
 		},
-		options
+		{ ...options, retry: false }
 	);
 };
 

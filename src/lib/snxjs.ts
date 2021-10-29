@@ -10,7 +10,10 @@ const getSNXJS = () => {
 	if (!snxjs)
 		return initSnxJS({
 			networkId: DEFAULT_NETWORK_ID,
-			provider: new providers.JsonRpcProvider(process.env.NEXT_PUBLIC_INFURA_URL),
+			provider: new providers.InfuraProvider(
+				DEFAULT_NETWORK_ID,
+				process.env.NEXT_PUBLIC_INFURA_PROJECT_ID
+			),
 		});
 	else return snxjs;
 };
