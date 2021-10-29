@@ -23,6 +23,7 @@ const useSynthetixTokenList = (options?: UseQueryOptions<TokenListQueryResponse>
 			refetchOnWindowFocus: false,
 			refetchOnMount: false,
 			...options,
+			retry: false,
 		}
 	);
 };
