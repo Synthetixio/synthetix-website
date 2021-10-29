@@ -84,14 +84,25 @@ const SynthGraphicAbsolute = styled.img`
 `;
 
 const SynthGraphic = styled.img`
-	height: 444px;
+	height: 500px;
 	pointer-events: none;
 	${(props) => props.theme.animations.show};
 	animation-delay: 100ms;
 	opacity: 0;
+	margin-right: 100px;
+
+	${media.lessThan('large')`
+		margin-right: 0;
+		height: 400px;
+	`}
+
+	${media.lessThan('950px' as any)`
+		height: 300px;
+	`}
 
 	${media.lessThan('medium')`
 		width: 100%;
+		height: 444px;
 		margin-bottom: 16px;
 		transform: none;
 		`}

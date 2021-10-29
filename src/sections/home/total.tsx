@@ -40,11 +40,15 @@ const TotalStakedBar = styled.div`
 `;
 
 const StakedHeader = styled(SectionTitle)`
+	// This one is special in the design flow
+	font-size: 29px;
+	line-height: 39px;
+	margin: 0px;
 	${media.lessThan('medium')`
 		max-width: 295px;
-		font-size: 16px;
+		font-size: 20px;
 		text-align: center;
-		line-height: 20px;
+		line-height: 24px;
 	`}
 `;
 
@@ -58,7 +62,6 @@ const StakedValue = styled.span`
 	text-align: center;
 	text-transform: uppercase;
 	background-clip: text;
-	margin-top: 21px;
 	-webkit-background-clip: text;
 	-webkit-text-fill-color: transparent;
 	text-fill-color: transparent;
@@ -66,7 +69,7 @@ const StakedValue = styled.span`
 
 	${media.lessThan('medium')`
 		margin-top: 8px;
-		font-size: 24px;
+		font-size: 28px;
 		line-height: 48px;
 	`}
 `;
