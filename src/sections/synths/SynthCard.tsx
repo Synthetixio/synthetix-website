@@ -52,7 +52,7 @@ const SynthCard: FC<SynthCardProps> = ({ synth, tokenInfo, price, exchangeFeeRat
 	}, [marketClosed]);
 
 	return (
-		<ExternalLink href={`https://kwenta.io/exchange/${currencyKey}`}>
+		<ExternalLink href={`https://kwenta.io/exchange/${currencyKey}-sUSD`}>
 			<StyledCard>
 				<CardGradient />
 				<FlexDivCentered>
