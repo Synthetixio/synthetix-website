@@ -62,7 +62,7 @@ const useExchangeInfoQuery = (options?: UseQueryOptions<{ rates: Rates; fees: Fe
 
 			return { rates: exchangeRates, fees: exchangeFees };
 		},
-		options
+		{ ...options, retry: false }
 	);
 };
 

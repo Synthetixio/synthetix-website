@@ -50,13 +50,13 @@ const useSynthSuspensionQuery = (
 	currencyKey: CurrencyKey,
 	options?: UseQueryOptions<SynthSuspended>
 ) => {
+	const snxjs = getSNXJS();
 	return useQuery<SynthSuspended>(
 		QUERY_KEYS.Synths.Suspension(currencyKey),
 		async () => {
-			const [isSuspended, reason] =
-				(await getSNXJS().contracts.SystemStatus.synthExchangeSuspension(
-					ethers.utils.formatBytes32String(currencyKey!)
-				)) as [boolean, ethers.BigNumber];
+			const [isSuspended, reason] = snxjs.contracts.SystemStatus.synthExchangeSuspension(
+				ethers.utils.formatBytes32String(currencyKey!)
+			) as [boolean, ethers.BigNumber];
 
 			const reasonCode = Number(reason);
 			return {
@@ -65,7 +65,7 @@ const useSynthSuspensionQuery = (
 				reason: isSuspended ? getReasonFromCode(reasonCode) : null,
 			};
 		},
-		options
+		{ ...options, retry: false }
 	);
 };
 
