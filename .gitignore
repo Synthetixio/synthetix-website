@@ -40,3 +40,6 @@ yarn-error.log*
 # cypress
 tests/e2e/videos/
 tests/e2e/screenshots/
+ 
+.env
+.env.local
