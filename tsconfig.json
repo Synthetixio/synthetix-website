@@ -1,22 +1,39 @@
 {
-	"compilerOptions": {
-		"allowJs": false,
-		"allowSyntheticDefaultImports": true,
-		"esModuleInterop": true,
-		"forceConsistentCasingInFileNames": true,
-		"isolatedModules": true,
-		"jsx": "preserve",
-		"lib": ["dom", "dom.iterable", "es2017"],
-		"module": "esnext",
-		"moduleResolution": "node",
-		"noEmit": true,
-		"resolveJsonModule": true,
-		"skipLibCheck": true,
-		"sourceMap": true,
-		"strict": true,
-		"target": "es6",
-		"baseUrl": "."
-	},
-	"exclude": [".github", ".next", "_site", "coverage", "cypress", "node_modules", "public"],
-	"include": ["next-env.d.ts", "**/*.ts", "**/*.tsx"]
+  "compilerOptions": {
+    "allowJs": false,
+    "allowSyntheticDefaultImports": true,
+    "esModuleInterop": true,
+    "forceConsistentCasingInFileNames": true,
+    "isolatedModules": true,
+    "jsx": "preserve",
+    "lib": [
+      "dom",
+      "dom.iterable",
+      "es2017"
+    ],
+    "module": "esnext",
+    "moduleResolution": "node",
+    "noEmit": true,
+    "resolveJsonModule": true,
+    "skipLibCheck": true,
+    "sourceMap": true,
+    "strict": true,
+    "target": "es6",
+    "baseUrl": ".",
+    "incremental": true
+  },
+  "exclude": [
+    ".github",
+    ".next",
+    "_site",
+    "coverage",
+    "cypress",
+    "node_modules",
+    "public"
+  ],
+  "include": [
+    "next-env.d.ts",
+    "**/*.ts",
+    "**/*.tsx"
+  ]
 }

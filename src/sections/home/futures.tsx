@@ -109,12 +109,12 @@ const BuildButton = styled(Button)`
 const FadeToBlack = styled.div<{ ltr: boolean }>`
 	position: absolute;
 	top: 0;
-	bottom: 10px;
+	bottom: 60px;
 	z-index: 10;
 	width: 150px;
 
 	${media.lessThan('large')`
-		width: 50px;
+		width: 80px;
 	`}
 
 	${({ ltr, theme }) =>
@@ -131,13 +131,10 @@ const FadeToBlack = styled.div<{ ltr: boolean }>`
 			display: none;`;
 		else
 			return media.lessThan('medium')`
-			background: linear-gradient(90deg, transparent, ${theme.colors.bgBlack} 90%);
+			width: 100px;
+			background: linear-gradient(90deg, transparent, ${theme.colors.bgBlack} 70%);
 			`;
 	}}
-
-	${media.lessThan('small')`
-		width: 50px;
-	`};
 `;
 
 const accordionItems: AccordionItemsType[] = [

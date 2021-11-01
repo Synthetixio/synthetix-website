@@ -1,28 +1,38 @@
-import { Section, SectionTitle } from '../../styles/common';
+import { ExternalLink, Section, SectionTitle } from '../../styles/common';
 import { FlexDivColCentered, Subline, Line } from 'src/styles/common';
 import styled from 'styled-components';
 import media from 'styled-media-query';
 
-const images: Record<'title' | 'link', string>[] = [
+const images: Record<'title' | 'image' | 'link', string>[] = [
 	{
-		link: '/home/powered-by/1inch.png',
+		image: '/home/powered-by/1inch.png',
 		title: '1INCH',
+		link: 'https://1inch.io/',
 	},
 	{
-		link: '/home/powered-by/crv.png',
+		image: '/home/powered-by/crv.png',
 		title: 'CURVE',
+		link: 'https://curve.fi/',
 	},
 	{
-		link: '/home/powered-by/dhedge.png',
+		image: '/home/powered-by/dhedge.png',
 		title: 'DHEDGE',
+		link: 'https://www.dhedge.org/',
 	},
 	{
-		link: '/home/powered-by/para.png',
+		image: '/home/powered-by/para.png',
 		title: 'PARASWAP',
+		link: 'https://paraswap.io/',
 	},
 	{
-		link: '/home/powered-by/yearn.png',
+		image: '/home/powered-by/yearn.png',
 		title: 'YEARN',
+		link: 'https://yearn.finance/',
+	},
+	{
+		image: '/home/powered-by/aelin.png',
+		title: 'AELIN',
+		link: 'https://discord.com/invite/YHffnV9sUM',
 	},
 ];
 
@@ -36,10 +46,10 @@ export default function Ecosystem() {
 			</EcosystemSubline>
 			<ImageContainer>
 				{images.map((image) => (
-					<FlexDivColCentered key={image.title}>
-						<Image src={image.link} />
+					<ImageInner key={image.title} href={image.link}>
+						<Image src={image.image} />
 						<ImageTitle>{image.title}</ImageTitle>
-					</FlexDivColCentered>
+					</ImageInner>
 				))}
 			</ImageContainer>
 			<Line showOnMobile />
@@ -55,7 +65,6 @@ const EcoSystemSection = styled(Section)`
 	padding: 0px 100px 120px;
 
 	${media.lessThan('medium')`
-		align-items: start;
 		padding: 20px 40px;
 		background-color: transparent;
 		`}
@@ -77,6 +86,7 @@ const ImageContainer = styled.div`
 	justify-content: space-evenly;
 	margin-top: 80px;
 	width: 100%;
+	cursor: pointer;
 
 	${media.lessThan('large')`
 		display: grid;
@@ -87,6 +97,12 @@ const ImageContainer = styled.div`
 	${media.lessThan('medium')`
 		margin-bottom: 40px;
 	`}
+`;
+
+const ImageInner = styled(ExternalLink)`
+	display: flex;
+	flex-direction: column;
+	align-items: center;
 `;
 
 const Image = styled.img`
