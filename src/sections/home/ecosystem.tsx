@@ -30,7 +30,7 @@ const images: Record<'title' | 'image' | 'link', string>[] = [
 		link: 'https://yearn.finance/',
 	},
 	{
-		image: '/home/powered-by/aelin.png',
+		image: '/home/powered-by/aelin-circle.png',
 		title: 'AELIN',
 		link: 'https://discord.com/invite/YHffnV9sUM',
 	},
