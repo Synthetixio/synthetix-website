@@ -14,7 +14,8 @@ type PoweredByCards = {
 const poweredByCards: PoweredByCards[] = [
 	{
 		name: 'Kwenta',
-		description: 'Trade with up to 10x leverage and simulated liquidity for the best price fills.',
+		description:
+			'Trade with up to 10x leverage and simulated liquidity for the best price fills. Coming Soon.',
 		link: 'https://kwenta.io',
 		logo: '/home/powered-by/kwenta.png',
 	},
@@ -29,12 +30,6 @@ const poweredByCards: PoweredByCards[] = [
 		description: 'A binary options protocol for trading on price action, sports, and other events.',
 		link: 'https://thales.market/',
 		logo: '/home/powered-by/thales.png',
-	},
-	{
-		name: 'Aelin',
-		description: 'A deal coordination protocol built on Ethereum.',
-		link: 'https://discord.com/invite/YHffnV9sUM',
-		logo: '/home/powered-by/aelin.png',
 	},
 ];
 
@@ -53,7 +48,7 @@ const ArrowWrapper = styled.button`
 		transform: scale(0.9);
 	}
 
-	${media.greaterThan('large')`
+	${media.greaterThan('900px' as any)`
 		display: none;
 	`}
 
@@ -208,18 +203,18 @@ const Slider = styled.div`
 	display: flex;
 	height: 290px;
 	margin: 0 16px;
-	width: 1088px;
+	width: 812px;
 
-	${media.lessThan('large')`
-		width: 536px;
+	${media.lessThan('900px' as any)`
+		width: 538px;
 		margin: 0 32px;
-	`}
+		`}
 
 	${media.lessThan('medium')`
 		overflow: scroll hidden;
 		scroll-snap-type: x mandatory;
 		margin: 0 32px;
-		width: 538px;
+		width: 380px;
 	`}
 
 	${media.lessThan('550px' as any)`
