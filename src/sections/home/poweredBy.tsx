@@ -110,7 +110,7 @@ const PoweredBy = () => {
 	};
 
 	return (
-		<PoweredByContainer>
+		<PoweredByContainer customMaxWidth={true}>
 			<Background
 				data={
 					isBigScreen ? '/home/powered-by/background-circle.svg' : '/home/powered-by/background.svg'

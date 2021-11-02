@@ -38,7 +38,7 @@ const images: Record<'title' | 'image' | 'link', string>[] = [
 
 export default function Ecosystem() {
 	return (
-		<EcoSystemSection>
+		<EcoSystemSection customMaxWidth={true}>
 			<EcosystemSectionTitle>SYNTHETIX ECOSYSTEM</EcosystemSectionTitle>
 			<EcosystemSubline>
 				Many platforms already leverage the deep liquidity and composability of Synthetix to deliver
@@ -52,7 +52,6 @@ export default function Ecosystem() {
 					</ImageInner>
 				))}
 			</ImageContainer>
-			<Line showOnMobile />
 		</EcoSystemSection>
 	);
 }

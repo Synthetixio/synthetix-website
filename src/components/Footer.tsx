@@ -11,7 +11,6 @@ type FooterComponentProps = {
 
 const FooterComponent: FC<FooterComponentProps> = ({ className, ...rest }) => (
 	<Footer {...{ className }} {...rest}>
-		<Line />
 		<Left>
 			<Logo small={true} />
 		</Left>
@@ -23,17 +22,18 @@ const FooterComponent: FC<FooterComponentProps> = ({ className, ...rest }) => (
 );
 
 const Footer = styled.footer`
+	max-width: ${({ theme }) => theme.maxContentWidth};
 	position: relative;
 	height: 159px;
 	width: 100%;
 	padding: 0 66px 0 114px;
-	background-color: ${(props) => props.theme.colors.bgBlack};
+	background-color: ${({ theme }) => theme.colors.bgBlack};
 
 	display: flex;
 	align-items: center;
 	justify-content: space-between;
 
-	${(props) => props.theme.animations.show};
+	${({ theme }) => theme.animations.show};
 
 	animation-delay: 200ms;
 	opacity: 0;

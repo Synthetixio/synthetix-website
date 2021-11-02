@@ -85,7 +85,7 @@ const Right = styled.object`
 	width: 100%;
 
 	${media.greaterThan('huge')`
-		right: -50px;
+		right: -30px;
 		width: 90%;
 		left: auto;
 	`}

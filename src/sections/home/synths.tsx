@@ -3,7 +3,7 @@ import { Button } from '../../components';
 import media from 'styled-media-query';
 import Accordion, { AccordionItemsType } from 'src/components/Accordion/Accordion';
 import { useState } from 'react';
-import { FlexDiv, Line, Section, SectionTitle } from 'src/styles/common';
+import { FlexDiv, Section, SectionTitle } from 'src/styles/common';
 
 const SynthSection = () => {
 	const [activeIndex, setActiveIndex] = useState<number>(0);
@@ -26,7 +26,6 @@ const SynthSection = () => {
 				/>
 			</Left>
 			{graphics[activeIndex]}
-			<Line />
 		</SynthContainer>
 	);
 };

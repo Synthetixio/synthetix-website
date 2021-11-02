@@ -3,7 +3,7 @@ import { Button } from '../../components';
 import media from 'styled-media-query';
 import Accordion, { AccordionItemsType } from 'src/components/Accordion/Accordion';
 import { useState } from 'react';
-import { FlexDivCol, Line, Section, SectionTitle } from 'src/styles/common';
+import { FlexDivCol, Section, SectionTitle } from 'src/styles/common';
 
 const FuturesSection = () => {
 	const [activeIndex, setActiveIndex] = useState<number>(0);
@@ -26,7 +26,6 @@ const FuturesSection = () => {
 					Trade Now
 				</BuildButton>
 			</AccordionContainer>
-			<Line />
 		</FuturesContainer>
 	);
 };

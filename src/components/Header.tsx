@@ -55,8 +55,8 @@ const HeaderComponent = () => {
 export const headerHeight = 100;
 
 const Header = styled.header`
-	${(props) => props.theme.animations.show};
-
+	${({ theme }) => theme.animations.show};
+	max-width: ${({ theme }) => theme.maxContentWidth};
 	animation-delay: 200ms;
 	opacity: 0;
 	height: ${headerHeight}px;
