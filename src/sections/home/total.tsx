@@ -26,7 +26,7 @@ const TotalContainer = styled(Section)`
 
 	${media.lessThan('medium')`
 		height: 206px;
-		margin-top: 26px;
+		margin-top: -130px;
 	`}
 `;
 

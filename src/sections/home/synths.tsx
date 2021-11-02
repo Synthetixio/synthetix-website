@@ -63,13 +63,13 @@ const Left = styled.div`
 const SynthGraphicAbsolute = styled.img`
 	height: 444px;
 	position: absolute;
-	right: -100px;
+	right: 0;
 	pointer-events: none;
 	${(props) => props.theme.animations.show};
 	animation-delay: 100ms;
 	opacity: 0;
 
-	${media.lessThan('1100px' as any)`
+	${media.lessThan('1200px' as any)`
 		left: 480px;
 	`}
 

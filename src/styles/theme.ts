@@ -16,6 +16,7 @@ const animations = {
 };
 
 export const theme = {
+	maxContentWidth: '1920px',
 	colors: {
 		white: '#FFFFFF',
 

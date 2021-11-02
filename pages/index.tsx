@@ -1,22 +1,15 @@
 import Head from 'next/head';
 import { GetServerSideProps } from 'next';
-import dynamic from 'next/dynamic';
 
 import ipRangeCheck from 'ip-range-check';
 
 import MainSection from '../src/sections/home/main';
 import Futures from '../src/sections/home/futures';
 import TotalSection from '../src/sections/home/total';
-import PartnersSection from '../src/sections/home/partners';
 import SynthSection from 'src/sections/home/synths';
-import Ecosystem from 'src/sections/home/ecosystem';
 
 import { Layout } from '../src/components';
 import { fetchTotalLocked } from '../src/lib/exchange-api';
-
-const PoweredBy = dynamic(() => import('../src/sections/home/poweredBy'), {
-	ssr: false,
-});
 
 export interface ApiStatsProps {
 	totalLocked?: number;
@@ -28,16 +21,13 @@ const Home = ({ totalLocked }: ApiStatsProps) => {
 			<Head>
 				<title>Synthetix</title>
 			</Head>
-			<Layout showBgGradient={true}>
+			<Layout>
 				<MainSection />
 				<TotalSection totalLocked={totalLocked} />
 				<Futures />
 				<SynthSection />
-				<PoweredBy />
-				<Ecosystem />
-				{/* 		
-		Maik maybe wants to reposition this section so that is why we hide it for now
-		<PartnersSection /> */}
+				{/* Maik maybe wants to reposition this section so that is why we hide it for now 
+				<PartnersSection /> */}
 			</Layout>
 		</>
 	);

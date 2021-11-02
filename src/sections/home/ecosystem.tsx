@@ -81,6 +81,7 @@ const EcosystemSubline = styled(Subline)`
 `;
 
 const ImageContainer = styled.div`
+	max-width: ${({ theme }) => theme.maxContentWidth};
 	display: flex;
 	flex-wrap: wrap;
 	justify-content: space-evenly;
