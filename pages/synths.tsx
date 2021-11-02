@@ -9,19 +9,21 @@ const Synths = () => (
 		<Head>
 			<title>Synthetix - Synths</title>
 		</Head>
-		<StyledPageLayout>
-			<Section>
-				<SectionTitle>Synths</SectionTitle>
-				<StyledPageCopy>
-					Synths are derivative tokens providing exposure to a range of assets. They can be traded
-					with infinite liquidity and zero slippage by leveraging the Synthetix protocol’s unique
-					pooled collateral model. Trades between Synths generate a small fee that is distributed to
-					SNX collateral providers.
-				</StyledPageCopy>
-				<SynthsInfo />
-			</Section>
+		<PageLayout>
+			<ContentWrapper>
+				<Section>
+					<SectionTitle>Synths</SectionTitle>
+					<StyledPageCopy>
+						Synths are derivative tokens providing exposure to a range of assets. They can be traded
+						with infinite liquidity and zero slippage by leveraging the Synthetix protocol’s unique
+						pooled collateral model. Trades between Synths generate a small fee that is distributed
+						to SNX collateral providers.
+					</StyledPageCopy>
+					<SynthsInfo />
+				</Section>
+			</ContentWrapper>
 			<Line showOnMobile />
-		</StyledPageLayout>
+		</PageLayout>
 	</>
 );
 
@@ -33,9 +35,13 @@ const StyledPageCopy = styled.div`
 	padding-bottom: 35px;
 `;
 
-const StyledPageLayout = styled(PageLayout)`
-	max-width: 1200px;
+const ContentWrapper = styled.div`
+	width: 100%;
 	background: linear-gradient(180deg, #08021e 0%, #120446 146.21%);
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
 `;
 
 export default Synths;

@@ -77,19 +77,12 @@ const SynthsInfo = () => {
 };
 const Cards = styled.div`
 	padding-bottom: 120px;
-	display: grid;
-	grid-template-columns: repeat(3, 1fr);
-	grid-gap: 35px;
+	display: flex;
+	flex-wrap: wrap;
 
-	${media.lessThan('large')`
-		grid-template-columns: repeat(2, 1fr);
-		justify-items: center;
-	`}
-
-	${media.lessThan('medium')`
-		grid-template-columns: 1fr;
-		justify-items: center;
-	`}
+	> * {
+		margin: 16px;
+	}
 `;
 
 const Categories = styled.div`
