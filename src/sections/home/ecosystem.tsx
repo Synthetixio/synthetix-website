@@ -72,6 +72,9 @@ const EcoSystemSection = styled(Section)`
 const EcosystemSectionTitle = styled(SectionTitle)`
 	text-align: center;
 	margin-bottom: 14px;
+	${media.greaterThan('large')`
+		padding-top:40px;
+	`}
 `;
 
 const EcosystemSubline = styled(Subline)`
