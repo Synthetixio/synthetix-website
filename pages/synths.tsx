@@ -45,7 +45,7 @@ const ContentWrapper = styled.div`
 `;
 
 const SynthsSection = styled(Section)`
-	padding: 0 0 0 153px;
+	padding: 40px 0 0 153px;
 `;
 
 export default Synths;
