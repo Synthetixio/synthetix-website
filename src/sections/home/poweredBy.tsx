@@ -176,7 +176,6 @@ const PoweredByContainer = styled(Section)`
 
 	${media.lessThan('medium')`
 		background-image: url('/home/powered-by/background-tablet.svg');
-		align-items: start;
 		background-color: transparent;
 		padding: 20px 40px;
 		min-height: 700px;
