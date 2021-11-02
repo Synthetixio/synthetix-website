@@ -11,7 +11,7 @@ const Synths = () => (
 		</Head>
 		<PageLayout>
 			<ContentWrapper>
-				<Section>
+				<SynthsSection>
 					<SectionTitle>Synths</SectionTitle>
 					<StyledPageCopy>
 						Synths are derivative tokens providing exposure to a range of assets. They can be traded
@@ -20,7 +20,7 @@ const Synths = () => (
 						to SNX collateral providers.
 					</StyledPageCopy>
 					<SynthsInfo />
-				</Section>
+				</SynthsSection>
 			</ContentWrapper>
 			<Line showOnMobile />
 		</PageLayout>
@@ -42,6 +42,10 @@ const ContentWrapper = styled.div`
 	flex-direction: column;
 	justify-content: center;
 	align-items: center;
+`;
+
+const SynthsSection = styled(Section)`
+	padding: 0 0 0 153px;
 `;
 
 export default Synths;
