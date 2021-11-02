@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { Line, Section } from '../../styles/common';
+import { Section } from '../../styles/common';
 import PXbto from '../../svg/PXbto';
 import PHashed from '../../svg/PHashed';
 import PParafi from '../../svg/PParafi';
@@ -22,7 +22,6 @@ const PartnersSection = () => (
 				<Spartan src="/home/spartan.png" />
 			</StyledPartners>
 		</PartnersContainer>
-		<Line showOnMobile />
 	</>
 );
 

@@ -3,6 +3,7 @@ import media from 'styled-media-query';
 import { Arrow } from '../../svg';
 import { ExternalLink, Section, SectionTitle, Subline } from '../../styles/common';
 import { useRef, useState } from 'react';
+import { useMediaQuery } from 'react-responsive';
 
 type PoweredByCards = {
 	name: string;
@@ -78,8 +79,9 @@ const slideMargin = 16;
 const PoweredBy = () => {
 	const sliderRef = useRef<HTMLDivElement>(null);
 	const [accumulatedOffset, setAccumulatedOffset] = useState(0);
+	const isBigScreen = useMediaQuery({ minWidth: '1441px' });
 
-	/* Firefox doesn't support that out of the box */
+	/* Firefox/Safari doesn't support that out of the box */
 	const doesSupportBackdropFilter = CSS.supports('backdrop-filter', 'blur(14px)');
 
 	const handleScroll = (ltr: boolean) => {
@@ -108,48 +110,56 @@ const PoweredBy = () => {
 	};
 
 	return (
-		<PoweredByContainer>
-			<PoweredBySectionTitle>Powered by Synthetix</PoweredBySectionTitle>
-			<PoweredBySubline>
-				Learn more about the platforms built on top of the Synthetix protocol. Synthetix powers
-				decentralized perpetual futures, options markets, deal coordination markets, and more.
-			</PoweredBySubline>
-			<SliderWrapper>
-				<PrevArrow
-					onClick={() => handleScroll(false)}
-					disabled={accumulatedOffset === 0}
-					data-test-id="slider-arrow-prev"
-				/>
-				<Slider ref={sliderRef} dir="ltr" data-test-id="powered-by-slider">
-					{poweredByCards.map((card) => {
-						return doesSupportBackdropFilter ? (
-							<Slide key={card.name} data-test-id="powered-by-slide">
-								<Card href={card.link}>
-									<CardImage src={card.logo} />
-									<CardHeadline>{card.name}</CardHeadline>
-									<p>{card.description}</p>
-								</Card>
-							</Slide>
-						) : (
-							<SlideBackDropFilterPolyfill key={card.name}>
-								<Card>
-									<CardImage src={card.logo} />
-									<CardHeadline>{card.name}</CardHeadline>
-									<p>{card.description}</p>
-								</Card>
-							</SlideBackDropFilterPolyfill>
-						);
-					})}
-				</Slider>
-				<NextArrow onClick={() => handleScroll(true)} data-test-id="slider-arrow-next" />
-			</SliderWrapper>
+		<PoweredByContainer customMaxWidth={true}>
+			<Background
+				data={
+					isBigScreen ? '/home/powered-by/background-circle.svg' : '/home/powered-by/background.svg'
+				}
+				type="image/svg+xml"
+			/>
+			<GridImage data="/home/powered-by/grid.svg" type="image/svg+xml" />
+			<ContentWrapper>
+				<PoweredBySectionTitle>Powered by Synthetix</PoweredBySectionTitle>
+				<PoweredBySubline>
+					Learn more about the platforms built on top of the Synthetix protocol. Synthetix powers
+					decentralized perpetual futures, options markets, deal coordination markets, and more.
+				</PoweredBySubline>
+				<SliderWrapper>
+					<PrevArrow
+						onClick={() => handleScroll(false)}
+						disabled={accumulatedOffset === 0}
+						data-test-id="slider-arrow-prev"
+					/>
+					<Slider ref={sliderRef} dir="ltr" data-test-id="powered-by-slider">
+						{poweredByCards.map((card) => {
+							return doesSupportBackdropFilter ? (
+								<Slide key={card.name} data-test-id="powered-by-slide">
+									<Card href={card.link}>
+										<CardImage src={card.logo} />
+										<CardHeadline>{card.name}</CardHeadline>
+										<p>{card.description}</p>
+									</Card>
+								</Slide>
+							) : (
+								<SlideBackDropFilterPolyfill key={card.name}>
+									<Card>
+										<CardImage src={card.logo} />
+										<CardHeadline>{card.name}</CardHeadline>
+										<p>{card.description}</p>
+									</Card>
+								</SlideBackDropFilterPolyfill>
+							);
+						})}
+					</Slider>
+					<NextArrow onClick={() => handleScroll(true)} data-test-id="slider-arrow-next" />
+				</SliderWrapper>
+			</ContentWrapper>
 		</PoweredByContainer>
 	);
 };
 
 const PoweredByContainer = styled(Section)`
-	background-image: url('/home/powered-by/background.svg');
-	min-height: 1000px;
+	min-height: 100vh;
 	position: relative;
 	background-position: top center;
 	background-repeat: no-repeat;
@@ -160,9 +170,12 @@ const PoweredByContainer = styled(Section)`
 	background-color: ${({ theme }) => theme.colors.bgBlackHighlighted};
 	padding: 70px 40px 30px;
 
+	${media.lessThan('1920px' as any)`
+		min-height: 800px;
+	`}
+
 	${media.lessThan('medium')`
 		background-image: url('/home/powered-by/background-tablet.svg');
-		align-items: start;
 		background-color: transparent;
 		padding: 20px 40px;
 		min-height: 700px;
@@ -172,6 +185,47 @@ const PoweredByContainer = styled(Section)`
 		background-image: url('/home/powered-by/background-mobile.svg');
 		background-size: cover;
 `}
+`;
+
+const Background = styled.object`
+	width: 100%;
+	position: absolute;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 100px;
+	z-index: 2;
+
+	${media.lessThan('large')`
+		bottom: 0;
+	`}
+
+	${media.lessThan('medium')`
+		display: none;
+	`}
+`;
+
+const GridImage = styled.object`
+	width: 100%;
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	top: 100px;
+
+	${media.lessThan('huge')`
+		display: none;
+	`}
+`;
+
+const ContentWrapper = styled.div`
+	position: absolute;
+	z-index: 10;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	width: 100%;
+	height: auto;
 `;
 
 const PoweredBySectionTitle = styled(SectionTitle)`

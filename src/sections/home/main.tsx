@@ -20,18 +20,20 @@ const MainSection = () => {
 					Learn More <LearnMoreArrow />
 				</LearnMoreButton>
 			</Left>
-			<Right src="/home/snx-wave.svg" />
+			<Right data="/home/snx-wave.svg" type="image/svg+xml" />
 		</MainContainer>
 	);
 };
 
 const MainContainer = styled(Section)`
+	position: relative;
 	${({ theme }) => theme.animations.show};
 	opacity: 0;
 	animation-delay: 400ms;
 	height: calc(100vh - ${headerHeight}px);
 	min-height: 753px;
 	display: flex;
+	justify-content: space-between;
 	align-items: center;
 	overflow: hidden;
 	padding: 0 0 0 153px;
@@ -42,8 +44,8 @@ const MainContainer = styled(Section)`
 
 	${media.lessThan('medium')`
 		flex-direction: column;
-		height: 100%;
-		min-height: 614px;
+		justify-content: flex-start;
+		height: auto;
 		padding: 0 24px;
 
 		h1 {
@@ -76,25 +78,27 @@ const Left = styled.div`
 	`}
 `;
 
-const Right = styled.img`
-	width: 1406px;
-	height: 444px;
-	left: 148px;
+const Right = styled.object`
 	position: absolute;
 	pointer-events: none;
+	height: 100%;
+	width: 150%;
 
-	${media.greaterThan('1350px' as any)`
-		width: 81%;
-		height: 31vw;
+	${media.greaterThan('huge')`
+		right: -30px;
+		width: 90%;
 		left: auto;
-		right: 0;
+	`}
+
+	${media.lessThan('large')`
+		width: 1606px;
+		left: auto;
 	`}
 
 	${media.lessThan('medium')`
-		left: -15%;
-		margin-top: 26px;
 		position: relative;
-		height: 272px;
+		width: 100%;
+		height: 300px;
 	`}
 `;
 

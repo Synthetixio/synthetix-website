@@ -2,10 +2,11 @@ import styled, { css } from 'styled-components';
 import media from 'styled-media-query';
 import { theme } from './theme';
 
-export const Section = styled.section`
+export const Section = styled.section<{ customMaxWidth?: boolean }>`
 	width: 100%;
 	position: relative;
 	overflow: hidden;
+	${({ theme, customMaxWidth }) => (!customMaxWidth ? `max-width: ${theme.maxContentWidth}` : '')};
 `;
 
 export const ExternalLink = styled.a.attrs({
@@ -28,16 +29,12 @@ export const Subline = styled.article`
 `;
 
 export const Line = styled.div<{ showOnMobile?: boolean }>`
-	width: 100%;
+	width: 100vw;
 	height: 1px;
 	background: rgba(14, 4, 53, 0.29);
 	background-image: linear-gradient(0deg, rgba(14, 4, 53, 0.29), rgba(14, 4, 53, 0.29)),
 		linear-gradient(88.63deg, #00d1ff -14.83%, #ed1eff 108.22%);
 	opacity: 0.39;
-	position: absolute;
-	bottom: 0;
-	right: 0;
-	left: 0;
 
 	${({ showOnMobile }) => {
 		if (!showOnMobile) {

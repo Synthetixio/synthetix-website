@@ -1,26 +1,28 @@
 import Head from 'next/head';
 import { GetServerSideProps } from 'next';
-import dynamic from 'next/dynamic';
 
 import ipRangeCheck from 'ip-range-check';
 
 import MainSection from '../src/sections/home/main';
 import Futures from '../src/sections/home/futures';
 import TotalSection from '../src/sections/home/total';
-import PartnersSection from '../src/sections/home/partners';
 import SynthSection from 'src/sections/home/synths';
-import Ecosystem from 'src/sections/home/ecosystem';
 
-import { Layout } from '../src/components';
 import { fetchTotalLocked } from '../src/lib/exchange-api';
-
-const PoweredBy = dynamic(() => import('../src/sections/home/poweredBy'), {
-	ssr: false,
-});
+import dynamic from 'next/dynamic';
+import styled from 'styled-components';
+import media from 'styled-media-query';
+import Ecosystem from 'src/sections/home/ecosystem';
+import { Line } from 'src/styles/common';
+import { PageLayout } from '../src/components';
 
 export interface ApiStatsProps {
 	totalLocked?: number;
 }
+
+const PoweredBy = dynamic(() => import('../src/sections/home/poweredBy'), {
+	ssr: false,
+});
 
 const Home = ({ totalLocked }: ApiStatsProps) => {
 	return (
@@ -28,17 +30,22 @@ const Home = ({ totalLocked }: ApiStatsProps) => {
 			<Head>
 				<title>Synthetix</title>
 			</Head>
-			<Layout showBgGradient={true}>
+			<PageLayout>
+				<BgGradient />
 				<MainSection />
+				<Line />
 				<TotalSection totalLocked={totalLocked} />
+				<Line />
 				<Futures />
+				<Line />
 				<SynthSection />
+				<Line />
 				<PoweredBy />
 				<Ecosystem />
-				{/* 		
-		Maik maybe wants to reposition this section so that is why we hide it for now
-		<PartnersSection /> */}
-			</Layout>
+				<Line showOnMobile />
+				{/* Maik maybe wants to reposition this section so that is why we hide it for now 
+				<PartnersSection /> */}
+			</PageLayout>
 		</>
 	);
 };
@@ -68,5 +75,21 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
 		};
 	}
 };
+
+const BgGradient = styled.div`
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100vh;
+	min-height: 853px;
+	background: linear-gradient(180deg, #08021e 0%, #120446 146.21%);
+	pointer-events: none;
+
+	${media.lessThan('medium')`
+		height: 734px;
+		min-height: auto;
+	`}
+`;
 
 export default Home;

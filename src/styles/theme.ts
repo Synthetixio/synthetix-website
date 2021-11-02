@@ -16,6 +16,7 @@ const animations = {
 };
 
 export const theme = {
+	maxContentWidth: '1920px',
 	colors: {
 		white: '#FFFFFF',
 
@@ -53,6 +54,7 @@ export const theme = {
 			font-size: 14px;
 			line-height: 20px;
 			color: rgba(255, 255, 255, 0.7);
+			overflow-x: hidden;
 		`,
 		largeHeadline: css`
 			font-family: GT America;

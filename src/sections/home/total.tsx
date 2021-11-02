@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 import numeral from 'numeral';
-import { Line, Section, SectionTitle } from '../../styles/common';
+import { Section, SectionTitle } from '../../styles/common';
 import { ApiStatsProps } from '../../../pages';
 import media from 'styled-media-query';
 
@@ -15,7 +15,6 @@ const TotalSection = ({ totalLocked }: ApiStatsProps) => {
 					{totalLocked ? numeral(totalLocked).format(currencyFormat) : '--'}
 				</StakedValue>
 			</TotalStakedBar>
-			<Line />
 		</TotalContainer>
 	);
 };
@@ -26,7 +25,6 @@ const TotalContainer = styled(Section)`
 
 	${media.lessThan('medium')`
 		height: 206px;
-		margin-top: 26px;
 	`}
 `;
 
