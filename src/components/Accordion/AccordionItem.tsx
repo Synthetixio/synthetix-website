@@ -1,5 +1,5 @@
 import { ReactNodeArray } from 'react';
-import { FlexDivCol, FlexDivRow } from 'src/styles/common';
+import { FlexDivCol, FlexDivRow } from '../../styles/common';
 import styled from 'styled-components';
 import media from 'styled-media-query';
 
