@@ -172,18 +172,18 @@ const PoweredByContainer = styled(Section)`
 	padding: 70px 40px 30px;
 
 	${media.lessThan('1920px' as any)`
-	min-height: 800px;
+		min-height: 800px;
 	`}
 
 	${media.lessThan('medium')`
-	background-image: url('/home/powered-by/background-tablet.svg');
-	background-color: transparent;
-	padding: 20px 40px;
-	min-height: 700px;
+		background-image: url('/home/powered-by/background-tablet.svg');
+		background-color: transparent;
+		padding: 20px 40px;
+		min-height: 700px;
 	`}
 	
 	${media.lessThan('small')`
-	background-image: none;
+		background-image: none;
 	`}
 `;
 
