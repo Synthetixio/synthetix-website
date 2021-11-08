@@ -97,8 +97,8 @@ const Right = styled(SNXWave)`
 	`}
 
 	${media.lessThan('medium')`
-		position: relative;
-		width: 100%;
+		bottom: 100px;
+
 		height: 300px;
 	`}
 `;
