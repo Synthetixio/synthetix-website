@@ -146,7 +146,6 @@ describe('Accordion', () => {
 				/>
 			</ThemeProvider>
 		);
-
 		expect(
 			screen.queryByText(queryTextsDictionary.descriptions.notVisible)
 		).not.toBeInTheDocument();
