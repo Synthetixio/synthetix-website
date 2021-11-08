@@ -3,7 +3,11 @@ import media from 'styled-media-query';
 import { Arrow } from '../../svg';
 import { ExternalLink, Section, SectionTitle, Subline } from '../../styles/common';
 import { useRef, useState } from 'react';
-import { useMediaQuery } from 'react-responsive';
+import PoweredBySNXLogo from 'src/svg/PoweredBySNXLogo';
+import PoweredByBlur from 'src/svg/PoweredByBlur';
+import PoweredByGrid from 'src/svg/PoweredByGrid';
+import PoweredByBackground from 'src/svg/PoweredByBackground';
+import PoweredByBackgroundMobile from 'src/svg/PoweredByBackgroundMobile';
 
 type PoweredByCards = {
 	name: string;
@@ -79,7 +83,6 @@ const slideMargin = 16;
 const PoweredBy = () => {
 	const sliderRef = useRef<HTMLDivElement>(null);
 	const [accumulatedOffset, setAccumulatedOffset] = useState(0);
-	const isBigScreen = useMediaQuery({ minWidth: '1441px' });
 
 	/* Firefox/Safari doesn't support that out of the box */
 	const doesSupportBackdropFilter = CSS.supports('backdrop-filter', 'blur(14px)');
@@ -111,13 +114,11 @@ const PoweredBy = () => {
 
 	return (
 		<PoweredByContainer customMaxWidth={true}>
-			<Background
-				data={
-					isBigScreen ? '/home/powered-by/background-circle.svg' : '/home/powered-by/background.svg'
-				}
-				type="image/svg+xml"
-			/>
-			<GridImage data="/home/powered-by/grid.svg" type="image/svg+xml" />
+			<StyledPoweredByBackground />
+			<StyledPoweredBySNXLogo />
+			<StyledPoweredByBlur />
+			<StyledPoweredByGrid />
+			<StyledBackgroundByBackgroundMobile />
 			<ContentWrapper>
 				<PoweredBySectionTitle>Powered by Synthetix</PoweredBySectionTitle>
 				<PoweredBySubline>
@@ -159,7 +160,7 @@ const PoweredBy = () => {
 };
 
 const PoweredByContainer = styled(Section)`
-	min-height: 100vh;
+	min-height: 800px;
 	position: relative;
 	background-position: top center;
 	background-repeat: no-repeat;
@@ -181,41 +182,9 @@ const PoweredByContainer = styled(Section)`
 		min-height: 700px;
 	`}
 
-	${media.lessThan('550px' as any)`
-		background-image: url('/home/powered-by/background-mobile.svg');
-		background-size: cover;
+	${media.lessThan('small')`
+		background-image: none;
 `}
-`;
-
-const Background = styled.object`
-	width: 100%;
-	position: absolute;
-	top: 0;
-	left: 0;
-	right: 0;
-	bottom: 100px;
-	z-index: 2;
-
-	${media.lessThan('large')`
-		bottom: 0;
-	`}
-
-	${media.lessThan('medium')`
-		display: none;
-	`}
-`;
-
-const GridImage = styled.object`
-	width: 100%;
-	position: absolute;
-	bottom: 0;
-	left: 0;
-	right: 0;
-	top: 100px;
-
-	${media.lessThan('huge')`
-		display: none;
-	`}
 `;
 
 const ContentWrapper = styled.div`
@@ -226,6 +195,72 @@ const ContentWrapper = styled.div`
 	align-items: center;
 	width: 100%;
 	height: auto;
+`;
+
+const StyledPoweredByBackground = styled(PoweredByBackground)`
+	display: none;
+	position: absolute;
+	top: 0;
+	left: auto;
+	right: auto;
+	width: auto;
+	height: 100%;
+
+	${media.lessThan('large')`
+		display: block;
+	`}
+
+	${media.lessThan('medium')`
+		display: none;
+	`}
+`;
+
+const StyledPoweredBySNXLogo = styled(PoweredBySNXLogo)`
+	position: absolute;
+	top: 0;
+	left: auto;
+	right: auto;
+	width: 100%;
+	height: 70%;
+
+	${media.lessThan('large')`
+		display:none
+	`}
+`;
+
+const StyledPoweredByGrid = styled(PoweredByGrid)`
+	position: absolute;
+	bottom: 0;
+	width: 100%;
+	height: auto;
+	${media.lessThan('large')`
+		display:none
+	`}
+`;
+
+const StyledPoweredByBlur = styled(PoweredByBlur)`
+	position: absolute;
+	top: 0;
+	right: 0;
+	left: 0;
+	bottom: 0;
+	width: 100%;
+	height: auto;
+	${media.lessThan('large')`
+		display:none
+	`}
+`;
+
+const StyledBackgroundByBackgroundMobile = styled(PoweredByBackgroundMobile)`
+	display: none;
+	${media.lessThan('small')`
+		display: block;
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: auto;
+`}
 `;
 
 const PoweredBySectionTitle = styled(SectionTitle)`

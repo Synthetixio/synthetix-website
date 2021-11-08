@@ -1,4 +1,4 @@
-import { FlexDivCol } from 'src/styles/common';
+import { FlexDivCol } from '../../styles/common';
 import styled from 'styled-components';
 import AccordionItem, { AccordionItemProps } from './AccordionItem';
 

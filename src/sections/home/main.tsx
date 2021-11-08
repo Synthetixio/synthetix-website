@@ -1,4 +1,5 @@
 import { Section, Subline } from 'src/styles/common';
+import SNXWave from 'src/svg/SNXWave';
 import styled from 'styled-components';
 import media from 'styled-media-query';
 import { headerHeight } from '../../components/Header';
@@ -20,7 +21,7 @@ const MainSection = () => {
 					Learn More <LearnMoreArrow />
 				</LearnMoreButton>
 			</Left>
-			<Right data="/home/snx-wave.svg" type="image/svg+xml" />
+			<Right />
 		</MainContainer>
 	);
 };
@@ -78,15 +79,15 @@ const Left = styled.div`
 	`}
 `;
 
-const Right = styled.object`
+const Right = styled(SNXWave)`
 	position: absolute;
 	pointer-events: none;
 	height: 100%;
 	width: 150%;
 
 	${media.greaterThan('huge')`
-		right: -30px;
-		width: 90%;
+		right: -20px;
+		width: 85%;
 		left: auto;
 	`}
 

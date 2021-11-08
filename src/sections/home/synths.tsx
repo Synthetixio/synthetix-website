@@ -49,7 +49,7 @@ const SynthContainer = styled(Section)`
 	`}
 
 	${media.lessThan('320px' as any)`
-		min-height: 1100px;
+		min-height: 1120px;
 	`}
 `;
 
