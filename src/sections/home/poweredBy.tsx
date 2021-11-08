@@ -7,6 +7,7 @@ import PoweredBySNXLogo from 'src/svg/PoweredBySNXLogo';
 import PoweredByBlur from 'src/svg/PoweredByBlur';
 import PoweredByGrid from 'src/svg/PoweredByGrid';
 import PoweredByBackground from 'src/svg/PoweredByBackground';
+import PoweredByBackgroundMobile from 'src/svg/PoweredByBackgroundMobile';
 
 type PoweredByCards = {
 	name: string;
@@ -117,6 +118,7 @@ const PoweredBy = () => {
 			<StyledPoweredBySNXLogo />
 			<StyledPoweredByBlur />
 			<StyledPoweredByGrid />
+			<StyledBackgroundByBackgroundMobile />
 			<ContentWrapper>
 				<PoweredBySectionTitle>Powered by Synthetix</PoweredBySectionTitle>
 				<PoweredBySubline>
@@ -180,9 +182,8 @@ const PoweredByContainer = styled(Section)`
 		min-height: 700px;
 	`}
 
-	${media.lessThan('550px' as any)`
-		background-image: url('/home/powered-by/background-mobile.svg');
-		background-size: cover;
+	${media.lessThan('small')`
+		background-image: none;
 `}
 `;
 
@@ -248,6 +249,18 @@ const StyledPoweredByBlur = styled(PoweredByBlur)`
 	${media.lessThan('large')`
 		display:none
 	`}
+`;
+
+const StyledBackgroundByBackgroundMobile = styled(PoweredByBackgroundMobile)`
+	display: none;
+	${media.lessThan('small')`
+		display: block;
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: auto;
+`}
 `;
 
 const PoweredBySectionTitle = styled(SectionTitle)`
