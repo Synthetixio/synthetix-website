@@ -279,7 +279,7 @@ const PoweredBySubline = styled(Subline)`
 `;
 
 const SliderWrapper = styled.div`
-	margin-top: 185px;
+	margin-top: 105px;
 	display: flex;
 	align-self: center;
 	align-items: center;
@@ -348,23 +348,13 @@ const Slide = styled.div`
 
 const SlideBackDropFilterPolyfill = styled.div`
 	position: relative;
+	background-image: url('home/tile-background.png');
 	min-width: 260px;
 	height: 289px;
 	margin-right: ${slideMargin}px;
 	scroll-snap-align: start;
 	:last-of-type {
 		margin-right: 0px;
-	}
-
-	::before {
-		position: absolute;
-		content: '';
-		top: 0;
-		left: 0;
-		right: 0;
-		bottom: 0;
-		background: rgba(22, 22, 106, 0.8);
-		filter: blur(1px);
 	}
 
 	${media.lessThan('medium')`

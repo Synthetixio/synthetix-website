@@ -43,7 +43,7 @@ const Home = ({ totalLocked }: ApiStatsProps) => {
 				<PoweredBy />
 				<Ecosystem />
 				<Line showOnMobile />
-				{/* Maik maybe wants to reposition this section so that is why we hide it for now 
+				{/*  TODO @125 Mike maybe wants to reposition this section so that is why we hide it for now 
 				<PartnersSection /> */}
 			</PageLayout>
 		</>
