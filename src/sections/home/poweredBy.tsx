@@ -84,9 +84,6 @@ const PoweredBy = () => {
 	const sliderRef = useRef<HTMLDivElement>(null);
 	const [accumulatedOffset, setAccumulatedOffset] = useState(0);
 
-	/* Firefox/Safari doesn't support that out of the box */
-	const doesSupportBackdropFilter = CSS.supports('backdrop-filter', 'blur(14px)');
-
 	const handleScroll = (ltr: boolean) => {
 		const ref = sliderRef.current!;
 		const clientWidthWithMargin = ref.clientWidth + slideMargin;
@@ -132,25 +129,15 @@ const PoweredBy = () => {
 						data-test-id="slider-arrow-prev"
 					/>
 					<Slider ref={sliderRef} dir="ltr" data-test-id="powered-by-slider">
-						{poweredByCards.map((card) => {
-							return doesSupportBackdropFilter ? (
-								<Slide key={card.name} data-test-id="powered-by-slide">
-									<Card href={card.link}>
-										<CardImage src={card.logo} />
-										<CardHeadline>{card.name}</CardHeadline>
-										<p>{card.description}</p>
-									</Card>
-								</Slide>
-							) : (
-								<SlideBackDropFilterPolyfill key={card.name}>
-									<Card>
-										<CardImage src={card.logo} />
-										<CardHeadline>{card.name}</CardHeadline>
-										<p>{card.description}</p>
-									</Card>
-								</SlideBackDropFilterPolyfill>
-							);
-						})}
+						{poweredByCards.map((card) => (
+							<Slide key={card.name} data-test-id="powered-by-slide">
+								<Card href={card.link}>
+									<CardImage src={card.logo} />
+									<CardHeadline>{card.name}</CardHeadline>
+									<p>{card.description}</p>
+								</Card>
+							</Slide>
+						))}
 					</Slider>
 					<NextArrow onClick={() => handleScroll(true)} data-test-id="slider-arrow-next" />
 				</SliderWrapper>
@@ -279,7 +266,7 @@ const PoweredBySubline = styled(Subline)`
 `;
 
 const SliderWrapper = styled.div`
-	margin-top: 185px;
+	margin-top: 105px;
 	display: flex;
 	align-self: center;
 	align-items: center;
@@ -327,44 +314,11 @@ const Slide = styled.div`
 	position: relative;
 	min-width: 260px;
 	height: 289px;
-	background: rgba(255, 255, 255, 0.1);
-	backdrop-filter: blur(14px);
+	background-image: url('home/tile-background.png');
 	margin-right: ${slideMargin}px;
 	scroll-snap-align: start;
 	:last-of-type {
 		margin-right: 0px;
-	}
-
-	${media.lessThan('medium')`
-	scroll-snap-align: center;
-		:first-of-type {
-			margin-left: 20px;
-		}
-		:last-of-type {
-			margin-right: 20px;
-		}
-	`}
-`;
-
-const SlideBackDropFilterPolyfill = styled.div`
-	position: relative;
-	min-width: 260px;
-	height: 289px;
-	margin-right: ${slideMargin}px;
-	scroll-snap-align: start;
-	:last-of-type {
-		margin-right: 0px;
-	}
-
-	::before {
-		position: absolute;
-		content: '';
-		top: 0;
-		left: 0;
-		right: 0;
-		bottom: 0;
-		background: rgba(22, 22, 106, 0.8);
-		filter: blur(1px);
 	}
 
 	${media.lessThan('medium')`
@@ -379,7 +333,6 @@ const SlideBackDropFilterPolyfill = styled.div`
 `;
 
 const Card = styled(ExternalLink)`
-	/* Needs to be absolute and a high z index because of the backdrop polyfill, otherwise font is milkyish */
 	position: absolute;
 	top: 0;
 	left: 0;

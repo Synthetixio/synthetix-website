@@ -9,20 +9,16 @@ import TotalSection from '../src/sections/home/total';
 import SynthSection from 'src/sections/home/synths';
 
 import { fetchTotalLocked } from '../src/lib/exchange-api';
-import dynamic from 'next/dynamic';
-import styled from 'styled-components';
-import media from 'styled-media-query';
 import Ecosystem from 'src/sections/home/ecosystem';
 import { Line } from 'src/styles/common';
 import { PageLayout } from '../src/components';
+import PoweredBy from 'src/sections/home/poweredBy';
+import styled from 'styled-components';
+import media from 'styled-media-query';
 
 export interface ApiStatsProps {
 	totalLocked?: number;
 }
-
-const PoweredBy = dynamic(() => import('../src/sections/home/poweredBy'), {
-	ssr: false,
-});
 
 const Home = ({ totalLocked }: ApiStatsProps) => {
 	return (
@@ -43,7 +39,7 @@ const Home = ({ totalLocked }: ApiStatsProps) => {
 				<PoweredBy />
 				<Ecosystem />
 				<Line showOnMobile />
-				{/* Maik maybe wants to reposition this section so that is why we hide it for now 
+				{/* TODO @125 Mike maybe wants to reposition this section so that is why we hide it for now 
 				<PartnersSection /> */}
 			</PageLayout>
 		</>
