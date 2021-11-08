@@ -60,23 +60,23 @@ interface MenuProps {
 
 const MenuComponent = (props: MenuProps) => {
 	return (
-		<Menu {...props}>
+		<StyledMenu {...props}>
 			{data.map((item) => {
 				if (props.isHeader) {
 					return (
-						<>
-							{!item.hideOnHeader && (
-								<MenuItem key={item.label}>
-									{item.link ? (
-										<Link href={item.link}>
-											<a>{item.label}</a>
-										</Link>
-									) : (
-										<ExternalLink href={item.externalLink}>{item.label}</ExternalLink>
-									)}
-								</MenuItem>
-							)}
-						</>
+						!item.hideOnHeader && (
+							<MenuItem key={item.label}>
+								{item.link ? (
+									<Link href={item.link}>
+										<a>{item.label}</a>
+									</Link>
+								) : (
+									<ExternalLink href={item.externalLink} key={item.label}>
+										{item.label}
+									</ExternalLink>
+								)}
+							</MenuItem>
+						)
 					);
 				} else {
 					return (
@@ -92,11 +92,11 @@ const MenuComponent = (props: MenuProps) => {
 					);
 				}
 			})}
-		</Menu>
+		</StyledMenu>
 	);
 };
 
-const Menu = styled.ul`
+export const StyledMenu = styled.ul`
 	transition: left 0.3s ease-out;
 	z-index: 101;
 

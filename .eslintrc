@@ -16,5 +16,8 @@
 			}
 		],
 		"jsx-a11y/anchor-is-valid": "off"
+	},
+	"env": {
+		"jest": true
 	}
 }

@@ -55,15 +55,14 @@ const HeaderComponent = () => {
 export const headerHeight = 100;
 
 const Header = styled.header`
-	${(props) => props.theme.animations.show};
-
+	${({ theme }) => theme.animations.show};
+	max-width: ${({ theme }) => theme.maxContentWidth};
 	animation-delay: 200ms;
 	opacity: 0;
 	height: ${headerHeight}px;
 	width: 100%;
 	padding: 0 56px;
 	position: relative;
-	/* background: linear-gradient(180deg, #08021E 0%, #120446 146.21%); */
 	z-index: 100;
 	display: flex;
 	align-items: center;

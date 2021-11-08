@@ -1,43 +1,64 @@
+import { Section, Subline } from 'src/styles/common';
+import SNXWave from 'src/svg/SNXWave';
 import styled from 'styled-components';
 import media from 'styled-media-query';
-import { Section, Button } from '../../components';
-import { SectionDescription } from '../../components/Section';
 import { headerHeight } from '../../components/Header';
+import { LearnMoreArrow } from '../../svg';
 
-const MainSection = () => (
-	<MainContainer>
-		<Left>
-			<h1>The derivatives liquidity protocol</h1>
-			<SectionDescription main={true}>
-				Synthetix is the backbone for derivatives trading in DeFi, allowing anyone, anywhere to gain
-				on-chain exposure to a vast range of assets.
-			</SectionDescription>
-			<LearnMoreButton link="https://docs.synthetix.io/litepaper/">Learn More</LearnMoreButton>
-		</Left>
-		<Right src="/home/snx-wave.svg" />
-	</MainContainer>
-);
+const MainSection = () => {
+	const scrollToFeaturesSection = () => {
+		document.querySelector('#futures')?.scrollIntoView({ behavior: 'smooth' });
+	};
+	return (
+		<MainContainer>
+			<Left>
+				<h1>The derivatives liquidity protocol</h1>
+				<SectionDescription>
+					Synthetix is a new financial primitive enabling the creation of synthetic assets, offering
+					unique derivatives and exposure to real-world assets on the blockchain.
+				</SectionDescription>
+				<LearnMoreButton onClick={scrollToFeaturesSection} data-test-id="learn-more-btn">
+					Learn More <LearnMoreArrow />
+				</LearnMoreButton>
+			</Left>
+			<Right />
+		</MainContainer>
+	);
+};
 
 const MainContainer = styled(Section)`
-	${(props) => props.theme.animations.show};
-
+	position: relative;
+	${({ theme }) => theme.animations.show};
 	opacity: 0;
 	animation-delay: 400ms;
 	height: calc(100vh - ${headerHeight}px);
 	min-height: 753px;
 	display: flex;
+	justify-content: space-between;
 	align-items: center;
 	overflow: hidden;
+	padding: 0 0 0 153px;
+
+	h1 {
+		${({ theme }) => theme.fonts.headline};
+	}
 
 	${media.lessThan('medium')`
 		flex-direction: column;
-		height: 634px;
-		min-height: 634px;
-	`}
+		justify-content: flex-start;
+		height: auto;
+		padding: 0 24px;
 
-	${media.greaterThan('1350px' as any)`
-		padding: 0 0 0 153px;
+		h1 {
+			font-size: 32px;
+			line-height: 38px;
+		}
 	`}
+`;
+
+const SectionDescription = styled(Subline)`
+	margin-top: 18px;
+	max-width: 290px;
 `;
 
 const Left = styled.div`
@@ -48,42 +69,61 @@ const Left = styled.div`
 
 	${media.lessThan('medium')`
 		margin-top: 11px;
-		max-width: 295px;
+		max-width: 350px;
 		height: 338px;
 		position: relative;
 		text-align: center;
+		display: flex;
+		flex-direction: column;
+		align-items: center;
 	`}
 `;
 
-const Right = styled.img`
-	width: 1406px;
-	height: 444px;
-	left: 148px;
+const Right = styled(SNXWave)`
 	position: absolute;
 	pointer-events: none;
+	height: 100%;
+	width: 150%;
 
-	${media.greaterThan('1350px' as any)`
-		width: 81%;
-		height: 31vw;
+	${media.greaterThan('huge')`
+		right: -20px;
+		width: 85%;
 		left: auto;
-		right: 0;
+	`}
+
+	${media.lessThan('large')`
+		width: 1606px;
+		left: auto;
 	`}
 
 	${media.lessThan('medium')`
-		left: -25%;
-		margin-top: 26px;
-		position: relative;
-		height: 272px;
+		bottom: 100px;
+
+		height: 300px;
 	`}
 `;
 
-const LearnMoreButton = styled(Button)`
-	margin-top: 40px;
-	width: 147px;
-	height: 56px;
+const LearnMoreButton = styled.button`
+	display: flex;
+	align-items: center;
+	cursor: pointer;
+	background-color: transparent;
+	margin-top: 21px;
+	width: 150px;
+	border: 0px;
+	padding-left: 0;
+	${({ theme }) => theme.fonts.button};
+	color: ${({ theme }) => theme.colors.cyan};
+
+	:focus {
+		outline: 0;
+	}
+	> * {
+		margin-left: 8px;
+	}
 
 	${media.lessThan('medium')`
-		margin-top: 30px;
+		justify-content: center;
 	`}
 `;
 

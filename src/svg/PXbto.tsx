@@ -2,7 +2,14 @@ import React from 'react';
 
 const SvgPXbto = (props: Props): JSX.Element => {
 	return (
-		<svg width={137} height={43} fill="none" {...props}>
+		<svg
+			width={137}
+			height={43}
+			fill="none"
+			xmlns="http://www.w3.org/2000/svg"
+			xmlnsXlink="http://www.w3.org/1999/xlink"
+			{...props}
+		>
 			<path fill="url(#p-xbto_svg__pattern0)" d="M0 0h137v43H0z" />
 			<defs>
 				<pattern

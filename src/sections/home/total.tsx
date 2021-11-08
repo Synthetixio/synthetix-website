@@ -1,25 +1,21 @@
 import styled from 'styled-components';
 import numeral from 'numeral';
-import { Section, Line } from '../../components';
-
-import { ApiStatsProps } from '../../pages';
+import { Section, SectionTitle } from '../../styles/common';
+import { ApiStatsProps } from '../../../pages';
 import media from 'styled-media-query';
 
 const currencyFormat = '$0,0';
 
 const TotalSection = ({ totalLocked }: ApiStatsProps) => {
 	return (
-		<>
-			<TotalContainer>
-				<TotalStakedBar>
-					<StakedHeader>Total value locked in Synthetix</StakedHeader>
-					<StakedValue>
-						{totalLocked ? numeral(totalLocked).format(currencyFormat) : '--'}
-					</StakedValue>
-				</TotalStakedBar>
-			</TotalContainer>
-			<Line static />
-		</>
+		<TotalContainer>
+			<TotalStakedBar>
+				<StakedHeader>Total value locked in Synthetix</StakedHeader>
+				<StakedValue>
+					{totalLocked ? numeral(totalLocked).format(currencyFormat) : '--'}
+				</StakedValue>
+			</TotalStakedBar>
+		</TotalContainer>
 	);
 };
 
@@ -29,7 +25,6 @@ const TotalContainer = styled(Section)`
 
 	${media.lessThan('medium')`
 		height: 206px;
-		margin-top: 26px;
 	`}
 `;
 
@@ -42,34 +37,29 @@ const TotalStakedBar = styled.div`
 	justify-content: center;
 `;
 
-const StakedHeader = styled.h3`
-	font-family: GT America;
-	font-weight: 900;
+const StakedHeader = styled(SectionTitle)`
+	// This one is special in the design flow
 	font-size: 29px;
 	line-height: 39px;
-	text-align: center;
-	text-transform: uppercase;
-	font-stretch: expanded;
-	color: white;
-
+	margin: 0px;
 	${media.lessThan('medium')`
-		font-size: 20px;
-		line-height: 24px;
 		max-width: 295px;
+		font-size: 20px;
+		text-align: center;
+		line-height: 24px;
 	`}
 `;
 
 const StakedValue = styled.span`
 	font-family: GT America;
 	font-weight: 900;
-	font-size: 72px;
+	font-size: 64px;
 	height: 72px;
-	line-height: 48px;
+	line-height: 80px;
 	font-stretch: expanded;
 	text-align: center;
 	text-transform: uppercase;
 	background-clip: text;
-	margin-top: 21px;
 	-webkit-background-clip: text;
 	-webkit-text-fill-color: transparent;
 	text-fill-color: transparent;

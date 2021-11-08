@@ -4,7 +4,7 @@ import { ethers } from 'ethers';
 import QUERY_KEYS from 'src/constants/queryKeys';
 import { CurrencyKey } from 'src/constants/currency';
 
-import snxjs from 'src/lib/snxjs';
+import getSNXJS from 'src/lib/snxjs';
 
 /*
 	Suspension Reasons:
@@ -50,6 +50,7 @@ const useSynthSuspensionQuery = (
 	currencyKey: CurrencyKey,
 	options?: UseQueryOptions<SynthSuspended>
 ) => {
+	const snxjs = getSNXJS();
 	return useQuery<SynthSuspended>(
 		QUERY_KEYS.Synths.Suspension(currencyKey),
 		async () => {
@@ -64,7 +65,7 @@ const useSynthSuspensionQuery = (
 				reason: isSuspended ? getReasonFromCode(reasonCode) : null,
 			};
 		},
-		options
+		{ ...options, retry: false }
 	);
 };
 

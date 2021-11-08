@@ -2,6 +2,8 @@ import { FC } from 'react';
 import styled from 'styled-components';
 import { Logo, Menu, Socials } from './';
 import media from 'styled-media-query';
+import { Line } from '../styles/common';
+import { StyledMenu } from './Menu';
 
 type FooterComponentProps = {
 	className?: string;
@@ -20,23 +22,25 @@ const FooterComponent: FC<FooterComponentProps> = ({ className, ...rest }) => (
 );
 
 const Footer = styled.footer`
+	max-width: ${({ theme }) => theme.maxContentWidth};
 	position: relative;
 	height: 159px;
 	width: 100%;
 	padding: 0 66px 0 114px;
-	background-color: ${(props) => props.theme.colors.bgBlack};
+	background-color: ${({ theme }) => theme.colors.bgBlack};
 
 	display: flex;
 	align-items: center;
 	justify-content: space-between;
 
-	${(props) => props.theme.animations.show};
+	${({ theme }) => theme.animations.show};
 
 	animation-delay: 200ms;
 	opacity: 0;
 
 	${media.lessThan('medium')`
-		${Menu as any} {
+		background-color: transparent;
+		${StyledMenu} {
 			display: none;
 		}
 
