@@ -172,22 +172,23 @@ const PoweredByContainer = styled(Section)`
 	padding: 70px 40px 30px;
 
 	${media.lessThan('1920px' as any)`
-		min-height: 800px;
+	min-height: 800px;
 	`}
 
 	${media.lessThan('medium')`
-		background-image: url('/home/powered-by/background-tablet.svg');
-		background-color: transparent;
-		padding: 20px 40px;
-		min-height: 700px;
+	background-image: url('/home/powered-by/background-tablet.svg');
+	background-color: transparent;
+	padding: 20px 40px;
+	min-height: 700px;
 	`}
-
+	
 	${media.lessThan('small')`
-		background-image: none;
-`}
+	background-image: none;
+	`}
 `;
 
 const ContentWrapper = styled.div`
+	padding: 70px 40px 30px;
 	position: absolute;
 	z-index: 10;
 	display: flex;
@@ -195,6 +196,9 @@ const ContentWrapper = styled.div`
 	align-items: center;
 	width: 100%;
 	height: auto;
+
+	${media.lessThan('medium')`
+		padding: 20px 40px;`}
 `;
 
 const StyledPoweredByBackground = styled(PoweredByBackground)`
@@ -284,6 +288,10 @@ const SliderWrapper = styled.div`
 	${media.lessThan('medium')`
 		margin-top: 0px;
 		padding-top: 135px;
+ `}
+
+	${media.lessThan('medium')`
+	padding-top: 50px;
  `}
 `;
 
