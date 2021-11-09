@@ -1,125 +1,61 @@
 import styled from 'styled-components';
-import React, { ReactNodeArray, useEffect, useMemo, useState } from 'react';
+import React, { ReactNodeArray, useState } from 'react';
 import media from 'styled-media-query';
 import { theme } from 'src/styles/theme';
-import { resetButtonCSS, SectionTitle } from 'src/styles/common';
-
-import getSNXJS from 'src/lib/snxjs';
-import exchangeInfoQuery, { Fees, Rates } from 'src/queries/exchangeInfo/useExchangeInfoQuery';
-
+import { resetButtonCSS } from 'src/styles/common';
 import SynthCard from './SynthCard';
-import axios from 'axios';
-import { TokenListQueryResponse, TokenListResponse } from 'src/queries/tokenLists/types';
-import { keyBy } from 'lodash';
-import useMarketClosed from 'src/hooks/useMarketClosed';
+import { SynthsProps } from 'pages/synths';
 
-enum SynthCategory {
-	ALL = 'all',
-	CRYPTO = 'crypto',
-	FOREX = 'forex',
-	INDEX = 'index',
-}
-
-enum SynthStatus {
-	LIVE = 'live',
-	FROZEN = 'frozen',
-	PAUSED = 'paused',
-}
-
-const SYNTH_CATEGORIES = Object.values(SynthCategory);
-
-const SynthsInfo = () => {
-	const [synthCategory, setSynthCategory] = useState<SynthCategory>(SynthCategory.ALL);
-	const [tokenList, setTokenList] = useState<TokenListQueryResponse | null>(null);
-	const [exchangeInfo, setExchangeInfo] = useState<{ fees: Fees; rates: Rates } | null>(null);
-	const [dictionarySynthClosed, setDictionarySynthClosed] = useState<Record<
-		string,
-		SynthStatus
-	> | null>(null);
-	const synths = getSNXJS().synths;
-
-	useEffect(() => {
-		axios.get<TokenListResponse>('https://synths.snx.eth.link').then(({ data }) => {
-			setTokenList({
-				tokens: data.tokens,
-				tokensMap: keyBy(data.tokens, 'symbol'),
-				symbols: data.tokens.map((token) => token.symbol),
-			});
-		});
-		exchangeInfoQuery().then(setExchangeInfo);
-		synths.forEach((synth) => {
-			useMarketClosed(synth.name).then((marketClosed) => {
-				if (marketClosed.isCurrencyFrozen) {
-					setDictionarySynthClosed((state) => {
-						return { ...state, [synth.name]: SynthStatus.FROZEN };
-					});
-				} else if (marketClosed.isMarketClosed) {
-					setDictionarySynthClosed((state) => {
-						return { ...state, [synth.name]: SynthStatus.PAUSED };
-					});
-				}
-				setDictionarySynthClosed((state) => {
-					return { ...state, [synth.name]: SynthStatus.LIVE };
-				});
-			});
-		});
-	}, []);
-
-	const filteredSynths: Record<SynthCategory, ReactNodeArray> = {
+const SynthsInfo = ({ tokenList, exchangeInfo, dictionarySynthStatus, synths }: SynthsProps) => {
+	const [synthCategory, setSynthCategory] = useState('all');
+	const filteredSynths: Record<string, ReactNodeArray> = {
 		all: [],
-		crypto: [],
-		forex: [],
-		index: [],
 	};
 
-	if (dictionarySynthClosed) {
-		synths.forEach((synth) => {
-			const currencyKey = synth.name;
+	synths.forEach((synth) => {
+		const category = synth.category.toLowerCase();
+		if (!filteredSynths[category]) {
+			filteredSynths[category] = [];
+		}
+		const currencyKey = synth.name;
 
-			const tokenInfo = tokenList != null ? tokenList.tokensMap[currencyKey] : null;
+		const tokenInfo = tokenList != null ? tokenList.tokensMap[currencyKey] : null;
 
-			const price = exchangeInfo?.rates != null ? exchangeInfo.rates[currencyKey] : null;
-			const exchangeFeeRate = exchangeInfo?.fees != null ? exchangeInfo.fees[currencyKey] : null;
+		const price = exchangeInfo?.rates != null ? exchangeInfo.rates[currencyKey] : null;
+		const exchangeFeeRate = exchangeInfo?.fees != null ? exchangeInfo.fees[currencyKey] : null;
 
-			const category = synth.category.toLowerCase();
+		filteredSynths.all.push(
+			<SynthCard
+				key={currencyKey}
+				status={dictionarySynthStatus[currencyKey]}
+				{...{ synth, tokenInfo, price, exchangeFeeRate }}
+			/>
+		);
 
-			filteredSynths.all.push(
-				<SynthCard
-					key={currencyKey}
-					status={dictionarySynthClosed[currencyKey]}
-					{...{ synth, tokenInfo, price, exchangeFeeRate }}
-				/>
-			);
+		filteredSynths[category].push(
+			<SynthCard
+				key={currencyKey}
+				status={dictionarySynthStatus[currencyKey]}
+				{...{ synth, tokenInfo, price, exchangeFeeRate }}
+			/>
+		);
+	});
 
-			filteredSynths[category as SynthCategory].push(
-				<SynthCard
-					key={currencyKey}
-					status={dictionarySynthClosed[currencyKey]}
-					{...{ synth, tokenInfo, price, exchangeFeeRate }}
-				/>
-			);
-		});
-	}
 	return (
 		<>
 			<Categories>
-				{SYNTH_CATEGORIES.map((category) => {
-					const active = synthCategory === category;
-
-					return (
-						<Button
-							key={category}
-							onClick={() => {
-								setSynthCategory(active ? SynthCategory.ALL : category);
-							}}
-							{...{ active }}
-						>
-							{category}
-						</Button>
-					);
-				})}
+				{Object.keys(filteredSynths).map((category) => (
+					<Button
+						key={category}
+						onClick={() => {
+							setSynthCategory(category);
+						}}
+						active={synthCategory === category}
+					>
+						{category}
+					</Button>
+				))}
 			</Categories>
-			{!filteredSynths.all.length && <SectionTitle>Loading...</SectionTitle>}
 			<Cards>{filteredSynths[synthCategory]}</Cards>
 		</>
 	);
