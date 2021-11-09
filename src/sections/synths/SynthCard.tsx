@@ -10,7 +10,7 @@ import { Token } from 'src/queries/tokenLists/types';
 import { formatFiatCurrency, formatPercent } from 'src/utils/formatters/number';
 import useMarketClosed from 'src/hooks/useMarketClosed';
 
-enum SynthStatus {
+export enum SynthStatus {
 	LIVE = 'live',
 	FROZEN = 'frozen',
 	PAUSED = 'paused',
@@ -21,11 +21,11 @@ type SynthCardProps = {
 	tokenInfo: Token | null;
 	price: number | null;
 	exchangeFeeRate: number | null;
+	status: SynthStatus;
 };
 
-const SynthCard: FC<SynthCardProps> = ({ synth, tokenInfo, price, exchangeFeeRate }) => {
+const SynthCard: FC<SynthCardProps> = ({ synth, tokenInfo, price, exchangeFeeRate, status }) => {
 	const logoURI = tokenInfo != null ? tokenInfo.logoURI : null;
-	const [synthStatus, setSynthStatus] = useState<SynthStatus | null>(null);
 
 	const currencyKey = synth.name;
 
@@ -39,16 +39,6 @@ const SynthCard: FC<SynthCardProps> = ({ synth, tokenInfo, price, exchangeFeeRat
 	} else if (synth.category.includes('index')) {
 		synthDescription = `Tracks the price of the index: ${currencyKey} ${synth.description} through price feeds supplied by an oracle.`;
 	}
-
-	useEffect(() => {
-		useMarketClosed(currencyKey).then((marketClosed) => {
-			if (marketClosed.isCurrencyFrozen) {
-				setSynthStatus(SynthStatus.FROZEN);
-			} else if (marketClosed.isMarketClosed) {
-				setSynthStatus(SynthStatus.FROZEN);
-			} else setSynthStatus(SynthStatus.LIVE);
-		});
-	}, []);
 
 	return (
 		<ExternalLink href={`https://kwenta.io/exchange/${currencyKey}-sUSD`}>
@@ -71,8 +61,8 @@ const SynthCard: FC<SynthCardProps> = ({ synth, tokenInfo, price, exchangeFeeRat
 				<SynthDescription>{synthDescription}</SynthDescription>
 				<FlexDivRowCentered>
 					<FeeInfo>fee: {exchangeFeeRate != null ? formatPercent(exchangeFeeRate) : '-'}</FeeInfo>
-					<Status synthStatus={synthStatus || SynthStatus.LIVE}>
-						<StatusDot /> {synthStatus}
+					<Status synthStatus={status}>
+						<StatusDot /> {status}
 					</Status>
 				</FlexDivRowCentered>
 			</StyledCard>
