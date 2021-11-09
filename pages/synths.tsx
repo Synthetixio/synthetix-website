@@ -3,6 +3,7 @@ import styled from 'styled-components';
 import SynthsInfo from 'src/sections/synths/SynthsInfo';
 import { Section, SectionTitle, Line } from 'src/styles/common';
 import { PageLayout } from 'src/components';
+import media from 'styled-media-query';
 
 const Synths = () => (
 	<>
@@ -46,6 +47,10 @@ const ContentWrapper = styled.div`
 
 const SynthsSection = styled(Section)`
 	padding: 40px 0 0 153px;
+
+	${media.lessThan('medium')`
+		padding: 16px;
+	`}
 `;
 
 export default Synths;
