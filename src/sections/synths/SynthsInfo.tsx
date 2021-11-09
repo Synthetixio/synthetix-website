@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import React, { ReactNodeArray, useState } from 'react';
+import React, { ReactNode, useState } from 'react';
 import media from 'styled-media-query';
 import { theme } from 'src/styles/theme';
 import { resetButtonCSS } from 'src/styles/common';
@@ -8,7 +8,7 @@ import { SynthsProps } from 'pages/synths';
 
 const SynthsInfo = ({ tokenList, exchangeInfo, dictionarySynthStatus, synths }: SynthsProps) => {
 	const [synthCategory, setSynthCategory] = useState('all');
-	const filteredSynths: Record<string, ReactNodeArray> = {
+	const filteredSynths: Record<string, ReactNode[]> = {
 		all: [],
 	};
 
