@@ -160,7 +160,7 @@ const PoweredBy = () => {
 };
 
 const PoweredByContainer = styled(Section)`
-	min-height: 800px;
+	min-height: 1000px;
 	position: relative;
 	background-position: top center;
 	background-repeat: no-repeat;

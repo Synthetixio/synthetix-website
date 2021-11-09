@@ -1,15 +1,16 @@
 import styled from 'styled-components';
-import { useMemo, useState } from 'react';
+import { useEffect, useMemo, useState } from 'react';
 import media from 'styled-media-query';
 import { theme } from 'src/styles/theme';
 import { resetButtonCSS } from 'src/styles/common';
 
 import getSNXJS from 'src/lib/snxjs';
-
-import useSynthetixTokenList from 'src/queries/tokenLists/useSynthetixTokenList';
-import useExchangeInfoQuery from 'src/queries/exchangeInfo/useExchangeInfoQuery';
+import exchangeInfoQuery, { Fees, Rates } from 'src/queries/exchangeInfo/useExchangeInfoQuery';
 
 import SynthCard from './SynthCard';
+import axios from 'axios';
+import { TokenListQueryResponse, TokenListResponse } from 'src/queries/tokenLists/types';
+import { keyBy } from 'lodash';
 
 enum SynthCategory {
 	ALL = 'all',
@@ -21,10 +22,19 @@ const SYNTH_CATEGORIES = Object.values(SynthCategory);
 
 const SynthsInfo = () => {
 	const [synthCategory, setSynthCategory] = useState<SynthCategory>(SynthCategory.ALL);
-	const synthetixTokenListQuery = useSynthetixTokenList();
-	const synthetixTokensMap = synthetixTokenListQuery.isSuccess
-		? synthetixTokenListQuery.data.tokensMap ?? null
-		: null;
+	const [tokenList, setTokenList] = useState<TokenListQueryResponse | null>(null);
+	const [exchangeInfo, setExchangeInfo] = useState<{ fees: Fees; rates: Rates } | null>(null);
+	useEffect(() => {
+		axios.get<TokenListResponse>('https://synths.snx.eth.link').then(({ data }) => {
+			setTokenList({
+				tokens: data.tokens,
+				tokensMap: keyBy(data.tokens, 'symbol'),
+				symbols: data.tokens.map((token) => token.symbol),
+			});
+		});
+		exchangeInfoQuery().then(setExchangeInfo);
+	}, []);
+
 	const synths = getSNXJS().synths;
 
 	const filteredSynths = useMemo(
@@ -34,12 +44,6 @@ const SynthsInfo = () => {
 				: synths,
 		[synths, synthCategory]
 	);
-
-	const exchangeInfoQuery = useExchangeInfoQuery();
-	const exchangeInfo = exchangeInfoQuery.isSuccess ? exchangeInfoQuery.data ?? null : null;
-
-	const exchangeRates = exchangeInfo?.rates ?? null;
-	const exchangeFees = exchangeInfo?.fees ?? null;
 
 	return (
 		<>
@@ -64,10 +68,11 @@ const SynthsInfo = () => {
 				{filteredSynths.map((synth) => {
 					const currencyKey = synth.name;
 
-					const tokenInfo = synthetixTokensMap != null ? synthetixTokensMap[currencyKey] : null;
+					const tokenInfo = tokenList != null ? tokenList.tokensMap[currencyKey] : null;
 
-					const price = exchangeRates != null ? exchangeRates[currencyKey] : null;
-					const exchangeFeeRate = exchangeFees != null ? exchangeFees[currencyKey] : null;
+					const price = exchangeInfo?.rates != null ? exchangeInfo.rates[currencyKey] : null;
+					const exchangeFeeRate =
+						exchangeInfo?.fees != null ? exchangeInfo.fees[currencyKey] : null;
 
 					return <SynthCard key={currencyKey} {...{ synth, tokenInfo, price, exchangeFeeRate }} />;
 				})}

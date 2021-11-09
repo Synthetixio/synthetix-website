@@ -1,4 +1,4 @@
-import { FC, useMemo } from 'react';
+import { FC, useEffect, useState } from 'react';
 import styled, { css } from 'styled-components';
 import media from 'styled-media-query';
 
@@ -25,6 +25,7 @@ type SynthCardProps = {
 
 const SynthCard: FC<SynthCardProps> = ({ synth, tokenInfo, price, exchangeFeeRate }) => {
 	const logoURI = tokenInfo != null ? tokenInfo.logoURI : null;
+	const [synthStatus, setSynthStatus] = useState<SynthStatus | null>(null);
 
 	const currencyKey = synth.name;
 
@@ -39,17 +40,15 @@ const SynthCard: FC<SynthCardProps> = ({ synth, tokenInfo, price, exchangeFeeRat
 		synthDescription = `Tracks the price of the index: ${currencyKey} ${synth.description} through price feeds supplied by an oracle.`;
 	}
 
-	const marketClosed = useMarketClosed(currencyKey);
-
-	const synthStatus = useMemo(() => {
-		if (marketClosed.isCurrencyFrozen) {
-			return SynthStatus.FROZEN;
-		}
-		if (marketClosed.isMarketClosed) {
-			return SynthStatus.PAUSED;
-		}
-		return SynthStatus.LIVE;
-	}, [marketClosed]);
+	useEffect(() => {
+		useMarketClosed(currencyKey).then((marketClosed) => {
+			if (marketClosed.isCurrencyFrozen) {
+				setSynthStatus(SynthStatus.FROZEN);
+			} else if (marketClosed.isMarketClosed) {
+				setSynthStatus(SynthStatus.FROZEN);
+			} else setSynthStatus(SynthStatus.LIVE);
+		});
+	}, []);
 
 	return (
 		<ExternalLink href={`https://kwenta.io/exchange/${currencyKey}-sUSD`}>
@@ -72,7 +71,7 @@ const SynthCard: FC<SynthCardProps> = ({ synth, tokenInfo, price, exchangeFeeRat
 				<SynthDescription>{synthDescription}</SynthDescription>
 				<FlexDivRowCentered>
 					<FeeInfo>fee: {exchangeFeeRate != null ? formatPercent(exchangeFeeRate) : '-'}</FeeInfo>
-					<Status synthStatus={synthStatus}>
+					<Status synthStatus={synthStatus || SynthStatus.LIVE}>
 						<StatusDot /> {synthStatus}
 					</Status>
 				</FlexDivRowCentered>

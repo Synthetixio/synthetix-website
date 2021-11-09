@@ -1,7 +1,6 @@
 import App from 'next/app';
 import Head from 'next/head';
 import { ThemeProvider } from 'styled-components';
-import { QueryClient, QueryClientProvider } from 'react-query';
 
 import { init } from '@socialgouv/matomo-next';
 
@@ -11,8 +10,6 @@ import smoothscroll from 'smoothscroll-polyfill';
 
 const MATOMO_URL = process.env.NEXT_PUBLIC_MATOMO_URL;
 const MATOMO_SITE_ID = process.env.NEXT_PUBLIC_MATOMO_SITE_ID;
-
-const queryClient = new QueryClient();
 
 export default class MyApp extends App {
 	componentDidMount() {
@@ -87,9 +84,7 @@ export default class MyApp extends App {
 					<meta name="og:image" content="/public/logo-x.png" />
 				</Head>
 				<GlobalStyle />
-				<QueryClientProvider client={queryClient}>
-					<Component {...pageProps} />
-				</QueryClientProvider>
+				<Component {...pageProps} />
 			</ThemeProvider>
 		);
 	}
