@@ -17,14 +17,9 @@ module.exports = {
 		NEXT_PUBLIC_APP_VERSION: packageJson.version,
 		NEXT_PUBLIC_MATOMO_URL: process.env.NEXT_PUBLIC_MATOMO_URL,
 		NEXT_PUBLIC_MATOMO_SITE_ID: process.env.NEXT_PUBLIC_MATOMO_SITE_ID,
-		CF_IP: process.env.CF_IP,
 	},
 	productionBrowserSourceMaps: true,
-	experimental: {
-		redirects() {
-			return redirects;
-		},
-	},
+	webpack5: true,
 	webpack: (config, { isServer, buildId }) => {
 		if (isServer) {
 			// IS_SERVER_INITIAL_BUILD is meant to be defined only at build time and not at run time, and therefore must not be "made public"
@@ -32,15 +27,14 @@ module.exports = {
 		}
 
 		const APP_VERSION_RELEASE = `${packageJson.version}_${buildId}`;
-		config.plugins.map((plugin, i) => {
+		config.plugins.map((plugin) => {
 			if (plugin.definitions) {
 				// If it has a "definitions" key, then we consider it's the DefinePlugin where ENV vars are stored
 				// Dynamically add some "public env" variables that will be replaced during the build through "DefinePlugin"
 				// Those variables are considered public because they are available at build time and at run time (they'll be replaced during initial build, by their value)
 				plugin.definitions['process.env.NEXT_PUBLIC_APP_BUILD_ID'] = JSON.stringify(buildId);
-				plugin.definitions['process.env.NEXT_PUBLIC_APP_VERSION_RELEASE'] = JSON.stringify(
-					APP_VERSION_RELEASE
-				);
+				plugin.definitions['process.env.NEXT_PUBLIC_APP_VERSION_RELEASE'] =
+					JSON.stringify(APP_VERSION_RELEASE);
 			}
 		});
 

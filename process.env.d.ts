@@ -23,7 +23,6 @@ declare global {
 			NEXT_PUBLIC_MATOMO_URL: string;
 			NEXT_PUBLIC_MATOMO_SITE_ID: string;
 			NEXT_PUBLIC_INFURA_URL: string;
-			CF_IP: string | undefined;
 		}
 	}
 }
