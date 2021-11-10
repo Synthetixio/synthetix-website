@@ -84,8 +84,10 @@ const PoweredBy = () => {
 	const sliderRef = useRef<HTMLDivElement>(null);
 	const [accumulatedOffset, setAccumulatedOffset] = useState(0);
 
-	/* Firefox/Safari doesn't support that out of the box */
-	const doesSupportBackdropFilter = CSS.supports('backdrop-filter', 'blur(14px)');
+	/* Firefox doesn't support that out of the box */
+	const doesSupportBackdropFilter =
+		CSS.supports('backdrop-filter', 'blur(14px)') ||
+		CSS.supports('-webkit-backdrop-filter:blur(20px)');
 
 	const handleScroll = (ltr: boolean) => {
 		const ref = sliderRef.current!;
