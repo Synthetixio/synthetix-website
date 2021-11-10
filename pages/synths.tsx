@@ -43,6 +43,7 @@ export async function getStaticProps() {
 			synths,
 			dictionarySynthStatus,
 		},
+		revalidate: 60 * 60 * 24,
 	};
 }
 
