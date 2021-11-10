@@ -1,8 +1,6 @@
 import Head from 'next/head';
 import { GetServerSideProps } from 'next';
 
-import ipRangeCheck from 'ip-range-check';
-
 import MainSection from '../src/sections/home/main';
 import Futures from '../src/sections/home/futures';
 import TotalSection from '../src/sections/home/total';
@@ -50,30 +48,13 @@ const Home = ({ totalLocked }: ApiStatsProps) => {
 	);
 };
 
-export const getServerSideProps: GetServerSideProps = async (context) => {
-	if (process.env.CF_IP) {
-		const allowedIps = JSON.parse(`[${process.env.CF_IP}]`);
-		const ip = context.req.headers['x-forwarded-for'] || context.req.connection.remoteAddress;
-		if (typeof ip === 'string' && ipRangeCheck(ip, allowedIps)) {
-			const props = await getProps();
-			return props;
-		} else {
-			context.res.statusCode = 403;
-			context.res.end('Your IP is not whitelisted.');
-			return { props: {} };
-		}
-	} else {
-		const props = await getProps();
-		return props;
-	}
-	async function getProps() {
-		const totalLocked = await fetchTotalLocked();
-		return {
-			props: {
-				totalLocked,
-			},
-		};
-	}
+export const getServerSideProps: GetServerSideProps = async () => {
+	const totalLocked = await fetchTotalLocked();
+	return {
+		props: {
+			totalLocked,
+		},
+	};
 };
 
 const BgGradient = styled.div`
