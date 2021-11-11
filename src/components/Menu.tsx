@@ -1,7 +1,6 @@
 import styled from 'styled-components';
 import media from 'styled-media-query';
 import Link from 'next/link';
-
 import { theme } from '../styles/theme';
 import { ExternalLink } from '../styles/common';
 
@@ -58,11 +57,11 @@ interface MenuProps {
 	isHeader?: boolean;
 }
 
-const MenuComponent = (props: MenuProps) => {
+const MenuComponent = ({ isHeader, ...rest }: MenuProps) => {
 	return (
-		<StyledMenu {...props}>
+		<StyledMenu {...rest}>
 			{data.map((item) => {
-				if (props.isHeader) {
+				if (isHeader) {
 					return (
 						!item.hideOnHeader && (
 							<MenuItem key={item.label}>
@@ -99,6 +98,9 @@ const MenuComponent = (props: MenuProps) => {
 export const StyledMenu = styled.ul`
 	transition: left 0.3s ease-out;
 	z-index: 101;
+	display: flex;
+	justify-content: center;
+	flex-wrap: wrap;
 
 	${media.lessThan('medium')`
 		position: fixed;
@@ -121,7 +123,7 @@ export const StyledMenu = styled.ul`
 const MenuItem = styled.li`
 	display: inline-block;
 
-	margin-right: 32px;
+	margin: 0 16px;
 	&:last-child {
 		margin-right: 0;
 	}
