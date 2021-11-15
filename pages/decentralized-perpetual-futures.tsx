@@ -13,7 +13,6 @@ export default function DecentralizedPerpetualFutures() {
 				<title>Synthetix - Decentralized Perpetual Futures</title>
 			</Head>
 			<PageLayout>
-				<BgGradient />
 				<FuturesMain />
 				<PoweredBy />
 				<USP />
@@ -21,19 +20,3 @@ export default function DecentralizedPerpetualFutures() {
 		</>
 	);
 }
-
-const BgGradient = styled.div`
-	position: absolute;
-	top: 0;
-	left: 0;
-	width: 100%;
-	height: 100vh;
-	min-height: 853px;
-	background: linear-gradient(180deg, rgba(14, 5, 47, 0) 0%, #0e052f 38.6%);
-	pointer-events: none;
-
-	${media.lessThan('medium')`
-		height: 734px;
-		min-height: auto;
-	`}
-`;
