@@ -76,3 +76,19 @@ export const resetButtonCSS = css`
 	cursor: pointer;
 	padding: 0;
 `;
+
+export const BgGradient = styled.div`
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100vh;
+	min-height: 853px;
+	background: linear-gradient(180deg, #08021e 0%, #120446 146.21%);
+	pointer-events: none;
+
+	${media.lessThan('medium')`
+		height: 734px;
+		min-height: auto;
+	`}
+`;

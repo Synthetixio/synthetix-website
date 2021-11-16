@@ -106,6 +106,7 @@ export const StyledMenu = styled.ul`
 		position: fixed;
 		display: flex;
 		flex-direction: column;
+		justify-content: start;
 		top: 0;
 		padding-top: 100px;
 		left: -100%;

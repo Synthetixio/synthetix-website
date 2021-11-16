@@ -1,5 +1,6 @@
 import { FlexDiv, FlexDivCol, Section } from 'src/styles/common';
 import styled from 'styled-components';
+import media from 'styled-media-query';
 
 const USPS = [
 	{
@@ -62,6 +63,9 @@ export default function USP() {
 
 const USPSection = styled(Section)`
 	padding: 120px;
+	${media.lessThan('medium')`
+		padding: 0 48px;
+	`}
 `;
 
 const USPWrapper = styled.article`
@@ -69,6 +73,11 @@ const USPWrapper = styled.article`
 	grid-template-columns: 1fr 1fr;
 	grid-gap: 23px;
 	justify-items: center;
+
+	${media.lessThan('medium')`
+		display: flex;
+		flex-direction: column;
+	`}
 `;
 
 const USPBox = styled.div`
@@ -78,6 +87,8 @@ const USPBox = styled.div`
 	margin-right: 26px;
 	width: 93px;
 	height: 93px;
+	min-width: 93px;
+	min-height: 93px;
 	border: 2px solid ${({ theme }) => theme.colors.cyan};
 	border-radius: 10px;
 	box-shadow: 0px 0px 14px ${({ theme }) => theme.colors.cyan};

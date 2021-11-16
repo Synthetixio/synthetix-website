@@ -1,17 +1,13 @@
 import Head from 'next/head';
 import { GetServerSideProps } from 'next';
-
 import MainSection from '../src/sections/home/main';
 import Futures from '../src/sections/home/futures';
 import TotalSection from '../src/sections/home/total';
 import SynthSection from 'src/sections/home/synths';
-
 import { fetchTotalLocked } from '../src/lib/exchange-api';
 import dynamic from 'next/dynamic';
-import styled from 'styled-components';
-import media from 'styled-media-query';
 import Ecosystem from 'src/sections/home/ecosystem';
-import { Line } from 'src/styles/common';
+import { BgGradient, Line } from 'src/styles/common';
 import { PageLayout } from '../src/components';
 
 export interface ApiStatsProps {
@@ -56,21 +52,5 @@ export const getServerSideProps: GetServerSideProps = async () => {
 		},
 	};
 };
-
-const BgGradient = styled.div`
-	position: absolute;
-	top: 0;
-	left: 0;
-	width: 100%;
-	height: 100vh;
-	min-height: 853px;
-	background: linear-gradient(180deg, #08021e 0%, #120446 146.21%);
-	pointer-events: none;
-
-	${media.lessThan('medium')`
-		height: 734px;
-		min-height: auto;
-	`}
-`;
 
 export default Home;

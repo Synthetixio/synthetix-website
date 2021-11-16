@@ -21,19 +21,14 @@ export default function FuturesMain() {
 					</FuturesMainSubline>
 					<BuildButtonWrapper>
 						<BuildButton link="https://kwenta.io">Start Trading</BuildButton>
-						<BuildButton link="https://discord.com/invite/AEdUHzt" isLast={true}>
+						<BuildButton link="https://discord.com/invite/AEdUHzt" isLast>
 							Discord
 						</BuildButton>
 					</BuildButtonWrapper>
-					<KwentaScreenWrapperMobile>
-						<KwentaScreen src="/home/futures/kwenta-screen.png" />
-						<Gradient />
-					</KwentaScreenWrapperMobile>
 				</FuturesContentWrapper>
 			</FuturesMainSection>
 			<KwentaScreenWrapper>
 				<KwentaScreen src="/home/futures/kwenta-screen.png" />
-				<Gradient />
 			</KwentaScreenWrapper>
 		</>
 	);
@@ -51,7 +46,7 @@ const FuturesMainSection = styled(Section)`
 		padding: 0;
 		align-items: center;
 		justify-content: start;
-		min-height: 600px;
+		min-height: calc(734px - ${headerHeight}px);
 	`}
 `;
 
@@ -62,6 +57,7 @@ const FuturesContentWrapper = styled.div`
 		position: static;
 		display:flex;
 		flex-direction:column;
+		justify-content: center;
 		align-items: center;
 		text-align: center;
 		height: 100%;
@@ -76,6 +72,7 @@ const FuturesMainSubline = styled(Subline)`
 const BuildButtonWrapper = styled(FlexDiv)`
 	${media.lessThan('1100px' as any)`
 		justify-content: center;
+		margin-bottom: 16px;
 	`}
 `;
 
@@ -93,20 +90,10 @@ const KwentaScreenWrapper = styled.div`
 	height: calc(100vh - ${headerHeight}px - 30%);
 	min-height: 600px;
 	overflow: hidden;
-
+	z-index: 2;
 	${media.lessThan('1100px' as any)`
-		display: none;
-	`}
-`;
-
-const KwentaScreenWrapperMobile = styled.div`
 	display: none;
-	${media.lessThan('1100px' as any)`
-		position: static;
-		margin-top: 50px;
-		display: flex;
-		justify-content: center;
-	`}
+	`};
 `;
 
 const KwentaScreen = styled.img`
@@ -127,17 +114,5 @@ const KwentaScreen = styled.img`
 		position: static;
 		width: 95%;
 		height: auto;
-	`}
-`;
-
-const Gradient = styled.div`
-	position: absolute;
-	top: 2px;
-	width: 100vw;
-	height: 100%;
-	background: linear-gradient(rgba(14, 5, 47, 0) 40%, #0e052f 80%);
-	pointer-events: none;
-	${media.lessThan('1100px' as any)`
-	
 	`}
 `;
