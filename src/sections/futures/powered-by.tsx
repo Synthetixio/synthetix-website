@@ -1,7 +1,8 @@
-import { FlexDiv, FlexDivCentered, Section } from 'src/styles/common';
+import { FlexDiv, Section } from 'src/styles/common';
 import { Kwenta } from 'src/svg';
 import SvgPoweredByWave from 'src/svg/PoweredByWave';
 import styled from 'styled-components';
+import media from 'styled-media-query';
 
 export default function PoweredBy() {
 	return (
@@ -18,7 +19,9 @@ export default function PoweredBy() {
 					</div>
 				</SpaceBetween>
 				<GlowBoxesWrapper>
-					<GlowBox></GlowBox>
+					<GlowBox color="cyan"></GlowBox>
+					<GlowBox color="pink"></GlowBox>
+					<GlowBox color="green"></GlowBox>
 				</GlowBoxesWrapper>
 			</PoweredByContentWrapper>
 			<StyledSvgPoweredByWave />
@@ -29,9 +32,11 @@ export default function PoweredBy() {
 const PoweredBySection = styled(Section)`
 	width: 100vw;
 	height: 50vh;
+	min-height: 600px;
 	display: flex;
 	flex-direction: column;
 	justify-content: center;
+	align-items: center;
 `;
 
 const PoweredByContentWrapper = styled.article`
@@ -39,6 +44,7 @@ const PoweredByContentWrapper = styled.article`
 	z-index: 10;
 	width: 100%;
 	padding: 0 128px;
+	max-width: 1920px;
 `;
 
 const SectionHeader = styled.h3`
@@ -56,15 +62,21 @@ const SpaceBetween = styled(FlexDiv)`
 	justify-content: space-between;
 `;
 
-const GlowBoxesWrapper = styled(FlexDivCentered)`
-	flex-wrap: wrap;
+const GlowBoxesWrapper = styled(FlexDiv)`
+	justify-content: space-between;
+	${media.lessThan('1000px' as any)`
+		flex-direction: column;
+		align-items: center;
+	`}
 `;
 
-const GlowBox = styled.div`
+const GlowBox = styled.div<{ color: 'pink' | 'green' | 'cyan' }>`
 	width: 348px;
 	height: 112px;
 	background: ${({ theme }) => theme.colors.bgBlackHighlighted};
-	box-shadow: 0px 0px 14px #00d1ff;
+	box-shadow: 0px 0px 14px ${({ theme, color }) => theme.colors[color]};
+	margin: 16px;
+	border-radius: 5px;
 `;
 
 const StyledSvgPoweredByWave = styled(SvgPoweredByWave)`
