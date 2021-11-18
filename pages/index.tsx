@@ -7,8 +7,10 @@ import SynthSection from 'src/sections/home/synths';
 import { fetchTotalLocked } from '../src/lib/exchange-api';
 import dynamic from 'next/dynamic';
 import Ecosystem from 'src/sections/home/ecosystem';
-import { BgGradient, Line } from 'src/styles/common';
 import { PageLayout } from '../src/components';
+import media from 'styled-media-query';
+import styled from 'styled-components';
+import { Line } from 'src/styles/common';
 
 export interface ApiStatsProps {
 	totalLocked?: number;
@@ -43,6 +45,22 @@ const Home = ({ totalLocked }: ApiStatsProps) => {
 		</>
 	);
 };
+
+const BgGradient = styled.div`
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100vh;
+	min-height: 853px;
+	background: linear-gradient(180deg, #08021e 0%, #120446 146.21%);
+	pointer-events: none;
+
+	${media.lessThan('medium')`
+		height: 734px;
+		min-height: auto;
+	`}
+`;
 
 export const getServerSideProps: GetServerSideProps = async () => {
 	const totalLocked = await fetchTotalLocked();
