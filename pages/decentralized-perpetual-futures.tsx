@@ -8,17 +8,7 @@ import { Line } from 'src/styles/common';
 import styled from 'styled-components';
 import media from 'styled-media-query';
 
-export async function getStaticProps() {
-	return {
-		props: {
-			cool: 'test',
-		},
-	};
-}
-
-// @ts-ignore
-export default function DecentralizedPerpetualFutures(props) {
-	console.log(props);
+export default function DecentralizedPerpetualFutures() {
 	return (
 		<>
 			<Head>
