@@ -1,6 +1,5 @@
 import Head from 'next/head';
 import { PageLayout } from 'src/components';
-import getSNXJS from 'src/lib/snxjs';
 import FuturesMain from 'src/sections/futures/main';
 import Perpetuals from 'src/sections/futures/perpetuals';
 import PoweredBy from 'src/sections/futures/powered-by';
@@ -10,26 +9,9 @@ import styled from 'styled-components';
 import media from 'styled-media-query';
 
 export async function getStaticProps() {
-	const SNX = getSNXJS();
-
-	let globalDebtOverTimeQuery = 'cool';
-	/* 	({
-		api: 'https://api.thegraph.com/subgraphs/name/killerbyte/optimism-global-debt',
-		max: 5000,
-		query: {
-			entity: 'debtStates',
-			selection: {
-				orderBy: 'timestamp',
-				orderDirection: 'desc',
-				first: 1000,
-			},
-			properties: ['timestamp', 'totalIssuedSynths', 'debtEntry', 'debtRatio', 'snxSupply'],
-		},
-	}); */
-	console.log(globalDebtOverTimeQuery);
 	return {
 		props: {
-			globalDebtOverTimeQuery,
+			cool: 'test',
 		},
 	};
 }
