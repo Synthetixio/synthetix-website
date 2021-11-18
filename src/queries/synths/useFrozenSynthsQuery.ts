@@ -7,7 +7,11 @@ export type FrozenSynths = Set<CurrencyKey>;
 
 const useFrozenSynthsQuery = async () => {
 	const snxjs = getSNXJS();
-	const frozenSynths = await snxjs.contracts.SynthUtil!.frozenSynths();
+	// TODO #133
+	let frozenSynths = [];
+	try {
+		frozenSynths = await snxjs.contracts.SynthUtil.frozenSynths();
+	} catch (error) {}
 
 	return new Set<CurrencyKey>([
 		...compact(frozenSynths.map(ethers.utils.parseBytes32String)),

@@ -6,7 +6,7 @@ const initSnxJS = (config: Config) => synthetix(config);
 
 let snxjs: SynthetixJS;
 
-const getSNXJS = () => {
+const getSNXJS = (config?: Config) => {
 	if (!snxjs)
 		return initSnxJS({
 			networkId: DEFAULT_NETWORK_ID,
@@ -14,6 +14,7 @@ const getSNXJS = () => {
 				DEFAULT_NETWORK_ID,
 				process.env.NEXT_PUBLIC_INFURA_PROJECT_ID
 			),
+			...config,
 		});
 	else return snxjs;
 };

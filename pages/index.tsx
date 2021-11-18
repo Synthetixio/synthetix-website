@@ -1,18 +1,16 @@
 import Head from 'next/head';
 import { GetServerSideProps } from 'next';
-
 import MainSection from '../src/sections/home/main';
 import Futures from '../src/sections/home/futures';
 import TotalSection from '../src/sections/home/total';
 import SynthSection from 'src/sections/home/synths';
-
 import { fetchTotalLocked } from '../src/lib/exchange-api';
 import dynamic from 'next/dynamic';
-import styled from 'styled-components';
-import media from 'styled-media-query';
 import Ecosystem from 'src/sections/home/ecosystem';
-import { Line } from 'src/styles/common';
 import { PageLayout } from '../src/components';
+import media from 'styled-media-query';
+import styled from 'styled-components';
+import { Line } from 'src/styles/common';
 
 export interface ApiStatsProps {
 	totalLocked?: number;
@@ -48,15 +46,6 @@ const Home = ({ totalLocked }: ApiStatsProps) => {
 	);
 };
 
-export const getServerSideProps: GetServerSideProps = async () => {
-	const totalLocked = await fetchTotalLocked();
-	return {
-		props: {
-			totalLocked,
-		},
-	};
-};
-
 const BgGradient = styled.div`
 	position: absolute;
 	top: 0;
@@ -72,5 +61,14 @@ const BgGradient = styled.div`
 		min-height: auto;
 	`}
 `;
+
+export const getServerSideProps: GetServerSideProps = async () => {
+	const totalLocked = await fetchTotalLocked();
+	return {
+		props: {
+			totalLocked,
+		},
+	};
+};
 
 export default Home;

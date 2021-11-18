@@ -26,6 +26,10 @@ export const GlobalStyle = createGlobalStyle`
 		-webkit-font-smoothing: antialiased;
 	}
 
+	b {
+		font-weight: bolder;
+	}
+
 	@font-face {
 		font-family: 'GT America';
 		src: local('GT America'), local('GTAmerica'),
