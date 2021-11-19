@@ -25,9 +25,7 @@ export async function getStaticProps() {
 	const dictionarySynthStatus: Record<string, SynthStatus> = {};
 	const promises = synths.map(async (synth) => {
 		const marketClosed = await useMarketClosed(synth.name);
-		if (marketClosed.isCurrencyFrozen) {
-			dictionarySynthStatus[synth.name] = SynthStatus.FROZEN;
-		} else if (marketClosed.isMarketClosed) {
+		if (marketClosed.isMarketClosed) {
 			dictionarySynthStatus[synth.name] = SynthStatus.PAUSED;
 		} else {
 			dictionarySynthStatus[synth.name] = SynthStatus.LIVE;

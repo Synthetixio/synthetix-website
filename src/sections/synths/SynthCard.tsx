@@ -1,4 +1,4 @@
-import { FC, useEffect, useState } from 'react';
+import { FC } from 'react';
 import styled, { css } from 'styled-components';
 import media from 'styled-media-query';
 
@@ -8,11 +8,10 @@ import { Synth } from '@synthetixio/contracts-interface';
 
 import { Token } from 'src/queries/tokenLists/types';
 import { formatFiatCurrency, formatPercent } from 'src/utils/formatters/number';
-import useMarketClosed from 'src/hooks/useMarketClosed';
 
 export enum SynthStatus {
 	LIVE = 'live',
-	FROZEN = 'frozen',
+	CLOSED = 'closed',
 	PAUSED = 'paused',
 }
 
@@ -203,7 +202,7 @@ const Status = styled(FlexDivCentered)<{ synthStatus: SynthStatus }>`
 					}
 				`;
 			}
-			case SynthStatus.FROZEN: {
+			case SynthStatus.CLOSED: {
 				return css`
 					color: ${(props) => props.theme.colors.pink};
 					${StatusDot} {
