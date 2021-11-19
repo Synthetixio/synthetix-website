@@ -128,11 +128,6 @@
         },
         {
           "location": {
-            "uri": "file:///Users/maxfritz/Code/synthetix-website/src/queries/synths/useFrozenSynthsQuery.ts"
-          }
-        },
-        {
-          "location": {
             "uri": "file:///Users/maxfritz/Code/synthetix-website/src/queries/synths/useSynthSuspensionQuery.ts"
           }
         },
