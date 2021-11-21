@@ -21,7 +21,6 @@ const exchangeInfoQuery = async () => {
 		snxjs.contracts.SynthUtil.synthsRates(),
 		snxjs.contracts.ExchangeRates.ratesForCurrencies(additionalCurrencies),
 	])) as [SynthRatesTuple, CurrencyRate[]];
-
 	const synths = [...synthsRates[0], ...additionalCurrencies] as string[];
 	const rates = [...synthsRates[1], ...ratesForCurrencies] as CurrencyRate[];
 

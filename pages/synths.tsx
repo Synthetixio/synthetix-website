@@ -14,6 +14,8 @@ import { SynthStatus } from 'src/sections/synths/SynthCard';
 import { Synth } from '@synthetixio/contracts-interface';
 
 export async function getStaticProps() {
+	// TODO @MF move this logic into the api section and query the stuff from there. So we know where the origin is?
+	// Maybe console log the origin from the request so we see the real origin
 	const tokenListResponse = await axios.get<TokenListResponse>('https://synths.snx.eth.link');
 	const tokenList = {
 		tokens: tokenListResponse.data.tokens,
