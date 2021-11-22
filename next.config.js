@@ -9,15 +9,6 @@ console.debug(
  * @type {import('next').NextConfig}
  */
 module.exports = {
-	redirects: async () => {
-		return [
-			{
-				source: '/decentralized-perpetual-futures',
-				destination: '/404',
-				permanent: true,
-			},
-		];
-	},
 	env: {
 		// Dynamic env variables
 		NEXT_PUBLIC_BUILD_TIME: date.toString(),
