@@ -4,7 +4,13 @@ import SvgPoweredByWave from 'src/svg/PoweredByWave';
 import styled from 'styled-components';
 import media from 'styled-media-query';
 
-export default function PoweredBy() {
+export interface PoweredByProps {
+	openInterest: number;
+	tradingVolume: number;
+	trades: number;
+}
+
+export default function PoweredBy({ openInterest, tradingVolume, trades }: PoweredByProps) {
 	return (
 		<PoweredBySection customMaxWidth={true}>
 			<PoweredByContentWrapper>
@@ -21,7 +27,7 @@ export default function PoweredBy() {
 				<GlowBoxesWrapper>
 					<GlowBox color="cyan"></GlowBox>
 					<GlowBox color="pink"></GlowBox>
-					<GlowBox color="green"></GlowBox>
+					<GlowBox color="green">{openInterest}</GlowBox>
 				</GlowBoxesWrapper>
 			</PoweredByContentWrapper>
 			<StyledSvgPoweredByWave />
