@@ -12,7 +12,7 @@ const getSNXJS = (config?: Config) => {
 			networkId: DEFAULT_NETWORK_ID,
 			provider: new providers.InfuraProvider(DEFAULT_NETWORK_ID, {
 				projectId: process.env.NEXT_PUBLIC_INFURA_PROJECT_ID,
-				projectSecret: process.env.NEXT_PUBLIC_INFURA_PROJECT_SECRET,
+				projectSecret: process.env.NEXT_INFURA_PROJECT_SECRET,
 			}),
 			...config,
 		});
