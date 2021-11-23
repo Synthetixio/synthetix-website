@@ -1,3 +1,7 @@
+# 1.0.4
+
+Added build id from latest git commit hash.
+
 # 1.0.3
 
 Infura provider requires now project secret. No more origin whitelisting.
