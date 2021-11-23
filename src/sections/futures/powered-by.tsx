@@ -1,10 +1,16 @@
-import { FlexDiv, Section } from 'src/styles/common';
+import { FlexDiv, Section, Subline } from 'src/styles/common';
 import { Kwenta } from 'src/svg';
 import SvgPoweredByWave from 'src/svg/PoweredByWave';
 import styled from 'styled-components';
 import media from 'styled-media-query';
 
-export default function PoweredBy() {
+export interface PoweredByProps {
+	openInterest: number;
+	tradingVolume: number;
+	trades: number;
+}
+
+export default function PoweredBy({ openInterest, tradingVolume, trades }: PoweredByProps) {
 	return (
 		<PoweredBySection customMaxWidth={true}>
 			<PoweredByContentWrapper>
@@ -19,9 +25,20 @@ export default function PoweredBy() {
 					</div>
 				</SpaceBetween>
 				<GlowBoxesWrapper>
-					<GlowBox color="cyan"></GlowBox>
-					<GlowBox color="pink"></GlowBox>
-					<GlowBox color="green"></GlowBox>
+					<GlowBox color="cyan">
+						<GlowBoxHeader color="cyan">TRADES</GlowBoxHeader>
+						<GlowBoxNumber>{trades}</GlowBoxNumber>
+						<GlowBoxTime>LAST 24h</GlowBoxTime>
+					</GlowBox>
+					<GlowBox color="pink">
+						<GlowBoxHeader color="pink">TRADING VOLUME</GlowBoxHeader>
+						<GlowBoxNumber>{tradingVolume}$</GlowBoxNumber>
+						<GlowBoxTime>LAST 24h</GlowBoxTime>
+					</GlowBox>
+					<GlowBox color="green">
+						<GlowBoxHeader color="green">OPEN INTEREST</GlowBoxHeader>
+						<GlowBoxNumber>{openInterest}$</GlowBoxNumber>
+					</GlowBox>
 				</GlowBoxesWrapper>
 			</PoweredByContentWrapper>
 			<StyledSvgPoweredByWave />
@@ -71,12 +88,49 @@ const GlowBoxesWrapper = styled(FlexDiv)`
 `;
 
 const GlowBox = styled.div<{ color: 'pink' | 'green' | 'cyan' }>`
+	display: flex;
+	flex-direction: column;
 	width: 348px;
 	height: 112px;
 	background: ${({ theme }) => theme.colors.bgBlackHighlighted};
 	box-shadow: 0px 0px 14px ${({ theme, color }) => theme.colors[color]};
+	color: ${({ theme, color }) => theme.colors[color]};
 	margin: 16px;
 	border-radius: 5px;
+	padding: 12px 18px 18px;
+	text-align: ${({ color }) => {
+		if (color === 'green') return 'end';
+		if (color === 'pink') return 'center';
+		if (color === 'cyan') return 'start';
+	}};
+`;
+
+const GlowBoxHeader = styled.h3<{ color: 'pink' | 'green' | 'cyan' }>`
+	color: ${({ theme, color }) => theme.colors[color]};
+	font-family: GT America;
+	font-style: normal;
+	font-weight: bold;
+	font-size: 14px;
+`;
+
+const GlowBoxNumber = styled.span`
+	display: inline-block;
+	color: inherit;
+	font-family: GT America;
+	font-style: normal;
+	font-weight: 900;
+	font-size: 24px;
+	line-height: 48px;
+`;
+
+const GlowBoxTime = styled.span`
+	color: white;
+	display: inline-block;
+	font-family: GT America;
+	font-style: normal;
+	font-weight: bold;
+	font-size: 14px;
+	line-height: 140%;
 `;
 
 const StyledSvgPoweredByWave = styled(SvgPoweredByWave)`

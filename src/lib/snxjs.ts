@@ -10,10 +10,10 @@ const getSNXJS = (config?: Config) => {
 	if (!snxjs)
 		return initSnxJS({
 			networkId: DEFAULT_NETWORK_ID,
-			provider: new providers.InfuraProvider(
-				DEFAULT_NETWORK_ID,
-				process.env.NEXT_PUBLIC_INFURA_PROJECT_ID
-			),
+			provider: new providers.InfuraProvider(DEFAULT_NETWORK_ID, {
+				projectId: process.env.NEXT_PUBLIC_INFURA_PROJECT_ID,
+				projectSecret: process.env.NEXT_PUBLIC_INFURA_PROJECT_SECRET,
+			}),
 			...config,
 		});
 	else return snxjs;

@@ -1,6 +1,6 @@
 {
 	"name": "synthetix-website",
-	"version": "1.0.2",
+	"version": "1.0.3",
 	"private": true,
 	"scripts": {
 		"dev": "next dev",
@@ -59,6 +59,7 @@
 		"babel-eslint": "^10.1.0",
 		"babel-jest": "^27.3.1",
 		"babel-plugin-styled-components": "^1.13.2",
+		"codegen-graph-ts": "^0.1.2",
 		"eslint": "^7.5.0",
 		"eslint-config-prettier": "6.10.1",
 		"eslint-config-react-app": "^6.0.0",
