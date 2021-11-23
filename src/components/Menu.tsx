@@ -113,7 +113,7 @@ export const StyledMenu = styled.ul`
 		left: -100%;
 		width: 100%;
 		height: 100%;
-		overflow-x: scroll;
+		overflow: scroll;
 		background: linear-gradient(180deg, #08021E 0%, #120446 146.21%);
 	`}
 
