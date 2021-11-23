@@ -8,7 +8,7 @@ export const GlobalStyle = createGlobalStyle`
 	html,
 	body {
 		${theme.fonts.body};
-
+		-webkit-tap-highlight-color: transparent;
 		padding: 0;
 		margin: 0;
 		background-color: ${(props) => (props.theme as any).colors.bgBlack};
@@ -24,6 +24,10 @@ export const GlobalStyle = createGlobalStyle`
 	* {
 		box-sizing: border-box;
 		-webkit-font-smoothing: antialiased;
+	}
+
+	b {
+		font-weight: bolder;
 	}
 
 	@font-face {

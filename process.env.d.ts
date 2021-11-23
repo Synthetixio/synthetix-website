@@ -22,8 +22,8 @@ declare global {
 			NEXT_PUBLIC_BUILD_TIMESTAMP: string;
 			NEXT_PUBLIC_MATOMO_URL: string;
 			NEXT_PUBLIC_MATOMO_SITE_ID: string;
-			NEXT_PUBLIC_INFURA_URL: string;
-			CF_IP: string | undefined;
+			NEXT_PUBLIC_INFURA_PROJECT_ID: string;
+			NEXT_PUBLIC_INFURA_PROJECT_SECRET: string;
 		}
 	}
 }

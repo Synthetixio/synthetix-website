@@ -2,7 +2,6 @@ import { FC } from 'react';
 import styled from 'styled-components';
 import { Logo, Menu, Socials } from './';
 import media from 'styled-media-query';
-import { Line } from '../styles/common';
 import { StyledMenu } from './Menu';
 
 type FooterComponentProps = {

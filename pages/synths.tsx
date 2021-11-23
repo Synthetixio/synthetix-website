@@ -4,8 +4,54 @@ import SynthsInfo from 'src/sections/synths/SynthsInfo';
 import { Section, SectionTitle, Line } from 'src/styles/common';
 import { PageLayout } from 'src/components';
 import media from 'styled-media-query';
+import axios from 'axios';
+import { TokenListQueryResponse, TokenListResponse } from 'src/queries/tokenLists/types';
+import { keyBy } from 'lodash';
+import exchangeInfoQuery, { Fees, Rates } from 'src/queries/exchangeInfo/useExchangeInfoQuery';
+import getSNXJS from 'src/lib/snxjs';
+import useMarketClosed from 'src/hooks/useMarketClosed';
+import { SynthStatus } from 'src/sections/synths/SynthCard';
+import { Synth } from '@synthetixio/contracts-interface';
 
-const Synths = () => (
+export async function getStaticProps() {
+	const tokenListResponse = await axios.get<TokenListResponse>('https://synths.snx.eth.link');
+	const tokenList = {
+		tokens: tokenListResponse.data.tokens,
+		tokensMap: keyBy(tokenListResponse.data.tokens, 'symbol'),
+		symbols: tokenListResponse.data.tokens.map((token) => token.symbol),
+	};
+	const exchangeInfo = await exchangeInfoQuery();
+	const synths = getSNXJS().synths;
+	const dictionarySynthStatus: Record<string, SynthStatus> = {};
+	const promises = synths.map(async (synth) => {
+		const marketClosed = await useMarketClosed(synth.name);
+		if (marketClosed.isMarketClosed) {
+			dictionarySynthStatus[synth.name] = SynthStatus.PAUSED;
+		} else {
+			dictionarySynthStatus[synth.name] = SynthStatus.LIVE;
+		}
+	});
+	await Promise.all(promises);
+
+	return {
+		props: {
+			tokenList,
+			exchangeInfo,
+			synths,
+			dictionarySynthStatus,
+		},
+		revalidate: 86400,
+	};
+}
+
+export interface SynthsProps {
+	tokenList: TokenListQueryResponse;
+	exchangeInfo: { fees: Fees; rates: Rates };
+	dictionarySynthStatus: Record<string, SynthStatus>;
+	synths: Synth[];
+}
+
+const Synths = ({ tokenList, exchangeInfo, dictionarySynthStatus, synths }: SynthsProps) => (
 	<>
 		<Head>
 			<title>Synthetix - Synths</title>
@@ -20,7 +66,7 @@ const Synths = () => (
 						pooled collateral model. Trades between Synths generate a small fee that is distributed
 						to SNX collateral providers.
 					</StyledPageCopy>
-					<SynthsInfo />
+					<SynthsInfo {...{ tokenList, exchangeInfo, dictionarySynthStatus, synths }} />
 				</SynthsSection>
 			</ContentWrapper>
 			<Line showOnMobile />

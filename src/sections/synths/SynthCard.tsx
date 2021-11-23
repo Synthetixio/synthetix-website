@@ -1,4 +1,4 @@
-import { FC, useMemo } from 'react';
+import { FC } from 'react';
 import styled, { css } from 'styled-components';
 import media from 'styled-media-query';
 
@@ -8,11 +8,10 @@ import { Synth } from '@synthetixio/contracts-interface';
 
 import { Token } from 'src/queries/tokenLists/types';
 import { formatFiatCurrency, formatPercent } from 'src/utils/formatters/number';
-import useMarketClosed from 'src/hooks/useMarketClosed';
 
-enum SynthStatus {
+export enum SynthStatus {
 	LIVE = 'live',
-	FROZEN = 'frozen',
+	CLOSED = 'closed',
 	PAUSED = 'paused',
 }
 
@@ -21,9 +20,10 @@ type SynthCardProps = {
 	tokenInfo: Token | null;
 	price: number | null;
 	exchangeFeeRate: number | null;
+	status: SynthStatus;
 };
 
-const SynthCard: FC<SynthCardProps> = ({ synth, tokenInfo, price, exchangeFeeRate }) => {
+const SynthCard: FC<SynthCardProps> = ({ synth, tokenInfo, price, exchangeFeeRate, status }) => {
 	const logoURI = tokenInfo != null ? tokenInfo.logoURI : null;
 
 	const currencyKey = synth.name;
@@ -38,18 +38,6 @@ const SynthCard: FC<SynthCardProps> = ({ synth, tokenInfo, price, exchangeFeeRat
 	} else if (synth.category.includes('index')) {
 		synthDescription = `Tracks the price of the index: ${currencyKey} ${synth.description} through price feeds supplied by an oracle.`;
 	}
-
-	const marketClosed = useMarketClosed(currencyKey);
-
-	const synthStatus = useMemo(() => {
-		if (marketClosed.isCurrencyFrozen) {
-			return SynthStatus.FROZEN;
-		}
-		if (marketClosed.isMarketClosed) {
-			return SynthStatus.PAUSED;
-		}
-		return SynthStatus.LIVE;
-	}, [marketClosed]);
 
 	return (
 		<ExternalLink href={`https://kwenta.io/exchange/${currencyKey}-sUSD`}>
@@ -72,8 +60,8 @@ const SynthCard: FC<SynthCardProps> = ({ synth, tokenInfo, price, exchangeFeeRat
 				<SynthDescription>{synthDescription}</SynthDescription>
 				<FlexDivRowCentered>
 					<FeeInfo>fee: {exchangeFeeRate != null ? formatPercent(exchangeFeeRate) : '-'}</FeeInfo>
-					<Status synthStatus={synthStatus}>
-						<StatusDot /> {synthStatus}
+					<Status synthStatus={status}>
+						<StatusDot /> {status}
 					</Status>
 				</FlexDivRowCentered>
 			</StyledCard>
@@ -214,7 +202,7 @@ const Status = styled(FlexDivCentered)<{ synthStatus: SynthStatus }>`
 					}
 				`;
 			}
-			case SynthStatus.FROZEN: {
+			case SynthStatus.CLOSED: {
 				return css`
 					color: ${(props) => props.theme.colors.pink};
 					${StatusDot} {
