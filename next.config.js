@@ -1,4 +1,6 @@
 const packageJson = require('./package');
+const execSync = require('child_process').execSync;
+const lastCommitCommand = 'git rev-parse HEAD';
 
 const date = new Date();
 
@@ -9,6 +11,9 @@ console.debug(
  * @type {import('next').NextConfig}
  */
 module.exports = {
+	async generateBuildId() {
+		return execSync(lastCommitCommand).toString().trim();
+	},
 	async redirects() {
 		return [
 			{
