@@ -1,6 +1,5 @@
 import Head from 'next/head';
 import { PageLayout } from 'src/components';
-import getSNXJS from 'src/lib/snxjs';
 import FuturesMain from 'src/sections/futures/main';
 import Perpetuals from 'src/sections/futures/perpetuals';
 import PoweredBy, { PoweredByProps } from 'src/sections/futures/powered-by';
@@ -8,12 +7,25 @@ import USP from 'src/sections/futures/usp';
 import { Line } from 'src/styles/common';
 import styled from 'styled-components';
 import media from 'styled-media-query';
-import { getDebtStateById } from 'synthetix-subgraph';
+import {
+	getDailyExchangePartnerById,
+	getDailyExchangePartners,
+	getDebtStateById,
+} from 'synthetix-subgraph';
 
 interface DecentralizedPerpetualFutures extends PoweredByProps {}
 
 export async function getStaticProps() {
-	const snx = getSNXJS();
+	// TODO MF, add order by to get the newest result at the top
+	const [dailyKwenta] = await getDailyExchangePartners(
+		'https://api.thegraph.com/subgraphs/name/synthetixio-team/optimism-main',
+		{
+			where: {
+				partner: 'KWENTA',
+			},
+		},
+		{ id: true, trades: true, usdVolume: true }
+	);
 	const { totalIssuedSynths } = await getDebtStateById(
 		'https://api.thegraph.com/subgraphs/name/synthetixio-team/optimism-main',
 		{ id: '0' },
@@ -24,10 +36,17 @@ export async function getStaticProps() {
 	);
 	return {
 		props: {
-			openInterest: totalIssuedSynths.toNumber().toFixed(2),
+			openInterest: USNumberFormat(Number(totalIssuedSynths.toNumber().toFixed(2))),
+			trades: USNumberFormat(dailyKwenta.trades.toNumber()),
+			tradingVolume: USNumberFormat(Number(dailyKwenta.usdVolume.toNumber().toFixed(2))),
 		},
+		revalidate: 86400,
 	};
 }
+
+const USNumberFormat = (num: number) => {
+	return new Intl.NumberFormat('en-US').format(num);
+};
 
 export default function DecentralizedPerpetualFutures({
 	tradingVolume,
