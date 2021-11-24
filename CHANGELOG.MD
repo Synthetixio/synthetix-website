@@ -1,3 +1,7 @@
+# 1.0.5 - tba
+
+- Fixed header mobile scroll issue
+
 # 1.0.4
 
 Added build id from latest git commit hash.

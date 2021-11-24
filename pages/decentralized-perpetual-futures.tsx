@@ -2,16 +2,12 @@ import Head from 'next/head';
 import { PageLayout } from 'src/components';
 import FuturesMain from 'src/sections/futures/main';
 import Perpetuals from 'src/sections/futures/perpetuals';
-import PoweredBy, { PoweredByProps } from 'src/sections/futures/powered-by';
+import PoweredBy, { PoweredByProps } from 'src/sections/futures/poweredBy';
 import USP from 'src/sections/futures/usp';
 import { Line } from 'src/styles/common';
 import styled from 'styled-components';
 import media from 'styled-media-query';
-import {
-	getDailyExchangePartnerById,
-	getDailyExchangePartners,
-	getDebtStateById,
-} from 'synthetix-subgraph';
+import { getDailyExchangePartners, getDebtStateById } from 'synthetix-subgraph';
 
 interface DecentralizedPerpetualFutures extends PoweredByProps {}
 

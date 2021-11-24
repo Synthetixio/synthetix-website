@@ -5,20 +5,16 @@ import Futures from '../src/sections/home/futures';
 import TotalSection from '../src/sections/home/total';
 import SynthSection from 'src/sections/home/synths';
 import { fetchTotalLocked } from '../src/lib/exchange-api';
-import dynamic from 'next/dynamic';
 import Ecosystem from 'src/sections/home/ecosystem';
 import { PageLayout } from '../src/components';
 import media from 'styled-media-query';
 import styled from 'styled-components';
 import { Line } from 'src/styles/common';
+import PoweredBy from 'src/sections/home/poweredBy';
 
 export interface ApiStatsProps {
 	totalLocked?: number;
 }
-
-const PoweredBy = dynamic(() => import('../src/sections/home/poweredBy'), {
-	ssr: false,
-});
 
 const Home = ({ totalLocked }: ApiStatsProps) => {
 	return (
