@@ -44,7 +44,7 @@ jobs:
       uses: actions/checkout@ec3a7ce113134d7a93b817d10a8272cb61118579 # pin@v2
 
     - name: Cache node modules
-      uses: actions/cache@c64c572235d810460d0d6876e9c705ad5002b353 # pin@v2
+      uses: actions/cache@937d24475381cd9c75ae6db12cb4e79714b926ed # pin@v2
       with:
         path: |
           .npm
@@ -72,7 +72,7 @@ jobs:
       continue-on-error: true
 
     - name: Cache next.js build cache
-      uses: actions/cache@c64c572235d810460d0d6876e9c705ad5002b353 # pin@v2
+      uses: actions/cache@937d24475381cd9c75ae6db12cb4e79714b926ed # pin@v2
       with:
         path: .next/cache
         key: ${{ runner.os }}-next.js-${{ hashFiles('**/package-lock.json') }}
