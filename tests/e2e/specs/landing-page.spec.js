@@ -32,7 +32,7 @@ describe('Landing Page', () => {
 		);
 	});
 
-	it.only('should scroll the hamburger menu content if screen is not tall enough', () => {
+	it('should scroll the hamburger menu content if screen is not tall enough', () => {
 		cy.visit('http://localhost:3000/');
 		cy.viewport(500, 400);
 		cy.get('header[data-test-id="header"] > div').click();

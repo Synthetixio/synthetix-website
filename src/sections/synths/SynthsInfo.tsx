@@ -50,6 +50,7 @@ const SynthsInfo = ({ tokenList, exchangeInfo, dictionarySynthStatus, synths }: 
 							setSynthCategory(category);
 						}}
 						active={synthCategory === category}
+						data-test-id="tab-categories"
 					>
 						{category}
 					</Button>
