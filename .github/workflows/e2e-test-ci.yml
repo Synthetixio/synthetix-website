@@ -1,0 +1,12 @@
+name: e2e tests
+on: [pull_request]
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+        uses: actions/setup-node@v2.4.1
+        with:
+          node-version: '16'
+      - name: running e2e tests
+      - run: yarn dev & yarn e2e:run
