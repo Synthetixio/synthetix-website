@@ -23,7 +23,6 @@ const SynthsInfo = ({ tokenList, exchangeInfo, dictionarySynthStatus, synths }: 
 
 		const price = exchangeInfo?.rates != null ? exchangeInfo.rates[currencyKey] : null;
 		const exchangeFeeRate = exchangeInfo?.fees != null ? exchangeInfo.fees[currencyKey] : null;
-
 		filteredSynths.all.push(
 			<SynthCard
 				key={currencyKey}

@@ -1,4 +1,4 @@
-name: Tests CI
+name: Running tests
 on: [pull_request]
 jobs:
   test:
@@ -9,7 +9,8 @@ jobs:
         uses: actions/setup-node@v2.4.1
         with:
           node-version: '16'
-      - run: yarn install
+      - name: E2E
+      - run: yarn dev & yarn e2e:run
       - run: yarn test
       - name: Tests ✅
         if: ${{ success() }}

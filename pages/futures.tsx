@@ -1,5 +1,8 @@
+import { Network, NetworkId } from '@synthetixio/contracts-interface';
+import { ethers } from 'ethers';
 import Head from 'next/head';
 import { PageLayout } from 'src/components';
+import getSNXJS from 'src/lib/snxjs';
 import FuturesMain from 'src/sections/futures/main';
 import Perpetuals from 'src/sections/futures/perpetuals';
 import PoweredBy, { PoweredByProps } from 'src/sections/futures/poweredBy';
@@ -7,32 +10,44 @@ import USP from 'src/sections/futures/usp';
 import { Line } from 'src/styles/common';
 import styled from 'styled-components';
 import media from 'styled-media-query';
-import { getDailyExchangePartners, getDebtStateById } from 'synthetix-subgraph';
+import { getDailyExchangePartners, getDebtStates } from 'synthetix-subgraph';
 
 interface DecentralizedPerpetualFutures extends PoweredByProps {}
 
+const url = 'https://api.thegraph.com/subgraphs/name/synthetixio-team/optimism-main';
+
 export async function getStaticProps() {
-	// TODO MF, add order by to get the newest result at the top
+	const snx = getSNXJS({
+		useOvm: true,
+		network: Network['Mainnet-Ovm'],
+		networkId: NetworkId['Mainnet-Ovm'],
+	});
 	const [dailyKwenta] = await getDailyExchangePartners(
-		'https://api.thegraph.com/subgraphs/name/synthetixio-team/optimism-main',
+		url,
 		{
 			where: {
 				partner: 'KWENTA',
 			},
+			orderBy: 'timestamp',
 		},
 		{ id: true, trades: true, usdVolume: true }
 	);
-	const { totalIssuedSynths } = await getDebtStateById(
-		'https://api.thegraph.com/subgraphs/name/synthetixio-team/optimism-main',
-		{ id: '0' },
+	const [debt] = await getDebtStates(
+		url,
+		{
+			orderBy: 'timestamp',
+		},
 		{
 			id: true,
 			totalIssuedSynths: true,
 		}
 	);
+
+	console.log(snx.network);
+	// const synthsRates = await snx.contracts.SynthUtil.synthsRates();
 	return {
 		props: {
-			openInterest: USNumberFormat(Number(totalIssuedSynths.toNumber().toFixed(2))),
+			openInterest: USNumberFormat(Number(debt.totalIssuedSynths.toNumber().toFixed(2))),
 			trades: USNumberFormat(dailyKwenta.trades.toNumber()),
 			tradingVolume: USNumberFormat(Number(dailyKwenta.usdVolume.toNumber().toFixed(2))),
 		},

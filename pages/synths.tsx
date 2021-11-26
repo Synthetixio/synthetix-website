@@ -32,7 +32,6 @@ export async function getStaticProps() {
 		}
 	});
 	await Promise.all(promises);
-
 	return {
 		props: {
 			tokenList,

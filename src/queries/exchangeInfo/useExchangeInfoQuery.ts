@@ -24,7 +24,6 @@ const exchangeInfoQuery = async () => {
 
 	const synths = [...synthsRates[0], ...additionalCurrencies] as string[];
 	const rates = [...synthsRates[1], ...ratesForCurrencies] as CurrencyRate[];
-
 	const fees = synths.map(async (currencyKeyBytes32: CurrencyKey) => {
 		const currencyKey = ethers.utils.parseBytes32String(currencyKeyBytes32);
 		const exchangeFee = await snxjs.contracts.SystemSettings.exchangeFeeRate(currencyKeyBytes32);
@@ -52,7 +51,6 @@ const exchangeInfoQuery = async () => {
 			exchangeRates[synthToAsset(currencyKey)] = rate;
 		}
 	});
-
 	return { rates: exchangeRates, fees: exchangeFees };
 };
 
