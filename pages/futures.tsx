@@ -22,7 +22,6 @@ export async function getStaticProps() {
 		network: Network['Mainnet-Ovm'],
 		networkId: NetworkId['Mainnet-Ovm'],
 	});
-	console.log(snx.network);
 	const [dailyKwenta] = await getDailyExchangePartners(
 		url,
 		{
