@@ -1,5 +1,4 @@
 import { Network, NetworkId } from '@synthetixio/contracts-interface';
-import { ethers } from 'ethers';
 import Head from 'next/head';
 import { PageLayout } from 'src/components';
 import getSNXJS from 'src/lib/snxjs';
@@ -12,7 +11,17 @@ import styled from 'styled-components';
 import media from 'styled-media-query';
 import { getDailyExchangePartners, getDebtStates } from 'synthetix-subgraph';
 
-interface DecentralizedPerpetualFutures extends PoweredByProps {}
+interface DecentralizedPerpetualFuturesProps extends PoweredByProps {
+	synths: PerpetualSynth[];
+}
+
+export interface PerpetualSynth {
+	name: string;
+	priceInUSD: string;
+	volume: number;
+	priceChange: number;
+	category: string;
+}
 
 const url = 'https://api.thegraph.com/subgraphs/name/synthetixio-team/optimism-main';
 
@@ -29,27 +38,39 @@ export async function getStaticProps() {
 				partner: 'KWENTA',
 			},
 			orderBy: 'timestamp',
+			orderDirection: 'desc',
 		},
 		{ id: true, trades: true, usdVolume: true }
 	);
+
 	const [debt] = await getDebtStates(
 		url,
 		{
 			orderBy: 'timestamp',
+			orderDirection: 'desc',
 		},
 		{
 			id: true,
 			totalIssuedSynths: true,
 		}
 	);
+	const [, synthsRates] = await snx.contracts.SynthUtil.synthsRates();
+	const synths: PerpetualSynth[] = snx.synths.map((synth, index) => {
+		return {
+			name: synth.name,
+			category: synth.category,
+			priceInUSD: snx.utils.formatEther(synthsRates[index]).toString(),
+			volume: 2,
+			priceChange: 1,
+		};
+	});
 
-	console.log(snx.network);
-	// const synthsRates = await snx.contracts.SynthUtil.synthsRates();
 	return {
 		props: {
 			openInterest: USNumberFormat(Number(debt.totalIssuedSynths.toNumber().toFixed(2))),
 			trades: USNumberFormat(dailyKwenta.trades.toNumber()),
 			tradingVolume: USNumberFormat(Number(dailyKwenta.usdVolume.toNumber().toFixed(2))),
+			synths,
 		},
 		revalidate: 86400,
 	};
@@ -63,7 +84,8 @@ export default function DecentralizedPerpetualFutures({
 	tradingVolume,
 	trades,
 	openInterest,
-}: DecentralizedPerpetualFutures) {
+	synths,
+}: DecentralizedPerpetualFuturesProps) {
 	return (
 		<>
 			<Head>
@@ -75,7 +97,7 @@ export default function DecentralizedPerpetualFutures({
 				<PoweredBy openInterest={openInterest} trades={trades} tradingVolume={tradingVolume} />
 				<USP />
 				<Line />
-				<Perpetuals />
+				<Perpetuals synths={synths} />
 				<Line showOnMobile />
 			</PageLayout>
 		</>

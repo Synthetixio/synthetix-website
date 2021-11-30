@@ -20,7 +20,7 @@ export default function PoweredBy({ openInterest, tradingVolume, trades }: Power
 						<img src="logo.svg" />
 					</div>
 					<div>
-						<SectionHeader>TRADABLE ON</SectionHeader>
+						<SectionHeader isLast>TRADABLE ON</SectionHeader>
 						<Kwenta />
 					</div>
 				</SpaceBetween>
@@ -60,11 +60,15 @@ const PoweredByContentWrapper = styled.article`
 	position: absolute;
 	z-index: 10;
 	width: 100%;
-	padding: 0 128px;
 	max-width: 1920px;
+	padding: 0 128px;
+
+	${media.lessThan('medium')`
+		padding: 0 16px;
+	`}
 `;
 
-const SectionHeader = styled.h3`
+const SectionHeader = styled.h3<{ isLast?: boolean }>`
 	font-family: GT America;
 	font-style: normal;
 	font-weight: bold;
@@ -72,11 +76,19 @@ const SectionHeader = styled.h3`
 	line-height: 20px;
 	text-transform: uppercase;
 	color: white;
-	margin-bottom: 8px;
+	margin: 16px 0px;
+	text-align: ${({ isLast }) => (isLast ? 'end' : 'start')};
+	${media.lessThan('medium')`
+		text-align: start;
+	`}
 `;
 
 const SpaceBetween = styled(FlexDiv)`
 	justify-content: space-between;
+	${media.lessThan('medium')`
+		flex-direction: column;
+	align-items: center
+	`}
 `;
 
 const GlowBoxesWrapper = styled(FlexDiv)`
@@ -103,6 +115,9 @@ const GlowBox = styled.div<{ color: 'pink' | 'green' | 'cyan' }>`
 		if (color === 'pink') return 'center';
 		if (color === 'cyan') return 'start';
 	}};
+	${media.lessThan('medium')`
+			text-align:center;
+	`}
 `;
 
 const GlowBoxHeader = styled.h3<{ color: 'pink' | 'green' | 'cyan' }>`

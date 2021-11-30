@@ -4,13 +4,13 @@ import MainSection from '../src/sections/home/main';
 import Futures from '../src/sections/home/futures';
 import TotalSection from '../src/sections/home/total';
 import SynthSection from 'src/sections/home/synths';
-import { fetchTotalLocked } from '../src/lib/exchange-api';
 import Ecosystem from 'src/sections/home/ecosystem';
 import { PageLayout } from '../src/components';
 import media from 'styled-media-query';
 import styled from 'styled-components';
 import { Line } from 'src/styles/common';
 import PoweredBy from 'src/sections/home/poweredBy';
+import axios from 'axios';
 
 export interface ApiStatsProps {
 	totalLocked?: number;
@@ -59,7 +59,15 @@ const BgGradient = styled.div`
 `;
 
 export const getServerSideProps: GetServerSideProps = async () => {
-	const totalLocked = await fetchTotalLocked();
+	let totalLocked = 537861341;
+	try {
+		const response = await axios.get<{ totalLocked: number }>(
+			'https://exchange.api.synthetix.io/api/total-locked'
+		);
+		totalLocked = response.data?.totalLocked;
+	} catch (e) {
+		console.log(e);
+	}
 	return {
 		props: {
 			totalLocked,

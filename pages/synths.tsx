@@ -22,6 +22,7 @@ export async function getStaticProps() {
 	};
 	const exchangeInfo = await exchangeInfoQuery();
 	const synths = getSNXJS().synths;
+
 	const dictionarySynthStatus: Record<string, SynthStatus> = {};
 	const promises = synths.map(async (synth) => {
 		const marketClosed = await useMarketClosed(synth.name);

@@ -64,7 +64,7 @@ export default function USP() {
 const USPSection = styled(Section)`
 	padding: 120px;
 	${media.lessThan('medium')`
-		padding: 0 48px;
+		padding: 16px;
 	`}
 `;
 
