@@ -1,6 +1,6 @@
-import { JSXElement } from '@babel/types';
 import { PerpetualSynth } from 'pages/futures';
 import { useState } from 'react';
+import { Button } from 'src/components';
 import FutureSynthCard from 'src/components/FutureSynthCard';
 import { resetButtonCSS, Section, SectionTitle, Subline } from 'src/styles/common';
 import { theme } from 'src/styles/theme';
@@ -10,7 +10,7 @@ import media from 'styled-media-query';
 export default function Perpetuals(props: Record<'synths', PerpetualSynth[]>) {
 	const [activeTab, setActiveTab] = useState('all');
 	let tabs: string[] = ['all'];
-	const synthsDictionary: Record<string, JSXElement[]> = {
+	const synthsDictionary: Record<string, JSX.Element[]> = {
 		all: [],
 	};
 	props.synths.forEach((synth) => {
@@ -18,7 +18,8 @@ export default function Perpetuals(props: Record<'synths', PerpetualSynth[]>) {
 			tabs.push(synth.category);
 			synthsDictionary[synth.category] = [];
 		}
-		synthsDictionary.all.push();
+		synthsDictionary[synth.category].push(<FutureSynthCard key={synth.name} {...synth} />);
+		synthsDictionary.all.push(<FutureSynthCard key={synth.name} {...synth} />);
 	});
 	return (
 		<PerpetualsSection>
@@ -29,19 +30,16 @@ export default function Perpetuals(props: Record<'synths', PerpetualSynth[]>) {
 				fills you can’t get elsewhere.
 			</PerpetualSubline>
 			<Categories>
-				<div>
-					{tabs.map((tab) => (
-						<Button key={tab} active={activeTab === tab} onClick={() => setActiveTab(tab)}>
-							{tab}
-						</Button>
-					))}
-				</div>
-				<CategoriesContent>
-					{synthsDictionary[activeTab].map((synth) => (
-						<FutureSynthCard />
-					))}
-				</CategoriesContent>
+				{tabs.map((tab) => (
+					<TabButton key={tab} active={activeTab === tab} onClick={() => setActiveTab(tab)}>
+						{tab}
+					</TabButton>
+				))}
 			</Categories>
+			<CategoriesContent>{synthsDictionary[activeTab]}</CategoriesContent>
+			<BuildButton link="https://kwenta.io/" external={true}>
+				TRADE PERPETUAL FUTURES
+			</BuildButton>
 		</PerpetualsSection>
 	);
 }
@@ -61,7 +59,7 @@ const Categories = styled.div`
 	width: 100%;
 	max-width: 800px;
 	display: flex;
-	margin-bottom: 40px;
+	margin: 40px 0px;
 	justify-content: center;
 `;
 
@@ -69,10 +67,11 @@ const CategoriesContent = styled.div`
 	width: 100%;
 	height: auto;
 	display: flex;
-	flex-direction: column;
+	justify-content: center;
+	flex-wrap: wrap;
 `;
 
-const Button = styled.button<{ active: boolean }>`
+const TabButton = styled.button<{ active: boolean }>`
 	${resetButtonCSS};
 	${theme.fonts.tab};
 	margin: auto;
@@ -82,5 +81,19 @@ const Button = styled.button<{ active: boolean }>`
 		font-size: 12px;
 		line-height: 48px;
 		margin-right: 18px;
+	`}
+`;
+
+const BuildButton = styled(Button)`
+	width: 687px;
+	height: 56px;
+	color: black;
+	margin: 60px;
+	background-color: ${({ theme }) => theme.colors.cyan};
+	box-shadow: 0px 0px 10px rgba(0, 209, 255, 0.9);
+	border-radius: 4px;
+
+	${media.lessThan('medium')`
+		width: 95%;
 	`}
 `;

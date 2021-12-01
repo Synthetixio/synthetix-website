@@ -8149,7 +8149,7 @@ ethers@^5.0.13:
     "@ethersproject/web" "5.4.0"
     "@ethersproject/wordlists" "5.4.0"
 
-ethers@^5.5.1:
+ethers@^5.5.2:
   version "5.5.1"
   resolved "https://registry.yarnpkg.com/ethers/-/ethers-5.5.1.tgz#d3259a95a42557844aa543906c537106c0406fbf"
   integrity sha512-RodEvUFZI+EmFcE6bwkuJqpCYHazdzeR1nMzg+YWQSmQEsNtfl1KHGfp/FWZYl48bI/g7cgBeP2IlPthjiVngw==

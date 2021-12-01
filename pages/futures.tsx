@@ -18,7 +18,7 @@ interface DecentralizedPerpetualFuturesProps extends PoweredByProps {
 export interface PerpetualSynth {
 	name: string;
 	priceInUSD: string;
-	volume: number;
+	volume: string;
 	priceChange: number;
 	category: string;
 }
@@ -55,12 +55,14 @@ export async function getStaticProps() {
 		}
 	);
 	const [, synthsRates] = await snx.contracts.SynthUtil.synthsRates();
+	const [, , sUSDBalances] = await snx.contracts.SynthUtil.synthsTotalSupplies();
+
 	const synths: PerpetualSynth[] = snx.synths.map((synth, index) => {
 		return {
 			name: synth.name,
 			category: synth.category,
-			priceInUSD: snx.utils.formatEther(synthsRates[index]).toString(),
-			volume: 2,
+			priceInUSD: USNumberFormat(Number(snx.utils.formatEther(synthsRates[index]))),
+			volume: USNumberFormat(Number(snx.utils.formatEther(sUSDBalances[index]))),
 			priceChange: 1,
 		};
 	});

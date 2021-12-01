@@ -22,7 +22,7 @@
 		"@synthetixio/contracts-interface": "2.49.0",
 		"axios": "0.23.0",
 		"bignumber.js": "9.0.1",
-		"ethers": "^5.5.1",
+		"ethers": "^5.5.2",
 		"lodash": "4.17.21",
 		"next": "12.0.3",
 		"numeral": "2.0.6",
