@@ -45,7 +45,7 @@ export default function Perpetuals(props: Record<'synths', PerpetualSynth[]>) {
 }
 
 const PerpetualsSection = styled(Section)`
-	padding-top: 70px;
+	padding: 70px 8px;
 	display: flex;
 	flex-direction: column;
 	align-items: center;
