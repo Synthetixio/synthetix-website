@@ -1,15 +1,15 @@
-import { Network, NetworkId } from '@synthetixio/contracts-interface';
+import { NetworkId } from '@synthetixio/contracts-interface';
 import Head from 'next/head';
 import { PageLayout } from 'src/components';
 import getSNXJS from 'src/lib/snxjs';
 import FuturesMain from 'src/sections/futures/main';
-import Perpetuals from 'src/sections/futures/perpetuals';
 import PoweredBy, { PoweredByProps } from 'src/sections/futures/poweredBy';
 import USP from 'src/sections/futures/usp';
 import { Line } from 'src/styles/common';
 import styled from 'styled-components';
 import media from 'styled-media-query';
-import { getDailyExchangePartners, getDebtStates } from 'synthetix-subgraph';
+import { getDailyCandles, getDailyExchangePartners, getDebtStates } from 'synthetix-subgraph';
+import Perpetuals from 'src/sections/futures/perpetuals';
 
 interface DecentralizedPerpetualFuturesProps extends PoweredByProps {
 	synths: PerpetualSynth[];
@@ -24,11 +24,11 @@ export interface PerpetualSynth {
 }
 
 const url = 'https://api.thegraph.com/subgraphs/name/synthetixio-team/optimism-main';
+const urlL1 = 'https://api.thegraph.com/subgraphs/name/synthetixio-team/synthetix-exchanges';
 
 export async function getStaticProps() {
 	const snx = getSNXJS({
 		useOvm: true,
-		network: Network['Mainnet-Ovm'],
 		networkId: NetworkId['Mainnet-Ovm'],
 	});
 	const [dailyKwenta] = await getDailyExchangePartners(
@@ -42,7 +42,6 @@ export async function getStaticProps() {
 		},
 		{ id: true, trades: true, usdVolume: true }
 	);
-
 	const [debt] = await getDebtStates(
 		url,
 		{
@@ -56,17 +55,26 @@ export async function getStaticProps() {
 	);
 	const [, synthsRates] = await snx.contracts.SynthUtil.synthsRates();
 	const [, , sUSDBalances] = await snx.contracts.SynthUtil.synthsTotalSupplies();
-
-	const synths: PerpetualSynth[] = snx.synths.map((synth, index) => {
-		return {
-			name: synth.name,
-			category: synth.category,
-			priceInUSD: USNumberFormat(Number(snx.utils.formatEther(synthsRates[index]))),
-			volume: USNumberFormat(Number(snx.utils.formatEther(sUSDBalances[index]))),
-			priceChange: 1,
-		};
-	});
-
+	const synths: PerpetualSynth[] = await Promise.all(
+		snx.synths.map(async (synth, index) => {
+			const [synthCandle] = await getDailyCandles(
+				urlL1,
+				{ first: 1, where: { synth: synth.name }, orderBy: 'timestamp', orderDirection: 'desc' },
+				{
+					open: true,
+					close: true,
+				}
+			);
+			const priceChange = synthCandle?.open.sub(synthCandle.close).div(synthCandle?.open).mul(100);
+			return {
+				name: synth.name,
+				category: synth.category,
+				priceInUSD: USNumberFormat(Number(snx.utils.formatEther(synthsRates[index]))),
+				volume: USNumberFormat(Number(snx.utils.formatEther(sUSDBalances[index]))),
+				priceChange: priceChange ? priceChange.toNumber() : 0,
+			};
+		})
+	);
 	return {
 		props: {
 			openInterest: USNumberFormat(Number(debt.totalIssuedSynths.toNumber().toFixed(2))),
@@ -79,7 +87,7 @@ export async function getStaticProps() {
 }
 
 const USNumberFormat = (num: number) => {
-	return new Intl.NumberFormat('en-US').format(num);
+	return new Intl.NumberFormat('en-US', { maximumFractionDigits: 2 }).format(num);
 };
 
 export default function DecentralizedPerpetualFutures({

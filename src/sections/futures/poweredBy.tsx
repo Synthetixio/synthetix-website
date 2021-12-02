@@ -12,7 +12,7 @@ export interface PoweredByProps {
 
 export default function PoweredBy({ openInterest, tradingVolume, trades }: PoweredByProps) {
 	return (
-		<PoweredBySection customMaxWidth={true}>
+		<PoweredBySection customMaxWidth>
 			<PoweredByContentWrapper>
 				<SpaceBetween>
 					<div>
@@ -54,6 +54,7 @@ const PoweredBySection = styled(Section)`
 	flex-direction: column;
 	justify-content: center;
 	align-items: center;
+	background-color: ${({ theme }) => theme.colors.bgBlackHighlighted};
 `;
 
 const PoweredByContentWrapper = styled.article`

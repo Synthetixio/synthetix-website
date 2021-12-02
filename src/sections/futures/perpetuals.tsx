@@ -22,7 +22,7 @@ export default function Perpetuals(props: Record<'synths', PerpetualSynth[]>) {
 		synthsDictionary.all.push(<FutureSynthCard key={synth.name} {...synth} />);
 	});
 	return (
-		<PerpetualsSection>
+		<PerpetualsSection customMaxWidth>
 			<SectionTitle>TRADING PERPETUALS</SectionTitle>
 			<PerpetualSubline>
 				Leveraging the Synthetix debt pool and our innovative liquidity framework, our traders are
@@ -49,6 +49,7 @@ const PerpetualsSection = styled(Section)`
 	display: flex;
 	flex-direction: column;
 	align-items: center;
+	background-color: ${({ theme }) => theme.colors.bgBlackHighlighted};
 `;
 
 const PerpetualSubline = styled(Subline)`
@@ -69,6 +70,7 @@ const CategoriesContent = styled.div`
 	display: flex;
 	justify-content: center;
 	flex-wrap: wrap;
+	max-width: 1920px;
 `;
 
 const TabButton = styled.button<{ active: boolean }>`

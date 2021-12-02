@@ -43,7 +43,7 @@ const USPS = [
 
 export default function USP() {
 	return (
-		<USPSection>
+		<USPSection customMaxWidth>
 			<USPWrapper>
 				{USPS.map((USP) => (
 					<FlexDiv key={USP.label}>
@@ -63,12 +63,16 @@ export default function USP() {
 
 const USPSection = styled(Section)`
 	padding: 120px;
+	display: flex;
+	justify-content: center;
+	background-color: ${({ theme }) => theme.colors.bgBlackHighlighted};
 	${media.lessThan('medium')`
 		padding: 16px;
 	`}
 `;
 
 const USPWrapper = styled.article`
+	max-width: 1920px;
 	display: grid;
 	grid-template-columns: 1fr 1fr;
 	grid-gap: 23px;
