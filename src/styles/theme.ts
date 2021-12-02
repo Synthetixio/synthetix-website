@@ -43,6 +43,7 @@ export const theme = {
 		green: '#31D8A4',
 		orange: '#FC8738',
 		yellow: '#FFD75C',
+		red: '#FF7A68',
 
 		bgBlack: '#06061B',
 		bgBlackHighlighted: '#0e052f',

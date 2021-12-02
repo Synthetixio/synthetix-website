@@ -1,4 +1,6 @@
 import { PerpetualSynth } from 'pages/futures';
+import { FlexDiv, FlexDivRow } from 'src/styles/common';
+import { theme } from 'src/styles/theme';
 import styled from 'styled-components';
 
 export default function FutureSynthCard({
@@ -14,7 +16,26 @@ export default function FutureSynthCard({
 				src={`https://raw.githubusercontent.com/Synthetixio/synthetix-assets/v2.0.10/synths/${name}.svg`}
 			/>
 			<StyledFutureContent>
-				<StyledSynthName>{name}</StyledSynthName>
+				<FlexDiv>
+					<StyledSynthName>{name}</StyledSynthName>
+					<svg
+						width="14"
+						height="16"
+						viewBox="0 0 14 16"
+						fill="none"
+						xmlns="http://www.w3.org/2000/svg"
+						transform={`rotate(${priceChange >= 0 ? 0 : '180'})`}
+						style={{ marginTop: 2 }}
+					>
+						<path
+							d="M13.7 6.7L12.3 8.1L8 3.8L8 16L6 16L6 3.8L1.7 8.1L0.299997 6.7L7 -5.85733e-07L13.7 6.7Z"
+							fill={priceChange >= 0 ? theme.colors.green : theme.colors.red}
+						/>
+					</svg>
+					<StyledPriceChange positive={priceChange >= 0}>
+						{priceChange.toFixed(2)}%
+					</StyledPriceChange>
+				</FlexDiv>
 				<StyledSynthCategory>{category}</StyledSynthCategory>
 				<StyledPrefix>
 					<StyledSynthPrice>{priceInUSD}</StyledSynthPrice> USD
@@ -45,6 +66,16 @@ const StyledFutureContent = styled.div`
 	margin-left: 12px;
 `;
 
+const StyledPriceChange = styled.span<{ positive: boolean }>`
+	color: ${({ positive, theme }) => (positive ? theme.colors.green : theme.colors.red)};
+	font-family: Inter;
+	font-style: normal;
+	font-weight: bold;
+	font-size: 14px;
+	line-height: 24px;
+	margin-left: 8px;
+`;
+
 const StyledSynthName = styled.h6`
 	font-family: Poppins;
 	font-style: normal;
@@ -52,6 +83,7 @@ const StyledSynthName = styled.h6`
 	font-size: 18px;
 	line-height: 24px;
 	color: white;
+	margin-right: auto;
 `;
 
 const StyledSynthImage = styled.img`
