@@ -62,7 +62,7 @@ export default function USP() {
 }
 
 const USPSection = styled(Section)`
-	padding: 120px;
+	padding: 0 120px 120px;
 	display: flex;
 	justify-content: center;
 	background-color: ${({ theme }) => theme.colors.bgBlackHighlighted};
