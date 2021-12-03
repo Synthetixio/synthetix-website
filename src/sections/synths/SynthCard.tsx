@@ -25,7 +25,6 @@ type SynthCardProps = {
 
 const SynthCard: FC<SynthCardProps> = ({ synth, tokenInfo, price, exchangeFeeRate, status }) => {
 	const logoURI = tokenInfo != null ? tokenInfo.logoURI : null;
-
 	const currencyKey = synth.name;
 
 	let synthDescription = `Tracks the price of ${currencyKey} ${synth.description} through price feeds supplied by an oracle.`;
