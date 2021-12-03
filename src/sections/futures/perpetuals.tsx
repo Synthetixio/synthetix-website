@@ -23,7 +23,7 @@ export default function Perpetuals(props: Record<'synths', PerpetualSynth[]>) {
 	});
 	return (
 		<PerpetualsSection customMaxWidth>
-			<SectionTitle>TRADING PERPETUALS</SectionTitle>
+			<PerpetualSectionTitle>TRADING PERPETUALS</PerpetualSectionTitle>
 			<PerpetualSubline>
 				Leveraging the Synthetix debt pool and our innovative liquidity framework, our traders are
 				guaranteed to have some of the best price execution around, with little to no slippage and
@@ -50,6 +50,10 @@ const PerpetualsSection = styled(Section)`
 	flex-direction: column;
 	align-items: center;
 	background-color: ${({ theme }) => theme.colors.bgBlackHighlighted};
+`;
+
+const PerpetualSectionTitle = styled(SectionTitle)`
+	text-align: center;
 `;
 
 const PerpetualSubline = styled(Subline)`

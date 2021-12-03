@@ -14,7 +14,7 @@ export const ExternalLink = styled.a.attrs({
 	rel: 'noopener noreferrer',
 })``;
 
-export const SectionTitle = styled.h2`
+export const SectionTitle = styled.h1`
 	${theme.fonts.sectionTitle};
 	margin-bottom: 18px;
 	${media.lessThan('medium')`

@@ -1,6 +1,6 @@
 import { PerpetualSynth } from 'pages/futures';
 import { FlexDiv } from 'src/styles/common';
-import { theme } from 'src/styles/theme';
+import PriceArrow from 'src/svg/PriceArrow';
 import styled from 'styled-components';
 
 export default function FutureSynthCard({
@@ -18,20 +18,7 @@ export default function FutureSynthCard({
 			<StyledFutureContent>
 				<FlexDiv>
 					<StyledSynthName>{name}</StyledSynthName>
-					<svg
-						width="14"
-						height="16"
-						viewBox="0 0 14 16"
-						fill="none"
-						xmlns="http://www.w3.org/2000/svg"
-						transform={`rotate(${priceChange >= 0 ? 0 : '180'})`}
-						style={{ marginTop: 2 }}
-					>
-						<path
-							d="M13.7 6.7L12.3 8.1L8 3.8L8 16L6 16L6 3.8L1.7 8.1L0.299997 6.7L7 -5.85733e-07L13.7 6.7Z"
-							fill={priceChange >= 0 ? theme.colors.green : theme.colors.red}
-						/>
-					</svg>
+					<PriceArrow priceChange={priceChange} />
 					<StyledPriceChange positive={priceChange >= 0}>
 						{priceChange.toFixed(2)}%
 					</StyledPriceChange>

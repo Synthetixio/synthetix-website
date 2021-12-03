@@ -49,13 +49,17 @@ export default function PoweredBy({ openInterest, tradingVolume, trades }: Power
 
 const PoweredBySection = styled(Section)`
 	width: 100vw;
-	height: 100vh;
-	min-height: 600px;
+	height: 100%;
+	min-height: 800px;
 	display: flex;
 	flex-direction: column;
 	justify-content: center;
 	align-items: center;
 	background-color: ${({ theme }) => theme.colors.bgBlackHighlighted};
+
+	${media.lessThan('medium')`
+		min-height: 700px;
+	`}
 `;
 
 const PoweredByContentWrapper = styled.article`
@@ -124,6 +128,7 @@ const GlowBox = styled.div<{ color: 'pink' | 'green' | 'cyan' }>`
 	}};
 	${media.lessThan('medium')`
 			text-align:center;
+			width: 310px;
 	`}
 `;
 

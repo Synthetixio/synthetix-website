@@ -10,6 +10,7 @@ import styled from 'styled-components';
 import media from 'styled-media-query';
 import { getDailyCandles, getDailyExchangePartners, getDebtStates } from 'synthetix-subgraph';
 import Perpetuals from 'src/sections/futures/perpetuals';
+import { headerHeight } from 'src/components/Header';
 
 interface DecentralizedPerpetualFuturesProps extends PoweredByProps {
 	synths: PerpetualSynth[];
@@ -123,6 +124,6 @@ const FuturesGradient = styled.div`
 	top: 0;
 	left: 0;
 	${media.lessThan('medium')`
-		height: 100vh;
+		height: calc(100vh + ${headerHeight}px);
 	`}
 `;
