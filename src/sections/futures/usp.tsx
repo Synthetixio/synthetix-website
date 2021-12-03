@@ -68,6 +68,7 @@ const USPSection = styled(Section)`
 	background-color: ${({ theme }) => theme.colors.bgBlackHighlighted};
 	${media.lessThan('medium')`
 		padding: 16px;
+		padding-top: 80px;
 	`}
 `;
 

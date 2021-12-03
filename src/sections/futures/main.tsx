@@ -50,7 +50,7 @@ const FuturesMainSection = styled(Section)`
 	`}
 
 	${media.lessThan('medium')`
-		height: 100vh;
+		height: calc(100vh - ${headerHeight}px);
 		margin-top: 0;
 	`}
 `;

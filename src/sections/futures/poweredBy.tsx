@@ -15,14 +15,14 @@ export default function PoweredBy({ openInterest, tradingVolume, trades }: Power
 		<PoweredBySection customMaxWidth>
 			<PoweredByContentWrapper>
 				<SpaceBetween>
-					<div>
+					<StyledProtocolBox>
 						<SectionHeader>POWERED BY</SectionHeader>
 						<img src="logo.svg" />
-					</div>
-					<div>
+					</StyledProtocolBox>
+					<StyledProtocolBox>
 						<SectionHeader isLast>TRADABLE ON</SectionHeader>
 						<Kwenta />
-					</div>
+					</StyledProtocolBox>
 				</SpaceBetween>
 				<GlowBoxesWrapper>
 					<GlowBox color="cyan">
@@ -38,6 +38,7 @@ export default function PoweredBy({ openInterest, tradingVolume, trades }: Power
 					<GlowBox color="green">
 						<GlowBoxHeader color="green">OPEN INTEREST</GlowBoxHeader>
 						<GlowBoxNumber>{openInterest}$</GlowBoxNumber>
+						<GlowBoxTime>LAST 24h</GlowBoxTime>
 					</GlowBox>
 				</GlowBoxesWrapper>
 			</PoweredByContentWrapper>
@@ -67,6 +68,11 @@ const PoweredByContentWrapper = styled.article`
 	${media.lessThan('medium')`
 		padding: 0 16px;
 	`}
+`;
+
+const StyledProtocolBox = styled.div`
+	width: 230px;
+	height: 100px;
 `;
 
 const SectionHeader = styled.h3<{ isLast?: boolean }>`
@@ -135,7 +141,7 @@ const GlowBoxNumber = styled.span`
 	font-family: GT America;
 	font-style: normal;
 	font-weight: 900;
-	font-size: 24px;
+	font-size: 32px;
 	line-height: 48px;
 `;
 

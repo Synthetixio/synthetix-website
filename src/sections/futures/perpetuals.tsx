@@ -54,6 +54,7 @@ const PerpetualsSection = styled(Section)`
 
 const PerpetualSubline = styled(Subline)`
 	max-width: 710px;
+	text-align: center;
 `;
 
 const Categories = styled.div`
