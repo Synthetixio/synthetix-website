@@ -10,6 +10,7 @@ const getSNXJS = (config?: Config) => {
 	if (config || !snxjs) {
 		snxjs = initSnxJS({
 			networkId: DEFAULT_NETWORK_ID,
+			// @ts-ignore TODO #152
 			provider: new providers.InfuraProvider(config?.networkId || DEFAULT_NETWORK_ID, {
 				projectId: process.env.NEXT_INFURA_PROJECT_ID,
 				projectSecret: process.env.NEXT_INFURA_PROJECT_SECRET,
