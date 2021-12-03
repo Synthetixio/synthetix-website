@@ -83,7 +83,7 @@ export async function getStaticProps() {
 			tradingVolume: USNumberFormat(Number(dailyKwenta.usdVolume.toNumber().toFixed(2))),
 			synths,
 		},
-		revalidate: 86400,
+		revalidate: 43200,
 	};
 }
 

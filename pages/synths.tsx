@@ -39,7 +39,7 @@ export async function getStaticProps() {
 			synths,
 			dictionarySynthStatus,
 		},
-		revalidate: 86400,
+		revalidate: 43200,
 	};
 }
 
