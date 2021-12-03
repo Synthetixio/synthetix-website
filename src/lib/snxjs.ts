@@ -8,6 +8,7 @@ let snxjs: SynthetixJS;
 
 const getSNXJS = (config?: Config) => {
 	if (config || !snxjs) {
+		console.log(config);
 		snxjs = initSnxJS({
 			networkId: DEFAULT_NETWORK_ID,
 			// @ts-ignore TODO #152
