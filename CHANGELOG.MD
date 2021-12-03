@@ -1,5 +1,7 @@
-# 1.0.5 - tba
+# 1.0.5
 
+- Rebuilding `/futures` and `/synths` page every 12h.
+- Added `/futues` page
 - Fixed header mobile scroll issue
 
 # 1.0.4
