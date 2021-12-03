@@ -49,7 +49,7 @@ export default function PoweredBy({ openInterest, tradingVolume, trades }: Power
 
 const PoweredBySection = styled(Section)`
 	width: 100vw;
-	height: 50vh;
+	height: 100vh;
 	min-height: 600px;
 	display: flex;
 	flex-direction: column;
