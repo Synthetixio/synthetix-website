@@ -54,7 +54,6 @@ export async function getStaticProps() {
 			timestamp: true,
 		}
 	);
-	console.log(debt.timestamp.toString());
 	const [, synthsRates] = await snx.contracts.SynthUtil.synthsRates();
 	const [, , sUSDBalances] = await snx.contracts.SynthUtil.synthsTotalSupplies();
 	const synths: PerpetualSynth[] = await Promise.all(
