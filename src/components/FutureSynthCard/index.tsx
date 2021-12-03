@@ -1,5 +1,5 @@
 import { PerpetualSynth } from 'pages/futures';
-import { FlexDiv, FlexDivRow } from 'src/styles/common';
+import { FlexDiv } from 'src/styles/common';
 import { theme } from 'src/styles/theme';
 import styled from 'styled-components';
 
