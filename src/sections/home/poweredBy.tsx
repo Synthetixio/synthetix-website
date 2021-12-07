@@ -33,7 +33,7 @@ const poweredByCards: PoweredByCards[] = [
 	{
 		name: 'Thales',
 		description: 'A binary options protocol for trading on price action, sports, and other events.',
-		link: 'https://thales.market/',
+		link: 'https://thalesmarket.io/',
 		logo: '/home/powered-by/thales.png',
 	},
 ];
@@ -84,11 +84,6 @@ const PoweredBy = () => {
 	const sliderRef = useRef<HTMLDivElement>(null);
 	const [accumulatedOffset, setAccumulatedOffset] = useState(0);
 
-	/* Firefox doesn't support that out of the box */
-	const doesSupportBackdropFilter =
-		CSS.supports('backdrop-filter', 'blur(14px)') ||
-		CSS.supports('-webkit-backdrop-filter:blur(20px)');
-
 	const handleScroll = (ltr: boolean) => {
 		const ref = sliderRef.current!;
 		const clientWidthWithMargin = ref.clientWidth + slideMargin;
@@ -135,7 +130,7 @@ const PoweredBy = () => {
 					/>
 					<Slider ref={sliderRef} dir="ltr" data-test-id="powered-by-slider">
 						{poweredByCards.map((card) => {
-							return doesSupportBackdropFilter ? (
+							return (
 								<Slide key={card.name} data-test-id="powered-by-slide">
 									<Card href={card.link}>
 										<CardImage src={card.logo} />
@@ -143,14 +138,6 @@ const PoweredBy = () => {
 										<p>{card.description}</p>
 									</Card>
 								</Slide>
-							) : (
-								<SlideBackDropFilterPolyfill key={card.name}>
-									<Card>
-										<CardImage src={card.logo} />
-										<CardHeadline>{card.name}</CardHeadline>
-										<p>{card.description}</p>
-									</Card>
-								</SlideBackDropFilterPolyfill>
 							);
 						})}
 					</Slider>
@@ -326,48 +313,28 @@ const Slider = styled.div`
 `;
 
 const Slide = styled.div`
-	position: relative;
-	min-width: 260px;
-	height: 289px;
-	background: rgba(255, 255, 255, 0.1);
-	backdrop-filter: blur(14px);
-	margin-right: ${slideMargin}px;
-	scroll-snap-align: start;
-	:last-of-type {
-		margin-right: 0px;
-	}
-
-	${media.lessThan('medium')`
-	scroll-snap-align: center;
-		:first-of-type {
-			margin-left: 20px;
-		}
-		:last-of-type {
-			margin-right: 20px;
-		}
-	`}
-`;
-
-const SlideBackDropFilterPolyfill = styled.div`
-	position: relative;
 	background-image: url('home/tile-background.png');
+	@supports (backdrop-filter: blur(14px)) {
+		background: rgba(255, 255, 255, 0.1);
+		backdrop-filter: blur(14px);
+		background-image: none;
+	}
+	margin-right: ${slideMargin}px;
+	position: relative;
 	min-width: 260px;
 	height: 289px;
-	margin-right: ${slideMargin}px;
 	scroll-snap-align: start;
 	:last-of-type {
 		margin-right: 0px;
 	}
-
 	${media.lessThan('medium')`
-	scroll-snap-align: center;
-		:first-of-type {
-			margin-left: 20px;
-		}
-		:last-of-type {
-			margin-right: 20px;
-		}
-	`}
+			scroll-snap-align: center;
+			:first-of-type {
+				margin-left: 20px;
+			}
+			:last-of-type {
+				margin-right: 20px;
+			}`}
 `;
 
 const Card = styled(ExternalLink)`

@@ -32,7 +32,7 @@ const HeaderComponent = () => {
 	};
 
 	return (
-		<Header>
+		<Header data-test-id="header">
 			<StyledHamburgerMenu
 				isOpen={isOpen}
 				menuClicked={clickMenu}
@@ -46,7 +46,7 @@ const HeaderComponent = () => {
 			/>
 			<Logo />
 			<CSSTransition in={isOpen} timeout={300} {...animationProps}>
-				<Menu isHeader={true} isOpen={isOpen} />
+				<Menu isHeader={true} isOpen={isOpen} data-test-id="header-menu" />
 			</CSSTransition>
 		</Header>
 	);

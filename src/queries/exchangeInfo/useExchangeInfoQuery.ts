@@ -2,6 +2,7 @@ import { BigNumberish, ethers } from 'ethers';
 import { CurrencyKey } from 'src/constants/currency';
 import { iStandardSynth, synthToAsset } from 'src/utils/currencies';
 import getSNXJS from 'src/lib/snxjs';
+import { NetworkId } from '@synthetixio/contracts-interface';
 
 export type Rates = Record<CurrencyKey, number>;
 export type Fees = Record<CurrencyKey, number>;
@@ -13,7 +14,7 @@ type SynthRatesTuple = [string[], CurrencyRate[]];
 const additionalCurrencies = ['SNX'].map(ethers.utils.formatBytes32String);
 
 const exchangeInfoQuery = async () => {
-	const snxjs = getSNXJS();
+	const snxjs = getSNXJS({ useOvm: false, networkId: NetworkId.Mainnet });
 
 	const exchangeRates: Rates = {};
 	const exchangeFees: Fees = {};
@@ -23,7 +24,6 @@ const exchangeInfoQuery = async () => {
 	])) as [SynthRatesTuple, CurrencyRate[]];
 	const synths = [...synthsRates[0], ...additionalCurrencies] as string[];
 	const rates = [...synthsRates[1], ...ratesForCurrencies] as CurrencyRate[];
-
 	const fees = synths.map(async (currencyKeyBytes32: CurrencyKey) => {
 		const currencyKey = ethers.utils.parseBytes32String(currencyKeyBytes32);
 		const exchangeFee = await snxjs.contracts.SystemSettings.exchangeFeeRate(currencyKeyBytes32);
@@ -51,7 +51,6 @@ const exchangeInfoQuery = async () => {
 			exchangeRates[synthToAsset(currencyKey)] = rate;
 		}
 	});
-
 	return { rates: exchangeRates, fees: exchangeFees };
 };
 

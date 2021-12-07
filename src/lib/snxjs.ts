@@ -1,22 +1,23 @@
-import { synthetix, Config, SynthetixJS } from '@synthetixio/contracts-interface';
-import { providers } from '@synthetixio/contracts-interface/node_modules/ethers';
-import { DEFAULT_NETWORK_ID } from 'src/constants/defaults';
+import { synthetix, Config, SynthetixJS, NetworkId } from '@synthetixio/contracts-interface';
+import { providers } from 'ethers';
 
 const initSnxJS = (config: Config) => synthetix(config);
 
 let snxjs: SynthetixJS;
 
 const getSNXJS = (config?: Config) => {
-	if (!snxjs)
-		return initSnxJS({
-			networkId: DEFAULT_NETWORK_ID,
-			provider: new providers.InfuraProvider(
-				DEFAULT_NETWORK_ID,
-				process.env.NEXT_PUBLIC_INFURA_PROJECT_ID
-			),
+	if (config || !snxjs) {
+		snxjs = initSnxJS({
+			networkId: NetworkId.Mainnet,
+			// @ts-ignore TODO #152
+			provider: new providers.InfuraProvider(config?.networkId || NetworkId.Mainnet, {
+				projectId: process.env.NEXT_INFURA_PROJECT_ID,
+				projectSecret: process.env.NEXT_INFURA_PROJECT_SECRET,
+			}),
 			...config,
 		});
-	else return snxjs;
+	}
+	return snxjs;
 };
 
 export default getSNXJS;

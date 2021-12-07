@@ -31,4 +31,11 @@ describe('Landing Page', () => {
 			'center'
 		);
 	});
+
+	it('should scroll the hamburger menu content if screen is not tall enough', () => {
+		cy.visit('http://localhost:3000/');
+		cy.viewport(500, 400);
+		cy.get('header[data-test-id="header"] > div').click();
+		cy.get('ul[data-test-id="header-menu"]').should('have.css', 'overflow', 'scroll');
+	});
 });

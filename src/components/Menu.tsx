@@ -107,12 +107,13 @@ export const StyledMenu = styled.ul`
 		display: flex;
 		flex-direction: column;
 		justify-content: start;
+		flex-wrap: nowrap;
 		top: 0;
 		padding-top: 100px;
 		left: -100%;
 		width: 100%;
-		height: 100vh;
-		overflow: hidden;
+		height: 100%;
+		overflow: scroll;
 		background: linear-gradient(180deg, #08021E 0%, #120446 146.21%);
 	`}
 

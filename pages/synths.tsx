@@ -11,11 +11,9 @@ import exchangeInfoQuery, { Fees, Rates } from 'src/queries/exchangeInfo/useExch
 import getSNXJS from 'src/lib/snxjs';
 import useMarketClosed from 'src/hooks/useMarketClosed';
 import { SynthStatus } from 'src/sections/synths/SynthCard';
-import { Synth } from '@synthetixio/contracts-interface';
+import { NetworkId, Synth } from '@synthetixio/contracts-interface';
 
 export async function getStaticProps() {
-	// TODO @MF move this logic into the api section and query the stuff from there. So we know where the origin is?
-	// Maybe console log the origin from the request so we see the real origin
 	const tokenListResponse = await axios.get<TokenListResponse>('https://synths.snx.eth.link');
 	const tokenList = {
 		tokens: tokenListResponse.data.tokens,
@@ -23,7 +21,7 @@ export async function getStaticProps() {
 		symbols: tokenListResponse.data.tokens.map((token) => token.symbol),
 	};
 	const exchangeInfo = await exchangeInfoQuery();
-	const synths = getSNXJS().synths;
+	const synths = getSNXJS({ useOvm: false, networkId: NetworkId.Mainnet }).synths;
 	const dictionarySynthStatus: Record<string, SynthStatus> = {};
 	const promises = synths.map(async (synth) => {
 		const marketClosed = await useMarketClosed(synth.name);
@@ -34,7 +32,6 @@ export async function getStaticProps() {
 		}
 	});
 	await Promise.all(promises);
-
 	return {
 		props: {
 			tokenList,
@@ -42,7 +39,7 @@ export async function getStaticProps() {
 			synths,
 			dictionarySynthStatus,
 		},
-		revalidate: 86400,
+		revalidate: 43200,
 	};
 }
 

@@ -1,4 +1,6 @@
 const packageJson = require('./package');
+const execSync = require('child_process').execSync;
+const lastCommitCommand = 'git rev-parse HEAD';
 
 const date = new Date();
 
@@ -9,14 +11,8 @@ console.debug(
  * @type {import('next').NextConfig}
  */
 module.exports = {
-	redirects: async () => {
-		return [
-			{
-				source: '/decentralized-perpetual-futures',
-				destination: '/404',
-				permanent: true,
-			},
-		];
+	async generateBuildId() {
+		return execSync(lastCommitCommand).toString().trim();
 	},
 	env: {
 		// Dynamic env variables
