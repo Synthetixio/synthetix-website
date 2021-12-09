@@ -37,7 +37,7 @@ export default function Perpetuals(props: Record<'synths', PerpetualSynth[]>) {
 				))}
 			</Categories>
 			<CategoriesContent>{synthsDictionary[activeTab]}</CategoriesContent>
-			<BuildButton link="https://kwenta.io/" external={true}>
+			<BuildButton link="https://kwenta.io/" external={true} size="large">
 				TRADE PERPETUAL FUTURES
 			</BuildButton>
 		</PerpetualsSection>

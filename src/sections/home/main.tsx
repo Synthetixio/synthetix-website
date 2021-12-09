@@ -1,4 +1,4 @@
-import { Section, Subline } from 'src/styles/common';
+import { PageTitle, Section, Subline } from 'src/styles/common';
 import SNXWave from 'src/svg/SNXWave';
 import styled from 'styled-components';
 import media from 'styled-media-query';
@@ -12,7 +12,7 @@ const MainSection = () => {
 	return (
 		<MainContainer>
 			<Left>
-				<h1>The derivatives liquidity protocol</h1>
+				<PageTitle>The derivatives liquidity protocol</PageTitle>
 				<SectionDescription>
 					Synthetix is a new financial primitive enabling the creation of synthetic assets, offering
 					unique derivatives and exposure to real-world assets on the blockchain.
@@ -39,20 +39,11 @@ const MainContainer = styled(Section)`
 	overflow: hidden;
 	padding: 0 0 0 153px;
 
-	h1 {
-		${({ theme }) => theme.fonts.headline};
-	}
-
 	${media.lessThan('medium')`
 		flex-direction: column;
 		justify-content: flex-start;
 		height: auto;
 		padding: 0 24px;
-
-		h1 {
-			font-size: 32px;
-			line-height: 38px;
-		}
 	`}
 `;
 
@@ -112,7 +103,7 @@ const LearnMoreButton = styled.button`
 	width: 150px;
 	border: 0px;
 	padding-left: 0;
-	${({ theme }) => theme.fonts.button};
+	${({ theme }) => theme.fonts.largeButton};
 	color: ${({ theme }) => theme.colors.cyan};
 
 	:focus {

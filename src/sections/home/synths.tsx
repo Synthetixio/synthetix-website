@@ -142,6 +142,7 @@ const accordionItems: AccordionItemsType[] = [
 		],
 		buttons: [
 			<BuildButton
+				size="medium"
 				buttonType="secondary"
 				link="/synths"
 				external={false}
@@ -162,10 +163,20 @@ const accordionItems: AccordionItemsType[] = [
 		],
 		buttons: [
 			<FlexDivRowResponsive key="stake-earn-buttons">
-				<BuildButton buttonType="primary" link="https://staking.synthetix.io/" external={true}>
+				<BuildButton
+					buttonType="primary"
+					link="https://staking.synthetix.io/"
+					external={true}
+					size="medium"
+				>
 					STAKE NOW
 				</BuildButton>
-				<BuildButton buttonType="secondary" link="https://docs.synthetix.io/" external={true}>
+				<BuildButton
+					buttonType="secondary"
+					link="https://docs.synthetix.io/"
+					external={true}
+					size="medium"
+				>
 					DOCS
 				</BuildButton>
 			</FlexDivRowResponsive>,
@@ -181,6 +192,7 @@ const accordionItems: AccordionItemsType[] = [
 		],
 		buttons: [
 			<BuildButton
+				size="medium"
 				buttonType="primary"
 				link="https://kwenta.io/"
 				external={true}
@@ -201,6 +213,7 @@ const accordionItems: AccordionItemsType[] = [
 		],
 		buttons: [
 			<BuildButton
+				size="medium"
 				buttonType="secondary"
 				link="https://docs.synthetix.io/"
 				external={true}
