@@ -17,16 +17,11 @@ export const ExternalLink = styled.a.attrs({
 })``;
 
 export const PageTitle = styled.h1`
-	${theme.fonts.largeHeadline};
+	${theme.fonts.pageHeadline};
 `;
 
 export const SectionTitle = styled.h2`
-	${theme.fonts.headline};
-	margin-bottom: 18px;
-	${media.lessThan('medium')`
-		font-size: 24px;
-		line-height: 28px;
-	`};
+	${theme.fonts.sectionTitle};
 `;
 
 export const Subline = styled.article`
