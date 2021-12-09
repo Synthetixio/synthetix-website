@@ -19,10 +19,10 @@ export default function FuturesMain() {
 					<b>Synthetix perpetual futures are available exclusively through Kwenta.</b>
 				</FuturesMainSubline>
 				<BuildButtonWrapper>
-					<BuildButton link="https://kwenta.io" size="medium">
+					<BuildButton link="https://kwenta.io" size="medium" isFirst>
 						Start Trading
 					</BuildButton>
-					<BuildButton link="https://discord.com/invite/AEdUHzt" isLast size="medium">
+					<BuildButton link="https://discord.com/invite/AEdUHzt" size="medium">
 						Discord
 					</BuildButton>
 				</BuildButtonWrapper>
@@ -85,13 +85,15 @@ const BuildButtonWrapper = styled(FlexDiv)`
 	`}
 `;
 
-const BuildButton = styled(Button)<{ isLast?: boolean }>`
+const BuildButton = styled(Button)<{ isFirst?: boolean }>`
 	width: 146px;
 	height: 56px;
-	margin-right: ${({ isLast }) => (isLast ? '0px' : '32px')};
+	margin-right: ${({ isFirst }) => (isFirst ? '32px' : '0px')};
 	margin-top: 29px;
-
-	${media.lessThan('medium')`
-		margin-right: ${({ isLast }) => (isLast ? '0px' : '16px')};
-	`}
+	${({ isFirst }) =>
+		isFirst
+			? media.lessThan('medium')`
+		margin-right: 16px;
+		`
+			: undefined}
 `;
