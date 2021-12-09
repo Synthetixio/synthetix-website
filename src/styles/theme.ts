@@ -1,4 +1,5 @@
 import { css } from 'styled-components';
+import media from 'styled-media-query';
 
 const keyframes = {
 	show: `@keyframes show {
@@ -57,17 +58,22 @@ export const theme = {
 			color: rgba(255, 255, 255, 0.7);
 			overflow-x: hidden;
 		`,
-		largeHeadline: css`
+		pageHeadline: css`
 			font-family: GT America;
 			font-weight: 900;
 			font-size: 40px;
-			line-height: 38px;
+			line-height: 44px;
 			font-stretch: expanded;
 			text-transform: uppercase;
 			color: #ffffff;
 			margin-bottom: 16px;
+
+			${media.lessThan('medium')`
+			font-size: 32px;
+			line-height: 38px;
+			`}
 		`,
-		headline: css`
+		sectionTitle: css`
 			font-family: GT America;
 			font-weight: 900;
 			font-size: 32px;
@@ -75,6 +81,12 @@ export const theme = {
 			font-stretch: expanded;
 			text-transform: uppercase;
 			color: #ffffff;
+			margin-bottom: 16px;
+
+			${media.lessThan('medium')`
+			font-size: 24px;
+			line-height: 26px;
+			`}
 		`,
 		title: css`
 			font-family: GT America;
@@ -82,18 +94,22 @@ export const theme = {
 			font-weight: 900;
 			font-size: 24px;
 			font-stretch: expanded;
-			line-height: 46px;
+			line-height: 26px;
 			text-transform: uppercase;
 			color: #ffffff;
+
+			${media.lessThan('medium')`
+			font-size: 20px;
+			line-height: 22px;
+			`}
 		`,
 		smallTitle: css`
 			font-family: GT America;
 			font-style: normal;
-			font-weight: 900;
+			font-weight: bold;
 			font-size: 16px;
 			font-stretch: expanded;
-			line-height: 17px;
-			text-transform: uppercase;
+			line-height: 26px;
 			color: #ffffff;
 		`,
 		subline: css`
