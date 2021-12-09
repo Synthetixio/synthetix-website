@@ -1,3 +1,7 @@
+# 1.0.6
+
+- Added min height for rotated phones
+
 # 1.0.5
 
 - Rebuilding `/futures` and `/synths` page every 12h.

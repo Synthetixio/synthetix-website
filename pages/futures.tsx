@@ -127,5 +127,6 @@ const FuturesGradient = styled.div`
 	left: 0;
 	${media.lessThan('medium')`
 		height: calc(100vh + ${headerHeight}px);
+		min-height: 600px;
 	`}
 `;
