@@ -53,7 +53,7 @@ const FuturesMainSection = styled(Section)`
 
 	${media.lessThan('medium')`
 		height: calc(100vh - ${headerHeight}px);
-		min-height: unset;
+		min-height: 500px;
 		margin-top: 0;
 	`}
 `;
