@@ -1,7 +1,6 @@
 import { FunctionComponent } from 'react';
 import styled from 'styled-components';
 import Link from 'next/link';
-import { theme } from '../styles/theme';
 
 type ButtonProps = {
 	readonly link: string;
@@ -11,6 +10,7 @@ type ButtonProps = {
 
 type StyledButton = {
 	readonly buttonType?: 'primary' | 'secondary';
+	readonly size?: 'large' | 'medium';
 };
 
 const ButtonComponent: FunctionComponent<ButtonProps> = ({
@@ -19,10 +19,13 @@ const ButtonComponent: FunctionComponent<ButtonProps> = ({
 	children,
 	buttonType = 'primary',
 	external = true,
+	size,
 }) => (
 	<Link href={link} passHref={true}>
 		<A className={className} target={external ? '_blank' : ''} rel="noopener noreferrer">
-			<Button buttonType={buttonType}>{children}</Button>
+			<Button buttonType={buttonType} size={size}>
+				{children}
+			</Button>
 		</A>
 	</Link>
 );
@@ -46,7 +49,7 @@ const Button = styled.button<StyledButton>`
 
 	outline: none;
 	cursor: pointer;
-	${theme.fonts.button};
+	${({ size, theme }) => (size === 'medium' ? theme.fonts.button : theme.fonts.largeButton)};
 	width: 100%;
 	height: 100%;
 

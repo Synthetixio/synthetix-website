@@ -1,4 +1,4 @@
-name: Tests CI
+name: unit tests
 on: [pull_request]
 jobs:
   test:
@@ -9,6 +9,7 @@ jobs:
         uses: actions/setup-node@v2.5.0
         with:
           node-version: '16'
+          cache: 'yarn'
       - run: yarn install
       - run: yarn test
       - name: Tests ✅

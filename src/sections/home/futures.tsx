@@ -22,8 +22,8 @@ const FuturesSection = () => {
 					activeIndex={activeIndex}
 					onAccordionItemChange={setActiveIndex}
 				/>
-				<BuildButton buttonType="primary" link="https://kwenta.io/" external={true}>
-					Trade Now
+				<BuildButton buttonType="primary" link="/futures" external={false} size="medium">
+					Learn More
 				</BuildButton>
 			</AccordionContainer>
 		</FuturesContainer>

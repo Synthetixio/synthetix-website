@@ -3,6 +3,8 @@ import media from 'styled-media-query';
 import { theme } from './theme';
 
 export const Section = styled.section<{ customMaxWidth?: boolean }>`
+	${({ theme }) => theme.animations.show};
+	opacity: 0;
 	width: 100%;
 	position: relative;
 	overflow: hidden;
@@ -14,8 +16,12 @@ export const ExternalLink = styled.a.attrs({
 	rel: 'noopener noreferrer',
 })``;
 
+export const PageTitle = styled.h1`
+	${theme.fonts.largeHeadline};
+`;
+
 export const SectionTitle = styled.h2`
-	${theme.fonts.sectionTitle};
+	${theme.fonts.headline};
 	margin-bottom: 18px;
 	${media.lessThan('medium')`
 		font-size: 24px;

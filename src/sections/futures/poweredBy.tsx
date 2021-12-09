@@ -12,17 +12,17 @@ export interface PoweredByProps {
 
 export default function PoweredBy({ openInterest, tradingVolume, trades }: PoweredByProps) {
 	return (
-		<PoweredBySection customMaxWidth={true}>
+		<PoweredBySection customMaxWidth>
 			<PoweredByContentWrapper>
 				<SpaceBetween>
-					<div>
+					<StyledProtocolBox>
 						<SectionHeader>POWERED BY</SectionHeader>
 						<img src="logo.svg" />
-					</div>
-					<div>
-						<SectionHeader>TRADABLE ON</SectionHeader>
+					</StyledProtocolBox>
+					<StyledProtocolBox>
+						<SectionHeader isLast>TRADABLE ON</SectionHeader>
 						<Kwenta />
-					</div>
+					</StyledProtocolBox>
 				</SpaceBetween>
 				<GlowBoxesWrapper>
 					<GlowBox color="cyan">
@@ -38,6 +38,7 @@ export default function PoweredBy({ openInterest, tradingVolume, trades }: Power
 					<GlowBox color="green">
 						<GlowBoxHeader color="green">OPEN INTEREST</GlowBoxHeader>
 						<GlowBoxNumber>{openInterest}$</GlowBoxNumber>
+						<GlowBoxTime>LAST 24h</GlowBoxTime>
 					</GlowBox>
 				</GlowBoxesWrapper>
 			</PoweredByContentWrapper>
@@ -48,23 +49,37 @@ export default function PoweredBy({ openInterest, tradingVolume, trades }: Power
 
 const PoweredBySection = styled(Section)`
 	width: 100vw;
-	height: 50vh;
-	min-height: 600px;
+	height: 100%;
+	min-height: 800px;
 	display: flex;
 	flex-direction: column;
 	justify-content: center;
 	align-items: center;
+	background-color: ${({ theme }) => theme.colors.bgBlackHighlighted};
+
+	${media.lessThan('medium')`
+		min-height: 700px;
+	`}
 `;
 
 const PoweredByContentWrapper = styled.article`
 	position: absolute;
 	z-index: 10;
 	width: 100%;
-	padding: 0 128px;
 	max-width: 1920px;
+	padding: 0 128px;
+
+	${media.lessThan('medium')`
+		padding: 0 16px;
+	`}
 `;
 
-const SectionHeader = styled.h3`
+const StyledProtocolBox = styled.div`
+	width: 230px;
+	height: 100px;
+`;
+
+const SectionHeader = styled.h3<{ isLast?: boolean }>`
 	font-family: GT America;
 	font-style: normal;
 	font-weight: bold;
@@ -72,11 +87,19 @@ const SectionHeader = styled.h3`
 	line-height: 20px;
 	text-transform: uppercase;
 	color: white;
-	margin-bottom: 8px;
+	margin: 16px 0px;
+	text-align: ${({ isLast }) => (isLast ? 'end' : 'start')};
+	${media.lessThan('medium')`
+		text-align: start;
+	`}
 `;
 
 const SpaceBetween = styled(FlexDiv)`
 	justify-content: space-between;
+	${media.lessThan('medium')`
+		flex-direction: column;
+	align-items: center
+	`}
 `;
 
 const GlowBoxesWrapper = styled(FlexDiv)`
@@ -103,6 +126,10 @@ const GlowBox = styled.div<{ color: 'pink' | 'green' | 'cyan' }>`
 		if (color === 'pink') return 'center';
 		if (color === 'cyan') return 'start';
 	}};
+	${media.lessThan('medium')`
+			text-align:center;
+			width: 310px;
+	`}
 `;
 
 const GlowBoxHeader = styled.h3<{ color: 'pink' | 'green' | 'cyan' }>`
@@ -119,7 +146,7 @@ const GlowBoxNumber = styled.span`
 	font-family: GT America;
 	font-style: normal;
 	font-weight: 900;
-	font-size: 24px;
+	font-size: 32px;
 	line-height: 48px;
 `;
 

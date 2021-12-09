@@ -1,19 +1,17 @@
 import App from 'next/app';
 import Head from 'next/head';
 import { ThemeProvider } from 'styled-components';
-
 import { init } from '@socialgouv/matomo-next';
-
 import { theme } from '../src/styles/theme';
 import { GlobalStyle } from '../src/styles/globals';
 import smoothscroll from 'smoothscroll-polyfill';
 
-const MATOMO_URL = process.env.NEXT_PUBLIC_MATOMO_URL;
-const MATOMO_SITE_ID = process.env.NEXT_PUBLIC_MATOMO_SITE_ID;
-
 export default class MyApp extends App {
 	componentDidMount() {
-		init({ url: MATOMO_URL, siteId: MATOMO_SITE_ID });
+		init({
+			url: process.env.NEXT_PUBLIC_MATOMO_URL,
+			siteId: process.env.NEXT_PUBLIC_MATOMO_SITE_ID,
+		});
 	}
 	render() {
 		/* scroll behavior smooth is not supported by Safari > 15 */

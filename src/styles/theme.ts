@@ -43,6 +43,7 @@ export const theme = {
 		green: '#31D8A4',
 		orange: '#FC8738',
 		yellow: '#FFD75C',
+		red: '#FF7A68',
 
 		bgBlack: '#06061B',
 		bgBlackHighlighted: '#0e052f',
@@ -59,28 +60,39 @@ export const theme = {
 		largeHeadline: css`
 			font-family: GT America;
 			font-weight: 900;
-			font-size: 64px;
-			line-height: 48px;
+			font-size: 40px;
+			line-height: 38px;
 			font-stretch: expanded;
 			text-transform: uppercase;
 			color: #ffffff;
+			margin-bottom: 16px;
 		`,
 		headline: css`
 			font-family: GT America;
 			font-weight: 900;
-			font-size: 40px;
-			line-height: 48px;
+			font-size: 32px;
+			line-height: 35px;
 			font-stretch: expanded;
 			text-transform: uppercase;
 			color: #ffffff;
 		`,
-		sectionTitle: css`
+		title: css`
 			font-family: GT America;
 			font-style: normal;
 			font-weight: 900;
-			font-size: 32px;
+			font-size: 24px;
 			font-stretch: expanded;
-			line-height: 48px;
+			line-height: 46px;
+			text-transform: uppercase;
+			color: #ffffff;
+		`,
+		smallTitle: css`
+			font-family: GT America;
+			font-style: normal;
+			font-weight: 900;
+			font-size: 16px;
+			font-stretch: expanded;
+			line-height: 17px;
 			text-transform: uppercase;
 			color: #ffffff;
 		`,
@@ -93,17 +105,6 @@ export const theme = {
 			color: #ffffff;
 			opacity: 0.7;
 		`,
-		smallHeadline: css`
-			font-family: GT America;
-			font-style: normal;
-			font-stretch: expanded;
-			font-weight: 900;
-			font-size: 16px;
-			line-height: 48px;
-			text-align: center;
-			color: #ffffff;
-		`,
-
 		menu: css`
 			font-family: GT America;
 			font-style: normal;
@@ -114,18 +115,26 @@ export const theme = {
 			color: #ffffff;
 			text-transform: uppercase;
 		`,
-
 		button: css`
 			font-family: GT America;
 			font-style: normal;
 			font-weight: bold;
 			font-stretch: condensed;
-			font-size: 14px;
-			line-height: 24px;
+			font-size: 12px;
+			line-height: 12px;
 			text-align: center;
 			text-transform: uppercase;
 		`,
-
+		largeButton: css`
+			font-family: GT America;
+			font-style: normal;
+			font-weight: bold;
+			font-stretch: condensed;
+			font-size: 14px;
+			line-height: 14px;
+			text-align: center;
+			text-transform: uppercase;
+		`,
 		tab: css`
 			font-family: GT America;
 			font-style: normal;

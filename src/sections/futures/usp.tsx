@@ -1,4 +1,4 @@
-import { FlexDiv, FlexDivCol, Section } from 'src/styles/common';
+import { FlexDiv, FlexDivCol, Section, SectionTitle } from 'src/styles/common';
 import styled from 'styled-components';
 import media from 'styled-media-query';
 
@@ -43,7 +43,8 @@ const USPS = [
 
 export default function USP() {
 	return (
-		<USPSection>
+		<USPSection customMaxWidth>
+			<USPSectionTitle>Trade Perpetual Futures Like the Best</USPSectionTitle>
 			<USPWrapper>
 				{USPS.map((USP) => (
 					<FlexDiv key={USP.label}>
@@ -62,13 +63,27 @@ export default function USP() {
 }
 
 const USPSection = styled(Section)`
-	padding: 120px;
+	padding: 0 120px 120px;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	background-color: ${({ theme }) => theme.colors.bgBlackHighlighted};
 	${media.lessThan('medium')`
-		padding: 0 48px;
+		padding: 16px;
+		padding-top: 80px;
+	`}
+`;
+
+const USPSectionTitle = styled(SectionTitle)`
+	text-align: center;
+	margin-bottom: 80px;
+	${media.lessThan('medium')`
+	margin-bottom: 40px;
 	`}
 `;
 
 const USPWrapper = styled.article`
+	max-width: 1920px;
 	display: grid;
 	grid-template-columns: 1fr 1fr;
 	grid-gap: 23px;

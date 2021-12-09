@@ -1,6 +1,6 @@
 import { Button } from 'src/components';
 import { headerHeight } from 'src/components/Header';
-import { FlexDiv, Section, SectionTitle, Subline } from 'src/styles/common';
+import { FlexDiv, PageTitle, Section, Subline } from 'src/styles/common';
 import styled from 'styled-components';
 import media from 'styled-media-query';
 
@@ -8,19 +8,21 @@ export default function FuturesMain() {
 	return (
 		<FuturesMainSection>
 			<FuturesContentWrapper>
-				<SectionTitle>
+				<PageTitle>
 					Decentralized <br />
 					Perpetual <br />
 					Futures
-				</SectionTitle>
+				</PageTitle>
 				<FuturesMainSubline>
 					Many platforms already leverage the deep liquidity and composability of Synthetix to
 					deliver better trades with lower slippage, hedging, and other unique use cases.&nbsp;
 					<b>Synthetix perpetual futures are available exclusively through Kwenta.</b>
 				</FuturesMainSubline>
 				<BuildButtonWrapper>
-					<BuildButton link="https://kwenta.io">Start Trading</BuildButton>
-					<BuildButton link="https://discord.com/invite/AEdUHzt" isLast>
+					<BuildButton link="https://kwenta.io" size="medium">
+						Start Trading
+					</BuildButton>
+					<BuildButton link="https://discord.com/invite/AEdUHzt" isLast size="medium">
 						Discord
 					</BuildButton>
 				</BuildButtonWrapper>
@@ -50,7 +52,7 @@ const FuturesMainSection = styled(Section)`
 	`}
 
 	${media.lessThan('medium')`
-		height: 100vh;
+		height: calc(100vh - ${headerHeight}px);
 		margin-top: 0;
 	`}
 `;
