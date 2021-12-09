@@ -50,12 +50,16 @@ export default function PoweredBy({ openInterest, tradingVolume, trades }: Power
 const PoweredBySection = styled(Section)`
 	width: 100vw;
 	height: 100%;
-	min-height: 800px;
+	min-height: 600px;
 	display: flex;
 	flex-direction: column;
 	justify-content: center;
 	align-items: center;
 	background-color: ${({ theme }) => theme.colors.bgBlackHighlighted};
+
+	${media.greaterThan('1920px' as any)`
+	min-height: 100vh;
+	`}
 
 	${media.lessThan('medium')`
 		min-height: 700px;
