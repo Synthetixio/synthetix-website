@@ -1,7 +1,6 @@
 import { FunctionComponent } from 'react';
 import styled from 'styled-components';
 import Link from 'next/link';
-import { theme } from '../styles/theme';
 
 type ButtonProps = {
 	readonly link: string;

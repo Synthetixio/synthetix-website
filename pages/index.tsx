@@ -54,7 +54,7 @@ const BgGradient = styled.div`
 
 	${media.lessThan('medium')`
 		height: 734px;
-		min-height: auto;
+		min-height: none;
 	`}
 `;
 

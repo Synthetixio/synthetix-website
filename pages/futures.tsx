@@ -11,6 +11,7 @@ import media from 'styled-media-query';
 import { getDailyCandles, getDailyExchangePartners, getDebtStates } from 'synthetix-subgraph';
 import Perpetuals from 'src/sections/futures/perpetuals';
 import { headerHeight } from 'src/components/Header';
+import { exchangesGraph, optimismGraphMain } from 'src/constants/urls';
 
 interface DecentralizedPerpetualFuturesProps extends PoweredByProps {
 	synths: PerpetualSynth[];
@@ -24,16 +25,13 @@ export interface PerpetualSynth {
 	category: string;
 }
 
-const url = 'https://api.thegraph.com/subgraphs/name/synthetixio-team/optimism-main';
-const urlL1 = 'https://api.thegraph.com/subgraphs/name/synthetixio-team/synthetix-exchanges';
-
 export async function getStaticProps() {
 	const snx = getSNXJS({
 		useOvm: true,
 		networkId: NetworkId['Mainnet-Ovm'],
 	});
 	const [dailyKwenta] = await getDailyExchangePartners(
-		url,
+		optimismGraphMain,
 		{
 			where: {
 				partner: 'KWENTA',
@@ -44,7 +42,7 @@ export async function getStaticProps() {
 		{ id: true, trades: true, usdVolume: true }
 	);
 	const [debt] = await getDebtStates(
-		url,
+		optimismGraphMain,
 		{
 			orderBy: 'timestamp',
 			orderDirection: 'desc',
@@ -60,7 +58,7 @@ export async function getStaticProps() {
 	const synths: PerpetualSynth[] = await Promise.all(
 		snx.synths.map(async (synth, index) => {
 			const [synthCandle] = await getDailyCandles(
-				urlL1,
+				exchangesGraph,
 				{ first: 1, where: { synth: synth.name }, orderBy: 'timestamp', orderDirection: 'desc' },
 				{
 					open: true,
@@ -117,7 +115,11 @@ export default function DecentralizedPerpetualFutures({
 }
 
 const FuturesGradient = styled.div`
-	background: linear-gradient(180deg, rgba(14, 5, 47, 0) 0%, #0e052f 38.6%);
+	background: linear-gradient(
+		180deg,
+		rgba(14, 5, 47, 0) 0%,
+		${({ theme }) => theme.colors.bgBlackHighlighted} 38.6%
+	);
 	width: 100vw;
 	height: 894px;
 	position: absolute;
