@@ -53,6 +53,7 @@ const FuturesMainSection = styled(Section)`
 
 	${media.lessThan('medium')`
 		height: calc(100vh - ${headerHeight}px);
+		min-height: unset;
 		margin-top: 0;
 	`}
 `;
@@ -78,6 +79,7 @@ const FuturesMainSubline = styled(Subline)`
 
 const BuildButtonWrapper = styled(FlexDiv)`
 	${media.lessThan('1100px' as any)`
+		width: 100%;
 		justify-content: center;
 		margin-bottom: 16px;
 	`}
@@ -86,6 +88,10 @@ const BuildButtonWrapper = styled(FlexDiv)`
 const BuildButton = styled(Button)<{ isLast?: boolean }>`
 	width: 146px;
 	height: 56px;
-	margin-right: ${({ isLast }) => (isLast ? '0px' : '31px')};
+	margin-right: ${({ isLast }) => (isLast ? '0px' : '32px')};
 	margin-top: 29px;
+
+	${media.lessThan('medium')`
+		margin-right: ${({ isLast }) => (isLast ? '0px' : '16px')};
+	`}
 `;
