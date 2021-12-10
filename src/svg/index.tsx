@@ -10,3 +10,4 @@ export { default as PParafi } from './PParafi';
 export { default as PThreeArrows } from './PThreeArrows';
 export { default as PXbto } from './PXbto';
 export { default as Twitter } from './Twitter';
+export { default as Plus } from './Plus';

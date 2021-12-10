@@ -49,7 +49,7 @@ export default function USP() {
 				{USPS.map((USP) => (
 					<FlexDiv key={USP.label}>
 						<USPBox>
-							<img src={USP.picture} />
+							<img src={USP.picture} alt="unique selling point" />
 						</USPBox>
 						<FlexDivCol>
 							<USPHeadline>{USP.label}</USPHeadline>
