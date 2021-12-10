@@ -1,3 +1,7 @@
+# 1.0.7
+
+- Updated background image for futures main section
+
 # 1.0.6
 
 - Added min height for rotated phones
