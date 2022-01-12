@@ -1,6 +1,5 @@
 import { BigNumberish, ethers } from 'ethers';
 import { CurrencyKey } from 'src/constants/currency';
-import { iStandardSynth, synthToAsset } from 'src/utils/currencies';
 import getSNXJS from 'src/lib/snxjs';
 import { NetworkId } from '@synthetixio/contracts-interface';
 
@@ -9,6 +8,9 @@ export type Fees = Record<CurrencyKey, number>;
 
 type CurrencyRate = BigNumberish;
 type SynthRatesTuple = [string[], CurrencyRate[]];
+
+const synthToAsset = (currencyKey: CurrencyKey) => currencyKey.replace(/^(i|s)/i, '');
+const iStandardSynth = (currencyKey: CurrencyKey) => currencyKey.startsWith('s');
 
 // Additional commonly used currencies to fetch, besides the one returned by the SynthUtil.synthsRates
 const additionalCurrencies = ['SNX'].map(ethers.utils.formatBytes32String);

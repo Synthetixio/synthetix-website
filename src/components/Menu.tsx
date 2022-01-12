@@ -26,7 +26,7 @@ const data = [
 		hideOnHeader: false,
 	},
 	{
-		externalLink: 'https://gov.synthetix.io/',
+		link: '/governance',
 		label: 'governance',
 		hideOnHeader: false,
 	},

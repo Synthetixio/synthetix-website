@@ -1,4 +1,4 @@
-import { FlexDiv, Section, Subline } from 'src/styles/common';
+import { FlexDiv, Section } from 'src/styles/common';
 import { Kwenta } from 'src/svg';
 import SvgPoweredByWave from 'src/svg/PoweredByWave';
 import styled from 'styled-components';
@@ -17,7 +17,7 @@ export default function PoweredBy({ openInterest, tradingVolume, trades }: Power
 				<SpaceBetween>
 					<StyledProtocolBox>
 						<SectionHeader>POWERED BY</SectionHeader>
-						<img src="logo.svg" />
+						<img src="logo.svg" alt="powered by" />
 					</StyledProtocolBox>
 					<StyledProtocolBox>
 						<SectionHeader isLast>TRADABLE ON</SectionHeader>
