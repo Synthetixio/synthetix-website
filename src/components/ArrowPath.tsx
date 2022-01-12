@@ -387,7 +387,7 @@ export default function ArrowPath({
 	}, [globalOffset.top, endOffset.top, startOffset.top, arrowWrapper?.top]);
 
 	return (
-		<g style={{ cursor: 'pointer' }} onClick={onClick}>
+		<g onClick={onClick}>
 			{mainArrow && (
 				<defs>
 					<linearGradient id="gradient">
