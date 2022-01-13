@@ -11,7 +11,7 @@ interface ArrowPathProps {
 	}[];
 	startPosition: PositionDetails;
 	endPosition: PositionDetails;
-	onClick: () => void;
+	onClick?: () => void;
 	mainArrow?: boolean;
 	color?: 'cyan' | 'pink' | 'green';
 	hideCircle?: boolean;
