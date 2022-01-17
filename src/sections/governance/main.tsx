@@ -764,17 +764,11 @@ const GovernanceSection = styled(Section)`
 const GovernancePageTitle = styled(PageTitle)`
 	text-align: center;
 	width: 100%;
-	${media.lessThan('large')`
-		font-size: 18px;
-	`}
 `;
 
 const StyledGovernanceSubline = styled(Subline)`
 	text-align: center;
 	max-width: 500px;
-	${media.lessThan('large')`
-		font-size: 12px;
-	`}
 `;
 
 const GraphContentWrapper = styled.div`
