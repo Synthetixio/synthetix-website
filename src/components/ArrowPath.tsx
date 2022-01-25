@@ -388,14 +388,6 @@ export default function ArrowPath({
 
 	return (
 		<g onClick={onClick}>
-			{mainArrow && (
-				<defs>
-					<linearGradient id="gradient">
-						<stop offset="5%" stopColor={theme.colors.pink} />
-						<stop offset="95%" stopColor={theme.colors.bgBlack} />
-					</linearGradient>
-				</defs>
-			)}
 			{mainArrow ||
 				(!hideCircle && (
 					<circle
