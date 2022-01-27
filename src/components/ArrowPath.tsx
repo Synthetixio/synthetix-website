@@ -15,6 +15,7 @@ interface ArrowPathProps {
 	mainArrow?: boolean;
 	color?: 'cyan' | 'pink' | 'green';
 	hideCircle?: boolean;
+	active?: boolean;
 }
 
 interface PositionDetails {
@@ -49,6 +50,7 @@ export default function ArrowPath({
 	color,
 	mainArrow,
 	hideCircle,
+	active,
 }: ArrowPathProps) {
 	const [startOffset, setStartOffset] = useState({ top: 0, left: 0 });
 	const [endOffset, setEndOffset] = useState({ top: 0, left: 0 });
@@ -386,8 +388,21 @@ export default function ArrowPath({
 		setAllEdges(combinedEdgesWithArches);
 	}, [globalOffset.top, endOffset.top, startOffset.top, arrowWrapper?.top]);
 
+	// https://www.mediaevent.de/svg-line-art-mit-css/
 	return (
-		<g onClick={onClick}>
+		<g onClick={onClick} style={{ margin: '15px' }}>
+			<style>
+				{`
+				.draw {
+					stroke-dasharray: 4;
+					animation: dashdraw 1s linear infinite reverse;
+
+				}
+				@keyframes dashdraw {to {stroke-dashoffset: 40;}}
+
+			`}
+			</style>
+
 			{mainArrow ||
 				(!hideCircle && (
 					<circle
@@ -398,6 +413,7 @@ export default function ArrowPath({
 					/>
 				))}
 			<path
+				className={active ? (mainArrow ? 'draw2' : 'draw') : ''}
 				d={`M ${startOffset.left - globalOffset.left},${
 					startOffset.top - globalOffset.top
 				} ${allEdges.toString().replace(/,/gm, ' ')} L ${endOffset.left - globalOffset.left},${
