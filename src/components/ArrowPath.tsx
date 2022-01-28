@@ -55,6 +55,7 @@ export default function ArrowPath({
 	const [startOffset, setStartOffset] = useState({ top: 0, left: 0 });
 	const [endOffset, setEndOffset] = useState({ top: 0, left: 0 });
 	const [globalOffset, setGlobalOffset] = useState({ top: 0, left: 0 });
+	const [length, setLength] = useState(0);
 	const [allEdges, setAllEdges] = useState(['']);
 	const startElement = getClientRects(startPosition.id);
 	const endElement = getClientRects(endPosition.id);
@@ -386,6 +387,10 @@ export default function ArrowPath({
 		}
 		const combinedEdgesWithArches = calculateAllCurves(calculateAllEdges(edges));
 		setAllEdges(combinedEdgesWithArches);
+		if (startElement && endElement) {
+			const length = document.querySelector('#'.concat(startPosition.id.concat(endPosition.id)));
+			setLength(length ? (length as any).getTotalLength() : 0);
+		}
 	}, [globalOffset.top, endOffset.top, startOffset.top, arrowWrapper?.top]);
 
 	// https://www.mediaevent.de/svg-line-art-mit-css/
@@ -400,6 +405,14 @@ export default function ArrowPath({
 				}
 				@keyframes dashdraw {to {stroke-dashoffset: 40;}}
 
+				.drawMainArrow {
+					stroke-dasharray: ${length};
+					stroke-dashoffset: ${length};
+					animation: dash 3s linear infinite;
+				}
+				@keyframes dash {
+					to {stroke-dashoffset: 0}
+				 }
 			`}
 			</style>
 
@@ -413,7 +426,8 @@ export default function ArrowPath({
 					/>
 				))}
 			<path
-				className={active ? (mainArrow ? 'draw2' : 'draw') : ''}
+				id={startPosition.id.concat(endPosition.id)}
+				className={active ? (mainArrow ? 'drawMainArrow' : 'draw') : ''}
 				d={`M ${startOffset.left - globalOffset.left},${
 					startOffset.top - globalOffset.top
 				} ${allEdges.toString().replace(/,/gm, ' ')} L ${endOffset.left - globalOffset.left},${
