@@ -427,7 +427,7 @@ export default function ArrowPath({
 				))}
 			<path
 				id={startPosition.id.concat(endPosition.id)}
-				className={active ? (mainArrow ? 'drawMainArrow' : 'draw') : ''}
+				className={active ? (mainArrow ? 'drawMainArrow' : 'draw') : 'stopAnimation'}
 				d={`M ${startOffset.left - globalOffset.left},${
 					startOffset.top - globalOffset.top
 				} ${allEdges.toString().replace(/,/gm, ' ')} L ${endOffset.left - globalOffset.left},${

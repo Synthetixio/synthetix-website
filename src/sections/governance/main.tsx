@@ -77,6 +77,10 @@ export default function GovernanceMain() {
 										'sips-author',
 										'feasibility-risk',
 										'review-grant-submissions',
+										'snx-community-treasury-council-plus-sign-main-arrow',
+										'snx-community-spartan-council-plus-sign-main-arrow',
+										'snx-community-ambassadors-council-plus-sign-main-arrow',
+										'snx-community-grants-dao-main-arrow',
 									])
 								}
 							>
@@ -221,6 +225,8 @@ export default function GovernanceMain() {
 										'reviewing-sips',
 										'risk-committee-plus-sign',
 										'budget-funding',
+										'snx-community-spartan-council-plus-sign-main-arrow',
+										'treasury-council-plus-sign-spartan-council-plus-sign-main-arrow',
 									])
 								}
 							>
@@ -263,6 +269,7 @@ export default function GovernanceMain() {
 										'vouch-for-cc',
 										'treasury-council-plus-sign',
 										'budget-funding',
+										'treasury-council-plus-sign-core-contributor-committee-plus-sign-main-arrow',
 									])
 								}
 							>
@@ -325,6 +332,8 @@ export default function GovernanceMain() {
 										'snx-community',
 										'treasury-council-plus-sign',
 										'budget-funding',
+										'snx-community-ambassadors-council-plus-sign-main-arrow',
+										'treasury-council-plus-sign-ambassadors-council-plus-sign-main-arrow',
 									])
 								}
 							>
@@ -353,6 +362,7 @@ export default function GovernanceMain() {
 										'implement-sips',
 										'treasury-council-plus-sign',
 										'budget-funding',
+										'treasury-council-plus-sign-protocol-dao-plus-sign-main-arrow',
 									])
 								}
 							>
@@ -434,6 +444,8 @@ export default function GovernanceMain() {
 										'treasury-council-plus-sign',
 										'pay-contributors',
 										'budget-funding',
+										'snx-community-grants-dao-main-arrow',
+										'treasury-council-plus-sign-grants-dao-main-arrow',
 									])
 								}
 							>
@@ -468,6 +480,7 @@ export default function GovernanceMain() {
 										'feasibility-risk',
 										'treasury-council-plus-sign',
 										'budget-funding',
+										'treasury-council-plus-sign-risk-committee-plus-sign-main-arrow',
 									])
 								}
 							>
@@ -565,6 +578,14 @@ export default function GovernanceMain() {
 										'grants-dao',
 										'risk-committee-plus-sign',
 										'treasury-council-plus-sign',
+										'snx-community-treasury-council-plus-sign-main-arrow',
+										'snx-community',
+										'treasury-council-plus-sign-grants-dao-main-arrow',
+										'treasury-council-plus-sign-ambassadors-council-plus-sign-main-arrow',
+										'treasury-council-plus-sign-spartan-council-plus-sign-main-arrow',
+										'treasury-council-plus-sign-risk-committee-plus-sign-main-arrow',
+										'treasury-council-plus-sign-protocol-dao-plus-sign-main-arrow',
+										'treasury-council-plus-sign-core-contributor-committee-plus-sign-main-arrow',
 									])
 								}
 							>
@@ -590,6 +611,14 @@ export default function GovernanceMain() {
 											'grants-dao',
 											'risk-committee-plus-sign',
 											'treasury-council-plus-sign',
+											'snx-community-treasury-council-plus-sign-main-arrow',
+											'snx-community',
+											'treasury-council-plus-sign-grants-dao-main-arrow',
+											'treasury-council-plus-sign-ambassadors-council-plus-sign-main-arrow',
+											'treasury-council-plus-sign-spartan-council-plus-sign-main-arrow',
+											'treasury-council-plus-sign-risk-committee-plus-sign-main-arrow',
+											'treasury-council-plus-sign-protocol-dao-plus-sign-main-arrow',
+											'treasury-council-plus-sign-core-contributor-committee-plus-sign-main-arrow',
 										])
 									}
 								>
@@ -852,7 +881,8 @@ export default function GovernanceMain() {
 							edges={[{ x: 0, y: 'heightAsEndEl' }]}
 							active={
 								activeArrowIds.includes('snx-community') &&
-								activeArrowIds.includes('treasury-council-plus-sign')
+								activeArrowIds.includes('treasury-council-plus-sign') &&
+								activeArrowIds.includes('snx-community-treasury-council-plus-sign-main-arrow')
 							}
 						/>
 						<ArrowPath
@@ -866,7 +896,8 @@ export default function GovernanceMain() {
 							edges={[{ x: 0, y: 'heightAsEndEl' }]}
 							active={
 								activeArrowIds.includes('snx-community') &&
-								activeArrowIds.includes('spartan-council-plus-sign')
+								activeArrowIds.includes('spartan-council-plus-sign') &&
+								activeArrowIds.includes('snx-community-spartan-council-plus-sign-main-arrow')
 							}
 						/>
 
@@ -881,7 +912,8 @@ export default function GovernanceMain() {
 							edges={[{ x: 0, y: 'heightAsEndEl' }]}
 							active={
 								activeArrowIds.includes('snx-community') &&
-								activeArrowIds.includes('ambassadors-council-plus-sign')
+								activeArrowIds.includes('ambassadors-council-plus-sign') &&
+								activeArrowIds.includes('snx-community-ambassadors-council-plus-sign-main-arrow')
 							}
 						/>
 						<ArrowPath
@@ -894,7 +926,9 @@ export default function GovernanceMain() {
 							}}
 							edges={[{ x: 0, y: 'heightAsEndEl' }]}
 							active={
-								activeArrowIds.includes('snx-community') && activeArrowIds.includes('grants-dao')
+								activeArrowIds.includes('snx-community') &&
+								activeArrowIds.includes('grants-dao') &&
+								activeArrowIds.includes('snx-community-grants-dao-main-arrow')
 							}
 						/>
 
@@ -909,7 +943,8 @@ export default function GovernanceMain() {
 							edges={[{ x: 0, y: 'heightAsEndEl' }]}
 							active={
 								activeArrowIds.includes('treasury-council-plus-sign') &&
-								activeArrowIds.includes('grants-dao')
+								activeArrowIds.includes('grants-dao') &&
+								activeArrowIds.includes('treasury-council-plus-sign-grants-dao-main-arrow')
 							}
 						/>
 
@@ -924,7 +959,10 @@ export default function GovernanceMain() {
 							edges={[{ x: 0, y: 'heightAsEndEl' }]}
 							active={
 								activeArrowIds.includes('treasury-council-plus-sign') &&
-								activeArrowIds.includes('ambassadors-council-plus-sign')
+								activeArrowIds.includes('ambassadors-council-plus-sign') &&
+								activeArrowIds.includes(
+									'treasury-council-plus-sign-ambassadors-council-plus-sign-main-arrow'
+								)
 							}
 						/>
 
@@ -939,7 +977,10 @@ export default function GovernanceMain() {
 							edges={[{ x: 0, y: 'heightAsEndEl' }]}
 							active={
 								activeArrowIds.includes('treasury-council-plus-sign') &&
-								activeArrowIds.includes('spartan-council-plus-sign')
+								activeArrowIds.includes('spartan-council-plus-sign') &&
+								activeArrowIds.includes(
+									'treasury-council-plus-sign-spartan-council-plus-sign-main-arrow'
+								)
 							}
 						/>
 						<ArrowPath
@@ -953,7 +994,10 @@ export default function GovernanceMain() {
 							edges={[{ x: 0, y: 'heightAsEndEl' }]}
 							active={
 								activeArrowIds.includes('treasury-council-plus-sign') &&
-								activeArrowIds.includes('risk-committee-plus-sign')
+								activeArrowIds.includes('risk-committee-plus-sign') &&
+								activeArrowIds.includes(
+									'treasury-council-plus-sign-risk-committee-plus-sign-main-arrow'
+								)
 							}
 						/>
 						<ArrowPath
@@ -967,7 +1011,10 @@ export default function GovernanceMain() {
 							edges={[{ x: 0, y: 'heightAsEndEl' }]}
 							active={
 								activeArrowIds.includes('treasury-council-plus-sign') &&
-								activeArrowIds.includes('protocol-dao')
+								activeArrowIds.includes('protocol-dao') &&
+								activeArrowIds.includes(
+									'treasury-council-plus-sign-protocol-dao-plus-sign-main-arrow'
+								)
 							}
 						/>
 						<ArrowPath
@@ -981,7 +1028,10 @@ export default function GovernanceMain() {
 							edges={[{ x: 0, y: 'heightAsEndEl' }]}
 							active={
 								activeArrowIds.includes('treasury-council-plus-sign') &&
-								activeArrowIds.includes('core-contributor-committee')
+								activeArrowIds.includes('core-contributor-committee') &&
+								activeArrowIds.includes(
+									'treasury-council-plus-sign-core-contributor-committee-plus-sign-main-arrow'
+								)
 							}
 						/>
 					</ArrowWrapper>
