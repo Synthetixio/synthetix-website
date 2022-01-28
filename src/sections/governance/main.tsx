@@ -604,7 +604,7 @@ export default function GovernanceMain() {
 						</DAOWrapper>
 					</Row>
 					<ArrowWrapper width={900} height={790}>
-						{/* 					<ArrowPath
+						<ArrowPath
 							startPosition={{ id: 'core-contributor-committee', position: 'top' }}
 							endPosition={{
 								id: 'core-contributors',
@@ -837,7 +837,7 @@ export default function GovernanceMain() {
 								activeArrowIds.includes('sips-author') &&
 								activeArrowIds.includes('feasibility-risk')
 							}
-						/> */}
+						/>
 
 						{/* Main Arrows */}
 
