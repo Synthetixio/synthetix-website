@@ -387,9 +387,9 @@ export default function ArrowPath({
 		}
 		const combinedEdgesWithArches = calculateAllCurves(calculateAllEdges(edges));
 		setAllEdges(combinedEdgesWithArches);
-		if (startElement && endElement) {
+		if (startElement && endElement && !active) {
 			const length = document.querySelector('#'.concat(startPosition.id.concat(endPosition.id)));
-			setLength(length ? (length as any).getTotalLength() : 0);
+			setLength(length ? (length as any).getTotalLength().toFixed(2) : 0);
 		}
 	}, [globalOffset.top, endOffset.top, startOffset.top, arrowWrapper?.top]);
 
@@ -412,6 +412,10 @@ export default function ArrowPath({
 				}
 				@keyframes dash {
 					to {stroke-dashoffset: 0}
+				 }
+
+				 .stopAnimation {
+					animation-name:none!important;
 				 }
 			`}
 			</style>
