@@ -55,7 +55,7 @@ export default function ArrowPath({
 	const [startOffset, setStartOffset] = useState({ top: 0, left: 0 });
 	const [endOffset, setEndOffset] = useState({ top: 0, left: 0 });
 	const [globalOffset, setGlobalOffset] = useState({ top: 0, left: 0 });
-	const [length, setLength] = useState(0);
+	const [pathLength, setPathLength] = useState(0);
 	const [allEdges, setAllEdges] = useState(['']);
 	const startElement = getClientRects(startPosition.id);
 	const endElement = getClientRects(endPosition.id);
@@ -387,11 +387,21 @@ export default function ArrowPath({
 		}
 		const combinedEdgesWithArches = calculateAllCurves(calculateAllEdges(edges));
 		setAllEdges(combinedEdgesWithArches);
-		if (startElement && endElement && !active) {
-			const length = document.querySelector('#'.concat(startPosition.id.concat(endPosition.id)));
-			setLength(length ? (length as any).getTotalLength().toFixed(2) : 0);
+		if (startElement && endElement) {
+			const length = (
+				document.getElementById(startPosition.id.concat(endPosition.id)) as any
+			).getTotalLength();
+			setPathLength(pathLength === 0 ? length : pathLength);
 		}
-	}, [globalOffset.top, endOffset.top, startOffset.top, arrowWrapper?.top]);
+	}, [
+		globalOffset.top,
+		endOffset.top,
+		startOffset.top,
+		arrowWrapper?.top,
+		active,
+		startPosition.id,
+		endPosition.id,
+	]);
 
 	return (
 		<g onClick={onClick} style={{ margin: '15px' }}>
@@ -405,8 +415,8 @@ export default function ArrowPath({
 				@keyframes dashdraw {to {stroke-dashoffset: 40;}}
 
 				.drawMainArrow {
-					stroke-dasharray: ${length};
-					stroke-dashoffset: ${length};
+					stroke-dasharray: ${pathLength};
+					stroke-dashoffset: ${pathLength};
 					animation: dash 3s linear infinite;
 				}
 				@keyframes dash {
