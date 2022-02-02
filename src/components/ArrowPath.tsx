@@ -393,7 +393,16 @@ export default function ArrowPath({
 		}
 	}, [globalOffset.top, endOffset.top, startOffset.top, arrowWrapper?.top]);
 
-	// https://www.mediaevent.de/svg-line-art-mit-css/
+	useEffect(() => {
+		// triggering a reflow https://sites.google.com/site/getsnippet/javascript/dom/repaints-and-reflows-manipulating-the-dom-responsibly
+		const activeEl = document.getElementById('#'.concat(startPosition.id.concat(endPosition.id)));
+		if (activeEl) {
+			activeEl.style.animation = 'none';
+			activeEl.offsetHeight;
+			activeEl.style.animation = 'null';
+		}
+	}, [active]);
+
 	return (
 		<g onClick={onClick} style={{ margin: '15px' }}>
 			<style>
