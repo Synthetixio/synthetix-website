@@ -9,8 +9,11 @@ export default function GovernanceMain() {
 	const [activeArrowIds, setActiveArrowIds] = useState(['']);
 
 	const setActiveArrows = (ids: string[]) => {
-		setActiveArrowIds([]);
-		setActiveArrowIds(ids);
+		setActiveArrowIds(['']);
+		// trigger animation from the beginning
+		setTimeout(() => {
+			setActiveArrowIds(ids);
+		}, 1);
 	};
 
 	useEffect(() => {
