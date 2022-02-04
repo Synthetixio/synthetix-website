@@ -405,6 +405,7 @@ export default function GovernanceMain() {
 										'budget-funding',
 										'treasury-council-plus-sign-protocol-dao-plus-sign-main-arrow',
 										'spartan-council-arrow-label',
+										'spartan-council-plus-sign',
 									])
 								}
 							>
