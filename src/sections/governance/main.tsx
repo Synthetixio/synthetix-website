@@ -105,7 +105,32 @@ export default function GovernanceMain() {
 								focus={activeArrowIds.includes('core-contributors')}
 								id="core-contributors"
 								onClick={(e) => {
-									if ((e as any).target?.id !== 'elect-committee') {
+									setActiveArrows([
+										'implement-sips',
+										'core-contributors',
+										'feasibility-risk',
+										'vouch-for-cc',
+										'execute-sccps',
+										'execute-sips',
+										'vote-sips',
+										'hire-cc',
+										'core-contributor-committee',
+										'protocol-dao',
+										'spartan-council-plus-sign',
+										'pay-cc',
+										'elect-committee',
+									]);
+								}}
+							>
+								<DAOPlusSignWrapper position="top">
+									<SvgPlus />
+								</DAOPlusSignWrapper>
+								<StyledText bold>CORE</StyledText>
+								<StyledText>Contributors</StyledText>
+								<DAOActionCircle
+									id="elect-committee"
+									focus={activeArrowIds.includes('elect-committee')}
+									onClick={() =>
 										setActiveArrows([
 											'implement-sips',
 											'core-contributors',
@@ -119,19 +144,9 @@ export default function GovernanceMain() {
 											'protocol-dao',
 											'spartan-council-plus-sign',
 											'pay-cc',
-										]);
+											'elect-committee',
+										])
 									}
-								}}
-							>
-								<DAOPlusSignWrapper position="top">
-									<SvgPlus />
-								</DAOPlusSignWrapper>
-								<StyledText bold>CORE</StyledText>
-								<StyledText>Contributors</StyledText>
-								<DAOActionCircle
-									id="elect-committee"
-									focus={activeArrowIds.includes('elect-committee')}
-									onClick={() => setActiveArrows(['elect-committee', 'core-contributor-committee'])}
 								>
 									Elect Committee
 								</DAOActionCircle>
@@ -233,6 +248,8 @@ export default function GovernanceMain() {
 										'budget-funding',
 										'snx-community-spartan-council-plus-sign-main-arrow',
 										'treasury-council-plus-sign-spartan-council-plus-sign-main-arrow',
+										'spartan-council-arrow-label',
+										'protocol-dao',
 									])
 								}
 							>
@@ -251,7 +268,23 @@ export default function GovernanceMain() {
 									focus={activeArrowIds.includes('spartan-council-arrow-label')}
 									onClick={(e) => {
 										e.stopPropagation();
-										setActiveArrows(['spartan-council-arrow-label', 'protocol-dao']);
+										setActiveArrows([
+											'spartan-council-plus-sign',
+											'snx-community',
+											'treasury-council-plus-sign',
+											'vote-sips',
+											'implement-sips',
+											'feasibility-risk',
+											'core-contributors',
+											'sips-author',
+											'reviewing-sips',
+											'risk-committee-plus-sign',
+											'budget-funding',
+											'snx-community-spartan-council-plus-sign-main-arrow',
+											'treasury-council-plus-sign-spartan-council-plus-sign-main-arrow',
+											'spartan-council-arrow-label',
+											'protocol-dao',
+										]);
 									}}
 								>
 									Induct Members
@@ -276,6 +309,7 @@ export default function GovernanceMain() {
 										'treasury-council-plus-sign',
 										'budget-funding',
 										'treasury-council-plus-sign-core-contributor-committee-plus-sign-main-arrow',
+										'elect-committee',
 									])
 								}
 							>
@@ -288,6 +322,7 @@ export default function GovernanceMain() {
 											'core-contributor-committee-plus-sign',
 											'core-contributors',
 											'pay-cc',
+											'elect-committee',
 										]);
 									}}
 								>
@@ -369,6 +404,7 @@ export default function GovernanceMain() {
 										'treasury-council-plus-sign',
 										'budget-funding',
 										'treasury-council-plus-sign-protocol-dao-plus-sign-main-arrow',
+										'spartan-council-arrow-label',
 									])
 								}
 							>
