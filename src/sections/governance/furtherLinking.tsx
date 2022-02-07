@@ -29,6 +29,7 @@ export default function FurtherLinking() {
 
 const StyledFurtherLinkingWrapper = styled(Section)`
 	position: relative;
+	max-width: 940px;
 	height: 300px;
 	background-color: ${({ theme }) => theme.colors.bgBlackHighlighted};
 `;
