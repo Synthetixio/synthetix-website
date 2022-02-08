@@ -494,7 +494,7 @@ export default function GovernanceMain() {
 							</DAOPlusSignWrapper>
 							<StyledText color="white">grants</StyledText>
 							<StyledText color="white" bold>
-								Council
+								COUNCIL
 							</StyledText>
 							<ArrowLabel
 								color="cyan"
