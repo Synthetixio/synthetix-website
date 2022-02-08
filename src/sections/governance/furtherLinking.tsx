@@ -12,14 +12,14 @@ export default function FurtherLinking() {
 					<StyledLinkButtons href="https://staking.synthetix.io/gov">
 						<StyledSmallButtonLabel>GO TO</StyledSmallButtonLabel>
 						<StyledLargeButtonLabel>Staking</StyledLargeButtonLabel>
-						<StyledArrow left fill="cyan" />
+						<StyledLeftArrow fill="cyan" />
 					</StyledLinkButtons>
 				</StyledButtonWrapperLinearGradient>
 				<StyledButtonWrapperLinearGradient last>
 					<StyledLinkButtons href="https://gov.synthetix.io/#/" last>
 						<StyledSmallButtonLabel>GO TO</StyledSmallButtonLabel>
 						<StyledLargeButtonLabel>Governance</StyledLargeButtonLabel>
-						<StyledArrow fill="cyan" />
+						<StyledRightArrow fill="cyan" />
 					</StyledLinkButtons>
 				</StyledButtonWrapperLinearGradient>
 			</StyledButtonWrapper>
@@ -29,7 +29,7 @@ export default function FurtherLinking() {
 
 const StyledFurtherLinkingWrapper = styled(Section)`
 	position: relative;
-	max-width: 940px;
+	width: 100%;
 	height: 300px;
 	background-color: ${({ theme }) => theme.colors.bgBlackHighlighted};
 `;
@@ -90,8 +90,15 @@ const StyledLargeButtonLabel = styled.span`
 	font-weight: bold;
 `;
 
-const StyledArrow = styled(SvgArrow)<{ left?: boolean }>`
+const StyledLeftArrow = styled(SvgArrow)`
 	position: absolute;
-	${({ left }) =>
-		left ? 'left: 40px; transform: rotate(180deg); bottom: 43%;' : 'right: 40px; top: 45%;'};
+	left: 40px;
+	transform: rotate(180deg);
+	bottom: 43%;
+`;
+
+const StyledRightArrow = styled(SvgArrow)`
+	position: absolute;
+	right: 40px;
+	top: 45%;
 `;

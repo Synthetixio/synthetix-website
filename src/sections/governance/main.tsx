@@ -27,10 +27,12 @@ export default function GovernanceMain() {
 		<GovernanceSection>
 			<GovernancePageTitle>Governance</GovernancePageTitle>
 			<StyledGovernanceSubline>
-				The Synthetix Protocol has several key governing bodies which co-exist to enable the
-				decentralized nature of the Protocol. The key decentralized autonomous organizations (DAOs)
-				are described below, and the interactive shows how they work together to operate the
-				Synthetix Protocol.
+				The Synthetix governance structure is composed of Councils, Committees, Core Contributors
+				and a DAO. Each governance component is assigned a specific aspect of protocol governance.
+				Councils are directly elected by SNX stakers, while other governance bodies are appointed
+				according to the existing governance procedures. All of the components work together to
+				ensure that the protocol is governed in a fair, transparent and legitimate way in accordance
+				with the direction provided by token holders.
 			</StyledGovernanceSubline>
 			<GraphContentWrapper>
 				{/* FIRST ROW */}
@@ -492,7 +494,7 @@ export default function GovernanceMain() {
 							</DAOPlusSignWrapper>
 							<StyledText color="white">grants</StyledText>
 							<StyledText color="white" bold>
-								DAO
+								Council
 							</StyledText>
 							<ArrowLabel
 								color="cyan"
