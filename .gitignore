@@ -40,6 +40,10 @@ yarn-error.log*
 # cypress
 tests/e2e/videos/
 tests/e2e/screenshots/
+
+#Sanity
+/sanity/node_modules
+/sanity/dist
  
 .env
 .env.local
