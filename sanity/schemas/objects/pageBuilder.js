@@ -3,11 +3,12 @@ export default {
 	type: 'array',
 	title: 'Page Builder',
 	of: [
-		{ type: 'contentBlock' },
-		{ type: 'two_Col_Text' },
 		{
 			type: 'pageBuilderColumns',
 			title: 'Columns',
 		},
+		{ type: 'contentBlock' },
+		{ type: 'accordionBlock' },
+		{ type: 'mainImage' },
 	],
 };

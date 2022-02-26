@@ -22,5 +22,5 @@ export default {
 			};
 		},
 	},
-	validation: (Rule) => Rule.required().min(1),
+	//validation: (Rule) => Rule.required().min(2),
 };

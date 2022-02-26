@@ -1,24 +1,28 @@
 export default {
 	type: 'object',
-	name: 'contentBlock',
-	title: 'Standard Content Block',
+	name: 'accordionBlock',
+	title: 'Accordion',
 	fields: [
 		{
-			name: 'body',
-			title: 'Body',
-			type: 'blockContent',
+			title: 'Accordion items',
+			name: 'accordions',
+			type: 'array',
+			of: [
+				{
+					type: 'accordion',
+				},
+			],
 		},
 	],
 	preview: {
 		select: {
 			title: 'title',
-			subtitle: 'label',
 			disabled: 'disabled',
 		},
 		prepare({ title, disabled }) {
 			return {
 				title: ` ${disabled ? 'DISABLED - ' + title : title}`,
-				subtitle: 'Content Block',
+				subtitle: 'Accordion',
 			};
 		},
 	},

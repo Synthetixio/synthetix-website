@@ -5,7 +5,7 @@ import createSchema from 'part:@sanity/base/schema-creator';
 import schemaTypes from 'all:part:@sanity/base/schema-type';
 
 // We import object and document schemas
-import blockContent from './blockContent';
+import blockContent from './objects/blockContent';
 import buildCategory from './buildCategory';
 import build from './build';
 import author from './author';
@@ -16,6 +16,8 @@ import components from './components/components';
 
 import pageBuilder from './objects/pageBuilder';
 import pageBuilderColumns from './objects/pageBuilderColumns';
+import accordion from './objects/accordion';
+import mainImage from './objects/mainImage';
 
 const allComponents = Object.values(componentItems).map((component) => {
 	return { ...component, fields: componentDefaultFields.concat(component.fields) };
@@ -37,6 +39,8 @@ export default createSchema({
 			// When added to this list, object types can be used as
 			// { type: 'typename' } in other document schemas
 			blockContent,
+			accordion,
+			mainImage,
 
 			pageBuilder,
 			pageBuilderColumns,

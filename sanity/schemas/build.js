@@ -17,13 +17,13 @@ export default {
 				maxLength: 96,
 			},
 		},
+		/* {
 		{
 			name: 'author',
 			title: 'Author',
 			type: 'reference',
 			to: { type: 'author' },
 		},
-		/* {
 			name: 'mainImage',
 			title: 'Main image',
 			type: 'image',
@@ -32,20 +32,15 @@ export default {
 			},
 		}, */
 		{
-			name: 'categories',
-			title: 'Categories',
-			type: 'array',
-			of: [{ type: 'reference', to: { type: 'buildCategory' } }],
+			name: 'category',
+			title: 'Category',
+			type: 'reference',
+			to: [{ type: 'buildCategory' }],
 		},
 		{
 			name: 'publishedAt',
 			title: 'Published at',
 			type: 'datetime',
-		},
-		{
-			name: 'body',
-			title: 'Body',
-			type: 'blockContent',
 		},
 		{
 			name: 'pageBuilder',

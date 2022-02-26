@@ -52,8 +52,8 @@ export default {
 							render: highlightRender,
 						},
 					},
-					{ title: 'Code', value: 'code' },
 				],
+
 				// Annotations can be any object structure – e.g. a link or a footnote.
 				annotations: [
 					{
@@ -93,6 +93,15 @@ export default {
 		{
 			type: 'image',
 			options: { hotspot: true },
+		},
+		{
+			//using plugin https://www.npmjs.com/package/@sanity/code-input
+			name: 'codeBlock',
+			title: 'Code Block',
+			type: 'code',
+			options: {
+				theme: 'github',
+			},
 		},
 	],
 };
