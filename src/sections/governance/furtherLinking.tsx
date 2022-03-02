@@ -5,7 +5,7 @@ import styled from 'styled-components';
 
 export default function FurtherLinking() {
 	return (
-		<StyledFurtherLinkingWrapper>
+		<StyledFurtherLinkingWrapper customMaxWidth>
 			<StyledGrid />
 			<StyledButtonWrapper>
 				<StyledButtonWrapperLinearGradient>
@@ -48,8 +48,12 @@ const StyledButtonWrapper = styled.div`
 	width: 100%;
 `;
 
-const StyledButtonWrapperLinearGradient = styled.div<{ last?: boolean }>`
-	height: 84px;
+export const StyledButtonWrapperLinearGradient = styled.div<{
+	last?: boolean;
+	height?: string;
+	margin?: string;
+}>`
+	height: ${({ height }) => (height ? height : '84px')};
 	width: 404px;
 	max-width: 404px;
 	border-radius: 5px;
@@ -58,6 +62,7 @@ const StyledButtonWrapperLinearGradient = styled.div<{ last?: boolean }>`
 	display: flex;
 	justify-content: center;
 	align-items: center;
+	${({ margin }) => margin && `margin: ${margin}`}
 `;
 
 const StyledLinkButtons = styled(ExternalLink)<{ last?: boolean }>`
@@ -72,6 +77,7 @@ const StyledLinkButtons = styled(ExternalLink)<{ last?: boolean }>`
 	width: 100%;
 	background-color: #0b0b22;
 	height: 80px;
+	border-radius: 5px;
 `;
 
 const StyledSmallButtonLabel = styled.span`
@@ -79,7 +85,6 @@ const StyledSmallButtonLabel = styled.span`
 	color: white;
 	font-family: Inter;
 	font-size: 12px;
-	letter-spacing: ;
 `;
 
 const StyledLargeButtonLabel = styled.span`

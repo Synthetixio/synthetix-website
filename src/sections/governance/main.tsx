@@ -1,9 +1,22 @@
 import { useEffect, useState } from 'react';
 import { ArrowPath } from 'src/components';
 import ArrowWrapper from 'src/components/ArrowWrapper';
-import { FlexDiv, FlexDivCol, PageTitle, Section, Subline } from 'src/styles/common';
+import {
+	ExternalLink,
+	FlexDiv,
+	FlexDivCentered,
+	FlexDivCol,
+	PageTitle,
+	Section,
+	SectionTitle,
+	Subline,
+} from 'src/styles/common';
+import Ellipse from 'src/svg/Ellipse';
+import LinkOffIcon from 'src/svg/LinkOffIcon';
 import SvgPlus from 'src/svg/Plus';
+import { CyanSpotlight, PinkSpotLight } from 'src/svg/Spotlights';
 import styled from 'styled-components';
+import { StyledButtonWrapperLinearGradient } from './furtherLinking';
 
 export default function GovernanceMain() {
 	const [activeArrowIds, setActiveArrowIds] = useState(['']);
@@ -24,8 +37,65 @@ export default function GovernanceMain() {
 	}, []);
 
 	return (
-		<GovernanceSection>
-			<GovernancePageTitle>Governance</GovernancePageTitle>
+		<GovernanceSection customMaxWidth>
+			<BackgroundImageWrapper>
+				<StyledEllipse />
+				<StyledPinkSpotLight />
+				<StyledCyanSpotlight />
+				<GovernancePageTitle>Governance</GovernancePageTitle>
+				<StyledGovernanceSubline>
+					Synthetix protocol is governed, maintained and built by a combination of community
+					members, core contributors, and several elected committees and councils that are voted on
+					by SNX stakers. Learn more about how these governing bodies interact, what they're
+					responsible for, and how they influence protocol improvements via SIPs, SCCPs and other
+					work.
+				</StyledGovernanceSubline>
+				<FlexDivCentered>
+					<StyledButtonWrapperLinearGradient height="124px" margin="16px">
+						<StyledLinkButtons>
+							<StyledButtonLabel>COUNCIL MEMBERS</StyledButtonLabel>
+							<StyledButtonText>
+								View the history of past council elections <br /> and vote in any currently open
+								elections.
+							</StyledButtonText>
+							<StyledLinkOffIcon />
+						</StyledLinkButtons>
+					</StyledButtonWrapperLinearGradient>
+					<StyledButtonWrapperLinearGradient height="124px" margin="16px">
+						<StyledLinkButtons>
+							<StyledButtonLabel>SYNTHETIX SCCP/SIP</StyledButtonLabel>
+							<StyledButtonText>
+								View the current status of all SCCPs <br />
+								and SIPs.
+							</StyledButtonText>
+							<StyledLinkOffIcon />
+						</StyledLinkButtons>
+					</StyledButtonWrapperLinearGradient>
+				</FlexDivCentered>
+				<FlexDivCentered style={{ marginBottom: '52px' }}>
+					<StyledButtonWrapperLinearGradient height="124px" margin="16px">
+						<StyledLinkButtons>
+							<StyledButtonLabel>SYNTHETIX FORUM</StyledButtonLabel>
+							<StyledButtonText>
+								Join the community governance discussion <br /> in realtime.
+							</StyledButtonText>
+							<StyledLinkOffIcon />
+						</StyledLinkButtons>
+					</StyledButtonWrapperLinearGradient>
+					<StyledButtonWrapperLinearGradient height="124px" margin="16px">
+						<StyledLinkButtons>
+							<StyledButtonLabel>
+								SYNTHETIX SCCP / SIP VOTING <br /> RECORDS
+							</StyledButtonLabel>
+							<StyledButtonText>
+								View the voting history of all <br /> governance proposals.
+							</StyledButtonText>
+							<StyledLinkOffIcon />
+						</StyledLinkButtons>
+					</StyledButtonWrapperLinearGradient>
+				</FlexDivCentered>
+			</BackgroundImageWrapper>
+			<SectionTitle>Governance Structure</SectionTitle>
 			<StyledGovernanceSubline>
 				The Synthetix governance structure is composed of Councils, Committees, Core Contributors
 				and a DAO. Each governance component is assigned a specific aspect of protocol governance.
@@ -1106,9 +1176,75 @@ const GovernancePageTitle = styled(PageTitle)`
 	width: 100%;
 `;
 
+const BackgroundImageWrapper = styled.div`
+	position: relative;
+	padding-top: 233px;
+	width: 100%;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+`;
+
+const StyledEllipse = styled(Ellipse)`
+	position: absolute;
+	top: -100px;
+	left: 50%;
+	z-index: -1;
+`;
+
+const StyledPinkSpotLight = styled(PinkSpotLight)`
+	position: absolute;
+	top: -50px;
+	left: 0;
+`;
+
+const StyledCyanSpotlight = styled(CyanSpotlight)`
+	position: absolute;
+	top: -50px;
+	right: 0;
+`;
+
 const StyledGovernanceSubline = styled(Subline)`
 	text-align: center;
-	max-width: 500px;
+	max-width: 800px;
+`;
+
+const StyledLinkOffIcon = styled(LinkOffIcon)`
+	position: absolute;
+	top: 20px;
+	right: 20px;
+`;
+
+const StyledLinkButtons = styled(ExternalLink)<{ last?: boolean }>`
+	position: relative;
+	padding: 24px;
+	cursor: pointer;
+	display: flex;
+	flex-direction: column;
+	align-items: flex-start;
+	justify-content: center;
+	max-width: 400px;
+	width: 100%;
+	background-color: #0b0b22;
+	height: 120px;
+	border-radius: 5px;
+`;
+
+const StyledButtonLabel = styled.h4`
+	font-family: GT America;
+	font-style: normal;
+	font-stretch: expanded;
+	font-weight: bold;
+	font-size: 14px;
+	color: white;
+`;
+
+const StyledButtonText = styled.p`
+	font-family: Inter;
+	font-style: normal;
+	font-weight: normal;
+	font-size: 14px;
+	line-height: 150%;
 `;
 
 const GraphContentWrapper = styled.div`
