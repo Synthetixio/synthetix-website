@@ -24,7 +24,7 @@ export default function Table() {
 						Core Contributors <br /> Committee (CCC)
 					</StyledDutyEntity>
 					<StyledVerticalLineCyan />
-					<StyledDutiesWrapper>
+					<StyledDutiesWrapper style={{ marginRight: 'auto' }}>
 						<StyledDuty>Manage CC Pay Packages</StyledDuty>
 						<StyledDuty>Manage CC Road Map & Vision</StyledDuty>
 						<StyledDuty>Negotiate Partnerships</StyledDuty>
@@ -53,7 +53,7 @@ export default function Table() {
 				<DutiesRow>
 					<StyledDutyEntity color="cyan">Treasury Council</StyledDutyEntity>
 					<StyledVerticalLineCyan />
-					<StyledDutiesWrapper>
+					<StyledDutiesWrapper style={{ marginRight: 'auto' }}>
 						<StyledDuty>Manage Treasury</StyledDuty>
 						<StyledDuty>Fund Incentives</StyledDuty>
 						<StyledDuty>Strategy & Deal Making</StyledDuty>
@@ -75,7 +75,7 @@ export default function Table() {
 				<DutiesRow>
 					<StyledDutyEntity color="cyan">Protocol DAO</StyledDutyEntity>
 					<StyledVerticalLineCyan />
-					<StyledDutiesWrapper>
+					<StyledDutiesWrapper style={{ marginRight: 'auto' }}>
 						<StyledDuty color="grey">Execute SIPs</StyledDuty>
 						<StyledDuty color="grey">Execute SCCPs</StyledDuty>
 					</StyledDutiesWrapper>
@@ -98,7 +98,7 @@ export default function Table() {
 				<DutiesRow>
 					<StyledDutyEntity color="cyan">Spartan Council</StyledDutyEntity>
 					<StyledVerticalLineCyan />
-					<StyledDutiesWrapper>
+					<StyledDutiesWrapper style={{ marginRight: 'auto' }}>
 						<StyledDuty color="grey">Vote on SIPs / SCCPs Feasibility &</StyledDuty>
 						<StyledDuty color="grey">Risk Assessment on SIPs / SCCPs</StyledDuty>
 						<StyledDuty color="green">Induct pDAO members</StyledDuty>
@@ -108,7 +108,7 @@ export default function Table() {
 				<DutiesRow>
 					<StyledDutyEntity color="cyan">Grants Council</StyledDutyEntity>
 					<StyledVerticalLineCyan />
-					<StyledDutiesWrapper>
+					<StyledDutiesWrapper style={{ marginRight: 'auto' }}>
 						<StyledDuty>Sponsor Ecosystem Events</StyledDuty>
 						<StyledDuty>Create Initiatives</StyledDuty>
 						<StyledDuty color="grey">Review Grant Submissions</StyledDuty>
@@ -119,7 +119,7 @@ export default function Table() {
 				<DutiesRow>
 					<StyledDutyEntity color="cyan">Ambassador Council</StyledDutyEntity>
 					<StyledVerticalLineCyan />
-					<StyledDutiesWrapper>
+					<StyledDutiesWrapper style={{ marginRight: 'auto' }}>
 						<StyledDuty>Participate & Manage Ecosystem Governance</StyledDuty>
 						<StyledDuty>Advocate Ecosystem Partnerships</StyledDuty>
 					</StyledDutiesWrapper>
@@ -128,7 +128,7 @@ export default function Table() {
 				<DutiesRow>
 					<StyledDutyEntity color="cyan">Risk Committee</StyledDutyEntity>
 					<StyledVerticalLineCyan />
-					<StyledDutiesWrapper>
+					<StyledDutiesWrapper style={{ marginRight: 'auto' }}>
 						<StyledDuty>Creating Risk Evaluation Processes</StyledDuty>
 						<StyledDuty color="grey">Reviewing SIPs Risk</StyledDuty>
 					</StyledDutiesWrapper>
@@ -147,9 +147,9 @@ const StyledTableSection = styled(Section)`
 
 const DAOToCommunityGradientWrapper = styled.div`
 	width: 100%;
-	max-width: 900px;
+	max-width: 1000px;
 	display: flex;
-	justify-content: center;
+	justify-content: space-evenly;
 	align-items: center;
 `;
 
@@ -182,7 +182,6 @@ const DAOAndCommunityDutiesWrapper = styled.div`
 
 const DutiesRow = styled.div`
 	display: flex;
-	justify-content: space-evenly;
 	align-items: center;
 	width: 100%;
 	margin-bottom: 48px;
@@ -196,11 +195,14 @@ const StyledDutyEntity = styled.h4<{ color?: 'cyan' | 'pink' }>`
 	font-weight: 600;
 	font-size: 14px;
 	line-height: 20px;
+	width: 130px;
+	margin-right: ${({ color }) => color === 'cyan' && '55px'};
 `;
 
 const StyledVerticalLineCyan = styled.span`
 	height: 100px;
 	width: 1px;
+	margin-right: 25px;
 	background-image: linear-gradient(
 		0deg,
 		hsl(253deg 81% 10%) 0%,
@@ -220,6 +222,8 @@ const StyledVerticalLineCyan = styled.span`
 const StyledVerticalLinePink = styled.span`
 	height: 100px;
 	width: 1px;
+	margin-left: 25px;
+	margin-right: 55px;
 	background-image: linear-gradient(
 		0deg,
 		hsl(253deg 81% 10%) 0%,
