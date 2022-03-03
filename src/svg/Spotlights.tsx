@@ -22,9 +22,9 @@ export const PinkSpotLight = ({ ...rest }) => {
 					width="1334.84"
 					height="1066.89"
 					filterUnits="userSpaceOnUse"
-					color-interpolation-filters="sRGB"
+					colorInterpolationFilters="sRGB"
 				>
-					<feFlood flood-opacity="0" result="BackgroundImageFix" />
+					<feFlood floodOpacity="0" result="BackgroundImageFix" />
 					<feBlend mode="normal" in="SourceGraphic" in2="BackgroundImageFix" result="shape" />
 					<feGaussianBlur stdDeviation="150" result="effect1_foregroundBlur_2050_85940" />
 				</filter>
@@ -57,9 +57,9 @@ export const CyanSpotlight = ({ ...rest }) => {
 					width="1334.84"
 					height="1066.89"
 					filterUnits="userSpaceOnUse"
-					color-interpolation-filters="sRGB"
+					colorInterpolationFilters="sRGB"
 				>
-					<feFlood flood-opacity="0" result="BackgroundImageFix" />
+					<feFlood floodOpacity="0" result="BackgroundImageFix" />
 					<feBlend mode="normal" in="SourceGraphic" in2="BackgroundImageFix" result="shape" />
 					<feGaussianBlur stdDeviation="150" result="effect1_foregroundBlur_2050_85939" />
 				</filter>

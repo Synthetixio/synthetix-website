@@ -11,16 +11,16 @@ export default function LinkOffIcon({ ...rest }) {
 			<path
 				d="M7.97119 4.77747H17.0222V13.8284"
 				stroke="#00D1FF"
-				stroke-width="3.2"
-				stroke-linecap="round"
-				stroke-linejoin="round"
+				strokeWidth="3.2"
+				strokeLinecap="round"
+				strokeLinejoin="round"
 			/>
 			<path
 				d="M17.0222 4.77745L5.33616 16.4635"
 				stroke="#00D1FF"
-				stroke-width="3.2"
-				stroke-linecap="round"
-				stroke-linejoin="round"
+				strokeWidth="3.2"
+				strokeLinecap="round"
+				strokeLinejoin="round"
 			/>
 		</svg>
 	);

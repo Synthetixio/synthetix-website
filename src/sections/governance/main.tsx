@@ -52,7 +52,7 @@ export default function GovernanceMain() {
 				</StyledGovernanceSubline>
 				<FlexDivCentered>
 					<StyledButtonWrapperLinearGradient height="124px" margin="16px">
-						<StyledLinkButtons>
+						<StyledLinkButtons href="https://staking.synthetix.io/gov">
 							<StyledButtonLabel>COUNCIL MEMBERS</StyledButtonLabel>
 							<StyledButtonText>
 								View the history of past council elections <br /> and vote in any currently open
@@ -62,7 +62,7 @@ export default function GovernanceMain() {
 						</StyledLinkButtons>
 					</StyledButtonWrapperLinearGradient>
 					<StyledButtonWrapperLinearGradient height="124px" margin="16px">
-						<StyledLinkButtons>
+						<StyledLinkButtons href="https://sips.synthetix.io/all-sip/">
 							<StyledButtonLabel>SYNTHETIX SCCP/SIP</StyledButtonLabel>
 							<StyledButtonText>
 								View the current status of all SCCPs <br />
@@ -74,7 +74,7 @@ export default function GovernanceMain() {
 				</FlexDivCentered>
 				<FlexDivCentered style={{ marginBottom: '52px' }}>
 					<StyledButtonWrapperLinearGradient height="124px" margin="16px">
-						<StyledLinkButtons>
+						<StyledLinkButtons href="https://discord.gg/HQSTqXH84t">
 							<StyledButtonLabel>SYNTHETIX FORUM</StyledButtonLabel>
 							<StyledButtonText>
 								Join the community governance discussion <br /> in realtime.
@@ -83,10 +83,8 @@ export default function GovernanceMain() {
 						</StyledLinkButtons>
 					</StyledButtonWrapperLinearGradient>
 					<StyledButtonWrapperLinearGradient height="124px" margin="16px">
-						<StyledLinkButtons>
-							<StyledButtonLabel>
-								SYNTHETIX SCCP / SIP VOTING <br /> RECORDS
-							</StyledButtonLabel>
+						<StyledLinkButtons href="https://gov.synthetix.io/#/">
+							<StyledButtonLabel>SCCP / SIP VOTING RECORDS</StyledButtonLabel>
 							<StyledButtonText>
 								View the voting history of all <br /> governance proposals.
 							</StyledButtonText>
@@ -1187,8 +1185,7 @@ const BackgroundImageWrapper = styled.div`
 
 const StyledEllipse = styled(Ellipse)`
 	position: absolute;
-	top: -100px;
-	left: 50%;
+	top: -50px;
 	z-index: -1;
 `;
 
