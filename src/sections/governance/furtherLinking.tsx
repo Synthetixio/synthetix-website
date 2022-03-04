@@ -57,7 +57,8 @@ export const StyledButtonWrapperLinearGradient = styled.div<{
 	width: 404px;
 	max-width: 404px;
 	border-radius: 5px;
-	background: radial-gradient(at left top, #00d1ff, 50%, #ea20ff 100%);
+	background: linear-gradient(90deg, #ea20ff 0%, #00d1ff 100%);
+	box-shadow: 0px 0px 5px ${({ theme }) => theme.colors.cyan};
 	${({ last }) => (last ? 'margin-left: 32px' : '')};
 	display: flex;
 	justify-content: center;
@@ -99,11 +100,11 @@ const StyledLeftArrow = styled(SvgArrow)`
 	position: absolute;
 	left: 40px;
 	transform: rotate(180deg);
-	bottom: 43%;
+	bottom: 34%;
 `;
 
 const StyledRightArrow = styled(SvgArrow)`
 	position: absolute;
 	right: 40px;
-	top: 45%;
+	top: 36%;
 `;
