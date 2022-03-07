@@ -51,7 +51,7 @@ export default function GovernanceMain() {
 					work.
 				</StyledGovernanceSubline>
 				<FlexDivCentered>
-					<StyledButtonWrapperLinearGradient height="124px" margin="16px" width="460px">
+					<StyledButtonWrapperLinearGradient height="124px" margin="16px">
 						<StyledLinkButtons href="https://staking.synthetix.io/gov">
 							<StyledButtonLabel>COUNCIL MEMBERS</StyledButtonLabel>
 							<StyledButtonText>
@@ -61,7 +61,7 @@ export default function GovernanceMain() {
 							<StyledLinkOffIcon />
 						</StyledLinkButtons>
 					</StyledButtonWrapperLinearGradient>
-					<StyledButtonWrapperLinearGradient height="124px" margin="16px" width="460px">
+					<StyledButtonWrapperLinearGradient height="124px" margin="16px">
 						<StyledLinkButtons href="https://sips.synthetix.io/all-sip/">
 							<StyledButtonLabel>SYNTHETIX SCCP/SIP</StyledButtonLabel>
 							<StyledButtonText>
@@ -73,7 +73,7 @@ export default function GovernanceMain() {
 					</StyledButtonWrapperLinearGradient>
 				</FlexDivCentered>
 				<FlexDivCentered style={{ marginBottom: '52px' }}>
-					<StyledButtonWrapperLinearGradient height="124px" margin="16px" width="460px">
+					<StyledButtonWrapperLinearGradient height="124px" margin="16px">
 						<StyledLinkButtons href="https://discord.gg/HQSTqXH84t">
 							<StyledButtonLabel>SYNTHETIX FORUM</StyledButtonLabel>
 							<StyledButtonText>
@@ -82,7 +82,7 @@ export default function GovernanceMain() {
 							<StyledLinkOffIcon />
 						</StyledLinkButtons>
 					</StyledButtonWrapperLinearGradient>
-					<StyledButtonWrapperLinearGradient height="124px" margin="16px" width="460px">
+					<StyledButtonWrapperLinearGradient height="124px" margin="16px">
 						<StyledLinkButtons href="https://gov.synthetix.io/#/">
 							<StyledButtonLabel>SCCP / SIP VOTING RECORDS</StyledButtonLabel>
 							<StyledButtonText>
@@ -1176,7 +1176,7 @@ const GovernancePageTitle = styled(PageTitle)`
 
 const BackgroundImageWrapper = styled.div`
 	position: relative;
-	padding-top: 233px;
+	padding-top: 116px;
 	width: 100%;
 	display: flex;
 	flex-direction: column;
@@ -1220,7 +1220,7 @@ const StyledLinkButtons = styled(ExternalLink)<{ last?: boolean }>`
 	flex-direction: column;
 	align-items: flex-start;
 	justify-content: center;
-	max-width: 457px;
+	max-width: 400px;
 	width: 100%;
 	background-color: #0b0b22;
 	height: 120px;
