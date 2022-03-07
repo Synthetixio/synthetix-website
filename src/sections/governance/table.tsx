@@ -92,7 +92,7 @@ export default function Table() {
 						</StyledDuty>
 					</StyledDutiesWrapper>
 					<StyledVerticalLinePink />
-					<StyledDutyEntity color="pink">Community Contributors</StyledDutyEntity>
+					<StyledDutyEntity color="pink">SNX Community</StyledDutyEntity>
 				</DutiesRow>
 				{/* Fourth Row */}
 				<DutiesRow>
