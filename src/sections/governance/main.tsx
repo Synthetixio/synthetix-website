@@ -94,7 +94,7 @@ export default function GovernanceMain() {
 				</FlexDivCentered>
 			</BackgroundImageWrapper>
 			<SectionTitle>Governance Structure</SectionTitle>
-			<StyledGovernanceSubline>
+			<StyledGovernanceSubline style={{ marginBottom: '40px' }}>
 				The Synthetix governance structure is composed of Councils, Committees, Core Contributors
 				and a DAO. Each governance component is assigned a specific aspect of protocol governance.
 				Councils are directly elected by SNX stakers, while other governance bodies are appointed
