@@ -58,7 +58,7 @@ export default function Table() {
 						<StyledDuty>Fund Incentives</StyledDuty>
 						<StyledDuty>Strategy & Deal Making</StyledDuty>
 						<StyledDuty color="cyan">Provide Budget & Funding to</StyledDuty>
-						<StyledDuty color="cyan">pDAO, gDAO, aDAO, SC, CCC, RC</StyledDuty>
+						<StyledDuty color="cyan">pDAO, GC, AC, SC, CCC, RC</StyledDuty>
 					</StyledDutiesWrapper>
 					<StyledDutiesWrapper>
 						<StyledDuty isLast color="grey">
@@ -88,7 +88,7 @@ export default function Table() {
 							Propose Grants
 						</StyledDuty>
 						<StyledDuty isLast color="green">
-							Elect gDAO, aDAO, SC, & TC, members
+							Elect GC, AC, SC, & TC, members
 						</StyledDuty>
 					</StyledDutiesWrapper>
 					<StyledVerticalLinePink />
