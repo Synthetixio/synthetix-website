@@ -1,3 +1,7 @@
+# 1.1.0
+
+- Added governance graph
+
 # 1.0.7
 
 - Updated background image for futures main section

@@ -11,10 +11,11 @@ interface ArrowPathProps {
 	}[];
 	startPosition: PositionDetails;
 	endPosition: PositionDetails;
-	onClick: () => void;
+	onClick?: () => void;
 	mainArrow?: boolean;
 	color?: 'cyan' | 'pink' | 'green';
 	hideCircle?: boolean;
+	active?: boolean;
 }
 
 interface PositionDetails {
@@ -49,10 +50,12 @@ export default function ArrowPath({
 	color,
 	mainArrow,
 	hideCircle,
+	active,
 }: ArrowPathProps) {
 	const [startOffset, setStartOffset] = useState({ top: 0, left: 0 });
 	const [endOffset, setEndOffset] = useState({ top: 0, left: 0 });
 	const [globalOffset, setGlobalOffset] = useState({ top: 0, left: 0 });
+	const [pathLength, setPathLength] = useState(0);
 	const [allEdges, setAllEdges] = useState(['']);
 	const startElement = getClientRects(startPosition.id);
 	const endElement = getClientRects(endPosition.id);
@@ -384,18 +387,49 @@ export default function ArrowPath({
 		}
 		const combinedEdgesWithArches = calculateAllCurves(calculateAllEdges(edges));
 		setAllEdges(combinedEdgesWithArches);
-	}, [globalOffset.top, endOffset.top, startOffset.top, arrowWrapper?.top]);
+		if (startElement && endElement) {
+			const length = (
+				document.getElementById(startPosition.id.concat(endPosition.id)) as any
+			).getTotalLength();
+			setPathLength(pathLength === 0 ? length : pathLength);
+		}
+	}, [
+		globalOffset.top,
+		endOffset.top,
+		startOffset.top,
+		arrowWrapper?.top,
+		active,
+		startPosition.id,
+		endPosition.id,
+	]);
 
 	return (
-		<g onClick={onClick}>
-			{mainArrow && (
-				<defs>
-					<linearGradient id="gradient">
-						<stop offset="5%" stopColor={theme.colors.pink} />
-						<stop offset="95%" stopColor={theme.colors.bgBlack} />
-					</linearGradient>
-				</defs>
-			)}
+		<g onClick={onClick} style={{ margin: '15px' }}>
+			<style>
+				{`
+				.draw {
+					stroke-dasharray: 4;
+					animation: dashdraw 1s linear infinite reverse;
+
+				}
+				@keyframes dashdraw {to {stroke-dashoffset: 40;}}
+
+				.drawMainArrow {
+					stroke-dasharray: ${pathLength};
+					stroke-dashoffset: ${pathLength};
+					animation: dash 3s linear infinite;
+				}
+				@keyframes dash {
+					to {stroke-dashoffset: 0}
+				 }
+
+				 .stopAnimation {
+					animation-name:none!important;
+					stroke-dashoffset: 0
+				 }
+			`}
+			</style>
+
 			{mainArrow ||
 				(!hideCircle && (
 					<circle
@@ -406,6 +440,8 @@ export default function ArrowPath({
 					/>
 				))}
 			<path
+				id={startPosition.id.concat(endPosition.id)}
+				className={active ? (mainArrow ? 'drawMainArrow' : 'draw') : 'stopAnimation'}
 				d={`M ${startOffset.left - globalOffset.left},${
 					startOffset.top - globalOffset.top
 				} ${allEdges.toString().replace(/,/gm, ' ')} L ${endOffset.left - globalOffset.left},${

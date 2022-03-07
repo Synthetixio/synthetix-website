@@ -27,5 +27,7 @@ export default function ArrowWrapper({
 const StyledSVG = styled.svg`
 	position: absolute;
 	z-index: 1;
+	top: 0;
+	left: 0;
 	pointer-events: none;
 `;
