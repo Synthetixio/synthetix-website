@@ -1,3 +1,7 @@
+# 1.2.0
+
+- Added highlighting to the governance graph and text of table
+
 # 1.1.0
 
 - Added governance graph
