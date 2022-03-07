@@ -52,10 +52,10 @@ export const StyledButtonWrapperLinearGradient = styled.div<{
 	last?: boolean;
 	height?: string;
 	margin?: string;
+	width?: string;
 }>`
 	height: ${({ height }) => (height ? height : '84px')};
-	width: 404px;
-	max-width: 404px;
+	width: ${({ width }) => (width ? width : '404px')};
 	border-radius: 5px;
 	background: linear-gradient(90deg, #ea20ff 0%, #00d1ff 100%);
 	box-shadow: 0px 0px 5px ${({ theme }) => theme.colors.cyan};
