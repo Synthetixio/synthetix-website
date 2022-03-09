@@ -2,30 +2,18 @@ import { useState, useEffect } from 'react';
 import styled from 'styled-components';
 import media from 'styled-media-query';
 import HamburgerMenu from 'react-hamburger-menu';
-import { CSSTransition } from 'react-transition-group';
-
 import { Logo, Menu } from './';
 
 const HeaderComponent = () => {
 	const [isOpen, setIsOpen] = useState<boolean>(false);
-	let [animationProps, setAnimationProps] = useState({ mountOnEnter: false, unmountOnExit: false });
 
-	useEffect(
-		function () {
-			if (isOpen) {
-				document.body.classList.add('fixed');
-			} else {
-				document.body.classList.remove('fixed');
-				if (window.innerWidth < 768) {
-					setAnimationProps({
-						mountOnEnter: true,
-						unmountOnExit: true,
-					});
-				}
-			}
-		},
-		[isOpen]
-	);
+	useEffect(() => {
+		if (isOpen) {
+			document.body.classList.add('fixed');
+		} else {
+			document.body.classList.remove('fixed');
+		}
+	}, [isOpen]);
 
 	const clickMenu = () => {
 		setIsOpen(!isOpen);
@@ -45,9 +33,7 @@ const HeaderComponent = () => {
 				animationDuration={0.3}
 			/>
 			<Logo />
-			<CSSTransition in={isOpen} timeout={300} {...animationProps}>
-				<Menu isHeader={true} isOpen={isOpen} data-test-id="header-menu" />
-			</CSSTransition>
+			<Menu isHeader={true} isOpen={isOpen} data-test-id="header-menu" />
 		</Header>
 	);
 };

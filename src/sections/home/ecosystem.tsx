@@ -1,5 +1,5 @@
 import { ExternalLink, Section, SectionTitle } from '../../styles/common';
-import { FlexDivColCentered, Subline, Line } from 'src/styles/common';
+import { Subline } from 'src/styles/common';
 import styled from 'styled-components';
 import media from 'styled-media-query';
 
@@ -32,7 +32,7 @@ const images: Record<'title' | 'image' | 'link', string>[] = [
 	{
 		image: '/home/powered-by/aelin-circle.png',
 		title: 'AELIN',
-		link: 'https://discord.com/invite/YHffnV9sUM',
+		link: 'https://aelin.xyz/',
 	},
 ];
 

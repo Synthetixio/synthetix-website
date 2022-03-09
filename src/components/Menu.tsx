@@ -26,7 +26,7 @@ const data = [
 		hideOnHeader: false,
 	},
 	{
-		externalLink: 'https://gov.synthetix.io/',
+		link: '/governance',
 		label: 'governance',
 		hideOnHeader: false,
 	},
@@ -57,9 +57,9 @@ interface MenuProps {
 	isHeader?: boolean;
 }
 
-const MenuComponent = ({ isHeader, ...rest }: MenuProps) => {
+const MenuComponent = ({ isHeader, isOpen, ...rest }: MenuProps) => {
 	return (
-		<StyledMenu {...rest}>
+		<StyledMenu isOpen={!!isOpen} {...rest}>
 			{data.map((item) => {
 				if (isHeader) {
 					return (
@@ -95,14 +95,15 @@ const MenuComponent = ({ isHeader, ...rest }: MenuProps) => {
 	);
 };
 
-export const StyledMenu = styled.ul`
+export const StyledMenu = styled.ul<{ isOpen: boolean }>`
 	transition: left 0.3s ease-out;
 	z-index: 101;
 	display: flex;
 	justify-content: center;
 	flex-wrap: wrap;
+	transition: all 250ms linear;
 
-	${media.lessThan('medium')`
+	${media.lessThan<{ isOpen: boolean }>('medium')`
 		position: fixed;
 		display: flex;
 		flex-direction: column;
@@ -115,11 +116,8 @@ export const StyledMenu = styled.ul`
 		height: 100%;
 		overflow: scroll;
 		background: linear-gradient(180deg, #08021E 0%, #120446 146.21%);
+		${({ isOpen }) => (isOpen ? 'left: 0;' : 'left: -100%;')}
 	`}
-
-	&.enter-active, &.enter-done {
-		left: 0;
-	}
 `;
 
 const MenuItem = styled.li`

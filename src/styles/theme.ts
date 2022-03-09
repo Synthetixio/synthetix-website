@@ -39,6 +39,7 @@ export const theme = {
 		cyan: '#00D1FF',
 		purple: '#402FC8',
 		pink: '#ED1EFF',
+		lightViolet: '#8787C1',
 
 		// Secondary palette
 		green: '#31D8A4',
