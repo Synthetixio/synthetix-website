@@ -22,11 +22,13 @@
     "@sanity/default-login": "^2.27.0",
     "@sanity/desk-tool": "^2.27.0",
     "@sanity/eslint-config-studio": "^2.0.0",
+    "@sanity/orderable-document-list": "^0.0.4",
     "@sanity/vision": "^2.27.0",
     "eslint": "^8.6.0",
     "prop-types": "^15.7",
     "react": "^17.0",
     "react-dom": "^17.0",
+    "react-icons": "^4.3.1",
     "sanity-plugin-asset-source-unsplash": "^0.1.5",
     "styled-components": "^5.2.0"
   },

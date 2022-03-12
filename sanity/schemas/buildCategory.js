@@ -1,7 +1,10 @@
+import { orderRankField, orderRankOrdering } from '@sanity/orderable-document-list';
+
 export default {
 	name: 'buildCategory',
 	title: 'Build Category',
 	type: 'document',
+	orderings: [orderRankOrdering],
 	fields: [
 		{
 			name: 'title',
@@ -17,5 +20,6 @@ export default {
 				maxLength: 96,
 			},
 		},
+		orderRankField({ type: 'category', hidden: true }),
 	],
 };

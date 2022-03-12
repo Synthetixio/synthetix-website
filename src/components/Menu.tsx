@@ -21,7 +21,7 @@ const data = [
 		hideOnHeader: false,
 	},
 	{
-		externalLink: 'https://docs.synthetix.io/',
+		link: '/build/introduction',
 		label: 'build',
 		hideOnHeader: false,
 	},

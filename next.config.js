@@ -23,6 +23,9 @@ module.exports = {
 		NEXT_PUBLIC_MATOMO_URL: process.env.NEXT_PUBLIC_MATOMO_URL,
 		NEXT_PUBLIC_MATOMO_SITE_ID: process.env.NEXT_PUBLIC_MATOMO_SITE_ID,
 	},
+	images: {
+		domains: ['cdn.sanity.io'],
+	},
 	productionBrowserSourceMaps: true,
 	webpack5: true,
 	webpack: (config, { isServer, buildId }) => {
