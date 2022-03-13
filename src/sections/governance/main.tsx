@@ -1,21 +1,106 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { ArrowPath } from 'src/components';
 import ArrowWrapper from 'src/components/ArrowWrapper';
-import { FlexDiv, FlexDivCol, PageTitle, Section, Subline } from 'src/styles/common';
+import {
+	ExternalLink,
+	FlexDiv,
+	FlexDivCentered,
+	FlexDivCol,
+	PageTitle,
+	Section,
+	SectionTitle,
+	Subline,
+} from 'src/styles/common';
+import Ellipse from 'src/svg/Ellipse';
+import LinkOffIcon from 'src/svg/LinkOffIcon';
 import SvgPlus from 'src/svg/Plus';
+import { CyanSpotlight, PinkSpotLight } from 'src/svg/Spotlights';
 import styled from 'styled-components';
+import { StyledButtonWrapperLinearGradient } from './furtherLinking';
 
 export default function GovernanceMain() {
-	const [activeArrowIds, setActiveArrowIds] = useState(['', '']);
-	const handleOnArrowClick = (ids: string[]) => setActiveArrowIds(ids);
+	const [activeArrowIds, setActiveArrowIds] = useState(['']);
+
+	const setActiveArrows = (ids: string[]) => {
+		setActiveArrowIds(['']);
+		// trigger animation from the beginning
+		setTimeout(() => {
+			setActiveArrowIds(ids);
+		}, 1);
+	};
+
+	useEffect(() => {
+		if (window?.innerWidth < 940 && !!document) {
+			if (document.getElementsByTagName('meta').item(0)?.content)
+				document.getElementsByTagName('meta').item(0)!.content = 'width=940px';
+		}
+	}, []);
 
 	return (
-		<GovernanceSection>
-			<PageTitle>Governance</PageTitle>
-			<StyledGovernanceSubline>
-				Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nisl ut uices a cras netus. Ut erat
-				viverra turpis sed nunc netus laoreet ut enim. Elit, id sit magna nec libero mollis
-				elementum risus quis. Nisl enim viverra phasellus ornare quis amet cursus gravida ac.
+		<GovernanceSection customMaxWidth>
+			<BackgroundImageWrapper>
+				<StyledEllipse />
+				<StyledPinkSpotLight />
+				<StyledCyanSpotlight />
+				<GovernancePageTitle>Governance</GovernancePageTitle>
+				<StyledGovernanceSubline>
+					Synthetix protocol is governed, maintained and built by a combination of community
+					members, core contributors, and several elected committees and councils that are voted on
+					by SNX stakers. Learn more about how these governing bodies interact, what they're
+					responsible for, and how they influence protocol improvements via SIPs, SCCPs and other
+					work.
+				</StyledGovernanceSubline>
+				<FlexDivCentered>
+					<StyledButtonWrapperLinearGradient height="124px" margin="16px">
+						<StyledLinkButtons href="https://staking.synthetix.io/gov">
+							<StyledButtonLabel>COUNCIL MEMBERS</StyledButtonLabel>
+							<StyledButtonText>
+								View the history of past council elections <br /> and vote in any currently open
+								elections.
+							</StyledButtonText>
+							<StyledLinkOffIcon />
+						</StyledLinkButtons>
+					</StyledButtonWrapperLinearGradient>
+					<StyledButtonWrapperLinearGradient height="124px" margin="16px">
+						<StyledLinkButtons href="https://sips.synthetix.io/all-sip/">
+							<StyledButtonLabel>SYNTHETIX SCCP/SIP</StyledButtonLabel>
+							<StyledButtonText>
+								View the current status of all SCCPs <br />
+								and SIPs.
+							</StyledButtonText>
+							<StyledLinkOffIcon />
+						</StyledLinkButtons>
+					</StyledButtonWrapperLinearGradient>
+				</FlexDivCentered>
+				<FlexDivCentered style={{ marginBottom: '52px' }}>
+					<StyledButtonWrapperLinearGradient height="124px" margin="16px">
+						<StyledLinkButtons href="https://discord.gg/HQSTqXH84t">
+							<StyledButtonLabel>SYNTHETIX FORUM</StyledButtonLabel>
+							<StyledButtonText>
+								Join the community governance discussion <br /> in realtime.
+							</StyledButtonText>
+							<StyledLinkOffIcon />
+						</StyledLinkButtons>
+					</StyledButtonWrapperLinearGradient>
+					<StyledButtonWrapperLinearGradient height="124px" margin="16px">
+						<StyledLinkButtons href="https://gov.synthetix.io/#/">
+							<StyledButtonLabel>SCCP / SIP VOTING RECORDS</StyledButtonLabel>
+							<StyledButtonText>
+								View the voting history of all <br /> governance proposals.
+							</StyledButtonText>
+							<StyledLinkOffIcon />
+						</StyledLinkButtons>
+					</StyledButtonWrapperLinearGradient>
+				</FlexDivCentered>
+			</BackgroundImageWrapper>
+			<SectionTitle>Governance Structure</SectionTitle>
+			<StyledGovernanceSubline style={{ marginBottom: '40px' }}>
+				The Synthetix governance structure is composed of Councils, Committees, Core Contributors
+				and a DAO. Each governance component is assigned a specific aspect of protocol governance.
+				Councils are directly elected by SNX stakers, while other governance bodies are appointed
+				according to the existing governance procedures. All of the components work together to
+				ensure that the protocol is governed in a fair, transparent and legitimate way in accordance
+				with the direction provided by token holders.
 			</StyledGovernanceSubline>
 			<GraphContentWrapper>
 				{/* FIRST ROW */}
@@ -27,7 +112,14 @@ export default function GovernanceMain() {
 								id="sips-author"
 								addMarginBottom
 								focus={activeArrowIds.includes('sips-author')}
-								onClick={() => setActiveArrowIds(['sips-author', 'feasibility-risk'])}
+								onClick={() =>
+									setActiveArrows([
+										'sips-author',
+										'feasibility-risk',
+										'snx-community',
+										'spartan-council-plus-sign',
+									])
+								}
 							>
 								Author SIPs / SCCPs
 							</DAODutiesCircle>
@@ -36,7 +128,14 @@ export default function GovernanceMain() {
 								addMarginTop
 								id="propose-grants"
 								focus={activeArrowIds.includes('propose-grants')}
-								onClick={() => setActiveArrowIds(['propose-grants', 'review-grant-submissions'])}
+								onClick={() =>
+									setActiveArrows([
+										'propose-grants',
+										'review-grant-submissions',
+										'snx-community',
+										'grants-dao',
+									])
+								}
 							>
 								Propose Grants
 							</DAODutiesCircle>
@@ -45,12 +144,20 @@ export default function GovernanceMain() {
 							id="snx-community"
 							focus={activeArrowIds.includes('snx-community')}
 							onClick={() =>
-								setActiveArrowIds([
+								setActiveArrows([
 									'treasury-council-plus-sign',
 									'snx-community',
 									'spartan-council-plus-sign',
 									'ambassadors-council-plus-sign',
 									'grants-dao',
+									'propose-grants',
+									'sips-author',
+									'feasibility-risk',
+									'review-grant-submissions',
+									'snx-community-treasury-council-plus-sign-main-arrow',
+									'snx-community-spartan-council-plus-sign-main-arrow',
+									'snx-community-ambassadors-council-plus-sign-main-arrow',
+									'snx-community-grants-dao-main-arrow',
 								])
 							}
 						>
@@ -62,17 +169,27 @@ export default function GovernanceMain() {
 							<DAOActionCircle>Elect Members</DAOActionCircle>
 						</DAOCircle>
 					</DAOWrapper>
-					<DAOWrapper style={{ marginLeft: '64px' }} id="core-contributors">
+					<DAOWrapper style={{ marginLeft: '64px' }}>
 						<DAOCircle
 							focus={activeArrowIds.includes('core-contributors')}
-							onClick={() =>
-								setActiveArrowIds([
-									'elect-committee',
-									'core-contributor-committee',
+							id="core-contributors"
+							onClick={(e) => {
+								setActiveArrows([
+									'implement-sips',
 									'core-contributors',
 									'feasibility-risk',
-								])
-							}
+									'vouch-for-cc',
+									'execute-sccps',
+									'execute-sips',
+									'vote-sips',
+									'hire-cc',
+									'core-contributor-committee',
+									'protocol-dao',
+									'spartan-council-plus-sign',
+									'pay-cc',
+									'elect-committee',
+								]);
+							}}
 						>
 							<DAOPlusSignWrapper position="top">
 								<SvgPlus />
@@ -82,6 +199,23 @@ export default function GovernanceMain() {
 							<DAOActionCircle
 								id="elect-committee"
 								focus={activeArrowIds.includes('elect-committee')}
+								onClick={() =>
+									setActiveArrows([
+										'implement-sips',
+										'core-contributors',
+										'feasibility-risk',
+										'vouch-for-cc',
+										'execute-sccps',
+										'execute-sips',
+										'vote-sips',
+										'hire-cc',
+										'core-contributor-committee',
+										'protocol-dao',
+										'spartan-council-plus-sign',
+										'pay-cc',
+										'elect-committee',
+									])
+								}
 							>
 								Elect Committee
 							</DAOActionCircle>
@@ -94,11 +228,13 @@ export default function GovernanceMain() {
 								id="implement-sips"
 								focus={activeArrowIds.includes('implement-sips')}
 								onClick={() =>
-									setActiveArrowIds([
+									setActiveArrows([
 										'implement-sips',
 										'vote-sips',
 										'execute-sips',
 										'execute-sccps',
+										'core-contributors',
+										'spartan-council-plus-sign',
 									])
 								}
 							>
@@ -109,7 +245,14 @@ export default function GovernanceMain() {
 								addMarginTop
 								id="vouch-for-cc"
 								focus={activeArrowIds.includes('vouch-for-cc')}
-								onClick={() => setActiveArrowIds(['vouch-for-cc', 'hire-cc'])}
+								onClick={() =>
+									setActiveArrows([
+										'vouch-for-cc',
+										'hire-cc',
+										'core-contributors',
+										'core-contributor-committee',
+									])
+								}
 							>
 								Vouch for Potential CC
 							</DAODutiesCircle>
@@ -126,7 +269,14 @@ export default function GovernanceMain() {
 								addMarginBottom
 								id="vote-sips"
 								focus={activeArrowIds.includes('vote-sips')}
-								onClick={() => setActiveArrowIds(['vote-sips', 'implement-sips'])}
+								onClick={() =>
+									setActiveArrows([
+										'spartan-council-plus-sign',
+										'vote-sips',
+										'implement-sips',
+										'core-contributors',
+									])
+								}
 							>
 								Vote on SIPs / SCCPs
 							</DAODutiesCircle>
@@ -135,7 +285,15 @@ export default function GovernanceMain() {
 								id="feasibility-risk"
 								focus={activeArrowIds.includes('feasibility-risk')}
 								onClick={() =>
-									setActiveArrowIds(['feasibility-risk', 'core-contributors', 'reviewing-sips'])
+									setActiveArrows([
+										'core-contributors',
+										'feasibility-risk',
+										'sips-author',
+										'snx-community',
+										'spartan-council-plus-sign',
+										'reviewing-sips',
+										'risk-committee-plus-sign',
+									])
 								}
 							>
 								Feasibility & Risk Assessment <br /> on SIPs / SCCPs
@@ -145,13 +303,22 @@ export default function GovernanceMain() {
 							edge="right"
 							focus={activeArrowIds.includes('spartan-council-plus-sign')}
 							onClick={() =>
-								setActiveArrowIds([
+								setActiveArrows([
 									'spartan-council-plus-sign',
+									'snx-community',
 									'treasury-council-plus-sign',
+									'vote-sips',
+									'implement-sips',
+									'feasibility-risk',
+									'core-contributors',
+									'sips-author',
+									'reviewing-sips',
+									'risk-committee-plus-sign',
+									'budget-funding',
+									'snx-community-spartan-council-plus-sign-main-arrow',
+									'treasury-council-plus-sign-spartan-council-plus-sign-main-arrow',
 									'spartan-council-arrow-label',
 									'protocol-dao',
-									'snx-community',
-									'budget-funding',
 								])
 							}
 						>
@@ -168,6 +335,26 @@ export default function GovernanceMain() {
 								left="90%"
 								id="spartan-council-arrow-label"
 								focus={activeArrowIds.includes('spartan-council-arrow-label')}
+								onClick={(e) => {
+									e.stopPropagation();
+									setActiveArrows([
+										'spartan-council-plus-sign',
+										'snx-community',
+										'treasury-council-plus-sign',
+										'vote-sips',
+										'implement-sips',
+										'feasibility-risk',
+										'core-contributors',
+										'sips-author',
+										'reviewing-sips',
+										'risk-committee-plus-sign',
+										'budget-funding',
+										'snx-community-spartan-council-plus-sign-main-arrow',
+										'treasury-council-plus-sign-spartan-council-plus-sign-main-arrow',
+										'spartan-council-arrow-label',
+										'protocol-dao',
+									]);
+								}}
 							>
 								Induct Members
 							</ArrowLabel>
@@ -182,15 +369,34 @@ export default function GovernanceMain() {
 								activeArrowIds.includes('core-contributor-committee-plus-sign')
 							}
 							onClick={() =>
-								setActiveArrowIds([
+								setActiveArrows([
 									'core-contributor-committee',
 									'core-contributors',
-									'elect-committee',
+									'pay-cc',
+									'hire-cc',
+									'vouch-for-cc',
 									'treasury-council-plus-sign',
 									'budget-funding',
+									'treasury-council-plus-sign-core-contributor-committee-plus-sign-main-arrow',
+									'elect-committee',
 								])
 							}
 						>
+							<ArrowLabel
+								color="cyan"
+								top="-35px"
+								focus={activeArrowIds.includes('pay-cc')}
+								onClick={() => {
+									setActiveArrows([
+										'core-contributor-committee-plus-sign',
+										'core-contributors',
+										'pay-cc',
+										'elect-committee',
+									]);
+								}}
+							>
+								Pay Contributors
+							</ArrowLabel>
 							<DAOPlusSignWrapper position="bottomLeft" id="core-contributor-committee-plus-sign">
 								<SvgPlus />
 							</DAOPlusSignWrapper>
@@ -208,7 +414,9 @@ export default function GovernanceMain() {
 								addMarginTop
 								id="hire-cc"
 								focus={activeArrowIds.includes('hire-cc')}
-								onClick={() => setActiveArrowIds(['hire-cc', 'vouch-for-cc'])}
+								onClick={() =>
+									setActiveArrows(['hire-cc', 'vouch-for-cc', 'core-contributor-committee'])
+								}
 							>
 								Hire Core Contributors
 							</DAODutiesCircle>
@@ -229,11 +437,13 @@ export default function GovernanceMain() {
 							edge="right"
 							focus={activeArrowIds.includes('ambassadors-council-plus-sign')}
 							onClick={() =>
-								setActiveArrowIds([
+								setActiveArrows([
+									'ambassadors-council-plus-sign',
 									'snx-community',
 									'treasury-council-plus-sign',
-									'ambassadors-council-plus-sign',
 									'budget-funding',
+									'snx-community-ambassadors-council-plus-sign-main-arrow',
+									'treasury-council-plus-sign-ambassadors-council-plus-sign-main-arrow',
 								])
 							}
 						>
@@ -255,11 +465,16 @@ export default function GovernanceMain() {
 								activeArrowIds.includes('protocol-dao-plus-sign')
 							}
 							onClick={() =>
-								setActiveArrowIds([
-									'spartan-council-arrow-label',
-									'treasury-council-plus-sign',
+								setActiveArrows([
 									'protocol-dao',
+									'execute-sips',
+									'execute-sccps',
+									'implement-sips',
+									'treasury-council-plus-sign',
 									'budget-funding',
+									'treasury-council-plus-sign-protocol-dao-plus-sign-main-arrow',
+									'spartan-council-arrow-label',
+									'spartan-council-plus-sign',
 								])
 							}
 						>
@@ -276,14 +491,14 @@ export default function GovernanceMain() {
 								id="execute-sips"
 								addMarginBottom
 								focus={activeArrowIds.includes('execute-sips')}
-								onClick={() => setActiveArrowIds(['execute-sips', 'implement-sips'])}
+								onClick={() => setActiveArrows(['execute-sips', 'protocol-dao', 'implement-sips'])}
 							>
 								Execute SIPs
 							</DAODutiesCircle>
 							<DAODutiesCircle
 								id="execute-sccps"
 								focus={activeArrowIds.includes('execute-sccps')}
-								onClick={() => setActiveArrowIds(['execute-sccps', 'implement-sips'])}
+								onClick={() => setActiveArrows(['execute-sccps', 'protocol-dao', 'implement-sips'])}
 							>
 								Execute SCCPs
 							</DAODutiesCircle>
@@ -299,14 +514,18 @@ export default function GovernanceMain() {
 							<DAODescription>Sponsor Ecosystem Events</DAODescription>
 							<DAODescription>Create Initiatives</DAODescription>
 							<DAODutiesCircle
+								addMarginTop
 								id="review-grant-submissions"
 								focus={activeArrowIds.includes('review-grant-submissions')}
 								onClick={() =>
-									setActiveArrowIds([
-										'propose-grants',
+									setActiveArrows([
 										'review-grant-submissions',
 										'work-on-grants',
 										'community-propose-grants',
+										'propose-grants',
+										'grants-dao',
+										'community-contributors',
+										'pay-contributors',
 									])
 								}
 							>
@@ -321,13 +540,20 @@ export default function GovernanceMain() {
 								activeArrowIds.includes('grants-dao')
 							}
 							onClick={() =>
-								setActiveArrowIds([
+								setActiveArrows([
 									'grants-dao',
 									'community-contributors',
 									'pay-contributors',
-									'treasury-council-plus-sign',
+									'review-grant-submissions',
+									'propose-grants',
+									'work-on-grants',
+									'community-propose-grants',
 									'snx-community',
+									'treasury-council-plus-sign',
+									'pay-contributors',
 									'budget-funding',
+									'snx-community-grants-dao-main-arrow',
+									'treasury-council-plus-sign-grants-dao-main-arrow',
 								])
 							}
 						>
@@ -336,16 +562,29 @@ export default function GovernanceMain() {
 							</DAOPlusSignWrapper>
 							<StyledText color="white">grants</StyledText>
 							<StyledText color="white" bold>
-								DAO
+								COUNCIL
 							</StyledText>
 							<ArrowLabel
 								color="cyan"
 								top="130px"
-								left="-15px"
 								focus={activeArrowIds.includes('pay-contributors')}
 								onClick={(e) => {
 									e.stopPropagation();
-									setActiveArrowIds(['grants-dao', 'community-contributors', 'pay-contributors']);
+									setActiveArrows([
+										'grants-dao',
+										'community-contributors',
+										'pay-contributors',
+										'review-grant-submissions',
+										'propose-grants',
+										'work-on-grants',
+										'community-propose-grants',
+										'snx-community',
+										'treasury-council-plus-sign',
+										'pay-contributors',
+										'budget-funding',
+										'snx-community-grants-dao-main-arrow',
+										'treasury-council-plus-sign-grants-dao-main-arrow',
+									]);
 								}}
 							>
 								Pay Contributors
@@ -357,10 +596,13 @@ export default function GovernanceMain() {
 							edge="left"
 							focus={activeArrowIds.includes('risk-committee-plus-sign')}
 							onClick={() =>
-								setActiveArrowIds([
+								setActiveArrows([
 									'risk-committee-plus-sign',
+									'reviewing-sips',
+									'feasibility-risk',
 									'treasury-council-plus-sign',
 									'budget-funding',
+									'treasury-council-plus-sign-risk-committee-plus-sign-main-arrow',
 								])
 							}
 						>
@@ -377,7 +619,13 @@ export default function GovernanceMain() {
 							<DAODutiesCircle
 								id="reviewing-sips"
 								focus={activeArrowIds.includes('reviewing-sips')}
-								onClick={() => setActiveArrowIds(['feasibility-risk', 'reviewing-sips'])}
+								onClick={() =>
+									setActiveArrows([
+										'feasibility-risk',
+										'reviewing-sips',
+										'risk-committee-plus-sign',
+									])
+								}
 							>
 								Reviewing SIPs Risk
 							</DAODutiesCircle>
@@ -394,7 +642,13 @@ export default function GovernanceMain() {
 								addMarginBottom
 								id="work-on-grants"
 								focus={activeArrowIds.includes('work-on-grants')}
-								onClick={() => setActiveArrowIds(['work-on-grants', 'review-grant-submissions'])}
+								onClick={() =>
+									setActiveArrows([
+										'work-on-grants',
+										'community-contributors',
+										'review-grant-submissions',
+									])
+								}
 							>
 								Work on Grants
 							</DAODutiesCircle>
@@ -403,7 +657,11 @@ export default function GovernanceMain() {
 								id="community-propose-grants"
 								focus={activeArrowIds.includes('community-propose-grants')}
 								onClick={() =>
-									setActiveArrowIds(['community-propose-grants', 'review-grant-submissions'])
+									setActiveArrows([
+										'community-propose-grants',
+										'review-grant-submissions',
+										'community-contributors',
+									])
 								}
 							>
 								Propose Grants
@@ -414,7 +672,14 @@ export default function GovernanceMain() {
 							id="community-contributors"
 							focus={activeArrowIds.includes('community-contributors')}
 							onClick={() =>
-								setActiveArrowIds(['community-contributors', 'pay-contributors', 'grants-dao'])
+								setActiveArrows([
+									'pay-contributors',
+									'community-contributors',
+									'grants-dao',
+									'work-on-grants',
+									'review-grant-submissions',
+									'community-propose-grants',
+								])
 							}
 						>
 							<StyledText bold>COMMUNITY</StyledText>
@@ -426,7 +691,7 @@ export default function GovernanceMain() {
 							edge="topLeft"
 							focus={activeArrowIds.includes('treasury-council-plus-sign')}
 							onClick={() =>
-								setActiveArrowIds([
+								setActiveArrows([
 									'budget-funding',
 									'spartan-council-plus-sign',
 									'core-contributor-committee',
@@ -435,6 +700,14 @@ export default function GovernanceMain() {
 									'grants-dao',
 									'risk-committee-plus-sign',
 									'treasury-council-plus-sign',
+									'snx-community-treasury-council-plus-sign-main-arrow',
+									'snx-community',
+									'treasury-council-plus-sign-grants-dao-main-arrow',
+									'treasury-council-plus-sign-ambassadors-council-plus-sign-main-arrow',
+									'treasury-council-plus-sign-spartan-council-plus-sign-main-arrow',
+									'treasury-council-plus-sign-risk-committee-plus-sign-main-arrow',
+									'treasury-council-plus-sign-protocol-dao-plus-sign-main-arrow',
+									'treasury-council-plus-sign-core-contributor-committee-plus-sign-main-arrow',
 								])
 							}
 						>
@@ -451,7 +724,7 @@ export default function GovernanceMain() {
 								left="-40px"
 								focus={activeArrowIds.includes('budget-funding')}
 								onClick={() =>
-									setActiveArrowIds([
+									setActiveArrows([
 										'budget-funding',
 										'spartan-council-plus-sign',
 										'core-contributor-committee',
@@ -460,6 +733,14 @@ export default function GovernanceMain() {
 										'grants-dao',
 										'risk-committee-plus-sign',
 										'treasury-council-plus-sign',
+										'snx-community-treasury-council-plus-sign-main-arrow',
+										'snx-community',
+										'treasury-council-plus-sign-grants-dao-main-arrow',
+										'treasury-council-plus-sign-ambassadors-council-plus-sign-main-arrow',
+										'treasury-council-plus-sign-spartan-council-plus-sign-main-arrow',
+										'treasury-council-plus-sign-risk-committee-plus-sign-main-arrow',
+										'treasury-council-plus-sign-protocol-dao-plus-sign-main-arrow',
+										'treasury-council-plus-sign-core-contributor-committee-plus-sign-main-arrow',
 									])
 								}
 							>
@@ -473,7 +754,22 @@ export default function GovernanceMain() {
 						</DAODescription>
 					</DAOWrapper>
 				</Row>
-				<ArrowWrapper width={900} height={750}>
+				<ArrowWrapper width={900} height={790}>
+					<ArrowPath
+						startPosition={{ id: 'core-contributor-committee', position: 'top' }}
+						endPosition={{
+							id: 'core-contributors',
+							position: 'bottom',
+						}}
+						hideCircle
+						color="cyan"
+						active={
+							activeArrowIds.includes('core-contributor-committee') &&
+							activeArrowIds.includes('core-contributors') &&
+							activeArrowIds.includes('pay-cc')
+						}
+					/>
+
 					<ArrowPath
 						startPosition={{ id: 'elect-committee', position: 'left' }}
 						endPosition={{
@@ -491,8 +787,11 @@ export default function GovernanceMain() {
 							},
 						]}
 						hideCircle
-						onClick={() => handleOnArrowClick(['elect-committee', 'core-contributor-committee'])}
 						color="green"
+						active={
+							activeArrowIds.includes('core-contributor-committee') &&
+							activeArrowIds.includes('elect-committee')
+						}
 					/>
 
 					<ArrowPath
@@ -512,8 +811,11 @@ export default function GovernanceMain() {
 							},
 						]}
 						hideCircle
-						onClick={() => handleOnArrowClick(['spartan-council-arrow-label', 'protocol-dao'])}
 						color="green"
+						active={
+							activeArrowIds.includes('spartan-council-arrow-label') &&
+							activeArrowIds.includes('protocol-dao')
+						}
 					/>
 
 					<ArrowPath
@@ -522,9 +824,13 @@ export default function GovernanceMain() {
 							id: 'community-contributors',
 							position: 'top',
 						}}
-						onClick={() => handleOnArrowClick(['grants-dao', 'community-contributors'])}
 						color="cyan"
 						hideCircle
+						active={
+							activeArrowIds.includes('grants-dao') &&
+							activeArrowIds.includes('community-contributors') &&
+							activeArrowIds.includes('pay-contributors')
+						}
 					/>
 
 					<ArrowPath
@@ -538,7 +844,10 @@ export default function GovernanceMain() {
 							{ x: 350, y: 0 },
 							{ x: 0, y: 'heightAsEndEl' },
 						]}
-						onClick={() => handleOnArrowClick(['feasibility-risk', 'core-contributors'])}
+						active={
+							activeArrowIds.includes('feasibility-risk') &&
+							activeArrowIds.includes('core-contributors')
+						}
 					/>
 
 					<ArrowPath
@@ -551,7 +860,10 @@ export default function GovernanceMain() {
 							{ x: 0, y: 50 },
 							{ x: 63, y: 0 },
 						]}
-						onClick={() => handleOnArrowClick(['work-on-grants', 'review-grant-submissions'])}
+						active={
+							activeArrowIds.includes('review-grant-submissions') &&
+							activeArrowIds.includes('work-on-grants')
+						}
 					/>
 
 					<ArrowPath
@@ -561,8 +873,9 @@ export default function GovernanceMain() {
 							position: 'bottom',
 						}}
 						edges={[{ x: 0, y: 'heightAsStartEl' }]}
-						onClick={() =>
-							handleOnArrowClick(['community-propose-grants', 'review-grant-submissions'])
+						active={
+							activeArrowIds.includes('review-grant-submissions') &&
+							activeArrowIds.includes('community-propose-grants')
 						}
 					/>
 
@@ -576,7 +889,10 @@ export default function GovernanceMain() {
 							{ x: 'endLeft', y: 'heightAsStartEl' },
 							{ x: 'endLeft', y: 'heightAsEndEl' },
 						]}
-						onClick={() => handleOnArrowClick(['propose-grants', 'review-grant-submissions'])}
+						active={
+							activeArrowIds.includes('review-grant-submissions') &&
+							activeArrowIds.includes('propose-grants')
+						}
 					/>
 
 					<ArrowPath
@@ -591,7 +907,10 @@ export default function GovernanceMain() {
 							{ x: 'endLeft', y: 0 },
 							{ x: 0, y: 'heightAsEndEl' },
 						]}
-						onClick={() => handleOnArrowClick(['reviewing-sips', 'feasibility-risk'])}
+						active={
+							activeArrowIds.includes('reviewing-sips') &&
+							activeArrowIds.includes('feasibility-risk')
+						}
 					/>
 
 					<ArrowPath
@@ -604,7 +923,9 @@ export default function GovernanceMain() {
 							{ x: 'endRight', y: 'heightAsStartEl' },
 							{ x: 'endRight', y: 'heightAsEndEl' },
 						]}
-						onClick={() => handleOnArrowClick(['implement-sips', 'execute-sips'])}
+						active={
+							activeArrowIds.includes('implement-sips') && activeArrowIds.includes('execute-sips')
+						}
 					/>
 
 					<ArrowPath
@@ -617,7 +938,9 @@ export default function GovernanceMain() {
 							{ x: 'endRight', y: 0 },
 							{ x: 'endRight', y: 'heightAsEndEl' },
 						]}
-						onClick={() => handleOnArrowClick(['implement-sips', 'execute-sccps'])}
+						active={
+							activeArrowIds.includes('implement-sips') && activeArrowIds.includes('execute-sccps')
+						}
 					/>
 
 					<ArrowPath
@@ -632,7 +955,9 @@ export default function GovernanceMain() {
 							{ x: -800, y: 0 },
 							{ x: 0, y: 'heightAsEndEl' },
 						]}
-						onClick={() => handleOnArrowClick(['implement-sips', 'vote-sips'])}
+						active={
+							activeArrowIds.includes('implement-sips') && activeArrowIds.includes('vote-sips')
+						}
 					/>
 
 					<ArrowPath
@@ -645,7 +970,7 @@ export default function GovernanceMain() {
 							{ x: 20, y: 0 },
 							{ x: 0, y: 'heightAsEndEl' },
 						]}
-						onClick={() => handleOnArrowClick(['vouch-for-cc', 'hire-cc'])}
+						active={activeArrowIds.includes('vouch-for-cc') && activeArrowIds.includes('hire-cc')}
 					/>
 
 					<ArrowPath
@@ -658,7 +983,9 @@ export default function GovernanceMain() {
 							{ x: -180, y: 0 },
 							{ x: 0, y: 'heightAsEndEl' },
 						]}
-						onClick={() => handleOnArrowClick(['sips-author', 'feasibility-risk'])}
+						active={
+							activeArrowIds.includes('sips-author') && activeArrowIds.includes('feasibility-risk')
+						}
 					/>
 
 					{/* Main Arrows */}
@@ -672,9 +999,12 @@ export default function GovernanceMain() {
 							position: 'left',
 						}}
 						edges={[{ x: 0, y: 'heightAsEndEl' }]}
-						onClick={() => handleOnArrowClick(['snx-community', 'treasury-council-plus-sign'])}
+						active={
+							activeArrowIds.includes('snx-community') &&
+							activeArrowIds.includes('treasury-council-plus-sign') &&
+							activeArrowIds.includes('snx-community-treasury-council-plus-sign-main-arrow')
+						}
 					/>
-
 					<ArrowPath
 						mainArrow
 						color="pink"
@@ -684,7 +1014,11 @@ export default function GovernanceMain() {
 							position: 'right',
 						}}
 						edges={[{ x: 0, y: 'heightAsEndEl' }]}
-						onClick={() => handleOnArrowClick(['snx-community', 'spartan-council-plus-sign'])}
+						active={
+							activeArrowIds.includes('snx-community') &&
+							activeArrowIds.includes('spartan-council-plus-sign') &&
+							activeArrowIds.includes('snx-community-spartan-council-plus-sign-main-arrow')
+						}
 					/>
 
 					<ArrowPath
@@ -696,7 +1030,11 @@ export default function GovernanceMain() {
 							position: 'right',
 						}}
 						edges={[{ x: 0, y: 'heightAsEndEl' }]}
-						onClick={() => handleOnArrowClick(['snx-community', 'ambassadors-council-plus-sign'])}
+						active={
+							activeArrowIds.includes('snx-community') &&
+							activeArrowIds.includes('ambassadors-council-plus-sign') &&
+							activeArrowIds.includes('snx-community-ambassadors-council-plus-sign-main-arrow')
+						}
 					/>
 					<ArrowPath
 						mainArrow
@@ -707,7 +1045,11 @@ export default function GovernanceMain() {
 							position: 'right',
 						}}
 						edges={[{ x: 0, y: 'heightAsEndEl' }]}
-						onClick={() => handleOnArrowClick(['snx-community', 'grants-dao-plus-sign'])}
+						active={
+							activeArrowIds.includes('snx-community') &&
+							activeArrowIds.includes('grants-dao') &&
+							activeArrowIds.includes('snx-community-grants-dao-main-arrow')
+						}
 					/>
 
 					<ArrowPath
@@ -719,8 +1061,10 @@ export default function GovernanceMain() {
 							position: 'right',
 						}}
 						edges={[{ x: 0, y: 'heightAsEndEl' }]}
-						onClick={() =>
-							handleOnArrowClick(['treasury-council-plus-sign', 'grants-dao-plus-sign'])
+						active={
+							activeArrowIds.includes('treasury-council-plus-sign') &&
+							activeArrowIds.includes('grants-dao') &&
+							activeArrowIds.includes('treasury-council-plus-sign-grants-dao-main-arrow')
 						}
 					/>
 
@@ -733,8 +1077,12 @@ export default function GovernanceMain() {
 							position: 'right',
 						}}
 						edges={[{ x: 0, y: 'heightAsEndEl' }]}
-						onClick={() =>
-							handleOnArrowClick(['treasury-council-plus-sign', 'ambassadors-council-plus-sign'])
+						active={
+							activeArrowIds.includes('treasury-council-plus-sign') &&
+							activeArrowIds.includes('ambassadors-council-plus-sign') &&
+							activeArrowIds.includes(
+								'treasury-council-plus-sign-ambassadors-council-plus-sign-main-arrow'
+							)
 						}
 					/>
 
@@ -747,8 +1095,12 @@ export default function GovernanceMain() {
 							position: 'right',
 						}}
 						edges={[{ x: 0, y: 'heightAsEndEl' }]}
-						onClick={() =>
-							handleOnArrowClick(['treasury-council-plus-sign', 'spartan-council-plus-sign'])
+						active={
+							activeArrowIds.includes('treasury-council-plus-sign') &&
+							activeArrowIds.includes('spartan-council-plus-sign') &&
+							activeArrowIds.includes(
+								'treasury-council-plus-sign-spartan-council-plus-sign-main-arrow'
+							)
 						}
 					/>
 					<ArrowPath
@@ -760,8 +1112,12 @@ export default function GovernanceMain() {
 							position: 'left',
 						}}
 						edges={[{ x: 0, y: 'heightAsEndEl' }]}
-						onClick={() =>
-							handleOnArrowClick(['treasury-council-plus-sign', 'risk-committee-plus-sign'])
+						active={
+							activeArrowIds.includes('treasury-council-plus-sign') &&
+							activeArrowIds.includes('risk-committee-plus-sign') &&
+							activeArrowIds.includes(
+								'treasury-council-plus-sign-risk-committee-plus-sign-main-arrow'
+							)
 						}
 					/>
 					<ArrowPath
@@ -773,8 +1129,12 @@ export default function GovernanceMain() {
 							position: 'left',
 						}}
 						edges={[{ x: 0, y: 'heightAsEndEl' }]}
-						onClick={() =>
-							handleOnArrowClick(['treasury-council-plus-sign', 'protocol-dao-plus-sign'])
+						active={
+							activeArrowIds.includes('treasury-council-plus-sign') &&
+							activeArrowIds.includes('protocol-dao') &&
+							activeArrowIds.includes(
+								'treasury-council-plus-sign-protocol-dao-plus-sign-main-arrow'
+							)
 						}
 					/>
 					<ArrowPath
@@ -786,11 +1146,12 @@ export default function GovernanceMain() {
 							position: 'left',
 						}}
 						edges={[{ x: 0, y: 'heightAsEndEl' }]}
-						onClick={() =>
-							handleOnArrowClick([
-								'treasury-council-plus-sign',
-								'core-contributor-committee-plus-sign',
-							])
+						active={
+							activeArrowIds.includes('treasury-council-plus-sign') &&
+							activeArrowIds.includes('core-contributor-committee') &&
+							activeArrowIds.includes(
+								'treasury-council-plus-sign-core-contributor-committee-plus-sign-main-arrow'
+							)
 						}
 					/>
 				</ArrowWrapper>
@@ -805,19 +1166,86 @@ const GovernanceSection = styled(Section)`
 	align-items: center;
 	justify-content: center;
 	padding-top: 24px;
+	background-color: ${({ theme }) => theme.colors.bgBlackHighlighted};
+`;
+
+const GovernancePageTitle = styled(PageTitle)`
+	text-align: center;
+	width: 100%;
+`;
+
+const BackgroundImageWrapper = styled.div`
+	position: relative;
+	padding-top: 116px;
+	width: 100%;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+`;
+
+const StyledEllipse = styled(Ellipse)`
+	position: absolute;
+	top: -50px;
+	z-index: -1;
+`;
+
+const StyledPinkSpotLight = styled(PinkSpotLight)`
+	position: absolute;
+	top: -50px;
+	left: 0;
+`;
+
+const StyledCyanSpotlight = styled(CyanSpotlight)`
+	position: absolute;
+	top: -50px;
+	right: 0;
 `;
 
 const StyledGovernanceSubline = styled(Subline)`
 	text-align: center;
-	max-width: 500px;
+	max-width: 900px;
+`;
+
+const StyledLinkOffIcon = styled(LinkOffIcon)`
+	position: absolute;
+	top: 20px;
+	right: 20px;
+`;
+
+const StyledLinkButtons = styled(ExternalLink)<{ last?: boolean }>`
+	position: relative;
+	padding: 24px;
+	cursor: pointer;
+	display: flex;
+	flex-direction: column;
+	align-items: flex-start;
+	justify-content: center;
+	max-width: 400px;
+	width: 100%;
+	background-color: #0b0b22;
+	height: 120px;
+	border-radius: 5px;
+`;
+
+const StyledButtonLabel = styled.h4`
+	font-family: GT America;
+	font-style: normal;
+	font-stretch: expanded;
+	font-weight: bold;
+	font-size: 14px;
+	color: white;
+`;
+
+const StyledButtonText = styled.p`
+	font-family: Inter;
+	font-style: normal;
+	font-weight: normal;
+	font-size: 14px;
+	line-height: 150%;
 `;
 
 const GraphContentWrapper = styled.div`
-	display: flex;
-	flex-direction: column;
-	align-items: center;
 	width: 900px;
-	overflow: scroll visible;
 	position: relative;
 	padding: 32px 24px;
 `;
@@ -827,7 +1255,7 @@ const Row = styled(FlexDiv)<{ rowNumber: number }>`
 	${({ rowNumber }) => {
 		switch (rowNumber) {
 			case 1:
-				return 'margin-left: auto;';
+				return 'justify-content: flex-end;';
 			case 2:
 			case 3:
 			case 4:
@@ -895,6 +1323,7 @@ const DAOActionCircle = styled.div<{ focus?: boolean }>`
 	white-space: nowrap;
 	font-size: 12px;
 	text-align: center;
+	cursor: pointer;
 	border: 1px solid ${({ theme }) => theme.colors.green};
 	background-color: ${({ theme }) => theme.colors.bgBlack};
 	transition: all 200ms linear;
@@ -952,7 +1381,6 @@ const DAODutiesCircle = styled.div<{
 	border: 1px solid ${({ theme }) => theme.colors.lightViolet};
 	width: fit-content;
 	color: ${({ theme }) => theme.colors.lightViolet};
-	background-color: ${({ theme }) => theme.colors.bgBlack};
 	border-radius: 10px;
 	padding: 2px 8px;
 	font-size: 11px;
@@ -1005,6 +1433,7 @@ const ArrowLabel = styled.div<{
 		${({ color, theme }) => (color ? theme.colors[color] : theme.colors.lightViolet)};
 	z-index: 10;
 	white-space: nowrap;
+	cursor: pointer;
 	font-size: 11px;
 	transition: all 200ms linear;
 	${({ theme, focus, color }) =>

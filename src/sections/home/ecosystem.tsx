@@ -32,7 +32,7 @@ const images: Record<'title' | 'image' | 'link', string>[] = [
 	{
 		image: '/home/powered-by/aelin-circle.png',
 		title: 'AELIN',
-		link: 'https://discord.com/invite/YHffnV9sUM',
+		link: 'https://aelin.xyz/',
 	},
 ];
 
