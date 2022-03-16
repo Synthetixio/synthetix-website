@@ -26,6 +26,7 @@ export interface PerpetualSynth {
 }
 
 export async function getStaticProps() {
+	const yesterday = new Date(new Date().getTime() / 1000 - 24 * 60 * 60).getTime();
 	const snx = getSNXJS({
 		useOvm: true,
 		networkId: NetworkId['Mainnet-Ovm'],
@@ -35,6 +36,7 @@ export async function getStaticProps() {
 		{
 			where: {
 				partner: 'KWENTA',
+				timestamp_gt: yesterday,
 			},
 			orderBy: 'timestamp',
 			orderDirection: 'desc',
