@@ -1,3 +1,7 @@
+# 1.2.1
+
+- Added timestamp to KWETNA daily traders query
+
 # 1.2.0
 
 - Added highlighting to the governance graph and text of table
