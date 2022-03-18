@@ -47,6 +47,7 @@ const Container = styled.div`
 		font-size: 14px;
 		line-height: 150%;
 		color: #fff;
+		margin: 10px 0px;
 	}
 	ul,
 	ol {
@@ -69,6 +70,24 @@ const Container = styled.div`
 		:hover {
 			text-decoration: underline;
 		}
+	}
+	strong {
+		font-weight: bold;
+	}
+	em {
+		font-style: italic;
+	}
+
+	span.unknown__pt__mark__highlight {
+		background-color: #8e2de2;
+	}
+	blockquote {
+		background: #0b0b22;
+		border-left: 10px solid #402fc8;
+		margin: 1.5em 10px;
+		padding: 1em 10px;
+		color: #fff;
+		font-style: italic;
 	}
 `;
 

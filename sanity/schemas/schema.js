@@ -7,7 +7,9 @@ import schemaTypes from 'all:part:@sanity/base/schema-type';
 // We import object and document schemas
 import blockContent from './objects/blockContent';
 import buildCategory from './buildCategory';
+import guideCategory from './guideCategory';
 import build from './build';
+import guide from './guide';
 import author from './author';
 
 import * as componentItems from './components';
@@ -17,6 +19,8 @@ import components from './components/components';
 import pageBuilder from './objects/pageBuilder';
 import pageBuilderColumns from './objects/pageBuilderColumns';
 import accordion from './objects/accordion';
+import imgCarousel from './objects/imgCarousel';
+import step from './objects/step';
 import mainImage from './objects/mainImage';
 
 const allComponents = Object.values(componentItems).map((component) => {
@@ -35,11 +39,15 @@ export default createSchema({
 			// in the studio.
 			build,
 			buildCategory,
+			guide,
+			guideCategory,
 			author,
 			// When added to this list, object types can be used as
 			// { type: 'typename' } in other document schemas
 			blockContent,
 			accordion,
+			imgCarousel,
+			step,
 			mainImage,
 
 			pageBuilder,

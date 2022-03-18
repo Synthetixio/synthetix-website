@@ -15,7 +15,8 @@
     "@sanity/dashboard",
     "@sanity/code-input",
     "asset-source-unsplash",
-    "@sanity/orderable-document-list"
+    "@sanity/orderable-document-list",
+    "table"
   ],
   "env": {
     "development": {

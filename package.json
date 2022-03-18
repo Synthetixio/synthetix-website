@@ -38,6 +38,7 @@
 		"react-dom": "17.0.2",
 		"react-hamburger-menu": "1.2.1",
 		"react-icons": "^4.3.1",
+		"react-player": "^2.9.0",
 		"react-scrollspy": "^3.4.3",
 		"react-syntax-highlighter": "^15.4.5",
 		"react-time-ago": "^7.1.9",
@@ -51,6 +52,7 @@
 	"devDependencies": {
 		"@babel/core": "^7.8.0",
 		"@microsoft/eslint-formatter-sarif": "2.1.5",
+		"@next/eslint-plugin-next": "^12.1.0",
 		"@svgr/cli": "^5.5.0",
 		"@synthetixio/synpress": "^1.1.1",
 		"@testing-library/dom": "^8.11.0",

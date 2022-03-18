@@ -1,15 +1,33 @@
 // @ts-nocheck
 import Img from 'next/image';
 import { useNextSanityImage } from 'next-sanity-image';
+import styled from 'styled-components';
 
 import client from '../../lib/sanity';
 
-// If you're using a private dataset you probably have to configure a separate write/read client.
-// https://www.sanity.io/help/js-client-usecdn-token
+const Figure = styled.figure`
+	img {
+		border-radius: 25px;
+	}
+
+	figcaption {
+		text-align: center;
+		font-style: italic;
+		padding: 10px;
+		font-weight: 300;
+		font-size: 12px;
+	}
+`;
 
 const MainImage = ({ props }) => {
 	const imageProps = useNextSanityImage(client, props);
-	return <Img {...imageProps} layout="responsive" sizes="(max-width: 800px) 100vw, 800px" />;
+	const caption = props.caption || null;
+	return (
+		<Figure>
+			<Img {...imageProps} layout="responsive" sizes="(max-width: 800px) 100vw, 800px" />
+			{caption ? <figcaption>Fig.1 - Trulli, Puglia, Italy.</figcaption> : null}
+		</Figure>
+	);
 };
 
 export default MainImage;

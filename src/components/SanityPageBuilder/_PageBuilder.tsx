@@ -1,9 +1,13 @@
+// @ts-nocheck
 import React from 'react';
 import styled from 'styled-components';
 import media from 'styled-media-query';
 
 import ContentBlock from './ContentBlock';
 import MainImage from './MainImage';
+import TableBlock from './TableBlock';
+import VideoBlock from './VideoBlock';
+import AccordionBlock from './AccordionBlock';
 
 const Row = styled.div`
 	display: flex;
@@ -26,6 +30,7 @@ const Column = styled.div`
 
 function PageBuilder(props: any) {
 	const { pageBuilder } = props;
+	//console.log(pageBuilder);
 
 	return pageBuilder.map((block: any, index: number) => {
 		switch (block._type) {
@@ -56,6 +61,30 @@ function PageBuilder(props: any) {
 								</Column>
 							);
 						})}
+					</Row>
+				);
+			case 'tableBlock':
+				return (
+					<Row key={block._key}>
+						<Column>
+							<TableBlock props={block} />
+						</Column>
+					</Row>
+				);
+			case 'videoBlock':
+				return (
+					<Row key={block._key}>
+						<Column>
+							<VideoBlock props={block} />
+						</Column>
+					</Row>
+				);
+			case 'accordionBlock':
+				return (
+					<Row key={block._key}>
+						<Column>
+							<AccordionBlock props={block} />
+						</Column>
 					</Row>
 				);
 		}

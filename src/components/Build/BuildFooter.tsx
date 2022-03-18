@@ -121,6 +121,7 @@ type BuildFooterProps<T> = {
 
 export default function BuildFooter<T>(props: BuildFooterProps<T>) {
 	const { nextDoc, prevDoc, updatedAt } = props;
+	const lastUpdated = new Date(updatedAt);
 
 	const router = useRouter();
 	const handleClick = (e:any, path:any) => {
@@ -162,7 +163,7 @@ export default function BuildFooter<T>(props: BuildFooterProps<T>) {
 			: null}
 	
 			<Line showOnMobile />
-			<Updated>Last updated  <ReactTimeAgo date={updatedAt} locale="en-US"/></Updated>
+			<Updated>Last updated  <ReactTimeAgo date={lastUpdated} locale="en-US"/></Updated>
 		
 		</BuildFooterContainer>
 		

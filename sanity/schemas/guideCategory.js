@@ -1,8 +1,8 @@
 import { orderRankField, orderRankOrdering } from '@sanity/orderable-document-list';
 
 export default {
-	name: 'buildCategory',
-	title: 'Build Category',
+	name: 'guideCategory',
+	title: 'Guide Category',
 	type: 'document',
 	orderings: [orderRankOrdering],
 	fields: [

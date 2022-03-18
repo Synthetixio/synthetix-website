@@ -8,7 +8,11 @@ export default {
 			title: 'Columns',
 		},
 		{ type: 'contentBlock' },
+		{ type: 'stepsBlock' },
 		{ type: 'accordionBlock' },
+		{ type: 'imgCarouselBlock' },
 		{ type: 'mainImage' },
+		{ type: 'videoBlock' },
+		{ type: 'tableBlock' },
 	],
 };

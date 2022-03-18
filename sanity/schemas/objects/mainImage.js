@@ -16,6 +16,15 @@ export default {
 				isHighlighted: true,
 			},
 		},
+		{
+			name: 'caption',
+			type: 'string',
+			title: 'Caption',
+			description: 'Shows under image, if left blank it will not show',
+			options: {
+				isHighlighted: true,
+			},
+		},
 	],
 	preview: {
 		select: {
