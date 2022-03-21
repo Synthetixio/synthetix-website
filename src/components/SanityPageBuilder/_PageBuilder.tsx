@@ -8,6 +8,8 @@ import MainImage from './MainImage';
 import TableBlock from './TableBlock';
 import VideoBlock from './VideoBlock';
 import AccordionBlock from './AccordionBlock';
+import StepsBlock from './StepsBlock';
+import ImgCarouselBlock from './ImgCarouselBlock';
 
 const Row = styled.div`
 	display: flex;
@@ -84,6 +86,22 @@ function PageBuilder(props: any) {
 					<Row key={block._key}>
 						<Column>
 							<AccordionBlock props={block} />
+						</Column>
+					</Row>
+				);
+			case 'stepsBlock':
+				return (
+					<Row key={block._key}>
+						<Column>
+							<StepsBlock props={block} />
+						</Column>
+					</Row>
+				);
+			case 'imgCarouselBlock':
+				return (
+					<Row key={block._key}>
+						<Column>
+							<ImgCarouselBlock props={block} />
 						</Column>
 					</Row>
 				);

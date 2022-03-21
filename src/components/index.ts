@@ -6,8 +6,8 @@ import Button from './Button';
 import Logo from './Logo';
 import PageLayout from './PageLayout';
 import BuildPageLayout from './Build/BuildPageLayout';
+import GuidesPageLayout from './Guides/GuidesPageLayout';
 import ArrowPath from './ArrowPath';
-import Sidebar from './Build/Sidebar';
 import SideBarItem from './Build/SideBarItem';
 
 export {
@@ -20,7 +20,7 @@ export {
 	Logo,
 	PageLayout,
 	BuildPageLayout,
+	GuidesPageLayout,
 	ArrowPath,
-	Sidebar,
 	SideBarItem,
 };

@@ -4,7 +4,8 @@ import media from 'styled-media-query';
 import Scrollspy from 'react-scrollspy';
 
 import { FlexDivColCentered } from 'src/styles/common';
-import { Header, Sidebar } from '..';
+import { Header } from '..';
+import Sidebar from './Sidebar';
 import BuildFooter from './BuildFooter';
 
 const OutWrapper = styled.div`

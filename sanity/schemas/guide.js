@@ -19,6 +19,7 @@ export default {
 			name: 'subTitle',
 			title: 'Sub Title',
 			type: 'string',
+			validation: (Rule) => Rule.required(),
 		},
 		{
 			name: 'slug',

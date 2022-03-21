@@ -21,7 +21,7 @@ const data = [
 		hideOnHeader: false,
 	},
 	{
-		link: '/build/introduction',
+		link: '/build/welcome-to-snx',
 		label: 'build',
 		hideOnHeader: false,
 	},

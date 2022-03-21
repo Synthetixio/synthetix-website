@@ -29,7 +29,7 @@
         			},
         			{
 					"key": "Content-Security-Policy",
-					"value": "default-src 'self'; script-src 'self' https://analytics.synthetix.io https://cdn.sanity.io https://www.youtube.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; img-src 'self' data: https://raw.githubusercontent.com https://cdn.sanity.io; font-src 'self' https://fonts.gstatic.com; frame-ancestors 'self'; form-action 'self'; base-uri 'self'; connect-src 'self' https://cloudflare-eth.com https://api.etherscan.io https://*.infura.io https://*.alchemyapi.io https://synths.snx.eth.link https://analytics.synthetix.io https://cdn.sanity.io;"
+					"value": "default-src 'self' https://www.youtube.com; script-src 'self' https://analytics.synthetix.io https://cdn.sanity.io https://www.youtube.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; img-src 'self' data: https://raw.githubusercontent.com https://cdn.sanity.io; font-src 'self' https://fonts.gstatic.com; frame-ancestors 'self'; form-action 'self'; base-uri 'self'; connect-src 'self' https://cloudflare-eth.com https://api.etherscan.io https://*.infura.io https://*.alchemyapi.io https://synths.snx.eth.link https://analytics.synthetix.io https://cdn.sanity.io;"
 				},
 				{
 					"key": "Vary",

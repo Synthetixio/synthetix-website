@@ -25,7 +25,7 @@ const MainImage = ({ props }) => {
 	return (
 		<Figure>
 			<Img {...imageProps} layout="responsive" sizes="(max-width: 800px) 100vw, 800px" />
-			{caption ? <figcaption>Fig.1 - Trulli, Puglia, Italy.</figcaption> : null}
+			{caption ? <figcaption>{caption}</figcaption> : null}
 		</Figure>
 	);
 };

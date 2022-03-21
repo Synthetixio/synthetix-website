@@ -13,7 +13,9 @@ const Wrapper = styled.div`
 		cursor: pointer;
 	}
 	.open {
-		border: 1px solid #00d1ff;
+		border-style: solid;
+		border-width: 2px;
+		border-image: linear-gradient(180deg, #ed1eff, #00d1ff) 1;
 	}
 
 	.accordion-item {
@@ -63,7 +65,6 @@ interface AccordionBlockProps {
 
 export function AccordionBlock({ props }: AccordionBlockProps) {
 	const accordions = props.accordions;
-	console.log(accordions);
 	return (
 		<Wrapper>
 			{accordions.map((accordion, index) => (
