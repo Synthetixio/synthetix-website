@@ -1,3 +1,7 @@
+# 1.2.2
+
+- Fixed issue with svgs
+
 # 1.2.1
 
 - Added timestamp to KWETNA daily traders query
