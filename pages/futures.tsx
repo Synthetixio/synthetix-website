@@ -78,7 +78,6 @@ export async function getStaticProps() {
 			};
 		})
 	);
-	console.log(USNumberFormat(dailyKwenta.trades.toNumber()));
 	return {
 		props: {
 			openInterest: USNumberFormat(Number(debt.totalIssuedSynths.toNumber().toFixed(2))),
