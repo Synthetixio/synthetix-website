@@ -32,7 +32,8 @@ const poweredByCards: PoweredByCards[] = [
 	},
 	{
 		name: 'Thales',
-		description: 'A binary options protocol for trading on price action, sports, and other events.',
+		description:
+			'A Parimutuel Markets protocol for trading on price action, sports, and other events.',
 		link: 'https://thalesmarket.io/',
 		logo: '/home/powered-by/thales.png',
 	},
