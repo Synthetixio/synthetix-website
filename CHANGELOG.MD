@@ -1,3 +1,7 @@
+# 1.2.3
+
+- Updated text for Thales and added new SVG for synths assets
+
 # 1.2.2
 
 - Fixed issue with svgs
