@@ -2,8 +2,9 @@
 import { useState } from 'react';
 import styled from 'styled-components';
 import { PortableText } from '@portabletext/react';
-//import { IconContext } from 'react-icons';
 import { FiPlus, FiMinus } from 'react-icons/fi';
+
+import { Container } from './ContentBlock';
 
 const Wrapper = styled.div`
 	.accordion-wrapper {
@@ -67,6 +68,11 @@ export function AccordionBlock({ props }: AccordionBlockProps) {
 	const accordions = props.accordions;
 	return (
 		<Wrapper>
+			{props.body && (
+				<Container>
+					<PortableText value={props.body} />
+				</Container>
+			)}
 			{accordions.map((accordion, index) => (
 				<Accordion title={accordion.heading} key={index}>
 					<PortableText value={accordion.body} />

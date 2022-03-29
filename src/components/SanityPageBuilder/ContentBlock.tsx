@@ -7,7 +7,7 @@ import slugify from 'slugify';
 import MainImage from './MainImage';
 import CodeBlock from './CodeBlock';
 
-const Container = styled.div`
+export const Container = styled.div`
 	h1 {
 		font-family: Inter;
 		font-style: normal;

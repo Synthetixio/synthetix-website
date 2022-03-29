@@ -10,6 +10,7 @@ import VideoBlock from './VideoBlock';
 import AccordionBlock from './AccordionBlock';
 import StepsBlock from './StepsBlock';
 import ImgCarouselBlock from './ImgCarouselBlock';
+import IntroBlock from './IntroBlock';
 
 const Row = styled.div`
 	display: flex;
@@ -102,6 +103,14 @@ function PageBuilder(props: any) {
 					<Row key={block._key}>
 						<Column>
 							<ImgCarouselBlock props={block} />
+						</Column>
+					</Row>
+				);
+			case 'introIconBlock':
+				return (
+					<Row key={block._key}>
+						<Column>
+							<IntroBlock props={block} />
 						</Column>
 					</Row>
 				);

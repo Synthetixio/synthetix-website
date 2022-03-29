@@ -4,6 +4,11 @@ export default {
 	title: 'Accordion',
 	fields: [
 		{
+			name: 'body',
+			title: 'Optional Intro Text',
+			type: 'blockContent',
+		},
+		{
 			title: 'Accordion items',
 			name: 'accordions',
 			type: 'array',

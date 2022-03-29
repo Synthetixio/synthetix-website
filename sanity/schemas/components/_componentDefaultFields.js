@@ -6,7 +6,7 @@ export default [
 	{
 		name: 'title',
 		type: 'string',
-		title: 'Title',
+		title: 'CMS Title',
 		validation: (Rule) => Rule.required(),
 	},
 	// {

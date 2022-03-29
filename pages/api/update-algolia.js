@@ -3,6 +3,7 @@ import client from '../../src/lib/sanity';
 import algolia from '../../src/lib/algolia';
 
 export default function handler(req, res) {
+	console.log(req);
 	const sanityAlgolia = indexer(
 		{
 			build: {
@@ -13,6 +14,7 @@ export default function handler(req, res) {
 			},
 		},
 		(document) => {
+			console.log(document);
 			switch (document._type) {
 				case 'build':
 					return {
