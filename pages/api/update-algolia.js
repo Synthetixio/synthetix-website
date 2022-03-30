@@ -2,42 +2,44 @@ import indexer, { flattenBlocks } from 'sanity-algolia';
 import client from '../../src/lib/sanity';
 import algolia from '../../src/lib/algolia';
 
-export default function handler(req, res) {
-	console.log(req);
+const handler = (req, res) => {
+	if (req.headers['content-type'] !== 'application/json') {
+		res.status(400);
+		res.json({ message: 'Bad request' });
+		return;
+	}
+
+	const algoliaIndex = algolia.initIndex('pages');
+
 	const sanityAlgolia = indexer(
 		{
 			build: {
-				index: algolia.initIndex('pages'),
-			},
-			guide: {
-				index: algolia.initIndex('pages'),
+				index: algoliaIndex,
+				projection: `{
+					title,
+					"path": slug.current,
+					"body": pt::text(pageBuilder[]->body),
+					publishedAt,
+					"updatedAt": _updatedAt
+				      }`,
 			},
 		},
 		(document) => {
-			console.log(document);
 			switch (document._type) {
 				case 'build':
 					return {
 						title: document.title,
-						path: document.slug.current,
+						path: document.path,
 						publishedAt: document.publishedAt,
-						updatedAt: document._updatedAt,
-						body: flattenBlocks(document.pageBuilder),
-					};
-				case 'guide':
-					return {
-						title: document.title,
-						subTitle: document.subTitle,
-						path: document.slug.current,
-						publishedAt: document.publishedAt,
-						updatedAt: document._updatedAt,
-						body: flattenBlocks(document.pageBuilder),
+						updatedAt: document.updatedAt,
+						body: document.body,
 					};
 				default:
-					throw new Error(`Unknown type: ${document.type}`);
+					return document;
 			}
 		}
 	);
-
 	return sanityAlgolia.webhookSync(client, req.body).then(() => res.status(200).send('ok'));
-}
+};
+
+export default handler;
