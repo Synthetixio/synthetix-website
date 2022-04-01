@@ -11,7 +11,7 @@ const data = [
 		hideOnHeader: false,
 	},
 	{
-		externalLink: 'https://grafana.synthetix.io',
+		externalLink: 'https://stats.synthetix.io',
 		label: 'stats',
 		hideOnHeader: false,
 	},

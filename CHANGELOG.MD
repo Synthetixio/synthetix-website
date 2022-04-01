@@ -1,3 +1,11 @@
+# 1.2.3
+
+- Updated text for Thales and added new SVG for synths assets
+
+# 1.2.2
+
+- Fixed issue with svgs
+
 # 1.2.1
 
 - Added timestamp to KWETNA daily traders query
