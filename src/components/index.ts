@@ -1,5 +1,6 @@
 import Header from './Header';
 import Menu, { StyledMenu } from './Menu';
+import SubMenu, { StyledSubMenu } from './SubMenu';
 import Socials from './Socials';
 import Footer from './Footer';
 import Button from './Button';
@@ -14,6 +15,8 @@ export {
 	Header,
 	Menu,
 	StyledMenu,
+	SubMenu,
+	StyledSubMenu,
 	Footer,
 	Button,
 	Socials,

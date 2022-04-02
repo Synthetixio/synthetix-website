@@ -1,70 +1,80 @@
 import styled from 'styled-components';
 import media from 'styled-media-query';
 import Link from 'next/link';
+
 import { theme } from '../styles/theme';
 import { ExternalLink } from '../styles/common';
-
-const data = [
-	{
-		link: '/synths',
-		label: 'synths',
-		hideOnHeader: false,
-	},
-	{
-		externalLink: 'https://stats.synthetix.io',
-		label: 'stats',
-		hideOnHeader: false,
-	},
-	{
-		externalLink: 'https://staking.synthetix.io',
-		label: 'staking',
-		hideOnHeader: false,
-	},
-	{
-		link: '/build/welcome-to-snx',
-		label: 'build',
-		hideOnHeader: false,
-	},
-	{
-		link: '/governance',
-		label: 'governance',
-		hideOnHeader: false,
-	},
-	{
-		externalLink: 'https://discord.com/invite/AEdUHzt',
-		label: 'community',
-		hideOnHeader: false,
-	},
-	{
-		externalLink: 'https://jobs.defialliance.co/companies/synthetix',
-		label: 'careers',
-		hideOnHeader: true,
-	},
-	{
-		externalLink: 'https://blog.synthetix.io/',
-		label: 'blog',
-		hideOnHeader: false,
-	},
-	{
-		externalLink: 'https://research.synthetix.io/',
-		label: 'research',
-		hideOnHeader: true,
-	},
-];
+import { SubMenu } from '.';
 
 interface MenuProps {
 	isOpen?: boolean;
 	isHeader?: boolean;
+	navDocs?: any;
+	subOpen?: boolean;
 }
 
-const MenuComponent = ({ isHeader, isOpen, ...rest }: MenuProps) => {
+const MenuComponent = ({ isHeader, isOpen, subOpen, navDocs, ...rest }: MenuProps) => {
+	const data = [
+		{
+			link: '/synths',
+			label: 'synths',
+			hideOnHeader: false,
+		},
+		{
+			externalLink: 'https://stats.synthetix.io',
+			label: 'stats',
+			hideOnHeader: false,
+		},
+		{
+			externalLink: 'https://staking.synthetix.io',
+			label: 'staking',
+			hideOnHeader: false,
+		},
+		{
+			link: '/build/welcome-to-snx',
+			label: 'build',
+			hideOnHeader: false,
+		},
+		{
+			link: '/guides/test',
+			label: 'guides',
+			hideOnHeader: false,
+			subMenu: (navDocs && navDocs.label === 'guides' && navDocs) || null,
+		},
+		{
+			link: '/governance',
+			label: 'governance',
+			hideOnHeader: false,
+		},
+		{
+			externalLink: 'https://discord.com/invite/AEdUHzt',
+			label: 'community',
+			hideOnHeader: false,
+		},
+		{
+			externalLink: 'https://jobs.defialliance.co/companies/synthetix',
+			label: 'careers',
+			hideOnHeader: true,
+		},
+		{
+			externalLink: 'https://blog.synthetix.io/',
+			label: 'blog',
+			hideOnHeader: false,
+		},
+		{
+			externalLink: 'https://research.synthetix.io/',
+			label: 'research',
+			hideOnHeader: true,
+		},
+	];
+
 	return (
 		<StyledMenu isOpen={!!isOpen} {...rest}>
 			{data.map((item) => {
 				if (isHeader) {
 					return (
 						!item.hideOnHeader && (
-							<MenuItem key={item.label}>
+							<MenuItem key={item.label} subOpen={!!subOpen} {...rest}>
 								{item.link ? (
 									<Link href={item.link}>
 										<a>{item.label}</a>
@@ -79,7 +89,7 @@ const MenuComponent = ({ isHeader, isOpen, ...rest }: MenuProps) => {
 					);
 				} else {
 					return (
-						<MenuItem key={item.label}>
+						<MenuItem subOpen={false} key={item.label}>
 							{item.link ? (
 								<Link href={item.link}>
 									<a>{item.label}</a>
@@ -91,6 +101,7 @@ const MenuComponent = ({ isHeader, isOpen, ...rest }: MenuProps) => {
 					);
 				}
 			})}
+			{subOpen && <SubMenu navDocs={navDocs} />}
 		</StyledMenu>
 	);
 };
@@ -120,9 +131,8 @@ export const StyledMenu = styled.ul<{ isOpen: boolean }>`
 	`}
 `;
 
-const MenuItem = styled.li`
+const MenuItem = styled.li<{ subOpen: boolean }>`
 	display: inline-block;
-
 	margin: 0 16px;
 	&:last-child {
 		margin-right: 0;
@@ -137,12 +147,13 @@ const MenuItem = styled.li`
 		}
 	}
 
-	${media.lessThan('medium')`
-	margin: 0 0 51px 20px;
-		a {
-			font-size: 32px;
-			line-height: 24px;
-		}
+	${media.lessThan<{ subOpen: boolean }>('medium')`
+		${({ subOpen }) => (subOpen ? 'display: none;' : 'display: inline-block;')}
+		margin: 0 0 51px 20px;
+			a {
+				font-size: 32px;
+				line-height: 24px;
+			}
 	`}
 `;
 

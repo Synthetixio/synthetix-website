@@ -2,10 +2,15 @@ import { useState, useEffect } from 'react';
 import styled from 'styled-components';
 import media from 'styled-media-query';
 import HamburgerMenu from 'react-hamburger-menu';
+import { IconContext } from 'react-icons';
+import { RiSearchLine } from 'react-icons/ri';
+
 import { Logo, Menu } from './';
 
-const HeaderComponent = () => {
+const HeaderComponent = (props: any) => {
+	const { navDocs } = props || null;
 	const [isOpen, setIsOpen] = useState<boolean>(false);
+	const [subOpen, setSubOpen] = useState<boolean>(false);
 
 	useEffect(() => {
 		if (isOpen) {
@@ -13,6 +18,7 @@ const HeaderComponent = () => {
 		} else {
 			document.body.classList.remove('fixed');
 		}
+		setSubOpen(navDocs ? true : false);
 	}, [isOpen]);
 
 	const clickMenu = () => {
@@ -33,7 +39,18 @@ const HeaderComponent = () => {
 				animationDuration={0.3}
 			/>
 			<Logo />
-			<Menu isHeader={true} isOpen={isOpen} data-test-id="header-menu" />
+			<Menu
+				navDocs={navDocs}
+				subOpen={subOpen}
+				isHeader={true}
+				isOpen={isOpen}
+				data-test-id="header-menu"
+			/>
+			<SearchIcon>
+				<IconContext.Provider value={{ color: '#ffffff', size: '25px' }}>
+					<RiSearchLine />
+				</IconContext.Provider>
+			</SearchIcon>
 		</Header>
 	);
 };
@@ -75,4 +92,10 @@ const StyledHamburgerMenu = styled(HamburgerMenu)`
 		z-index: 999;
 	`}
 `;
+
+const SearchIcon = styled.div`
+	position: absolute;
+	right: 15px;
+`;
+
 export default HeaderComponent;

@@ -66,7 +66,7 @@ interface IntroBlockProps {
 }
 
 export function IntroBlock({ props }: IntroBlockProps) {
-	console.log(props);
+	//console.log(props);
 	const imageProps = useNextSanityImage(client, props.icon);
 
 	return (

@@ -54,6 +54,7 @@ const MainContent = styled.div`
 	flex-grow: 999;
 	min-inline-size: 50%;
 	padding: 0 50px;
+	overflow-wrap: anywhere;
 	min-height: 100vh; //TODO: refactor to body black background and remove this
 `;
 
@@ -93,9 +94,14 @@ type BuildPageLayoutProps<T> = {
 export default function BuildPageLayout<T>(props: BuildPageLayoutProps<T>) {
 	const { children, headings, navDocs, nextDoc, prevDoc, updatedAt } = props;
 	const headingList = headings.map((a: any) => a.slug);
+	const subMenu = {
+		label: 'build',
+		navtitle: 'Build Documents',
+		items: navDocs,
+	};
 	return (
 		<FlexDivColCentered>
-			<Header />
+			<Header navDocs={subMenu} />
 			<OutWrapper>
 				<ContentWrapper>
 					<Sidebar navDocs={navDocs} />

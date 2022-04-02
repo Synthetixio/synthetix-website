@@ -54,11 +54,15 @@ type GuidesPageLayoutProps<T> = {
 
 export default function GuidesPageLayout<T>(props: GuidesPageLayoutProps<T>) {
 	const { children, navDocs, updatedAt, mainImage, title, subTitle } = props;
-	//console.log(props);
+	const subMenu = {
+		label: 'guides',
+		navtitle: 'User Guides',
+		items: navDocs,
+	};
 
 	return (
 		<FlexDivColCentered>
-			<Header />
+			<Header navDocs={subMenu} />
 			<OutWrapper>
 				<ContentWrapper>
 					<Sidebar navDocs={navDocs} />
