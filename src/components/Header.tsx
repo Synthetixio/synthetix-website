@@ -2,10 +2,8 @@ import { useState, useEffect } from 'react';
 import styled from 'styled-components';
 import media from 'styled-media-query';
 import HamburgerMenu from 'react-hamburger-menu';
-import { IconContext } from 'react-icons';
-import { RiSearchLine } from 'react-icons/ri';
-
 import { Logo, Menu } from './';
+import Search from './Search';
 
 const HeaderComponent = (props: any) => {
 	const { navDocs } = props || null;
@@ -46,11 +44,7 @@ const HeaderComponent = (props: any) => {
 				isOpen={isOpen}
 				data-test-id="header-menu"
 			/>
-			<SearchIcon>
-				<IconContext.Provider value={{ color: '#ffffff', size: '25px' }}>
-					<RiSearchLine />
-				</IconContext.Provider>
-			</SearchIcon>
+			<Search />
 		</Header>
 	);
 };
@@ -91,11 +85,6 @@ const StyledHamburgerMenu = styled(HamburgerMenu)`
 		position: ${(props) => ((props as any).isOpen ? 'fixed' : 'absolute')} !important;
 		z-index: 999;
 	`}
-`;
-
-const SearchIcon = styled.div`
-	position: absolute;
-	right: 15px;
 `;
 
 export default HeaderComponent;

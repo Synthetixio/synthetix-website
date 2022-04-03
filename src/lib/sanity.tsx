@@ -1,3 +1,4 @@
+//@ts-nocheck
 import { createClient, createImageUrlBuilder, createPreviewSubscriptionHook } from 'next-sanity';
 
 const config = {
@@ -7,7 +8,7 @@ const config = {
 	apiVersion: '2021-08-31',
 };
 
-export const imageBuilder = (source) => createImageUrlBuilder(config).image(source);
+export const imageBuilder = (source: any) => createImageUrlBuilder(config).image(source);
 export const usePreviewSubscription = createPreviewSubscriptionHook(config);
 export const client = createClient(config);
 export const previewClient = createClient({
@@ -16,5 +17,5 @@ export const previewClient = createClient({
 	token: process.env.NEXT_PUBLIC_SANITY_READ_TOKEN,
 });
 
-export const getClient = (usePreview) => (usePreview ? previewClient : client);
+export const getClient = (usePreview: any) => (usePreview ? previewClient : client);
 export default client;

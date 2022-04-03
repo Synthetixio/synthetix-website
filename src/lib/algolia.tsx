@@ -1,3 +1,4 @@
+//@ts-nocheck
 import algoliasearch from 'algoliasearch';
 
 export const algolia = algoliasearch(

@@ -55,7 +55,7 @@ interface MenuProps {
 	navDocs: any;
 }
 
-const SubMenuComponent = ({ navDocs }: MenuProps) => {
+const SubMenu = ({ navDocs }: MenuProps) => {
 	return (
 		<SubNavWraper>
 			<Link href={'/'}>
@@ -150,4 +150,4 @@ const Dropdown = styled.ul`
 	}
 `;
 
-export default SubMenuComponent;
+export default SubMenu;
