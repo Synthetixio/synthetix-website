@@ -22,6 +22,12 @@ export default {
 			},
 			validation: (Rule) => Rule.required(),
 		},
+		{
+			name: 'color',
+			title: 'Color',
+			type: 'color',
+			validation: (Rule) => Rule.required(),
+		},
 		orderRankField({ type: 'category', hidden: true }),
 	],
 };
