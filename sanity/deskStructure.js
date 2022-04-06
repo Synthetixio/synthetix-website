@@ -1,7 +1,7 @@
 import S from '@sanity/desk-tool/structure-builder';
 import { orderableDocumentListDeskItem } from '@sanity/orderable-document-list';
 import { GrDocumentConfig } from 'react-icons/gr';
-import { RiGuideFill } from 'react-icons/ri';
+import { RiGuideFill, RiSettings5Fill } from 'react-icons/ri';
 
 export default () =>
 	S.list()
@@ -42,5 +42,10 @@ export default () =>
 						])
 				),
 			S.divider(),
+			S.listItem()
+				.title('Settings')
+				.icon(RiSettings5Fill)
+				.child(S.document().schemaType('settings').documentId('settings')),
+
 			//...S.documentTypeListItems(),
 		]);

@@ -8,6 +8,7 @@ import schemaTypes from 'all:part:@sanity/base/schema-type';
 import blockContent from './objects/blockContent';
 import buildCategory from './buildCategory';
 import guideCategory from './guideCategory';
+import settings from './settings';
 import build from './build';
 import guide from './guide';
 import author from './author';
@@ -37,6 +38,7 @@ export default createSchema({
 		.concat([
 			// The following are document types which will appear
 			// in the studio.
+			settings,
 			build,
 			buildCategory,
 			guide,
