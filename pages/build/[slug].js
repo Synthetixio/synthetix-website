@@ -12,25 +12,25 @@ const Build = ({build, navDocs}) => {
   //gather headings from all portable text
   const headingsQuery = jp.query(build, '$..body[?(@.style=="h1" || @.style=="h2" || @.style=="h3" || @.style=="h4" )]');
   let headings = []; 
-  headingsQuery.map((heading) => {
+  headingsQuery.map((heading) => (
     headings.push({
       style: heading.style,
       text: heading.children[0].text,
       slug: slugify(heading.children[0].text,{lower: true}),
     })
-  }); 
+  )); 
 
   // next/prev prep work
   //const allDocsOrdered = jp.query(navDocs, '$..docs[*]');
   let allDocsOrdered = []
-  navDocs.map(doc =>{
+  navDocs.map(doc => {
     let cat = doc.title
-    doc.docs.map(node => {
+    doc.docs.map(node => (
       allDocsOrdered.push({
         cat: cat,
         ...node,
       })
-    })
+    ))
   })
  
   
