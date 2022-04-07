@@ -31,7 +31,7 @@ export async function getStaticProps() {
 		useOvm: true,
 		networkId: NetworkId['Mainnet-Ovm'],
 	});
-	//https://thegraph.com/hosted-service/subgraph/tburm/optimism-futures ?? @TODO MF wait for Maiks response?
+	// https://thegraph.com/hosted-service/subgraph/kwenta/optimism-main ?? @TODO MF wait for Maiks response?
 	const [dailyKwenta] = await getDailyExchangePartners(
 		optimismGraphMain,
 		{

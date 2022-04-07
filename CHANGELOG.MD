@@ -1,3 +1,7 @@
+# 1.2.4
+
+- Cleaned upo the synthetix-subgraph.ts file
+
 # 1.2.3
 
 - Updated text for Thales and added new SVG for synths assets
