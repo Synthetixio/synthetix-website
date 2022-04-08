@@ -1,3 +1,7 @@
+# 1.3.ß
+
+- Updated images with the Next.js Image component
+
 # 1.2.4
 
 - Cleaned upo the synthetix-subgraph.ts file

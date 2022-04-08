@@ -2886,16 +2886,6 @@
     deepmerge "^4.2.2"
     svgo "^1.2.2"
 
-"@synthetixio/contracts-interface@2.53.0-alpha2":
-  version "2.53.0-alpha2"
-  resolved "https://registry.yarnpkg.com/@synthetixio/contracts-interface/-/contracts-interface-2.53.0-alpha2.tgz#bb7b372b58b6fe0ed6105e010d1c2c220153de4a"
-  integrity sha512-4APsh856epuI+1dCvWkeBJhU2NrZmncvH6cXhHjGZXtQzyGPWWRCLneqvCfSmfy6BvooemL+7HwkOwA1XPAMIw==
-  dependencies:
-    ethers "5.4.6"
-    lodash "4.17.19"
-    synthetix "2.53.0"
-    web3-utils "1.2.11"
-
 "@synthetixio/contracts-interface@2.64.1":
   version "2.64.1"
   resolved "https://registry.yarnpkg.com/@synthetixio/contracts-interface/-/contracts-interface-2.64.1.tgz#b039d2f9c5e8e10e69540ba7efb9824832223751"
@@ -2904,6 +2894,16 @@
     ethers "5.5.3"
     lodash "4.17.19"
     synthetix "2.64.1"
+    web3-utils "1.2.11"
+
+"@synthetixio/contracts-interface@^2.66.0-1":
+  version "2.66.0-1"
+  resolved "https://registry.yarnpkg.com/@synthetixio/contracts-interface/-/contracts-interface-2.66.0-1.tgz#eb06ac72ff96f05db8dcfa7b9c91dddbe7b79386"
+  integrity sha512-X9wT3HQcnR4KWSaFTUsK05j32dkBjW2Iw/yUrg2/OYNb2JV9eCRv8E1GNzlm84vViFsKCBnD+DHzDSuwbFCcBA==
+  dependencies:
+    ethers "5.5.3"
+    lodash "4.17.19"
+    synthetix "2.66.0"
     web3-utils "1.2.11"
 
 "@synthetixio/js@2.41.0":
@@ -15662,20 +15662,6 @@ synthetix@2.41.0:
     solidity-parser-antlr "^0.4.11"
     web3-utils "1.2.2"
 
-synthetix@2.53.0:
-  version "2.53.0"
-  resolved "https://registry.yarnpkg.com/synthetix/-/synthetix-2.53.0.tgz#d908d5946a13965fd91a0c2242c260d711ae992a"
-  integrity sha512-YbIwJzhweoPuRFsnSa0U3Ew0shWOe0Er5xwLbLogAM4idYVaGJCnzQqIKUevKvRsfBN4wWnZIPbMQj8zrs2c6A==
-  dependencies:
-    abi-decoder "2.3.0"
-    commander "8.1.0"
-    inquirer "^6.5.2"
-    inquirer-list-search-prompt "^1.0.2"
-    js-levenshtein "^1.1.6"
-    pretty-error "^2.1.1"
-    solidity-parser-antlr "^0.4.11"
-    web3-utils "1.2.2"
-
 synthetix@2.56.1:
   version "2.56.1"
   resolved "https://registry.yarnpkg.com/synthetix/-/synthetix-2.56.1.tgz#64f394cb681339eddffb3c05a995fee2b4b47365"
@@ -15694,6 +15680,20 @@ synthetix@2.64.1:
   version "2.64.1"
   resolved "https://registry.yarnpkg.com/synthetix/-/synthetix-2.64.1.tgz#c2dbffcaf7b7182c1a8489bdd76851e85785468c"
   integrity sha512-txBmodN90hSyoXVkUs5icvExflLlqu4Q5PrgmV62N+YWhurJS71ACf5BzNVYt+p48Rtwt/QACdSJWChV+VW8vQ==
+  dependencies:
+    abi-decoder "2.3.0"
+    commander "8.1.0"
+    inquirer "^6.5.2"
+    inquirer-list-search-prompt "^1.0.2"
+    js-levenshtein "^1.1.6"
+    pretty-error "^2.1.1"
+    solidity-parser-antlr "^0.4.11"
+    web3-utils "1.2.2"
+
+synthetix@2.66.0:
+  version "2.66.0"
+  resolved "https://registry.yarnpkg.com/synthetix/-/synthetix-2.66.0.tgz#2845659026d73d17455f4a6ceec5b14fec54c45e"
+  integrity sha512-XQtjAdmZWX5xDJKlDLxmvLE2cqpnzU+/fL6Zs4dJU7ke002GXc0RGLQUQG8xYO+x/htyxQTGbJGo8ZfaJEyUoA==
   dependencies:
     abi-decoder "2.3.0"
     commander "8.1.0"

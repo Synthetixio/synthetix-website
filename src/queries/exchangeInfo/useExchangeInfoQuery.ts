@@ -1,7 +1,7 @@
 import { BigNumberish, ethers } from 'ethers';
 import { CurrencyKey } from 'src/constants/currency';
 import getSNXJS from 'src/lib/snxjs';
-import { NetworkId } from '@synthetixio/contracts-interface';
+import { NetworkIdByName } from '@synthetixio/contracts-interface';
 
 export type Rates = Record<CurrencyKey, number>;
 export type Fees = Record<CurrencyKey, number>;
@@ -16,7 +16,7 @@ const iStandardSynth = (currencyKey: CurrencyKey) => currencyKey.startsWith('s')
 const additionalCurrencies = ['SNX'].map(ethers.utils.formatBytes32String);
 
 const exchangeInfoQuery = async () => {
-	const snxjs = getSNXJS({ useOvm: false, networkId: NetworkId.Mainnet });
+	const snxjs = getSNXJS({ useOvm: false, networkId: NetworkIdByName.mainnet });
 
 	const exchangeRates: Rates = {};
 	const exchangeFees: Fees = {};

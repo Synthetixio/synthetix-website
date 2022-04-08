@@ -13,7 +13,7 @@ export default function FutureSynthCard({
 	return (
 		<StyledFutureSynthCard>
 			<StyledSynthImage
-				src={`https://raw.githubusercontent.com/Synthetixio/synthetix-assets/v2.0.10/synths/${name}.svg`}
+				src={`https://raw.githubusercontent.com/Synthetixio/synthetix-assets/v2.0.13/synths/${name}.svg`}
 			/>
 			<StyledFutureContent>
 				<FlexDiv>
