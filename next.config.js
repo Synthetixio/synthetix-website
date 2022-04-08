@@ -1,6 +1,7 @@
 const packageJson = require('./package');
 const execSync = require('child_process').execSync;
 const lastCommitCommand = 'git rev-parse HEAD';
+const withImages = require('next-images');
 
 const date = new Date();
 
@@ -10,7 +11,7 @@ console.debug(
 /**
  * @type {import('next').NextConfig}
  */
-module.exports = {
+module.exports = withImages({
 	async generateBuildId() {
 		return execSync(lastCommitCommand).toString().trim();
 	},
@@ -54,4 +55,4 @@ module.exports = {
 
 		return config;
 	},
-};
+});
