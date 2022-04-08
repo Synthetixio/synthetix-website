@@ -1,4 +1,8 @@
-# 1.3.ß
+# 1.3.1
+
+- Moved images to static public folder
+
+# 1.3.0
 
 - Updated images with the Next.js Image component
 

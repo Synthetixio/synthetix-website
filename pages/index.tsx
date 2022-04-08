@@ -72,6 +72,7 @@ export const getServerSideProps: GetServerSideProps = async () => {
 		props: {
 			totalLocked,
 		},
+		revalidate: 604800,
 	};
 };
 
