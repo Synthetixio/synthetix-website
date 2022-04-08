@@ -11,11 +11,10 @@ const FuturesSection = () => {
 	const [activeIndex, setActiveIndex] = useState<number>(0);
 	return (
 		<FuturesContainer id="futures">
-			<LeftWrapper>
-				<Left src={Graph} />
+			<Left>
 				<FadeToBlack ltr={false} />
 				<FadeToBlack ltr={true} />
-			</LeftWrapper>
+			</Left>
 			<AccordionContainer>
 				<SectionTitle>
 					Decentralized <br /> Perpetual Futures
@@ -57,12 +56,16 @@ const FuturesContainer = styled(Section)`
 	`}
 `;
 
-const LeftWrapper = styled.div`
+const Left = styled.div`
 	position: relative;
 	width: 100%;
 	min-height: 430px;
 	max-width: 766px;
 	right: 0;
+	background-image: url('/graph.svg');
+	background-repeat: no-repeat;
+	background-position: right;
+	background-size: contain;
 
 	${media.lessThan('large')`
 		background-size: contain;
@@ -79,12 +82,6 @@ const LeftWrapper = styled.div`
 		background-size: contain;
 		transform: scale(1.2);
 	`}
-`;
-
-const Left = styled(Image)`
-	background-repeat: no-repeat;
-	background-position: right;
-	background-size: contain;
 `;
 
 const AccordionContainer = styled(FlexDivCol)`
