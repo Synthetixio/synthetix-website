@@ -2,12 +2,12 @@ import { ExternalLink, Section, SectionTitle } from '../../styles/common';
 import { Subline } from 'src/styles/common';
 import styled from 'styled-components';
 import media from 'styled-media-query';
-import OneInch from '../../../assets/powered-by/1inch.png';
-import Curve from '../../../assets/powered-by/crv.png';
-import Dhedge from '../../../assets/powered-by/dhedge.png';
-import Paraswap from '../../../assets/powered-by/para.png';
-import Yearn from '../../../assets/powered-by/yearn.png';
-import Aelin from '../../../assets/powered-by/aelin-circle.png';
+import OneInch from '../../../assets/powered-by/1inch.svg';
+import Curve from '../../../assets/powered-by/crv.svg';
+import Dhedge from '../../../assets/powered-by/dhedge.svg';
+import Paraswap from '../../../assets/powered-by/para.svg';
+import Yearn from '../../../assets/powered-by/yearn.svg';
+import Aelin from '../../../assets/powered-by/aelin.svg';
 import Image from 'next/image';
 
 interface ImageProps {
