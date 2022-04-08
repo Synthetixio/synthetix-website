@@ -33,7 +33,7 @@ export default function FuturesMain() {
 
 const FuturesMainSection = styled(Section)`
 	margin-top: 100px;
-	background-image: url('/home/futures/background.png');
+	background-image: url('/background.png');
 	background-repeat: no-repeat;
 	background-size: cover;
 	padding: 0 0 0 138px;

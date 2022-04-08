@@ -11,7 +11,7 @@ import exchangeInfoQuery, { Fees, Rates } from 'src/queries/exchangeInfo/useExch
 import getSNXJS from 'src/lib/snxjs';
 import useMarketClosed from 'src/hooks/useMarketClosed';
 import { SynthStatus } from 'src/sections/synths/SynthCard';
-import { NetworkId, Synth } from '@synthetixio/contracts-interface';
+import { NetworkIdByName, Synth } from '@synthetixio/contracts-interface';
 
 export async function getStaticProps() {
 	const tokenListResponse = await axios.get<TokenListResponse>('https://synths.snx.eth.link');
@@ -21,7 +21,7 @@ export async function getStaticProps() {
 		symbols: tokenListResponse.data.tokens.map((token) => token.symbol),
 	};
 	const exchangeInfo = await exchangeInfoQuery();
-	const synths = getSNXJS({ useOvm: false, networkId: NetworkId.Mainnet }).synths;
+	const synths = getSNXJS({ useOvm: false, networkId: NetworkIdByName.mainnet }).synths;
 	const dictionarySynthStatus: Record<string, SynthStatus> = {};
 	const promises = synths.map(async (synth) => {
 		const marketClosed = await useMarketClosed(synth.name);

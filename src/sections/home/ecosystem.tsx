@@ -2,35 +2,48 @@ import { ExternalLink, Section, SectionTitle } from '../../styles/common';
 import { Subline } from 'src/styles/common';
 import styled from 'styled-components';
 import media from 'styled-media-query';
+import OneInch from '../../../assets/powered-by/1inch.png';
+import Curve from '../../../assets/powered-by/crv.png';
+import Dhedge from '../../../assets/powered-by/dhedge.png';
+import Paraswap from '../../../assets/powered-by/para.png';
+import Yearn from '../../../assets/powered-by/yearn.png';
+import Aelin from '../../../assets/powered-by/aelin-circle.png';
+import Image from 'next/image';
 
-const images: Record<'title' | 'image' | 'link', string>[] = [
+interface ImageProps {
+	title: string;
+	image: StaticImageData;
+	link: string;
+}
+
+const images: ImageProps[] = [
 	{
-		image: '/home/powered-by/1inch.png',
+		image: OneInch,
 		title: '1INCH',
 		link: 'https://1inch.io/',
 	},
 	{
-		image: '/home/powered-by/crv.png',
+		image: Curve,
 		title: 'CURVE',
 		link: 'https://curve.fi/',
 	},
 	{
-		image: '/home/powered-by/dhedge.png',
+		image: Dhedge,
 		title: 'DHEDGE',
 		link: 'https://www.dhedge.org/',
 	},
 	{
-		image: '/home/powered-by/para.png',
+		image: Paraswap,
 		title: 'PARASWAP',
 		link: 'https://paraswap.io/',
 	},
 	{
-		image: '/home/powered-by/yearn.png',
+		image: Yearn,
 		title: 'YEARN',
 		link: 'https://yearn.finance/',
 	},
 	{
-		image: '/home/powered-by/aelin-circle.png',
+		image: Aelin,
 		title: 'AELIN',
 		link: 'https://aelin.xyz/',
 	},
@@ -46,8 +59,8 @@ export default function Ecosystem() {
 			</EcosystemSubline>
 			<ImageContainer>
 				{images.map((image) => (
-					<ImageInner key={image.title} href={image.link}>
-						<Image src={image.image} />
+					<ImageInner key={image.link} href={image.link}>
+						<StyledImage src={image.image} />
 						<ImageTitle>{image.title}</ImageTitle>
 					</ImageInner>
 				))}
@@ -108,7 +121,7 @@ const ImageInner = styled(ExternalLink)`
 	align-items: center;
 `;
 
-const Image = styled.img`
+const StyledImage = styled(Image)`
 	width: 114px;
 	height: 114px;
 `;

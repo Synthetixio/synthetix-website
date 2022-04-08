@@ -4,15 +4,20 @@ import media from 'styled-media-query';
 import Accordion, { AccordionItemsType } from 'src/components/Accordion/Accordion';
 import { useState } from 'react';
 import { FlexDiv, Section, SectionTitle } from 'src/styles/common';
+import Earn from '../../../assets/earn.svg';
+import Synths from '../../../assets/trade-synths.svg';
+import Circle from '../../../assets/build-circle.svg';
+import Illustration from '../../../assets/illustration-synths.svg';
+import Image from 'next/image';
 
 const SynthSection = () => {
 	const [activeIndex, setActiveIndex] = useState<number>(0);
 
 	const graphics = [
-		<SynthGraphicAbsolute src="home/illustration-synths.svg" key="home/illustration-synths.svg" />,
-		<SynthGraphic src="/home/earn.svg" key="/home/earn.svg" />,
-		<SynthGraphic src="/home/trade-synths.svg" key="/home/trade-synths.svg" />,
-		<SynthGraphic src="/home/build-circle.svg" key="/home/build-circle.svg" />,
+		<SynthGraphicAbsolute src={Illustration} key="illustration-synths.svg" />,
+		<SynthGraphic src={Earn} key="earnSVG" />,
+		<SynthGraphic src={Synths} key="synthsSVG" />,
+		<SynthGraphic src={Circle} key="circleSVG" />,
 	];
 
 	return (
@@ -59,7 +64,7 @@ const Left = styled.div`
 	margin-right: auto;
 `;
 
-const SynthGraphicAbsolute = styled.img`
+const SynthGraphicAbsolute = styled(Image)`
 	height: 444px;
 	position: absolute;
 	right: 0;
@@ -82,7 +87,7 @@ const SynthGraphicAbsolute = styled.img`
 	`}
 `;
 
-const SynthGraphic = styled.img`
+const SynthGraphic = styled(Image)`
 	height: 500px;
 	pointer-events: none;
 	${(props) => props.theme.animations.show};

@@ -8,12 +8,16 @@ import PoweredByBlur from 'src/svg/PoweredByBlur';
 import PoweredByGrid from 'src/svg/PoweredByGrid';
 import PoweredByBackground from 'src/svg/PoweredByBackground';
 import PoweredByBackgroundMobile from 'src/svg/PoweredByBackgroundMobile';
+import Kwenta from '../../../assets/powered-by/kwenta.png';
+import Lyra from '../../../assets/powered-by/lyra.png';
+import Thales from '../../../assets/powered-by/thales.png';
+import Image from 'next/image';
 
 type PoweredByCards = {
 	name: string;
 	description: string;
 	link: string;
-	logo: string;
+	logo: StaticImageData;
 };
 
 const poweredByCards: PoweredByCards[] = [
@@ -22,20 +26,20 @@ const poweredByCards: PoweredByCards[] = [
 		description:
 			'Trade with up to 10x leverage and simulated liquidity for the best price fills. Coming soon.',
 		link: 'https://kwenta.io',
-		logo: '/home/powered-by/kwenta.png',
+		logo: Kwenta,
 	},
 	{
 		name: 'Lyra',
 		description: ' The first completely decentralized options protocol.',
 		link: 'https://www.lyra.finance/',
-		logo: '/home/powered-by/lyra.png',
+		logo: Lyra,
 	},
 	{
 		name: 'Thales',
 		description:
 			'A Parimutuel Markets protocol for trading on price action, sports, and other events.',
 		link: 'https://thalesmarket.io/',
-		logo: '/home/powered-by/thales.png',
+		logo: Thales,
 	},
 ];
 
@@ -358,7 +362,7 @@ const Card = styled(ExternalLink)`
 	}
 `;
 
-const CardImage = styled.img`
+const CardImage = styled(Image)`
 	width: 100%;
 	height: 120px;
 	margin-bottom: 16px;

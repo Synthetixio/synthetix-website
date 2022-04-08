@@ -4,15 +4,18 @@ import media from 'styled-media-query';
 import Accordion, { AccordionItemsType } from 'src/components/Accordion/Accordion';
 import { useState } from 'react';
 import { FlexDivCol, Section, SectionTitle } from 'src/styles/common';
+import Image from 'next/image';
+import Graph from '../../../assets/graph.svg';
 
 const FuturesSection = () => {
 	const [activeIndex, setActiveIndex] = useState<number>(0);
 	return (
 		<FuturesContainer id="futures">
-			<Left>
+			<LeftWrapper>
+				<Left src={Graph} />
 				<FadeToBlack ltr={false} />
 				<FadeToBlack ltr={true} />
-			</Left>
+			</LeftWrapper>
 			<AccordionContainer>
 				<SectionTitle>
 					Decentralized <br /> Perpetual Futures
@@ -54,16 +57,12 @@ const FuturesContainer = styled(Section)`
 	`}
 `;
 
-const Left = styled.div`
+const LeftWrapper = styled.div`
 	position: relative;
 	width: 100%;
 	min-height: 430px;
 	max-width: 766px;
 	right: 0;
-	background-image: url('/home/graph.svg');
-	background-repeat: no-repeat;
-	background-position: right;
-	background-size: contain;
 
 	${media.lessThan('large')`
 		background-size: contain;
@@ -80,6 +79,12 @@ const Left = styled.div`
 		background-size: contain;
 		transform: scale(1.2);
 	`}
+`;
+
+const Left = styled(Image)`
+	background-repeat: no-repeat;
+	background-position: right;
+	background-size: contain;
 `;
 
 const AccordionContainer = styled(FlexDivCol)`
