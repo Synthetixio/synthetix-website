@@ -3,10 +3,24 @@ import React, { ReactNode, useState } from 'react';
 import media from 'styled-media-query';
 import { theme } from 'src/styles/theme';
 import { resetButtonCSS } from 'src/styles/common';
-import SynthCard from './SynthCard';
-import { SynthsProps } from 'pages/synths';
+import SynthCard, { SynthStatus } from './SynthCard';
+import { TokenListQueryResponse } from 'src/queries/tokenLists/types';
+import { Fees, Rates } from 'src/queries/exchangeInfo/useExchangeInfoQuery';
+import { Synth } from '@synthetixio/contracts-interface';
 
-const SynthsInfo = ({ tokenList, exchangeInfo, dictionarySynthStatus, synths }: SynthsProps) => {
+interface SynthsInfoProps {
+	tokenList: TokenListQueryResponse;
+	exchangeInfo: { fees: Fees; rates: Rates };
+	dictionarySynthStatus: Record<string, SynthStatus>;
+	synths: Synth[];
+}
+
+const SynthsInfo = ({
+	tokenList,
+	exchangeInfo,
+	dictionarySynthStatus,
+	synths,
+}: SynthsInfoProps) => {
 	const [synthCategory, setSynthCategory] = useState('all');
 	const filteredSynths: Record<string, ReactNode[]> = {
 		all: [],

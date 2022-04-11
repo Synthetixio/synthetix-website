@@ -1,7 +1,6 @@
 import { BigNumberish, ethers } from 'ethers';
 import { CurrencyKey } from 'src/constants/currency';
 import getSNXJS from 'src/lib/snxjs';
-import { NetworkIdByName } from '@synthetixio/contracts-interface';
 
 export type Rates = Record<CurrencyKey, number>;
 export type Fees = Record<CurrencyKey, number>;
@@ -15,9 +14,8 @@ const iStandardSynth = (currencyKey: CurrencyKey) => currencyKey.startsWith('s')
 // Additional commonly used currencies to fetch, besides the one returned by the SynthUtil.synthsRates
 const additionalCurrencies = ['SNX'].map(ethers.utils.formatBytes32String);
 
-const exchangeInfoQuery = async () => {
-	const snxjs = getSNXJS({ useOvm: false, networkId: NetworkIdByName.mainnet });
-
+const getExchangeInfo = async (useOvm?: boolean) => {
+	const snxjs = getSNXJS({ useOvm });
 	const exchangeRates: Rates = {};
 	const exchangeFees: Fees = {};
 	const [synthsRates, ratesForCurrencies] = (await Promise.all([
@@ -53,7 +51,14 @@ const exchangeInfoQuery = async () => {
 			exchangeRates[synthToAsset(currencyKey)] = rate;
 		}
 	});
+
 	return { rates: exchangeRates, fees: exchangeFees };
+};
+
+const exchangeInfoQuery = async () => {
+	const [infoL1, infoL2] = await Promise.all([getExchangeInfo(), getExchangeInfo(true)]);
+
+	return { exchangeInfoL1: infoL1, exchangeInfoL2: infoL2 };
 };
 
 export default exchangeInfoQuery;
