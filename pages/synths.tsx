@@ -33,20 +33,23 @@ const getSynthStatus = async (useOvm: boolean) => {
 };
 
 export async function getStaticProps() {
-	const tokenListResponse = await axios.get<TokenListResponse>('https://synths.snx.eth.link');
+	const [
+		tokenListResponse,
+		{ exchangeInfoL1, exchangeInfoL2 },
+		{ synths: synthsL1, dictionarySynthStatus: dictionarySynthStatusL1 },
+		{ synths: synthsL2, dictionarySynthStatus: dictionarySynthStatusL2 },
+	] = await Promise.all([
+		axios.get<TokenListResponse>('https://synths.snx.eth.link'),
+		exchangeInfoQuery(),
+		getSynthStatus(false),
+		getSynthStatus(true),
+	]);
+
 	const tokenList = {
 		tokens: tokenListResponse.data.tokens,
 		tokensMap: keyBy(tokenListResponse.data.tokens, 'symbol'),
 		symbols: tokenListResponse.data.tokens.map((token) => token.symbol),
 	};
-	const { exchangeInfoL1, exchangeInfoL2 } = await exchangeInfoQuery();
-
-	const { synths: synthsL1, dictionarySynthStatus: dictionarySynthStatusL1 } = await getSynthStatus(
-		false
-	);
-	const { synths: synthsL2, dictionarySynthStatus: dictionarySynthStatusL2 } = await getSynthStatus(
-		true
-	);
 
 	return {
 		props: {
