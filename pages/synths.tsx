@@ -95,8 +95,7 @@ const Synths = ({ tokenList, l1, l2 }: SynthsProps) => (
 						pooled collateral model. Trades between Synths generate a small fee that is distributed
 						to SNX collateral providers.
 					</StyledPageCopy>
-					<SynthsInfo {...{ tokenList, ...l1 }} />
-					<SynthsInfo {...{ tokenList, ...l2 }} />
+					<SynthsInfo {...{ tokenList, l1, l2 }} />
 				</SynthsSection>
 			</ContentWrapper>
 			<Line showOnMobile />
