@@ -39,6 +39,10 @@ export default () =>
 								type: 'guideCategory',
 								title: 'Guide Catagories',
 							}),
+							orderableDocumentListDeskItem({
+								type: 'tag',
+								title: 'Tags',
+							}),
 						])
 				),
 			S.divider(),

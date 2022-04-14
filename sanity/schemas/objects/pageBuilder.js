@@ -11,9 +11,11 @@ export default {
 		{ type: 'stepsBlock' },
 		{ type: 'accordionBlock' },
 		{ type: 'imgCarouselBlock' },
+		{ type: 'guideCarouselBlock' },
 		{ type: 'mainImage' },
 		{ type: 'videoBlock' },
 		{ type: 'tableBlock' },
 		{ type: 'introIconBlock' },
+		{ type: 'tagsBlock' },
 	],
 };

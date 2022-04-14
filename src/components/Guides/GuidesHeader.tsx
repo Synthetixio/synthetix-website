@@ -46,14 +46,15 @@ const HeadingText = styled.div`
 	}
 `;
 
-export default function GuidesHeader({ mainImage, title, subTitle }: any) {
+export default function GuidesHeader({ mainImage, title, subTitle, subPos }: any) {
 	const imageProps = useNextSanityImage(client, mainImage);
-
+	//console.log(subPos)
 	return (
 		<HeaderContainer>
 			<HeadingText>
-				{subTitle && <span>{subTitle}</span>}
+				{subTitle && !subPos && <span>{subTitle}</span>}
 				<h1>{title}</h1>
+				{subTitle && subPos && <span>{subTitle}</span>}
 			</HeadingText>
 			<Img {...imageProps} layout="fill" objectFit="none" quality={100} />
 		</HeaderContainer>

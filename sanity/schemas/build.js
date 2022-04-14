@@ -25,6 +25,12 @@ export default {
 			},
 			validation: (Rule) => Rule.required(),
 		},
+		{
+			name: 'introText',
+			title: 'Intro Text',
+			type: 'text',
+			validation: (Rule) => Rule.required().min(10).max(160),
+		},
 		/* {
 		{
 			name: 'author',

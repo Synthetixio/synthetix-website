@@ -4,13 +4,6 @@ export default {
 	type: 'document',
 	fields: [
 		{
-			name: 'buidNavStarter',
-			title: 'Build Navigation Starting Page',
-			type: 'reference',
-			to: [{ type: 'build' }],
-			validation: (Rule) => Rule.required(),
-		},
-		{
 			name: 'guideLPBanner',
 			title: 'Guide Landing Page Banner',
 			type: 'image',
@@ -19,5 +12,17 @@ export default {
 			},
 			validation: (Rule) => Rule.required(),
 		},
+		{
+			name: 'guideLPBuilder',
+			type: 'pageBuilder',
+			title: 'Guide Landing Page Builder',
+			validation: (Rule) => Rule.required(),
+		},
 	],
+	preview: {
+		select: {
+			title: 'Settings',
+			subtitle: 'Settings for guide and build CMS pages',
+		},
+	},
 };

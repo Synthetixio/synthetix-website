@@ -10,5 +10,7 @@ export default {
 		{ type: 'mainImage' },
 		{ type: 'videoBlock' },
 		{ type: 'tableBlock' },
+		{ type: 'tagsBlock' },
+		//{ type: 'guideCarouselBlock' },
 	],
 };

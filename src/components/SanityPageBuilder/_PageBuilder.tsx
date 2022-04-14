@@ -11,6 +11,8 @@ import AccordionBlock from './AccordionBlock';
 import StepsBlock from './StepsBlock';
 import ImgCarouselBlock from './ImgCarouselBlock';
 import IntroBlock from './IntroBlock';
+import GuideCarouselBlock from './GuideCarouselBlock';
+import TagsBlock from './TagsBlock';
 
 const Row = styled.div`
 	display: flex;
@@ -33,7 +35,8 @@ const Column = styled.div`
 
 function PageBuilder(props: any) {
 	const { pageBuilder } = props;
-	//console.log(pageBuilder);
+	const { guideTags = null } = props;
+	//console.log(guideTags);
 
 	return pageBuilder.map((block: any, index: number) => {
 		switch (block._type) {
@@ -106,6 +109,14 @@ function PageBuilder(props: any) {
 						</Column>
 					</Row>
 				);
+			case 'guideCarouselBlock':
+				return (
+					<Row key={block._key}>
+						<Column>
+							<GuideCarouselBlock props={block} />
+						</Column>
+					</Row>
+				);
 			case 'introIconBlock':
 				return (
 					<Row key={block._key}>
@@ -114,6 +125,16 @@ function PageBuilder(props: any) {
 						</Column>
 					</Row>
 				);
+			case 'tagsBlock':
+				if (guideTags) {
+					return (
+						<Row key={block._key}>
+							<Column>
+								<TagsBlock guideTags={guideTags} props={block} />
+							</Column>
+						</Row>
+					);
+				}
 		}
 	});
 }

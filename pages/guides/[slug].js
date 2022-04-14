@@ -18,6 +18,7 @@ const Guide = ({ guide, navDocs }) => {
 				mainImage={guide.mainImage}
 				title={guide.title}
 				subTitle={guide.subTitle}
+				subPos={guide.subPos}
 			>
 				<PageBuilder pageBuilder={guide.pageBuilder} />
 			</GuidesPageLayout>
@@ -43,13 +44,23 @@ export async function getStaticProps(context) {
     {
 	slug,
 	title,
-  subTitle,
-  mainImage,
+	subTitle,
+	subPos,
+	mainImage,
 	"category": category->title,
 	"categorySlug": category->slug,
-	pageBuilder,
-  _updatedAt,
-      }[0]
+	"pageBuilder": pageBuilder[]{
+		_type == 'guideCarouselBlock' => {
+			...,
+			guides[]-> {
+				...,
+				tags[]->
+			}
+		},
+		_type != 'guideCarouselBlock' => @,
+	},
+	_updatedAt,
+	}[0]
   `,
 		{ slug }
 	);

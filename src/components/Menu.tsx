@@ -36,7 +36,7 @@ const MenuComponent = ({ isHeader, isOpen, subOpen, navDocs, ...rest }: MenuProp
 			hideOnHeader: false,
 		},
 		{
-			link: '/guides/test',
+			link: '/guides',
 			label: 'guides',
 			hideOnHeader: false,
 			subMenu: (navDocs && navDocs.label === 'guides' && navDocs) || null,

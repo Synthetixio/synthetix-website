@@ -8,6 +8,7 @@ import schemaTypes from 'all:part:@sanity/base/schema-type';
 import blockContent from './objects/blockContent';
 import buildCategory from './buildCategory';
 import guideCategory from './guideCategory';
+import tag from './tag';
 import settings from './settings';
 import build from './build';
 import guide from './guide';
@@ -43,6 +44,7 @@ export default createSchema({
 			buildCategory,
 			guide,
 			guideCategory,
+			tag,
 			author,
 			// When added to this list, object types can be used as
 			// { type: 'typename' } in other document schemas

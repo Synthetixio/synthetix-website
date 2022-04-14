@@ -1,8 +1,8 @@
 import { orderRankField, orderRankOrdering } from '@sanity/orderable-document-list';
 
 export default {
-	name: 'guideCategory',
-	title: 'Guide Category',
+	name: 'tag',
+	title: 'Tag',
 	type: 'document',
 	orderings: [orderRankOrdering],
 	fields: [
@@ -22,6 +22,18 @@ export default {
 			},
 			validation: (Rule) => Rule.required(),
 		},
-		orderRankField({ type: 'category', hidden: true }),
+		{
+			name: 'color',
+			title: 'Color',
+			type: 'color',
+			validation: (Rule) => Rule.required(),
+		},
+		{
+			name: 'introText',
+			title: 'Intro Text',
+			type: 'text',
+			validation: (Rule) => Rule.required().min(10).max(160),
+		},
+		orderRankField({ type: 'tag', hidden: true }),
 	],
 };

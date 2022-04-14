@@ -19,6 +19,13 @@ export default {
 			name: 'subTitle',
 			title: 'Sub Title',
 			type: 'string',
+			description: 'Optional - Leave blank to not show',
+		},
+		{
+			title: 'Sub Title Bottom?',
+			name: 'subPos',
+			type: 'boolean',
+			description: 'When set sub title will show under title',
 		},
 		{
 			name: 'slug',
@@ -31,8 +38,23 @@ export default {
 			validation: (Rule) => Rule.required(),
 		},
 		{
+			name: 'introText',
+			title: 'Intro Text',
+			type: 'text',
+			validation: (Rule) => Rule.required().min(10).max(160),
+		},
+		{
 			name: 'mainImage',
 			title: 'Main image',
+			type: 'image',
+			options: {
+				hotspot: true,
+			},
+			validation: (Rule) => Rule.required(),
+		},
+		{
+			name: 'icon',
+			title: 'Icon image',
 			type: 'image',
 			options: {
 				hotspot: true,
@@ -45,6 +67,16 @@ export default {
 			type: 'reference',
 			to: [{ type: 'guideCategory' }],
 			validation: (Rule) => Rule.required(),
+		},
+		{
+			name: 'tags',
+			title: 'Tags',
+			type: 'array',
+			of: [{ type: 'reference', to: { type: 'tag' } }],
+			options: {
+				layout: 'tags',
+			},
+			validation: (Rule) => Rule.unique().required().min(1).max(3),
 		},
 		{
 			name: 'publishedAt',
@@ -60,6 +92,9 @@ export default {
 		},
 		orderRankField({ type: 'category', hidden: true }),
 	],
+	initialValue: {
+		subPos: false,
+	},
 	orderings: [
 		{
 			title: 'Category',
@@ -72,6 +107,7 @@ export default {
 		select: {
 			title: 'title',
 			subtitle: 'category.title',
+			media: 'icon',
 		},
 	},
 };
