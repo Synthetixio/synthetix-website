@@ -7,7 +7,6 @@ import { FiPlus, FiMinus } from 'react-icons/fi';
 import { Container } from './ContentBlock';
 
 const Wrapper = styled.div`
-
 	.accordion-wrapper {
 		border: 1px solid #2c3036;
 		background-color: #0b0b22;
