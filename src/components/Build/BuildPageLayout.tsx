@@ -7,10 +7,12 @@ import { FlexDivColCentered } from 'src/styles/common';
 import { Header } from '..';
 import Sidebar from './Sidebar';
 import BuildFooter from './BuildFooter';
+import { theme } from '../../styles/theme';
 
 const OutWrapper = styled.div`
 	width: 100%;
 	background-color: #000; //TODO: refactor to body black background and remove this
+	${theme.pageBuilder.rows};
 `;
 
 const ContentWrapper = styled.div`

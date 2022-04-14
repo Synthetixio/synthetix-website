@@ -2,6 +2,7 @@
 import styled from 'styled-components';
 import jp from 'jsonpath';
 import media from 'styled-media-query';
+import { theme } from '../../styles/theme';
 
 const Wrapper = styled.div`
 	display: flex;
@@ -10,12 +11,7 @@ const Wrapper = styled.div`
 
 	h2 {
 		width: 100%;
-		font-family: 'Inter';
-		font-style: normal;
-		font-weight: 700;
-		font-size: 18px;
-		color: #ffffff;
-		line-height: 150%;
+		${theme.pageBuilder.h2};
 	}
 `;
 

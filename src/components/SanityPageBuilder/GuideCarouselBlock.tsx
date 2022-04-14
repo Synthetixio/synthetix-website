@@ -7,18 +7,14 @@ import Link from 'next/link';
 import 'react-multi-carousel/lib/styles.css';
 import client from '../../lib/sanity';
 import Tags from '../Guides/Tags';
+import { theme } from '../../styles/theme';
 
 const GuideCarouselWrapper = styled.div`
 	width: 100%;
 	display: inline-grid;
 
 	h2 {
-		font-family: 'Inter';
-		font-style: normal;
-		font-weight: 700;
-		font-size: 18px;
-		color: #fff;
-		margin-bottom: 20px;
+		${theme.pageBuilder.h2};
 	}
 
 	.react-multi-carousel-dot-list {

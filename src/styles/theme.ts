@@ -18,6 +18,43 @@ const animations = {
 
 export const theme = {
 	maxContentWidth: '1920px',
+	pageBuilder: {
+		rows: css`
+			margin: 10px 0;
+		`,
+		h1: css`
+			font-family: 'Inter';
+			font-style: normal;
+			font-weight: 700;
+			font-size: 40px;
+			line-height: 150%;
+			color: #fff;
+		`,
+		h2: css`
+			font-family: 'Inter';
+			font-style: normal;
+			font-weight: 700;
+			font-size: 24px;
+			line-height: 29px;
+			color: #fff;
+		`,
+		h3: css`
+			font-family: Inter;
+			font-style: normal;
+			font-weight: bold;
+			font-size: 22px;
+			line-height: 150%;
+			color: #fff;
+		`,
+		h4: css`
+			font-family: Inter;
+			font-style: normal;
+			font-weight: bold;
+			font-size: 20px;
+			line-height: 150%;
+			color: #fff;
+		`,
+	},
 	colors: {
 		white: '#FFFFFF',
 

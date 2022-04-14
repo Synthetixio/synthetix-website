@@ -6,52 +6,28 @@ import slugify from 'slugify';
 
 import MainImage from './MainImage';
 import CodeBlock from './CodeBlock';
+import { theme } from '../../styles/theme';
 
 export const Container = styled.div`
 	h1 {
-		font-family: Inter;
-		font-style: normal;
-		font-weight: bold;
-		font-size: 40px;
-		line-height: 150%;
-		color: #fff;
+		${theme.pageBuilder.h1};
 	}
 	h2 {
-		font-family: Inter;
-		font-style: normal;
-		font-weight: bold;
-		font-size: 36px;
-		line-height: 150%;
-		color: #fff;
+		${theme.pageBuilder.h2};
 	}
 	h3 {
-		font-family: Inter;
-		font-style: normal;
-		font-weight: bold;
-		font-size: 30px;
-		line-height: 150%;
-		color: #fff;
+		${theme.pageBuilder.h3};
 	}
 	h4 {
-		font-family: Inter;
-		font-style: normal;
-		font-weight: bold;
-		font-size: 28px;
-		line-height: 150%;
-		color: #fff;
+		${theme.pageBuilder.h4};
 	}
 	p {
-		font-family: Inter;
-		font-style: normal;
-		font-weight: normal;
-		font-size: 14px;
-		line-height: 150%;
-		color: #fff;
-		margin: 10px 0px;
+		${theme.fonts.body};
+		margin-bottom: 15px;
 	}
 	ul,
 	ol {
-		color: #fff;
+		${theme.fonts.body};
 	}
 	ul {
 		li {
@@ -72,7 +48,8 @@ export const Container = styled.div`
 		}
 	}
 	strong {
-		font-weight: bold;
+		font-weight: 900;
+		color: #fff;
 	}
 	em {
 		font-style: italic;

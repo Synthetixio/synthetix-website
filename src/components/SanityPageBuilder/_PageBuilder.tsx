@@ -13,13 +13,14 @@ import ImgCarouselBlock from './ImgCarouselBlock';
 import IntroBlock from './IntroBlock';
 import GuideCarouselBlock from './GuideCarouselBlock';
 import TagsBlock from './TagsBlock';
+import { theme } from '../../styles/theme';
 
 const Row = styled.div`
 	display: flex;
 	flex-direction: row;
 	flex-wrap: wrap;
 	width: 100%;
-	margin-bottom: 10px;
+	${theme.pageBuilder.rows};
 `;
 
 const Column = styled.div`
