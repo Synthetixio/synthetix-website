@@ -14,7 +14,7 @@
 		"lint:sarif": "node ./tests/lint.js . --ext ts,.tsx && tsc",
 		"tsc": "tsc --noEmit",
 		"test": "jest",
-		"e2e": "SKIP_METAMASK_SETUP=true SKIP_METAMASK_INSTALL=true synpress open",
+		"e2e": "sudo SKIP_METAMASK_SETUP=true SKIP_METAMASK_INSTALL=true synpress open",
 		"e2e:run": "SKIP_METAMASK_SETUP=true SKIP_METAMASK_INSTALL=true synpress run",
 		"prepare": "husky install"
 	},

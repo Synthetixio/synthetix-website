@@ -6,7 +6,7 @@ const initSnxJS = (config: Config) => synthetix(config);
 let snxjsL1: SynthetixJS;
 let snxjsL2: SynthetixJS;
 
-const getSNXJS = (config?: Config) => {
+const getSNXJS = (config: Config) => {
 	if (!config?.useOvm || !snxjsL1) {
 		snxjsL1 = initSnxJS({
 			networkId: NetworkIdByName.mainnet,

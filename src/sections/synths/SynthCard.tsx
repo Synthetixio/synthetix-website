@@ -6,8 +6,8 @@ import { ExternalLink, FlexDivCentered, FlexDivRowCentered } from 'src/styles/co
 
 import { Synth } from '@synthetixio/contracts-interface';
 
-import { Token } from 'src/queries/tokenLists/types';
 import { formatFiatCurrency, formatPercent } from 'src/utils/formatters/number';
+import { getAssetLogo } from 'src/constants/urls';
 
 export enum SynthStatus {
 	LIVE = 'live',
@@ -17,14 +17,12 @@ export enum SynthStatus {
 
 type SynthCardProps = {
 	synth: Synth;
-	tokenInfo: Token | null;
 	price: number | null;
 	exchangeFeeRate: number | null;
 	status: SynthStatus;
 };
 
-const SynthCard: FC<SynthCardProps> = ({ synth, tokenInfo, price, exchangeFeeRate, status }) => {
-	const logoURI = tokenInfo != null ? tokenInfo.logoURI : null;
+const SynthCard: FC<SynthCardProps> = ({ synth, price, exchangeFeeRate, status }) => {
 	const currencyKey = synth.name;
 
 	let synthDescription = `Tracks the price of ${currencyKey} ${synth.description} through price feeds supplied by an oracle.`;
@@ -44,7 +42,7 @@ const SynthCard: FC<SynthCardProps> = ({ synth, tokenInfo, price, exchangeFeeRat
 				<CardGradient />
 				<FlexDivCentered>
 					<SynthImageContainer>
-						{logoURI ? <img src={logoURI} alt="" /> : <Placeholder>{currencyKey}</Placeholder>}
+						<img src={getAssetLogo(synth.name)} alt={synth.name} />
 					</SynthImageContainer>
 					<div>
 						<SynthSymbol>{currencyKey}</SynthSymbol>

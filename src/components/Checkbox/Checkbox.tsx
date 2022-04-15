@@ -6,6 +6,7 @@ export interface CheckboxProps {
 	checked: boolean;
 }
 
+// TODO: move the Checkbox component to UI package
 export const Checkbox: React.FC<CheckboxProps> = ({ label, onChange, checked, ...props }) => {
 	return (
 		<StyledCheckbox checked={checked} onClick={() => onChange(!checked)}>

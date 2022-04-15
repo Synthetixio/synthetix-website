@@ -4,9 +4,6 @@ import SynthsInfo from 'src/sections/synths/SynthsInfo';
 import { Section, SectionTitle, Line } from 'src/styles/common';
 import { PageLayout } from 'src/components';
 import media from 'styled-media-query';
-import axios from 'axios';
-import { TokenListQueryResponse, TokenListResponse } from 'src/queries/tokenLists/types';
-import { keyBy } from 'lodash';
 import exchangeInfoQuery, { Fees, Rates } from 'src/queries/exchangeInfo/useExchangeInfoQuery';
 import getSNXJS from 'src/lib/snxjs';
 import useMarketClosed from 'src/hooks/useMarketClosed';
@@ -34,26 +31,13 @@ const getSynthStatus = async (useOvm: boolean) => {
 
 export async function getStaticProps() {
 	const [
-		tokenListResponse,
 		{ exchangeInfoL1, exchangeInfoL2 },
 		{ synths: synthsL1, dictionarySynthStatus: dictionarySynthStatusL1 },
 		{ synths: synthsL2, dictionarySynthStatus: dictionarySynthStatusL2 },
-	] = await Promise.all([
-		axios.get<TokenListResponse>('https://synths.snx.eth.link'),
-		exchangeInfoQuery(),
-		getSynthStatus(false),
-		getSynthStatus(true),
-	]);
-
-	const tokenList = {
-		tokens: tokenListResponse.data.tokens,
-		tokensMap: keyBy(tokenListResponse.data.tokens, 'symbol'),
-		symbols: tokenListResponse.data.tokens.map((token) => token.symbol),
-	};
+	] = await Promise.all([exchangeInfoQuery(), getSynthStatus(false), getSynthStatus(true)]);
 
 	return {
 		props: {
-			tokenList,
 			l1: {
 				exchangeInfo: exchangeInfoL1,
 				synths: synthsL1,
@@ -70,7 +54,6 @@ export async function getStaticProps() {
 }
 
 export interface SynthsProps {
-	tokenList: TokenListQueryResponse;
 	l1: {
 		exchangeInfo: { fees: Fees; rates: Rates };
 		dictionarySynthStatus: Record<string, SynthStatus>;
@@ -83,7 +66,7 @@ export interface SynthsProps {
 	};
 }
 
-const Synths = ({ tokenList, l1, l2 }: SynthsProps) => (
+const Synths = ({ l1, l2 }: SynthsProps) => (
 	<>
 		<Head>
 			<title>Synthetix - Synths</title>
@@ -98,7 +81,7 @@ const Synths = ({ tokenList, l1, l2 }: SynthsProps) => (
 						pooled collateral model. Trades between Synths generate a small fee that is distributed
 						to SNX collateral providers.
 					</StyledPageCopy>
-					<SynthsInfo {...{ tokenList, l1, l2 }} />
+					<SynthsInfo {...{ l1, l2 }} />
 				</SynthsSection>
 			</ContentWrapper>
 			<Line showOnMobile />

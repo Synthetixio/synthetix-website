@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import React, { ReactNode, useMemo, useState } from 'react';
+import React, { ReactNode, useState } from 'react';
 import media from 'styled-media-query';
 import { theme } from 'src/styles/theme';
 import { resetButtonCSS } from 'src/styles/common';
@@ -7,17 +7,14 @@ import SynthCard from './SynthCard';
 import { SynthsProps } from 'pages/synths';
 import { Checkbox } from 'src/components/Checkbox/Checkbox';
 
-const SynthsInfo = ({ tokenList, l1, l2 }: SynthsProps) => {
+const SynthsInfo = ({ l1, l2 }: SynthsProps) => {
 	const [showL2, setShowL2] = useState(true);
 	const [synthCategory, setSynthCategory] = useState('all');
 	const filteredSynths: Record<string, ReactNode[]> = {
 		all: [],
 	};
 
-	const { synths, exchangeInfo, dictionarySynthStatus } = useMemo(
-		() => (showL2 ? l2 : l1),
-		[showL2, l1, l2]
-	);
+	const { synths, exchangeInfo, dictionarySynthStatus } = showL2 ? l2 : l1;
 
 	synths.forEach((synth) => {
 		const category = synth.category.toLowerCase();
@@ -26,15 +23,13 @@ const SynthsInfo = ({ tokenList, l1, l2 }: SynthsProps) => {
 		}
 		const currencyKey = synth.name;
 
-		const tokenInfo = tokenList != null ? tokenList.tokensMap[currencyKey] : null;
-
 		const price = exchangeInfo?.rates != null ? exchangeInfo.rates[currencyKey] : null;
 		const exchangeFeeRate = exchangeInfo?.fees != null ? exchangeInfo.fees[currencyKey] : null;
 		filteredSynths.all.push(
 			<SynthCard
 				key={currencyKey}
 				status={dictionarySynthStatus[currencyKey]}
-				{...{ synth, tokenInfo, price, exchangeFeeRate }}
+				{...{ synth, price, exchangeFeeRate }}
 			/>
 		);
 
@@ -42,7 +37,7 @@ const SynthsInfo = ({ tokenList, l1, l2 }: SynthsProps) => {
 			<SynthCard
 				key={currencyKey}
 				status={dictionarySynthStatus[currencyKey]}
-				{...{ synth, tokenInfo, price, exchangeFeeRate }}
+				{...{ synth, price, exchangeFeeRate }}
 			/>
 		);
 	});
