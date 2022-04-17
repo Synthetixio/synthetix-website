@@ -17,6 +17,7 @@ const HeaderContainer = styled.div`
 	${media.lessThan('medium')`
                 //display: none;
         `}
+	margin-bottom: 25px;
 `;
 
 const HeadingText = styled.div`

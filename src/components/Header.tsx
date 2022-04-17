@@ -3,7 +3,6 @@ import styled from 'styled-components';
 import media from 'styled-media-query';
 import HamburgerMenu from 'react-hamburger-menu';
 import { Logo, Menu } from './';
-import Search from './Search';
 
 const HeaderComponent = (props: any) => {
 	const { navDocs } = props || null;
@@ -44,7 +43,6 @@ const HeaderComponent = (props: any) => {
 				isOpen={isOpen}
 				data-test-id="header-menu"
 			/>
-			<Search />
 		</Header>
 	);
 };

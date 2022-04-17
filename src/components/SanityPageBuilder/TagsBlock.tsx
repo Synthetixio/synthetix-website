@@ -82,7 +82,7 @@ const TagsBlock = ({ guideTags }: TagsBlockProps) => {
 					<div className="content">
 						<p className="title">{tag.title}</p>
 						<p className="intro">{tag.introText}</p>
-						<p className="count">{tag.count} Guides</p>
+						<p className="count">{tag.occurrence} Guides</p>
 					</div>
 				</Tag>
 			))}

@@ -8,7 +8,7 @@ interface videoBlockProps {
 
 export function VideoBlock({ props }: videoBlockProps) {
 	const { url } = props;
-	return <ReactPlayer url={url} width="100%" />;
+	return <ReactPlayer url={url} />;
 }
 
 export default VideoBlock;

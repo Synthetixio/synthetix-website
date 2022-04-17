@@ -5,7 +5,7 @@ import Scrollspy from 'react-scrollspy';
 
 import { FlexDivColCentered } from 'src/styles/common';
 import { Header } from '..';
-import Sidebar from './Sidebar';
+import Sidebar from '../Sidebar';
 import BuildFooter from './BuildFooter';
 import { theme } from '../../styles/theme';
 
@@ -58,6 +58,10 @@ const MainContent = styled.div`
 	padding: 0 50px;
 	overflow-wrap: anywhere;
 	min-height: 100vh; //TODO: refactor to body black background and remove this
+
+	${media.lessThan('medium')`
+		padding: 0 25px;
+	`}
 `;
 
 interface sIProps {
@@ -106,7 +110,7 @@ export default function BuildPageLayout<T>(props: BuildPageLayoutProps<T>) {
 			<Header navDocs={subMenu} />
 			<OutWrapper>
 				<ContentWrapper>
-					<Sidebar navDocs={navDocs} />
+					<Sidebar navDocs={navDocs} subSlug="build" />
 					<MainContent>
 						{children}
 						<BuildFooter nextDoc={nextDoc} prevDoc={prevDoc} updatedAt={updatedAt} />

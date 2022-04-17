@@ -94,7 +94,7 @@ const Box = styled.div`
 	flex: 1;
 	margin-right: 10px;
 	padding: 3px;
-	background: linear-gradient(180deg, #ED1EFF 0%, #00D1FF 100%);
+	background: linear-gradient(90deg, #ED1EFF 0%, #00D1FF 100%);
 	border-radius: 5px;
 	height: fit-content;
 	margin-bottom: 20px;

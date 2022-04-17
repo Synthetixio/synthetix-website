@@ -3,7 +3,7 @@ import Link from 'next/link';
 import styled from 'styled-components';
 import { useRouter } from 'next/router';
 import { IconContext } from 'react-icons';
-import { FiPlus, FiMinus } from 'react-icons/fi';
+import { FiChevronDown, FiChevronUp } from 'react-icons/fi';
 
 const AccordionSection = styled.div`
 	flex-direction: column;
@@ -24,7 +24,12 @@ const Wrap = styled.div`
 		font-weight: bold;
 		font-size: 14px;
 		line-height: 20px;
-		color: #5cc6ff;
+		color: #808191;
+	}
+	h1.active {
+		background: linear-gradient(73.6deg, #85ffc4 2.11%, #5cc6ff 90.45%);
+		-webkit-background-clip: text;
+		-webkit-text-fill-color: transparent;
 	}
 	span {
 		margin-left: 15px;
@@ -36,16 +41,20 @@ const Dropdown = styled.ul`
 	color: #808191;
 	font-size: 12px;
 
-	a:hover { 
-		color: #5CC6FF;
+	a:hover {
+		background: linear-gradient(73.6deg, #85ffc4 2.11%, #5cc6ff 90.45%);
+		-webkit-background-clip: text;
+		-webkit-text-fill-color: transparent;
 	}
 
-	a.active{
-		color: #5CC6FF;
+	a.active {
+		background: linear-gradient(73.6deg, #85ffc4 2.11%, #5cc6ff 90.45%);
+		-webkit-background-clip: text;
+		-webkit-text-fill-color: transparent;
 	}
 `;
 
-export default function SideBarItem({ props }: any) {
+export default function SideBarItem({ props, subSlug }: any) {
 	const [isOpen, setIsOpen] = useState(false);
 	const toggle = () => setIsOpen(!isOpen);
 
@@ -65,15 +74,17 @@ export default function SideBarItem({ props }: any) {
 		<IconContext.Provider value={{ color: '#ffffff', size: '15px' }}>
 			<AccordionSection>
 				<Wrap onClick={() => toggle()}>
-					<h1>{props.title}</h1>
-					<span>{isOpen === true ? <FiMinus /> : <FiPlus />}</span>
+					<h1 className={isOpen ? 'active' : ''}>{props.title}</h1>
+					<span>{isOpen === true ? <FiChevronDown /> : <FiChevronUp />}</span>
 				</Wrap>
 				{isOpen === true ? (
 					<Dropdown>
 						{props.docs.map((doc: any, i: number) => (
 							<li key={i}>
-								<Link href={`/build/${doc.slug.current}`}>
-									<a className={router.query.slug === doc.slug.current ? "active" : ""} >{doc.title}</a>
+								<Link href={`/${subSlug}/${doc.slug.current}`}>
+									<a className={router.query.slug === doc.slug.current ? 'active' : ''}>
+										{doc.title}
+									</a>
 								</Link>
 							</li>
 						))}

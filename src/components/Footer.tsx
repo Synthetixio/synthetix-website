@@ -37,6 +37,10 @@ const Footer = styled.footer`
 	animation-delay: 200ms;
 	opacity: 0;
 
+	.icARQP {
+		display: none;
+	}
+
 	${media.lessThan('medium')`
 		background-color: transparent;
 		${StyledMenu} {

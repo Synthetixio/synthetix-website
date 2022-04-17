@@ -2,7 +2,7 @@
 import { useState } from 'react';
 import styled from 'styled-components';
 import { PortableText } from '@portabletext/react';
-import { FiPlus, FiMinus } from 'react-icons/fi';
+import { FiChevronDown, FiChevronUp } from 'react-icons/fi';
 
 import { Container } from './ContentBlock';
 
@@ -13,6 +13,7 @@ const Wrapper = styled.div`
 		border-radius: 4px;
 		cursor: pointer;
 		margin-bottom: 5px;
+		box-shadow: 0px 14px 14px 0px rgba(0, 0, 0, 0.25);
 	}
 	.open {
 		border-style: solid;
@@ -40,6 +41,10 @@ const Wrapper = styled.div`
 		display: flex;
 		justify-content: space-between;
 		align-items: center;
+
+		svg {
+			fill: #00d1ff;
+		}
 	}
 
 	.accordion-content {
@@ -52,7 +57,7 @@ const Accordion = ({ title, children }) => {
 	return (
 		<div className={`accordion-wrapper ${isOpen ? 'open' : ''}`} onClick={() => setOpen(!isOpen)}>
 			<div className={`accordion-title`}>
-				{title} <span>{isOpen === true ? <FiMinus /> : <FiPlus />}</span>
+				{title} <span>{isOpen === true ? <FiChevronDown /> : <FiChevronUp />}</span>
 			</div>
 			<div className={`accordion-item ${!isOpen ? 'collapsed' : ''}`}>
 				<div className="accordion-content">{children}</div>

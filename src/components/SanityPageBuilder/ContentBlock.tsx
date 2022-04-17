@@ -28,6 +28,8 @@ export const Container = styled.div`
 	ul,
 	ol {
 		${theme.fonts.body};
+		text-indent: 20px;
+		margin-bottom: 15px;
 	}
 	ul {
 		li {
@@ -42,7 +44,7 @@ export const Container = styled.div`
 		}
 	}
 	a {
-		color: #0092b2;
+		color: #00d1ff;
 		:hover {
 			text-decoration: underline;
 		}
@@ -60,11 +62,12 @@ export const Container = styled.div`
 	}
 	blockquote {
 		background: #0b0b22;
-		border-left: 10px solid #402fc8;
+		border-left: 3px solid #402fc8;
 		margin: 1.5em 10px;
-		padding: 1em 10px;
+		padding: 1em 20px;
 		color: #fff;
 		font-style: italic;
+		width: fit-content;
 	}
 `;
 

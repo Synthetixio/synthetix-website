@@ -9,7 +9,7 @@ import PageLayout from './PageLayout';
 import BuildPageLayout from './Build/BuildPageLayout';
 import GuidesPageLayout from './Guides/GuidesPageLayout';
 import ArrowPath from './ArrowPath';
-import SideBarItem from './Build/SideBarItem';
+import SideBarItem from './SideBarItem';
 
 export {
 	Header,

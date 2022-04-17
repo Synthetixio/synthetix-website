@@ -1,10 +1,11 @@
+// @ts-nocheck
 import React, { useEffect, useState } from 'react';
 import styled from 'styled-components';
 import media from 'styled-media-query';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
 import { IconContext } from 'react-icons';
-import { FiPlus, FiMinus } from 'react-icons/fi';
+import { FiChevronDown, FiChevronUp } from 'react-icons/fi';
 import { ImArrowLeft } from 'react-icons/im';
 
 const SideBarItem = function ({ props, label }: any) {
@@ -27,8 +28,8 @@ const SideBarItem = function ({ props, label }: any) {
 		<IconContext.Provider value={{ color: '#ffffff', size: '15px' }}>
 			<AccordionSection>
 				<Wrap onClick={() => toggle()}>
-					<h2>{props.title}</h2>
-					<span>{isOpen === true ? <FiMinus /> : <FiPlus />}</span>
+					<h2 className={isOpen ? 'active' : ''}>{props.title}</h2>
+					<span>{isOpen === true ? <FiChevronUp /> : <FiChevronDown />}</span>
 				</Wrap>
 				{isOpen === true ? (
 					<Dropdown>
@@ -89,6 +90,15 @@ const SubNavWraper = styled.div`
 		line-height: 120%;
 		text-transform: uppercase;
 	}
+	h1:hover {
+		cursor: pointer;
+		color: #00d1ff;
+
+		svg {
+			fill: #00d1ff;
+		}
+	}
+
 	h2 {
 		font-family: 'Inter';
 		font-style: normal;
@@ -97,6 +107,11 @@ const SubNavWraper = styled.div`
 		line-height: 20px;
 		text-transform: uppercase;
 		margin-top: 10px;
+	}
+	h2.active {
+		background: linear-gradient(73.6deg, #85ffc4 2.11%, #5cc6ff 90.45%);
+		-webkit-background-clip: text;
+		-webkit-text-fill-color: transparent;
 	}
 `;
 
@@ -146,7 +161,9 @@ const Dropdown = styled.ul`
 	}
 
 	a.active {
-		color: #5cc6ff;
+		background: linear-gradient(73.6deg, #85ffc4 2.11%, #5cc6ff 90.45%);
+		-webkit-background-clip: text;
+		-webkit-text-fill-color: transparent;
 	}
 `;
 

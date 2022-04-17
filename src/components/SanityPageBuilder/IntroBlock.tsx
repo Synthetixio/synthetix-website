@@ -26,6 +26,7 @@ const Wrapper = styled.div`
 const Left = styled.div`
 	display: flex;
 	flex-basis: 66.66%;
+	padding-right: 10px;
 `;
 
 const Right = styled.div`
@@ -77,7 +78,7 @@ export function IntroBlock({ props }: IntroBlockProps) {
 				</Container>
 			</Left>
 			<Right>
-				<Img {...imageProps} layout="fixed" objectFit="none" quality={100} width={60} height={60} />
+				<Img {...imageProps} layout="fixed" objectFit="none" quality={100} width={70} height={70} />
 				<div className="content">
 					{props.iconText}
 					<a href={props.iconLinkURL}>{props.iconLinkText}</a>

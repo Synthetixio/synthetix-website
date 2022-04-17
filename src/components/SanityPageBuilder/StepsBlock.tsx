@@ -35,14 +35,19 @@ const StepsWrapper = styled.div`
 	}
 
 	.pink.item {
-		border: 2px solid #ed1eff;
+		border: 2px solid transparent;
 		border-radius: 4px;
+		background: linear-gradient(to right, #000, #000),
+			linear-gradient(73.6deg, #8e2de2 2.11%, #ed1eff 90.45%);
+		background-clip: padding-box, border-box;
+		background-origin: padding-box, border-box;
+
 		padding: 15px;
 		flex: 0 31%;
-		margin: 10px 10px 10px 0px;
+		margin: 12px;
 		display: flex;
 		${media.lessThan('huge')`
-			flex: 0 48%;
+			flex: 0 46%;
 			
 			
 		`}
@@ -77,7 +82,7 @@ const StepsWrapper = styled.div`
 		border-radius: 4px;
 		padding: 15px;
 		flex: 0 31%;
-		margin: 10px 10px 10px 0px;
+		margin: 12px;
 		display: flow-root;
 		${media.lessThan('huge')`
 			flex: 0 48%;

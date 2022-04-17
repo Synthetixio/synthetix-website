@@ -9,12 +9,12 @@ import client from '../../lib/sanity';
 
 const ImgCarouselWrapper = styled.div`
 	.carousel .control-dots {
-		bottom: 100px;
+		bottom: 10px;
 		background-color: #000;
 		width: auto;
 		margin: 0 auto;
 		display: table-column-group;
-		margin-left: 45%;
+		margin-left: 47%;
 		height: 20px;
 		border-radius: 10px;
 	}
@@ -22,7 +22,7 @@ const ImgCarouselWrapper = styled.div`
 
 const Figure = styled.figure`
 	img {
-		border-radius: 25px;
+		//border-radius: 25px;
 	}
 
 	figcaption {
@@ -30,7 +30,7 @@ const Figure = styled.figure`
 		padding: 10px;
 		font-weight: 300;
 		font-size: 12px;
-		bottom: 70px;
+		bottom: 100px;
 		border-radius: 10px;
 		color: #fff;
 		width: 80%;

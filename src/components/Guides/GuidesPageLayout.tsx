@@ -1,10 +1,10 @@
 // @ts-nocheck
 import { PropsWithChildren } from 'react';
 import styled from 'styled-components';
-
+import media from 'styled-media-query';
 import { FlexDivColCentered } from 'src/styles/common';
 import { Header } from '..';
-import Sidebar from './Sidebar';
+import Sidebar from '../Sidebar';
 import BuildFooter from '../Build/BuildFooter';
 import GuidesHeader from './GuidesHeader';
 
@@ -30,6 +30,10 @@ const MainContent = styled.div`
 	min-inline-size: 50%;
 	padding: 0 50px;
 	min-height: 100vh; //TODO: refactor to body black background and remove this
+
+	${media.lessThan('medium')`
+		padding: 0 25px;
+	`}
 `;
 
 interface sIProps {
@@ -65,7 +69,7 @@ export default function GuidesPageLayout<T>(props: GuidesPageLayoutProps<T>) {
 			<Header navDocs={subMenu} />
 			<OutWrapper>
 				<ContentWrapper>
-					<Sidebar navDocs={navDocs} />
+					<Sidebar navDocs={navDocs} subSlug="guides" />
 					<MainContent>
 						<GuidesHeader mainImage={mainImage} title={title} subTitle={subTitle} subPos={subPos} />
 						{children}

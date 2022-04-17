@@ -2,7 +2,7 @@
 import { useState } from 'react';
 import styled from 'styled-components';
 import { IconContext } from 'react-icons';
-import { RiSearchLine } from 'react-icons/ri';
+import { BiSearchAlt2 } from 'react-icons/bi';
 import { Modal } from 'react-responsive-modal';
 import {
 	InstantSearch,
@@ -46,10 +46,11 @@ const SearchBox = ({ currentRefinement, isSearchStalled, refine }: any) => (
 				type="search"
 				value={currentRefinement}
 				onChange={(event) => refine(event.currentTarget.value)}
+				placeholder="Search Content"
 			/>
-			<button className="right-icon">
+			<button className="left-icon">
 				<IconContext.Provider value={{ color: '#ffffff', size: '20px' }}>
-					<RiSearchLine />
+					<BiSearchAlt2 />
 				</IconContext.Provider>
 			</button>
 		</StyledInput>
@@ -100,13 +101,12 @@ const Search = (props: any) => {
 
 	return (
 		<>
-			<div onClick={onOpenModal}>
-				<SearchIcon onClick={onOpenModal}>
-					<IconContext.Provider value={{ color: '#ffffff', size: '25px' }}>
-						<RiSearchLine onClick={onOpenModal} />
-					</IconContext.Provider>
-				</SearchIcon>
-			</div>
+			<SearchIcon onClick={onOpenModal}>
+				<IconContext.Provider value={{ color: '#ffffff', size: '30px' }}>
+					<BiSearchAlt2 onClick={onOpenModal} />
+				</IconContext.Provider>
+			</SearchIcon>
+
 			<Modal
 				open={open}
 				onClose={onCloseModal}
@@ -141,8 +141,11 @@ const Search = (props: any) => {
 };
 
 const SearchIcon = styled.div`
-	position: absolute;
-	right: 15px;
+	display: inline-block;
+	svg:hover {
+		cursor: pointer;
+		fill: #00d1ff;
+	}
 `;
 const StyledModal = styled.div``;
 
@@ -167,18 +170,20 @@ const Input = styled.input`
 	border-radius: 8px;
 
 	&:focus {
-		border-color: dodgerBlue;
-		box-shadow: 0 0 8px 0 dodgerBlue;
+		//border-color: dodgerBlue;
+		//box-shadow: 0 0 8px 0 dodgerBlue;
 	}
 
 	:focus + .left-icon {
 		svg {
-			fill: dodgerBlue;
+			//fill: dodgerBlue;
 		}
 	}
 `;
 
 const StyledInput = styled.div`
+	position: fixed;
+
 	&.inputWithIcon {
 		position: relative;
 	}
@@ -190,11 +195,11 @@ const StyledInput = styled.div`
 		transform: translateY(-50%);
 	}
 
-	button.right-icon {
+	button.left-icon {
 		background: none;
 		border: none;
 		position: absolute;
-		right: 5px;
+		left: 5px;
 		top: 50%;
 		transform: translateY(-50%);
 	}
@@ -202,6 +207,8 @@ const StyledInput = styled.div`
 
 const AllResults = styled.div`
 	max-height: 50vh;
+	border-top: 1px solid rgba(130, 130, 149, 0.3);
+	padding-top: 10px;
 `;
 
 const SearchResult = styled.div`
