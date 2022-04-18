@@ -85,7 +85,7 @@ const StepsWrapper = styled.div`
 		margin: 12px;
 		display: flow-root;
 		${media.lessThan('huge')`
-			flex: 0 48%;
+			flex: 0 46%;
 			
 			
 		`}

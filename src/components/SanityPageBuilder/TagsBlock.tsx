@@ -2,6 +2,8 @@
 import styled from 'styled-components';
 import jp from 'jsonpath';
 import media from 'styled-media-query';
+import Link from 'next/link';
+
 import { theme } from '../../styles/theme';
 
 const Wrapper = styled.div`
@@ -24,6 +26,11 @@ const Tag = styled.div<{ color: any }>`
 	display: flex;
 	${media.lessThan('huge')`flex: 0 48%;`}
 	${media.lessThan('large')`flex: 0 100%;`}
+
+	:hover {
+		cursor: pointer;
+		filter: brightness(120%);
+	}
 
 	.box {
 		width: 120px;
@@ -71,20 +78,22 @@ const TagsBlock = ({ guideTags }: TagsBlockProps) => {
 		},
 		tags = countOccurrence(allTags);
 
-	//console.log(tags);
+	console.log(tags);
 
 	return (
 		<Wrapper>
 			<h2>Tags Collections</h2>
 			{tags.map((tag, index) => (
-				<Tag key={index} color={tag.color.hex}>
-					<div className="box"></div>
-					<div className="content">
-						<p className="title">{tag.title}</p>
-						<p className="intro">{tag.introText}</p>
-						<p className="count">{tag.occurrence} Guides</p>
-					</div>
-				</Tag>
+				<Link href={`/guides/tag/${tag.slug.current}`} key={index}>
+					<Tag color={tag.color.hex}>
+						<div className="box"></div>
+						<div className="content">
+							<p className="title">{tag.title}</p>
+							<p className="intro">{tag.introText}</p>
+							<p className="count">{tag.occurrence} Guides</p>
+						</div>
+					</Tag>
+				</Link>
 			))}
 		</Wrapper>
 	);

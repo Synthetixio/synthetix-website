@@ -102,8 +102,9 @@ const Box = styled.div`
 		flex: 1 1 2000px;
 	`};
 
-	:hover{
-		cursor: pointer; 
+	:hover {
+		cursor: pointer;
+		filter: brightness(120%);
 	}
 `;
 

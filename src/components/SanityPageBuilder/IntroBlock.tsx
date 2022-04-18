@@ -4,6 +4,7 @@ import styled from 'styled-components';
 import Img from 'next/image';
 import { useNextSanityImage } from 'next-sanity-image';
 import media from 'styled-media-query';
+import Link from 'next/link';
 
 import { Container } from './ContentBlock';
 import client from '../../lib/sanity';
@@ -13,6 +14,7 @@ const Wrapper = styled.div`
 	justify-content: unset;
 	color: #fff;
 	height: fit-content;
+	min-width: 400px;
 	justify-content: center;
 	align-items: center;
 	display: flex;
@@ -22,6 +24,10 @@ const Wrapper = styled.div`
 		display: flow-root;
 		
 	`}
+	:hover {
+		cursor: pointer;
+		filter: brightness(120%);
+	}
 `;
 const Left = styled.div`
 	display: flex;
@@ -34,13 +40,14 @@ const Right = styled.div`
 	mix-blend-mode: normal;
 	border: 1px solid #00d1ff;
 	box-shadow: 0px 0px 40px rgba(0, 0, 0, 0.25);
+	border-radius: 4px;
 	backdrop-filter: blur(48px);
 	padding: 20px;
 	flex-basis: 33.33%;
 	display: flex;
 	flex-direction: row;
 
-	img {
+	span {
 		float: left;
 		vertical-align: middle;
 		flex-grow: 0;
@@ -71,20 +78,31 @@ export function IntroBlock({ props }: IntroBlockProps) {
 	const imageProps = useNextSanityImage(client, props.icon);
 
 	return (
-		<Wrapper>
-			<Left>
-				<Container>
-					<PortableText value={props.body} />
-				</Container>
-			</Left>
-			<Right>
-				<Img {...imageProps} layout="fixed" objectFit="none" quality={100} width={70} height={70} />
-				<div className="content">
-					{props.iconText}
-					<a href={props.iconLinkURL}>{props.iconLinkText}</a>
-				</div>
-			</Right>
-		</Wrapper>
+		<Link href={props.iconLinkURL}>
+			<Wrapper>
+				<Left>
+					<Container>
+						<PortableText value={props.body} />
+					</Container>
+				</Left>
+				<Right>
+					<span>
+						<Img
+							{...imageProps}
+							layout="fixed"
+							objectFit="none"
+							quality={100}
+							width={40}
+							height={40}
+						/>
+					</span>
+					<div className="content">
+						{props.iconText}
+						<a href={props.iconLinkURL}>{props.iconLinkText}</a>
+					</div>
+				</Right>
+			</Wrapper>
+		</Link>
 	);
 }
 

@@ -79,7 +79,9 @@ const Hits = ({ hits }: any) => (
 				<Link key={hit.objectID} href={path}>
 					<SearchResult>
 						<h1>{hit.title}</h1>
-						{/* <p><CustomSnippet hit={hit}  attribute="body" /></p> */}
+						<p>
+							<CustomSnippet hit={hit} attribute="body" />
+						</p>
 						<p>{hit.type}</p>
 						<p>
 							Last updated: <ReactTimeAgo date={hit.updatedAt} locale="en-US" />

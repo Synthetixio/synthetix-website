@@ -17,6 +17,9 @@ const SidebarContainer = styled.div`
 const SocialWrap = styled.div`
 	position: absolute;
 	bottom: 20px;
+	svg * {
+		fill: #00d1ff !important;
+	}
 `;
 
 export default function Sidebar(props: any) {
