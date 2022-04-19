@@ -2,7 +2,7 @@ import { FC } from 'react';
 import styled from 'styled-components';
 import { Logo, Menu, Socials } from './';
 import media from 'styled-media-query';
-import { StyledMenu } from './Menu';
+import { StyledMenu, MenuItem } from './Menu';
 
 type FooterComponentProps = {
 	className?: string;
@@ -36,6 +36,10 @@ const Footer = styled.footer`
 
 	animation-delay: 200ms;
 	opacity: 0;
+
+	${media.lessThan('1110px' as any)`
+		padding: 0 20px;
+	`}
 
 	${media.lessThan('medium')`
 		background-color: transparent;
