@@ -6,8 +6,8 @@ import useSynthSuspensionQuery, {
 export type MarketClosureReason = 'frozen' | SynthSuspensionReason;
 export type MarketClosure = ReturnType<typeof useMarketClosed>;
 
-const useMarketClosed = async (currencyKey: CurrencyKey) => {
-	const currencySuspendedQuery = await useSynthSuspensionQuery(currencyKey);
+const useMarketClosed = async (currencyKey: CurrencyKey, useOvm?: boolean) => {
+	const currencySuspendedQuery = await useSynthSuspensionQuery(currencyKey, useOvm);
 
 	const isCurrencySuspended = currencySuspendedQuery ? currencySuspendedQuery.isSuspended : false;
 
