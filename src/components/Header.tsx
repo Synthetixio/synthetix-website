@@ -1,3 +1,4 @@
+// @ts-nocheck
 import { useState, useEffect } from 'react';
 import styled from 'styled-components';
 import media from 'styled-media-query';
@@ -5,7 +6,7 @@ import HamburgerMenu from 'react-hamburger-menu';
 import { Logo, Menu } from './';
 
 const HeaderComponent = (props: any) => {
-	const { navDocs } = props || null;
+	const { navDocs, navShort } = props || null;
 	const [isOpen, setIsOpen] = useState<boolean>(false);
 	const [subOpen, setSubOpen] = useState<boolean>(false);
 
@@ -23,7 +24,7 @@ const HeaderComponent = (props: any) => {
 	};
 
 	return (
-		<Header data-test-id="header">
+		<Header data-test-id="header" navShort={navShort}>
 			<StyledHamburgerMenu
 				isOpen={isOpen}
 				menuClicked={clickMenu}
@@ -51,7 +52,8 @@ export const headerHeight = 100;
 
 const Header = styled.header`
 	${({ theme }) => theme.animations.show};
-	max-width: ${({ theme }) => theme.maxContentWidth};
+	max-width: ${({ navShort, theme }) =>
+		navShort ? theme.maxContentWidthBuild : theme.maxContentWidth};
 	animation-delay: 200ms;
 	opacity: 0;
 	height: ${headerHeight}px;

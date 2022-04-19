@@ -28,7 +28,7 @@ const Snippet = ({ highlight, attribute, hit }: any) => {
 		<span>
 			{parsedHit.map((part: any, index: any) =>
 				part.isHighlighted ? (
-					<mark key={index}>{part.value}</mark>
+					<Mark key={index}>{part.value}</Mark>
 				) : (
 					<span key={index}>{part.value}</span>
 				)
@@ -150,6 +150,11 @@ const SearchIcon = styled.div`
 	}
 `;
 const StyledModal = styled.div``;
+
+const Mark = styled.mark`
+	background-color: #8e2de2;
+	color: #fff;
+`;
 
 const Input = styled.input`
 	font-family: 'Inter';

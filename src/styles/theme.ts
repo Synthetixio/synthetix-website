@@ -1,3 +1,4 @@
+// @ts-nocheck
 import { css } from 'styled-components';
 import media from 'styled-media-query';
 
@@ -16,8 +17,13 @@ const animations = {
   `,
 };
 
+const rowMargins = css`
+	margin: 10px 0;
+`;
+
 export const theme = {
 	maxContentWidth: '1920px',
+	maxContentWidthBuild: '1350px',
 	pageBuilder: {
 		rows: css`
 			margin: 10px 0;
@@ -29,6 +35,7 @@ export const theme = {
 			font-size: 40px;
 			line-height: 150%;
 			color: #fff;
+			${rowMargins}
 		`,
 		h2: css`
 			font-family: 'Inter';
@@ -37,6 +44,7 @@ export const theme = {
 			font-size: 24px;
 			line-height: 29px;
 			color: #fff;
+			${rowMargins}
 		`,
 		h3: css`
 			font-family: Inter;
@@ -45,6 +53,7 @@ export const theme = {
 			font-size: 22px;
 			line-height: 150%;
 			color: #fff;
+			${rowMargins}
 		`,
 		h4: css`
 			font-family: Inter;
@@ -53,6 +62,7 @@ export const theme = {
 			font-size: 20px;
 			line-height: 150%;
 			color: #fff;
+			${rowMargins}
 		`,
 	},
 	colors: {

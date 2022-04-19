@@ -23,7 +23,7 @@ const ContentWrapper = styled.div`
 	flex-wrap: wrap;
 	position: relative;
 	gap: var(--s1);
-	max-width: ${({ theme }) => theme.maxContentWidth};
+	max-width: ${({ theme }) => theme.maxContentWidthBuild};
 	width: 100%;
 	position: relative;
 	margin: 0 auto;
@@ -130,7 +130,7 @@ export default function TagsPageLayout(props) {
 
 	return (
 		<FlexDivColCentered>
-			<Header navDocs={subMenu} />
+			<Header navDocs={subMenu} navShort={true} />
 			<OutWrapper>
 				<ContentWrapper>
 					<Sidebar navDocs={navDocs} subSlug="guides" />

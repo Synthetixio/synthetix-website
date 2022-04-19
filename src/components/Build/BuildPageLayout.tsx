@@ -7,12 +7,10 @@ import { FlexDivColCentered } from 'src/styles/common';
 import { Header } from '..';
 import Sidebar from '../Sidebar';
 import BuildFooter from './BuildFooter';
-import { theme } from '../../styles/theme';
 
 const OutWrapper = styled.div`
 	width: 100%;
 	background-color: #000; //TODO: refactor to body black background and remove this
-	${theme.pageBuilder.rows};
 `;
 
 const ContentWrapper = styled.div`
@@ -20,7 +18,7 @@ const ContentWrapper = styled.div`
 	flex-wrap: wrap;
 	position: relative;
 	gap: var(--s1);
-	max-width: ${({ theme }) => theme.maxContentWidth};
+	max-width: ${({ theme }) => theme.maxContentWidthBuild};
 	width: 100%;
 	position: relative;
 	margin: 0 auto;
@@ -107,7 +105,7 @@ export default function BuildPageLayout<T>(props: BuildPageLayoutProps<T>) {
 	};
 	return (
 		<FlexDivColCentered>
-			<Header navDocs={subMenu} />
+			<Header navDocs={subMenu} navShort={true} />
 			<OutWrapper>
 				<ContentWrapper>
 					<Sidebar navDocs={navDocs} subSlug="build" />

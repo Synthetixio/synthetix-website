@@ -60,7 +60,6 @@ const Figure = styled.figure`
 
 function GuideItem({ guide }: any) {
 	const imageProps = useNextSanityImage(client, guide.icon);
-	//console.log(guide);
 	return (
 		<Link href={`/guides/${guide.slug.current}`}>
 			<CarouselItem>
@@ -85,12 +84,12 @@ export function GuideCarouselBlock({ props }: GuideCarouselBlockProps) {
 		superLargeDesktop: {
 			// the naming can be any, depends on you.
 			breakpoint: { max: 4000, min: 3000 },
-			items: 6,
+			items: 4,
 			slidesToSlide: 3,
 		},
 		desktop: {
 			breakpoint: { max: 3000, min: 1400 },
-			items: 5,
+			items: 4,
 			slidesToSlide: 3,
 		},
 		tablet: {
