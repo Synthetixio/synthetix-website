@@ -57,7 +57,7 @@ type GuidesPageLayoutProps<T> = {
 };
 
 export default function GuidesPageLayout<T>(props: GuidesPageLayoutProps<T>) {
-	const { children, navDocs, updatedAt, mainImage, title, subTitle, subPos } = props;
+	const { children, navDocs, updatedAt, mainImage, title, subTitle, subPos,  nextDoc, prevDoc } = props;
 	const subMenu = {
 		label: 'guides',
 		navtitle: 'User Guides',
@@ -73,7 +73,7 @@ export default function GuidesPageLayout<T>(props: GuidesPageLayoutProps<T>) {
 					<MainContent>
 						<GuidesHeader mainImage={mainImage} title={title} subTitle={subTitle} subPos={subPos} />
 						{children}
-						<BuildFooter updatedAt={updatedAt} />
+						<BuildFooter updatedAt={updatedAt} nextDoc={nextDoc} prevDoc={prevDoc} />
 					</MainContent>
 				</ContentWrapper>
 			</OutWrapper>

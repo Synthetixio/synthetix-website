@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import Link from 'next/link';
 
 const TagsWrapper = styled.div`
 	clear: both;
@@ -17,6 +18,11 @@ const Tag = styled.div<{ color: any }>`
 	text-transform: uppercase;
 	color: ${(p) => p.color.hex};
 	background-color: ${(p) => p.color.hex}40;
+
+	:hover {
+		cursor: pointer;
+		filter: brightness(160%);
+	}
 `;
 
 interface TagsProps {
@@ -31,9 +37,11 @@ export function Tags(props: TagsProps) {
 		return (
 			<TagsWrapper>
 				{tags.map((tag: any, index: number) => (
-					<Tag color={tag.color} key={index}>
-						{tag.slug.current}
-					</Tag>
+					<Link href={`/guides/tag/${tag.slug.current}`}>
+						<Tag color={tag.color} key={index}>
+							{tag.slug.current}
+						</Tag>
+					</Link>
 				))}
 			</TagsWrapper>
 		);

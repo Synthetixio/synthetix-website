@@ -5,7 +5,27 @@ import PageBuilder from '../../src/components/SanityPageBuilder/_PageBuilder';
 import client from '../../src/lib/sanity';
 
 const Guide = ({ guide, navDocs }) => {
-	//console.log(guide);
+	// next/prev prep work
+	//const allDocsOrdered = jp.query(navDocs, '$..docs[*]');
+	let allDocsOrdered = [];
+	navDocs.map((doc) => {
+		let cat = doc.title;
+		doc.docs.map((node) =>
+			allDocsOrdered.push({
+				cat: cat,
+				...node,
+			})
+		);
+	});
+
+	let nextDoc = null;
+	let prevDoc = null;
+	allDocsOrdered.map(function (doc, index, elements) {
+		if (doc.slug.current === guide.slug.current) {
+			nextDoc = elements[index + 1];
+			prevDoc = elements[index - 1];
+		}
+	});
 
 	return (
 		<>
@@ -19,6 +39,8 @@ const Guide = ({ guide, navDocs }) => {
 				title={guide.title}
 				subTitle={guide.subTitle}
 				subPos={guide.subPos}
+				nextDoc={nextDoc}
+				prevDoc={prevDoc}
 			>
 				<PageBuilder pageBuilder={guide.pageBuilder} />
 			</GuidesPageLayout>

@@ -17,8 +17,6 @@ const BuildFooterContainer = styled.div`
 	flex-wrap: wrap;
 	width: 100%;
 	display: flex;
-	flex-direction: row;
-	flex-wrap: wrap;
 `;
 
 const Row = styled.div`
