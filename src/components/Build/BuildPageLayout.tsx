@@ -46,6 +46,7 @@ const SS = styled.div`
 
 	ul {
 		position: fixed;
+		width: 255px;
 	}
 `;
 

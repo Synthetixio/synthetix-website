@@ -70,6 +70,7 @@ const Results = connectStateResults(({ searchState, searchResults, children }: a
 
 const Hits = ({ hits }: any) => (
 	<AllResults>
+		<hr />
 		{hits.map((hit: any, i: number) => {
 			let path = `/${hit.type}/${hit.path}`;
 			if (hit.type === 'guide') {
@@ -146,7 +147,7 @@ const SearchIcon = styled.div`
 	display: inline-block;
 	svg:hover {
 		cursor: pointer;
-		fill: #00d1ff;
+		fill: #fff;
 	}
 `;
 const StyledModal = styled.div``;
@@ -166,7 +167,7 @@ const Input = styled.input`
 	height: 50px;
 	width: 100%;
 	border: none;
-	margin: 8px 0;
+	margin: 0;
 	outline: none;
 	padding: 8px;
 	box-sizing: border-box;
@@ -186,6 +187,7 @@ const Input = styled.input`
 			//fill: dodgerBlue;
 		}
 	}
+
 `;
 
 const StyledInput = styled.div`
@@ -215,7 +217,12 @@ const StyledInput = styled.div`
 const AllResults = styled.div`
 	max-height: 50vh;
 	border-top: 1px solid rgba(130, 130, 149, 0.3);
-	padding-top: 10px;
+	//padding-top: 10px;
+
+	hr {
+		border: 1px solid rgba(130, 130, 149, 0.3);
+		margin: 24px 0;
+	}
 `;
 
 const SearchResult = styled.div`

@@ -9,13 +9,14 @@ const TagsWrapper = styled.div`
 const Tag = styled.div<{ color: any }>`
 	float: left;
 	border: 1px solid ${(p) => p.color.hex};
-	padding: 5px;
+	padding: 5px 6px;
 	margin-left: 5px;
 	font-family: 'Inter';
 	font-style: normal;
-	font-weight: 700;
+	font-weight: bold;
 	font-size: 8px;
 	text-transform: uppercase;
+	border-radius: 2px;
 	color: ${(p) => p.color.hex};
 	background-color: ${(p) => p.color.hex}40;
 

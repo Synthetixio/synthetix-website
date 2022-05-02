@@ -35,6 +35,10 @@ const Wrap = styled.div`
 		margin-left: 15px;
 		margin-top: 5px;
 	}
+	span.active svg * {
+		filter: invert(58%) sepia(36%) saturate(4037%) hue-rotate(158deg) brightness(110%)
+			contrast(106%);
+	}
 `;
 
 const Dropdown = styled.ul`
@@ -70,12 +74,22 @@ export default function SideBarItem({ props, subSlug }: any) {
 		});
 	}, [props, router]);
 
+	const catOpen = props.docs.some((element: any) => {
+		if (element.slug.current === router.query.slug) {
+			return true;
+		}
+
+		return false;
+	});
+
 	return (
 		<IconContext.Provider value={{ color: '#ffffff', size: '15px' }}>
 			<AccordionSection>
 				<Wrap onClick={() => toggle()}>
-					<h1 className={isOpen ? 'active' : ''}>{props.title}</h1>
-					<span>{isOpen === true ? <FiChevronDown /> : <FiChevronUp />}</span>
+					<h1 className={catOpen ? 'active' : ''}>{props.title}</h1>
+					<span className={catOpen ? 'active' : ''}>
+						{isOpen === true ? <FiChevronUp /> : <FiChevronDown />}
+					</span>
 				</Wrap>
 				{isOpen === true ? (
 					<Dropdown>

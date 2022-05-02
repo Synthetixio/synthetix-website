@@ -51,7 +51,9 @@ const Title = styled.div`
 	font-size: 14px;
 	color: #fff;
 `;
-const Intro = styled.div``;
+const Intro = styled.div`
+	font-size: 12px;
+`;
 
 const Figure = styled.figure`
 	img {
@@ -65,7 +67,7 @@ function GuideItem({ guide }: any) {
 			<CarouselItem>
 				<Tags tags={guide.tags} />
 				<Figure>
-					<Img {...imageProps} layout="fixed" width={100} height={100} />
+					<Img {...imageProps} layout="fixed" width={75} height={75} />
 				</Figure>
 				<Title>{guide.title}</Title>
 				<Intro>{guide.introText}</Intro>

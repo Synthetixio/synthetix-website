@@ -33,7 +33,7 @@ export const theme = {
 			font-style: normal;
 			font-weight: 700;
 			font-size: 40px;
-			line-height: 150%;
+			line-height: 44px;
 			color: #fff;
 			${rowMargins}
 		`,
@@ -41,8 +41,8 @@ export const theme = {
 			font-family: 'Inter';
 			font-style: normal;
 			font-weight: 700;
-			font-size: 24px;
-			line-height: 29px;
+			font-size: 32px;
+			line-height: 35.2px;
 			color: #fff;
 			${rowMargins}
 		`,
@@ -50,8 +50,8 @@ export const theme = {
 			font-family: Inter;
 			font-style: normal;
 			font-weight: bold;
-			font-size: 22px;
-			line-height: 150%;
+			font-size: 24px;
+			line-height: 26.4px;
 			color: #fff;
 			${rowMargins}
 		`,
@@ -59,8 +59,8 @@ export const theme = {
 			font-family: Inter;
 			font-style: normal;
 			font-weight: bold;
-			font-size: 20px;
-			line-height: 150%;
+			font-size: 18px;
+			line-height: 19.8px;
 			color: #fff;
 			${rowMargins}
 		`,
