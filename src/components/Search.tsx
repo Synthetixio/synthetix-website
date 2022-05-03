@@ -187,7 +187,6 @@ const Input = styled.input`
 			//fill: dodgerBlue;
 		}
 	}
-
 `;
 
 const StyledInput = styled.div`
