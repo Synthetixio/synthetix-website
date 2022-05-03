@@ -78,7 +78,7 @@ const TagsBlock = ({ guideTags }: TagsBlockProps) => {
 		},
 		tags = countOccurrence(allTags);
 
-	console.log(tags);
+	//console.log(tags);
 
 	return (
 		<Wrapper>

@@ -1,11 +1,10 @@
 import styled from 'styled-components';
 import media from 'styled-media-query';
-import { IconContext } from 'react-icons';
-import { IoMdArrowRoundForward, IoMdArrowRoundBack } from 'react-icons/io';
 import { useRouter } from 'next/router'
 import TimeAgo from 'javascript-time-ago'
 import ReactTimeAgo from 'react-time-ago'
 import en from 'javascript-time-ago/locale/en.json'
+import { ButtonCard } from '@synthetixio/ui';
 
 import { Line } from 'src/styles/common';
 
@@ -26,37 +25,25 @@ const Row = styled.div`
 	width: 100%;
 	justify-content: center;
 
-	background-color: #10104e;
-	padding: 20px 30px;
 `;
 
-interface ColTextProps{
-	right?: boolean;
-}
 
-
-const ColText = styled.div<ColTextProps>`
+const Box = styled.div`
 	display: flex;
 	flex-direction: column;
 	flex-basis: 100%;
 	flex: 1;
-	margin-right: 10px;
-	align-items: right;
-	justify-content: center;
-	align-items: ${props => props.right ? "flex-end" : "normal"};
-	${media.lessThan('medium')`
-		flex: 1 1 auto;
-	`};
+	margin: 5px;
 
-	.cat {
+	span {
 		font-family: Inter;
 		font-style: normal;
 		font-weight: normal;
 		font-size: 12px;
 		text-transform: uppercase;
-		color: #FFFFFF;
+		color: #828295;
 	}
-	.heading{
+	h3{
 		font-family: Inter;
 		font-style: normal;
 		font-weight: bold;
@@ -65,37 +52,7 @@ const ColText = styled.div<ColTextProps>`
 		text-transform: capitalize;
 		color: #FFFFFF;
 	}
-`;
-
-interface ColIconProps{
-	right?: boolean;
-}
-const ColIcon = styled.div<ColIconProps>`
-	display: flex;
-	flex-direction: column;
-	flex-basis: 100%;
-	flex: 1;
-	margin-right: 10px;
-	align-items: right;
-	justify-content: center;
-	align-items: ${props => props.right ? "flex-end" : "normal"};
-	max-width: 30px;
-	${media.lessThan('medium')`
-		flex: 1 1 auto;
-	`};
-`;
-
-const Box = styled.div`
-	display: flex;
-	flex-direction: column;
-	flex-basis: 100%;
-	flex: 1;
-	margin-right: 10px;
-	padding: 3px;
-	background: linear-gradient(90deg, #ED1EFF 0%, #00D1FF 100%);
-	border-radius: 5px;
-	height: fit-content;
-	margin-bottom: 20px;
+	
 	${media.lessThan('large')`
 		flex: 1 1 2000px;
 	`};
@@ -131,32 +88,24 @@ export default function BuildFooter<T>(props: BuildFooterProps<T>) {
 
 		<BuildFooterContainer>
 			{prevDoc ? 
-				<Box onClick={(e) => handleClick(e, prevDoc.slug.current)}>
+				<Box onClick={(e) => handleClick(e, nextDoc.slug.current)}>
 					<Row>
-						<ColIcon> 
-							<IconContext.Provider value={{ color: '#00D1FF', size: '30px' }}>
-								<IoMdArrowRoundBack />
-							</IconContext.Provider>
-						</ColIcon>
-						<ColText right>
-							<span className="cat">{prevDoc.cat}</span>
-							<span className="heading">{prevDoc.title}</span>
-						</ColText>
+						<ButtonCard
+						arrowDirection="left"
+						headline={prevDoc.title}
+						subline={prevDoc.cat}
+					/>
 					</Row>
 				</Box>
 			: null}
 			{nextDoc ? 
 				<Box onClick={(e) => handleClick(e, nextDoc.slug.current)}>
 					<Row>
-						<ColText>
-						<span className="cat">{nextDoc.cat}</span>
-							<span className="heading">{nextDoc.title}</span>
-						</ColText>
-						<ColIcon right> 
-							<IconContext.Provider value={{ color: '#00D1FF', size: '30px' }}>
-								<IoMdArrowRoundForward />
-							</IconContext.Provider>
-						</ColIcon>
+						<ButtonCard
+						arrowDirection="right"
+						headline={nextDoc.title}
+						subline={nextDoc.cat}
+					/>
 					</Row>
 				</Box>
 			: null}
