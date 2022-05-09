@@ -14,7 +14,6 @@ const Wrapper = styled.div`
 	justify-content: unset;
 	color: #fff;
 	height: fit-content;
-	min-width: 400px;
 	justify-content: center;
 	align-items: center;
 	display: flex;

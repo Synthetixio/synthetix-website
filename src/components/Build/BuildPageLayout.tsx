@@ -24,7 +24,7 @@ const ContentWrapper = styled.div`
 	margin: 0 auto;
 `;
 const SS = styled.div`
-	flex-basis: 200px;
+	flex-basis: 220px;
 	flex-grow: 1;
 	margin-top: 60px;
 
@@ -33,20 +33,20 @@ const SS = styled.div`
 	`}
 
 	.is-current {
-		background: linear-gradient(73.6deg, #8E2DE2 2.11%, #4B01E0 90.45%);
-		-webkit-background-clip: text;
-		-webkit-text-fill-color: transparent;
-		font-weight: bold;
+		font-weight: 700;
+		font-size: 14px;
+		color: #FFFFFF;
 
 	}
 
 	.pass {
 		color: #706f6f;
+		font-size: 14px;
 	}
 
 	ul {
 		position: fixed;
-		width: 255px;
+		width: 200px;
 	}
 `;
 

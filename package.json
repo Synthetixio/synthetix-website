@@ -24,7 +24,7 @@
 		"@sanity/image-url": "^1.0.1",
 		"@socialgouv/matomo-next": "1.2.2",
 		"@synthetixio/contracts-interface": "2.53.0-alpha2",
-		"@synthetixio/ui": "^1.21.0",
+		"@synthetixio/ui": "^1.22.4",
 		"@types/react-instantsearch-dom": "^6.12.2",
 		"@vercel/node": "^1.14.0",
 		"algoliasearch": "^4.13.0",

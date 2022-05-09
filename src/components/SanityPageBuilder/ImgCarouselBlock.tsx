@@ -9,20 +9,26 @@ import client from '../../lib/sanity';
 
 const ImgCarouselWrapper = styled.div`
 	.carousel .control-dots {
-		bottom: 10px;
 		background-color: #000;
-		width: auto;
-		margin: 0 auto;
-		display: table-column-group;
-		margin-left: 47%;
+		width: fit-content;
 		height: 20px;
 		border-radius: 10px;
+		margin: auto;
+		position: absolute;
+		padding: 0 5px;
+		left: 0;
+		bottom: 10px;
+		right: 0;
 	}
 `;
 
 const Figure = styled.figure`
+	position: relative;
+	//padding-top: 56.25%;
 	img {
-		//border-radius: 25px;
+		position: absolute;
+		top: 0;
+		left: 0;
 	}
 
 	figcaption {
@@ -30,7 +36,7 @@ const Figure = styled.figure`
 		padding: 10px;
 		font-weight: 300;
 		font-size: 12px;
-		bottom: 100px;
+		bottom: 120px;
 		border-radius: 10px;
 		color: #fff;
 		width: 80%;
@@ -47,7 +53,7 @@ interface ImgCarouselBlockProps {
 
 const Image = ({ props }) => {
 	const imageProps = useNextSanityImage(client, props.mainImage);
-	return <Img {...imageProps} layout="responsive" sizes="(max-width: 800px) 100vw, 800px" />;
+	return <Img {...imageProps} layout="responsive" width={600} height={375} />;
 };
 
 export function ImgCarouselBlock({ props }: ImgCarouselBlockProps) {

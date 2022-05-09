@@ -3,7 +3,8 @@ import { useState, useEffect } from 'react';
 import styled from 'styled-components';
 import media from 'styled-media-query';
 import HamburgerMenu from 'react-hamburger-menu';
-import { Logo, Menu } from './';
+import { NavBar } from '@synthetixio/ui';
+import { Menu } from './';
 
 const HeaderComponent = (props: any) => {
 	const { navDocs, navShort } = props || null;
@@ -24,7 +25,7 @@ const HeaderComponent = (props: any) => {
 	};
 
 	return (
-		<Header data-test-id="header" navShort={navShort}>
+		<NavBar data-test-id="header">
 			<StyledHamburgerMenu
 				isOpen={isOpen}
 				menuClicked={clickMenu}
@@ -36,7 +37,6 @@ const HeaderComponent = (props: any) => {
 				borderRadius={0}
 				animationDuration={0.3}
 			/>
-			<Logo />
 			<Menu
 				navDocs={navDocs}
 				subOpen={subOpen}
@@ -44,34 +44,11 @@ const HeaderComponent = (props: any) => {
 				isOpen={isOpen}
 				data-test-id="header-menu"
 			/>
-		</Header>
+		</NavBar>
 	);
 };
 
 export const headerHeight = 100;
-
-const Header = styled.header`
-	${({ theme }) => theme.animations.show};
-	max-width: ${({ navShort, theme }) =>
-		navShort ? theme.maxContentWidthBuild : theme.maxContentWidth};
-	animation-delay: 200ms;
-	opacity: 0;
-	height: ${headerHeight}px;
-	width: 100%;
-	padding: 0 56px;
-	position: relative;
-	z-index: 100;
-	display: flex;
-	align-items: center;
-	justify-content: space-between;
-	border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-
-	${media.lessThan('medium')`
-		border-bottom: 0;
-		padding: 0 20px;
-		justify-content: center;
-	`}
-`;
 
 const StyledHamburgerMenu = styled(HamburgerMenu)`
 	display: none;

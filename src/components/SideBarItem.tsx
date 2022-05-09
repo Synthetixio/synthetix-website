@@ -22,7 +22,7 @@ const Wrap = styled.div`
 	cursor: pointer;
 	h1 {
 		font-weight: bold;
-		font-size: 14px;
+		font-size: 16px;
 		line-height: 20px;
 		color: #808191;
 	}
@@ -43,7 +43,11 @@ const Wrap = styled.div`
 
 const Dropdown = styled.ul`
 	color: #808191;
-	font-size: 12px;
+	font-size: 16px;
+
+	li {
+		margin: 16px 0px;
+	}
 
 	a:hover {
 		background: linear-gradient(73.6deg, #85ffc4 2.11%, #5cc6ff 90.45%);

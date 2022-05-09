@@ -15,6 +15,7 @@ const Tag = styled.div<{ color: any }>`
 	font-style: normal;
 	font-weight: bold;
 	font-size: 8px;
+	line-height: 5px;
 	text-transform: uppercase;
 	border-radius: 2px;
 	color: ${(p) => p.color.hex};

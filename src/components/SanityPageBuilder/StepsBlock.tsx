@@ -43,7 +43,7 @@ const StepsWrapper = styled.div`
 		background-origin: padding-box, border-box;
 
 		padding: 15px;
-		flex: 0 30%;
+		flex: 0 29.99%;
 		margin: 12px;
 		display: flex;
 		${media.lessThan('huge')`
@@ -81,7 +81,7 @@ const StepsWrapper = styled.div`
 		background-color: #0b0b22;
 		border-radius: 4px;
 		padding: 15px;
-		flex: 0 30%;
+		flex: 0 29.99%;
 		margin: 12px;
 		display: flow-root;
 		${media.lessThan('huge')`

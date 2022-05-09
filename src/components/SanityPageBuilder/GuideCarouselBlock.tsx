@@ -67,7 +67,7 @@ function GuideItem({ guide }: any) {
 			<CarouselItem>
 				<Tags tags={guide.tags} />
 				<Figure>
-					<Img {...imageProps} layout="fixed" width={75} height={75} />
+					<Img {...imageProps} layout="fixed" width={50} height={50} />
 				</Figure>
 				<Title>{guide.title}</Title>
 				<Intro>{guide.introText}</Intro>

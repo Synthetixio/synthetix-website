@@ -7,7 +7,7 @@ import client from '../../lib/sanity';
 
 const Figure = styled.figure`
 	img {
-		border-radius: 25px;
+		//border-radius: 25px;
 	}
 
 	figcaption {

@@ -1,3 +1,4 @@
+// @ts-nocheck
 import styled from 'styled-components';
 import media from 'styled-media-query';
 import { useRouter } from 'next/router'
@@ -88,7 +89,7 @@ export default function BuildFooter<T>(props: BuildFooterProps<T>) {
 
 		<BuildFooterContainer>
 			{prevDoc ? 
-				<Box onClick={(e) => handleClick(e, nextDoc.slug.current)}>
+				<Box style={{'margin-right': '3px'}} onClick={(e) => handleClick(e, nextDoc.slug.current)}>
 					<Row>
 						<ButtonCard
 						arrowDirection="left"
@@ -99,7 +100,7 @@ export default function BuildFooter<T>(props: BuildFooterProps<T>) {
 				</Box>
 			: null}
 			{nextDoc ? 
-				<Box onClick={(e) => handleClick(e, nextDoc.slug.current)}>
+				<Box style={{'margin-left': '3px'}} onClick={(e) => handleClick(e, nextDoc.slug.current)}>
 					<Row>
 						<ButtonCard
 						arrowDirection="right"

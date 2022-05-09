@@ -6,8 +6,9 @@ import Socials from './Socials';
 const SidebarContainer = styled.div`
 	flex-basis: 300px;
 	flex-grow: 1;
-	background-color: ${({ theme }) => theme.colors.bgBlack};
+	//background-color: ${({ theme }) => theme.colors.bgBlack};
 	padding: 30px;
+	border-right: 1px rgba(130, 130, 149, 0.3) solid;
 
 	${media.lessThan('medium')`
                 display: none;

@@ -142,7 +142,7 @@ const Wrap = styled.div`
 	cursor: pointer;
 	h1 {
 		font-weight: bold;
-		font-size: 14px;
+		font-size: 16px;
 		line-height: 20px;
 		color: #5cc6ff;
 	}
@@ -154,7 +154,11 @@ const Wrap = styled.div`
 
 const Dropdown = styled.ul`
 	color: #808191;
-	font-size: 12px;
+	font-size: 16px;
+
+	li {
+		margin: 16px 0px;
+	}
 
 	a:hover {
 		color: #5cc6ff;
