@@ -42,7 +42,7 @@ function SponsorSandstrom() {
 						data-form="5672948:p8g2d9"
 					></div>
 				</StyledInputWrapper>
-				<H3>Don’t have SNX yet?</H3>
+				<H3 style={{ paddingTop: '20px', paddingBottom: '0px' }}>Don’t have SNX yet?</H3>
 				<TextBold style={{ marginBottom: '20px', textAlign: 'center' }}>
 					Buy some now to stake and start earning over 50% APY on your tokens.
 				</TextBold>
@@ -65,7 +65,7 @@ function SponsorSandstrom() {
 				<StyledCardContainer>
 					<StyledCard gradient="rainbow">
 						<StyledCardContent direction="column" justifyContent="space-between">
-							<img src="kwenta.svg" width="186" height="30" alt="kwenta " />
+							<img src="kwenta.svg" width="186" height="30" alt="kwenta" />
 							<p>
 								Trade with up to 10x leverage and simulated liquidity for the best price fills.
 								Coming soon.
@@ -80,7 +80,7 @@ function SponsorSandstrom() {
 					</StyledCard>
 					<StyledCard gradient="rainbow">
 						<StyledCardContent direction="column" justifyContent="space-between">
-							<img src="lyra.svg" width="80" height="30" alt="lyra " />
+							<img src="lyra.svg" width="80" height="30" alt="lyra" />
 							<p> The first completely decentralized options protocol.</p>
 							<StyledLinkButton
 								isExternalLink
@@ -92,7 +92,7 @@ function SponsorSandstrom() {
 					</StyledCard>
 					<StyledCard gradient="rainbow">
 						<StyledCardContent direction="column" justifyContent="space-between">
-							<img src="thales.svg" width="120" height="30" alt="thales " />
+							<img src="thales.svg" width="120" height="30" alt="thales" />
 							<p>
 								A Parimutuel Markets protocol for trading on price action, sports, and other events.
 							</p>
@@ -106,7 +106,7 @@ function SponsorSandstrom() {
 					</StyledCard>
 					<StyledCard gradient="rainbow">
 						<StyledCardContent direction="column" justifyContent="space-between">
-							<img src="polynomial-fi.svg" width="30" height="30" alt="thales " />
+							<img src="polynomial-fi.svg" width="30" height="30" alt="polynomial" />
 							<p>
 								Derivatives vaults making it easy for traders to gain access to advanced trading
 								models.
@@ -214,7 +214,7 @@ const StyledInputWrapper = styled.div`
 	> * {
 		margin: 5px;
 	}
-	width: 330px;
+	width: 345px;
 `;
 
 const StyledSubline = styled(Text)`
@@ -229,6 +229,9 @@ const StyledMain = styled.main`
 	align-items: center;
 	padding: 72px;
 	background-color: ${theme.colors.backgroundColor};
+	@media (max-width: 1000px) {
+		padding: 20px;
+	}
 `;
 
 const StyledCardContainer = styled.div`
