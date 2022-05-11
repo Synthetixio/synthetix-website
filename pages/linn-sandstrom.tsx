@@ -117,7 +117,7 @@ function LinnSandstrom() {
 								isExternalLink
 								icon={<ArrowLinkOffIcon active />}
 								text="Trade"
-								link="#"
+								link="https://www.polynomial.fi/"
 							></StyledLinkButton>
 						</StyledCardContent>
 					</StyledCard>
