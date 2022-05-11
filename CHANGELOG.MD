@@ -1,6 +1,7 @@
 # 1.3.1
 
 - Moved images to static public folder
+- Added sponsor page
 
 # 1.3.0
 
