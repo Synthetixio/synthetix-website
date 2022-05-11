@@ -1,13 +1,14 @@
 import { ArrowLinkOffIcon, LinkButton, theme, Card, Flex } from '@synthetixio/ui';
 import Head from 'next/head';
 import React from 'react';
+import { Header } from 'src/components';
 import styled from 'styled-components';
 
-function SponsorSandstrom() {
+function LinnSandstrom() {
 	return (
 		<>
 			<Head>
-				<title>Synthetix - Linn Sandstrom</title>
+				<title>Synthetix | Linn Sandstrom</title>
 				<script
 					dangerouslySetInnerHTML={{
 						__html: `
@@ -21,6 +22,7 @@ function SponsorSandstrom() {
 					}}
 				></script>
 			</Head>
+			<Header />
 			<StyledHeader>
 				<H1>LINN SANDSTROM</H1>
 				<StyledText>
@@ -134,6 +136,7 @@ const StyledHeader = styled.header`
 	display: flex;
 	flex-direction: column;
 	align-items: flex-start;
+	padding-top: 50px;
 	> * {
 		margin-left: 114px;
 	}
@@ -265,4 +268,4 @@ const StyledLinkButton = styled(LinkButton)`
 	align-self: flex-end;
 `;
 
-export default SponsorSandstrom;
+export default LinnSandstrom;
