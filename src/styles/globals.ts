@@ -51,4 +51,22 @@ export const GlobalStyle = createGlobalStyle`
 		font-stretch: expanded;
 		font-display: auto;
 	}
+
+	@font-face {
+  		font-family: 'Inter';
+  		font-style: normal;
+  		font-weight: 400;
+  		font-display: swap;
+  		src: local('Inter'), url('/fonts/Inter-Regular.woff2') format('woff2'),
+    	url('/fonts/Inter-Regular.woff') format('woff');
+	}
+
+	@font-face {
+  		font-family: 'Inter Bold';
+  		font-style: normal;
+  		font-weight: 700;
+  		font-display: swap;
+  		src: local('Inter Bold'), url('/fonts/Inter-Bold.woff2') format('woff2'),
+    	url('/fonts/Inter-Bold.woff') format('woff');
+	}
 `;

@@ -2531,6 +2531,11 @@
     start-server-and-test "1.13.1"
     synthetix-js "2.56.1"
 
+"@synthetixio/ui@^1.24.1":
+  version "1.24.1"
+  resolved "https://registry.yarnpkg.com/@synthetixio/ui/-/ui-1.24.1.tgz#6a2c11f69f349f527a0f40ae314ca49aafd413ae"
+  integrity sha512-hdZcrmhYFC8AETrk5lrEZCkZd6PRU12br9k7GNHKt0TCG3APFUFHxBnr1KTv+e4+MpUg8Jmcxit8f3FwrTsVCw==
+
 "@synthetixio/wei@^2.47.0-ovm.5":
   version "2.53.0"
   resolved "https://registry.yarnpkg.com/@synthetixio/wei/-/wei-2.53.0.tgz#7fd076c13a5e7918d3232ef6c99ef0eefdecdced"
