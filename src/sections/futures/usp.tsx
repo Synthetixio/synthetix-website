@@ -1,12 +1,12 @@
 import { FlexDiv, FlexDivCol, Section, SectionTitle } from 'src/styles/common';
 import styled from 'styled-components';
 import media from 'styled-media-query';
-import Hook from '../../../assets/futures/usp/hook.svg';
-import Clock from '../../../assets/futures/usp/clock.svg';
-import Simulated from '../../../assets/futures/usp/simulated.svg';
-import Optimism from '../../../assets/futures/usp/optimism.svg';
-import Chain from '../../../assets/futures/usp/chain.svg';
-import GasStation from '../../../assets/futures/usp/gas-station.svg';
+import Hook from '/public/futures/usp/hook.svg';
+import Clock from '/public/futures/usp/clock.svg';
+import Simulated from '/public/futures/usp/simulated.svg';
+import Optimism from '/public/futures/usp/optimism.svg';
+import Chain from '/public/futures/usp/chain.svg';
+import GasStation from '/public/futures/usp/gas-station.svg';
 import Image from 'next/image';
 
 const USPS = [
@@ -56,7 +56,7 @@ export default function USP() {
 				{USPS.map((USP) => (
 					<FlexDiv key={USP.label}>
 						<USPBox>
-							<Image src={USP.picture} alt="unique selling point" />
+							<Image src={USP.picture} alt="unique selling point" width="100%" height="100%" />
 						</USPBox>
 						<FlexDivCol>
 							<USPHeadline>{USP.label}</USPHeadline>

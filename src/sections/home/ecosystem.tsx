@@ -2,12 +2,12 @@ import { ExternalLink, Section, SectionTitle } from '../../styles/common';
 import { Subline } from 'src/styles/common';
 import styled from 'styled-components';
 import media from 'styled-media-query';
-import OneInch from '../../../assets/powered-by/1inch.svg';
-import Curve from '../../../assets/powered-by/crv.svg';
-import Dhedge from '../../../assets/powered-by/dhedge.svg';
-import Paraswap from '../../../assets/powered-by/para.svg';
-import Yearn from '../../../assets/powered-by/yearn.svg';
-import Aelin from '../../../assets/powered-by/aelin.svg';
+import OneInch from '/public/powered-by/1inch.svg';
+import Curve from '/public/powered-by/crv.svg';
+import Dhedge from '/public/powered-by/dhedge.svg';
+import Paraswap from '/public/powered-by/para.svg';
+import Yearn from '/public/powered-by/yearn.svg';
+import Aelin from '/public/powered-by/aelin.svg';
 import Image from 'next/image';
 
 interface ImageProps {
@@ -60,7 +60,7 @@ export default function Ecosystem() {
 			<ImageContainer>
 				{images.map((image) => (
 					<ImageInner key={image.link} href={image.link}>
-						<StyledImage src={image.image} />
+						<StyledImage src={image.image} width="100%" height="100%" />
 						<ImageTitle>{image.title}</ImageTitle>
 					</ImageInner>
 				))}
