@@ -1,3 +1,7 @@
+# 1.3.2
+
+- Allowing Mailerlite script
+
 # 1.3.1
 
 - Moved images to static public folder
