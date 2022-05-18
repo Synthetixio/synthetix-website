@@ -1,4 +1,4 @@
-import { NetworkId } from '@synthetixio/contracts-interface';
+import { NetworkIdByName } from '@synthetixio/contracts-interface';
 import Head from 'next/head';
 import { PageLayout } from 'src/components';
 import getSNXJS from 'src/lib/snxjs';
@@ -26,15 +26,18 @@ export interface PerpetualSynth {
 }
 
 export async function getStaticProps() {
+	const yesterday = new Date(new Date().getTime() / 1000 - 24 * 60 * 60).getTime();
 	const snx = getSNXJS({
 		useOvm: true,
-		networkId: NetworkId['Mainnet-Ovm'],
+		networkId: NetworkIdByName['mainnet-ovm'],
 	});
+	// https://thegraph.com/hosted-service/subgraph/kwenta/optimism-main ?? @TODO MF wait for Maiks response?
 	const [dailyKwenta] = await getDailyExchangePartners(
 		optimismGraphMain,
 		{
 			where: {
 				partner: 'KWENTA',
+				timestamp_gt: yesterday,
 			},
 			orderBy: 'timestamp',
 			orderDirection: 'desc',

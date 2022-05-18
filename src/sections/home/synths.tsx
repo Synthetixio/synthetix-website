@@ -9,10 +9,10 @@ const SynthSection = () => {
 	const [activeIndex, setActiveIndex] = useState<number>(0);
 
 	const graphics = [
-		<SynthGraphicAbsolute src="home/illustration-synths.svg" key="home/illustration-synths.svg" />,
-		<SynthGraphic src="/home/earn.svg" key="/home/earn.svg" />,
-		<SynthGraphic src="/home/trade-synths.svg" key="/home/trade-synths.svg" />,
-		<SynthGraphic src="/home/build-circle.svg" key="/home/build-circle.svg" />,
+		<SynthGraphicAbsolute src="/illustration.svg" key="illustration-synths" />,
+		<SynthGraphic src="/earn.svg" key="earnSVG" />,
+		<SynthGraphic src="/trade-synths-eth-btc.svg" key="synthsSVG" />,
+		<SynthGraphic src="/build-circle.svg" key="circleSVG" />,
 	];
 
 	return (

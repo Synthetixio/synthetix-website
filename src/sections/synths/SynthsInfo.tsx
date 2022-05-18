@@ -5,12 +5,16 @@ import { theme } from 'src/styles/theme';
 import { resetButtonCSS } from 'src/styles/common';
 import SynthCard from './SynthCard';
 import { SynthsProps } from 'pages/synths';
+import { Checkbox } from 'src/components/Checkbox/Checkbox';
 
-const SynthsInfo = ({ tokenList, exchangeInfo, dictionarySynthStatus, synths }: SynthsProps) => {
+const SynthsInfo = ({ l1, l2 }: SynthsProps) => {
+	const [showL2, setShowL2] = useState(true);
 	const [synthCategory, setSynthCategory] = useState('all');
 	const filteredSynths: Record<string, ReactNode[]> = {
 		all: [],
 	};
+
+	const { synths, exchangeInfo, dictionarySynthStatus } = showL2 ? l2 : l1;
 
 	synths.forEach((synth) => {
 		const category = synth.category.toLowerCase();
@@ -19,15 +23,13 @@ const SynthsInfo = ({ tokenList, exchangeInfo, dictionarySynthStatus, synths }: 
 		}
 		const currencyKey = synth.name;
 
-		const tokenInfo = tokenList != null ? tokenList.tokensMap[currencyKey] : null;
-
 		const price = exchangeInfo?.rates != null ? exchangeInfo.rates[currencyKey] : null;
 		const exchangeFeeRate = exchangeInfo?.fees != null ? exchangeInfo.fees[currencyKey] : null;
 		filteredSynths.all.push(
 			<SynthCard
 				key={currencyKey}
 				status={dictionarySynthStatus[currencyKey]}
-				{...{ synth, tokenInfo, price, exchangeFeeRate }}
+				{...{ synth, price, exchangeFeeRate }}
 			/>
 		);
 
@@ -35,7 +37,7 @@ const SynthsInfo = ({ tokenList, exchangeInfo, dictionarySynthStatus, synths }: 
 			<SynthCard
 				key={currencyKey}
 				status={dictionarySynthStatus[currencyKey]}
-				{...{ synth, tokenInfo, price, exchangeFeeRate }}
+				{...{ synth, price, exchangeFeeRate }}
 			/>
 		);
 	});
@@ -43,19 +45,39 @@ const SynthsInfo = ({ tokenList, exchangeInfo, dictionarySynthStatus, synths }: 
 	return (
 		<>
 			<Categories>
-				{Object.keys(filteredSynths).map((category) => (
-					<Button
-						key={category}
-						onClick={() => {
-							setSynthCategory(category);
-						}}
-						active={synthCategory === category}
-						data-test-id="tab-categories"
-					>
-						{category}
-					</Button>
-				))}
+				<Button
+					onClick={() => {
+						setShowL2(true);
+						setSynthCategory('all');
+					}}
+					active={showL2}
+					data-test-id="tab-categories"
+				>
+					L2 SYNTHS
+				</Button>
+
+				<Button
+					onClick={() => {
+						setShowL2(false);
+						setSynthCategory('all');
+					}}
+					active={!showL2}
+					data-test-id="tab-categories"
+				>
+					L1 SYNTHS
+				</Button>
 			</Categories>
+			<Filters>
+				{Object.keys(filteredSynths).map((category) => (
+					<Checkbox
+						key={category}
+						onChange={(checked) => checked && setSynthCategory(category)}
+						checked={synthCategory === category}
+						label={category}
+					/>
+				))}
+			</Filters>
+
 			<Cards>{filteredSynths[synthCategory]}</Cards>
 		</>
 	);
@@ -72,18 +94,25 @@ const Cards = styled.div`
 
 const Categories = styled.div`
 	display: grid;
-	margin-bottom: 40px;
+	margin-bottom: 12px;
 	grid-auto-flow: column;
 	justify-content: start;
 	grid-gap: 50px;
+	padding-left: 16px;
+`;
 
-	${media.lessThan('small')`
-		grid-auto-flow: initial;
-    	grid-template-columns: repeat(3, auto);
-    	margin-bottom: 20px;
-		grid-gap: initial;
-		justify-content: initial;
-		justify-items: start;
+const Filters = styled.div`
+	display: flex;
+	margin-bottom: 40px;
+	justify-content: start;
+	align-items: center;
+	flex-wrap: wrap;
+	gap: 28px;
+	padding: 0 16px;
+	text-transform: uppercase;
+
+	${media.lessThan('small')` {
+		gap: 18px;
 	`}
 `;
 

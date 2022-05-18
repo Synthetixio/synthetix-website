@@ -2,35 +2,48 @@ import { ExternalLink, Section, SectionTitle } from '../../styles/common';
 import { Subline } from 'src/styles/common';
 import styled from 'styled-components';
 import media from 'styled-media-query';
+import OneInch from '/public/powered-by/1inch.svg';
+import Curve from '/public/powered-by/crv.svg';
+import Dhedge from '/public/powered-by/dhedge.svg';
+import Paraswap from '/public/powered-by/para.svg';
+import Yearn from '/public/powered-by/yearn.svg';
+import Aelin from '/public/powered-by/aelin.svg';
+import Image from 'next/image';
 
-const images: Record<'title' | 'image' | 'link', string>[] = [
+interface ImageProps {
+	title: string;
+	image: StaticImageData;
+	link: string;
+}
+
+const images: ImageProps[] = [
 	{
-		image: '/home/powered-by/1inch.png',
+		image: OneInch,
 		title: '1INCH',
 		link: 'https://1inch.io/',
 	},
 	{
-		image: '/home/powered-by/crv.png',
+		image: Curve,
 		title: 'CURVE',
 		link: 'https://curve.fi/',
 	},
 	{
-		image: '/home/powered-by/dhedge.png',
+		image: Dhedge,
 		title: 'DHEDGE',
 		link: 'https://www.dhedge.org/',
 	},
 	{
-		image: '/home/powered-by/para.png',
+		image: Paraswap,
 		title: 'PARASWAP',
 		link: 'https://paraswap.io/',
 	},
 	{
-		image: '/home/powered-by/yearn.png',
+		image: Yearn,
 		title: 'YEARN',
 		link: 'https://yearn.finance/',
 	},
 	{
-		image: '/home/powered-by/aelin-circle.png',
+		image: Aelin,
 		title: 'AELIN',
 		link: 'https://aelin.xyz/',
 	},
@@ -46,8 +59,8 @@ export default function Ecosystem() {
 			</EcosystemSubline>
 			<ImageContainer>
 				{images.map((image) => (
-					<ImageInner key={image.title} href={image.link}>
-						<Image src={image.image} />
+					<ImageInner key={image.link} href={image.link}>
+						<StyledImage src={image.image} width="100%" height="100%" />
 						<ImageTitle>{image.title}</ImageTitle>
 					</ImageInner>
 				))}
@@ -108,7 +121,7 @@ const ImageInner = styled(ExternalLink)`
 	align-items: center;
 `;
 
-const Image = styled.img`
+const StyledImage = styled(Image)`
 	width: 114px;
 	height: 114px;
 `;

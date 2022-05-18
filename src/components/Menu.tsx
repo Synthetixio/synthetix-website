@@ -2,7 +2,6 @@
 import styled from 'styled-components';
 import media from 'styled-media-query';
 import Link from 'next/link';
-import { IconContext } from 'react-icons';
 import { ImArrowUpRight2 } from 'react-icons/im';
 import Search from './Search';
 import { useRouter } from 'next/router';
@@ -184,6 +183,43 @@ export const StyledMenu = styled.ul<{ isOpen: boolean }>`
 	`}
 `;
 
+const MenuItem = styled.li<{ subOpen: boolean }>`
+	display: inline-block;
+	margin: 10px 16px;
+	&:last-child {
+		margin-right: 0;
+	}
+	a {
+		${theme.fonts.menu};
+		transition: color 0.3s ease-out;
+		display: block;
+		color: #828295;
+		&:hover {
+			color: ${theme.colors.cyan};
+		}
+	}
+	a.active {
+		border-bottom: 3px solid #00d1ff; /* or whatever colour you'd prefer */
+		outline: 3px solid black;
+		color: #fff;
+	}
+	${media.lessThan<{ subOpen: boolean }>('medium')`
+        ${({ subOpen }) => (subOpen ? 'display: none;' : 'display: inline-block;')}
+        margin: 0 0 51px 20px;
+            a {
+                font-size: 32px;
+                line-height: 24px;
+            }
+    `}
+`;
+
+const StyledSearch = styled.div<{ subOpen: boolean }>`
+	${media.lessThan<{ subOpen: boolean }>('medium')`
+        right: 20px;
+        position: absolute !important;
+    `}
+`;
+
 const MenuBtn = styled.li<{ subOpen: boolean; border: boolean }>`
 	display: inline-block;
 	margin: 0 10px;
@@ -195,16 +231,13 @@ const MenuBtn = styled.li<{ subOpen: boolean; border: boolean }>`
 	border-radius: 30px;
 	text-align: center;
 	padding: 10px 25px;
-
 	&:last-child {
 		//margin-right: 0;
 	}
-
 	a {
 		${theme.fonts.menu};
 		${({ border }) => (border ? 'color:#00d1ff;' : '')}
 		transition: color 0.3s ease-out;
-
 		&:hover {
 			color: ${theme.colors.cyan};
 		}
@@ -212,56 +245,15 @@ const MenuBtn = styled.li<{ subOpen: boolean; border: boolean }>`
 	span {
 		margin-left: 10px;
 	}
-
 	${media.lessThan('medium')`
-		${({ subOpen }) => (subOpen ? 'display: none;' : 'display: inline-block;')}
-		margin: 0 0 51px 20px;
-		width: fit-content;
-			a {
-				font-size: 20px;
-				line-height: 24px;
-			}
-	`}
-`;
-
-const MenuItem = styled.li<{ subOpen: boolean }>`
-	display: inline-block;
-	margin: 10px 16px;
-	&:last-child {
-		margin-right: 0;
-	}
-
-	a {
-		${theme.fonts.menu};
-		transition: color 0.3s ease-out;
-		display: block;
-		color: #828295;
-
-		&:hover {
-			color: ${theme.colors.cyan};
-		}
-	}
-
-	a.active {
-		border-bottom: 3px solid #00d1ff; /* or whatever colour you'd prefer */
-		outline: 3px solid black;
-		color: #fff;
-	}
-
-	${media.lessThan<{ subOpen: boolean }>('medium')`
-		${({ subOpen }) => (subOpen ? 'display: none;' : 'display: inline-block;')}
-		margin: 0 0 51px 20px;
-			a {
-				font-size: 32px;
-				line-height: 24px;
-			}
-	`}
-`;
-const StyledSearch = styled.div<{ subOpen: boolean }>`
-	${media.lessThan<{ subOpen: boolean }>('medium')`
-		right: 20px;
-		position: absolute !important;
-	`}
+        ${({ subOpen }) => (subOpen ? 'display: none;' : 'display: inline-block;')}
+        margin: 0 0 51px 20px;
+        width: fit-content;
+            a {
+                font-size: 20px;
+                line-height: 24px;
+            }
+    `}
 `;
 
 export default MenuComponent;

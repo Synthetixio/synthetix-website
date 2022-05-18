@@ -1,3 +1,32 @@
+# 1.3.2
+
+- Allowing Mailerlite script
+
+# 1.3.1
+
+- Moved images to static public folder
+- Added sponsor page
+
+# 1.3.0
+
+- Updated images with the Next.js Image component
+
+# 1.2.4
+
+- Cleaned upo the synthetix-subgraph.ts file
+
+# 1.2.3
+
+- Updated text for Thales and added new SVG for synths assets
+
+# 1.2.2
+
+- Fixed issue with svgs
+
+# 1.2.1
+
+- Added timestamp to KWETNA daily traders query
+
 # 1.2.0
 
 - Added highlighting to the governance graph and text of table
