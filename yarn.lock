@@ -13944,6 +13944,11 @@ react-responsive-modal@^6.2.0:
     body-scroll-lock "^3.1.5"
     classnames "^2.2.6"
 
+react-scrollspy-navigation@^1.0.2:
+  version "1.0.2"
+  resolved "https://registry.yarnpkg.com/react-scrollspy-navigation/-/react-scrollspy-navigation-1.0.2.tgz#51f77a48de497b7418036965a1a964259dc41606"
+  integrity sha512-4cuQgTu35GoP9p3wBNL0VLPQSQg04QchVR6oTu+PgBO+dVsUeEuVbxeOAcGrP8DOPqXl4FsodG0CIINna4JtFg==
+
 react-scrollspy@^3.4.3:
   version "3.4.3"
   resolved "https://registry.yarnpkg.com/react-scrollspy/-/react-scrollspy-3.4.3.tgz#12bccebc7e2dfe228b873288b3f473904edb3854"

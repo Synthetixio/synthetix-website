@@ -34,7 +34,7 @@ const Box = styled.div`
 	flex-direction: column;
 	flex-basis: 100%;
 	flex: 1;
-	margin: 5px;
+	
 
 	span {
 		font-family: Inter;
@@ -89,7 +89,7 @@ export default function BuildFooter<T>(props: BuildFooterProps<T>) {
 
 		<BuildFooterContainer>
 			{prevDoc ? 
-				<Box style={{'margin-right': '3px'}} onClick={(e) => handleClick(e, nextDoc.slug.current)}>
+				<Box style={{'marginRight': '3px'}} onClick={(e) => handleClick(e, nextDoc.slug.current)}>
 					<Row>
 						<ButtonCard
 						arrowDirection="left"
@@ -100,7 +100,7 @@ export default function BuildFooter<T>(props: BuildFooterProps<T>) {
 				</Box>
 			: null}
 			{nextDoc ? 
-				<Box style={{'margin-left': '3px'}} onClick={(e) => handleClick(e, nextDoc.slug.current)}>
+				<Box style={{'marginLeft': '3px'}} onClick={(e) => handleClick(e, nextDoc.slug.current)}>
 					<Row>
 						<ButtonCard
 						arrowDirection="right"
