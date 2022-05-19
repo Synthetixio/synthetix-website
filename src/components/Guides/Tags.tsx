@@ -39,7 +39,7 @@ export function Tags(props: TagsProps) {
 		return (
 			<TagsWrapper>
 				{tags.map((tag: any, index: number) => (
-					<Link href={`/guides/tag/${tag.slug.current}`}>
+					<Link key={index} href={`/guides/tag/${tag.slug.current}`}>
 						<Tag color={tag.color} key={index}>
 							{tag.slug.current}
 						</Tag>

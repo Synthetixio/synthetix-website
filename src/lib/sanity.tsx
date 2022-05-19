@@ -14,7 +14,7 @@ export const client = createClient(config);
 export const previewClient = createClient({
 	...config,
 	useCdn: false,
-	token: process.env.NEXT_PUBLIC_SANITY_READ_TOKEN,
+	//token: process.env.NEXT_PUBLIC_SANITY_READ_TOKEN,
 });
 
 export const getClient = (usePreview: any) => (usePreview ? previewClient : client);

@@ -99,11 +99,18 @@ export default function SideBarItem({ props, subSlug }: any) {
 					<Dropdown>
 						{props.docs.map((doc: any, i: number) => (
 							<li key={i}>
-								<Link href={`/${subSlug}/${doc.slug.current}`}>
+								{/* 								<Link href={`/${subSlug}/${doc.slug.current}`}>
 									<a className={router.query.slug === doc.slug.current ? 'active' : ''}>
 										{doc.title}
 									</a>
-								</Link>
+								</Link> */}
+								{/* TODO: know bug. hav added this temp fix scrollspy issue on route chnage. TEMO fix for now but not ideal */}
+								<a
+									href={`/${subSlug}/${doc.slug.current}`}
+									className={router.query.slug === doc.slug.current ? 'active' : ''}
+								>
+									{doc.title}
+								</a>
 							</li>
 						))}
 					</Dropdown>

@@ -32,7 +32,7 @@ export function AccordionBlock({ props }: AccordionBlockProps) {
 				</Container>
 			)}
 			{accordions.map((accordion: any, index: number) => (
-				<AccordionWrapper>
+				<AccordionWrapper key={index}>
 					<Accordion
 						key={index}
 						headerChildren={<AccordionTitle>{accordion.heading}</AccordionTitle>}

@@ -60,7 +60,7 @@ export function ImgCarouselBlock({ props }: ImgCarouselBlockProps) {
 	const { slides } = props;
 	return (
 		<ImgCarouselWrapper>
-			<Carousel showStatus={false} dynamicHeight={true}>
+			<Carousel showStatus={false} dynamicHeight={true} showThumbs={false}>
 				{slides.map((slide, index) => (
 					<Figure key={index}>
 						<Image props={slide} />
