@@ -1,5 +1,3 @@
-// @ts-nocheck
-import { PropsWithChildren } from 'react';
 import styled from 'styled-components';
 import media from 'styled-media-query';
 import { FlexDivColCentered } from 'src/styles/common';
@@ -36,10 +34,6 @@ const MainContent = styled.div`
 	`}
 `;
 
-interface sIProps {
-	lv: string;
-}
-
 type GuidesPageLayoutProps<T> = {
 	children: React.Ref<HTMLUListElement> | null;
 	headings: [
@@ -54,6 +48,9 @@ type GuidesPageLayoutProps<T> = {
 	prevDoc: T[];
 	updatedAt: T[];
 	mainImage: T[];
+	title: T[];
+	subTitle: T[];
+	subPos: T[];
 };
 
 export default function GuidesPageLayout<T>(props: GuidesPageLayoutProps<T>) {

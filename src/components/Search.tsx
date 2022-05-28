@@ -1,4 +1,3 @@
-//@ts-nocheck
 import { useState } from 'react';
 import styled from 'styled-components';
 import { IconContext } from 'react-icons';
@@ -94,9 +93,9 @@ const Hits = ({ hits }: any) => (
 	</AllResults>
 );
 
-const CustomHits = connectHits(Hits);
+const CustomHits: any = connectHits(Hits);
 
-const CustomSearchBox = connectSearchBox(SearchBox);
+const CustomSearchBox: any = connectSearchBox(SearchBox);
 const Search = (props: any) => {
 	const [open, setOpen] = useState(false);
 	const onOpenModal = () => setOpen(true);

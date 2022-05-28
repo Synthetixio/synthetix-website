@@ -1,4 +1,3 @@
-// @ts-nocheck
 import media from 'styled-media-query';
 import Img from 'next/image';
 import { useNextSanityImage } from 'next-sanity-image';
@@ -43,8 +42,7 @@ const HeadingText = styled.div`
 `;
 
 export default function GuidesHeader({ mainImage, title, subTitle, subPos }: any) {
-	const imageProps = useNextSanityImage(client, mainImage);
-	//console.log(subPos)
+	const imageProps: any = useNextSanityImage(client, mainImage);
 	return (
 		<HeaderContainer>
 			<HeadingText>

@@ -1,4 +1,3 @@
-// @ts-nocheck
 import styled from 'styled-components';
 
 const Table = styled.table`
@@ -28,14 +27,14 @@ const Table = styled.table`
 	}
 `;
 
-const TableBlock = ({ props }) => {
+const TableBlock = ({ props }: any) => {
 	const [...rows] = props.table.rows;
 	return (
 		<Table>
 			<tbody>
-				{rows.map((row, index) => (
+				{rows.map((row: any, index: number) => (
 					<tr key={index}>
-						{row.cells.map((cell, i) => (
+						{row.cells.map((cell: any, i: number) => (
 							<td key={i}>{cell}</td>
 						))}
 					</tr>

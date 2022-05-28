@@ -1,4 +1,3 @@
-// @ts-nocheck
 import styled from 'styled-components';
 import media from 'styled-media-query';
 import { useRouter } from 'next/router'
@@ -70,13 +69,13 @@ const Updated = styled.div`
 	font-style: italic;
 `;
 
-type BuildFooterProps<T> = {
-	nextDoc: any
-	prevDoc: any
-	updatedAt: any
+type BuildFooterProps = {
+	nextDoc?: any
+	prevDoc?: any
+	updatedAt?: any
 };
 
-export default function BuildFooter<T>(props: BuildFooterProps<T>) {
+export default function BuildFooter(props: BuildFooterProps) {
 	const { nextDoc, prevDoc, updatedAt } = props;
 	const lastUpdated = new Date(updatedAt);
 

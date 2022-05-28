@@ -1,4 +1,3 @@
-// @ts-nocheck
 import styled from 'styled-components';
 import media from 'styled-media-query';
 import { FlexDivColCentered } from 'src/styles/common';
@@ -99,7 +98,6 @@ const Figure = styled.figure`
 
 function GuideItem({ guide }: any) {
 	const imageProps = useNextSanityImage(client, guide.icon);
-	//console.log(guide);
 	return (
 		<Link href={`/guides/${guide.slug.current}`}>
 			<CarouselItem>
@@ -118,15 +116,13 @@ function GuideItem({ guide }: any) {
 	);
 }
 
-export default function TagsPageLayout(props) {
+export default function TagsPageLayout(props: any) {
 	const { navDocs, updatedAt, title, subTitle, guides } = props;
 	const subMenu = {
 		label: 'guides',
 		navtitle: 'User Guides',
 		items: navDocs,
 	};
-
-	//console.log(guides);
 
 	return (
 		<FlexDivColCentered>

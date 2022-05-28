@@ -5,8 +5,6 @@ import PageBuilder from '../../src/components/SanityPageBuilder/_PageBuilder';
 import client from '../../src/lib/sanity';
 
 const GuideIndex = ({ settings, navDocs, guideTags }) => {
-	//console.log(guideTags);
-
 	return (
 		<>
 			<Head>

@@ -1,4 +1,3 @@
-// @ts-nocheck
 import { css } from 'styled-components';
 import media from 'styled-media-query';
 

@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from 'react';
-import Link from 'next/link';
 import styled from 'styled-components';
 import { useRouter } from 'next/router';
 import { IconContext } from 'react-icons';

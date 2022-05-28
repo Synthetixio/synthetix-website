@@ -1,4 +1,3 @@
-// @ts-nocheck
 import styled from 'styled-components';
 import jp from 'jsonpath';
 import media from 'styled-media-query';
@@ -61,13 +60,13 @@ const Tag = styled.div<{ color: any }>`
 	}
 `;
 
-const TagsBlock = ({ guideTags }: TagsBlockProps) => {
+const TagsBlock = ({ guideTags }: any) => {
 	const allTags = jp.query(guideTags, '$..tags[*]');
-	const countOccurrence = (arr) => {
-			let uniqueArray = [],
-				hashTable = {};
+	const countOccurrence = (arr: any) => {
+			let uniqueArray: any = [],
+				hashTable: any = {};
 
-			arr.forEach((item) => {
+			arr.forEach((item: any) => {
 				if (!hashTable[item.title]) {
 					uniqueArray.push((hashTable[item.title] = { ...item, occurrence: 0 }));
 				}
@@ -78,12 +77,10 @@ const TagsBlock = ({ guideTags }: TagsBlockProps) => {
 		},
 		tags = countOccurrence(allTags);
 
-	//console.log(tags);
-
 	return (
 		<Wrapper>
 			<h2>Tags Collections</h2>
-			{tags.map((tag, index) => (
+			{tags.map((tag: any, index: number) => (
 				<Link href={`/guides/tag/${tag.slug.current}`} key={index}>
 					<Tag color={tag.color.hex}>
 						<div className="box"></div>
@@ -98,9 +95,5 @@ const TagsBlock = ({ guideTags }: TagsBlockProps) => {
 		</Wrapper>
 	);
 };
-
-interface TagsBlockProps {
-	props: object;
-}
 
 export default TagsBlock;

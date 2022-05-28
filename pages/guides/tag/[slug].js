@@ -4,12 +4,10 @@ import { TagsPageLayout } from 'src/components';
 import client from '../../../src/lib/sanity';
 
 const Guides = ({ guides, navDocs, tag }) => {
-	//console.log(tag);
-
 	return (
 		<>
 			<Head>
-				<title>Synthetix - Guides</title>
+				<title>Synthetix - Tags</title>
 			</Head>
 			<TagsPageLayout
 				navDocs={navDocs}

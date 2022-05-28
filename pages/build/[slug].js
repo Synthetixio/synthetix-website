@@ -7,7 +7,6 @@ import PageBuilder from '../../src/components/SanityPageBuilder/_PageBuilder'
 import client from '../../src/lib/sanity'
 
 const Build = ({build, navDocs}) => {
-  //console.log(build)
 
   //gather headings from all portable text
   const headingsQuery = jp.query(build, '$..body[?(@.style=="h1" || @.style=="h2" || @.style=="h3" || @.style=="h4" )]');

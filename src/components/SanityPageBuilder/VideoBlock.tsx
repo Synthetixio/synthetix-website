@@ -1,4 +1,3 @@
-// @ts-nocheck
 import ReactPlayer from 'react-player';
 import styled from 'styled-components';
 
@@ -14,7 +13,7 @@ const Wrapper = styled.div`
 `;
 
 interface videoBlockProps {
-	url: string;
+	props: any;
 }
 
 export function VideoBlock({ props }: videoBlockProps) {

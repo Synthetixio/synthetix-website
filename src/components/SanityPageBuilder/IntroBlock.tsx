@@ -1,4 +1,3 @@
-// @ts-nocheck
 import { PortableText } from '@portabletext/react';
 import styled from 'styled-components';
 import Img from 'next/image';
@@ -73,8 +72,7 @@ interface IntroBlockProps {
 }
 
 export function IntroBlock({ props }: IntroBlockProps) {
-	//console.log(props);
-	const imageProps = useNextSanityImage(client, props.icon);
+	const imageProps: any = useNextSanityImage(client, props.icon);
 
 	return (
 		<Link href={props.iconLinkURL}>

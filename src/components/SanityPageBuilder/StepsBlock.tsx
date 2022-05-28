@@ -1,4 +1,3 @@
-// @ts-nocheck
 import { PortableText } from '@portabletext/react';
 import styled from 'styled-components';
 import media from 'styled-media-query';
@@ -128,10 +127,10 @@ export function StepsBlock({ props }: StepsBlockProps) {
 	layers = [...new Set(layers)];
 
 	const [openLayer, setOpenLayer] = useState(layers[0]);
-	const [stepsData, setStepsData] = useState(null);
+	const [stepsData, setStepsData] = useState<any>(null);
 
 	useEffect(() => {
-		let filtered = steps.filter(function (el) {
+		let filtered = steps.filter(function (el: any) {
 			if (el.layers) {
 				return el.layers.includes(openLayer);
 			} else return el;
@@ -139,8 +138,6 @@ export function StepsBlock({ props }: StepsBlockProps) {
 
 		setStepsData(filtered);
 	}, [openLayer]);
-
-	//console.log(stepsData);
 
 	return (
 		<StepsWrapper>
@@ -161,7 +158,7 @@ export function StepsBlock({ props }: StepsBlockProps) {
 			</div>
 
 			{stepsData &&
-				stepsData.map((step, index) => (
+				stepsData.map((step: any, index: number) => (
 					<div key={index} className={`${style} item`}>
 						<div className="number">
 							<span>{index + 1}</span>

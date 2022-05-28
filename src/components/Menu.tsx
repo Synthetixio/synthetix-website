@@ -1,4 +1,3 @@
-// @ts-nocheck
 import styled from 'styled-components';
 import media from 'styled-media-query';
 import Link from 'next/link';
@@ -115,7 +114,7 @@ const MenuComponent = ({ isHeader, isOpen, subOpen, navDocs, ...rest }: MenuProp
 					}
 				})}
 
-				{data.map((item) => {
+				{data.map((item: any) => {
 					if (isHeader) {
 						return (
 							item.button && (
@@ -213,7 +212,7 @@ const MenuItem = styled.li<{ subOpen: boolean }>`
     `}
 `;
 
-const StyledSearch = styled.div<{ subOpen: boolean }>`
+const StyledSearch = styled.div<{ isOpen: boolean }>`
 	${media.lessThan<{ subOpen: boolean }>('medium')`
         right: 20px;
         position: absolute !important;
@@ -246,7 +245,7 @@ const MenuBtn = styled.li<{ subOpen: boolean; border: boolean }>`
 		margin-left: 10px;
 	}
 	${media.lessThan('medium')`
-        ${({ subOpen }) => (subOpen ? 'display: none;' : 'display: inline-block;')}
+        ${({ subOpen }: any) => (subOpen ? 'display: none;' : 'display: inline-block;')}
         margin: 0 0 51px 20px;
         width: fit-content;
             a {

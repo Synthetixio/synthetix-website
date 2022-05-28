@@ -1,4 +1,3 @@
-// @ts-nocheck
 import { useState, useEffect } from 'react';
 import styled from 'styled-components';
 import media from 'styled-media-query';
@@ -7,7 +6,7 @@ import { NavBar } from '@synthetixio/ui';
 import { Menu } from './';
 
 const HeaderComponent = (props: any) => {
-	const { navDocs, navShort } = props || null;
+	const { navDocs } = props || null;
 	const [isOpen, setIsOpen] = useState<boolean>(false);
 	const [subOpen, setSubOpen] = useState<boolean>(false);
 

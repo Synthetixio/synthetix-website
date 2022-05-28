@@ -17,7 +17,8 @@
     "asset-source-unsplash",
     "@sanity/orderable-document-list",
     "table",
-    "@sanity/color-input"
+    "@sanity/color-input",
+    "vercel-deploy"
   ],
   "env": {
     "development": {

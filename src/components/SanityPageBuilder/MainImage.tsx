@@ -1,4 +1,3 @@
-// @ts-nocheck
 import Img from 'next/image';
 import { useNextSanityImage } from 'next-sanity-image';
 import styled from 'styled-components';
@@ -19,8 +18,8 @@ const Figure = styled.figure`
 	}
 `;
 
-const MainImage = ({ props }) => {
-	const imageProps = useNextSanityImage(client, props);
+const MainImage = ({ props }: any) => {
+	const imageProps: any = useNextSanityImage(client, props);
 	const caption = props.caption || null;
 	return (
 		<Figure>

@@ -17,9 +17,6 @@ const GuideCarouselWrapper = styled.div`
 		${theme.pageBuilder.h2};
 	}
 
-	.react-multi-carousel-dot-list {
-	}
-
 	.react-multi-carousel-dot button {
 		background: #828295;
 		border: none;

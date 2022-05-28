@@ -33,7 +33,6 @@ interface TagsProps {
 
 export function Tags(props: TagsProps) {
 	const { tags } = props;
-	//console.log(tags);
 
 	if (tags) {
 		return (

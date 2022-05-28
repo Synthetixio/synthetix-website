@@ -1,4 +1,3 @@
-// @ts-nocheck
 import styled from 'styled-components';
 import 'react-responsive-carousel/lib/styles/carousel.min.css'; // requires a loader
 import { Carousel } from 'react-responsive-carousel';
@@ -47,12 +46,11 @@ const Figure = styled.figure`
 `;
 
 interface ImgCarouselBlockProps {
-	language: string;
-	code: any;
+	props: any;
 }
 
-const Image = ({ props }) => {
-	const imageProps = useNextSanityImage(client, props.mainImage);
+const Image = ({ props }: any) => {
+	const imageProps: any = useNextSanityImage(client, props.mainImage);
 	return <Img {...imageProps} layout="responsive" width={600} height={375} />;
 };
 
@@ -61,7 +59,7 @@ export function ImgCarouselBlock({ props }: ImgCarouselBlockProps) {
 	return (
 		<ImgCarouselWrapper>
 			<Carousel showStatus={false} dynamicHeight={true} showThumbs={false}>
-				{slides.map((slide, index) => (
+				{slides.map((slide: any, index: number) => (
 					<Figure key={index}>
 						<Image props={slide} />
 						{slide.caption ? <figcaption>{slide.caption}</figcaption> : null}
