@@ -60,37 +60,22 @@ interface MenuProps {
 const MenuComponent = ({ isHeader, isOpen, ...rest }: MenuProps) => {
 	return (
 		<StyledMenu isOpen={!!isOpen} {...rest}>
-			{data.map((item) => {
-				if (isHeader) {
-					return (
-						!item.hideOnHeader && (
-							<MenuItem key={item.label}>
-								{item.link ? (
-									<Link href={item.link}>
-										<a>{item.label}</a>
-									</Link>
-								) : (
-									<ExternalLink href={item.externalLink} key={item.label}>
-										{item.label}
-									</ExternalLink>
-								)}
-							</MenuItem>
-						)
-					);
-				} else {
-					return (
-						<MenuItem key={item.label}>
+			{data.map(
+				(item) =>
+					(!isHeader || !item.hideOnHeader) && (
+						<MenuItem isHeader={!!isHeader} key={item.label}>
 							{item.link ? (
 								<Link href={item.link}>
 									<a>{item.label}</a>
 								</Link>
 							) : (
-								<ExternalLink href={item.externalLink}>{item.label}</ExternalLink>
+								<ExternalLink href={item.externalLink} key={item.label}>
+									{item.label}
+								</ExternalLink>
 							)}
 						</MenuItem>
-					);
-				}
-			})}
+					)
+			)}
 		</StyledMenu>
 	);
 };
@@ -120,7 +105,7 @@ export const StyledMenu = styled.ul<{ isOpen: boolean }>`
 	`}
 `;
 
-const MenuItem = styled.li`
+const MenuItem = styled.li<{ isHeader: boolean }>`
 	display: inline-block;
 
 	margin: 0 16px;
@@ -136,6 +121,14 @@ const MenuItem = styled.li`
 			color: ${theme.colors.cyan};
 		}
 	}
+
+	${media.lessThan('880px' as any)`
+		margin: 0 8px;
+	`}
+
+	${media.lessThan<{ isHeader: boolean }>('980px' as any)`
+		${({ isHeader }) => (isHeader ? '' : 'margin: 0 8px;')}
+	`}
 
 	${media.lessThan('medium')`
 	margin: 0 0 51px 20px;

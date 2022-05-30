@@ -37,6 +37,10 @@ const Footer = styled.footer`
 	animation-delay: 200ms;
 	opacity: 0;
 
+	${media.lessThan('1110px' as any)`
+		padding: 0 20px;
+	`}
+
 	${media.lessThan('medium')`
 		background-color: transparent;
 		${StyledMenu} {

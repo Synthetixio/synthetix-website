@@ -1,3 +1,20 @@
+# 1.3.2
+
+- Allowing Mailerlite script
+
+# 1.3.1
+
+- Moved images to static public folder
+- Added sponsor page
+
+# 1.3.0
+
+- Updated images with the Next.js Image component
+
+# 1.2.4
+
+- Cleaned upo the synthetix-subgraph.ts file
+
 # 1.2.3
 
 - Updated text for Thales and added new SVG for synths assets

@@ -1,4 +1,5 @@
 import { PerpetualSynth } from 'pages/futures';
+import { getAssetLogo } from 'src/constants/urls';
 import { FlexDiv } from 'src/styles/common';
 import PriceArrow from 'src/svg/PriceArrow';
 import styled from 'styled-components';
@@ -12,9 +13,7 @@ export default function FutureSynthCard({
 }: PerpetualSynth) {
 	return (
 		<StyledFutureSynthCard>
-			<StyledSynthImage
-				src={`https://raw.githubusercontent.com/Synthetixio/synthetix-assets/v2.0.10/synths/${name}.svg`}
-			/>
+			<StyledSynthImage src={getAssetLogo(name)} />
 			<StyledFutureContent>
 				<FlexDiv>
 					<StyledSynthName>{name}</StyledSynthName>

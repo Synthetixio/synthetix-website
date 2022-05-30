@@ -1,4 +1,3 @@
-import { NetworkId } from '@synthetixio/contracts-interface';
 import { ethers } from 'ethers';
 import { CurrencyKey } from 'src/constants/currency';
 import getSNXJS from 'src/lib/snxjs';
@@ -32,8 +31,8 @@ export type SynthSuspended = {
 	reason: SynthSuspensionReason | null;
 };
 
-const useSynthSuspensionQuery = async (currencyKey: CurrencyKey) => {
-	const snxjs = getSNXJS({ useOvm: false, networkId: NetworkId.Mainnet });
+const useSynthSuspensionQuery = async (currencyKey: CurrencyKey, useOvm?: boolean) => {
+	const snxjs = getSNXJS({ useOvm });
 
 	const [isSuspended, reason] = (await snxjs.contracts.SystemStatus.synthExchangeSuspension(
 		ethers.utils.formatBytes32String(currencyKey!)

@@ -8,6 +8,7 @@ import PoweredByBlur from 'src/svg/PoweredByBlur';
 import PoweredByGrid from 'src/svg/PoweredByGrid';
 import PoweredByBackground from 'src/svg/PoweredByBackground';
 import PoweredByBackgroundMobile from 'src/svg/PoweredByBackgroundMobile';
+import Image from 'next/image';
 
 type PoweredByCards = {
 	name: string;
@@ -22,20 +23,20 @@ const poweredByCards: PoweredByCards[] = [
 		description:
 			'Trade with up to 10x leverage and simulated liquidity for the best price fills. Coming soon.',
 		link: 'https://kwenta.io',
-		logo: '/home/powered-by/kwenta.png',
+		logo: '/kwenta.png',
 	},
 	{
 		name: 'Lyra',
 		description: ' The first completely decentralized options protocol.',
 		link: 'https://www.lyra.finance/',
-		logo: '/home/powered-by/lyra.png',
+		logo: '/lyra.png',
 	},
 	{
 		name: 'Thales',
 		description:
 			'A Parimutuel Markets protocol for trading on price action, sports, and other events.',
 		link: 'https://thalesmarket.io/',
-		logo: '/home/powered-by/thales.png',
+		logo: '/thales.png',
 	},
 ];
 
@@ -134,7 +135,7 @@ const PoweredBy = () => {
 							return (
 								<Slide key={card.name} data-test-id="powered-by-slide">
 									<Card href={card.link}>
-										<CardImage src={card.logo} />
+										<CardImage src={card.logo} height="120px" width="244px" />
 										<CardHeadline>{card.name}</CardHeadline>
 										<p>{card.description}</p>
 									</Card>
@@ -358,7 +359,7 @@ const Card = styled(ExternalLink)`
 	}
 `;
 
-const CardImage = styled.img`
+const CardImage = styled(Image)`
 	width: 100%;
 	height: 120px;
 	margin-bottom: 16px;

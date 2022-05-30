@@ -4,6 +4,8 @@ import media from 'styled-media-query';
 import Accordion, { AccordionItemsType } from 'src/components/Accordion/Accordion';
 import { useState } from 'react';
 import { FlexDivCol, Section, SectionTitle } from 'src/styles/common';
+import Image from 'next/image';
+import Graph from '../../../assets/graph.svg';
 
 const FuturesSection = () => {
 	const [activeIndex, setActiveIndex] = useState<number>(0);
@@ -60,7 +62,7 @@ const Left = styled.div`
 	min-height: 430px;
 	max-width: 766px;
 	right: 0;
-	background-image: url('/home/graph.svg');
+	background-image: url('/graph.svg');
 	background-repeat: no-repeat;
 	background-position: right;
 	background-size: contain;
