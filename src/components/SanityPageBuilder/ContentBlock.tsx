@@ -1,6 +1,5 @@
-// @ts-nocheck
 import React from 'react';
-import { PortableText } from '@portabletext/react';
+import { PortableText, PortableTextReactComponents } from '@portabletext/react';
 import styled from 'styled-components';
 import slugify from 'slugify';
 
@@ -71,13 +70,7 @@ export const Container = styled.div`
 	}
 `;
 
-type portableTextComponentsType = {
-	types: object;
-	marks: object;
-	block: object;
-};
-
-const portableTextComponents: portableTextComponentsType = {
+const portableTextComponents: Partial<PortableTextReactComponents> = {
 	types: {
 		image: ({ value }: any) => <MainImage props={value} />,
 		codeBlock: ({ value }: any) => <CodeBlock code={value.code} language={value.language} />,
