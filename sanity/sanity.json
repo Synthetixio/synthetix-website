@@ -1,0 +1,44 @@
+{
+  "root": true,
+  "project": {
+    "name": "synthetix-website"
+  },
+  "api": {
+    "projectId": "zacd2n8f",
+    "dataset": "production"
+  },
+  "plugins": [
+    "@sanity/base",
+    "@sanity/default-layout",
+    "@sanity/default-login",
+    "@sanity/desk-tool",
+    "@sanity/dashboard",
+    "@sanity/code-input",
+    "asset-source-unsplash",
+    "@sanity/orderable-document-list",
+    "table",
+    "@sanity/color-input",
+    "vercel-deploy"
+  ],
+  "env": {
+    "development": {
+      "plugins": [
+        "@sanity/vision"
+      ]
+    }
+  },
+  "parts": [
+    {
+      "name": "part:@sanity/base/schema",
+      "path": "./schemas/schema"
+    },
+    {
+      "implements": "part:@sanity/dashboard/config",
+      "path": "./dashboardConfig.js"
+    },
+    {
+      "name": "part:@sanity/desk-tool/structure",
+      "path": "./deskStructure.js"
+    }
+  ]
+}

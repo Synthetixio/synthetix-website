@@ -44,7 +44,7 @@ const SocialsContainer = styled.ul`
 	align-items: center;
 	justify-content: flex-start;
 
-	margin-left: 35px;
+	margin-left: 55px;
 
 	${media.lessThan('medium')`
 		margin-left: 0;
