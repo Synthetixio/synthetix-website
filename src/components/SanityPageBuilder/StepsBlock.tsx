@@ -10,6 +10,21 @@ const StepsWrapper = styled.div`
 	justify-content: unset;
 	color: #fff;
 
+	a {
+		color: #00d1ff;
+		:hover {
+			text-decoration: underline;
+		}
+	}
+
+	strong {
+		font-weight: 900;
+		color: #fff;
+	}
+	em {
+		font-style: italic;
+	}
+
 	.layerButton {
 		width: 100%;
 

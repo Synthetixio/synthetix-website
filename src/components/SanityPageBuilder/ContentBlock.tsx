@@ -34,6 +34,8 @@ export const Container = styled.div`
 		li {
 			list-style: disc;
 			list-style-position: inside;
+			padding-left: 20px;
+			text-indent: -20px;
 		}
 	}
 	ol {
