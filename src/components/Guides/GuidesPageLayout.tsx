@@ -36,18 +36,17 @@ const MainContent = styled.div`
 `;
 
 type GuidesPageLayoutProps<T> = {
-	headings: [
-		{
-			style: string;
-			slug: string;
-			text: string;
-		}
-	];
-	navDocs: T[];
+	navDocs: { title: string; docs: OrderedDoc[] }[];
 	nextDoc: T;
 	prevDoc: T;
-	updatedAt: T[];
-	mainImage: T[];
+	updatedAt: string;
+	mainImage: {
+		_type: string;
+		asset: {
+			_ref: string;
+			_type: string;
+		};
+	};
 	title: string;
 	subTitle: string;
 	subPos: boolean;

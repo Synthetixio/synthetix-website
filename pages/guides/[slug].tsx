@@ -33,7 +33,6 @@ interface Guide {
 }
 
 const GuidePage = ({ guide, navDocs }: GuideProps) => {
-	console.log(guide, navDocs);
 	const allDocsOrdered = navDocs
 		.map((doc) => {
 			const cat = doc.title;
@@ -77,7 +76,9 @@ const GuidePage = ({ guide, navDocs }: GuideProps) => {
 };
 
 export async function getStaticPaths() {
-	const paths = await client.fetch(`*[_type == "guide" && defined(slug.current)][].slug.current`);
+	const paths: Record<string, string>[] = await client.fetch(
+		`*[_type == "guide" && defined(slug.current)][].slug.current`
+	);
 
 	return {
 		paths: paths.map((slug) => ({ params: { slug } })),
