@@ -9,7 +9,7 @@ import { Header } from '..';
 import Sidebar from '../Sidebar';
 import BuildFooter from '../Build/BuildFooter';
 import Tags from '../Guides/Tags';
-import client from '../../lib/sanity';
+import { client } from '../../lib/sanity';
 import { theme } from '../../styles/theme';
 
 const OutWrapper = styled.div`

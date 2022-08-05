@@ -5,8 +5,9 @@ import { client } from '../../src/lib/sanity';
 const types = ['guide', 'build'];
 const query = `* [_type in $types && !(_id in path("drafts.**"))][]._id`;
 
-client
-	.fetch(query, { types })
-	.then((ids) =>
-		sanityAlgolia.webhookSync(client, { ids: { created: ids, updated: [], deleted: [] } })
-	);
+client.fetch(query, { types }).then((ids) =>
+	// TODO @DEV remove client as any when type bug is fixed
+	sanityAlgolia.webhookSync(client as any, {
+		ids: { created: ids, updated: [], deleted: [] },
+	})
+);

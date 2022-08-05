@@ -1,7 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
 import media from 'styled-media-query';
-
 import ContentBlock from './ContentBlock';
 import MainImage from './MainImage';
 import TableBlock from './TableBlock';
@@ -14,29 +13,9 @@ import GuideCarouselBlock from './GuideCarouselBlock';
 import TagsBlock from './TagsBlock';
 import { theme } from '../../styles/theme';
 
-const Row = styled.div`
-	display: flex;
-	flex-direction: row;
-	flex-wrap: wrap;
-	width: 100%;
-	${theme.pageBuilder.rows};
-`;
-
-const Column = styled.div`
-	display: flex;
-	flex-direction: column;
-	flex-basis: 100%;
-	flex: 1;
-	margin-right: 10px;
-	${media.lessThan('medium')`
-		flex: 1 1 auto;
-	`};
-`;
-
 function PageBuilder(props: any) {
 	const { pageBuilder } = props;
 	const { guideTags = null } = props;
-	//console.log(guideTags);
 
 	return pageBuilder.map((block: any, index: number) => {
 		switch (block._type) {
@@ -138,5 +117,24 @@ function PageBuilder(props: any) {
 		}
 	});
 }
+
+const Row = styled.div`
+	display: flex;
+	flex-direction: row;
+	flex-wrap: wrap;
+	width: 100%;
+	${theme.pageBuilder.rows};
+`;
+
+const Column = styled.div`
+	display: flex;
+	flex-direction: column;
+	flex-basis: 100%;
+	flex: 1;
+	margin-right: 10px;
+	${media.lessThan('medium')`
+		flex: 1 1 auto;
+	`};
+`;
 
 export default PageBuilder;

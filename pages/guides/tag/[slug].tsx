@@ -1,9 +1,13 @@
+import { GetStaticPropsContext } from 'next';
 import Head from 'next/head';
 import { TagsPageLayout } from 'src/components';
-
-import client from '../../../src/lib/sanity';
-
-const Guides = ({ guides, navDocs, tag }) => {
+import { client } from '../../../src/lib/sanity';
+interface GuidesProps {
+	guides: any;
+	navDocs: any[];
+	tag: any;
+}
+const Guides = ({ guides, navDocs, tag }: GuidesProps) => {
 	return (
 		<>
 			<Head>
@@ -21,7 +25,9 @@ const Guides = ({ guides, navDocs, tag }) => {
 };
 
 export async function getStaticPaths() {
-	const paths = await client.fetch(`*[_type == "tag" && defined(slug.current)][].slug.current`);
+	const paths: Record<string, string>[] = await client.fetch(
+		`*[_type == "tag" && defined(slug.current)][].slug.current`
+	);
 
 	return {
 		paths: paths.map((slug) => ({ params: { slug } })),
@@ -29,9 +35,12 @@ export async function getStaticPaths() {
 	};
 }
 
-export async function getStaticProps(context) {
+export async function getStaticProps(context: GetStaticPropsContext) {
 	// It's important to default the slug so that it doesn't return "undefined"
-	const { slug = '' } = context.params;
+	let slug = '';
+	if (context.params && context.params?.slug) {
+		slug = context.params.slug?.toString();
+	}
 	const guides = await client.fetch(
 		`
 		*[_type == "guide" && count((tags[]->slug.current)[@ in [$slug]]) > 0]

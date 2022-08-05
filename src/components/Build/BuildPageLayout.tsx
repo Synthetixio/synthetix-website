@@ -6,6 +6,7 @@ import { FlexDivColCentered } from 'src/styles/common';
 import { Header } from '..';
 import Sidebar from '../Sidebar';
 import BuildFooter from './BuildFooter';
+import { PropsWithChildren } from 'react';
 
 const OutWrapper = styled.div`
 	width: 100%;
@@ -34,8 +35,7 @@ const SS = styled.div`
 	.is-current {
 		font-weight: 700;
 		font-size: 14px;
-		color: #FFFFFF;
-
+		color: #ffffff;
 	}
 
 	.pass {
@@ -61,6 +61,11 @@ const MainContent = styled.div`
 		padding: 0 25px;
 	`}
 `;
+export interface OrderedDoc {
+	cat: string;
+	slug: { _type: string; current: string };
+	title: string;
+}
 
 interface sIProps {
 	lv: string;
@@ -80,23 +85,26 @@ const ScrollItem = styled.li<sIProps>`
 	}}
 `;
 
-type BuildPageLayoutProps<T> = {
-	children: React.Ref<HTMLUListElement> | null;
-	headings: [
-		{
-			style: string;
-			slug: string;
-			text: string;
-		}
-	];
-	navDocs: T[];
-	nextDoc: T[];
-	prevDoc: T[];
-	updatedAt: T[];
+export type BuildPageLayoutProps<T> = {
+	headings: {
+		style: string;
+		slug: string;
+		text: string;
+	}[];
+	navDocs: { title: string; docs: OrderedDoc[] }[];
+	nextDoc?: T;
+	prevDoc?: T;
+	updatedAt: string;
 };
 
-export default function BuildPageLayout<T>(props: BuildPageLayoutProps<T>) {
-	const { children, headings, navDocs, nextDoc, prevDoc, updatedAt } = props;
+export default function BuildPageLayout({
+	children,
+	headings,
+	navDocs,
+	nextDoc,
+	prevDoc,
+	updatedAt,
+}: PropsWithChildren<BuildPageLayoutProps<OrderedDoc>>) {
 	const headingList = headings.map((a: any) => a.slug);
 	const subMenu = {
 		label: 'build',

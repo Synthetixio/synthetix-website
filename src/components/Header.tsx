@@ -17,7 +17,7 @@ const HeaderComponent = (props: any) => {
 			document.body.classList.remove('fixed');
 		}
 		setSubOpen(navDocs ? true : false);
-	}, [isOpen]);
+	}, [isOpen, navDocs]);
 
 	const clickMenu = () => {
 		setIsOpen(!isOpen);

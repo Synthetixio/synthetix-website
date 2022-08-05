@@ -1,9 +1,9 @@
 import { createClient, createPreviewSubscriptionHook } from 'next-sanity';
 import createImageUrlBuilder from '@sanity/image-url';
 
-const config: any = {
-	dataset: process.env.NEXT_PUBLIC_SANITY_DATASET,
-	projectId: process.env.NEXT_PUBLIC_SANITY_PROJECT_ID,
+const config = {
+	dataset: process.env.NEXT_PUBLIC_SANITY_DATASET || '',
+	projectId: process.env.NEXT_PUBLIC_SANITY_PROJECT_ID || '',
 	useCdn: process.env.NODE_ENV === 'production',
 	apiVersion: '2021-08-31',
 };
@@ -16,5 +16,4 @@ export const previewClient = createClient({
 	useCdn: false,
 });
 
-export const getClient = (usePreview: any) => (usePreview ? previewClient : client);
-export default client;
+export const getClient = (usePreview: boolean) => (usePreview ? previewClient : client);

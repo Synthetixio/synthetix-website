@@ -2,7 +2,7 @@ import Head from 'next/head';
 import { GuidesPageLayout } from 'src/components';
 
 import PageBuilder from '../../src/components/SanityPageBuilder/_PageBuilder';
-import client from '../../src/lib/sanity';
+import { client } from '../../src/lib/sanity';
 
 const GuideIndex = ({ settings, navDocs, guideTags }) => {
 	return (

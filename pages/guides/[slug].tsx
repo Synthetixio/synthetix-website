@@ -1,13 +1,16 @@
+import { GetStaticPropsContext } from 'next';
 import Head from 'next/head';
 import { GuidesPageLayout } from 'src/components';
-
 import PageBuilder from '../../src/components/SanityPageBuilder/_PageBuilder';
-import client from '../../src/lib/sanity';
+import { client } from '../../src/lib/sanity';
 
-const Guide = ({ guide, navDocs }) => {
-	// next/prev prep work
-	//const allDocsOrdered = jp.query(navDocs, '$..docs[*]');
-	let allDocsOrdered = [];
+interface GuideProps {
+	guide: any;
+	navDocs: any[];
+}
+
+const Guide = ({ guide, navDocs }: GuideProps) => {
+	const allDocsOrdered = [];
 	navDocs.map((doc) => {
 		let cat = doc.title;
 		doc.docs.map((node) =>
@@ -20,7 +23,7 @@ const Guide = ({ guide, navDocs }) => {
 
 	let nextDoc = null;
 	let prevDoc = null;
-	allDocsOrdered.map(function (doc, index, elements) {
+	allDocsOrdered.forEach((doc, index, elements) => {
 		if (doc.slug.current === guide.slug.current) {
 			nextDoc = elements[index + 1];
 			prevDoc = elements[index - 1];
@@ -57,9 +60,12 @@ export async function getStaticPaths() {
 	};
 }
 
-export async function getStaticProps(context) {
+export async function getStaticProps(context: GetStaticPropsContext) {
 	// It's important to default the slug so that it doesn't return "undefined"
-	const { slug = '' } = context.params;
+	let slug = '';
+	if (context.params && context.params?.slug) {
+		slug = context.params.slug?.toString();
+	}
 	const guide = await client.fetch(
 		`
     *[_type == "guide" && slug.current == $slug]
