@@ -5,6 +5,7 @@ import { Header } from '..';
 import Sidebar from '../Sidebar';
 import BuildFooter from '../Build/BuildFooter';
 import GuidesHeader from './GuidesHeader';
+import { PropsWithChildren } from 'react';
 
 const OutWrapper = styled.div`
 	width: 100%;
@@ -35,7 +36,6 @@ const MainContent = styled.div`
 `;
 
 type GuidesPageLayoutProps<T> = {
-	children: React.Ref<HTMLUListElement> | null;
 	headings: [
 		{
 			style: string;
@@ -44,16 +44,23 @@ type GuidesPageLayoutProps<T> = {
 		}
 	];
 	navDocs: T[];
-	nextDoc: T[];
-	prevDoc: T[];
+	nextDoc: T;
+	prevDoc: T;
 	updatedAt: T[];
 	mainImage: T[];
-	title: T[];
-	subTitle: T[];
-	subPos: T[];
+	title: string;
+	subTitle: string;
+	subPos: boolean;
 };
+export interface OrderedDoc {
+	cat: string;
+	slug: { _type: string; current: string };
+	title: string;
+}
 
-export default function GuidesPageLayout<T>(props: GuidesPageLayoutProps<T>) {
+export default function GuidesPageLayout(
+	props: PropsWithChildren<GuidesPageLayoutProps<OrderedDoc>>
+) {
 	const { children, navDocs, updatedAt, mainImage, title, subTitle, subPos, nextDoc, prevDoc } =
 		props;
 	const subMenu = {

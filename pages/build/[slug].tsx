@@ -40,7 +40,7 @@ const BuildPage = ({ build, navDocs }: BuildProps) => {
 		slug: slugify(heading.children[0].text, { lower: true }),
 	}));
 
-	let allDocsOrdered = navDocs
+	const allDocsOrdered = navDocs
 		.map((doc) => {
 			const cat = doc.title;
 			const result: OrderedDoc[] = [];
@@ -55,8 +55,8 @@ const BuildPage = ({ build, navDocs }: BuildProps) => {
 		.flat();
 
 	const currentIndex = allDocsOrdered.findIndex((doc) => doc.slug.current === build.slug.current);
-	let nextDoc = currentIndex >= 0 ? allDocsOrdered[currentIndex + 1] : allDocsOrdered[0];
-	let prevDoc =
+	const nextDoc = currentIndex >= 0 ? allDocsOrdered[currentIndex + 1] : allDocsOrdered[0];
+	const prevDoc =
 		currentIndex >= 0
 			? allDocsOrdered[currentIndex - 1]
 			: allDocsOrdered[allDocsOrdered.length - 1];

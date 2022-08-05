@@ -1,34 +1,59 @@
 import { GetStaticPropsContext } from 'next';
 import Head from 'next/head';
 import { GuidesPageLayout } from 'src/components';
+import { OrderedDoc } from 'src/components/Build/BuildPageLayout';
 import PageBuilder from '../../src/components/SanityPageBuilder/_PageBuilder';
 import { client } from '../../src/lib/sanity';
-
 interface GuideProps {
-	guide: any;
-	navDocs: any[];
+	guide: Guide;
+	navDocs: { title: string; docs: OrderedDoc[] }[];
+}
+interface Guide {
+	_updatedAt: string;
+	category: string;
+	categorySlug: { _type: string; current: string };
+	pageBuilder: {
+		_key: string;
+		_type: string;
+		steps?: any[];
+		body?: any[];
+		style: string;
+		title: string;
+	}[];
+	mainImage: {
+		_type: string;
+		asset: {
+			_ref: string;
+			_type: string;
+		};
+	};
+	title: string;
+	subTitle: string;
+	subPos: boolean;
 }
 
-const Guide = ({ guide, navDocs }: GuideProps) => {
-	const allDocsOrdered = [];
-	navDocs.map((doc) => {
-		let cat = doc.title;
-		doc.docs.map((node) =>
-			allDocsOrdered.push({
-				cat: cat,
-				...node,
-			})
-		);
-	});
+const GuidePage = ({ guide, navDocs }: GuideProps) => {
+	console.log(guide, navDocs);
+	const allDocsOrdered = navDocs
+		.map((doc) => {
+			const cat = doc.title;
+			const result: OrderedDoc[] = [];
+			doc.docs.forEach((node) => {
+				result.push({
+					...node,
+					cat,
+				});
+			});
+			return result;
+		})
+		.flat();
 
-	let nextDoc = null;
-	let prevDoc = null;
-	allDocsOrdered.forEach((doc, index, elements) => {
-		if (doc.slug.current === guide.slug.current) {
-			nextDoc = elements[index + 1];
-			prevDoc = elements[index - 1];
-		}
-	});
+	const currentIndex = allDocsOrdered.findIndex((doc) => doc.slug.current === guide.slug.current);
+	const nextDoc = currentIndex >= 0 ? allDocsOrdered[currentIndex + 1] : allDocsOrdered[0];
+	const prevDoc =
+		currentIndex >= 0
+			? allDocsOrdered[currentIndex - 1]
+			: allDocsOrdered[allDocsOrdered.length - 1];
 
 	return (
 		<>
@@ -107,4 +132,4 @@ export async function getStaticProps(context: GetStaticPropsContext) {
 	};
 }
 
-export default Guide;
+export default GuidePage;
