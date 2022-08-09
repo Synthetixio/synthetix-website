@@ -52,7 +52,7 @@ export default function GovernanceMain() {
 				</StyledGovernanceSubline>
 				<FlexDivCentered>
 					<StyledButtonWrapperLinearGradient height="124px" margin="16px">
-						<StyledLinkButtons href="https://staking.synthetix.io/gov">
+						<StyledLinkButtons href="https://governance.synthetix.io/councils">
 							<StyledButtonLabel>COUNCIL MEMBERS</StyledButtonLabel>
 							<StyledButtonText>
 								View the history of past council elections <br /> and vote in any currently open

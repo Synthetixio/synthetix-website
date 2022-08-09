@@ -25,7 +25,6 @@ function PageBuilder({ pageBuilder, guideTags = null }: PageBuilderProps) {
 			{pageBuilder.map((block) => {
 				switch (block._type) {
 					case 'mainImage':
-						console.log(block);
 						return (
 							<>
 								{block.caption && block.asset?._ref && (
