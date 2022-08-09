@@ -1,14 +1,11 @@
 import styled from 'styled-components';
 import media from 'styled-media-query';
 import { useRouter } from 'next/router'
-import TimeAgo from 'javascript-time-ago'
 import ReactTimeAgo from 'react-time-ago'
-import en from 'javascript-time-ago/locale/en.json'
 import { ButtonCard } from '@synthetixio/ui';
 
 import { Line } from 'src/styles/common';
 
-TimeAgo.addDefaultLocale(en)
 
 const BuildFooterContainer = styled.div`
 	display: flex;
@@ -87,7 +84,7 @@ export default function BuildFooter(props: BuildFooterProps) {
 	return (
 
 		<BuildFooterContainer>
-			{prevDoc ? 
+			{prevDoc && 
 				<Box style={{'marginRight': '3px'}} onClick={(e) => handleClick(e, nextDoc.slug.current)}>
 					<Row>
 						<ButtonCard
@@ -97,8 +94,8 @@ export default function BuildFooter(props: BuildFooterProps) {
 					/>
 					</Row>
 				</Box>
-			: null}
-			{nextDoc ? 
+			}
+			{nextDoc && 
 				<Box style={{'marginLeft': '3px'}} onClick={(e) => handleClick(e, nextDoc.slug.current)}>
 					<Row>
 						<ButtonCard
@@ -108,7 +105,7 @@ export default function BuildFooter(props: BuildFooterProps) {
 					/>
 					</Row>
 				</Box>
-			: null}
+			}
 	
 			<Line showOnMobile />
 			<Updated>Last updated  <ReactTimeAgo date={lastUpdated} locale="en-US"/></Updated>

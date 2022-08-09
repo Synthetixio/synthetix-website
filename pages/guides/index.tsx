@@ -1,10 +1,29 @@
 import Head from 'next/head';
 import { GuidesPageLayout } from 'src/components';
+import { OrderedDoc } from 'src/components/Guides/GuidesPageLayout';
 
 import PageBuilder from '../../src/components/SanityPageBuilder/_PageBuilder';
 import { client } from '../../src/lib/sanity';
 
-const GuideIndex = ({ settings, navDocs, guideTags }) => {
+interface GuideIndexProps {
+	settings: {
+		_createdAt: string;
+		_id: string;
+		_rev: string;
+		_type: string;
+		_updatedAt: string;
+		guideLPBanner: {
+			_type: string;
+			asset: { _ref: string; _type: string };
+		};
+		guideLPBuilder: Record<string, string>;
+	};
+	navDocs: { docs: OrderedDoc[]; title: string }[];
+	guideTags: { tags: Record<string, unknown> };
+}
+
+const GuideIndex = ({ settings, navDocs, guideTags }: GuideIndexProps) => {
+	console.log(settings, navDocs, guideTags);
 	return (
 		<>
 			<Head>

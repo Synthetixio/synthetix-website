@@ -11,6 +11,7 @@ interface GuideProps {
 interface Guide {
 	_updatedAt: string;
 	category: string;
+	slug: { _type: string; current: string };
 	categorySlug: { _type: string; current: string };
 	pageBuilder: {
 		_key: string;

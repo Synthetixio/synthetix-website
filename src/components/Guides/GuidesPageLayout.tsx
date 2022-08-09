@@ -37,8 +37,8 @@ const MainContent = styled.div`
 
 type GuidesPageLayoutProps<T> = {
 	navDocs: { title: string; docs: OrderedDoc[] }[];
-	nextDoc: T;
-	prevDoc: T;
+	nextDoc?: T;
+	prevDoc?: T;
 	updatedAt: string;
 	mainImage: {
 		_type: string;
@@ -57,17 +57,23 @@ export interface OrderedDoc {
 	title: string;
 }
 
-export default function GuidesPageLayout(
-	props: PropsWithChildren<GuidesPageLayoutProps<OrderedDoc>>
-) {
-	const { children, navDocs, updatedAt, mainImage, title, subTitle, subPos, nextDoc, prevDoc } =
-		props;
+export default function GuidesPageLayout({
+	children,
+	navDocs,
+	updatedAt,
+	mainImage,
+	title,
+	subTitle,
+	subPos,
+	nextDoc,
+	prevDoc,
+}: PropsWithChildren<GuidesPageLayoutProps<OrderedDoc>>) {
 	const subMenu = {
 		label: 'guides',
 		navtitle: 'User Guides',
 		items: navDocs,
 	};
-
+	console.log(nextDoc, prevDoc);
 	return (
 		<FlexDivColCentered>
 			<Header navDocs={subMenu} navShort={true} />
@@ -77,7 +83,9 @@ export default function GuidesPageLayout(
 					<MainContent>
 						<GuidesHeader mainImage={mainImage} title={title} subTitle={subTitle} subPos={subPos} />
 						{children}
-						<BuildFooter updatedAt={updatedAt} nextDoc={nextDoc} prevDoc={prevDoc} />
+						{(nextDoc || prevDoc) && (
+							<BuildFooter updatedAt={updatedAt} nextDoc={nextDoc} prevDoc={prevDoc} />
+						)}
 					</MainContent>
 				</ContentWrapper>
 			</OutWrapper>

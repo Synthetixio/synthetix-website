@@ -14382,15 +14382,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"javascript-time-ago@npm:^2.3.13":
-  version: 2.3.13
-  resolution: "javascript-time-ago@npm:2.3.13"
-  dependencies:
-    relative-time-format: ^1.0.7
-  checksum: bf39457637064ba0d1768e90ca75836f77ff5799900e2fa232b71ea1c5b7aea6b57cc0b902fd442fdc48fac99fad4ac338cbf8f3dda8e0c21f87a76a17090fdd
-  languageName: node
-  linkType: hard
-
 "jest-changed-files@npm:^27.5.1":
   version: 27.5.1
   resolution: "jest-changed-files@npm:27.5.1"
@@ -18976,13 +18967,6 @@ jschardet@latest:
   languageName: node
   linkType: hard
 
-"relative-time-format@npm:^1.0.7":
-  version: 1.0.7
-  resolution: "relative-time-format@npm:1.0.7"
-  checksum: 422743c33895a34ef1d9dde76ea533ca5b04c7000ae680d56dc80e76b4bfa004c99213dc091ac41a61979ec2d679e254eec6b1ac011591d721cffc0c1fffa76d
-  languageName: node
-  linkType: hard
-
 "release-zalgo@npm:^1.0.0":
   version: 1.0.0
   resolution: "release-zalgo@npm:1.0.0"
@@ -20940,7 +20924,6 @@ jschardet@latest:
     eslint-plugin-react-hooks: ^4.0.8
     ethers: 5.6.9
     husky: ^7.0.4
-    javascript-time-ago: ^2.3.13
     jest: ^27.3.1
     jsonpath: ^1.1.1
     lodash: 4.17.21
