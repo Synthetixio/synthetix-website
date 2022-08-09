@@ -8,7 +8,7 @@ interface GuideProps {
 	guide: Guide;
 	navDocs: { title: string; docs: OrderedDoc[] }[];
 }
-interface Guide {
+export interface Guide {
 	_updatedAt: string;
 	category: string;
 	slug: { _type: string; current: string };
@@ -20,6 +20,10 @@ interface Guide {
 		body?: any[];
 		style: string;
 		title: string;
+		caption?: string;
+		asset?: { _ref: string };
+		columns?: { _key: string; _type: string; body: unknown[]; disabled: boolean; title: string }[];
+		accordions?: { heading: string; body: any }[];
 	}[];
 	mainImage: {
 		_type: string;
@@ -63,7 +67,7 @@ const GuidePage = ({ guide, navDocs }: GuideProps) => {
 			<GuidesPageLayout
 				navDocs={navDocs}
 				updatedAt={guide._updatedAt}
-				mainImage={guide.mainImage.asset._ref}
+				mainImage={guide.mainImage}
 				title={guide.title}
 				subTitle={guide.subTitle}
 				subPos={guide.subPos}

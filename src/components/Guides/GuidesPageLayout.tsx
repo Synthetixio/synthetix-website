@@ -6,6 +6,7 @@ import Sidebar from '../Sidebar';
 import BuildFooter from '../Build/BuildFooter';
 import GuidesHeader from './GuidesHeader';
 import { PropsWithChildren } from 'react';
+import { OrderedDoc } from '../Build/BuildPageLayout';
 
 const OutWrapper = styled.div`
 	width: 100%;
@@ -51,12 +52,6 @@ type GuidesPageLayoutProps<T> = {
 	subTitle: string;
 	subPos: boolean;
 };
-export interface OrderedDoc {
-	cat: string;
-	slug: { _type: string; current: string };
-	title: string;
-}
-
 export default function GuidesPageLayout({
 	children,
 	navDocs,
@@ -80,7 +75,12 @@ export default function GuidesPageLayout({
 				<ContentWrapper>
 					<Sidebar navDocs={navDocs} subSlug="guides" />
 					<MainContent>
-						<GuidesHeader mainImage={mainImage} title={title} subTitle={subTitle} subPos={subPos} />
+						<GuidesHeader
+							mainImage={mainImage.asset._ref}
+							title={title}
+							subTitle={subTitle}
+							subPos={subPos}
+						/>
 						{children}
 						{(nextDoc || prevDoc) && (
 							<BuildFooter updatedAt={updatedAt} nextDoc={nextDoc} prevDoc={prevDoc} />

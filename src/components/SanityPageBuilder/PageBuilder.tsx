@@ -12,19 +12,10 @@ import IntroBlock from './IntroBlock';
 import GuideCarouselBlock from './GuideCarouselBlock';
 import TagsBlock from './TagsBlock';
 import { theme } from '../../styles/theme';
+import { Guide } from 'pages/guides/[slug]';
 
 interface PageBuilderProps {
-	pageBuilder: {
-		_key: string;
-		_type: string;
-		body: unknown[];
-		disabled: boolean;
-		title: string;
-		columns?: { _key: string; _type: string; body: unknown[]; disabled: boolean; title: string }[];
-		accordions?: { heading: string; body: any }[];
-		caption?: string;
-		asset?: { _ref: string };
-	}[];
+	pageBuilder: Guide['pageBuilder'];
 	guideTags?: unknown;
 }
 

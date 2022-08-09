@@ -1,7 +1,6 @@
 import Img from 'next/image';
 import { useNextSanityImage } from 'next-sanity-image';
 import styled from 'styled-components';
-
 import { client } from '../../lib/sanity';
 import { theme } from '../../styles/theme';
 
@@ -34,9 +33,14 @@ const HeadingText = styled.div`
 		text-shadow: 0px 4px 14px rgba(0, 0, 0, 0.55);
 	}
 `;
-
-export default function GuidesHeader({ mainImage, title, subTitle, subPos }: any) {
-	const imageProps: any = useNextSanityImage(client, mainImage);
+interface GuidesHeaderProps {
+	mainImage: string;
+	title: string;
+	subTitle: string;
+	subPos: boolean;
+}
+export default function GuidesHeader({ mainImage, title, subTitle, subPos }: GuidesHeaderProps) {
+	const imageProps = useNextSanityImage(client, mainImage);
 	return (
 		<HeaderContainer>
 			<HeadingText>

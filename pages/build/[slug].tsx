@@ -2,7 +2,6 @@ import Head from 'next/head';
 import jp from 'jsonpath';
 import slugify from 'slugify';
 import { BuildPageLayout } from 'src/components';
-
 import PageBuilder from '../../src/components/SanityPageBuilder/PageBuilder';
 import { client } from '../../src/lib/sanity';
 import { BuildPageLayoutProps, OrderedDoc } from 'src/components/Build/BuildPageLayout';

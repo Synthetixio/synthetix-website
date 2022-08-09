@@ -4,6 +4,7 @@ import { useRouter } from 'next/router'
 import { ButtonCard } from '@synthetixio/ui';
 
 import { Line } from 'src/styles/common';
+import { OrderedDoc } from './BuildPageLayout';
 
 
 const BuildFooterContainer = styled.div`
@@ -65,26 +66,23 @@ const Updated = styled.div`
 	font-style: italic;
 `;
 
-type BuildFooterProps = {
-	nextDoc?: any
-	prevDoc?: any
-	updatedAt?: any
+interface BuildFooterProps {
+	nextDoc?: OrderedDoc;
+	prevDoc?:OrderedDoc;
+	updatedAt:string;
 };
 
-export default function BuildFooter(props: BuildFooterProps) {
-	const { nextDoc, prevDoc, updatedAt } = props;
+export default function BuildFooter({nextDoc, prevDoc, updatedAt}: BuildFooterProps) {
 	const lastUpdated = new Date(updatedAt);
 
 	const router = useRouter();
-	const handleClick = (e:any, path:any) => {
-		router.push(path);
-	};
+	const handleClick = (path: string) => router.push(path);
 
 	return (
 
 		<BuildFooterContainer>
 			{prevDoc && 
-				<Box style={{'marginRight': '3px'}} onClick={(e) => handleClick(e, prevDoc.slug.current)}>
+				<Box style={{'marginRight': '3px'}} onClick={(e) => handleClick(prevDoc.slug.current)}>
 					<Row>
 						<ButtonCard
 						arrowDirection="left"
@@ -95,7 +93,7 @@ export default function BuildFooter(props: BuildFooterProps) {
 				</Box>
 			}
 			{nextDoc && 
-				<Box style={{'marginLeft': '3px'}} onClick={(e) => handleClick(e, nextDoc.slug.current)}>
+				<Box style={{'marginLeft': '3px'}} onClick={(e) => handleClick(nextDoc.slug.current)}>
 					<Row>
 						<ButtonCard
 						arrowDirection="right"
@@ -107,7 +105,7 @@ export default function BuildFooter(props: BuildFooterProps) {
 			}
 	
 			<Line showOnMobile />
-			<Updated>Last updated: {lastUpdated.getTime()}</Updated>
+			<Updated>Last updated: {lastUpdated.getUTCDate()}/{lastUpdated.getUTCMonth()+1}/{lastUpdated.getUTCFullYear()}</Updated>
 		
 		</BuildFooterContainer>
 		
