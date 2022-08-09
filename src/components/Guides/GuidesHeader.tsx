@@ -1,9 +1,8 @@
-import media from 'styled-media-query';
 import Img from 'next/image';
 import { useNextSanityImage } from 'next-sanity-image';
 import styled from 'styled-components';
 
-import client from '../../lib/sanity';
+import { client } from '../../lib/sanity';
 import { theme } from '../../styles/theme';
 
 const HeaderContainer = styled.div`
@@ -11,11 +10,6 @@ const HeaderContainer = styled.div`
 	width: 100%;
 	height: 250px;
 	${theme.pageBuilder.rows};
-	//overflow: hidden;
-
-	${media.lessThan('medium')`
-                //display: none;
-        `}//margin-bottom: 25px;
 `;
 
 const HeadingText = styled.div`

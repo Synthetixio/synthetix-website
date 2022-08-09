@@ -4,7 +4,7 @@ import { Carousel } from 'react-responsive-carousel';
 import Img from 'next/image';
 import { useNextSanityImage } from 'next-sanity-image';
 
-import client from '../../lib/sanity';
+import { client } from '../../lib/sanity';
 
 const ImgCarouselWrapper = styled.div`
 	.carousel .control-dots {
@@ -23,7 +23,6 @@ const ImgCarouselWrapper = styled.div`
 
 const Figure = styled.figure`
 	position: relative;
-	//padding-top: 56.25%;
 	img {
 		position: absolute;
 		top: 0;

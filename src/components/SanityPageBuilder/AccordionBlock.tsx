@@ -19,22 +19,22 @@ const AccordionTitle = styled.div`
 `;
 
 interface AccordionBlockProps {
-	props: any;
+	accordions: { heading: string; body: any }[];
+	body?: any;
 }
 
-export function AccordionBlock({ props }: AccordionBlockProps) {
-	const accordions = props.accordions;
+export function AccordionBlock({ accordions, body }: AccordionBlockProps) {
 	return (
 		<Wrapper>
-			{props.body && (
+			{body && (
 				<Container>
-					<PortableText value={props.body} />
+					<PortableText value={body} />
 				</Container>
 			)}
-			{accordions.map((accordion: any, index: number) => (
+			{accordions.map((accordion, index) => (
 				<AccordionWrapper key={index}>
 					<Accordion
-						key={index}
+						key={accordion.heading.concat(index.toString())}
 						headerChildren={<AccordionTitle>{accordion.heading}</AccordionTitle>}
 						isOpen={false}
 						gradient="darkBlue"

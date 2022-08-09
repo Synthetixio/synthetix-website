@@ -15,8 +15,7 @@ const SideBarItem = function ({ props, label }: any) {
 	useEffect(() => {
 		const currentSlug = router.query.slug;
 
-		// eslint-disable-next-line array-callback-return
-		props.docs.map((doc: any) => {
+		props.docs.forEach((doc: any) => {
 			if (doc.slug.current === currentSlug) {
 				setIsOpen(true);
 			}
@@ -30,7 +29,7 @@ const SideBarItem = function ({ props, label }: any) {
 					<h2 className={isOpen ? 'active' : ''}>{props.title}</h2>
 					<span>{isOpen === true ? <FiChevronUp /> : <FiChevronDown />}</span>
 				</Wrap>
-				{isOpen === true ? (
+				{isOpen && (
 					<Dropdown>
 						{props.docs.map((doc: any, i: number) => (
 							<li key={i}>
@@ -43,7 +42,7 @@ const SideBarItem = function ({ props, label }: any) {
 							</li>
 						))}
 					</Dropdown>
-				) : null}
+				)}
 			</AccordionSection>
 		</IconContext.Provider>
 	);

@@ -73,7 +73,6 @@ export default function GuidesPageLayout({
 		navtitle: 'User Guides',
 		items: navDocs,
 	};
-	console.log(nextDoc, prevDoc);
 	return (
 		<FlexDivColCentered>
 			<Header navDocs={subMenu} navShort={true} />

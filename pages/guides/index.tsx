@@ -2,7 +2,7 @@ import Head from 'next/head';
 import { GuidesPageLayout } from 'src/components';
 import { OrderedDoc } from 'src/components/Guides/GuidesPageLayout';
 
-import PageBuilder from '../../src/components/SanityPageBuilder/_PageBuilder';
+import PageBuilder from '../../src/components/SanityPageBuilder/PageBuilder';
 import { client } from '../../src/lib/sanity';
 
 interface GuideIndexProps {
@@ -23,7 +23,6 @@ interface GuideIndexProps {
 }
 
 const GuideIndex = ({ settings, navDocs, guideTags }: GuideIndexProps) => {
-	console.log(settings, navDocs, guideTags);
 	return (
 		<>
 			<Head>
@@ -32,7 +31,7 @@ const GuideIndex = ({ settings, navDocs, guideTags }: GuideIndexProps) => {
 			<GuidesPageLayout
 				navDocs={navDocs}
 				updatedAt={settings._updatedAt}
-				mainImage={settings.guideLPBanner}
+				mainImage={settings.guideLPBanner.asset._ref}
 				title={'User Guide Hub'}
 				subTitle={'Synthetix'}
 				subPos={false}

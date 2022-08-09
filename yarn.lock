@@ -15932,13 +15932,6 @@ jschardet@latest:
   languageName: node
   linkType: hard
 
-"memoize-one@npm:^6.0.0":
-  version: 6.0.0
-  resolution: "memoize-one@npm:6.0.0"
-  checksum: f185ea69f7cceae5d1cb596266dcffccf545e8e7b4106ec6aa93b71ab9d16460dd118ac8b12982c55f6d6322fcc1485de139df07eacffaae94888b9b3ad7675f
-  languageName: node
-  linkType: hard
-
 "memorystream@npm:^0.3.1":
   version: 0.3.1
   resolution: "memorystream@npm:0.3.1"
@@ -18325,15 +18318,6 @@ jschardet@latest:
   languageName: node
   linkType: hard
 
-"raf@npm:^3.4.1":
-  version: 3.4.1
-  resolution: "raf@npm:3.4.1"
-  dependencies:
-    performance-now: ^2.1.0
-  checksum: 50ba284e481c8185dbcf45fc4618ba3aec580bb50c9121385d5698cb6012fe516d2015b1df6dd407a7b7c58d44be8086108236affbce1861edd6b44637c8cd52
-  languageName: node
-  linkType: hard
-
 "ramda@npm:0.26.1":
   version: 0.26.1
   resolution: "ramda@npm:0.26.1"
@@ -18598,21 +18582,6 @@ jschardet@latest:
   peerDependencies:
     react: ">= 0.14.0"
   checksum: c082b48f30f8ba8d0c55ed1d761910630860077c7ff5793c4c912adcb5760df06436ed0ad62be0de28113aac9ad2af55eccd995f8eee98df53382e4ced2072fb
-  languageName: node
-  linkType: hard
-
-"react-time-ago@npm:^7.1.9":
-  version: 7.1.9
-  resolution: "react-time-ago@npm:7.1.9"
-  dependencies:
-    memoize-one: ^6.0.0
-    prop-types: ^15.7.2
-    raf: ^3.4.1
-  peerDependencies:
-    javascript-time-ago: ^2.3.7
-    react: ">=0.16.8"
-    react-dom: ">=0.16.8"
-  checksum: 5f0adcbe51c7a2a841b230b677c89aeaab5cb39a90dd47c8bc08bc4a2c437634a6add74b4fc4156fece3ced6f6f871b56879bb7624589087bf5d8118002e3095
   languageName: node
   linkType: hard
 
@@ -20944,7 +20913,6 @@ jschardet@latest:
     react-responsive-modal: ^6.2.0
     react-scrollspy: ^3.4.3
     react-syntax-highlighter: ^15.4.5
-    react-time-ago: ^7.1.9
     react-transition-group: 4.4.1
     sanity-algolia: ^1.0.2
     slugify: ^1.6.5

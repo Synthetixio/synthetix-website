@@ -31,9 +31,7 @@ interface TagsProps {
 	tags: any;
 }
 
-export function Tags(props: TagsProps) {
-	const { tags } = props;
-
+export function Tags({ tags }: TagsProps) {
 	if (tags) {
 		return (
 			<TagsWrapper>

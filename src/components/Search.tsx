@@ -11,7 +11,6 @@ import {
 	connectHighlight,
 	connectStateResults,
 } from 'react-instantsearch-dom';
-import ReactTimeAgo from 'react-time-ago';
 import Link from 'next/link';
 
 import { algolia } from '../../src/lib/algolia';
@@ -83,9 +82,7 @@ const Hits = ({ hits }: any) => (
 							<CustomSnippet hit={hit} attribute="body" />
 						</p>
 						<p>{hit.type}</p>
-						<p>
-							Last updated: <ReactTimeAgo date={hit.updatedAt} locale="en-US" />
-						</p>
+						<p>Last updated: {hit.updatedAt.getTime()}</p>
 					</SearchResult>
 				</Link>
 			);

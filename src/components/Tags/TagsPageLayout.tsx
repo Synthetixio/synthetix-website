@@ -95,8 +95,16 @@ const Figure = styled.figure`
 	img {
 	}
 `;
-
-function GuideItem({ guide }: any) {
+interface GuideItemProps {
+	guide: {
+		icon: string;
+		slug: { current: string };
+		tags: string;
+		title: string;
+		introText: string;
+	};
+}
+function GuideItem({ guide }: GuideItemProps) {
 	const imageProps = useNextSanityImage(client, guide.icon);
 	return (
 		<Link href={`/guides/${guide.slug.current}`}>
@@ -133,8 +141,7 @@ export default function TagsPageLayout(props: any) {
 					<MainContent>
 						<h1>{title}</h1>
 						<h2>{subTitle}</h2>
-						{guides &&
-							guides.map((guide: any, index: number) => <GuideItem guide={guide} key={index} />)}
+						{guides && guides.map((guide: any, index) => <GuideItem guide={guide} key={index} />)}
 						<BuildFooter updatedAt={updatedAt} />
 					</MainContent>
 				</ContentWrapper>

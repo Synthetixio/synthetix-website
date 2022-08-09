@@ -69,8 +69,7 @@ export default function SideBarItem({ props, subSlug }: any) {
 	useEffect(() => {
 		const currentSlug = router.query.slug;
 
-		// eslint-disable-next-line array-callback-return
-		props.docs.map((doc: any) => {
+		props.docs.forEach((doc: any) => {
 			if (doc.slug.current === currentSlug) {
 				setIsOpen(true);
 			}

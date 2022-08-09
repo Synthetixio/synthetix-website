@@ -3,9 +3,8 @@ import Img from 'next/image';
 import { useNextSanityImage } from 'next-sanity-image';
 import Carousel from 'react-multi-carousel';
 import Link from 'next/link';
-
 import 'react-multi-carousel/lib/styles.css';
-import client from '../../lib/sanity';
+import { client } from '../../lib/sanity';
 import Tags from '../Guides/Tags';
 import { theme } from '../../styles/theme';
 
@@ -56,8 +55,16 @@ const Figure = styled.figure`
 	img {
 	}
 `;
-
-function GuideItem({ guide }: any) {
+interface GuideItemProps {
+	guide: {
+		icon: string;
+		slug: { current: string };
+		tags: string;
+		title: string;
+		introText: string;
+	};
+}
+function GuideItem({ guide }: GuideItemProps) {
 	const imageProps = useNextSanityImage(client, guide.icon);
 	return (
 		<Link href={`/guides/${guide.slug.current}`}>

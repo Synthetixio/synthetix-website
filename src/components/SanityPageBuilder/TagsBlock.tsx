@@ -2,7 +2,6 @@ import styled from 'styled-components';
 import jp from 'jsonpath';
 import media from 'styled-media-query';
 import Link from 'next/link';
-
 import { theme } from '../../styles/theme';
 
 const Wrapper = styled.div`

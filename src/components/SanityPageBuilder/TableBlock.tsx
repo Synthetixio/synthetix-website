@@ -16,8 +16,6 @@ const Table = styled.table`
 		background: linear-gradient(73.6deg, #8e2de2 2.11%, #4b01e0 90.45%);
 	}
 
-	//tr:nth-child(odd){background-color: #ccc;
-
 	th {
 		padding-top: 12px;
 		padding-bottom: 12px;

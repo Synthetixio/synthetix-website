@@ -1,14 +1,9 @@
 import Img from 'next/image';
 import { useNextSanityImage } from 'next-sanity-image';
 import styled from 'styled-components';
-
-import client from '../../lib/sanity';
+import { client } from '../../lib/sanity';
 
 const Figure = styled.figure`
-	img {
-		//border-radius: 25px;
-	}
-
 	figcaption {
 		text-align: center;
 		font-style: italic;
@@ -18,13 +13,17 @@ const Figure = styled.figure`
 	}
 `;
 
-const MainImage = ({ props }: any) => {
-	const imageProps: any = useNextSanityImage(client, props);
-	const caption = props.caption || null;
+interface MainImageProps {
+	caption: string;
+	image: string;
+}
+
+const MainImage = ({ caption, image }: MainImageProps) => {
+	const imageProps = useNextSanityImage(client, image);
 	return (
 		<Figure>
 			<Img {...imageProps} layout="responsive" sizes="(max-width: 800px) 100vw, 800px" />
-			{caption ? <figcaption>{caption}</figcaption> : null}
+			{caption && <figcaption>{caption}</figcaption>}
 		</Figure>
 	);
 };

@@ -2,7 +2,7 @@ import { GetStaticPropsContext } from 'next';
 import Head from 'next/head';
 import { GuidesPageLayout } from 'src/components';
 import { OrderedDoc } from 'src/components/Build/BuildPageLayout';
-import PageBuilder from '../../src/components/SanityPageBuilder/_PageBuilder';
+import PageBuilder from '../../src/components/SanityPageBuilder/PageBuilder';
 import { client } from '../../src/lib/sanity';
 interface GuideProps {
 	guide: Guide;
@@ -63,7 +63,7 @@ const GuidePage = ({ guide, navDocs }: GuideProps) => {
 			<GuidesPageLayout
 				navDocs={navDocs}
 				updatedAt={guide._updatedAt}
-				mainImage={guide.mainImage}
+				mainImage={guide.mainImage.asset._ref}
 				title={guide.title}
 				subTitle={guide.subTitle}
 				subPos={guide.subPos}

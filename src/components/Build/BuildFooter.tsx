@@ -1,7 +1,6 @@
 import styled from 'styled-components';
 import media from 'styled-media-query';
 import { useRouter } from 'next/router'
-import ReactTimeAgo from 'react-time-ago'
 import { ButtonCard } from '@synthetixio/ui';
 
 import { Line } from 'src/styles/common';
@@ -85,7 +84,7 @@ export default function BuildFooter(props: BuildFooterProps) {
 
 		<BuildFooterContainer>
 			{prevDoc && 
-				<Box style={{'marginRight': '3px'}} onClick={(e) => handleClick(e, nextDoc.slug.current)}>
+				<Box style={{'marginRight': '3px'}} onClick={(e) => handleClick(e, prevDoc.slug.current)}>
 					<Row>
 						<ButtonCard
 						arrowDirection="left"
@@ -108,7 +107,7 @@ export default function BuildFooter(props: BuildFooterProps) {
 			}
 	
 			<Line showOnMobile />
-			<Updated>Last updated  <ReactTimeAgo date={lastUpdated} locale="en-US"/></Updated>
+			<Updated>Last updated: {lastUpdated.getTime()}</Updated>
 		
 		</BuildFooterContainer>
 		

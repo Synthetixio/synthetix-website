@@ -6,7 +6,7 @@ import media from 'styled-media-query';
 import Link from 'next/link';
 
 import { Container } from './ContentBlock';
-import client from '../../lib/sanity';
+import { client } from '../../lib/sanity';
 
 const Wrapper = styled.div`
 	border-radius: 4px;

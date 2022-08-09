@@ -2,7 +2,6 @@ import React from 'react';
 import { PortableText, PortableTextReactComponents } from '@portabletext/react';
 import styled from 'styled-components';
 import slugify from 'slugify';
-
 import MainImage from './MainImage';
 import CodeBlock from './CodeBlock';
 import { theme } from '../../styles/theme';
