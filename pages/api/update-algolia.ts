@@ -1,7 +1,12 @@
 import indexer from 'sanity-algolia';
 import { client } from '../../src/lib/sanity';
-import { algolia } from '../../src/lib/algolia';
 import { WebhookBody } from 'sanity-algolia/dist/types';
+import algoliasearch from 'algoliasearch';
+
+export const algolia = algoliasearch(
+	process.env.NEXT_PUBLIC_ALGOLIA_APP_ID!,
+	process.env.NEXT_ALGOLIA_ADMIN_KEY!
+);
 
 const algoliaIndex = algolia.initIndex('pages');
 
@@ -59,7 +64,7 @@ const handler = (
 	if (req.headers['content-type'] !== 'application/json') {
 		res.status(400);
 		res.json({ message: 'Bad request' });
-		return;
+		return res;
 	}
 
 	return (

@@ -76,6 +76,7 @@ const Hits = ({ hits }: any) => (
 			if (hit.type === 'guide') {
 				path = `/guides/${hit.path}`;
 			}
+			const lastUpdated = new Date(hit.updatedAt);
 			return (
 				<Link key={hit.objectID} href={path}>
 					<SearchResult>
@@ -84,7 +85,10 @@ const Hits = ({ hits }: any) => (
 							<CustomSnippet hit={hit} attribute="body" />
 						</p>
 						<p>{hit.type}</p>
-						<p>Last updated: {new Date(hit.updatedAt).getTime()}</p>
+						<p>
+							Last updated: {lastUpdated.getUTCDate()}/{lastUpdated.getUTCMonth() + 1}/
+							{lastUpdated.getUTCFullYear()}
+						</p>
 					</SearchResult>
 				</Link>
 			);
