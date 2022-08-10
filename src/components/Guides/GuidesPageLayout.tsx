@@ -41,13 +41,7 @@ type GuidesPageLayoutProps<T> = {
 	nextDoc?: T;
 	prevDoc?: T;
 	updatedAt: string;
-	mainImage: {
-		_type: string;
-		asset: {
-			_ref: string;
-			_type: string;
-		};
-	};
+	mainImage: string;
 	title: string;
 	subTitle: string;
 	subPos: boolean;
@@ -75,12 +69,7 @@ export default function GuidesPageLayout({
 				<ContentWrapper>
 					<Sidebar navDocs={navDocs} subSlug="guides" />
 					<MainContent>
-						<GuidesHeader
-							mainImage={mainImage.asset._ref}
-							title={title}
-							subTitle={subTitle}
-							subPos={subPos}
-						/>
+						<GuidesHeader mainImage={mainImage} title={title} subTitle={subTitle} subPos={subPos} />
 						{children}
 						{(nextDoc || prevDoc) && (
 							<BuildFooter updatedAt={updatedAt} nextDoc={nextDoc} prevDoc={prevDoc} />

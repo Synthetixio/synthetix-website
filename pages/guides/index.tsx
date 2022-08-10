@@ -1,23 +1,13 @@
 import Head from 'next/head';
+import { Build } from 'pages/build/[slug]';
 import { GuidesPageLayout } from 'src/components';
-import { OrderedDoc } from 'src/components/Guides/GuidesPageLayout';
+import { OrderedDoc } from 'src/components/Build/BuildPageLayout';
 
 import PageBuilder from '../../src/components/SanityPageBuilder/PageBuilder';
 import { client } from '../../src/lib/sanity';
 
 interface GuideIndexProps {
-	settings: {
-		_createdAt: string;
-		_id: string;
-		_rev: string;
-		_type: string;
-		_updatedAt: string;
-		guideLPBanner: {
-			_type: string;
-			asset: { _ref: string; _type: string };
-		};
-		guideLPBuilder: Record<string, string>;
-	};
+	settings: Build;
 	navDocs: { docs: OrderedDoc[]; title: string }[];
 	guideTags: { tags: Record<string, unknown> };
 }
@@ -31,7 +21,7 @@ const GuideIndex = ({ settings, navDocs, guideTags }: GuideIndexProps) => {
 			<GuidesPageLayout
 				navDocs={navDocs}
 				updatedAt={settings._updatedAt}
-				mainImage={settings.guideLPBanner.asset._ref}
+				mainImage={settings.guideLPBanner ? settings.guideLPBanner.asset._ref : ''}
 				title={'User Guide Hub'}
 				subTitle={'Synthetix'}
 				subPos={false}

@@ -51,7 +51,7 @@ function PageBuilder({ pageBuilder, guideTags = null }: PageBuilderProps) {
 								{columns?.map((col) => {
 									return (
 										<Column key={col._key}>
-											<PageBuilder pageBuilder={[col]} />
+											<PageBuilder pageBuilder={[col as any]} />
 										</Column>
 									);
 								})}

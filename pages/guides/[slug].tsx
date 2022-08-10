@@ -1,5 +1,6 @@
 import { GetStaticPropsContext } from 'next';
 import Head from 'next/head';
+import { Build } from 'pages/build/[slug]';
 import { GuidesPageLayout } from 'src/components';
 import { OrderedDoc } from 'src/components/Build/BuildPageLayout';
 import PageBuilder from '../../src/components/SanityPageBuilder/PageBuilder';
@@ -13,18 +14,7 @@ export interface Guide {
 	category: string;
 	slug: { _type: string; current: string };
 	categorySlug: { _type: string; current: string };
-	pageBuilder: {
-		_key: string;
-		_type: string;
-		steps?: any[];
-		body?: any[];
-		style: string;
-		title: string;
-		caption?: string;
-		asset?: { _ref: string };
-		columns?: { _key: string; _type: string; body: unknown[]; disabled: boolean; title: string }[];
-		accordions?: { heading: string; body: any }[];
-	}[];
+	pageBuilder: Build['pageBuilder'];
 	mainImage: {
 		_type: string;
 		asset: {
@@ -67,7 +57,7 @@ const GuidePage = ({ guide, navDocs }: GuideProps) => {
 			<GuidesPageLayout
 				navDocs={navDocs}
 				updatedAt={guide._updatedAt}
-				mainImage={guide.mainImage}
+				mainImage={guide.mainImage.asset._ref}
 				title={guide.title}
 				subTitle={guide.subTitle}
 				subPos={guide.subPos}
