@@ -201,6 +201,7 @@ const MenuItem = styled.li<{ subOpen: boolean }>`
 		border-bottom: 3px solid #00d1ff; /* or whatever colour you'd prefer */
 		outline: 3px solid black;
 		color: #fff;
+		width: fit-content;
 	}
 	${media.lessThan<{ subOpen: boolean }>('medium')`
         ${({ subOpen }) => (subOpen ? 'display: none;' : 'display: inline-block;')}
@@ -230,9 +231,6 @@ const MenuBtn = styled.li<{ subOpen: boolean; border: boolean }>`
 	border-radius: 30px;
 	text-align: center;
 	padding: 10px 25px;
-	&:last-child {
-		//margin-right: 0;
-	}
 	a {
 		${theme.fonts.menu};
 		${({ border }) => (border ? 'color:#00d1ff;' : '')}

@@ -12,10 +12,10 @@ import IntroBlock from './IntroBlock';
 import GuideCarouselBlock from './GuideCarouselBlock';
 import TagsBlock from './TagsBlock';
 import { theme } from '../../styles/theme';
-import { Guide } from 'pages/guides/[slug]';
+import { Build } from 'pages/build/[slug]';
 
 interface PageBuilderProps {
-	pageBuilder: Guide['pageBuilder'];
+	pageBuilder: Build['pageBuilder'];
 	guideTags?: unknown;
 }
 

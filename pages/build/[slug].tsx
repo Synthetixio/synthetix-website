@@ -12,7 +12,7 @@ interface BuildProps {
 	navDocs: { title: string; docs: OrderedDoc[] }[];
 }
 
-interface Build {
+export interface Build {
 	_updatedAt: string;
 	category: string;
 	categorySlug: { _type: string; current: string };
@@ -22,6 +22,17 @@ interface Build {
 		body: unknown[];
 		disabled: boolean;
 		title: string;
+		caption?: string;
+		asset?: {_ref:string};
+	    accordions?: {heading: string, body:any}[];
+	columns?:  {	_key: string;
+		_type: string;
+		body: unknown[];
+		disabled: boolean;
+		title: string;
+		caption?: string;
+		asset?: {_ref:string};
+	    accordions?: {heading: string, body:any}[]}[];
 	}[];
 	slug: { _type: string; current: string };
 	title: string;
