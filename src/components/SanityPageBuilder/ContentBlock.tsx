@@ -5,6 +5,7 @@ import slugify from 'slugify';
 import MainImage from './MainImage';
 import CodeBlock from './CodeBlock';
 import { theme } from '../../styles/theme';
+import { PageBuilderProps } from 'pages/build/[slug]';
 
 export const Container = styled.div`
 	h1 {
@@ -73,7 +74,9 @@ export const Container = styled.div`
 
 const portableTextComponents: Partial<PortableTextReactComponents> = {
 	types: {
-		image: ({ value }: any) => <MainImage props={value} />,
+		image: ({ value }: { value: { caption: string; asset: { _ref: string } } }) => (
+			<MainImage caption={value.caption} image={value.asset._ref} />
+		),
 		codeBlock: ({ value }: any) => <CodeBlock code={value.code} language={value.language} />,
 	},
 
@@ -103,10 +106,11 @@ const portableTextComponents: Partial<PortableTextReactComponents> = {
 	},
 };
 
-function ContentBlock(props: any) {
+function ContentBlock({ block }: { block: PageBuilderProps }) {
 	return (
 		<Container>
-			<PortableText value={props.block.body} components={portableTextComponents} />
+			{/* Portable Text is badly typed and you can't export and extended TypedObject which is the interface for the value prop */}
+			<PortableText value={block.body as any} components={portableTextComponents} />
 		</Container>
 	);
 }

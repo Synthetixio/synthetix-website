@@ -4,13 +4,13 @@ import { FlexDivColCentered } from 'src/styles/common';
 import Link from 'next/link';
 import Img from 'next/image';
 import { useNextSanityImage } from 'next-sanity-image';
-
 import { Header } from '..';
 import Sidebar from '../Sidebar';
 import BuildFooter from '../Build/BuildFooter';
 import Tags from '../Guides/Tags';
 import { client } from '../../lib/sanity';
 import { theme } from '../../styles/theme';
+import { OrderedDoc } from '../Build/BuildPageLayout';
 
 const OutWrapper = styled.div`
 	width: 100%;
@@ -95,19 +95,17 @@ const Figure = styled.figure`
 	img {
 	}
 `;
-interface GuideItemProps {
-	guide: {
-		icon: string;
-		slug: { current: string };
-		tags: string;
-		title: string;
-		introText: string;
-	};
+export interface GuideItemProps {
+	icon: string;
+	slug: { current: string };
+	tags: string;
+	title: string;
+	introText: string;
 }
-function GuideItem({ guide }: GuideItemProps) {
-	const imageProps = useNextSanityImage(client, guide.icon);
+function GuideItem({ icon, slug, tags, title, introText }: GuideItemProps) {
+	const imageProps = useNextSanityImage(client, icon);
 	return (
-		<Link href={`/guides/${guide.slug.current}`}>
+		<Link href={`/guides/${slug.current}`}>
 			<CarouselItem>
 				<Left>
 					<Figure>
@@ -115,17 +113,30 @@ function GuideItem({ guide }: GuideItemProps) {
 					</Figure>
 				</Left>
 				<Right>
-					<Title>{guide.title}</Title>
-					<Intro>{guide.introText}</Intro>
-					<Tags tags={guide.tags} />
+					<Title>{title}</Title>
+					<Intro>{introText}</Intro>
+					<Tags tags={tags} />
 				</Right>
 			</CarouselItem>
 		</Link>
 	);
 }
 
-export default function TagsPageLayout(props: any) {
-	const { navDocs, updatedAt, title, subTitle, guides } = props;
+interface TagsPageLayoutProps {
+	navDocs: OrderedDoc[];
+	updatedAt: string;
+	title: string;
+	subTitle: string;
+	guides: GuideItemProps[];
+}
+
+export default function TagsPageLayout({
+	navDocs,
+	updatedAt,
+	title,
+	subTitle,
+	guides,
+}: TagsPageLayoutProps) {
 	const subMenu = {
 		label: 'guides',
 		navtitle: 'User Guides',
@@ -141,7 +152,10 @@ export default function TagsPageLayout(props: any) {
 					<MainContent>
 						<h1>{title}</h1>
 						<h2>{subTitle}</h2>
-						{guides && guides.map((guide: any, index) => <GuideItem guide={guide} key={index} />)}
+						{guides &&
+							guides.map((guide, index) => (
+								<GuideItem {...guide} key={title.concat(index.toString())} />
+							))}
 						<BuildFooter updatedAt={updatedAt} />
 					</MainContent>
 				</ContentWrapper>

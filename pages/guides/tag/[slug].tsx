@@ -2,11 +2,12 @@ import { GetStaticPropsContext } from 'next';
 import Head from 'next/head';
 import { TagsPageLayout } from 'src/components';
 import { OrderedDoc } from 'src/components/Build/BuildPageLayout';
+import { GuideItemProps } from 'src/components/Tags/TagsPageLayout';
 import { client } from '../../../src/lib/sanity';
-import { Guide } from '../[slug]';
+
 interface GuidesProps {
-	guides: Guide[];
-	navDocs: OrderedDoc;
+	guides: GuideItemProps[];
+	navDocs: OrderedDoc[];
 	tag: any;
 }
 const Guides = ({ guides, navDocs, tag }: GuidesProps) => {

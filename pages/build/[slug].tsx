@@ -21,25 +21,45 @@ export interface Build {
 		asset: { _ref: string; _type: string };
 	};
 	guideLPBuilder: Build['pageBuilder']
-	pageBuilder: {
-		_key: string;
-		_id: string;
+	pageBuilder: PageBuilderProps[];
+	slug: { _type: string; current: string };
+	title: string;
+}
+
+export interface PageBuilderProps  {
+	_key: string;
+	_id: string;
+	_type: string;
+	_createdAt: string;
+	_updatedAt: string;
+	_rev: string;
+	body: unknown[];
+	disabled: boolean;
+	title: string;
+	caption?: string;
+	asset?: { _ref: string };
+	accordions?: { heading: string, body: any }[];
+	guideLPBanner: {
 		_type: string;
-		_createdAt: string;
-		_updatedAt: string;
-		_rev: string;
+		asset: { _ref: string; _type: string };
+	};
+	columns?:
+	{
+		_key: string;
+		_type: string;
 		body: unknown[];
 		disabled: boolean;
 		title: string;
 		caption?: string;
 		asset?: { _ref: string };
-		accordions?: { heading: string, body: any }[];
-		guideLPBanner: {
-			_type: string;
-			asset: { _ref: string; _type: string };
-		};
-		columns?:
-		{
+		accordions?: { heading: string, body: any }[]
+	}[];
+	 guides: {
+		category: { _ref: string, _type: string };
+		icon: { _type: string, asset: { _ref: string, _type: string } }
+		introText: string;
+		mainImage: { _type: string, asset: { _ref: string, _type: string } }
+		pageBuilder: {
 			_key: string;
 			_type: string;
 			body: unknown[];
@@ -49,35 +69,17 @@ export interface Build {
 			asset?: { _ref: string };
 			accordions?: { heading: string, body: any }[]
 		}[];
-		 guides: {
-			category: { _ref: string, _type: string };
-			icon: { _type: string, asset: { _ref: string, _type: string } }
-			introText: string;
-			mainImage: { _type: string, asset: { _ref: string, _type: string } }
-			pageBuilder: {
-				_key: string;
-				_type: string;
-				body: unknown[];
-				disabled: boolean;
-				title: string;
-				caption?: string;
-				asset?: { _ref: string };
-				accordions?: { heading: string, body: any }[]
-			}[];
-			publishAt: string,
-			slug: { _type: string, current: string }
-			subPos: boolean,
-			subTitle: string
-			tags: unknown[]
-			title: string,
-			_id: string;
-			_type: string;
-			_createdAt: string;
-			_updatedAt: string;
-		},
-	}[];
-	slug: { _type: string; current: string };
-	title: string;
+		publishAt: string,
+		slug: { _type: string, current: string }
+		subPos: boolean,
+		subTitle: string
+		tags: unknown[]
+		title: string,
+		_id: string;
+		_type: string;
+		_createdAt: string;
+		_updatedAt: string;
+	},
 }
 
 const BuildPage = ({ build, navDocs }: BuildProps) => {
