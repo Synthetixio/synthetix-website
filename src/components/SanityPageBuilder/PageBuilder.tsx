@@ -27,13 +27,14 @@ function PageBuilder({ pageBuilder, guideTags = null }: PageBuilderProps) {
 					case 'mainImage':
 						return (
 							<>
-								{block.caption && block.asset?._ref && (
-									<Row key={block._key}>
-										<Column>
-											<MainImage caption={block.caption} image={block.asset?._ref} />
-										</Column>
-									</Row>
-								)}
+								{block.caption ||
+									(block.asset?._ref && (
+										<Row key={block._key}>
+											<Column>
+												<MainImage caption={block.caption} image={block.asset?._ref} />
+											</Column>
+										</Row>
+									))}
 							</>
 						);
 					case 'contentBlock':

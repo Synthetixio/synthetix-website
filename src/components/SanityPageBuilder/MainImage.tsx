@@ -14,7 +14,7 @@ const Figure = styled.figure`
 `;
 
 interface MainImageProps {
-	caption: string;
+	caption?: string;
 	image: string;
 }
 

@@ -52,13 +52,14 @@ const HeaderComponent = (props: any) => {
 export const headerHeight = 100;
 const StyledImage = styled(Image)`
 	cursor: pointer;
-	z-index: 900;
 `;
+
 const StyledHeader = styled.header`
 	display: flex;
 	height: ${headerHeight}px;
 	align-items: center;
 	width: space-between;
+	z-index: 1000;
 `;
 
 const StyledHamburgerMenu = styled(HamburgerMenu)`

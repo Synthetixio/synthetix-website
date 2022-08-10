@@ -37,23 +37,25 @@ const Snippet = ({ highlight, attribute, hit }: any) => {
 
 const CustomSnippet = connectHighlight(Snippet);
 
-const SearchBox = ({ currentRefinement, isSearchStalled, refine }: any) => (
-	<form noValidate action="" role="search">
-		<StyledInput className={'inputWithIcon'}>
-			<Input
-				type="search"
-				value={currentRefinement}
-				onChange={(event) => refine(event.currentTarget.value)}
-				placeholder="Search Content"
-			/>
-			<button className="left-icon">
-				<IconContext.Provider value={{ color: '#ffffff', size: '20px' }}>
-					<BiSearchAlt2 />
-				</IconContext.Provider>
-			</button>
-		</StyledInput>
-	</form>
-);
+const SearchBox = ({ currentRefinement, refine }: any) => {
+	return (
+		<form noValidate action="" role="search">
+			<StyledInput className={'inputWithIcon'}>
+				<Input
+					type="search"
+					value={currentRefinement}
+					onChange={(event) => refine(event.currentTarget.value)}
+					placeholder="Search Content"
+				/>
+				<button className="left-icon">
+					<IconContext.Provider value={{ color: '#ffffff', size: '20px' }}>
+						<BiSearchAlt2 />
+					</IconContext.Provider>
+				</button>
+			</StyledInput>
+		</form>
+	);
+};
 
 const Results = connectStateResults(({ searchState, searchResults, children }: any) => {
 	if (searchState.query === undefined || searchState.query === '') {
@@ -69,7 +71,7 @@ const Results = connectStateResults(({ searchState, searchResults, children }: a
 const Hits = ({ hits }: any) => (
 	<AllResults>
 		<hr />
-		{hits.map((hit: any, i: number) => {
+		{hits.map((hit: any) => {
 			let path = `/${hit.type}/${hit.path}`;
 			if (hit.type === 'guide') {
 				path = `/guides/${hit.path}`;
@@ -82,7 +84,7 @@ const Hits = ({ hits }: any) => (
 							<CustomSnippet hit={hit} attribute="body" />
 						</p>
 						<p>{hit.type}</p>
-						<p>Last updated: {hit.updatedAt.getTime()}</p>
+						<p>Last updated: {new Date(hit.updatedAt).getTime()}</p>
 					</SearchResult>
 				</Link>
 			);
@@ -93,11 +95,10 @@ const Hits = ({ hits }: any) => (
 const CustomHits: any = connectHits(Hits);
 
 const CustomSearchBox: any = connectSearchBox(SearchBox);
-const Search = (props: any) => {
+const Search = () => {
 	const [open, setOpen] = useState(false);
 	const onOpenModal = () => setOpen(true);
 	const onCloseModal = () => setOpen(false);
-
 	return (
 		<>
 			<SearchIcon onClick={onOpenModal}>
@@ -172,16 +173,6 @@ const Input = styled.input`
 	cursor: pointer;
 	background: linear-gradient(0deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.1)), #0b0b22;
 	border-radius: 8px;
-
-	&:focus {
-		//border-color: dodgerBlue;
-		//box-shadow: 0 0 8px 0 dodgerBlue;
-	}
-
-	:focus + .left-icon {
-		svg {
-			//fill: dodgerBlue;
-		}
 	}
 `;
 
@@ -212,7 +203,6 @@ const StyledInput = styled.div`
 const AllResults = styled.div`
 	max-height: 50vh;
 	border-top: 1px solid rgba(130, 130, 149, 0.3);
-	//padding-top: 10px;
 
 	hr {
 		border: 1px solid rgba(130, 130, 149, 0.3);
