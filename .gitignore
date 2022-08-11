@@ -45,7 +45,6 @@ tests/e2e/screenshots/
 /sanity/node_modules
 /sanity/dist
  
-.env
 .env.local
 
 .yarn/*
