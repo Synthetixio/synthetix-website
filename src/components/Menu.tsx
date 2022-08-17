@@ -214,6 +214,7 @@ const MenuItem = styled.li<{ subOpen: boolean }>`
 `;
 
 const StyledSearch = styled.div<{ isOpen: boolean }>`
+	margin-left: 20px;
 	${media.lessThan<{ subOpen: boolean }>('medium')`
         right: 20px;
         position: absolute !important;
