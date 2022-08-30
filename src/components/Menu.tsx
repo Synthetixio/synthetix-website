@@ -35,11 +35,11 @@ const MenuComponent = ({ isHeader, isOpen, subOpen, navDocs, ...rest }: MenuProp
 			hideOnHeader: false,
 			button: true,
 		},
-		{
-			link: '/build/welcome-to-snx',
-			label: 'build',
-			hideOnHeader: false,
-		},
+		// {
+		// 	link: '/build/welcome-to-snx',
+		// 	label: 'build',
+		// 	hideOnHeader: false,
+		// },
 		{
 			link: '/guides',
 			label: 'guides',

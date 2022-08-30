@@ -48,7 +48,6 @@ const GuidePage = ({ guide, navDocs }: GuideProps) => {
 		currentIndex >= 0
 			? allDocsOrdered[currentIndex - 1]
 			: allDocsOrdered[allDocsOrdered.length - 1];
-
 	return (
 		<>
 			<Head>
@@ -113,7 +112,6 @@ export async function getStaticProps(context: GetStaticPropsContext) {
   `,
 		{ slug }
 	);
-
 	const navDocs = await client.fetch(`
   *[_type == "guideCategory"]|order(orderRank){
     title,

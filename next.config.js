@@ -14,6 +14,9 @@ module.exports = {
 	async generateBuildId() {
 		return execSync(lastCommitCommand).toString().trim();
 	},
+	async redirects() {
+		return [{ source: '/build/:slug', destination: '/', permanent: false }];
+	},
 	env: {
 		// Dynamic env variables
 		NEXT_PUBLIC_BUILD_TIME: date.toString(),

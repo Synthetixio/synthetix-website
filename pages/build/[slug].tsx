@@ -20,13 +20,13 @@ export interface Build {
 		_type: string;
 		asset: { _ref: string; _type: string };
 	};
-	guideLPBuilder: Build['pageBuilder']
+	guideLPBuilder: Build['pageBuilder'];
 	pageBuilder: PageBuilderProps[];
 	slug: { _type: string; current: string };
 	title: string;
 }
 
-export interface PageBuilderProps  {
+export interface PageBuilderProps {
 	_key: string;
 	_id: string;
 	_type: string;
@@ -38,13 +38,12 @@ export interface PageBuilderProps  {
 	title: string;
 	caption?: string;
 	asset?: { _ref: string };
-	accordions?: { heading: string, body: any }[];
+	accordions?: { heading: string; body: any }[];
 	guideLPBanner: {
 		_type: string;
 		asset: { _ref: string; _type: string };
 	};
-	columns?:
-	{
+	columns?: {
 		_key: string;
 		_type: string;
 		body: unknown[];
@@ -52,13 +51,13 @@ export interface PageBuilderProps  {
 		title: string;
 		caption?: string;
 		asset?: { _ref: string };
-		accordions?: { heading: string, body: any }[]
+		accordions?: { heading: string; body: any }[];
 	}[];
-	 guides: {
-		category: { _ref: string, _type: string };
-		icon: { _type: string, asset: { _ref: string, _type: string } }
+	guides: {
+		category: { _ref: string; _type: string };
+		icon: { _type: string; asset: { _ref: string; _type: string } };
 		introText: string;
-		mainImage: { _type: string, asset: { _ref: string, _type: string } }
+		mainImage: { _type: string; asset: { _ref: string; _type: string } };
 		pageBuilder: {
 			_key: string;
 			_type: string;
@@ -67,19 +66,19 @@ export interface PageBuilderProps  {
 			title: string;
 			caption?: string;
 			asset?: { _ref: string };
-			accordions?: { heading: string, body: any }[]
+			accordions?: { heading: string; body: any }[];
 		}[];
-		publishAt: string,
-		slug: { _type: string, current: string }
-		subPos: boolean,
-		subTitle: string
-		tags: unknown[]
-		title: string,
+		publishAt: string;
+		slug: { _type: string; current: string };
+		subPos: boolean;
+		subTitle: string;
+		tags: unknown[];
+		title: string;
 		_id: string;
 		_type: string;
 		_createdAt: string;
 		_updatedAt: string;
-	},
+	};
 }
 
 const BuildPage = ({ build, navDocs }: BuildProps) => {
