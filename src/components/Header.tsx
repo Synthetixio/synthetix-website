@@ -1,12 +1,10 @@
 import { useState, useEffect } from 'react';
-import styled from 'styled-components';
-import media from 'styled-media-query';
 import HamburgerMenu from 'react-hamburger-menu';
 import { Menu } from './';
 import { useRouter } from 'next/router';
-import Image from 'next/image';
+import { Box, Flex, Image, Show } from '@chakra-ui/react';
 
-const HeaderComponent = (props: any) => {
+export default function Header(props: any) {
 	const { navDocs } = props || null;
 	const [isOpen, setIsOpen] = useState<boolean>(false);
 	const [subOpen, setSubOpen] = useState<boolean>(false);
@@ -25,19 +23,45 @@ const HeaderComponent = (props: any) => {
 	};
 
 	return (
-		<StyledHeader>
-			<StyledImage src="/snx.svg" width={274} height={12} onClick={() => push('/')} />
-			<StyledHamburgerMenu
-				isOpen={isOpen}
-				menuClicked={clickMenu}
-				width={22}
-				height={16}
-				strokeWidth={2}
-				rotate={0}
-				color="white"
-				borderRadius={0}
-				animationDuration={0.3}
+		<Flex
+			px="4"
+			as="header"
+			h={headerHeight + 'px'}
+			alignItems="center"
+			justifyContent="center"
+			zIndex="1000"
+			bg="navy.900"
+			w={'100%'}
+			maxW="container.lg"
+		>
+			<Image
+				src="/snx.svg"
+				htmlWidth={200}
+				htmlHeight={10}
+				onClick={() => push('/')}
+				cursor="pointer"
 			/>
+			<Show below="md">
+				<Box
+					userSelect="none"
+					left="20px"
+					top="30px"
+					position={isOpen ? 'fixed' : 'absolute'}
+					zIndex="999"
+				>
+					<HamburgerMenu
+						isOpen={isOpen}
+						menuClicked={clickMenu}
+						width={22}
+						height={16}
+						strokeWidth={2}
+						rotate={0}
+						color="white"
+						borderRadius={0}
+						animationDuration={0.3}
+					/>
+				</Box>
+			</Show>
 			<Menu
 				navDocs={navDocs}
 				subOpen={subOpen}
@@ -45,35 +69,8 @@ const HeaderComponent = (props: any) => {
 				isOpen={isOpen}
 				data-test-id="header-menu"
 			/>
-		</StyledHeader>
+		</Flex>
 	);
-};
+}
 
-export const headerHeight = 100;
-const StyledImage = styled(Image)`
-	cursor: pointer;
-`;
-
-const StyledHeader = styled.header`
-	display: flex;
-	height: ${headerHeight}px;
-	align-items: center;
-	width: space-between;
-	z-index: 1000;
-`;
-
-const StyledHamburgerMenu = styled(HamburgerMenu)`
-	display: none;
-
-	${media.lessThan('medium')`
-		display: block;
-		cursor: pointer;
-		user-select: none;
-		left: 20px;
-		top: 39px;
-		position: ${(props) => ((props as any).isOpen ? 'fixed' : 'absolute')} !important;
-		z-index: 999;
-	`}
-`;
-
-export default HeaderComponent;
+export const headerHeight = 80;

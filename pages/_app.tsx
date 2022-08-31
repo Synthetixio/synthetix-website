@@ -7,6 +7,8 @@ import { GlobalStyle } from '../src/styles/globals';
 import smoothscroll from 'smoothscroll-polyfill';
 import 'react-responsive-modal/styles.css';
 import '../src/components/modal.css';
+import { ChakraProvider } from '@chakra-ui/react';
+import { theme as chakraTheme } from '@synthetixio/v3-theme';
 
 export default class MyApp extends App {
 	componentDidMount() {
@@ -84,7 +86,9 @@ export default class MyApp extends App {
 					<meta name="og:image" content="/public/logo-x.png" />
 				</Head>
 				<GlobalStyle />
-				<Component {...pageProps} />
+				<ChakraProvider theme={chakraTheme}>
+					<Component {...pageProps} />
+				</ChakraProvider>
 			</ThemeProvider>
 		);
 	}

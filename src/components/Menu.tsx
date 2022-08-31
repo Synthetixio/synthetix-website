@@ -8,6 +8,8 @@ import { useRouter } from 'next/router';
 import { theme } from '../styles/theme';
 import { ExternalLink } from '../styles/common';
 import { SubMenu } from '.';
+import { Flex } from '@chakra-ui/react';
+import { PropsWithChildren } from 'react';
 
 interface MenuProps {
 	isOpen?: boolean;
@@ -78,7 +80,7 @@ const MenuComponent = ({ isHeader, isOpen, subOpen, navDocs, ...rest }: MenuProp
 
 	return (
 		<>
-			<StyledMenu isOpen={!!isOpen} {...rest}>
+			<MenuContainer {...rest} isOpen={!!isOpen}>
 				{data.map((item) => {
 					if (isHeader) {
 						return (
@@ -148,7 +150,7 @@ const MenuComponent = ({ isHeader, isOpen, subOpen, navDocs, ...rest }: MenuProp
 				})}
 
 				{subOpen && <SubMenu navDocs={navDocs} />}
-			</StyledMenu>
+			</MenuContainer>
 			<StyledSearch isOpen={!!isOpen} {...rest}>
 				<Search />
 			</StyledSearch>
@@ -156,31 +158,35 @@ const MenuComponent = ({ isHeader, isOpen, subOpen, navDocs, ...rest }: MenuProp
 	);
 };
 
-export const StyledMenu = styled.ul<{ isOpen: boolean }>`
-	transition: left 0.3s ease-out;
-	z-index: 101;
-	display: flex;
-	justify-content: right;
-	flex-wrap: wrap;
-	transition: all 250ms linear;
-	width: inherit;
-
-	${media.lessThan<{ isOpen: boolean }>('medium')`
-		position: fixed;
-		display: flex;
-		flex-direction: column;
-		justify-content: start;
-		flex-wrap: nowrap;
-		top: 0;
-		padding-top: 100px;
-		left: -100%;
-		width: 100%;
-		height: 100%;
-		overflow: scroll;
-		background: linear-gradient(180deg, #08021E 0%, #120446 146.21%);
-		${({ isOpen }) => (isOpen ? 'left: 0;' : 'left: -100%;')}
-	`}
-`;
+export const MenuContainer = ({
+	children,
+	isOpen,
+	...rest
+}: PropsWithChildren<{ isOpen?: boolean }>) => {
+	return (
+		<Flex
+			as="ul"
+			position={{ base: 'fixed', md: 'initial' }}
+			zIndex="101"
+			justifyContent={{ base: 'flex-start', md: 'right' }}
+			wrap={{ md: 'wrap', base: 'nowrap' }}
+			top="0px"
+			padding={{ base: '100px', md: 'unset' }}
+			transition="all 250ms linear"
+			w="100%"
+			height={{ base: '100%', md: 'auto' }}
+			overflow={{ base: 'scroll', md: 'visible' }}
+			background={{
+				base: 'linear-gradient(180deg, #08021E 0%, #120446 146.21%)',
+				md: 'transparent',
+			}}
+			left={{ base: isOpen ? '0' : '-100%' }}
+			{...rest}
+		>
+			{children}
+		</Flex>
+	);
+};
 
 const MenuItem = styled.li<{ subOpen: boolean }>`
 	display: inline-block;

@@ -1,12 +1,12 @@
 import styled from 'styled-components';
 import media from 'styled-media-query';
-import { FlexDivColCentered } from 'src/styles/common';
 import { Header } from '..';
 import Sidebar from '../Sidebar';
 import BuildFooter from '../Build/BuildFooter';
 import GuidesHeader from './GuidesHeader';
 import { PropsWithChildren } from 'react';
 import { OrderedDoc } from '../Build/BuildPageLayout';
+import { Flex } from '@chakra-ui/react';
 
 const OutWrapper = styled.div`
 	width: 100%;
@@ -63,7 +63,7 @@ export default function GuidesPageLayout({
 		items: navDocs,
 	};
 	return (
-		<FlexDivColCentered>
+		<Flex direction="column" alignItems="center" bg="navy.900">
 			<Header navDocs={subMenu} navShort={true} />
 			<OutWrapper>
 				<ContentWrapper>
@@ -77,6 +77,6 @@ export default function GuidesPageLayout({
 					</MainContent>
 				</ContentWrapper>
 			</OutWrapper>
-		</FlexDivColCentered>
+		</Flex>
 	);
 }
