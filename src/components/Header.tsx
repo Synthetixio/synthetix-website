@@ -30,7 +30,7 @@ export default function Header(props: any) {
 			alignItems="center"
 			justifyContent="center"
 			zIndex="1000"
-			bg="navy.900"
+			bg="transparent"
 			w={'100%'}
 			maxW="container.lg"
 		>
