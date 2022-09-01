@@ -231,7 +231,7 @@ const MenuBtn = styled.li<{ subOpen: boolean; border: boolean }>`
 	box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.9);
 	border-radius: 30px;
 	text-align: center;
-	padding: 10px 25px;
+	padding: 10px 20px;
 	a {
 		${theme.fonts.menu};
 		${({ border }) => (border ? 'color:#00d1ff;' : '')}
