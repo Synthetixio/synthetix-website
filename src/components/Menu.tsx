@@ -137,7 +137,7 @@ const MenuComponent = ({ isHeader, isOpen, subOpen, navDocs, ...rest }: MenuProp
 										</Link>
 									) : (
 										<ExternalLink href={item.externalLink} key={item.label}>
-											{item.label}{' '}
+											{item.label}
 											<span>
 												<ImArrowUpRight2 />
 											</span>
@@ -168,7 +168,7 @@ export const MenuContainer = ({
 			as="ul"
 			position={{ base: 'fixed', md: 'initial' }}
 			zIndex="101"
-			justifyContent={{ base: 'flex-start', md: 'right' }}
+			justifyContent={{ base: 'flex-start', md: 'center' }}
 			wrap={{ md: 'wrap', base: 'nowrap' }}
 			top="0px"
 			padding={{ base: '100px', md: 'unset' }}
