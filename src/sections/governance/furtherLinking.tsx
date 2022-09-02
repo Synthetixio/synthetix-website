@@ -16,7 +16,7 @@ export default function FurtherLinking() {
 					</StyledLinkButtons>
 				</StyledButtonWrapperLinearGradient>
 				<StyledButtonWrapperLinearGradient last>
-					<StyledLinkButtons href="https://gov.synthetix.io/#/" last>
+					<StyledLinkButtons href="https://governance.synthetix.io" last>
 						<StyledSmallButtonLabel>GO TO</StyledSmallButtonLabel>
 						<StyledLargeButtonLabel>Governance</StyledLargeButtonLabel>
 						<StyledRightArrow fill="cyan" />

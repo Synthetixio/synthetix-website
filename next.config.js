@@ -14,6 +14,9 @@ module.exports = {
 	async generateBuildId() {
 		return execSync(lastCommitCommand).toString().trim();
 	},
+	async redirects() {
+		return [{ source: '/build/:slug', destination: '/', permanent: false }];
+	},
 	env: {
 		// Dynamic env variables
 		NEXT_PUBLIC_BUILD_TIME: date.toString(),
@@ -22,6 +25,9 @@ module.exports = {
 		NEXT_PUBLIC_APP_VERSION: packageJson.version,
 		NEXT_PUBLIC_MATOMO_URL: process.env.NEXT_PUBLIC_MATOMO_URL,
 		NEXT_PUBLIC_MATOMO_SITE_ID: process.env.NEXT_PUBLIC_MATOMO_SITE_ID,
+	},
+	images: {
+		domains: ['cdn.sanity.io'],
 	},
 	productionBrowserSourceMaps: true,
 	webpack5: true,

@@ -16,8 +16,54 @@ const animations = {
   `,
 };
 
+const rowMargins = css`
+	margin: 10px 0;
+`;
+
 export const theme = {
 	maxContentWidth: '1920px',
+	maxContentWidthBuild: '1350px',
+	pageBuilder: {
+		rows: css`
+			margin: 10px 0;
+		`,
+		h1: css`
+			font-family: 'Inter';
+			font-style: normal;
+			font-weight: 700;
+			font-size: 40px;
+			line-height: 44px;
+			color: #fff;
+			${rowMargins}
+		`,
+		h2: css`
+			font-family: 'Inter';
+			font-style: normal;
+			font-weight: 700;
+			font-size: 32px;
+			line-height: 35.2px;
+			color: #fff;
+			${rowMargins}
+		`,
+		h3: css`
+			font-family: Inter;
+			font-style: normal;
+			font-weight: bold;
+			font-size: 24px;
+			line-height: 26.4px;
+			color: #fff;
+			${rowMargins}
+		`,
+		h4: css`
+			font-family: Inter;
+			font-style: normal;
+			font-weight: bold;
+			font-size: 18px;
+			line-height: 19.8px;
+			color: #fff;
+			${rowMargins}
+		`,
+	},
 	colors: {
 		white: '#FFFFFF',
 

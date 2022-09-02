@@ -1,0 +1,38 @@
+import styled from 'styled-components';
+import media from 'styled-media-query';
+import SideBarItem from './SideBarItem';
+import Socials from './Socials';
+
+const SidebarContainer = styled.div`
+	flex-basis: 300px;
+	flex-grow: 1;
+	padding: 30px;
+	border-right: 1px rgba(130, 130, 149, 0.3) solid;
+
+	${media.lessThan('medium')`
+                display: none;
+        `}
+`;
+
+const SocialWrap = styled.div`
+	position: absolute;
+	bottom: 20px;
+	svg * {
+		fill: #00d1ff !important;
+	}
+`;
+
+export default function Sidebar(props: any) {
+	const { navDocs, subSlug } = props;
+
+	return (
+		<SidebarContainer>
+			{navDocs.map((item: any, i: number) => (
+				<SideBarItem subSlug={subSlug} props={item} key={i} />
+			))}
+			<SocialWrap>
+				<Socials />
+			</SocialWrap>
+		</SidebarContainer>
+	);
+}

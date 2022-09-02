@@ -15,7 +15,6 @@ const SynthsInfo = ({ l1, l2 }: SynthsProps) => {
 	};
 
 	const { synths, exchangeInfo, dictionarySynthStatus } = showL2 ? l2 : l1;
-
 	synths.forEach((synth) => {
 		const category = synth.category.toLowerCase();
 		if (!filteredSynths[category]) {

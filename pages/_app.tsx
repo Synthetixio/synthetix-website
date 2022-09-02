@@ -5,6 +5,8 @@ import { init } from '@socialgouv/matomo-next';
 import { theme } from '../src/styles/theme';
 import { GlobalStyle } from '../src/styles/globals';
 import smoothscroll from 'smoothscroll-polyfill';
+import 'react-responsive-modal/styles.css';
+import '../src/components/modal.css';
 
 export default class MyApp extends App {
 	componentDidMount() {

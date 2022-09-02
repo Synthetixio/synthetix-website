@@ -2,25 +2,31 @@ import { useState, useEffect } from 'react';
 import styled from 'styled-components';
 import media from 'styled-media-query';
 import HamburgerMenu from 'react-hamburger-menu';
-import { Logo, Menu } from './';
+import { Menu } from './';
+import { useRouter } from 'next/router';
+import Image from 'next/image';
 
-const HeaderComponent = () => {
+const HeaderComponent = (props: any) => {
+	const { navDocs } = props || null;
 	const [isOpen, setIsOpen] = useState<boolean>(false);
-
+	const [subOpen, setSubOpen] = useState<boolean>(false);
+	const { push } = useRouter();
 	useEffect(() => {
 		if (isOpen) {
 			document.body.classList.add('fixed');
 		} else {
 			document.body.classList.remove('fixed');
 		}
-	}, [isOpen]);
+		setSubOpen(navDocs ? true : false);
+	}, [isOpen, navDocs]);
 
 	const clickMenu = () => {
 		setIsOpen(!isOpen);
 	};
 
 	return (
-		<Header data-test-id="header">
+		<StyledHeader>
+			<StyledImage src="/snx.svg" width={274} height={12} onClick={() => push('/')} />
 			<StyledHamburgerMenu
 				isOpen={isOpen}
 				menuClicked={clickMenu}
@@ -32,34 +38,28 @@ const HeaderComponent = () => {
 				borderRadius={0}
 				animationDuration={0.3}
 			/>
-			<Logo />
-			<Menu isHeader={true} isOpen={isOpen} data-test-id="header-menu" />
-		</Header>
+			<Menu
+				navDocs={navDocs}
+				subOpen={subOpen}
+				isHeader={true}
+				isOpen={isOpen}
+				data-test-id="header-menu"
+			/>
+		</StyledHeader>
 	);
 };
 
 export const headerHeight = 100;
+const StyledImage = styled(Image)`
+	cursor: pointer;
+`;
 
-const Header = styled.header`
-	${({ theme }) => theme.animations.show};
-	max-width: ${({ theme }) => theme.maxContentWidth};
-	animation-delay: 200ms;
-	opacity: 0;
-	height: ${headerHeight}px;
-	width: 100%;
-	padding: 0 56px;
-	position: relative;
-	z-index: 100;
+const StyledHeader = styled.header`
 	display: flex;
+	height: ${headerHeight}px;
 	align-items: center;
-	justify-content: space-between;
-	border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-
-	${media.lessThan('medium')`
-		border-bottom: 0;
-		padding: 0 20px;
-		justify-content: center;
-	`}
+	width: space-between;
+	z-index: 1000;
 `;
 
 const StyledHamburgerMenu = styled(HamburgerMenu)`
@@ -75,4 +75,5 @@ const StyledHamburgerMenu = styled(HamburgerMenu)`
 		z-index: 999;
 	`}
 `;
+
 export default HeaderComponent;

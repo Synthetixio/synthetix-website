@@ -1,7 +1,7 @@
 type LogoProps = { readonly small?: boolean };
 
 const LogoComponent = ({ small }: LogoProps) => {
-	const src = small ? '/logo-x.svg' : 'logo.svg';
+	const src = small ? '/logo-x.svg' : '/logo.svg';
 
 	return (
 		<a href="/">
