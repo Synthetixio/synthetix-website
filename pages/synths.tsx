@@ -77,9 +77,8 @@ const Synths = ({ l1, l2 }: SynthsProps) => (
 					<SectionTitle>Synths</SectionTitle>
 					<StyledPageCopy>
 						Synths are derivative tokens providing exposure to a range of assets. They can be traded
-						with infinite liquidity and zero slippage by leveraging the Synthetix protocol’s unique
-						pooled collateral model. Trades between Synths generate a small fee that is distributed
-						to SNX collateral providers.
+						by leveraging the Synthetix protocol’s unique pooled collateral model. Trades between
+						Synths generate a small fee that is distributed to SNX collateral providers.
 					</StyledPageCopy>
 					<SynthsInfo {...{ l1, l2 }} />
 				</SynthsSection>
