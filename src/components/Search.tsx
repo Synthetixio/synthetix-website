@@ -2,7 +2,6 @@ import { useState } from 'react';
 import styled from 'styled-components';
 import { IconContext } from 'react-icons';
 import { BiSearchAlt2 } from 'react-icons/bi';
-import { Modal } from 'react-responsive-modal';
 import {
 	InstantSearch,
 	connectSearchBox,
@@ -12,6 +11,7 @@ import {
 	connectStateResults,
 } from 'react-instantsearch-dom';
 import Link from 'next/link';
+import { Modal } from '@chakra-ui/react';
 
 import { algolia } from '../../src/lib/algolia';
 
@@ -111,15 +111,7 @@ const Search = () => {
 				</IconContext.Provider>
 			</SearchIcon>
 
-			<Modal
-				open={open}
-				onClose={onCloseModal}
-				showCloseIcon={false}
-				classNames={{
-					overlay: 'customOverlay',
-					modal: 'customModal',
-				}}
-			>
+			<Modal isOpen={open} onClose={onCloseModal}>
 				<StyledModal>
 					<InstantSearch searchClient={algolia} indexName="pages">
 						<Configure

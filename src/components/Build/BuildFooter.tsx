@@ -1,11 +1,9 @@
 import styled from 'styled-components';
 import media from 'styled-media-query';
-import { useRouter } from 'next/router'
-import { ButtonCard } from '@synthetixio/ui';
+import { useRouter } from 'next/router';
 
 import { Line } from 'src/styles/common';
 import { OrderedDoc } from './BuildPageLayout';
-
 
 const BuildFooterContainer = styled.div`
 	display: flex;
@@ -21,16 +19,13 @@ const Row = styled.div`
 	flex-wrap: wrap;
 	width: 100%;
 	justify-content: center;
-
 `;
-
 
 const Box = styled.div`
 	display: flex;
 	flex-direction: column;
 	flex-basis: 100%;
 	flex: 1;
-	
 
 	span {
 		font-family: Inter;
@@ -40,16 +35,16 @@ const Box = styled.div`
 		text-transform: uppercase;
 		color: #828295;
 	}
-	h3{
+	h3 {
 		font-family: Inter;
 		font-style: normal;
 		font-weight: bold;
 		font-size: 18px;
 		line-height: 24px;
 		text-transform: capitalize;
-		color: #FFFFFF;
+		color: #ffffff;
 	}
-	
+
 	${media.lessThan('large')`
 		flex: 1 1 2000px;
 	`};
@@ -68,47 +63,38 @@ const Updated = styled.div`
 
 interface BuildFooterProps {
 	nextDoc?: OrderedDoc;
-	prevDoc?:OrderedDoc;
-	updatedAt:string;
-};
+	prevDoc?: OrderedDoc;
+	updatedAt: string;
+}
 
-export default function BuildFooter({nextDoc, prevDoc, updatedAt}: BuildFooterProps) {
+export default function BuildFooter({ nextDoc, prevDoc, updatedAt }: BuildFooterProps) {
 	const lastUpdated = new Date(updatedAt);
 
 	const router = useRouter();
 	const handleClick = (path: string) => router.push(path);
 
 	return (
-
 		<BuildFooterContainer>
-			{prevDoc && 
-				<Box style={{'marginRight': '3px'}} onClick={(e) => handleClick(prevDoc.slug.current)}>
+			{prevDoc && (
+				<Box style={{ marginRight: '3px' }} onClick={(e) => handleClick(prevDoc.slug.current)}>
 					<Row>
-						<ButtonCard
-						arrowDirection="left"
-						headline={prevDoc.title}
-						subline={prevDoc.cat}
-					/>
+						<Box arrowDirection="left" headline={prevDoc.title} subline={prevDoc.cat} />
 					</Row>
 				</Box>
-			}
-			{nextDoc && 
-				<Box style={{'marginLeft': '3px'}} onClick={(e) => handleClick(nextDoc.slug.current)}>
+			)}
+			{nextDoc && (
+				<Box style={{ marginLeft: '3px' }} onClick={(e) => handleClick(nextDoc.slug.current)}>
 					<Row>
-						<ButtonCard
-						arrowDirection="right"
-						headline={nextDoc.title}
-						subline={nextDoc.cat}
-					/>
+						<Box arrowDirection="right" headline={nextDoc.title} subline={nextDoc.cat} />
 					</Row>
 				</Box>
-			}
-	
+			)}
+
 			<Line showOnMobile />
-			<Updated>Last updated: {lastUpdated.getUTCDate()}/{lastUpdated.getUTCMonth()+1}/{lastUpdated.getUTCFullYear()}</Updated>
-		
+			<Updated>
+				Last updated: {lastUpdated.getUTCDate()}/{lastUpdated.getUTCMonth() + 1}/
+				{lastUpdated.getUTCFullYear()}
+			</Updated>
 		</BuildFooterContainer>
-		
-					
 	);
 }
