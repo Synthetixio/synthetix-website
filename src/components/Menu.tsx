@@ -40,12 +40,12 @@ const MenuComponent = ({ isHeader, isOpen, subOpen, navDocs, ...rest }: MenuProp
 		// 	label: 'build',
 		// 	hideOnHeader: false,
 		// },
-		{
-			link: '/guides',
-			label: 'guides',
-			hideOnHeader: false,
-			subMenu: (navDocs && navDocs.label === 'guides' && navDocs) || null,
-		},
+		// {
+		// 	link: '/guides',
+		// 	label: 'guides',
+		// 	hideOnHeader: false,
+		// 	subMenu: (navDocs && navDocs.label === 'guides' && navDocs) || null,
+		// },
 		{
 			link: '/governance',
 			label: 'governance',
@@ -149,9 +149,9 @@ const MenuComponent = ({ isHeader, isOpen, subOpen, navDocs, ...rest }: MenuProp
 
 				{subOpen && <SubMenu navDocs={navDocs} />}
 			</StyledMenu>
-			<StyledSearch isOpen={!!isOpen} {...rest}>
+			{/* <StyledSearch isOpen={!!isOpen} {...rest}>
 				<Search />
-			</StyledSearch>
+			</StyledSearch> */}
 		</>
 	);
 };
