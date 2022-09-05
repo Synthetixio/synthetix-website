@@ -28,13 +28,13 @@
 		"@sanity/image-url": "^1.0.1",
 		"@socialgouv/matomo-next": "1.2.2",
 		"@synthetixio/contracts-interface": "^2.74.3",
-		"@synthetixio/v3-theme": "dev",
+		"@synthetixio/v3-theme": "0.0.0-01e37f40",
 		"@vercel/node": "^1.14.0",
 		"algoliasearch": "^4.13.0",
 		"axios": "0.23.0",
 		"bignumber.js": "9.0.1",
 		"ethers": "5.6.9",
-		"framer-motion": "^6",
+		"framer-motion": "^7",
 		"jsonpath": "^1.1.1",
 		"lodash": "4.17.21",
 		"next": "^12.2.5",
@@ -56,7 +56,7 @@
 		"smoothscroll-polyfill": "^0.4.4",
 		"styled-components": "5.1.1",
 		"styled-media-query": "2.1.2",
-		"styled-reset": "4.2.2"
+		"styled-reset": "^4.4.2"
 	},
 	"devDependencies": {
 		"@babel/eslint-parser": "^7.18.9",
