@@ -1,16 +1,11 @@
 import styled from 'styled-components';
 import Link from 'next/link';
-
-const TagsWrapper = styled.div`
-	clear: both;
-	display: inline-block;
-`;
+import { Box } from '@chakra-ui/react';
 
 const Tag = styled.div<{ color: any }>`
 	float: left;
-	border: 1px solid ${(p) => p.color.hex};
+	border: 1px solid ${p => p.color.hex};
 	padding: 5px 6px;
-	margin-left: 5px;
 	font-family: 'Inter';
 	font-style: normal;
 	font-weight: bold;
@@ -18,8 +13,8 @@ const Tag = styled.div<{ color: any }>`
 	line-height: 5px;
 	text-transform: uppercase;
 	border-radius: 2px;
-	color: ${(p) => p.color.hex};
-	background-color: ${(p) => p.color.hex}40;
+	color: ${p => p.color.hex};
+	background-color: ${p => p.color.hex}40;
 
 	:hover {
 		cursor: pointer;
@@ -28,23 +23,24 @@ const Tag = styled.div<{ color: any }>`
 `;
 
 interface TagsProps {
-	tags: any;
+	tags: { slug: { current: string }; color: string }[];
 }
 
 export function Tags({ tags }: TagsProps) {
 	if (tags) {
 		return (
-			<TagsWrapper>
-				{tags.map((tag: any, index: number) => (
+			<Box>
+				{tags.map((tag, index: number) => (
 					<Link key={index} href={`/guides/tag/${tag.slug.current}`}>
 						<Tag color={tag.color} key={index}>
 							{tag.slug.current}
 						</Tag>
 					</Link>
 				))}
-			</TagsWrapper>
+			</Box>
 		);
-	} else return null;
+	}
+	return null;
 }
 
 export default Tags;

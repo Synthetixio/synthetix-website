@@ -11,6 +11,7 @@ import Tags from '../Guides/Tags';
 import { client } from '../../lib/sanity';
 import { theme } from '../../styles/theme';
 import { OrderedDoc } from '../Build/BuildPageLayout';
+import { Flex, Heading, Text } from '@chakra-ui/react';
 
 const OutWrapper = styled.div`
 	width: 100%;
@@ -43,58 +44,8 @@ const MainContent = styled.div`
 		${theme.pageBuilder.h1};
 		margin-top: 25px;
 	}
-
-	h2 {
-		${theme.pageBuilder.h2};
-		margin-bottom: 25px;
-	}
 `;
 
-const CarouselItem = styled.div`
-	margin: 0px 10px;
-	text-align: center;
-	background: #0b0b22;
-	box-shadow: 0px 14px 14px rgba(0, 0, 0, 0.25);
-	border-radius: 5px;
-	padding: 10px;
-	cursor: pointer;
-	display: flex;
-	align-items: center;
-	justify-content: flex-start;
-	margin-bottom: 10px;
-`;
-
-const Left = styled.div`
-	display: flex;
-	justify-content: space-between;
-	align-items: center;
-`;
-
-const Right = styled.div`
-	display: block;
-	align-items: left;
-	justify-content: left;
-	text-align: left;
-	margin-left: 15px;
-
-	* {
-		margin-bottom: 5px;
-	}
-`;
-
-const Title = styled.div`
-	font-family: 'Inter';
-	font-style: normal;
-	font-weight: 700;
-	font-size: 14px;
-	color: #fff;
-`;
-const Intro = styled.div``;
-
-const Figure = styled.figure`
-	img {
-	}
-`;
 export interface GuideItemProps {
 	icon: string;
 	slug: { current: string };
@@ -106,18 +57,22 @@ function GuideItem({ icon, slug, tags, title, introText }: GuideItemProps) {
 	const imageProps = useNextSanityImage(client, icon);
 	return (
 		<Link href={`/guides/${slug.current}`}>
-			<CarouselItem>
-				<Left>
-					<Figure>
-						<Img {...imageProps} layout="fixed" width={100} height={100} />
-					</Figure>
-				</Left>
-				<Right>
-					<Title>{title}</Title>
-					<Intro>{introText}</Intro>
+			<Flex
+				alignItems="center"
+				cursor="pointer"
+				padding="2.5"
+				borderRadius="base"
+				boxShadow="base"
+				background="navy.900"
+				margin="4"
+			>
+				<Img {...imageProps} layout="fixed" width={100} height={100} />
+				<Flex direction="column" ml="4" gap="2">
+					<Heading size="md">{title}</Heading>
+					<Text>{introText}</Text>
 					<Tags tags={tags} />
-				</Right>
-			</CarouselItem>
+				</Flex>
+			</Flex>
 		</Link>
 	);
 }
