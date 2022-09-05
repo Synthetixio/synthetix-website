@@ -1,4 +1,4 @@
-import { ArrowLinkOffIcon, LinkButton, theme, Card, Flex } from '@synthetixio/ui';
+// import { ArrowLinkOffIcon, LinkButton, theme, Card, Flex } from '@synthetixio/ui';
 import Head from 'next/head';
 import React from 'react';
 import { Header } from 'src/components';
@@ -23,8 +23,9 @@ function LinnSandstrom() {
 				></script>
 			</Head>
 			<Header />
+			{/*
 			<StyledHeader>
-				<H1>LINN SANDSTROM</H1>
+			 <H1>LINN SANDSTROM</H1>
 				<StyledText>
 					Synthetix is proud to welcome Linn as our latest Spartan and we’re excited to support her
 					in her upcoming title match. Learn more about her fight, why we’re sponsoring her, and our
@@ -122,7 +123,7 @@ function LinnSandstrom() {
 						</StyledCardContent>
 					</StyledCard>
 				</StyledCardContainer>
-			</StyledMain>
+			</StyledMain> */}
 		</>
 	);
 }
@@ -226,46 +227,46 @@ const StyledSubline = styled(Text)`
 	margin-bottom: 20px;
 `;
 
-const StyledMain = styled.main`
-	display: flex;
-	flex-direction: column;
-	align-items: center;
-	padding: 72px;
-	background-color: ${theme.colors.backgroundColor};
-	@media (max-width: 1000px) {
-		padding: 20px;
-	}
-`;
+// const StyledMain = styled.main`
+// 	display: flex;
+// 	flex-direction: column;
+// 	align-items: center;
+// 	padding: 72px;
+// 	background-color: ${theme.colors.backgroundColor};
+// 	@media (max-width: 1000px) {
+// 		padding: 20px;
+// 	}
+// `;
 
-const StyledCardContainer = styled.div`
-	display: flex;
-	flex-wrap: wrap;
-	justify-content: center;
-	max-width: 1000px;
-`;
+// const StyledCardContainer = styled.div`
+// 	display: flex;
+// 	flex-wrap: wrap;
+// 	justify-content: center;
+// 	max-width: 1000px;
+// `;
 
-const StyledCardContent = styled(Flex)`
-	background-color: ${theme.colors.backgroundColor};
-	height: 99%;
-	color: #828295;
-	border-radius: 5px;
-	margin: 1px;
-	> * {
-		margin: 10px;
-	}
-`;
+// const StyledCardContent = styled(Flex)`
+// 	background-color: ${theme.colors.backgroundColor};
+// 	height: 99%;
+// 	color: #828295;
+// 	border-radius: 5px;
+// 	margin: 1px;
+// 	> * {
+// 		margin: 10px;
+// 	}
+// `;
 
-const StyledCard = styled(Card)`
-	width: 470px;
-	height: 210px;
-	margin: 10px;
-	@media (max-width: 500px) {
-		width: 320px;
-	}
-`;
+// const StyledCard = styled(Card)`
+// 	width: 470px;
+// 	height: 210px;
+// 	margin: 10px;
+// 	@media (max-width: 500px) {
+// 		width: 320px;
+// 	}
+// `;
 
-const StyledLinkButton = styled(LinkButton)`
-	align-self: flex-end;
-`;
+// const StyledLinkButton = styled(LinkButton)`
+// 	align-self: flex-end;
+// `;
 
 export default LinnSandstrom;

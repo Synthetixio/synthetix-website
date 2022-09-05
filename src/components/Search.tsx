@@ -2,15 +2,7 @@ import { useState } from 'react';
 import styled from 'styled-components';
 import { IconContext } from 'react-icons';
 import { BiSearchAlt2 } from 'react-icons/bi';
-import { Modal } from 'react-responsive-modal';
-import {
-	InstantSearch,
-	connectSearchBox,
-	connectHits,
-	Configure,
-	connectHighlight,
-	connectStateResults,
-} from 'react-instantsearch-dom';
+import { Modal } from '@chakra-ui/react';
 import Link from 'next/link';
 
 import { algolia } from '../../src/lib/algolia';
@@ -35,7 +27,7 @@ const Snippet = ({ highlight, attribute, hit }: any) => {
 	);
 };
 
-const CustomSnippet = connectHighlight(Snippet);
+// const CustomSnippet = connectHighlight(Snippet);
 
 const SearchBox = ({ currentRefinement, refine }: any) => {
 	return (
@@ -57,16 +49,16 @@ const SearchBox = ({ currentRefinement, refine }: any) => {
 	);
 };
 
-const Results = connectStateResults(({ searchState, searchResults, children }: any) => {
-	if (searchState.query === undefined || searchState.query === '') {
-		return null;
-	}
-	return searchResults && searchResults.nbHits !== 0 && searchState.query !== '' ? (
-		children
-	) : (
-		<p>Query returned no results</p>
-	);
-});
+// const Results = connectStateResults(({ searchState, searchResults, children }: any) => {
+// 	if (searchState.query === undefined || searchState.query === '') {
+// 		return null;
+// 	}
+// 	return searchResults && searchResults.nbHits !== 0 && searchState.query !== '' ? (
+// 		children
+// 	) : (
+// 		<p>Query returned no results</p>
+// 	);
+// });
 
 const Hits = ({ hits }: any) => (
 	<AllResults>
@@ -81,9 +73,7 @@ const Hits = ({ hits }: any) => (
 				<Link key={hit.objectID} href={path}>
 					<SearchResult>
 						<h1>{hit.title}</h1>
-						<p>
-							<CustomSnippet hit={hit} attribute="body" />
-						</p>
+						<p>{/* <CustomSnippet hit={hit} attribute="body" /> */}</p>
 						<p>{hit.type}</p>
 						<p>
 							Last updated: {lastUpdated.getUTCDate()}/{lastUpdated.getUTCMonth() + 1}/
@@ -96,53 +86,53 @@ const Hits = ({ hits }: any) => (
 	</AllResults>
 );
 
-const CustomHits: any = connectHits(Hits);
+// const CustomHits: any = connectHits(Hits);
 
-const CustomSearchBox: any = connectSearchBox(SearchBox);
-const Search = () => {
-	const [open, setOpen] = useState(false);
-	const onOpenModal = () => setOpen(true);
-	const onCloseModal = () => setOpen(false);
-	return (
-		<>
-			<SearchIcon onClick={onOpenModal}>
-				<IconContext.Provider value={{ color: '#ffffff', size: '30px' }}>
-					<BiSearchAlt2 onClick={onOpenModal} />
-				</IconContext.Provider>
-			</SearchIcon>
+// const CustomSearchBox: any = connectSearchBox(SearchBox);
+// const Search = () => {
+// 	const [open, setOpen] = useState(false);
+// 	const onOpenModal = () => setOpen(true);
+// 	const onCloseModal = () => setOpen(false);
+// 	return (
+// 		<>
+// 			<SearchIcon onClick={onOpenModal}>
+// 				<IconContext.Provider value={{ color: '#ffffff', size: '30px' }}>
+// 					<BiSearchAlt2 onClick={onOpenModal} />
+// 				</IconContext.Provider>
+// 			</SearchIcon>
 
-			<Modal
-				open={open}
-				onClose={onCloseModal}
-				showCloseIcon={false}
-				classNames={{
-					overlay: 'customOverlay',
-					modal: 'customModal',
-				}}
-			>
-				<StyledModal>
-					<InstantSearch searchClient={algolia} indexName="pages">
-						<Configure
-							attributesToSnippet={['body']}
-							hitsPerPage={10}
-							analytics={true}
-							enablePersonalization={false}
-							distinct
-						/>
-						<CustomSearchBox
-							onSubmit={(event: any) => event.preventDefault()}
-							autoFocus
-							showLoadingIndicator
-						/>
-						<Results>
-							<CustomHits onClick={onCloseModal} />
-						</Results>
-					</InstantSearch>
-				</StyledModal>
-			</Modal>
-		</>
-	);
-};
+// 			<Modal
+// 				open={open}
+// 				onClose={onCloseModal}
+// 				showCloseIcon={false}
+// 				classNames={{
+// 					overlay: 'customOverlay',
+// 					modal: 'customModal',
+// 				}}
+// 			>
+// 				<StyledModal>
+// 					<InstantSearch searchClient={algolia} indexName="pages">
+// 						<Configure
+// 							attributesToSnippet={['body']}
+// 							hitsPerPage={10}
+// 							analytics={true}
+// 							enablePersonalization={false}
+// 							distinct
+// 						/>
+// 						<CustomSearchBox
+// 							onSubmit={(event: any) => event.preventDefault()}
+// 							autoFocus
+// 							showLoadingIndicator
+// 						/>
+// 						<Results>
+// 							<CustomHits onClick={onCloseModal} />
+// 						</Results>
+// 					</InstantSearch>
+// 				</StyledModal>
+// 			</Modal>
+// 		</>
+// 	);
+// };
 
 const SearchIcon = styled.div`
 	display: inline-block;
@@ -241,4 +231,4 @@ const SearchResult = styled.div`
 	}
 `;
 
-export default Search;
+// export default Search;

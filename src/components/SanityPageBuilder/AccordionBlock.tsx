@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 import { PortableText } from '@portabletext/react';
-import { Accordion } from '@synthetixio/ui';
+//import { Accordion } from '@synthetixio/ui';
 
 import { Container } from './ContentBlock';
 
@@ -33,7 +33,7 @@ export function AccordionBlock({ accordions, body }: AccordionBlockProps) {
 			)}
 			{accordions.map((accordion, index) => (
 				<AccordionWrapper key={index}>
-					<Accordion
+					{/* <Accordion
 						key={accordion.heading.concat(index.toString())}
 						headerChildren={<AccordionTitle>{accordion.heading}</AccordionTitle>}
 						isOpen={false}
@@ -46,7 +46,7 @@ export function AccordionBlock({ accordions, body }: AccordionBlockProps) {
 						>
 							<PortableText value={accordion.body} />
 						</div>
-					</Accordion>
+					</Accordion> */}
 				</AccordionWrapper>
 			))}
 		</Wrapper>

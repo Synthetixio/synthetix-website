@@ -149,9 +149,9 @@ const MenuComponent = ({ isHeader, isOpen, subOpen, navDocs, ...rest }: MenuProp
 
 				{subOpen && <SubMenu navDocs={navDocs} />}
 			</StyledMenu>
-			<StyledSearch isOpen={!!isOpen} {...rest}>
+			{/* <StyledSearch isOpen={!!isOpen} {...rest}>
 				<Search />
-			</StyledSearch>
+			</StyledSearch> */}
 		</>
 	);
 };

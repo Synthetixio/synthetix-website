@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 import media from 'styled-media-query';
 import { useRouter } from 'next/router'
-import { ButtonCard } from '@synthetixio/ui';
+// import { ButtonCard } from '@synthetixio/ui';
 
 import { Line } from 'src/styles/common';
 import { OrderedDoc } from './BuildPageLayout';
@@ -84,22 +84,22 @@ export default function BuildFooter({nextDoc, prevDoc, updatedAt}: BuildFooterPr
 			{prevDoc && 
 				<Box style={{'marginRight': '3px'}} onClick={(e) => handleClick(prevDoc.slug.current)}>
 					<Row>
-						<ButtonCard
+						{/* <ButtonCard
 						arrowDirection="left"
 						headline={prevDoc.title}
 						subline={prevDoc.cat}
-					/>
-					</Row>
+			/> */}
+					</Row> 
 				</Box>
 			}
 			{nextDoc && 
 				<Box style={{'marginLeft': '3px'}} onClick={(e) => handleClick(nextDoc.slug.current)}>
 					<Row>
-						<ButtonCard
+						{/* <ButtonCard
 						arrowDirection="right"
 						headline={nextDoc.title}
 						subline={nextDoc.cat}
-					/>
+					/> */}
 					</Row>
 				</Box>
 			}
