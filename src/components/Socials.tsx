@@ -3,69 +3,47 @@ import Discord from '../svg/Discord';
 import Twitter from '../svg/Twitter';
 import Github from '../svg/Github';
 import Link from 'next/link';
-import media from 'styled-media-query';
+import { Flex } from '@chakra-ui/react';
 
-const data = [
-	{
-		link: 'https://discord.com/invite/AEdUHzt',
-		label: 'discord',
-		image: <Discord />,
-	},
-	{
-		link: 'https://twitter.com/synthetix_io',
-		label: 'twitter',
-		image: <Twitter />,
-	},
-	{
-		link: 'https://github.com/synthetixio',
-		label: 'github',
-		image: <Github />,
-	},
-];
+const Socials = ({ className, fill }: { fill: string; className?: string }) => {
+	const data = [
+		{
+			link: 'https://discord.com/invite/AEdUHzt',
+			label: 'discord',
+			image: <Discord fill={fill} />,
+		},
+		{
+			link: 'https://twitter.com/synthetix_io',
+			label: 'twitter',
+			image: <Twitter fill={fill} />,
+		},
+		{
+			link: 'https://github.com/synthetixio',
+			label: 'github',
+			image: <Github fill={fill} />,
+		},
+	];
 
-const Socials = ({ className }: React.PropsWithoutRef<JSX.IntrinsicElements['ul']>) => {
 	return (
-		<SocialsContainer className={className}>
-			{data.map((s) => (
-				<Social key={s.label}>
-					<Link href={s.link}>
-						<a target="_blank" rel="noopener noreferrer">
-							{s.image}
-						</a>
-					</Link>
-				</Social>
+		<Flex
+			as="ul"
+			className={className}
+			position="absolute"
+			bottom={{ base: '2px', md: '50px' }}
+			left="50%"
+			transform="translateX(-50%)"
+			alignItems="center"
+			gap="4"
+		>
+			{data.map(s => (
+				<Link href={s.link}>
+					<a target="_blank" rel="noopener noreferrer">
+						{s.image}
+					</a>
+				</Link>
 			))}
-		</SocialsContainer>
+		</Flex>
 	);
 };
 
-const SocialsContainer = styled.ul`
-	display: flex;
-	align-items: center;
-	justify-content: flex-start;
-
-	margin-left: 55px;
-
-	${media.lessThan('medium')`
-		margin-left: 0;
-	`}
-`;
-
-const Social = styled.li`
-	margin-right: 26px;
-
-	&:last-child {
-		margin-right: 0;
-	}
-
-	svg * {
-		transition: fill 0.3s ease-out;
-	}
-
-	&:hover {
-		svg * {
-			fill: ${(props) => props.theme.colors.cyan} !important;
-		}
-	}
-`;
 export default Socials;

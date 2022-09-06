@@ -1,38 +1,31 @@
-import styled from 'styled-components';
-import media from 'styled-media-query';
+import { Box, Hide } from '@chakra-ui/react';
+import { theme } from '@synthetixio/v3-theme';
+import { OrderedDoc } from './Build/BuildPageLayout';
 import SideBarItem from './SideBarItem';
 import Socials from './Socials';
 
-const SidebarContainer = styled.div`
-	flex-basis: 300px;
-	flex-grow: 1;
-	padding: 30px;
-	border-right: 1px rgba(130, 130, 149, 0.3) solid;
-
-	${media.lessThan('medium')`
-                display: none;
-        `}
-`;
-
-const SocialWrap = styled.div`
-	position: absolute;
-	bottom: 20px;
-	svg * {
-		fill: #00d1ff !important;
-	}
-`;
-
-export default function Sidebar(props: any) {
-	const { navDocs, subSlug } = props;
-
+export default function Sidebar({
+	navDocs,
+	subSlug,
+}: {
+	navDocs: OrderedDoc[];
+	subSlug: string;
+}) {
 	return (
-		<SidebarContainer>
-			{navDocs.map((item: any, i: number) => (
-				<SideBarItem subSlug={subSlug} props={item} key={i} />
-			))}
-			<SocialWrap>
-				<Socials />
-			</SocialWrap>
-		</SidebarContainer>
+		<Hide below="md">
+			<Box
+				maxW="300px"
+				p="10"
+				borderRight="1px solid"
+				borderRightColor="gray.900"
+				minW="300px"
+				position="relative"
+			>
+				{navDocs.map((item: any, i: number) => (
+					<SideBarItem subSlug={subSlug} props={item} key={i} />
+				))}
+				<Socials fill={theme.colors.cyan[500]} />
+			</Box>
+		</Hide>
 	);
 }
