@@ -118,30 +118,32 @@ const MenuComponent = ({ isHeader, isOpen, subOpen, navDocs, ...rest }: MenuProp
 					if (isHeader) {
 						return (
 							item.button && (
-								<MenuBtn
-									key={item.label}
-									border={item.label === 'staking' ? true : false}
-									subOpen={!!subOpen}
-									{...rest}
-								>
-									{item.link ? (
-										<Link href={item.link}>
+								<ExternalLink href={item.externalLink} key={item.label}>
+									<MenuBtn
+										key={item.label}
+										border={item.label === 'staking' ? true : false}
+										subOpen={!!subOpen}
+										{...rest}
+									>
+										{item.link ? (
+											<Link href={item.link}>
+												<a>
+													{item.label}
+													<span>
+														<ImArrowUpRight2 />
+													</span>
+												</a>
+											</Link>
+										) : (
 											<a>
 												{item.label}
 												<span>
 													<ImArrowUpRight2 />
 												</span>
 											</a>
-										</Link>
-									) : (
-										<ExternalLink href={item.externalLink} key={item.label}>
-											{item.label}{' '}
-											<span>
-												<ImArrowUpRight2 />
-											</span>
-										</ExternalLink>
-									)}
-								</MenuBtn>
+										)}
+									</MenuBtn>
+								</ExternalLink>
 							)
 						);
 					}
@@ -161,6 +163,7 @@ export const StyledMenu = styled.ul<{ isOpen: boolean }>`
 	z-index: 101;
 	display: flex;
 	justify-content: right;
+	align-items: center;
 	flex-wrap: wrap;
 	transition: all 250ms linear;
 	width: inherit;
@@ -221,7 +224,7 @@ const StyledSearch = styled.div<{ isOpen: boolean }>`
     `}
 `;
 
-const MenuBtn = styled.li<{ subOpen: boolean; border: boolean }>`
+const MenuBtn = styled.button<{ subOpen: boolean; border: boolean }>`
 	display: inline-block;
 	margin: 0 10px;
 	background: linear-gradient(0deg, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)),
@@ -231,14 +234,14 @@ const MenuBtn = styled.li<{ subOpen: boolean; border: boolean }>`
 	box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.9);
 	border-radius: 30px;
 	text-align: center;
-	padding: 10px 20px;
+	cursor: pointer;
+	padding: 0px 20px;
+	height: 35px;
+
 	a {
 		${theme.fonts.menu};
 		${({ border }) => (border ? 'color:#00d1ff;' : '')}
 		transition: color 0.3s ease-out;
-		&:hover {
-			color: ${theme.colors.cyan};
-		}
 	}
 	span {
 		margin-left: 10px;
@@ -252,6 +255,11 @@ const MenuBtn = styled.li<{ subOpen: boolean; border: boolean }>`
                 line-height: 24px;
             }
     `}
+	&:hover {
+		a {
+			color: ${theme.colors.cyan};
+		}
+	}
 `;
 
 export default MenuComponent;
