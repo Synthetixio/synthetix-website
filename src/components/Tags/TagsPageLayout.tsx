@@ -6,7 +6,7 @@ import BuildFooter from '../Build/BuildFooter';
 import Tags, { TagsProps } from '../Guides/Tags';
 import { client } from '../../lib/sanity';
 import { OrderedDoc } from '../Build/BuildPageLayout';
-import { Box, Flex, Heading, Text } from '@chakra-ui/react';
+import { Flex, Heading, Text } from '@chakra-ui/react';
 
 export interface GuideItemProps {
 	icon: string;
@@ -55,32 +55,30 @@ export default function TagsPageLayout({
 }: TagsPageLayoutProps) {
 	const subMenu = {
 		label: 'guides',
-		navtitle: 'User Guides',
+		navTitle: 'User Guides',
 		items: navDocs,
 	};
 
 	return (
-		<>
-			<Header navDocs={subMenu} navShort={true} />
-			<Box>
-				<Flex background="black" position="relative">
-					<Sidebar navDocs={navDocs} subSlug="guides" />
-					<Flex direction="column" w="full" maxW="800px" m="12">
-						<Heading as="h1" size="2xl">
-							{title}
-						</Heading>
-						<Heading as="h2" size="lg">
-							{subTitle}
-						</Heading>
+		<Flex direction="column" alignItems="center" bg="navy.900">
+			<Header config={subMenu} />
+			<Flex background="black" position="relative" w="100%">
+				<Sidebar navDocs={navDocs} subSlug="guides" />
+				<Flex direction="column" w="full" maxW="800px" m="12">
+					<Heading as="h1" size="2xl">
+						{title}
+					</Heading>
+					<Heading as="h2" size="lg">
+						{subTitle}
+					</Heading>
 
-						{guides &&
-							guides.map((guide, index) => (
-								<GuideItem {...guide} key={title.concat(index.toString())} />
-							))}
-						<BuildFooter updatedAt={updatedAt} />
-					</Flex>
+					{guides &&
+						guides.map((guide, index) => (
+							<GuideItem {...guide} key={title.concat(index.toString())} />
+						))}
+					<BuildFooter updatedAt={updatedAt} />
 				</Flex>
-			</Box>
-		</>
+			</Flex>
+		</Flex>
 	);
 }

@@ -106,6 +106,7 @@ const Hits = ({ hits }: any) => (
 							borderRadius="md"
 							p="2"
 							my="2"
+							cursor="pointer"
 						>
 							<Heading size="md">{hit.title}</Heading>
 							<CustomSnippet hit={hit} attribute="body" />

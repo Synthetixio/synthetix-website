@@ -1,28 +1,12 @@
 import styled from 'styled-components';
 import media from 'styled-media-query';
-import { FlexDivColCentered } from 'src/styles/common';
 import { Header } from '..';
 import Sidebar from '../Sidebar';
 import BuildFooter from '../Build/BuildFooter';
 import GuidesHeader from './GuidesHeader';
 import { PropsWithChildren } from 'react';
 import { OrderedDoc } from '../Build/BuildPageLayout';
-
-const OutWrapper = styled.div`
-	width: 100%;
-	background-color: #000; //TODO: refactor to body black background and remove this
-`;
-
-const ContentWrapper = styled.div`
-	display: flex;
-	flex-wrap: wrap;
-	position: relative;
-	gap: var(--s1);
-	max-width: ${({ theme }) => theme.maxContentWidthBuild};
-	width: 100%;
-	position: relative;
-	margin: 0 auto;
-`;
+import { Flex } from '@chakra-ui/react';
 
 const MainContent = styled.div`
 	flex-basis: 0;
@@ -37,7 +21,7 @@ const MainContent = styled.div`
 `;
 
 type GuidesPageLayoutProps<T> = {
-	navDocs: { title: string; docs: OrderedDoc[] }[];
+	navDocs: OrderedDoc[];
 	nextDoc?: T;
 	prevDoc?: T;
 	updatedAt: string;
@@ -63,29 +47,27 @@ export default function GuidesPageLayout({
 		items: navDocs,
 	};
 	return (
-		<FlexDivColCentered>
-			<Header navDocs={subMenu} navShort={true} />
-			<OutWrapper>
-				<ContentWrapper>
-					<Sidebar navDocs={navDocs} subSlug="guides" />
-					<MainContent>
-						<GuidesHeader
-							mainImage={mainImage}
-							title={title}
-							subTitle={subTitle}
-							subPos={subPos}
+		<Flex direction="column" alignItems="center" bg="navy.900">
+			<Header config={subMenu} />
+			<Flex w="100%" position="relative" bg="black">
+				<Sidebar navDocs={navDocs} subSlug="guides" />
+				<MainContent>
+					<GuidesHeader
+						mainImage={mainImage}
+						title={title}
+						subTitle={subTitle}
+						subPos={subPos}
+					/>
+					{children}
+					{(nextDoc || prevDoc) && (
+						<BuildFooter
+							updatedAt={updatedAt}
+							nextDoc={nextDoc}
+							prevDoc={prevDoc}
 						/>
-						{children}
-						{(nextDoc || prevDoc) && (
-							<BuildFooter
-								updatedAt={updatedAt}
-								nextDoc={nextDoc}
-								prevDoc={prevDoc}
-							/>
-						)}
-					</MainContent>
-				</ContentWrapper>
-			</OutWrapper>
-		</FlexDivColCentered>
+					)}
+				</MainContent>
+			</Flex>
+		</Flex>
 	);
 }

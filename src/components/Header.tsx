@@ -6,27 +6,25 @@ import { Image, Flex, Show, Box } from '@chakra-ui/react';
 import { OrderedDoc } from './Build/BuildPageLayout';
 
 export interface HeaderProps {
-	navDocs?: {
+	config: {
 		label: string;
 		navTitle: string;
-		items: { docs: Omit<OrderedDoc, 'cat'>[]; title: string }[];
+		items: OrderedDoc[];
 	};
-	label?: 'guides';
-	navTitle?: 'User Guides';
 }
 
-const HeaderComponent = ({ navDocs }: HeaderProps) => {
+const HeaderComponent = ({ config }: HeaderProps) => {
 	const [isOpen, setIsOpen] = useState<boolean>(false);
 	const [subOpen, setSubOpen] = useState<boolean>(false);
 	const { push } = useRouter();
-	const itemsToString = navDocs?.items?.toString();
+	const itemsToString = config?.toString();
 	useEffect(() => {
 		if (isOpen) {
 			document.body.classList.add('fixed');
 		} else {
 			document.body.classList.remove('fixed');
 		}
-		setSubOpen(navDocs?.items.length ? true : false);
+		setSubOpen(!!config?.items?.length);
 	}, [isOpen, itemsToString]);
 
 	const clickMenu = () => {
@@ -73,7 +71,7 @@ const HeaderComponent = ({ navDocs }: HeaderProps) => {
 				</Box>
 			</Show>
 			<Menu
-				navDocs={navDocs}
+				items={config?.items}
 				subOpen={subOpen}
 				isHeader={true}
 				isOpen={isOpen}

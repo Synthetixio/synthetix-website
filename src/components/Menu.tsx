@@ -15,16 +15,13 @@ import {
 } from '@chakra-ui/react';
 import { ReactNode } from 'react';
 
-const data = (
-	navDoc: MenuProps['navDocs'],
-): {
+const data: {
 	link?: string;
 	label: string;
-	hideOnHeader: boolean;
-	externalLink?: string;
+	hideOnHeader?: boolean;
 	button?: boolean;
-	subMenu?: MenuProps['navDocs'] | null;
-}[] => [
+	externalLink?: string;
+}[] = [
 	{
 		link: '/synths',
 		label: 'synths',
@@ -51,7 +48,6 @@ const data = (
 		link: '/guides',
 		label: 'guides',
 		hideOnHeader: false,
-		subMenu: (navDoc && navDoc.label === 'guides' && navDoc) || null,
 	},
 	{
 		link: '/governance',
@@ -82,7 +78,7 @@ const data = (
 interface MenuProps {
 	isOpen?: boolean;
 	isHeader?: boolean;
-	navDocs?: HeaderProps['navDocs'];
+	items?: HeaderProps['config']['items'];
 	subOpen?: boolean;
 }
 
@@ -90,7 +86,7 @@ const MenuComponent = ({
 	isHeader,
 	isOpen,
 	subOpen,
-	navDocs,
+	items,
 	...rest
 }: MenuProps) => {
 	const router = useRouter();
@@ -112,7 +108,7 @@ const MenuComponent = ({
 				transition="all 250ms linear"
 				{...rest}
 			>
-				{data(navDocs).map(item => {
+				{data.map(item => {
 					if (isHeader) {
 						return (
 							!item.hideOnHeader &&
@@ -174,7 +170,7 @@ const MenuComponent = ({
 					}
 				})}
 
-				{data(navDocs).map(item => {
+				{data.map(item => {
 					if (isHeader && item.button) {
 						return (
 							<Flex
@@ -201,7 +197,7 @@ const MenuComponent = ({
 					}
 				})}
 
-				{subOpen && <SubMenu navDocs={navDocs} />}
+				{subOpen && <SubMenu items={items} />}
 			</Flex>
 			<Divider orientation="vertical" maxH="30px" m="5" color="gray.500" />
 			<Box
