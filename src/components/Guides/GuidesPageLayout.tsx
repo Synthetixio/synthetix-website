@@ -59,7 +59,7 @@ export default function GuidesPageLayout({
 }: PropsWithChildren<GuidesPageLayoutProps<OrderedDoc>>) {
 	const subMenu = {
 		label: 'guides',
-		navtitle: 'User Guides',
+		navTitle: 'User Guides',
 		items: navDocs,
 	};
 	return (
@@ -69,10 +69,19 @@ export default function GuidesPageLayout({
 				<ContentWrapper>
 					<Sidebar navDocs={navDocs} subSlug="guides" />
 					<MainContent>
-						<GuidesHeader mainImage={mainImage} title={title} subTitle={subTitle} subPos={subPos} />
+						<GuidesHeader
+							mainImage={mainImage}
+							title={title}
+							subTitle={subTitle}
+							subPos={subPos}
+						/>
 						{children}
 						{(nextDoc || prevDoc) && (
-							<BuildFooter updatedAt={updatedAt} nextDoc={nextDoc} prevDoc={prevDoc} />
+							<BuildFooter
+								updatedAt={updatedAt}
+								nextDoc={nextDoc}
+								prevDoc={prevDoc}
+							/>
 						)}
 					</MainContent>
 				</ContentWrapper>

@@ -6,7 +6,7 @@ import { theme } from '../src/styles/theme';
 import { GlobalStyle } from '../src/styles/globals';
 import smoothscroll from 'smoothscroll-polyfill';
 import { ChakraProvider } from '@chakra-ui/react';
-import { theme as chakraTheme } from '@synthetixio/v3-theme';
+import { theme as chakraTheme, Fonts } from '@synthetixio/v3-theme';
 import { useEffect } from 'react';
 
 export default function MyApp({ Component, pageProps }: AppProps) {
@@ -125,6 +125,7 @@ export default function MyApp({ Component, pageProps }: AppProps) {
 				/>
 				<meta name="og:image" content="/public/logo-x.png" />
 			</Head>
+			<Fonts />
 			<GlobalStyle />
 			<ChakraProvider theme={chakraTheme}>
 				<Component {...pageProps} />
