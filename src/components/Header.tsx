@@ -4,12 +4,13 @@ import { Menu } from './';
 import { useRouter } from 'next/router';
 import { Image, Flex, Show, Box } from '@chakra-ui/react';
 import { OrderedDoc } from './Build/BuildPageLayout';
+import { SidebarProps } from './Sidebar';
 
 export interface HeaderProps {
 	config: {
 		label: string;
 		navTitle: string;
-		items: OrderedDoc[];
+		items: SidebarProps['navDocs'];
 	};
 }
 

@@ -1,6 +1,5 @@
 import styled from 'styled-components';
 import { PortableText } from '@portabletext/react';
-//import { Accordion } from '@synthetixio/ui';
 
 import { Container } from './ContentBlock';
 

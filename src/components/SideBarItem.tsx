@@ -1,119 +1,95 @@
 import React, { useEffect, useState } from 'react';
-import styled from 'styled-components';
 import { useRouter } from 'next/router';
-import { IconContext } from 'react-icons';
-import { FiChevronDown, FiChevronUp } from 'react-icons/fi';
+import { ChevronDownIcon, ChevronUpIcon } from '@chakra-ui/icons';
+import { Box, Flex, Heading, Text } from '@chakra-ui/react';
+import { theme } from '@synthetixio/v3-theme';
+import Link from 'next/link';
 
-const AccordionSection = styled.div`
-	flex-direction: column;
-	align-items: center;
-	justify-content: center;
-	position: relative;
-	margin-top: 10px;
-`;
-
-const Wrap = styled.div`
-	color: #fff;
-	display: flex;
-	justify-content: space-between;
-	align-items: center;
-	width: 100%;
-	cursor: pointer;
-	h1 {
-		font-weight: bold;
-		font-size: 16px;
-		line-height: 20px;
-		color: #808191;
-	}
-	h1.active {
-		background: linear-gradient(73.6deg, #85ffc4 2.11%, #5cc6ff 90.45%);
-		-webkit-background-clip: text;
-		-webkit-text-fill-color: transparent;
-	}
-	span {
-		margin-left: 15px;
-		margin-top: 5px;
-	}
-	span.active svg * {
-		filter: invert(58%) sepia(36%) saturate(4037%) hue-rotate(158deg) brightness(110%)
-			contrast(106%);
-	}
-`;
-
-const Dropdown = styled.ul`
-	color: #808191;
-	font-size: 16px;
-
-	li {
-		margin: 16px 0px;
-	}
-
-	a:hover {
-		background: linear-gradient(73.6deg, #85ffc4 2.11%, #5cc6ff 90.45%);
-		-webkit-background-clip: text;
-		-webkit-text-fill-color: transparent;
-	}
-
-	a.active {
-		background: linear-gradient(73.6deg, #85ffc4 2.11%, #5cc6ff 90.45%);
-		-webkit-background-clip: text;
-		-webkit-text-fill-color: transparent;
-	}
-`;
-
-export default function SideBarItem({ props, subSlug }: any) {
+export default function SideBarItem({
+	subSlug,
+	docs,
+	title,
+}: {
+	subSlug: string;
+	docs: { slug: { _type: 'slug'; current: string }; title: string }[];
+	title: string;
+}) {
 	const [isOpen, setIsOpen] = useState(false);
-	const toggle = () => setIsOpen(!isOpen);
-
 	const router = useRouter();
+
 	useEffect(() => {
 		const currentSlug = router.query.slug;
-
-		props.docs.forEach((doc: any) => {
+		docs.forEach(doc => {
 			if (doc.slug.current === currentSlug) {
 				setIsOpen(true);
 			}
 		});
-	}, [props, router]);
-
-	const catOpen = props.docs.some((element: any) => {
-		if (element.slug.current === router.query.slug) {
-			return true;
-		}
-
-		return false;
-	});
+	}, [docs, router]);
 
 	return (
-		<IconContext.Provider value={{ color: '#ffffff', size: '15px' }}>
-			<AccordionSection>
-				<Wrap onClick={() => toggle()}>
-					<h1 className={catOpen ? 'active' : ''}>{props.title}</h1>
-					<span className={catOpen ? 'active' : ''}>
-						{isOpen === true ? <FiChevronUp /> : <FiChevronDown />}
-					</span>
-				</Wrap>
-				{isOpen === true ? (
-					<Dropdown>
-						{props.docs.map((doc: any, i: number) => (
-							<li key={i}>
-								{/* 								<Link href={`/${subSlug}/${doc.slug.current}`}>
-									<a className={router.query.slug === doc.slug.current ? 'active' : ''}>
+		<Flex direction="column" alignItems="center" justifyContent="center" mt="4">
+			<Flex
+				onClick={() => setIsOpen(!isOpen)}
+				alignItems="center"
+				justifyContent="space-between"
+				cursor="pointer"
+				w="100%"
+			>
+				<Heading
+					size="md"
+					bgGradient={isOpen ? theme.gradients['green-cyan'][500] : ''}
+					backgroundClip={isOpen ? 'text' : ''}
+					style={{ WebkitTextFillColor: isOpen ? 'transparent' : '' }}
+				>
+					{title}
+				</Heading>
+				{isOpen ? (
+					<ChevronUpIcon color={isOpen ? theme.colors.cyan[500] : ''} />
+				) : (
+					<ChevronDownIcon color={isOpen ? theme.colors.cyan[500] : ''} />
+				)}
+			</Flex>
+			{isOpen && (
+				<Box as="ul">
+					{docs.map((doc, i) => (
+						<Box
+							as="li"
+							key={i.toString().concat(doc.title)}
+							listStyleType="none"
+							my="16px"
+						>
+							<Link href={`/${subSlug}/${doc.slug.current}`} passHref>
+								<a>
+									<Text
+										color="gray.500"
+										bgGradient={
+											doc.slug.current === router.query.slug
+												? theme.gradients['green-cyan'][500]
+												: ''
+										}
+										backgroundClip={
+											doc.slug.current === router.query.slug ? 'text' : ''
+										}
+										style={{
+											WebkitTextFillColor:
+												doc.slug.current === router.query.slug
+													? 'transparent'
+													: '',
+										}}
+										_hover={{
+											bgGradient: theme.gradients['green-cyan'][500],
+											backgroundClip: 'text',
+											WebkitTextFillColor: 'transparent',
+										}}
+									>
 										{doc.title}
-									</a>
-								</Link> */}
-								{/* TODO: know bug. hav added this temp fix scrollspy issue on route chnage. TEMO fix for now but not ideal */}
-								<a
-									href={`/${subSlug}/${doc.slug.current}`}
-									className={router.query.slug === doc.slug.current ? 'active' : ''}
-								>
-									{doc.title}
+									</Text>
 								</a>
-							</li>
-						))}
-					</Dropdown>
-				) : null}
-			</AccordionSection>
-		</IconContext.Provider>
+							</Link>
+						</Box>
+					))}
+				</Box>
+			)}
+		</Flex>
 	);
 }

@@ -5,7 +5,7 @@ const lastCommitCommand = 'git rev-parse HEAD';
 const date = new Date();
 
 console.debug(
-	`Building Next with NODE_ENV="${process.env.NODE_ENV}" NEXT_PUBLIC_APP_STAGE="${process.env.NEXT_PUBLIC_APP_STAGE}"`
+	`Building Next with NODE_ENV="${process.env.NODE_ENV}" NEXT_PUBLIC_APP_STAGE="${process.env.NEXT_PUBLIC_APP_STAGE}"`,
 );
 /**
  * @type {import('next').NextConfig}

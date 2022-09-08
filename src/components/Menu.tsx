@@ -3,7 +3,6 @@ import { ImArrowUpRight2 } from 'react-icons/im';
 import Search from './Search';
 import { useRouter } from 'next/router';
 import { ExternalLink } from '../styles/common';
-import { SubMenu } from '.';
 import { HeaderProps } from './Header';
 import {
 	Box,
@@ -162,7 +161,7 @@ const MenuComponent = ({
 									<Text fontFamily="display">{item.label}</Text>
 								</Link>
 							) : (
-								<ExternalLink href={item.externalLink}>
+								<ExternalLink href={item.externalLink} key={item.label}>
 									<Text fontFamily="display">{item.label}</Text>
 								</ExternalLink>
 							)}
@@ -176,11 +175,12 @@ const MenuComponent = ({
 							<Flex
 								ml={item.label === 'stats' ? 'auto' : '10px'}
 								alignItems="center"
+								key={item.label}
 							>
 								{item.link ? (
 									<Link href={item.link}></Link>
 								) : (
-									<ExternalLink href={item.externalLink} key={item.label}>
+									<ExternalLink href={item.externalLink}>
 										<Button
 											variant="outline"
 											colorScheme="cyan"
@@ -196,8 +196,6 @@ const MenuComponent = ({
 						);
 					}
 				})}
-
-				{subOpen && <SubMenu items={items} />}
 			</Flex>
 			<Divider orientation="vertical" maxH="30px" m="5" color="gray.500" />
 			<Box

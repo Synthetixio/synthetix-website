@@ -1,27 +1,13 @@
-import styled from 'styled-components';
-import media from 'styled-media-query';
 import { Header } from '..';
-import Sidebar from '../Sidebar';
+import Sidebar, { SidebarProps } from '../Sidebar';
 import BuildFooter from '../Build/BuildFooter';
 import GuidesHeader from './GuidesHeader';
 import { PropsWithChildren } from 'react';
 import { OrderedDoc } from '../Build/BuildPageLayout';
 import { Flex } from '@chakra-ui/react';
 
-const MainContent = styled.div`
-	flex-basis: 0;
-	flex-grow: 999;
-	min-inline-size: 50%;
-	padding: 0 50px;
-	min-height: 100vh; //TODO: refactor to body black background and remove this
-
-	${media.lessThan('medium')`
-		padding: 0 25px;
-	`}
-`;
-
 type GuidesPageLayoutProps<T> = {
-	navDocs: OrderedDoc[];
+	navDocs: SidebarProps['navDocs'];
 	nextDoc?: T;
 	prevDoc?: T;
 	updatedAt: string;
@@ -49,9 +35,13 @@ export default function GuidesPageLayout({
 	return (
 		<Flex direction="column" alignItems="center" bg="navy.900">
 			<Header config={subMenu} />
-			<Flex w="100%" position="relative" bg="black">
+			<Flex w="100%" bg="black">
 				<Sidebar navDocs={navDocs} subSlug="guides" />
-				<MainContent>
+				<Flex
+					direction="column"
+					p={{ base: '0 25px', md: '0 50px' }}
+					overflow="auto"
+				>
 					<GuidesHeader
 						mainImage={mainImage}
 						title={title}
@@ -66,7 +56,7 @@ export default function GuidesPageLayout({
 							prevDoc={prevDoc}
 						/>
 					)}
-				</MainContent>
+				</Flex>
 			</Flex>
 		</Flex>
 	);

@@ -1,16 +1,17 @@
 import { Box, Hide } from '@chakra-ui/react';
 import { theme } from '@synthetixio/v3-theme';
-import { OrderedDoc } from './Build/BuildPageLayout';
 import SideBarItem from './SideBarItem';
 import Socials from './Socials';
 
-export default function Sidebar({
-	navDocs,
-	subSlug,
-}: {
-	navDocs: OrderedDoc[];
+export interface SidebarProps {
+	navDocs: {
+		title: string;
+		docs: { slug: { _type: 'slug'; current: string }; title: string }[];
+	}[];
 	subSlug: string;
-}) {
+}
+
+export default function Sidebar({ navDocs, subSlug }: SidebarProps) {
 	return (
 		<Hide below="md">
 			<Box
@@ -21,8 +22,13 @@ export default function Sidebar({
 				minW="300px"
 				position="relative"
 			>
-				{navDocs.map((item: any, i: number) => (
-					<SideBarItem subSlug={subSlug} props={item} key={i} />
+				{navDocs.map((item, i) => (
+					<SideBarItem
+						subSlug={subSlug}
+						docs={item.docs}
+						title={item.title}
+						key={i.toString().concat(subSlug)}
+					/>
 				))}
 				<Socials fill={theme.colors.cyan[500]} />
 			</Box>
