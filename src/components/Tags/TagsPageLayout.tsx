@@ -1,11 +1,10 @@
 import Link from 'next/link';
 import { useNextSanityImage } from 'next-sanity-image';
 import { Header } from '..';
-import Sidebar from '../Sidebar';
+import Sidebar, { SidebarProps } from '../Sidebar';
 import BuildFooter from '../Build/BuildFooter';
 import Tags, { TagsProps } from '../Guides/Tags';
 import { client } from '../../lib/sanity';
-import { OrderedDoc } from '../Build/BuildPageLayout';
 import { Flex, Heading, Text } from '@chakra-ui/react';
 
 export interface GuideItemProps {
@@ -39,7 +38,7 @@ function GuideItem({ icon, slug, tags, title, introText }: GuideItemProps) {
 }
 
 interface TagsPageLayoutProps {
-	navDocs: OrderedDoc[];
+	navDocs: SidebarProps['navDocs'];
 	updatedAt: string;
 	title: string;
 	subTitle: string;

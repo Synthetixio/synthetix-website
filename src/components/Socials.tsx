@@ -33,7 +33,7 @@ const Socials = ({ className, fill }: { fill: string; className?: string }) => {
 			gap="4"
 		>
 			{data(fill).map(s => (
-				<Link href={s.link}>
+				<Link href={s.link} key={s.link} passHref>
 					<a target="_blank" rel="noopener noreferrer">
 						{s.image}
 					</a>

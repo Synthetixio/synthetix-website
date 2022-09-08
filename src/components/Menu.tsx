@@ -114,42 +114,32 @@ const MenuComponent = ({
 							!item.button && (
 								<MenuItem key={item.label} subOpen={!!subOpen} {...rest}>
 									{item.link ? (
-										<Link href={item.link}>
-											<ChakraLink
-												color={
-													urlFolderPathName === item.label
-														? 'cyan.500'
-														: '#828295'
-												}
-												transition={
-													urlFolderPathName === item.label
-														? 'color 0.3s ease-out'
-														: ''
-												}
-												_hover={{ color: 'cyan.500' }}
-												textTransform="uppercase"
-											>
-												<Text fontFamily="display">{item.label}</Text>
-											</ChakraLink>
-										</Link>
+										<ChakraLink
+											color={
+												urlFolderPathName === item.label
+													? 'cyan.500'
+													: '#828295'
+											}
+											transition={
+												urlFolderPathName === item.label
+													? 'color 0.3s ease-out'
+													: ''
+											}
+											_hover={{ color: 'cyan.500' }}
+											textTransform="uppercase"
+											href={item.link}
+										>
+											<Text fontFamily="display">{item.label}</Text>
+										</ChakraLink>
 									) : (
-										<ExternalLink href={item.externalLink} key={item.label}>
-											<ChakraLink
-												className={
-													urlFolderPathName === item.label ? 'active' : ''
-												}
-												color="#828295"
-												transition={
-													urlFolderPathName === item.label
-														? 'color 0.3s ease-out'
-														: ''
-												}
-												_hover={{ color: 'cyan.500' }}
-												textTransform="uppercase"
-											>
-												<Text fontFamily="display">{item.label}</Text>
-											</ChakraLink>
-										</ExternalLink>
+										<ChakraLink
+											href={item.externalLink}
+											color="#828295"
+											_hover={{ color: 'cyan.500' }}
+											textTransform="uppercase"
+										>
+											<Text fontFamily="display">{item.label}</Text>
+										</ChakraLink>
 									)}
 								</MenuItem>
 							)
