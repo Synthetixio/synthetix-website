@@ -20,18 +20,15 @@ const data = (fill?: string) => [
 		image: <Github fill={fill} />,
 	},
 ];
-const Socials = ({ className, fill }: { fill: string; className?: string }) => {
+const Socials = ({
+	className,
+	fill,
+}: {
+	fill?: string;
+	className?: string;
+}) => {
 	return (
-		<Flex
-			as="ul"
-			className={className}
-			position="absolute"
-			bottom={{ base: '2px', md: '50px' }}
-			left="50%"
-			transform="translateX(-50%)"
-			alignItems="center"
-			gap="4"
-		>
+		<Flex as="ul" className={className} alignItems="center" gap="4">
 			{data(fill).map(s => (
 				<Link href={s.link} key={s.link} passHref>
 					<a target="_blank" rel="noopener noreferrer">

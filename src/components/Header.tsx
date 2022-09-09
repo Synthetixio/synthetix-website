@@ -3,11 +3,10 @@ import HamburgerMenu from 'react-hamburger-menu';
 import { Menu } from './';
 import { useRouter } from 'next/router';
 import { Image, Flex, Show, Box } from '@chakra-ui/react';
-import { OrderedDoc } from './Build/BuildPageLayout';
 import { SidebarProps } from './Sidebar';
 
 export interface HeaderProps {
-	config: {
+	config?: {
 		label: string;
 		navTitle: string;
 		items: SidebarProps['navDocs'];
@@ -28,9 +27,6 @@ const HeaderComponent = ({ config }: HeaderProps) => {
 		setSubOpen(!!config?.items?.length);
 	}, [isOpen, itemsToString]);
 
-	const clickMenu = () => {
-		setIsOpen(!isOpen);
-	};
 	return (
 		<Flex
 			as="header"
@@ -40,7 +36,7 @@ const HeaderComponent = ({ config }: HeaderProps) => {
 			zIndex="1000"
 			w="100%"
 			maxW="8xl"
-			background="navy.900"
+			background="transparent"
 		>
 			<Image
 				src="/snx.svg"
@@ -60,7 +56,7 @@ const HeaderComponent = ({ config }: HeaderProps) => {
 				>
 					<HamburgerMenu
 						isOpen={isOpen}
-						menuClicked={clickMenu}
+						menuClicked={() => setIsOpen(!isOpen)}
 						width={22}
 						height={16}
 						strokeWidth={2}

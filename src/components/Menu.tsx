@@ -13,6 +13,7 @@ import {
 	Text,
 } from '@chakra-ui/react';
 import { ReactNode } from 'react';
+import { SidebarProps } from './Sidebar';
 
 const data: {
 	link?: string;
@@ -68,16 +69,11 @@ const data: {
 		label: 'blog',
 		hideOnHeader: false,
 	},
-	{
-		externalLink: 'https://research.synthetix.io/',
-		label: 'research',
-		hideOnHeader: true,
-	},
 ];
 interface MenuProps {
 	isOpen?: boolean;
 	isHeader?: boolean;
-	items?: HeaderProps['config']['items'];
+	items?: SidebarProps['navDocs'];
 	subOpen?: boolean;
 }
 
@@ -95,6 +91,7 @@ const MenuComponent = ({
 			<Flex
 				as="ul"
 				left={!!isOpen ? 0 : '-100%'}
+				justifyContent={isHeader ? 'flex-start' : 'flex-end'}
 				flexWrap={{ base: 'nowrap', md: 'wrap' }}
 				zIndex="101"
 				width={{ base: '100%', md: 'inherit' }}
@@ -145,17 +142,19 @@ const MenuComponent = ({
 							)
 						);
 					} else {
-						<MenuItem subOpen={false} key={item.label}>
-							{item.link ? (
-								<Link href={item.link}>
-									<Text fontFamily="display">{item.label}</Text>
-								</Link>
-							) : (
-								<ExternalLink href={item.externalLink} key={item.label}>
-									<Text fontFamily="display">{item.label}</Text>
-								</ExternalLink>
-							)}
-						</MenuItem>;
+						return (
+							<MenuItem subOpen={false} key={item.label}>
+								{item.link ? (
+									<Link href={item.link}>
+										<Text fontFamily="display">{item.label}</Text>
+									</Link>
+								) : (
+									<ExternalLink href={item.externalLink} key={item.label}>
+										<Text fontFamily="display">{item.label}</Text>
+									</ExternalLink>
+								)}
+							</MenuItem>
+						);
 					}
 				})}
 
@@ -187,7 +186,7 @@ const MenuComponent = ({
 					}
 				})}
 			</Flex>
-			<Divider orientation="vertical" maxH="30px" m="5" color="gray.500" />
+			<Divider orientation="vertical" mx="5" color="gray.500" h="30px" />
 			<Box
 				ml="20xp"
 				right={{ base: '20px', md: '0px' }}
