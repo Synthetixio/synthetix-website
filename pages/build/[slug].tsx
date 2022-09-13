@@ -4,7 +4,10 @@ import slugify from 'slugify';
 import { BuildPageLayout } from 'src/components';
 import PageBuilder from '../../src/components/SanityPageBuilder/PageBuilder';
 import { client } from '../../src/lib/sanity';
-import { BuildPageLayoutProps, OrderedDoc } from 'src/components/Build/BuildPageLayout';
+import {
+	BuildPageLayoutProps,
+	OrderedDoc,
+} from 'src/components/Build/BuildPageLayout';
 import { GetStaticPropsContext } from 'next';
 
 interface BuildProps {
@@ -14,6 +17,10 @@ interface BuildProps {
 
 export interface Build {
 	_updatedAt: string;
+	_createdAt?: string;
+	_id?: string;
+	_rev?: string;
+	_type?: string;
 	category: string;
 	categorySlug: { _type: string; current: string };
 	guideLPBanner?: {
@@ -85,19 +92,20 @@ const BuildPage = ({ build, navDocs }: BuildProps) => {
 	//gather headings from all portable text
 	const headingsQuery = jp.query(
 		build,
-		'$..body[?(@.style=="h1" || @.style=="h2" || @.style=="h3" || @.style=="h4" )]'
+		'$..body[?(@.style=="h1" || @.style=="h2" || @.style=="h3" || @.style=="h4" )]',
 	);
-	const headings: BuildPageLayoutProps<OrderedDoc>['headings'] = headingsQuery.map((heading) => ({
-		style: heading.style,
-		text: heading.children[0].text,
-		slug: slugify(heading.children[0].text, { lower: true }),
-	}));
+	const headings: BuildPageLayoutProps<OrderedDoc>['headings'] =
+		headingsQuery.map(heading => ({
+			style: heading.style,
+			text: heading.children[0].text,
+			slug: slugify(heading.children[0].text, { lower: true }),
+		}));
 
 	const allDocsOrdered = navDocs
-		.map((doc) => {
+		.map(doc => {
 			const cat = doc.title;
 			const result: OrderedDoc[] = [];
-			doc.docs.forEach((node) => {
+			doc.docs.forEach(node => {
 				result.push({
 					...node,
 					cat,
@@ -107,8 +115,11 @@ const BuildPage = ({ build, navDocs }: BuildProps) => {
 		})
 		.flat();
 
-	const currentIndex = allDocsOrdered.findIndex((doc) => doc.slug.current === build.slug.current);
-	const nextDoc = currentIndex >= 0 ? allDocsOrdered[currentIndex + 1] : allDocsOrdered[0];
+	const currentIndex = allDocsOrdered.findIndex(
+		doc => doc.slug.current === build.slug.current,
+	);
+	const nextDoc =
+		currentIndex >= 0 ? allDocsOrdered[currentIndex + 1] : allDocsOrdered[0];
 	const prevDoc =
 		currentIndex >= 0
 			? allDocsOrdered[currentIndex - 1]
@@ -134,11 +145,11 @@ const BuildPage = ({ build, navDocs }: BuildProps) => {
 
 export async function getStaticPaths() {
 	const paths: Record<string, string>[] = await client.fetch(
-		`*[_type == "build" && defined(slug.current)][].slug.current`
+		`*[_type == "build" && defined(slug.current)][].slug.current`,
 	);
 
 	return {
-		paths: paths.map((slug) => ({ params: { slug } })),
+		paths: paths.map(slug => ({ params: { slug } })),
 		fallback: false,
 	};
 }
@@ -161,7 +172,7 @@ export async function getStaticProps(context: GetStaticPropsContext) {
   _updatedAt,
       }[0]
   `,
-		{ slug }
+		{ slug },
 	);
 
 	const navDocs = await client.fetch(`

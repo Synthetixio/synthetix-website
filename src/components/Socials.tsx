@@ -28,7 +28,7 @@ const Socials = ({
 	className?: string;
 }) => {
 	return (
-		<Flex as="ul" className={className} alignItems="center" gap="4">
+		<Flex as="ul" className={className} alignItems="center" gap="4" mt="20">
 			{data(fill).map(s => (
 				<Link href={s.link} key={s.link} passHref>
 					<a target="_blank" rel="noopener noreferrer">

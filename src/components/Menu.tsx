@@ -3,17 +3,17 @@ import { ImArrowUpRight2 } from 'react-icons/im';
 import Search from './Search';
 import { useRouter } from 'next/router';
 import { ExternalLink } from '../styles/common';
-import { HeaderProps } from './Header';
 import {
 	Box,
 	Button,
 	Divider,
 	Flex,
+	Hide,
 	Link as ChakraLink,
 	Text,
 } from '@chakra-ui/react';
 import { ReactNode } from 'react';
-import { SidebarProps } from './Sidebar';
+import { NavDocs } from 'src/typings/cms-types';
 
 const data: {
 	link?: string;
@@ -73,7 +73,7 @@ const data: {
 interface MenuProps {
 	isOpen?: boolean;
 	isHeader?: boolean;
-	items?: SidebarProps['navDocs'];
+	items?: NavDocs[];
 	subOpen?: boolean;
 }
 
@@ -186,7 +186,9 @@ const MenuComponent = ({
 					}
 				})}
 			</Flex>
-			<Divider orientation="vertical" mx="5" color="gray.500" h="30px" />
+			<Hide below="md">
+				<Divider orientation="vertical" mx="5" color="gray.500" h="30px" />
+			</Hide>
 			<Box
 				ml="20xp"
 				right={{ base: '20px', md: '0px' }}

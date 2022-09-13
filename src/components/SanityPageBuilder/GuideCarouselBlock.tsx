@@ -7,14 +7,11 @@ import 'react-multi-carousel/lib/styles.css';
 import { client } from '../../lib/sanity';
 import Tags from '../Guides/Tags';
 import { theme } from '../../styles/theme';
+import { Heading } from '@chakra-ui/react';
 
 const GuideCarouselWrapper = styled.div`
 	width: 100%;
 	display: inline-grid;
-
-	h2 {
-		${theme.pageBuilder.h2};
-	}
 
 	.react-multi-carousel-dot button {
 		background: #828295;
@@ -116,7 +113,9 @@ export function GuideCarouselBlock({ props }: GuideCarouselBlockProps) {
 	};
 	return (
 		<GuideCarouselWrapper>
-			<h2>User Guides</h2>
+			<Heading as="h2" size="md">
+				User Guides
+			</Heading>
 			<Carousel
 				responsive={responsive}
 				ssr={true}

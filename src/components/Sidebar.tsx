@@ -1,17 +1,17 @@
-import { Box, Hide } from '@chakra-ui/react';
+import { Box, Heading, Hide } from '@chakra-ui/react';
 import { theme } from '@synthetixio/v3-theme';
+import { useRouter } from 'next/router';
+import { NavDocs } from 'src/typings/cms-types';
 import SideBarItem from './SideBarItem';
 import Socials from './Socials';
 
 export interface SidebarProps {
-	navDocs: {
-		title: string;
-		docs: { slug: { _type: 'slug'; current: string }; title: string }[];
-	}[];
-	subSlug: string;
+	navDocs: NavDocs[];
+	subSlug: 'guides' | 'build';
 }
 
 export default function Sidebar({ navDocs, subSlug }: SidebarProps) {
+	const { push } = useRouter();
 	return (
 		<Hide below="md">
 			<Box
@@ -20,8 +20,19 @@ export default function Sidebar({ navDocs, subSlug }: SidebarProps) {
 				borderRight="1px solid"
 				borderRightColor="gray.900"
 				minW="300px"
-				position="relative"
 			>
+				{subSlug === 'guides' && (
+					<Heading
+						size="md"
+						bgGradient={theme.gradients['green-cyan'][500]}
+						backgroundClip="text"
+						style={{ WebkitTextFillColor: 'transparent' }}
+						onClick={() => push('/guides')}
+						cursor="pointer"
+					>
+						User Guides Hub
+					</Heading>
+				)}
 				{navDocs.map((item, i) => (
 					<SideBarItem
 						subSlug={subSlug}

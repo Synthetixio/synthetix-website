@@ -1,13 +1,14 @@
 import { Header } from '..';
-import Sidebar, { SidebarProps } from '../Sidebar';
+import Sidebar from '../Sidebar';
 import BuildFooter from '../Build/BuildFooter';
 import GuidesHeader from './GuidesHeader';
 import { PropsWithChildren } from 'react';
 import { OrderedDoc } from '../Build/BuildPageLayout';
 import { Flex } from '@chakra-ui/react';
+import { NavDocs } from 'src/typings/cms-types';
 
 type GuidesPageLayoutProps<T> = {
-	navDocs: SidebarProps['navDocs'];
+	navDocs: NavDocs[];
 	nextDoc?: T;
 	prevDoc?: T;
 	updatedAt: string;

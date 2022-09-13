@@ -1,15 +1,29 @@
 import Head from 'next/head';
 import { Build } from 'pages/build/[slug]';
 import { GuidesPageLayout } from 'src/components';
-import { SidebarProps } from 'src/components/Sidebar';
-
+import { NavDocs } from 'src/typings/cms-types';
 import PageBuilder from '../../src/components/SanityPageBuilder/PageBuilder';
 import { client } from '../../src/lib/sanity';
 
+export interface GuideTags {
+	tags: {
+		color: { hex: string };
+		introText: string;
+		orderRank: string;
+		slug: { _type: string; current: string };
+		title: string;
+		_createdAt: string;
+		_id: string;
+		_rev: string;
+		_type: string;
+		_updatedAt: string;
+	}[];
+}
+
 interface GuideIndexProps {
 	settings: Build;
-	navDocs: SidebarProps['navDocs'];
-	guideTags: { tags: Record<string, unknown> };
+	navDocs: NavDocs[];
+	guideTags: GuideTags[];
 }
 
 const GuideIndex = ({ settings, navDocs, guideTags }: GuideIndexProps) => {

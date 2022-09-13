@@ -6,11 +6,10 @@ import TotalSection from '../src/sections/home/total';
 import SynthSection from 'src/sections/home/synths';
 import Ecosystem from 'src/sections/home/ecosystem';
 import { PageLayout } from '../src/components';
-import media from 'styled-media-query';
-import styled from 'styled-components';
 import { Line } from 'src/styles/common';
 import PoweredBy from 'src/sections/home/poweredBy';
 import axios from 'axios';
+import { Box } from '@chakra-ui/react';
 
 export interface ApiStatsProps {
 	totalLocked?: number;
@@ -23,7 +22,15 @@ const Home = ({ totalLocked }: ApiStatsProps) => {
 				<title>Synthetix</title>
 			</Head>
 			<PageLayout>
-				<BgGradient />
+				<Box
+					position="absolute"
+					top="0"
+					left="0"
+					w="100%"
+					height="100vh"
+					bg="linear-gradient(180deg, #08021e 0%, #120446 146.21%)"
+					pointerEvents="none"
+				/>
 				<MainSection />
 				<Line />
 				<TotalSection totalLocked={totalLocked} />
@@ -40,27 +47,11 @@ const Home = ({ totalLocked }: ApiStatsProps) => {
 	);
 };
 
-const BgGradient = styled.div`
-	position: absolute;
-	top: 0;
-	left: 0;
-	width: 100%;
-	height: 100vh;
-	min-height: 853px;
-	background: linear-gradient(180deg, #08021e 0%, #120446 146.21%);
-	pointer-events: none;
-
-	${media.lessThan('medium')`
-		height: 734px;
-		min-height: none;
-	`}
-`;
-
 export const getServerSideProps: GetServerSideProps = async () => {
 	let totalLocked = 537861341;
 	try {
 		const response = await axios.get<{ totalLocked: number }>(
-			'https://exchange.api.synthetix.io/api/total-locked'
+			'https://exchange.api.synthetix.io/api/total-locked',
 		);
 		totalLocked = response.data?.totalLocked;
 	} catch (e) {

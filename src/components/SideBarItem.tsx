@@ -4,6 +4,7 @@ import { ChevronDownIcon, ChevronUpIcon } from '@chakra-ui/icons';
 import { Box, Flex, Heading, Text } from '@chakra-ui/react';
 import { theme } from '@synthetixio/v3-theme';
 import Link from 'next/link';
+import { NavDocs } from 'src/typings/cms-types';
 
 export default function SideBarItem({
 	subSlug,
@@ -11,7 +12,7 @@ export default function SideBarItem({
 	title,
 }: {
 	subSlug: string;
-	docs: { slug: { _type: 'slug'; current: string }; title: string }[];
+	docs: NavDocs['docs'];
 	title: string;
 }) {
 	const [isOpen, setIsOpen] = useState(false);

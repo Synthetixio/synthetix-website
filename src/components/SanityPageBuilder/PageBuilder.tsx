@@ -1,6 +1,4 @@
-import React from 'react';
-import styled from 'styled-components';
-import media from 'styled-media-query';
+import React, { ReactNode } from 'react';
 import ContentBlock from './ContentBlock';
 import MainImage from './MainImage';
 import TableBlock from './TableBlock';
@@ -11,18 +9,19 @@ import ImgCarouselBlock from './ImgCarouselBlock';
 import IntroBlock from './IntroBlock';
 import GuideCarouselBlock from './GuideCarouselBlock';
 import TagsBlock from './TagsBlock';
-import { theme } from '../../styles/theme';
 import { Build } from 'pages/build/[slug]';
+import { GuideTags } from 'pages/guides';
+import { Flex } from '@chakra-ui/react';
 
 interface PageBuilderProps {
 	pageBuilder: Build['pageBuilder'];
-	guideTags?: unknown;
+	guideTags?: GuideTags[];
 }
 
-function PageBuilder({ pageBuilder, guideTags = null }: PageBuilderProps) {
+function PageBuilder({ pageBuilder, guideTags }: PageBuilderProps) {
 	return (
 		<>
-			{pageBuilder.map((block) => {
+			{pageBuilder.map(block => {
 				switch (block._type) {
 					case 'mainImage':
 						return (
@@ -31,7 +30,10 @@ function PageBuilder({ pageBuilder, guideTags = null }: PageBuilderProps) {
 									(block.asset?._ref && (
 										<Row key={block._key}>
 											<Column>
-												<MainImage caption={block.caption} image={block.asset?._ref} />
+												<MainImage
+													caption={block.caption}
+													image={block.asset?._ref}
+												/>
 											</Column>
 										</Row>
 									))}
@@ -49,7 +51,7 @@ function PageBuilder({ pageBuilder, guideTags = null }: PageBuilderProps) {
 						const columns = block.columns;
 						return (
 							<Row key={block._key}>
-								{columns?.map((col) => {
+								{columns?.map(col => {
 									return (
 										<Column key={col._key}>
 											<PageBuilder pageBuilder={[col as any]} />
@@ -80,7 +82,10 @@ function PageBuilder({ pageBuilder, guideTags = null }: PageBuilderProps) {
 								{block.accordions?.length && (
 									<Row key={block._key}>
 										<Column>
-											<AccordionBlock accordions={block.accordions} body={block.body} />
+											<AccordionBlock
+												accordions={block.accordions}
+												body={block.body}
+											/>
 										</Column>
 									</Row>
 								)}
@@ -97,9 +102,7 @@ function PageBuilder({ pageBuilder, guideTags = null }: PageBuilderProps) {
 					case 'imgCarouselBlock':
 						return (
 							<Row key={block._key}>
-								<Column>
-									<ImgCarouselBlock props={block} />
-								</Column>
+								<ImgCarouselBlock props={block} />
 							</Row>
 						);
 					case 'guideCarouselBlock':
@@ -137,23 +140,21 @@ function PageBuilder({ pageBuilder, guideTags = null }: PageBuilderProps) {
 	);
 }
 
-const Row = styled.div`
-	display: flex;
-	flex-direction: row;
-	flex-wrap: wrap;
-	width: 100%;
-	${theme.pageBuilder.rows};
-`;
+const Row = ({ children }: { children: ReactNode }) => (
+	<Flex flexWrap="wrap" w="100%" margin="10px 0">
+		{children}
+	</Flex>
+);
 
-const Column = styled.div`
-	display: flex;
-	flex-direction: column;
-	flex-basis: 100%;
-	flex: 1;
-	margin-right: 10px;
-	${media.lessThan('medium')`
-		flex: 1 1 auto;
-	`};
-`;
+const Column = ({ children }: { children: ReactNode }) => (
+	<Flex
+		flexDir="column"
+		flexBasis={{ base: 'auto', md: '100%' }}
+		flexGrow="1"
+		mr="10px"
+	>
+		{children}
+	</Flex>
+);
 
 export default PageBuilder;

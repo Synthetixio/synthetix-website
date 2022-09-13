@@ -3,13 +3,13 @@ import HamburgerMenu from 'react-hamburger-menu';
 import { Menu } from './';
 import { useRouter } from 'next/router';
 import { Image, Flex, Show, Box } from '@chakra-ui/react';
-import { SidebarProps } from './Sidebar';
+import { NavDocs } from 'src/typings/cms-types';
 
 export interface HeaderProps {
 	config?: {
 		label: string;
 		navTitle: string;
-		items: SidebarProps['navDocs'];
+		items: NavDocs[];
 	};
 }
 
@@ -37,6 +37,7 @@ const HeaderComponent = ({ config }: HeaderProps) => {
 			w="100%"
 			maxW="8xl"
 			background="transparent"
+			px="2"
 		>
 			<Image
 				src="/snx.svg"
