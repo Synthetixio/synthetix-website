@@ -62,6 +62,7 @@ export interface PageBuilderProps {
 		code?: string;
 	}[];
 	table?: TableBlockProps['table'];
+	url?: string;
 	disabled: boolean;
 	title: string;
 	caption?: string;

@@ -94,13 +94,12 @@ const MenuComponent = ({
 				justifyContent={isHeader ? 'flex-start' : 'flex-end'}
 				flexWrap={{ base: 'nowrap', md: 'wrap' }}
 				zIndex="101"
-				width={{ base: '100%', md: 'inherit' }}
-				position={{ base: 'fixed', md: 'unset' }}
+				width="100%"
+				position={{ base: 'fixed', md: 'static' }}
 				direction={{ base: 'column', md: 'row' }}
 				top="0"
 				pt={{ base: '100px', md: '0px' }}
-				height={{ base: '100%', md: 'unset' }}
-				overflow="scroll"
+				height={{ base: '100%', md: 'auto' }}
 				transition="all 250ms linear"
 				{...rest}
 			>

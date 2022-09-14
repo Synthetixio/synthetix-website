@@ -19,7 +19,6 @@ interface PageBuilderProps {
 }
 
 function PageBuilder({ pageBuilder, guideTags }: PageBuilderProps) {
-	console.log(pageBuilder);
 	return (
 		<>
 			{pageBuilder.map(block => {
@@ -70,13 +69,15 @@ function PageBuilder({ pageBuilder, guideTags }: PageBuilderProps) {
 								</Row>
 							);
 					case 'videoBlock':
-						return (
-							<Row key={block._key}>
-								<Column>
-									<VideoBlock props={block} />
-								</Column>
-							</Row>
-						);
+						if (block.url) {
+							return (
+								<Row key={block._key}>
+									<Column>
+										<VideoBlock url={block.url} />
+									</Column>
+								</Row>
+							);
+						}
 					case 'accordionBlock':
 						return (
 							<>
