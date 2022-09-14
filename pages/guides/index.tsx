@@ -27,6 +27,7 @@ interface GuideIndexProps {
 }
 
 const GuideIndex = ({ settings, navDocs, guideTags }: GuideIndexProps) => {
+	console.log(settings);
 	return (
 		<>
 			<Head>

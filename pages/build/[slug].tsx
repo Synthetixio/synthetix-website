@@ -9,6 +9,7 @@ import {
 	OrderedDoc,
 } from 'src/components/Build/BuildPageLayout';
 import { GetStaticPropsContext } from 'next';
+import { TableBlockProps } from 'src/components/SanityPageBuilder/TableBlock';
 
 interface BuildProps {
 	build: Build;
@@ -33,6 +34,13 @@ export interface Build {
 	title: string;
 }
 
+export interface PageBuilderChildren {
+	marks: string[];
+	text: string;
+	_key: string;
+	_type: string;
+}
+
 export interface PageBuilderProps {
 	_key: string;
 	_id: string;
@@ -40,7 +48,20 @@ export interface PageBuilderProps {
 	_createdAt: string;
 	_updatedAt: string;
 	_rev: string;
-	body: unknown[];
+	body: {
+		children?: PageBuilderChildren[];
+		asset?: {
+			_ref: string;
+			_type: string;
+		};
+		markDefs: { href: string; _key: string; _type: string }[];
+		listItem?: string;
+		style: string;
+		_key?: string;
+		_type: string;
+		code?: string;
+	}[];
+	table?: TableBlockProps['table'];
 	disabled: boolean;
 	title: string;
 	caption?: string;
@@ -68,7 +89,18 @@ export interface PageBuilderProps {
 		pageBuilder: {
 			_key: string;
 			_type: string;
-			body: unknown[];
+			body: {
+				children: {
+					marks: string[];
+					text: string;
+					_key: string;
+					_type: string;
+				}[];
+				markDefs: unknown[];
+				style: string;
+				_key: string;
+				_type: string;
+			}[];
 			disabled: boolean;
 			title: string;
 			caption?: string;

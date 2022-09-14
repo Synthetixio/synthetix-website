@@ -1,18 +1,7 @@
 import Img from 'next/image';
 import { useNextSanityImage } from 'next-sanity-image';
-import styled from 'styled-components';
 import { client } from '../../lib/sanity';
-
-const Figure = styled.figure`
-	figcaption {
-		text-align: center;
-		font-style: italic;
-		padding: 10px;
-		font-weight: 300;
-		font-size: 12px;
-	}
-`;
-
+import { Text } from '@chakra-ui/react';
 interface MainImageProps {
 	caption?: string;
 	image: string;
@@ -21,10 +10,25 @@ interface MainImageProps {
 const MainImage = ({ caption, image }: MainImageProps) => {
 	const imageProps = useNextSanityImage(client, image);
 	return (
-		<Figure>
-			<Img {...imageProps} layout="responsive" sizes="(max-width: 800px) 100vw, 800px" />
-			{caption && <figcaption>{caption}</figcaption>}
-		</Figure>
+		<>
+			<Img
+				{...imageProps}
+				layout="responsive"
+				sizes="(max-width: 800px) 100vw, 800px"
+			/>
+			{caption && (
+				<Text
+					as="figcaption"
+					textAlign="center"
+					fontStyle="italic"
+					padding="10px"
+					fontWeight="300"
+					fontSize="12px"
+				>
+					{caption}
+				</Text>
+			)}
+		</>
 	);
 };
 

@@ -19,6 +19,7 @@ interface PageBuilderProps {
 }
 
 function PageBuilder({ pageBuilder, guideTags }: PageBuilderProps) {
+	console.log(pageBuilder);
 	return (
 		<>
 			{pageBuilder.map(block => {
@@ -26,17 +27,16 @@ function PageBuilder({ pageBuilder, guideTags }: PageBuilderProps) {
 					case 'mainImage':
 						return (
 							<>
-								{block.caption ||
-									(block.asset?._ref && (
-										<Row key={block._key}>
-											<Column>
-												<MainImage
-													caption={block.caption}
-													image={block.asset?._ref}
-												/>
-											</Column>
-										</Row>
-									))}
+								{block.asset?._ref && (
+									<Row key={block._key}>
+										<Column>
+											<MainImage
+												caption={block.caption}
+												image={block.asset?._ref}
+											/>
+										</Column>
+									</Row>
+								)}
 							</>
 						);
 					case 'contentBlock':
@@ -61,13 +61,14 @@ function PageBuilder({ pageBuilder, guideTags }: PageBuilderProps) {
 							</Row>
 						);
 					case 'tableBlock':
-						return (
-							<Row key={block._key}>
-								<Column>
-									<TableBlock props={block} />
-								</Column>
-							</Row>
-						);
+						if (block.table)
+							return (
+								<Row key={block._key}>
+									<Column>
+										<TableBlock table={block.table} />
+									</Column>
+								</Row>
+							);
 					case 'videoBlock':
 						return (
 							<Row key={block._key}>
@@ -141,7 +142,7 @@ function PageBuilder({ pageBuilder, guideTags }: PageBuilderProps) {
 }
 
 const Row = ({ children }: { children: ReactNode }) => (
-	<Flex flexWrap="wrap" w="100%" margin="10px 0">
+	<Flex w="100%" margin="10px 0">
 		{children}
 	</Flex>
 );
