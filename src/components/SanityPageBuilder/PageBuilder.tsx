@@ -10,12 +10,12 @@ import IntroBlock from './IntroBlock';
 import GuideCarouselBlock from './GuideCarouselBlock';
 import TagsBlock from './TagsBlock';
 import { Build } from 'pages/build/[slug]';
-import { GuideTags } from 'pages/guides';
+import { GuideTag } from 'pages/guides';
 import { Flex } from '@chakra-ui/react';
 
 interface PageBuilderProps {
 	pageBuilder: Build['pageBuilder'];
-	guideTags?: GuideTags[];
+	guideTags?: GuideTag[];
 }
 
 function PageBuilder({ pageBuilder, guideTags }: PageBuilderProps) {
@@ -78,29 +78,30 @@ function PageBuilder({ pageBuilder, guideTags }: PageBuilderProps) {
 								</Row>
 							);
 						}
-					case 'accordionBlock':
-						return (
-							<>
-								{block.accordions?.length && (
-									<Row key={block._key}>
-										<Column>
-											<AccordionBlock
-												accordions={block.accordions}
-												body={block.body}
-											/>
-										</Column>
-									</Row>
-								)}
-							</>
-						);
+					case 'accordionBlock': {
+						if (block.accordions?.length) {
+							return (
+								<Row key={block._key}>
+									<Column>
+										<AccordionBlock
+											accordions={block.accordions}
+											body={block.body}
+										/>
+									</Column>
+								</Row>
+							);
+						}
+					}
 					case 'stepsBlock':
-						return (
-							<Row key={block._key}>
-								<Column>
-									<StepsBlock props={block} />
-								</Column>
-							</Row>
-						);
+						if (block.style && block.steps) {
+							return (
+								<Row key={block._key}>
+									<Column>
+										<StepsBlock style={block.style} steps={block.steps} />
+									</Column>
+								</Row>
+							);
+						}
 					case 'imgCarouselBlock':
 						return (
 							<Row key={block._key}>
@@ -128,14 +129,14 @@ function PageBuilder({ pageBuilder, guideTags }: PageBuilderProps) {
 							return (
 								<Row key={block._key}>
 									<Column>
-										<TagsBlock guideTags={guideTags} props={block} />
+										<TagsBlock guideTags={guideTags} />
 									</Column>
 								</Row>
 							);
 						}
-						return <></>;
+						return null;
 					default:
-						return <></>;
+						return null;
 				}
 			})}
 		</>

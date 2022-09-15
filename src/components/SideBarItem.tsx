@@ -40,7 +40,7 @@ export default function SideBarItem({
 					size="md"
 					bgGradient={isOpen ? theme.gradients['green-cyan'][500] : ''}
 					backgroundClip={isOpen ? 'text' : ''}
-					style={{ WebkitTextFillColor: isOpen ? 'transparent' : '' }}
+					style={{ WebkitTextFillColor: isOpen ? 'transparent' : 'inherit' }}
 				>
 					{title}
 				</Heading>

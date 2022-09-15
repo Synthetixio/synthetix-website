@@ -1,54 +1,44 @@
-import styled from 'styled-components';
-import { PortableText } from '@portabletext/react';
-
-import { Container } from './ContentBlock';
-
-const Wrapper = styled.div`
-	display: inline-table;
-`;
-
-const AccordionWrapper = styled.div`
-	margin-bottom: 10px;
-`;
-
-const AccordionTitle = styled.div`
-	color: #fff;
-	font-weight: 700;
-	font-size: 14px;
-`;
+import { PageBuilderProps } from 'pages/build/[slug]';
+import {
+	Accordion,
+	AccordionButton,
+	AccordionItem,
+	AccordionPanel,
+	Box,
+	Heading,
+} from '@chakra-ui/react';
+import { TextComponent } from './ContentBlock';
+import { ArrowDownIcon } from '@chakra-ui/icons';
 
 interface AccordionBlockProps {
-	accordions: { heading: string; body: any }[];
-	body?: any;
+	accordions: { heading: string; body: PageBuilderProps['body'] }[];
+	body?: PageBuilderProps['body'];
 }
 
 export function AccordionBlock({ accordions, body }: AccordionBlockProps) {
 	return (
-		<Wrapper>
-			{body && (
-				<Container>
-					<PortableText value={body} />
-				</Container>
+		<Box>
+			{body && body[0]?.children && (
+				<Heading>{body[0].children[0].text}</Heading>
 			)}
-			{accordions.map((accordion, index) => (
-				<AccordionWrapper key={index}>
-					{/* <Accordion
-						key={accordion.heading.concat(index.toString())}
-						headerChildren={<AccordionTitle>{accordion.heading}</AccordionTitle>}
-						isOpen={false}
-						gradient="darkBlue"
-					>
-						<div
-							style={{
-								color: 'white',
-							}}
-						>
-							<PortableText value={accordion.body} />
-						</div>
-					</Accordion> */}
-				</AccordionWrapper>
+			{accordions.map(accordion => (
+				<Accordion allowToggle key={accordion.heading}>
+					<AccordionItem>
+						<AccordionButton w="100%">
+							<Heading size="md" as="h2">
+								{accordion.heading}
+							</Heading>
+							<ArrowDownIcon ml="auto" />
+						</AccordionButton>
+						{accordion.body[0].children?.map(content => (
+							<AccordionPanel>
+								<TextComponent child={content} />
+							</AccordionPanel>
+						))}
+					</AccordionItem>
+				</Accordion>
 			))}
-		</Wrapper>
+		</Box>
 	);
 }
 

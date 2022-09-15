@@ -4,7 +4,7 @@ import { Box, Code, Heading, Image, Link, Text } from '@chakra-ui/react';
 import { client } from 'src/lib/sanity';
 import { useNextSanityImage } from 'next-sanity-image';
 
-const TextComponent = ({ child }: { child: PageBuilderChildren }) => {
+export const TextComponent = ({ child }: { child: PageBuilderChildren }) => {
 	return (
 		<Text
 			as="span"
@@ -37,18 +37,19 @@ function ContentBlock({ block }: { block: PageBuilderProps }) {
 								href={content.markDefs[0].href}
 								color="cyan.500"
 								textDecoration="underline"
+								key={content._key}
 							>
 								{content.children?.map(child => (
-									<TextComponent child={child} />
+									<TextComponent child={child} key={child._key} />
 								))}
 							</Link>
 						);
 					}
 					if (content.style.startsWith('h')) {
 						return (
-							<Heading as="h2" size="md">
+							<Heading as="h2" size="md" key={content._key}>
 								{content.children?.map(child => (
-									<TextComponent child={child} />
+									<TextComponent child={child} key={child._key} />
 								))}
 							</Heading>
 						);
@@ -56,13 +57,7 @@ function ContentBlock({ block }: { block: PageBuilderProps }) {
 					return (
 						<>
 							{content.children?.map(child => (
-								<Text
-									as="span"
-									fontStyle={child.marks[0] === 'em' ? 'italic' : 'normal'}
-									color={child.marks[0] === 'highlight' ? 'cyan.500' : 'white'}
-								>
-									{child.text}
-								</Text>
+								<TextComponent key={child._key} child={child} />
 							))}
 						</>
 					);
@@ -70,18 +65,23 @@ function ContentBlock({ block }: { block: PageBuilderProps }) {
 				if (content._type === 'image' && content.asset) {
 					const imageProps = useNextSanityImage(client, content.asset._ref);
 					return (
-						<Image {...imageProps} w={imageProps.width} h={imageProps.height} />
+						<Image
+							src={imageProps.src}
+							w={imageProps.width}
+							h={imageProps.height}
+							key={imageProps.src}
+						/>
 					);
 				}
 				if (content._type === 'codeBlock') {
 					return (
-						<Code colorScheme="cyan" whiteSpace="pre-line">
+						<Code colorScheme="cyan" whiteSpace="pre-line" key={content.code}>
 							{content.code}
 						</Code>
 					);
 				}
 
-				return <></>;
+				return null;
 			})}
 		</Box>
 	);

@@ -5,7 +5,7 @@ import { NavDocs } from 'src/typings/cms-types';
 import PageBuilder from '../../src/components/SanityPageBuilder/PageBuilder';
 import { client } from '../../src/lib/sanity';
 
-export interface GuideTags {
+export interface GuideTag {
 	tags: {
 		color: { hex: string };
 		introText: string;
@@ -17,13 +17,14 @@ export interface GuideTags {
 		_rev: string;
 		_type: string;
 		_updatedAt: string;
+		occurrence: string;
 	}[];
 }
 
 interface GuideIndexProps {
 	settings: Build;
 	navDocs: NavDocs[];
-	guideTags: GuideTags[];
+	guideTags: GuideTag[];
 }
 
 const GuideIndex = ({ settings, navDocs, guideTags }: GuideIndexProps) => {

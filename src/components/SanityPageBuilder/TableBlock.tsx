@@ -19,12 +19,12 @@ const TableBlock = ({ table }: TableBlockProps) => {
 								: ''
 						}
 					>
-						{row.cells.map(cell => (
+						{row.cells.map((cell, index) => (
 							<Td
 								borderWidth="1px"
 								borderStyle="solid"
 								borderColor="purple.500"
-								key={cell}
+								key={cell.concat(index.toString())}
 								p="5"
 								fontWeight={!index ? 'bold' : ''}
 							>

@@ -10,6 +10,7 @@ import {
 } from 'src/components/Build/BuildPageLayout';
 import { GetStaticPropsContext } from 'next';
 import { TableBlockProps } from 'src/components/SanityPageBuilder/TableBlock';
+import { StepsBlockProps } from 'src/components/SanityPageBuilder/StepsBlock';
 
 interface BuildProps {
 	build: Build;
@@ -48,6 +49,8 @@ export interface PageBuilderProps {
 	_createdAt: string;
 	_updatedAt: string;
 	_rev: string;
+	style?: string;
+	steps: StepsBlockProps['steps'];
 	body: {
 		children?: PageBuilderChildren[];
 		asset?: {
