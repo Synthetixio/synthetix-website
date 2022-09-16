@@ -125,8 +125,8 @@ export default function MyApp({ Component, pageProps }: AppProps) {
 				/>
 				<meta name="og:image" content="/public/logo-x.png" />
 			</Head>
-			<Fonts />
 			<GlobalStyle />
+			<Fonts />
 			<ChakraProvider theme={chakraTheme}>
 				<Component {...pageProps} />
 			</ChakraProvider>

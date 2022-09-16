@@ -3,6 +3,7 @@ import Twitter from '../svg/Twitter';
 import Github from '../svg/Github';
 import Link from 'next/link';
 import { Flex } from '@chakra-ui/react';
+
 const data = (fill?: string) => [
 	{
 		link: 'https://discord.com/invite/AEdUHzt',
@@ -20,15 +21,16 @@ const data = (fill?: string) => [
 		image: <Github fill={fill} />,
 	},
 ];
-const Socials = ({
-	className,
-	fill,
-}: {
-	fill?: string;
-	className?: string;
-}) => {
+
+const Socials = ({ isFooter, fill }: { fill?: string; isFooter?: boolean }) => {
 	return (
-		<Flex as="ul" className={className} alignItems="center" gap="4" mt="20">
+		<Flex
+			as="ul"
+			alignItems="center"
+			gap="4"
+			mt={isFooter ? '0' : '20'}
+			ml={isFooter ? '3' : ''}
+		>
 			{data(fill).map(s => (
 				<Link href={s.link} key={s.link} passHref>
 					<a target="_blank" rel="noopener noreferrer">

@@ -20,9 +20,9 @@ const HeaderComponent = ({ config }: HeaderProps) => {
 	const itemsToString = config?.toString();
 	useEffect(() => {
 		if (isOpen) {
-			document.body.classList.add('fixed');
+			document.documentElement.classList.add('stop-scrolling');
 		} else {
-			document.body.classList.remove('fixed');
+			document.documentElement.classList.remove('stop-scrolling');
 		}
 		setSubOpen(!!config?.items?.length);
 	}, [isOpen, itemsToString]);
