@@ -63,7 +63,6 @@
 		"react-multi-carousel": "^2.8.0",
 		"react-player": "^2.9.0",
 		"react-responsive-carousel": "^3.2.23",
-		"react-scrollspy": "^3.4.3",
 		"react-transition-group": "4.4.1",
 		"sanity-algolia": "^1.0.2",
 		"sanity-plugin-asset-source-unsplash": "^0.1.5",

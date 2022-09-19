@@ -22,6 +22,7 @@ export function Tags(props: TagsProps) {
 						color={tag.color.hex}
 						borderRadius="base"
 						mx="1"
+						key={tag.slug.current}
 					>
 						{tag.slug.current}
 					</Badge>

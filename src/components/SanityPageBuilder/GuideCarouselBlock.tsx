@@ -30,6 +30,7 @@ function GuideItem(props: Guide) {
 			<Flex
 				direction="column"
 				alignItems="center"
+				gap="2"
 				mx="10px"
 				textAlign="center"
 				bg="navy.900"
@@ -39,7 +40,7 @@ function GuideItem(props: Guide) {
 				cursor="pointer"
 				_hover={{ filter: 'brightness(120%)' }}
 				w="100%"
-				height="100%"
+				h="250px"
 			>
 				<Tags tags={props.tags} />
 				{imageProps.src && (
@@ -95,15 +96,13 @@ export function GuideCarouselBlock({ guides }: GuideCarouselBlockProps) {
 				ssr={true}
 				swipeable={true}
 				draggable={true}
-				showDots={true}
 				infinite={true}
-				autoPlay={true}
 				arrows={false}
 				autoPlaySpeed={5000}
 				transitionDuration={5000}
 			>
 				{guides.map((guide, index) => (
-					<Box m="2">
+					<Box m="2" minH="100%">
 						<GuideItem {...guide} key={index} />
 					</Box>
 				))}

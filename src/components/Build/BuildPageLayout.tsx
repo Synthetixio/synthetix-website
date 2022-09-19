@@ -1,12 +1,11 @@
 import styled from 'styled-components';
 import media from 'styled-media-query';
-import Scrollspy from 'react-scrollspy';
-
 import { FlexDivColCentered } from 'src/styles/common';
 import { Header } from '..';
 import Sidebar from '../Sidebar';
 import BuildFooter from './BuildFooter';
 import { PropsWithChildren } from 'react';
+import { NavDocs } from 'src/typings/cms-types';
 
 const OutWrapper = styled.div`
 	width: 100%;
@@ -22,31 +21,6 @@ const ContentWrapper = styled.div`
 	width: 100%;
 	position: relative;
 	margin: 0 auto;
-`;
-const SS = styled.div`
-	flex-basis: 220px;
-	flex-grow: 1;
-	margin-top: 60px;
-
-	${media.lessThan('large')`
-		display: none;
-	`}
-
-	.is-current {
-		font-weight: 700;
-		font-size: 14px;
-		color: #ffffff;
-	}
-
-	.pass {
-		color: #706f6f;
-		font-size: 14px;
-	}
-
-	ul {
-		position: fixed;
-		width: 200px;
-	}
 `;
 
 const MainContent = styled.div`
@@ -78,7 +52,7 @@ const ScrollItem = styled.li<sIProps>`
 	font-size: 14px;
 	line-height: 25px;
 	list-style-type: none;
-	${(sIProps) => {
+	${sIProps => {
 		if (sIProps.lv === 'h2') return `margin-left: 10px;`;
 		if (sIProps.lv === 'h3') return `margin-left: 20px;`;
 		if (sIProps.lv === 'h4') return `margin-left: 30px;`;
@@ -91,7 +65,7 @@ export type BuildPageLayoutProps<T> = {
 		slug: string;
 		text: string;
 	}[];
-	navDocs: { title: string; docs: OrderedDoc[] }[];
+	navDocs: NavDocs[];
 	nextDoc?: T;
 	prevDoc?: T;
 	updatedAt: string;
@@ -108,32 +82,23 @@ export default function BuildPageLayout({
 	const headingList = headings.map((a: any) => a.slug);
 	const subMenu = {
 		label: 'build',
-		navtitle: 'Build Documents',
+		navTitle: 'Build Documents',
 		items: navDocs,
 	};
 	return (
 		<FlexDivColCentered>
-			<Header navDocs={subMenu} navShort={true} />
+			<Header config={subMenu} />
 			<OutWrapper>
 				<ContentWrapper>
 					<Sidebar navDocs={navDocs} subSlug="build" />
 					<MainContent>
 						{children}
-						<BuildFooter nextDoc={nextDoc} prevDoc={prevDoc} updatedAt={updatedAt} />
+						<BuildFooter
+							nextDoc={nextDoc}
+							prevDoc={prevDoc}
+							updatedAt={updatedAt}
+						/>
 					</MainContent>
-					<SS>
-						<Scrollspy
-							items={headingList}
-							currentClassName="is-current"
-							scrolledPastClassName="pass"
-						>
-							{headings.map((item, key) => (
-								<ScrollItem key={key} lv={item.style}>
-									<a href={`#${item.slug}`}>{item.text}</a>
-								</ScrollItem>
-							))}
-						</Scrollspy>
-					</SS>
 				</ContentWrapper>
 			</OutWrapper>
 		</FlexDivColCentered>

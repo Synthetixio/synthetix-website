@@ -55,11 +55,11 @@ function ContentBlock({ block }: { block: PageBuilderProps }) {
 						);
 					}
 					return (
-						<>
+						<Box key={content._key}>
 							{content.children?.map(child => (
 								<TextComponent key={child._key} child={child} />
 							))}
-						</>
+						</Box>
 					);
 				}
 				if (content._type === 'image' && content.asset) {

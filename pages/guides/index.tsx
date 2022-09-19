@@ -20,6 +20,7 @@ export interface GuideTag {
 		occurrence: string;
 		tagImage?: {
 			asset: { _ref: string; _type: string };
+			src: string;
 		};
 	}[];
 }

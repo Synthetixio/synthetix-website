@@ -3,14 +3,14 @@ import { useNextSanityImage } from 'next-sanity-image';
 import { Header } from '..';
 import Sidebar, { SidebarProps } from '../Sidebar';
 import BuildFooter from '../Build/BuildFooter';
-import Tags, { TagsProps } from '../Guides/Tags';
+import Tags, { Tag } from '../Guides/Tags';
 import { client } from '../../lib/sanity';
 import { Flex, Heading, Text } from '@chakra-ui/react';
 
 export interface GuideItemProps {
 	icon: string;
 	slug: { current: string };
-	tags: TagsProps['tags'];
+	tags: Tag[];
 	title: string;
 	introText: string;
 }

@@ -28,6 +28,7 @@ const TagsBlock = ({ guideTags }: { guideTags: GuideTag[] }) => {
 			return tag;
 		}
 	});
+
 	return (
 		<Flex direction="column">
 			<Heading as="h2">Tags Collections</Heading>
@@ -47,7 +48,7 @@ const TagsBlock = ({ guideTags }: { guideTags: GuideTag[] }) => {
 						>
 							{tag.tagImage ? (
 								<Image
-									{...tag.tagImage}
+									src={tag.tagImage.src}
 									w="120px"
 									h="120px"
 									borderRadius="base"

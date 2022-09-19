@@ -109,7 +109,6 @@ function PageBuilder({ pageBuilder, guideTags }: PageBuilderProps) {
 							</Row>
 						);
 					case 'guideCarouselBlock':
-						console.log(block);
 						return (
 							<Row key={block._key}>
 								<Column>
