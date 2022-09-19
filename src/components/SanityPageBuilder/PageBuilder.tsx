@@ -109,21 +109,30 @@ function PageBuilder({ pageBuilder, guideTags }: PageBuilderProps) {
 							</Row>
 						);
 					case 'guideCarouselBlock':
+						console.log(block);
 						return (
 							<Row key={block._key}>
 								<Column>
-									<GuideCarouselBlock props={block} />
+									<GuideCarouselBlock guides={block.guides} />
 								</Column>
 							</Row>
 						);
 					case 'introIconBlock':
-						return (
-							<Row key={block._key}>
-								<Column>
-									<IntroBlock props={block} />
-								</Column>
-							</Row>
-						);
+						if (block.iconLinkText && block.iconLinkURL && block.iconText) {
+							return (
+								<Row key={block._key}>
+									<Column>
+										<IntroBlock
+											body={block.body}
+											icon={block.icon}
+											iconLinkText={block.iconLinkText}
+											iconLinkURL={block.iconLinkURL}
+											iconText={block.iconText}
+										/>
+									</Column>
+								</Row>
+							);
+						}
 					case 'tagsBlock':
 						if (guideTags) {
 							return (

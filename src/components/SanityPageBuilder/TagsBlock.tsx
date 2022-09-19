@@ -1,6 +1,8 @@
 import jp from 'jsonpath';
-import { Box, Flex, Heading, Link, Text } from '@chakra-ui/react';
+import { Box, Flex, Heading, Image, Link, Text } from '@chakra-ui/react';
 import { GuideTag } from 'pages/guides';
+import { useNextSanityImage } from 'next-sanity-image';
+import { client } from 'src/lib/sanity';
 
 const TagsBlock = ({ guideTags }: { guideTags: GuideTag[] }) => {
 	const allTags: GuideTag[] = jp.query(guideTags, '$..tags[*]');
@@ -16,8 +18,16 @@ const TagsBlock = ({ guideTags }: { guideTags: GuideTag[] }) => {
 		});
 		return uniqueArray;
 	};
-	const tags = countOccurrence(allTags);
-
+	const tags = countOccurrence(allTags).map(tag => {
+		if (tag.tagImage) {
+			return {
+				...tag,
+				tagImage: useNextSanityImage(client, tag.tagImage?.asset._ref),
+			};
+		} else {
+			return tag;
+		}
+	});
 	return (
 		<Flex direction="column">
 			<Heading as="h2">Tags Collections</Heading>
@@ -35,22 +45,27 @@ const TagsBlock = ({ guideTags }: { guideTags: GuideTag[] }) => {
 							cursor="pointer"
 							_hover={{ filter: 'brightness(120%)' }}
 						>
-							<Box
-								className="box"
-								w="120px"
-								h="120px"
-								background={tag.color.hex}
-								borderRadius="base"
-								m="2"
-							></Box>
-							<Flex
-								w="fit-content"
-								mx="10px"
-								direction="column"
-								justifyContent="center"
-							>
+							{tag.tagImage ? (
+								<Image
+									{...tag.tagImage}
+									w="120px"
+									h="120px"
+									borderRadius="base"
+									m="2"
+								/>
+							) : (
+								<Box
+									className="box"
+									w="120px"
+									h="120px"
+									background={tag.color.hex}
+									borderRadius="base"
+									m="2"
+								></Box>
+							)}
+							<Flex w="fit-content" mx="10px" direction="column" p="2">
 								<Heading size="md">{tag.title}</Heading>
-								<Text>{tag.introText}</Text>
+								<Text mb="auto">{tag.introText}</Text>
 								<Text>{tag.occurrence} Guides</Text>
 							</Flex>
 						</Flex>

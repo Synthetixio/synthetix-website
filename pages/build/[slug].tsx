@@ -11,10 +11,49 @@ import {
 import { GetStaticPropsContext } from 'next';
 import { TableBlockProps } from 'src/components/SanityPageBuilder/TableBlock';
 import { StepsBlockProps } from 'src/components/SanityPageBuilder/StepsBlock';
+import { Tag } from 'src/components/Guides/Tags';
 
 interface BuildProps {
 	build: Build;
 	navDocs: { title: string; docs: OrderedDoc[] }[];
+}
+
+export interface Guide {
+	category: { _ref: string; _type: string };
+	icon: { _type: string; asset: { _ref: string; _type: string } };
+	introText: string;
+	mainImage: { _type: string; asset: { _ref: string; _type: string } };
+	pageBuilder: {
+		_key: string;
+		_type: string;
+		body: {
+			children: {
+				marks: string[];
+				text: string;
+				_key: string;
+				_type: string;
+			}[];
+			markDefs: unknown[];
+			style: string;
+			_key: string;
+			_type: string;
+		}[];
+		disabled: boolean;
+		title: string;
+		caption?: string;
+		asset?: { _ref: string };
+		accordions?: { heading: string; body: any }[];
+	};
+	publishAt: string;
+	slug: { _type: string; current: string };
+	subPos: boolean;
+	subTitle: string;
+	tags: Tag[];
+	title: string;
+	_id: string;
+	_type: string;
+	_createdAt: string;
+	_updatedAt: string;
 }
 
 export interface Build {
@@ -71,6 +110,10 @@ export interface PageBuilderProps {
 	caption?: string;
 	asset?: { _ref: string };
 	accordions?: { heading: string; body: any }[];
+	iconText?: string;
+	icon?: { asset: { _ref: string; _type: string } };
+	iconLinkText?: string;
+	iconLinkURL?: string;
 	guideLPBanner: {
 		_type: string;
 		asset: { _ref: string; _type: string };
@@ -85,43 +128,7 @@ export interface PageBuilderProps {
 		asset?: { _ref: string };
 		accordions?: { heading: string; body: any }[];
 	}[];
-	guides: {
-		category: { _ref: string; _type: string };
-		icon: { _type: string; asset: { _ref: string; _type: string } };
-		introText: string;
-		mainImage: { _type: string; asset: { _ref: string; _type: string } };
-		pageBuilder: {
-			_key: string;
-			_type: string;
-			body: {
-				children: {
-					marks: string[];
-					text: string;
-					_key: string;
-					_type: string;
-				}[];
-				markDefs: unknown[];
-				style: string;
-				_key: string;
-				_type: string;
-			}[];
-			disabled: boolean;
-			title: string;
-			caption?: string;
-			asset?: { _ref: string };
-			accordions?: { heading: string; body: any }[];
-		}[];
-		publishAt: string;
-		slug: { _type: string; current: string };
-		subPos: boolean;
-		subTitle: string;
-		tags: unknown[];
-		title: string;
-		_id: string;
-		_type: string;
-		_createdAt: string;
-		_updatedAt: string;
-	};
+	guides: Guide[];
 }
 
 const BuildPage = ({ build, navDocs }: BuildProps) => {

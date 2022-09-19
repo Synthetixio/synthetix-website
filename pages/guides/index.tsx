@@ -18,6 +18,9 @@ export interface GuideTag {
 		_type: string;
 		_updatedAt: string;
 		occurrence: string;
+		tagImage?: {
+			asset: { _ref: string; _type: string };
+		};
 	}[];
 }
 
@@ -28,7 +31,6 @@ interface GuideIndexProps {
 }
 
 const GuideIndex = ({ settings, navDocs, guideTags }: GuideIndexProps) => {
-	console.log(settings);
 	return (
 		<>
 			<Head>

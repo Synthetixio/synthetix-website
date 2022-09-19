@@ -36,7 +36,7 @@ export default function GuidesPageLayout({
 	return (
 		<Flex direction="column" alignItems="center" bg="navy.900">
 			<Header config={subMenu} />
-			<Flex w="100%" bg="black">
+			<Flex w="100%" bg="black" h="100vh">
 				<Sidebar navDocs={navDocs} subSlug="guides" />
 				<Flex
 					direction="column"

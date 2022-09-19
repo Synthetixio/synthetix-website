@@ -6,8 +6,8 @@ import Link from 'next/link';
 import 'react-multi-carousel/lib/styles.css';
 import { client } from '../../lib/sanity';
 import Tags from '../Guides/Tags';
-import { theme } from '../../styles/theme';
-import { Heading } from '@chakra-ui/react';
+import { Box, Flex, Heading, Text } from '@chakra-ui/react';
+import { Guide, PageBuilderProps } from 'pages/build/[slug]';
 
 const GuideCarouselWrapper = styled.div`
 	width: 100%;
@@ -23,66 +23,40 @@ const GuideCarouselWrapper = styled.div`
 	}
 `;
 
-const CarouselItem = styled.div`
-	margin: 0px 10px;
-	min-height: 225px;
-	text-align: center;
-	background: #0b0b22;
-	box-shadow: 0px 14px 14px rgba(0, 0, 0, 0.25);
-	border-radius: 5px;
-	padding: 10px;
-
-	:hover {
-		cursor: pointer;
-		filter: brightness(120%);
-	}
-`;
-const Title = styled.div`
-	font-family: 'Inter';
-	font-style: normal;
-	font-weight: 700;
-	font-size: 14px;
-	color: #fff;
-`;
-const Intro = styled.div`
-	font-size: 12px;
-`;
-
-const Figure = styled.figure`
-	img {
-	}
-`;
-interface GuideItemProps {
-	guide: {
-		icon: string;
-		slug: { current: string };
-		tags: string;
-		title: string;
-		introText: string;
-	};
-}
-function GuideItem({ guide }: GuideItemProps) {
-	const imageProps = useNextSanityImage(client, guide.icon);
+function GuideItem(props: Guide) {
+	const imageProps = useNextSanityImage(client, props.icon);
 	return (
-		<Link href={`/guides/${guide.slug.current}`}>
-			<CarouselItem>
-				<Tags tags={guide.tags} />
-				<Figure>
+		<Link href={`/guides/${props.slug.current}`} style={{ margin: '10px' }}>
+			<Flex
+				direction="column"
+				alignItems="center"
+				mx="10px"
+				textAlign="center"
+				bg="navy.900"
+				boxShadow="base"
+				borderRadius="base"
+				p="10px"
+				cursor="pointer"
+				_hover={{ filter: 'brightness(120%)' }}
+				w="100%"
+				height="100%"
+			>
+				<Tags tags={props.tags} />
+				{imageProps.src && (
 					<Img {...imageProps} layout="fixed" width={50} height={50} />
-				</Figure>
-				<Title>{guide.title}</Title>
-				<Intro>{guide.introText}</Intro>
-			</CarouselItem>
+				)}
+				<Text fontWeight="bold">{props.title}</Text>
+				<Text>{props.introText}</Text>
+			</Flex>
 		</Link>
 	);
 }
 
 interface GuideCarouselBlockProps {
-	props: any;
+	guides: PageBuilderProps['guides'];
 }
 
-export function GuideCarouselBlock({ props }: GuideCarouselBlockProps) {
-	const { guides } = props;
+export function GuideCarouselBlock({ guides }: GuideCarouselBlockProps) {
 	const responsive = {
 		superLargeDesktop: {
 			// the naming can be any, depends on you.
@@ -128,8 +102,10 @@ export function GuideCarouselBlock({ props }: GuideCarouselBlockProps) {
 				autoPlaySpeed={5000}
 				transitionDuration={5000}
 			>
-				{guides.map((guide: any, index: number) => (
-					<GuideItem guide={guide} key={index} />
+				{guides.map((guide, index) => (
+					<Box m="2">
+						<GuideItem {...guide} key={index} />
+					</Box>
 				))}
 			</Carousel>
 		</GuideCarouselWrapper>

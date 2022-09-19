@@ -8,7 +8,6 @@ export interface StepsBlockProps {
 }
 
 export function StepsBlock({ style, steps }: StepsBlockProps) {
-	console.log(style, steps);
 	return (
 		<Flex gap="2">
 			{steps.map((step, index) => (
