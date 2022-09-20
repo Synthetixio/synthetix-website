@@ -23,6 +23,7 @@ export const TextComponent = ({ child }: { child: PageBuilderChildren }) => {
 };
 
 function ContentBlock({ block }: { block: PageBuilderProps }) {
+	console.log(block);
 	// TODO @DEV add support for bullet list
 	return (
 		<Box whiteSpace="pre-line">
