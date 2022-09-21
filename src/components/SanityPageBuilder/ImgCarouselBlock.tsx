@@ -1,9 +1,8 @@
+import { Box, Image as ChakraImage } from '@chakra-ui/react';
 import styled from 'styled-components';
 import 'react-responsive-carousel/lib/styles/carousel.min.css'; // requires a loader
 import { Carousel } from 'react-responsive-carousel';
-import Img from 'next/image';
 import { useNextSanityImage } from 'next-sanity-image';
-
 import { client } from '../../lib/sanity';
 
 const ImgCarouselWrapper = styled.div`
@@ -21,48 +20,45 @@ const ImgCarouselWrapper = styled.div`
 	}
 `;
 
-const Figure = styled.figure`
-	position: relative;
-	img {
-		position: absolute;
-		top: 0;
-		left: 0;
-	}
-
-	figcaption {
-		text-align: center;
-		padding: 10px;
-		font-weight: 300;
-		font-size: 12px;
-		bottom: 120px;
-		border-radius: 10px;
-		color: #fff;
-		width: 80%;
-		position: relative;
-		margin: 0 auto;
-		background-color: #000;
-	}
-`;
-
-interface ImgCarouselBlockProps {
-	props: any;
-}
-
-const Image = ({ props }: any) => {
-	const imageProps: any = useNextSanityImage(client, props.mainImage);
-	return <Img {...imageProps} layout="responsive" width={600} height={375} />;
+const Image = ({ mainImage }: { mainImage: { asset: { _ref: string } } }) => {
+	const imageProps = useNextSanityImage(client, mainImage);
+	return <ChakraImage {...imageProps} />;
 };
 
-export function ImgCarouselBlock({ props }: ImgCarouselBlockProps) {
-	const { slides } = props;
+export interface ImgCarouselBlock {
+	mainImage: { asset: { _ref: string } };
+	caption: string;
+}
+
+export function ImgCarouselBlock({ slides }: { slides: ImgCarouselBlock[] }) {
 	return (
 		<ImgCarouselWrapper>
-			<Carousel showStatus={false} dynamicHeight={true} showThumbs={false}>
-				{slides.map((slide: any, index: number) => (
-					<Figure key={index}>
-						<Image props={slide} />
-						{slide.caption ? <figcaption>{slide.caption}</figcaption> : null}
-					</Figure>
+			<Carousel
+				showStatus={false}
+				dynamicHeight={true}
+				showThumbs={false}
+				width="100%"
+			>
+				{slides.map(slide => (
+					<Box position="relative" key={slide.mainImage.asset._ref}>
+						<Image mainImage={slide.mainImage} />
+						{slide.caption && (
+							<Box
+								as="figcaption"
+								textAlign="center"
+								p="10px"
+								position="absolute"
+								bottom="50px"
+								borderRadius="base"
+								color="white"
+								left="10%"
+								width="80%"
+								bg="black"
+							>
+								{slide.caption}
+							</Box>
+						)}
+					</Box>
 				))}
 			</Carousel>
 		</ImgCarouselWrapper>

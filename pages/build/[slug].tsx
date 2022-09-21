@@ -12,6 +12,7 @@ import { GetStaticPropsContext } from 'next';
 import { TableBlockProps } from 'src/components/SanityPageBuilder/TableBlock';
 import { StepsBlockProps } from 'src/components/SanityPageBuilder/StepsBlock';
 import { Tag } from 'src/components/Guides/Tags';
+import ImgCarouselBlock from 'src/components/SanityPageBuilder/ImgCarouselBlock';
 
 interface BuildProps {
 	build: Build;
@@ -90,6 +91,7 @@ export interface PageBuilderProps {
 	_rev: string;
 	style?: string;
 	steps: StepsBlockProps['steps'];
+	slides?: ImgCarouselBlock[];
 	body: {
 		children?: PageBuilderChildren[];
 		asset?: {

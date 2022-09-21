@@ -103,11 +103,13 @@ function PageBuilder({ pageBuilder, guideTags }: PageBuilderProps) {
 							);
 						}
 					case 'imgCarouselBlock':
-						return (
-							<Row key={block._key}>
-								<ImgCarouselBlock props={block} />
-							</Row>
-						);
+						if (block.slides) {
+							return (
+								<Row key={block._key}>
+									<ImgCarouselBlock slides={block.slides} />
+								</Row>
+							);
+						}
 					case 'guideCarouselBlock':
 						return (
 							<Row key={block._key}>
