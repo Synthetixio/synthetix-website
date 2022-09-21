@@ -27,9 +27,7 @@ export function StepsBlock({ style, steps }: StepsBlockProps) {
 							{index + 1}
 						</Text>
 					</Box>
-					{step.body.map(content => (
-						<TextComponent child={content.children![0]} key={content._key} />
-					))}
+					<TextComponent body={step.body} />
 				</Box>
 			))}
 		</Flex>

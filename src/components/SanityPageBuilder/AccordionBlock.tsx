@@ -30,11 +30,9 @@ export function AccordionBlock({ accordions, body }: AccordionBlockProps) {
 							</Heading>
 							<ArrowDownIcon ml="auto" />
 						</AccordionButton>
-						{accordion.body[0].children?.map(content => (
-							<AccordionPanel key={content._key}>
-								<TextComponent child={content} />
-							</AccordionPanel>
-						))}
+						<AccordionPanel>
+							<TextComponent body={accordion.body} />
+						</AccordionPanel>
 					</AccordionItem>
 				</Accordion>
 			))}

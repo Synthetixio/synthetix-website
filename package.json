@@ -27,6 +27,7 @@
 		"@chakra-ui/react": "^2.3.1",
 		"@emotion/react": "^11",
 		"@emotion/styled": "^11",
+		"@portabletext/react": "^1.0.6",
 		"@sanity/base": "^2.30.0",
 		"@sanity/client": "^3.1.0",
 		"@sanity/code-input": "^2.30.0",

@@ -141,7 +141,7 @@ const MenuComponent = ({
 						>
 							{items?.map((item, index) => {
 								return (
-									<AccordionItem>
+									<AccordionItem key={item.title.concat(index.toString())}>
 										<AccordionButton
 											display="flex"
 											justifyContent="space-between"
@@ -176,6 +176,7 @@ const MenuComponent = ({
 												return (
 													<ChakraLink
 														href={`/${urlFolderPathName}/${doc.slug.current}`}
+														key={doc.title}
 													>
 														<Text
 															fontSize="lg"
@@ -210,8 +211,7 @@ const MenuComponent = ({
 					data.map(item => {
 						if (isHeader) {
 							return (
-								!item.hideOnHeader &&
-								!item.button && (
+								!item.hideOnHeader && (
 									<MenuItem key={item.label} subOpen={!!subOpen} {...rest}>
 										{item.link ? (
 											<ChakraLink
@@ -247,6 +247,7 @@ const MenuComponent = ({
 												color="#828295"
 												_hover={{ color: 'cyan.500' }}
 												textTransform="uppercase"
+												key={item.link}
 											>
 												<Text
 													fontFamily="heading"
@@ -301,7 +302,7 @@ const MenuComponent = ({
 						externalButtons.map(item => {
 							if (isHeader && !item.hideOnHeader) {
 								return (
-									<ExternalLink href={item.externalLink}>
+									<ExternalLink href={item.externalLink} key={item.label}>
 										<Button
 											variant="outline"
 											colorScheme="cyan"

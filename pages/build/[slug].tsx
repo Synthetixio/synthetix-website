@@ -118,16 +118,7 @@ export interface PageBuilderProps {
 		_type: string;
 		asset: { _ref: string; _type: string };
 	};
-	columns?: {
-		_key: string;
-		_type: string;
-		body: unknown[];
-		disabled: boolean;
-		title: string;
-		caption?: string;
-		asset?: { _ref: string };
-		accordions?: { heading: string; body: any }[];
-	}[];
+	columns?: PageBuilderProps[];
 	guides: Guide[];
 }
 

@@ -4470,7 +4470,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@portabletext/react@npm:^1.0.0":
+"@portabletext/react@npm:^1.0.0, @portabletext/react@npm:^1.0.6":
   version: 1.0.6
   resolution: "@portabletext/react@npm:1.0.6"
   dependencies:
@@ -25589,6 +25589,7 @@ __metadata:
     "@emotion/react": ^11
     "@emotion/styled": ^11
     "@microsoft/eslint-formatter-sarif": 2.1.5
+    "@portabletext/react": ^1.0.6
     "@sanity/base": ^2.30.0
     "@sanity/client": ^3.1.0
     "@sanity/code-input": ^2.30.0

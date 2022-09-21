@@ -34,9 +34,7 @@ export function IntroBlock({
 				_hover={{ filter: 'brightness(120%)' }}
 			>
 				<Flex flex-basis="66.66%" pr="10px">
-					{body[0].children?.map(content => (
-						<TextComponent child={content} />
-					))}
+					<TextComponent body={body} />
 				</Flex>
 				<Flex
 					flex-basis="33.33%"
