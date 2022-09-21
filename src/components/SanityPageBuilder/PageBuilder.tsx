@@ -25,9 +25,9 @@ function PageBuilder({ pageBuilder, guideTags }: PageBuilderProps) {
 				switch (block._type) {
 					case 'mainImage':
 						return (
-							<>
+							<div key={block._key}>
 								{block.asset?._ref && (
-									<Row key={block._key}>
+									<Row>
 										<Column>
 											<MainImage
 												caption={block.caption}
@@ -36,7 +36,7 @@ function PageBuilder({ pageBuilder, guideTags }: PageBuilderProps) {
 										</Column>
 									</Row>
 								)}
-							</>
+							</div>
 						);
 					case 'contentBlock':
 						return (
