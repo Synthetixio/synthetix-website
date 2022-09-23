@@ -20,10 +20,11 @@ export default function Sidebar({ navDocs, subSlug }: SidebarProps) {
 				borderRight="1px solid"
 				borderRightColor="gray.900"
 				minW="300px"
+				h="100%"
 			>
 				{subSlug === 'guides' && (
 					<Heading
-						size="md"
+						fontSize="lg"
 						bgGradient={theme.gradients['green-cyan'][500]}
 						backgroundClip="text"
 						style={{ WebkitTextFillColor: 'transparent' }}

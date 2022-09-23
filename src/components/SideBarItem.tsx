@@ -37,7 +37,7 @@ export default function SideBarItem({
 				w="100%"
 			>
 				<Heading
-					size="md"
+					fontSize="lg"
 					bgGradient={isOpen ? theme.gradients['green-cyan'][500] : ''}
 					backgroundClip={isOpen ? 'text' : ''}
 					style={{ WebkitTextFillColor: isOpen ? 'transparent' : 'inherit' }}
@@ -45,9 +45,15 @@ export default function SideBarItem({
 					{title}
 				</Heading>
 				{isOpen ? (
-					<ChevronUpIcon color={isOpen ? theme.colors.cyan[500] : ''} />
+					<ChevronUpIcon
+						color={isOpen ? theme.colors.cyan[500] : ''}
+						boxSize="6"
+					/>
 				) : (
-					<ChevronDownIcon color={isOpen ? theme.colors.cyan[500] : ''} />
+					<ChevronDownIcon
+						color={isOpen ? theme.colors.cyan[500] : ''}
+						boxSize="6"
+					/>
 				)}
 			</Flex>
 			{isOpen && (

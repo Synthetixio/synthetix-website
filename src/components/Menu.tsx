@@ -31,37 +31,37 @@ const data: {
 }[] = [
 	{
 		link: '/synths',
-		label: 'synths',
+		label: 'Synths',
 		hideOnHeader: false,
 	},
 	{
 		link: '/build/welcome-to-snx',
-		label: 'build',
+		label: 'Build',
 		hideOnHeader: false,
 	},
 	{
 		link: '/guides',
-		label: 'guides',
+		label: 'Guides',
 		hideOnHeader: false,
 	},
 	{
 		link: '/governance',
-		label: 'governance',
+		label: 'Governance',
 		hideOnHeader: false,
 	},
 	{
 		externalLink: 'https://discord.com/invite/AEdUHzt',
-		label: 'community',
+		label: 'Community',
 		hideOnHeader: false,
 	},
 	{
 		externalLink: 'https://jobs.defialliance.co/companies/synthetix',
-		label: 'careers',
+		label: 'Careers',
 		hideOnHeader: true,
 	},
 	{
 		externalLink: 'https://blog.synthetix.io/',
-		label: 'blog',
+		label: 'Blog',
 		hideOnHeader: false,
 	},
 ];
@@ -69,12 +69,12 @@ const data: {
 const externalButtons = [
 	{
 		externalLink: 'https://stats.synthetix.io',
-		label: 'stats',
+		label: 'Stats',
 		hideOnHeader: false,
 	},
 	{
 		externalLink: 'https://staking.synthetix.io',
-		label: 'staking',
+		label: 'Staking',
 		hideOnHeader: false,
 	},
 ];
@@ -102,7 +102,6 @@ const MenuComponent = ({
 	const urlFolderPathName = pathname.split('/')[1];
 	const subRoute = asPath.split('/')[asPath.split('/').length - 1];
 	const [activeIndexes, setActiveIndexes] = useState<ExpandedIndex>([]);
-
 	return (
 		<>
 			<Flex
@@ -215,18 +214,12 @@ const MenuComponent = ({
 									<MenuItem key={item.label} subOpen={!!subOpen} {...rest}>
 										{item.link ? (
 											<ChakraLink
-												color={
-													urlFolderPathName === item.label
-														? 'cyan.500'
-														: '#828295'
-												}
 												transition={
 													urlFolderPathName === item.label
 														? 'color 0.3s ease-out'
 														: ''
 												}
 												_hover={{ color: 'cyan.500' }}
-												textTransform="uppercase"
 												href={item.link}
 											>
 												<Text
@@ -235,8 +228,9 @@ const MenuComponent = ({
 													color={
 														urlFolderPathName === item.label
 															? 'cyan.500'
-															: 'white'
+															: 'gray.500'
 													}
+													_hover={{ color: 'white' }}
 												>
 													{item.label}
 												</Text>
@@ -246,13 +240,13 @@ const MenuComponent = ({
 												href={item.externalLink}
 												color="#828295"
 												_hover={{ color: 'cyan.500' }}
-												textTransform="uppercase"
 												key={item.link}
 											>
 												<Text
 													fontFamily="heading"
 													fontWeight="bold"
-													color="white"
+													color="gray.500"
+													_hover={{ color: 'white' }}
 												>
 													{item.label}
 												</Text>
@@ -308,7 +302,6 @@ const MenuComponent = ({
 											colorScheme="cyan"
 											key={item.label}
 											rightIcon={<ImArrowUpRight2 />}
-											textTransform="uppercase"
 										>
 											{item.label}
 										</Button>
@@ -344,7 +337,6 @@ export const MenuItem = ({
 	<Box
 		display={{ base: 'block', md: 'inline-block' }}
 		margin={{ base: '0 0 51px 20px', md: '10px 16px' }}
-		textTransform="uppercase"
 		as="li"
 		{...rest}
 	>

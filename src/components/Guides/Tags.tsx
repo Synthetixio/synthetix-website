@@ -21,6 +21,7 @@ export function Tags(props: TagsProps) {
 						textTransform="uppercase"
 						color={tag.color.hex}
 						borderRadius="base"
+						boxShadow={`inset 0 0 0px 1px ${tag.color.hex}`}
 						mx="1"
 						key={tag.slug.current}
 					>

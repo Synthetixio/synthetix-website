@@ -1,8 +1,7 @@
 import { useRouter } from 'next/router';
-import { Line } from 'src/styles/common';
 import { OrderedDoc } from './BuildPageLayout';
-import { Box, Flex, Heading, Text } from '@chakra-ui/react';
-import { ArrowLeftIcon, ArrowRightIcon } from '@chakra-ui/icons';
+import { Box, Divider, Flex, Heading, Text } from '@chakra-ui/react';
+import { ArrowBackIcon, ArrowForwardIcon } from '@chakra-ui/icons';
 
 interface BuildFooterProps {
 	nextDoc?: OrderedDoc;
@@ -57,7 +56,7 @@ export default function BuildFooter({
 					</Box>
 				)}
 			</Flex>
-			<Line showOnMobile />
+			<Divider borderColor="gray.900" />
 			<Text fontStyle="italic" my="20px">
 				Last updated: {lastUpdated.getUTCDate()}/{lastUpdated.getUTCMonth() + 1}
 				/{lastUpdated.getUTCFullYear()}
@@ -79,7 +78,7 @@ const ButtonCard = ({
 		<Box bg="linear-gradient(#ED1EFF, #00D1FF)" p="1px" borderRadius="base">
 			<Flex
 				flexDirection="column"
-				px="10"
+				px="6"
 				py="4"
 				w="100%"
 				bg="navy.900"
@@ -90,18 +89,20 @@ const ButtonCard = ({
 					{subline}
 				</Text>
 				{arrowDirection === 'left' ? (
-					<ArrowLeftIcon
+					<ArrowBackIcon
 						position="absolute"
-						left="8px"
+						left="18px"
 						top="50%"
 						transform="translateY(-50%)"
+						boxSize="6"
 					/>
 				) : (
-					<ArrowRightIcon
+					<ArrowForwardIcon
 						position="absolute"
-						right="8px"
+						right="18px"
 						top="50%"
 						transform="translateY(-50%)"
+						boxSize="6"
 					/>
 				)}
 				<Heading

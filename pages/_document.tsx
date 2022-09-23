@@ -1,3 +1,4 @@
+import { theme } from '@synthetixio/v3-theme';
 import Document, { Html, Head, Main, NextScript } from 'next/document';
 import { ServerStyleSheet } from 'styled-components';
 export default class MyDocument extends Document {
@@ -8,7 +9,8 @@ export default class MyDocument extends Document {
 		try {
 			ctx.renderPage = () =>
 				originalRenderPage({
-					enhanceApp: (App: any) => (props: any) => sheet.collectStyles(<App {...props} />),
+					enhanceApp: (App: any) => (props: any) =>
+						sheet.collectStyles(<App {...props} />),
 				});
 
 			const initialProps = await Document.getInitialProps(ctx);
@@ -39,7 +41,7 @@ export default class MyDocument extends Document {
 						rel="stylesheet"
 					></link>
 				</Head>
-				<body>
+				<body style={{ background: theme.colors.navy[900] }}>
 					<Main />
 					<NextScript />
 				</body>

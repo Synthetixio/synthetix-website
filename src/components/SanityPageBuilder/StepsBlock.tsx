@@ -8,27 +8,44 @@ export interface StepsBlockProps {
 }
 
 export function StepsBlock({ style, steps }: StepsBlockProps) {
+	const isFullWidth = style === 'black';
 	return (
-		<Flex gap="2" flexWrap="wrap">
+		<Flex
+			gap="2"
+			flexWrap={isFullWidth ? 'nowrap' : 'wrap'}
+			flexDirection={isFullWidth ? 'column' : 'row'}
+		>
 			{steps.map((step, index) => (
-				<Box
-					maxW="200px"
-					borderRadius="base"
-					borderWidth="2px"
-					borderStyle="solid"
-					borderColor={`${style}.500`}
-					p="2"
-					key={step._key}
-					display="flex"
-					flexWrap="wrap"
-				>
-					<Box background={`${style}.500`} borderRadius="full" px="3" mr="2">
-						<Text fontWeight="bold" fontSize="2xl">
-							{index + 1}
-						</Text>
-					</Box>
-					<TextComponent body={step.body} />
-				</Box>
+				<>
+					<Flex
+						maxW={isFullWidth ? 'unset' : '300px'}
+						borderRadius="base"
+						borderWidth="1px"
+						borderStyle="solid"
+						borderColor="gray.900"
+						p="2"
+						key={step._key}
+					>
+						<Box
+							background={isFullWidth ? 'purple.500' : 'pink.500'}
+							borderRadius="full"
+							minW="30px"
+							minH="30px"
+							m="3"
+							h="fit-content"
+							display="flex"
+							justifyContent="center"
+							alignItems="center"
+						>
+							<Text fontWeight="bold" fontSize="md">
+								{index + 1}
+							</Text>
+						</Box>
+						<Flex flexDir="column" py="2" pr="1">
+							<TextComponent body={step.body} />
+						</Flex>
+					</Flex>
+				</>
 			))}
 		</Flex>
 	);

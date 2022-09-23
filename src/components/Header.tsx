@@ -35,7 +35,7 @@ const HeaderComponent = ({ config }: HeaderProps) => {
 			justifyContent={{ base: 'center', md: 'space-between' }}
 			zIndex="1000"
 			w="100%"
-			maxW="8xl"
+			maxW="1920px"
 			background="transparent"
 			px="2"
 		>
@@ -45,6 +45,7 @@ const HeaderComponent = ({ config }: HeaderProps) => {
 				height={12}
 				onClick={() => push('/')}
 				cursor="pointer"
+				mr="4"
 			/>
 			<Show below="md">
 				<Box

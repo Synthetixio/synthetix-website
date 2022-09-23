@@ -31,16 +31,24 @@ const TagsBlock = ({ guideTags }: { guideTags: GuideTag[] }) => {
 
 	return (
 		<Flex direction="column">
-			<Heading as="h2">Tags Collections</Heading>
-			<Flex>
+			<Heading as="h2" size="md">
+				Tags Collections
+			</Heading>
+			<Flex flexWrap="wrap">
 				{tags.map((tag, index) => (
 					<Link
 						href={`/guides/tag/${tag.slug.current}`}
 						key={tag.title.concat(index.toString())}
-						m="2"
+						ml="0"
+						mr="2"
+						mb="2"
+						mt="2"
+						w="336px"
 					>
 						<Flex
-							border={`2px solid ${tag.color.hex}`}
+							borderColor="gray.900"
+							borderStyle="solid"
+							borderWidth="1px"
 							borderRadius="base"
 							margin="margin: 10px 10px 10px 0px"
 							cursor="pointer"
@@ -53,6 +61,7 @@ const TagsBlock = ({ guideTags }: { guideTags: GuideTag[] }) => {
 									h="120px"
 									borderRadius="base"
 									m="2"
+									bg={tag.color.hex}
 								/>
 							) : (
 								<Box
@@ -65,7 +74,7 @@ const TagsBlock = ({ guideTags }: { guideTags: GuideTag[] }) => {
 								></Box>
 							)}
 							<Flex w="fit-content" mx="10px" direction="column" p="2">
-								<Heading size="md">{tag.title}</Heading>
+								<Heading fontSize="md">{tag.title}</Heading>
 								<Text mb="auto">{tag.introText}</Text>
 								<Text>{tag.occurrence} Guides</Text>
 							</Flex>

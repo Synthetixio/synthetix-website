@@ -79,7 +79,6 @@ export default function BuildPageLayout({
 	prevDoc,
 	updatedAt,
 }: PropsWithChildren<BuildPageLayoutProps<OrderedDoc>>) {
-	const headingList = headings.map((a: any) => a.slug);
 	const subMenu = {
 		label: 'build',
 		navTitle: 'Build Documents',

@@ -4,7 +4,7 @@ import BuildFooter from '../Build/BuildFooter';
 import GuidesHeader from './GuidesHeader';
 import { PropsWithChildren } from 'react';
 import { OrderedDoc } from '../Build/BuildPageLayout';
-import { Flex } from '@chakra-ui/react';
+import { Container, Flex } from '@chakra-ui/react';
 import { NavDocs } from 'src/typings/cms-types';
 
 type GuidesPageLayoutProps<T> = {
@@ -34,9 +34,15 @@ export default function GuidesPageLayout({
 		items: navDocs,
 	};
 	return (
-		<Flex direction="column" alignItems="center" bg="navy.900">
+		<Container
+			display="flex"
+			flexDirection="column"
+			alignItems="center"
+			bg="navy.900"
+			maxW="1920px"
+		>
 			<Header config={subMenu} />
-			<Flex w="100%" bg="black" h="100vh">
+			<Flex w="100%">
 				<Sidebar navDocs={navDocs} subSlug="guides" />
 				<Flex
 					direction="column"
@@ -59,6 +65,6 @@ export default function GuidesPageLayout({
 					)}
 				</Flex>
 			</Flex>
-		</Flex>
+		</Container>
 	);
 }

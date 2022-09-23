@@ -164,7 +164,7 @@ const Column = ({ children }: { children: ReactNode }) => (
 		flexDir="column"
 		flexBasis={{ base: 'auto', md: '100%' }}
 		flexGrow="1"
-		mr="10px"
+		mr="1"
 	>
 		{children}
 	</Flex>

@@ -1,6 +1,7 @@
 import React from 'react';
 import { PageBuilderProps } from 'pages/build/[slug]';
 import {
+	Alert,
 	Box,
 	Code,
 	Heading,
@@ -36,11 +37,26 @@ export const TextComponent = ({ body }: { body: PageBuilderProps['body'] }) => {
 					},
 					codeBlock: ({ value }) => {
 						return (
-							<Code colorScheme="cyan" whiteSpace="pre-line" key={value.code}>
+							<Code
+								colorScheme="black"
+								whiteSpace="pre-line"
+								key={value.code}
+								bg="black"
+								p="4"
+								w="100%"
+							>
 								{value.code}
 							</Code>
 						);
 					},
+				},
+				block: {
+					blockquote: ({ children }) => <Alert>{children}</Alert>,
+					h4: ({ children }) => (
+						<Heading as="h4" fontSize="lg">
+							{children}
+						</Heading>
+					),
 				},
 				list: {
 					bullet: ({ children }) => <UnorderedList>{children}</UnorderedList>,

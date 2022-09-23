@@ -30,23 +30,23 @@ function GuideItem(props: Guide) {
 			<Flex
 				direction="column"
 				alignItems="center"
-				gap="2"
-				mx="10px"
 				textAlign="center"
 				bg="navy.900"
 				boxShadow="base"
 				borderRadius="base"
-				p="10px"
+				p="16px"
 				cursor="pointer"
 				_hover={{ filter: 'brightness(120%)' }}
 				w="100%"
-				h="250px"
+				h="200px"
 			>
 				<Tags tags={props.tags} />
 				{imageProps.src && (
 					<Img {...imageProps} layout="fixed" width={50} height={50} />
 				)}
-				<Text fontWeight="bold">{props.title}</Text>
+				<Text fontWeight="bold" my="2">
+					{props.title}
+				</Text>
 				<Text>{props.introText}</Text>
 			</Flex>
 		</Link>
@@ -88,7 +88,7 @@ export function GuideCarouselBlock({ guides }: GuideCarouselBlockProps) {
 	};
 	return (
 		<GuideCarouselWrapper>
-			<Heading as="h2" size="md">
+			<Heading as="h2" my="2" size="md">
 				User Guides
 			</Heading>
 			<Carousel
@@ -100,9 +100,16 @@ export function GuideCarouselBlock({ guides }: GuideCarouselBlockProps) {
 				arrows={false}
 				autoPlaySpeed={5000}
 				transitionDuration={5000}
+				autoPlay
 			>
 				{guides.map((guide, index) => (
-					<Box m="2" minH="100%">
+					<Box
+						mr="2"
+						borderRadius="base"
+						borderColor="gray.900"
+						borderWidth="1px"
+						borderStyle="solid"
+					>
 						<GuideItem {...guide} key={index} />
 					</Box>
 				))}

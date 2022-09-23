@@ -42,7 +42,7 @@
 		"@sanity/vision": "^2.30.0",
 		"@socialgouv/matomo-next": "1.2.2",
 		"@synthetixio/contracts-interface": "^2.74.3",
-		"@synthetixio/v3-theme": "0.0.0-01e37f40",
+		"@synthetixio/v3-theme": "1.1.0",
 		"@vercel/node": "^1.14.0",
 		"algoliasearch": "^4.13.0",
 		"axios": "0.23.0",

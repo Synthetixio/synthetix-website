@@ -24,6 +24,7 @@ export default function GuidesHeader({
 			minH="250px"
 			backgroundPosition="center center"
 			backgroundSize="cover"
+			borderRadius="base"
 		>
 			<Box
 				position="absolute"
@@ -34,7 +35,7 @@ export default function GuidesHeader({
 				textAlign="center"
 				textTransform="uppercase"
 			>
-				{subTitle && !subPos && <Text>{subTitle}</Text>}
+				{subTitle && !subPos && <Text size="md">{subTitle}</Text>}
 				<Heading>{title}</Heading>
 				{subTitle && subPos && <Text size="md">{subTitle}</Text>}
 			</Box>
