@@ -8,7 +8,11 @@ import USP from 'src/sections/futures/usp';
 import { Line } from 'src/styles/common';
 import styled from 'styled-components';
 import media from 'styled-media-query';
-import { getDailyCandles, getDailyExchangePartners, getDebtStates } from 'synthetix-subgraph';
+import {
+	getDailyCandles,
+	getDailyExchangePartners,
+	getDebtStates,
+} from 'synthetix-subgraph';
 import Perpetuals from 'src/sections/futures/perpetuals';
 import { headerHeight } from 'src/components/Header';
 import { exchangesGraph, optimismGraphMain } from 'src/constants/urls';
@@ -26,12 +30,14 @@ export interface PerpetualSynth {
 }
 
 export async function getStaticProps() {
-	const yesterday = new Date(new Date().getTime() / 1000 - 24 * 60 * 60).getTime();
+	const yesterday = new Date(
+		new Date().getTime() / 1000 - 24 * 60 * 60,
+	).getTime();
 	const snx = getSNXJS({
 		useOvm: true,
 		networkId: NetworkIdByName['mainnet-ovm'],
 	});
-	// https://thegraph.com/hosted-service/subgraph/kwenta/optimism-main ?? @TODO MF wait for Maiks response?
+
 	const [dailyKwenta] = await getDailyExchangePartners(
 		optimismGraphMain,
 		{
@@ -42,7 +48,7 @@ export async function getStaticProps() {
 			orderBy: 'timestamp',
 			orderDirection: 'desc',
 		},
-		{ id: true, trades: true, usdVolume: true }
+		{ id: true, trades: true, usdVolume: true },
 	);
 	const [debt] = await getDebtStates(
 		optimismGraphMain,
@@ -54,35 +60,52 @@ export async function getStaticProps() {
 			id: true,
 			totalIssuedSynths: true,
 			timestamp: true,
-		}
+		},
 	);
 	const [, synthsRates] = await snx.contracts.SynthUtil.synthsRates();
-	const [, , sUSDBalances] = await snx.contracts.SynthUtil.synthsTotalSupplies();
+	const [, , sUSDBalances] =
+		await snx.contracts.SynthUtil.synthsTotalSupplies();
 	const synths: PerpetualSynth[] = await Promise.all(
 		snx.synths.map(async (synth, index) => {
 			const [synthCandle] = await getDailyCandles(
 				exchangesGraph,
-				{ first: 1, where: { synth: synth.name }, orderBy: 'timestamp', orderDirection: 'desc' },
+				{
+					first: 1,
+					where: { synth: synth.name },
+					orderBy: 'timestamp',
+					orderDirection: 'desc',
+				},
 				{
 					open: true,
 					close: true,
-				}
+				},
 			);
-			const priceChange = synthCandle?.open.sub(synthCandle.close).div(synthCandle?.open).mul(100);
+			const priceChange = synthCandle?.open
+				.sub(synthCandle.close)
+				.div(synthCandle?.open)
+				.mul(100);
 			return {
 				name: synth.name,
 				category: synth.category,
-				priceInUSD: USNumberFormat(Number(snx.utils.formatEther(synthsRates[index]))),
-				volume: USNumberFormat(Number(snx.utils.formatEther(sUSDBalances[index]))),
+				priceInUSD: USNumberFormat(
+					Number(snx.utils.formatEther(synthsRates[index])),
+				),
+				volume: USNumberFormat(
+					Number(snx.utils.formatEther(sUSDBalances[index])),
+				),
 				priceChange: priceChange ? priceChange.toNumber() : 0,
 			};
-		})
+		}),
 	);
 	return {
 		props: {
-			openInterest: USNumberFormat(Number(debt.totalIssuedSynths.toNumber().toFixed(2))),
+			openInterest: USNumberFormat(
+				Number(debt.totalIssuedSynths.toNumber().toFixed(2)),
+			),
 			trades: USNumberFormat(dailyKwenta.trades.toNumber()),
-			tradingVolume: USNumberFormat(Number(dailyKwenta.usdVolume.toNumber().toFixed(2))),
+			tradingVolume: USNumberFormat(
+				Number(dailyKwenta.usdVolume.toNumber().toFixed(2)),
+			),
 			synths,
 		},
 		revalidate: 43200,
@@ -90,7 +113,9 @@ export async function getStaticProps() {
 }
 
 const USNumberFormat = (num: number) => {
-	return new Intl.NumberFormat('en-US', { maximumFractionDigits: 2 }).format(num);
+	return new Intl.NumberFormat('en-US', { maximumFractionDigits: 2 }).format(
+		num,
+	);
 };
 
 export default function DecentralizedPerpetualFutures({
@@ -107,7 +132,11 @@ export default function DecentralizedPerpetualFutures({
 			<PageLayout>
 				<FuturesGradient />
 				<FuturesMain />
-				<PoweredBy openInterest={openInterest} trades={trades} tradingVolume={tradingVolume} />
+				<PoweredBy
+					openInterest={openInterest}
+					trades={trades}
+					tradingVolume={tradingVolume}
+				/>
 				<USP />
 				<Line />
 				<Perpetuals synths={synths} />
