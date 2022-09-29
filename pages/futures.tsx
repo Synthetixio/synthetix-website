@@ -105,8 +105,7 @@ export async function getStaticProps() {
 			),
 			trades: USNumberFormat(dailyKwenta.trades.toNumber()),
 			tradingVolume: USNumberFormat(
-				// Number(dailyKwenta.usdVolume.toNumber().toFixed(2)),
-				0,
+				Number(dailyKwenta.usdVolume.toNumber().toFixed(2)),
 			),
 			synths,
 		},
