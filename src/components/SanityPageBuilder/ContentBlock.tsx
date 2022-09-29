@@ -74,8 +74,8 @@ export const Container = styled.div`
 
 const portableTextComponents: Partial<PortableTextReactComponents> = {
 	types: {
-		image: ({ value }: { value: { caption: string; asset: { _ref: string } } }) => (
-			<MainImage caption={value.caption} image={value.asset._ref} />
+		image: ({ value }: { value: { caption: string; asset: { _ref?: string } } }) => (
+			<>{value.asset?._ref && <MainImage caption={value.caption} image={value.asset._ref} />}</>
 		),
 		codeBlock: ({ value }: any) => <CodeBlock code={value.code} language={value.language} />,
 	},
