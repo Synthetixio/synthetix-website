@@ -37,7 +37,7 @@ const HeaderComponent = ({ config }: HeaderProps) => {
 			w="100%"
 			maxW="1920px"
 			background="transparent"
-			px="2"
+			px="5"
 		>
 			<Image
 				src="/snx.svg"

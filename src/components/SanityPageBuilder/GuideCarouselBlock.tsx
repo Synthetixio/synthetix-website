@@ -39,6 +39,7 @@ function GuideItem(props: Guide) {
 				_hover={{ filter: 'brightness(120%)' }}
 				w="100%"
 				h="200px"
+				overflowY="scroll"
 			>
 				<Tags tags={props.tags} />
 				{imageProps?.src && (
@@ -109,8 +110,9 @@ export function GuideCarouselBlock({ guides }: GuideCarouselBlockProps) {
 						borderColor="gray.900"
 						borderWidth="1px"
 						borderStyle="solid"
+						key={guide._id.concat(index.toString())}
 					>
-						<GuideItem {...guide} key={index} />
+						<GuideItem {...guide} />
 					</Box>
 				))}
 			</Carousel>

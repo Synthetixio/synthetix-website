@@ -50,6 +50,7 @@ export async function getStaticProps() {
 		},
 		{ id: true, trades: true, usdVolume: true },
 	);
+
 	const [debt] = await getDebtStates(
 		optimismGraphMain,
 		{
@@ -104,7 +105,8 @@ export async function getStaticProps() {
 			),
 			trades: USNumberFormat(dailyKwenta.trades.toNumber()),
 			tradingVolume: USNumberFormat(
-				Number(dailyKwenta.usdVolume.toNumber().toFixed(2)),
+				// Number(dailyKwenta.usdVolume.toNumber().toFixed(2)),
+				0,
 			),
 			synths,
 		},
