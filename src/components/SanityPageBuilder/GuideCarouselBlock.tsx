@@ -41,7 +41,7 @@ function GuideItem(props: Guide) {
 				h="200px"
 			>
 				<Tags tags={props.tags} />
-				{imageProps.src && (
+				{imageProps?.src && (
 					<Img {...imageProps} layout="fixed" width={50} height={50} />
 				)}
 				<Text fontWeight="bold" my="2">

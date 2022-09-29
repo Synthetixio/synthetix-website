@@ -2357,7 +2357,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@chakra-ui/react@npm:^2.2.8, @chakra-ui/react@npm:^2.3.1":
+"@chakra-ui/react@npm:^2.3.1":
   version: 2.3.1
   resolution: "@chakra-ui/react@npm:2.3.1"
   dependencies:
@@ -2891,7 +2891,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@emotion/react@npm:^11, @emotion/react@npm:^11.10.0":
+"@emotion/react@npm:^11":
   version: 11.10.4
   resolution: "@emotion/react@npm:11.10.4"
   dependencies:
@@ -2935,7 +2935,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@emotion/styled@npm:^11, @emotion/styled@npm:^11.10.0":
+"@emotion/styled@npm:^11":
   version: 11.10.4
   resolution: "@emotion/styled@npm:11.10.4"
   dependencies:
@@ -5852,10 +5852,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@synthetixio/v3-theme@npm:0.0.0-01e37f40":
-  version: 0.0.0-01e37f40
-  resolution: "@synthetixio/v3-theme@npm:0.0.0-01e37f40"
-  dependencies:
+"@synthetixio/v3-theme@npm:1.1.0":
+  version: 1.1.0
+  resolution: "@synthetixio/v3-theme@npm:1.1.0"
+  peerDependencies:
     "@chakra-ui/icons": ^2.0.9
     "@chakra-ui/react": ^2.2.8
     "@emotion/react": ^11.10.0
@@ -5863,7 +5863,7 @@ __metadata:
     framer-motion: ^7.0.0
     react: ^18.2.0
     react-dom: ^18.2.0
-  checksum: e0220a54dcb1f9c6d67cc5a27fc032452f1f4d9c28c1cc4baf31f1cdd0b3f481ce57b81d2df1e127cb7740254fce96d5a41fc61360268dcab61dcac7f3c1040c
+  checksum: 1032ac2c75dcd72dda8a0649c13cc68ab349ea5757cd574e89a47e93a9ca31629a3efaac9ffab0fd2a56fff7ae3ea6f4f90258033491c79a986539d8413a1a37
   languageName: node
   linkType: hard
 
@@ -14695,7 +14695,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"framer-motion@npm:^7, framer-motion@npm:^7.0.0":
+"framer-motion@npm:^7":
   version: 7.2.1
   resolution: "framer-motion@npm:7.2.1"
   dependencies:
@@ -25606,7 +25606,7 @@ __metadata:
     "@svgr/cli": ^5.5.0
     "@synthetixio/contracts-interface": ^2.74.3
     "@synthetixio/synpress": 2.0.1
-    "@synthetixio/v3-theme": 0.0.0-01e37f40
+    "@synthetixio/v3-theme": 1.1.0
     "@testing-library/dom": ^8.11.0
     "@testing-library/jest-dom": ^5.15.0
     "@testing-library/react": ^13.4.0
