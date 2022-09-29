@@ -34,11 +34,11 @@ const data: {
 		label: 'Synths',
 		hideOnHeader: false,
 	},
-	{
-		link: '/build/welcome-to-snx',
-		label: 'Build',
-		hideOnHeader: false,
-	},
+	// {
+	// 	link: '/build/welcome-to-snx',
+	// 	label: 'Build',
+	// 	hideOnHeader: false,
+	// },
 	{
 		link: '/guides',
 		label: 'Guides',

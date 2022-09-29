@@ -39,6 +39,7 @@ export default function GuidesPageLayout({
 			flexDirection="column"
 			alignItems="center"
 			bg="navy.900"
+			minH="100vh"
 			maxW="1920px"
 		>
 			<Header config={subMenu} />
