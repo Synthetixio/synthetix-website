@@ -11,7 +11,7 @@ import GuideCarouselBlock from './GuideCarouselBlock';
 import TagsBlock from './TagsBlock';
 import { Build } from 'pages/build/[slug]';
 import { GuideTag } from 'pages/guides';
-import { Flex } from '@chakra-ui/react';
+import { Box, Flex } from '@chakra-ui/react';
 
 interface PageBuilderProps {
 	pageBuilder: Build['pageBuilder'];
@@ -25,7 +25,7 @@ function PageBuilder({ pageBuilder, guideTags }: PageBuilderProps) {
 				switch (block._type) {
 					case 'mainImage':
 						return (
-							<div key={block._key}>
+							<Box key={block._key} minWidth="300px" width="100%">
 								{block.asset?._ref && (
 									<Row>
 										<Column>
@@ -36,7 +36,7 @@ function PageBuilder({ pageBuilder, guideTags }: PageBuilderProps) {
 										</Column>
 									</Row>
 								)}
-							</div>
+							</Box>
 						);
 					case 'contentBlock':
 						return (
@@ -82,12 +82,10 @@ function PageBuilder({ pageBuilder, guideTags }: PageBuilderProps) {
 						if (block.accordions?.length) {
 							return (
 								<Row key={block._key}>
-									<Column>
-										<AccordionBlock
-											accordions={block.accordions}
-											body={block.body}
-										/>
-									</Column>
+									<AccordionBlock
+										accordions={block.accordions}
+										body={block.body}
+									/>
 								</Row>
 							);
 						}
@@ -154,7 +152,7 @@ function PageBuilder({ pageBuilder, guideTags }: PageBuilderProps) {
 }
 
 const Row = ({ children }: { children: ReactNode }) => (
-	<Flex w="100%" margin="10px 0">
+	<Flex w="100%" margin="10px 0" flexWrap={{ base: 'wrap', md: 'nowrap' }}>
 		{children}
 	</Flex>
 );

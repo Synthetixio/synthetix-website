@@ -23,7 +23,7 @@ export function AccordionBlock({ accordions, body }: AccordionBlockProps) {
 	);
 
 	return (
-		<Box>
+		<Box w="100%">
 			{body && body[0]?.children && (
 				<Heading>{body[0].children[0].text}</Heading>
 			)}
