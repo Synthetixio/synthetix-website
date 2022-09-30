@@ -2,6 +2,7 @@ import React from 'react';
 import { PageBuilderProps } from 'pages/build/[slug]';
 import {
 	Alert,
+	AspectRatio,
 	Box,
 	Code,
 	Heading,
@@ -26,11 +27,13 @@ export const TextComponent = ({ body }: { body: PageBuilderProps['body'] }) => {
 						const imageProps = useNextSanityImage(client, value.asset);
 						if (imageProps) {
 							return (
-								<Image
-									src={imageProps.src}
-									w={imageProps.width}
-									h={imageProps.height}
-								/>
+								<AspectRatio>
+									<Image
+										src={imageProps.src}
+										w={imageProps.width}
+										h={imageProps.height}
+									/>
+								</AspectRatio>
 							);
 						}
 						return null;
@@ -51,7 +54,11 @@ export const TextComponent = ({ body }: { body: PageBuilderProps['body'] }) => {
 					},
 				},
 				block: {
-					blockquote: ({ children }) => <Alert>{children}</Alert>,
+					blockquote: ({ children }) => (
+						<Alert borderInlineStartStyle="solid" colorScheme="cyan">
+							{children}
+						</Alert>
+					),
 					h4: ({ children }) => (
 						<Heading as="h4" fontSize="lg">
 							{children}

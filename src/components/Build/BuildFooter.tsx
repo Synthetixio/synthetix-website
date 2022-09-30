@@ -75,7 +75,13 @@ const ButtonCard = ({
 	subline: string;
 }) => {
 	return (
-		<Box bg="linear-gradient(#ED1EFF, #00D1FF)" p="1px" borderRadius="base">
+		<Box
+			bg="linear-gradient(#ED1EFF, #00D1FF)"
+			p="1px"
+			borderRadius="base"
+			cursor="pointer"
+			_hover={{ filter: 'brightness(120%)' }}
+		>
 			<Flex
 				flexDirection="column"
 				px="6"

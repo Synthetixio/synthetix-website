@@ -43,7 +43,8 @@ const TagsBlock = ({ guideTags }: { guideTags: GuideTag[] }) => {
 						mr="2"
 						mb="2"
 						mt="2"
-						w="336px"
+						overflowY="scroll"
+						w="300px"
 					>
 						<Flex
 							borderColor="gray.900"

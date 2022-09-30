@@ -20,7 +20,7 @@ export default function Sidebar({ navDocs, subSlug }: SidebarProps) {
 				borderRight="1px solid"
 				borderRightColor="gray.900"
 				minW="300px"
-				h="100%"
+				h="inherit"
 			>
 				{subSlug === 'guides' && (
 					<Heading

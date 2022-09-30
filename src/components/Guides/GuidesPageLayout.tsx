@@ -49,6 +49,7 @@ export default function GuidesPageLayout({
 					direction="column"
 					p={{ base: '0 25px', md: '0 50px' }}
 					overflow="auto"
+					w="100%"
 				>
 					<GuidesHeader
 						mainImage={mainImage}

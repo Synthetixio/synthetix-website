@@ -16,36 +16,36 @@ export function StepsBlock({ style, steps }: StepsBlockProps) {
 			flexDirection={isFullWidth ? 'column' : 'row'}
 		>
 			{steps.map((step, index) => (
-				<>
-					<Flex
-						maxW={isFullWidth ? 'unset' : '300px'}
-						borderRadius="base"
-						borderWidth="1px"
-						borderStyle="solid"
-						borderColor="gray.900"
-						p="2"
-						key={step._key}
+				<Flex
+					maxW={isFullWidth ? 'unset' : '300px'}
+					borderRadius="base"
+					borderWidth="1px"
+					borderStyle="solid"
+					borderColor="gray.900"
+					p="2"
+					key={step._key}
+					w="100%"
+					overflow="scroll"
+				>
+					<Box
+						background={isFullWidth ? 'purple.500' : 'pink.500'}
+						borderRadius="full"
+						minW="30px"
+						minH="30px"
+						m="3"
+						h="fit-content"
+						display="flex"
+						justifyContent="center"
+						alignItems="center"
 					>
-						<Box
-							background={isFullWidth ? 'purple.500' : 'pink.500'}
-							borderRadius="full"
-							minW="30px"
-							minH="30px"
-							m="3"
-							h="fit-content"
-							display="flex"
-							justifyContent="center"
-							alignItems="center"
-						>
-							<Text fontWeight="bold" fontSize="md">
-								{index + 1}
-							</Text>
-						</Box>
-						<Flex flexDir="column" py="2" pr="1">
-							<TextComponent body={step.body} />
-						</Flex>
+						<Text fontWeight="bold" fontSize="md">
+							{index + 1}
+						</Text>
+					</Box>
+					<Flex flexDir="column" py="2" pr="1">
+						<TextComponent body={step.body} />
 					</Flex>
-				</>
+				</Flex>
 			))}
 		</Flex>
 	);
