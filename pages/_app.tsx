@@ -5,11 +5,19 @@ import { init } from '@socialgouv/matomo-next';
 import { theme } from '../src/styles/theme';
 import { GlobalStyle } from '../src/styles/globals';
 import smoothscroll from 'smoothscroll-polyfill';
-import { ChakraProvider } from '@chakra-ui/react';
+import { ChakraProvider, ColorModeScript, extendTheme } from '@chakra-ui/react';
 import { theme as chakraTheme, Fonts } from '@synthetixio/v3-theme';
 import { useEffect } from 'react';
 
 export default function MyApp({ Component, pageProps }: AppProps) {
+	const newTheme = extendTheme({
+		...chakraTheme,
+		useSystemColorMode: false,
+		config: { initialColorMode: 'dark' },
+		styles: {
+			global: { body: { bg: 'navy.900' } },
+		},
+	});
 	useEffect(
 		() =>
 			init({
@@ -127,7 +135,8 @@ export default function MyApp({ Component, pageProps }: AppProps) {
 			</Head>
 			<GlobalStyle />
 			<Fonts />
-			<ChakraProvider theme={chakraTheme}>
+			<ChakraProvider theme={newTheme}>
+				<ColorModeScript initialColorMode={newTheme.initialColorMode} />
 				<Component {...pageProps} />
 			</ChakraProvider>
 		</ThemeProvider>
