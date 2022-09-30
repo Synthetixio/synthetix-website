@@ -1,10 +1,7 @@
 import styled from 'styled-components';
-import Img from 'next/image';
-import { useNextSanityImage } from 'next-sanity-image';
 import Carousel from 'react-multi-carousel';
 import Link from 'next/link';
 import 'react-multi-carousel/lib/styles.css';
-import { client } from '../../lib/sanity';
 import Tags from '../Guides/Tags';
 import { Box, Flex, Heading, Text } from '@chakra-ui/react';
 import { Guide, PageBuilderProps } from 'pages/build/[slug]';
@@ -23,8 +20,7 @@ const GuideCarouselWrapper = styled.div`
 	}
 `;
 
-function GuideItem(props: Guide) {
-	const imageProps = useNextSanityImage(client, props.icon);
+export function GuideItem(props: Guide) {
 	return (
 		<Link href={`/guides/${props.slug.current}`} style={{ margin: '10px' }}>
 			<Flex
@@ -34,7 +30,7 @@ function GuideItem(props: Guide) {
 				bg="navy.900"
 				boxShadow="base"
 				borderRadius="base"
-				p="16px"
+				p="24px"
 				cursor="pointer"
 				_hover={{ filter: 'brightness(120%)' }}
 				w="100%"
@@ -42,9 +38,6 @@ function GuideItem(props: Guide) {
 				overflowY="scroll"
 			>
 				<Tags tags={props.tags} />
-				{imageProps?.src && (
-					<Img {...imageProps} layout="fixed" width={50} height={50} />
-				)}
 				<Text fontWeight="bold" my="2">
 					{props.title}
 				</Text>
@@ -83,8 +76,8 @@ export function GuideCarouselBlock({ guides }: GuideCarouselBlockProps) {
 		},
 		mobile: {
 			breakpoint: { max: 950, min: 0 },
-			items: 2,
-			slidesToSlide: 3,
+			items: 1,
+			slidesToSlide: 9,
 		},
 	};
 	return (

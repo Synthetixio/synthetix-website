@@ -47,7 +47,7 @@ export default function GuidesPageLayout({
 				<Sidebar navDocs={navDocs} subSlug="guides" />
 				<Flex
 					direction="column"
-					p={{ base: '0 25px', md: '0 50px' }}
+					p={{ base: '0', md: '0 50px' }}
 					overflow="auto"
 					w="100%"
 				>

@@ -135,7 +135,7 @@ const Search = () => {
 		<>
 			<IconButton
 				aria-label="search"
-				icon={<SearchIcon onClick={onOpenModal} cursor="pointer" />}
+				icon={<SearchIcon onClick={onOpenModal} cursor="pointer" w={6} h={6} />}
 				variant="unstyled"
 			/>
 

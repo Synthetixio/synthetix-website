@@ -11,7 +11,10 @@ export interface SidebarProps {
 }
 
 export default function Sidebar({ navDocs, subSlug }: SidebarProps) {
-	const { push } = useRouter();
+	const { push, pathname } = useRouter();
+	const isGuidesStartPage =
+		pathname.split('/').length === 2 && pathname.split('/')[1] === 'guides';
+
 	return (
 		<Hide below="md">
 			<Box
@@ -24,12 +27,14 @@ export default function Sidebar({ navDocs, subSlug }: SidebarProps) {
 			>
 				{subSlug === 'guides' && (
 					<Heading
-						fontSize="lg"
-						bgGradient={theme.gradients['green-cyan'][500]}
-						backgroundClip="text"
-						style={{ WebkitTextFillColor: 'transparent' }}
+						bgGradient={isGuidesStartPage && theme.gradients['green-cyan'][500]}
+						backgroundClip={isGuidesStartPage ? 'text' : 'unset'}
+						style={{
+							WebkitTextFillColor: isGuidesStartPage ? 'transparent' : 'none',
+						}}
 						onClick={() => push('/guides')}
 						cursor="pointer"
+						fontSize="lg"
 					>
 						User Guides Hub
 					</Heading>

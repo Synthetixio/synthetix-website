@@ -18,10 +18,10 @@ import {
 	Link as ChakraLink,
 	Text,
 } from '@chakra-ui/react';
-import { ReactNode, useState } from 'react';
+import { Dispatch, ReactNode, SetStateAction, useState } from 'react';
 import { NavDocs } from 'src/typings/cms-types';
 import { theme } from '@synthetixio/v3-theme';
-import { ChevronDownIcon } from '@chakra-ui/icons';
+import { ArrowBackIcon, ChevronDownIcon } from '@chakra-ui/icons';
 
 const data: {
 	link?: string;
@@ -89,6 +89,7 @@ interface MenuProps {
 	isHeader?: boolean;
 	items?: NavDocs[];
 	subOpen?: boolean;
+	setSubOpen?: Dispatch<SetStateAction<boolean>>;
 }
 
 const MenuComponent = ({
@@ -96,12 +97,17 @@ const MenuComponent = ({
 	isOpen,
 	subOpen,
 	items,
+	setSubOpen,
 	...rest
 }: MenuProps) => {
 	const { pathname, push, asPath } = useRouter();
 	const urlFolderPathName = pathname.split('/')[1];
 	const subRoute = asPath.split('/')[asPath.split('/').length - 1];
 	const [activeIndexes, setActiveIndexes] = useState<ExpandedIndex>([]);
+
+	const isGuidesStartPage =
+		pathname.split('/').length === 2 && pathname.split('/')[1] === 'guides';
+
 	return (
 		<>
 			<Flex
@@ -120,17 +126,28 @@ const MenuComponent = ({
 				background={{ base: 'navy.900', md: 'transparent' }}
 				{...rest}
 			>
-				{(items?.length && isOpen && (
-					<Box>
+				{(items?.length && isOpen && subOpen && (
+					<Flex flexDir="column">
+						<ArrowBackIcon
+							w={7}
+							h={7}
+							ml="4"
+							mb="6"
+							onClick={() => setSubOpen && setSubOpen(false)}
+						/>
 						<Heading
 							ml="4"
-							mb="4"
 							size="md"
-							bgGradient={theme.gradients['green-cyan'][500]}
-							backgroundClip="text"
-							style={{ WebkitTextFillColor: 'transparent' }}
+							bgGradient={
+								isGuidesStartPage && theme.gradients['green-cyan'][500]
+							}
+							backgroundClip={isGuidesStartPage ? 'text' : 'unset'}
+							style={{
+								WebkitTextFillColor: isGuidesStartPage ? 'transparent' : 'none',
+							}}
 							onClick={() => push('/guides')}
 							cursor="pointer"
+							fontSize="2xl"
 						>
 							User Guides Hub
 						</Heading>
@@ -205,7 +222,27 @@ const MenuComponent = ({
 								);
 							})}
 						</Accordion>
-					</Box>
+						<Flex flexDirection="column" gap="5" pl="5" mt="5">
+							{isOpen &&
+								externalButtons.map(item => {
+									if (isHeader && !item.hideOnHeader) {
+										return (
+											<ExternalLink href={item.externalLink} key={item.label}>
+												<Button
+													variant="outline"
+													colorScheme="cyan"
+													key={item.label}
+													rightIcon={<ImArrowUpRight2 />}
+													size="lg"
+												>
+													{item.label}
+												</Button>
+											</ExternalLink>
+										);
+									}
+								})}
+						</Flex>
+					</Flex>
 				)) ||
 					data.map(item => {
 						if (isHeader) {
@@ -231,6 +268,7 @@ const MenuComponent = ({
 															: 'gray.500'
 													}
 													_hover={{ color: 'white' }}
+													fontSize={{ base: '2xl', md: 'md' }}
 												>
 													{item.label}
 												</Text>
@@ -247,6 +285,7 @@ const MenuComponent = ({
 													fontWeight="bold"
 													color="gray.500"
 													_hover={{ color: 'white' }}
+													fontSize={{ base: '2xl', md: 'md' }}
 												>
 													{item.label}
 												</Text>

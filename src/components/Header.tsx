@@ -72,6 +72,7 @@ const HeaderComponent = ({ config }: HeaderProps) => {
 			<Menu
 				items={config?.items}
 				subOpen={subOpen}
+				setSubOpen={setSubOpen}
 				isHeader={true}
 				isOpen={isOpen}
 				data-test-id="header-menu"

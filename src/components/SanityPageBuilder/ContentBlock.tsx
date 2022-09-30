@@ -10,14 +10,21 @@ import {
 	Link,
 	ListItem,
 	OrderedList,
-	Text,
 	UnorderedList,
 } from '@chakra-ui/react';
 import { PortableText } from '@portabletext/react';
 import { client } from 'src/lib/sanity';
 import { useNextSanityImage } from 'next-sanity-image';
 
-export const TextComponent = ({ body }: { body: PageBuilderProps['body'] }) => {
+export const TextComponent = ({
+	body,
+	ptImage,
+	pbImage,
+}: {
+	body: PageBuilderProps['body'];
+	ptImage?: string;
+	pbImage?: string;
+}) => {
 	return (
 		<PortableText
 			value={body}
@@ -27,13 +34,13 @@ export const TextComponent = ({ body }: { body: PageBuilderProps['body'] }) => {
 						const imageProps = useNextSanityImage(client, value.asset);
 						if (imageProps) {
 							return (
-								<AspectRatio>
-									<Image
-										src={imageProps.src}
-										w={imageProps.width}
-										h={imageProps.height}
-									/>
-								</AspectRatio>
+								<Image
+									src={imageProps.src}
+									w="624px"
+									h="auto"
+									pt={ptImage}
+									pb={pbImage}
+								/>
 							);
 						}
 						return null;
@@ -55,7 +62,7 @@ export const TextComponent = ({ body }: { body: PageBuilderProps['body'] }) => {
 				},
 				block: {
 					blockquote: ({ children }) => (
-						<Alert borderInlineStartStyle="solid" colorScheme="cyan">
+						<Alert borderInlineStartStyle="solid" colorScheme="cyan" my="2">
 							{children}
 						</Alert>
 					),
@@ -98,7 +105,7 @@ function ContentBlock({ block }: { block: PageBuilderProps }) {
 			<Heading as="h2" size="md" mb="3">
 				{block.title}
 			</Heading>
-			<TextComponent body={block.body} />
+			<TextComponent body={block.body} ptImage="6" pbImage="6" />
 		</Box>
 	);
 }

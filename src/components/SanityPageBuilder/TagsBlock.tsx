@@ -44,7 +44,8 @@ const TagsBlock = ({ guideTags }: { guideTags: GuideTag[] }) => {
 						mb="2"
 						mt="2"
 						overflowY="scroll"
-						w="300px"
+						textDecoration="none !important"
+						w={{ base: '100%', md: '300px' }}
 					>
 						<Flex
 							borderColor="gray.900"
@@ -53,6 +54,7 @@ const TagsBlock = ({ guideTags }: { guideTags: GuideTag[] }) => {
 							borderRadius="base"
 							margin="margin: 10px 10px 10px 0px"
 							cursor="pointer"
+							textDecoration="none"
 							_hover={{ filter: 'brightness(120%)' }}
 						>
 							{tag.tagImage ? (
@@ -74,7 +76,14 @@ const TagsBlock = ({ guideTags }: { guideTags: GuideTag[] }) => {
 									m="2"
 								></Box>
 							)}
-							<Flex w="fit-content" mx="10px" direction="column" p="2">
+							<Flex
+								w="fit-content"
+								mx="10px"
+								direction="column"
+								p="2"
+								overflowY="scroll"
+								py="3"
+							>
 								<Heading fontSize="md">{tag.title}</Heading>
 								<Text mb="auto">{tag.introText}</Text>
 								<Text>{tag.occurrence} Guides</Text>

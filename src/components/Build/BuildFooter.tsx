@@ -31,7 +31,7 @@ export default function BuildFooter({
 			>
 				{prevDoc && (
 					<Box
-						style={{ marginRight: '3px' }}
+						mr={{ base: '', md: '3px' }}
 						onClick={() => handleClick(prevDoc.slug.current)}
 						w="100%"
 					>
@@ -45,7 +45,7 @@ export default function BuildFooter({
 				{nextDoc && (
 					<Box
 						w="100%"
-						style={{ marginLeft: '3px' }}
+						ml={{ base: '', md: '3px' }}
 						onClick={() => handleClick(nextDoc.slug.current)}
 					>
 						<ButtonCard

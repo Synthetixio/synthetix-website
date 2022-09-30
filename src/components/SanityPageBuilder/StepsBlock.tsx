@@ -26,6 +26,7 @@ export function StepsBlock({ style, steps }: StepsBlockProps) {
 					key={step._key}
 					w="100%"
 					overflow="scroll"
+					flexWrap={{ base: 'wrap', md: 'nowrap' }}
 				>
 					<Box
 						background={isFullWidth ? 'purple.500' : 'pink.500'}
@@ -42,8 +43,8 @@ export function StepsBlock({ style, steps }: StepsBlockProps) {
 							{index + 1}
 						</Text>
 					</Box>
-					<Flex flexDir="column" py="2" pr="1">
-						<TextComponent body={step.body} />
+					<Flex flexDir="column" py="2" pr="1" w="100%" px="2" pb="2">
+						<TextComponent body={step.body} ptImage="2" />
 					</Flex>
 				</Flex>
 			))}
