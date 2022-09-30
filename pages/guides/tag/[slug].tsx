@@ -1,12 +1,12 @@
 import { GetStaticPropsContext } from 'next';
 import Head from 'next/head';
+import { PageBuilderProps } from 'pages/build/[slug]';
 import { TagsPageLayout } from 'src/components';
-import { GuideItemProps } from 'src/components/Tags/TagsPageLayout';
 import { NavDocs } from 'src/typings/cms-types';
 import { client } from '../../../src/lib/sanity';
 
 interface GuidesProps {
-	guides: GuideItemProps[];
+	guides: PageBuilderProps['guides'];
 	navDocs: NavDocs[];
 	tag: any;
 }

@@ -30,6 +30,11 @@ export default function MyApp({ Component, pageProps }: AppProps) {
 	/* scroll behavior smooth is not supported by Safari > 15 */
 	if (typeof window !== 'undefined') {
 		smoothscroll.polyfill();
+		if (
+			'localStorage' in window &&
+			localStorage.getItem('chakra-ui-color-mode') === 'light'
+		)
+			localStorage.setItem('chakra-ui-color-mode', 'dark');
 	}
 	return (
 		<ThemeProvider theme={theme}>
