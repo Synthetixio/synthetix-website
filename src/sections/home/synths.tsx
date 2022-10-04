@@ -1,7 +1,9 @@
 import styled from 'styled-components';
 import { Button } from '../../components';
 import media from 'styled-media-query';
-import Accordion, { AccordionItemsType } from 'src/components/Accordion/Accordion';
+import Accordion, {
+	AccordionItemsType,
+} from 'src/components/Accordion/Accordion';
 import { useState } from 'react';
 import { FlexDiv, Section, SectionTitle } from 'src/styles/common';
 
@@ -64,7 +66,7 @@ const SynthGraphicAbsolute = styled.img`
 	position: absolute;
 	right: 0;
 	pointer-events: none;
-	${(props) => props.theme.animations.show};
+	${props => props.theme.animations.show};
 	animation-delay: 100ms;
 	opacity: 0;
 
@@ -76,16 +78,12 @@ const SynthGraphicAbsolute = styled.img`
 		position: static;
 		margin-bottom: 16px;
 	`}
-
-	${media.lessThan('550px' as any)`
-		transform: translate(-250px)
-	`}
 `;
 
 const SynthGraphic = styled.img`
 	height: 500px;
 	pointer-events: none;
-	${(props) => props.theme.animations.show};
+	${props => props.theme.animations.show};
 	animation-delay: 100ms;
 	opacity: 0;
 	margin-right: 100px;
@@ -130,14 +128,14 @@ const accordionItems: AccordionItemsType[] = [
 		title: 'Synthetix Assets',
 		descriptions: [
 			<div key="synthetix-assets-description-one">
-				Capture the price movements of popular cryptocurrencies, fiat currencies, stocks,
-				commodities and more with zero slippage.
+				Capture the price movements of popular cryptocurrencies, fiat
+				currencies, stocks, commodities and more with zero slippage.
 			</div>,
 			<br key="synthetix-assets-description-two" />,
 			<div key="synthetix-assets-description-three">
-				Synthetic assets, or Synths, are assets voted into existence by the community and can come
-				in the form of fiat currencies, cryptocurrencies, stocks, commodities and anything else with
-				a price.
+				Synthetic assets, or Synths, are assets voted into existence by the
+				community and can come in the form of fiat currencies, cryptocurrencies,
+				stocks, commodities and anything else with a price.
 			</div>,
 		],
 		buttons: [
@@ -157,8 +155,8 @@ const accordionItems: AccordionItemsType[] = [
 		title: 'Stake & Earn',
 		descriptions: [
 			<div key="stake-earn">
-				Staking SNX provides collateral for the debt pool and earns weekly rewards that are a
-				combination of protocol fees and inflationary supply.
+				Staking SNX provides collateral for the debt pool and earns weekly
+				rewards that are a combination of protocol fees and inflationary supply.
 			</div>,
 		],
 		buttons: [
@@ -186,8 +184,8 @@ const accordionItems: AccordionItemsType[] = [
 		title: 'Trade Synth',
 		descriptions: [
 			<div key="trade-synth">
-				Trade any synths with low to no slippage and deep liquidity in every asset. Available in
-				spot and futures markets.
+				Trade any synths with low to no slippage and deep liquidity in every
+				asset. Available in spot and futures markets.
 			</div>,
 		],
 		buttons: [
@@ -207,8 +205,8 @@ const accordionItems: AccordionItemsType[] = [
 		title: 'Build',
 		descriptions: [
 			<div key="build-synths">
-				With improved composability, we welcome builders to leverage the protocol and bootstrap your
-				community through Synthetix.
+				With improved composability, we welcome builders to leverage the
+				protocol and bootstrap your community through Synthetix.
 			</div>,
 		],
 		buttons: [
