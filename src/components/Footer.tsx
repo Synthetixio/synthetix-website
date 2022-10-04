@@ -25,7 +25,7 @@ const footerMenu = [
 			link: '/guides',
 		},
 		{
-			title: 'blog',
+			title: 'Blog',
 			link: 'https://blog.synthetix.io/',
 		},
 	],
@@ -69,7 +69,7 @@ export default function Footer() {
 	return (
 		<>
 			<Show above="md">
-				<Flex m="5" w="100%" flexDir="column" maxW="5xl" as="footer">
+				<Flex w="100%" flexDir="column" maxW="5xl" as="footer">
 					<Flex w="100%" justifyContent="space-between">
 						<Flex gap="20" m="5" w="100%">
 							{footerMenu.map(col => {
@@ -78,12 +78,16 @@ export default function Footer() {
 										{col.map((menu, index) => (
 											<Flex flexDir="column">
 												{!index && (
-													<Text fontStyle="bold" textTransform="uppercase">
+													<Text fontWeight="bold" textTransform="uppercase">
 														{menu.title}
 													</Text>
 												)}
 												{menu.link && (
-													<Link href={menu.link} color="gray.500">
+													<Link
+														href={menu.link}
+														color="gray.500"
+														fontWeight="bold"
+													>
 														<Text>{menu.title}</Text>
 													</Link>
 												)}
@@ -104,7 +108,6 @@ export default function Footer() {
 				<Flex
 					as="footer"
 					w="100%"
-					p="2"
 					justifyContent="center"
 					alignItems="center"
 					flexDir="column"
@@ -114,7 +117,7 @@ export default function Footer() {
 							<Accordion w="100%" allowToggle>
 								<AccordionItem>
 									<AccordionButton>
-										<Text fontStyle="bold" textTransform="uppercase" mr="auto">
+										<Text fontWeight="bold" textTransform="uppercase" mr="auto">
 											{col[0].title}
 										</Text>
 										<AccordionIcon>
@@ -126,8 +129,10 @@ export default function Footer() {
 											{col.map((menu, index) => (
 												<>
 													{!!index && (
-														<Link href={menu.link} color="gray.500">
-															<Text>{menu.title}</Text>
+														<Link href={menu.link}>
+															<Text fontWeight="bold" color="gray.500">
+																{menu.title}
+															</Text>
 														</Link>
 													)}
 												</>
