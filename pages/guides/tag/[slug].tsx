@@ -1,13 +1,13 @@
 import { GetStaticPropsContext } from 'next';
 import Head from 'next/head';
+import { PageBuilderProps } from 'pages/build/[slug]';
 import { TagsPageLayout } from 'src/components';
-import { OrderedDoc } from 'src/components/Build/BuildPageLayout';
-import { GuideItemProps } from 'src/components/Tags/TagsPageLayout';
+import { NavDocs } from 'src/typings/cms-types';
 import { client } from '../../../src/lib/sanity';
 
 interface GuidesProps {
-	guides: GuideItemProps[];
-	navDocs: OrderedDoc[];
+	guides: PageBuilderProps['guides'];
+	navDocs: NavDocs[];
 	tag: any;
 }
 const Guides = ({ guides, navDocs, tag }: GuidesProps) => {
@@ -29,11 +29,11 @@ const Guides = ({ guides, navDocs, tag }: GuidesProps) => {
 
 export async function getStaticPaths() {
 	const paths: Record<string, string>[] = await client.fetch(
-		`*[_type == "tag" && defined(slug.current)][].slug.current`
+		`*[_type == "tag" && defined(slug.current)][].slug.current`,
 	);
 
 	return {
-		paths: paths.map((slug) => ({ params: { slug } })),
+		paths: paths.map(slug => ({ params: { slug } })),
 		fallback: false,
 	};
 }
@@ -56,7 +56,7 @@ export async function getStaticProps(context: GetStaticPropsContext) {
 			_updatedAt,
 		}
 		`,
-		{ slug }
+		{ slug },
 	);
 
 	const tag = await client.fetch(
@@ -70,7 +70,7 @@ export async function getStaticProps(context: GetStaticPropsContext) {
 			_updatedAt,
 			}[0]
 		`,
-		{ slug }
+		{ slug },
 	);
 
 	const navDocs = await client.fetch(`

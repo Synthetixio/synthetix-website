@@ -36,15 +36,6 @@ export const theme = {
 			color: #fff;
 			${rowMargins}
 		`,
-		h2: css`
-			font-family: 'Inter';
-			font-style: normal;
-			font-weight: 700;
-			font-size: 32px;
-			line-height: 35.2px;
-			color: #fff;
-			${rowMargins}
-		`,
 		h3: css`
 			font-family: Inter;
 			font-style: normal;
@@ -208,7 +199,8 @@ export const theme = {
 			text-align: center;
 			text-transform: uppercase;
 
-			color: ${(props: any) => (props.active ? '#00D1FF' : 'rgba(255, 255, 255, 0.5)')};
+			color: ${(props: any) =>
+				props.active ? '#00D1FF' : 'rgba(255, 255, 255, 0.5)'};
 			white-space: nowrap;
 
 			&:hover {

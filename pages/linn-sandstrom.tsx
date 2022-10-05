@@ -1,17 +1,17 @@
-import { ArrowLinkOffIcon, LinkButton, theme, Card, Flex } from '@synthetixio/ui';
+// import { ArrowLinkOffIcon, LinkButton, theme, Card, Flex } from '@synthetixio/ui';
 import Head from 'next/head';
 import React from 'react';
 import { Header } from 'src/components';
 import styled from 'styled-components';
 
 function LinnSandstrom() {
-	return (
-		<>
-			<Head>
-				<title>Synthetix | Linn Sandstrom</title>
-				<script
-					dangerouslySetInnerHTML={{
-						__html: `
+  return (
+    <>
+      <Head>
+        <title>Synthetix | Linn Sandstrom</title>
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `
                         (function(m,a,i,l,e,r){ m['MailerLiteObject']=e;function f(){
                             var c={ a:arguments,q:[]};var r=this.push(c);return "number"!=typeof r?r:f.bind(c.q);}
                             f.q=f.q||[];m[e]=m[e]||f.bind(f.q);m[e].q=m[e].q||f.q;r=a.createElement(i);
@@ -19,19 +19,20 @@ function LinnSandstrom() {
                             _.parentNode.insertBefore(r,_);})(window, document, 'script', 'https://static.mailerlite.com/js/universal.js', 'ml');
                             var ml_account = ml('accounts', '1130930', 'b3w8m6s6a3', 'load');
                             `,
-					}}
-				></script>
-			</Head>
-			<Header />
+          }}
+        ></script>
+      </Head>
+      <Header />
+      {/*
 			<StyledHeader>
-				<H1>LINN SANDSTROM</H1>
+			 <H1>LINN SANDSTROM</H1>
 				<StyledText>
 					Synthetix is proud to welcome Linn as our latest Spartan and we’re excited to support her
 					in her upcoming title match. Learn more about her fight, why we’re sponsoring her, and our
 					call for Spartans here.
 				</StyledText>
 				<H3>Sponsored By</H3>
-				<img src="snx.svg" alt="synthetix" style={{ marginBottom: '14px' }} />
+				<img src="snx.svg" alt="synthetix" style={{ marginBottom: '14px' }} priority />
 				<StyledText>
 					Enter your email address for access to a private TG group with Linn for exclusive behind
 					the scenes content on her fight plus details on how to dive into the world of Synthetix
@@ -122,150 +123,150 @@ function LinnSandstrom() {
 						</StyledCardContent>
 					</StyledCard>
 				</StyledCardContainer>
-			</StyledMain>
-		</>
-	);
+			</StyledMain> */}
+    </>
+  );
 }
 
 const StyledHeader = styled.header`
-	background-image: url('linn-sandstrom.png');
-	min-width: 100%;
-	height: 790px;
-	background-repeat: no-repeat;
-	background-size: cover;
-	display: flex;
-	flex-direction: column;
-	align-items: flex-start;
-	padding-top: 50px;
-	> * {
-		margin-left: 114px;
-	}
-	:first-child {
-		padding-top: 170px;
-	}
-	@media (max-width: 1000px) {
-		background-position: -500px;
-		height: 900px;
-		> * {
-			margin: 0px;
-			padding: 8px 10px;
-		}
-		:first-child {
-			padding: 16px 0px;
-		}
-		align-items: center;
-	}
+  background-image: url('linn-sandstrom.png');
+  min-width: 100%;
+  height: 790px;
+  background-repeat: no-repeat;
+  background-size: cover;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding-top: 50px;
+  > * {
+    margin-left: 114px;
+  }
+  :first-child {
+    padding-top: 170px;
+  }
+  @media (max-width: 1000px) {
+    background-position: -500px;
+    height: 900px;
+    > * {
+      margin: 0px;
+      padding: 8px 10px;
+    }
+    :first-child {
+      padding: 16px 0px;
+    }
+    align-items: center;
+  }
 `;
 
 const H1 = styled.h1<{ fontSize?: string }>`
-	font-family: 'GT America';
-	font-weight: 400;
-	font-size: 40px;
-	line-height: 48px;
-	text-transform: uppercase;
-	color: #ffffff;
-	margin-top: 0;
-	margin-bottom: 0;
-	@media (max-width: 500px) {
-		text-align: center;
-		font-size: ${({ fontSize }) => (fontSize ? fontSize : '32px')};
-	}
+  font-family: 'GT America';
+  font-weight: 400;
+  font-size: 40px;
+  line-height: 48px;
+  text-transform: uppercase;
+  color: #ffffff;
+  margin-top: 0;
+  margin-bottom: 0;
+  @media (max-width: 500px) {
+    text-align: center;
+    font-size: ${({ fontSize }) => (fontSize ? fontSize : '32px')};
+  }
 `;
 
 const H3 = styled.h3`
-	font-family: 'GT America';
-	font-weight: 400;
-	font-size: 14px;
-	line-height: 18px;
-	text-transform: uppercase;
-	color: #ffffff;
-	margin-top: 0;
-	margin-bottom: 0;
+  font-family: 'GT America';
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 18px;
+  text-transform: uppercase;
+  color: #ffffff;
+  margin-top: 0;
+  margin-bottom: 0;
 `;
 
 const Text = styled.span`
-	font-family: 'Inter';
-	font-weight: 400;
-	font-size: 14px;
-	line-height: 20px;
-	color: #ffffff;
-	opacity: 0.7;
-	overflow-wrap: break-word;
+  font-family: 'Inter';
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 20px;
+  color: #ffffff;
+  opacity: 0.7;
+  overflow-wrap: break-word;
 `;
 
 const TextBold = styled.span`
-	font-family: 'Inter Bold';
-	font-weight: 700;
-	font-size: 14px;
-	line-height: 20px;
-	color: #ffffff;
+  font-family: 'Inter Bold';
+  font-weight: 700;
+  font-size: 14px;
+  line-height: 20px;
+  color: #ffffff;
 `;
 
 const StyledText = styled(Text)`
-	max-width: 500px;
-	margin-bottom: 30px;
-	@media (max-width: 1000px) {
-		text-align: center;
-	}
+  max-width: 500px;
+  margin-bottom: 30px;
+  @media (max-width: 1000px) {
+    text-align: center;
+  }
 `;
 
 const StyledInputWrapper = styled.div`
-	display: flex;
-	justify-content: center;
-	align-items: baseline;
-	padding: 0;
-	> * {
-		margin: 5px;
-	}
-	width: 345px;
+  display: flex;
+  justify-content: center;
+  align-items: baseline;
+  padding: 0;
+  > * {
+    margin: 5px;
+  }
+  width: 345px;
 `;
 
 const StyledSubline = styled(Text)`
-	max-width: 700px;
-	text-align: center;
-	margin-bottom: 20px;
+  max-width: 700px;
+  text-align: center;
+  margin-bottom: 20px;
 `;
 
-const StyledMain = styled.main`
-	display: flex;
-	flex-direction: column;
-	align-items: center;
-	padding: 72px;
-	background-color: ${theme.colors.backgroundColor};
-	@media (max-width: 1000px) {
-		padding: 20px;
-	}
-`;
+// const StyledMain = styled.main`
+// 	display: flex;
+// 	flex-direction: column;
+// 	align-items: center;
+// 	padding: 72px;
+// 	background-color: ${theme.colors.backgroundColor};
+// 	@media (max-width: 1000px) {
+// 		padding: 20px;
+// 	}
+// `;
 
-const StyledCardContainer = styled.div`
-	display: flex;
-	flex-wrap: wrap;
-	justify-content: center;
-	max-width: 1000px;
-`;
+// const StyledCardContainer = styled.div`
+// 	display: flex;
+// 	flex-wrap: wrap;
+// 	justify-content: center;
+// 	max-width: 1000px;
+// `;
 
-const StyledCardContent = styled(Flex)`
-	background-color: ${theme.colors.backgroundColor};
-	height: 99%;
-	color: #828295;
-	border-radius: 5px;
-	margin: 1px;
-	> * {
-		margin: 10px;
-	}
-`;
+// const StyledCardContent = styled(Flex)`
+// 	background-color: ${theme.colors.backgroundColor};
+// 	height: 99%;
+// 	color: #828295;
+// 	border-radius: 5px;
+// 	margin: 1px;
+// 	> * {
+// 		margin: 10px;
+// 	}
+// `;
 
-const StyledCard = styled(Card)`
-	width: 470px;
-	height: 210px;
-	margin: 10px;
-	@media (max-width: 500px) {
-		width: 320px;
-	}
-`;
+// const StyledCard = styled(Card)`
+// 	width: 470px;
+// 	height: 210px;
+// 	margin: 10px;
+// 	@media (max-width: 500px) {
+// 		width: 320px;
+// 	}
+// `;
 
-const StyledLinkButton = styled(LinkButton)`
-	align-self: flex-end;
-`;
+// const StyledLinkButton = styled(LinkButton)`
+// 	align-self: flex-end;
+// `;
 
 export default LinnSandstrom;

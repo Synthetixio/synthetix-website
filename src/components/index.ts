@@ -1,6 +1,5 @@
 import Header from './Header';
-import Menu, { StyledMenu } from './Menu';
-import SubMenu from './SubMenu';
+import Menu from './Menu';
 import Socials from './Socials';
 import Footer from './Footer';
 import Button from './Button';
@@ -15,8 +14,6 @@ import SideBarItem from './SideBarItem';
 export {
 	Header,
 	Menu,
-	StyledMenu,
-	SubMenu,
 	Footer,
 	Button,
 	Socials,

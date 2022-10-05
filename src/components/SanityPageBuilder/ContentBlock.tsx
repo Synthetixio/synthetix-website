@@ -1,117 +1,112 @@
 import React from 'react';
-import { PortableText, PortableTextReactComponents } from '@portabletext/react';
-import styled from 'styled-components';
-import slugify from 'slugify';
-import MainImage from './MainImage';
-import CodeBlock from './CodeBlock';
-import { theme } from '../../styles/theme';
 import { PageBuilderProps } from 'pages/build/[slug]';
+import {
+	Alert,
+	AspectRatio,
+	Box,
+	Code,
+	Heading,
+	Image,
+	Link,
+	ListItem,
+	OrderedList,
+	UnorderedList,
+} from '@chakra-ui/react';
+import { PortableText } from '@portabletext/react';
+import { client } from 'src/lib/sanity';
+import { useNextSanityImage } from 'next-sanity-image';
 
-export const Container = styled.div`
-	h1 {
-		${theme.pageBuilder.h1};
-	}
-	h2 {
-		${theme.pageBuilder.h2};
-	}
-	h3 {
-		${theme.pageBuilder.h3};
-	}
-	h4 {
-		${theme.pageBuilder.h4};
-	}
-	p {
-		${theme.fonts.body};
-		margin-bottom: 15px;
-	}
-	ul,
-	ol {
-		${theme.fonts.body};
-		text-indent: 20px;
-		margin-bottom: 15px;
-	}
-	ul {
-		li {
-			list-style: disc;
-			list-style-position: inside;
-			padding-left: 20px;
-			text-indent: -20px;
-		}
-	}
-	ol {
-		li {
-			list-style: decimal;
-			list-style-position: inside;
-		}
-	}
-	a {
-		color: #00d1ff;
-		:hover {
-			text-decoration: underline;
-		}
-	}
-	strong {
-		font-weight: 900;
-		color: #fff;
-	}
-	em {
-		font-style: italic;
-	}
-
-	span.unknown__pt__mark__highlight {
-		background-color: #8e2de2;
-	}
-	blockquote {
-		background: #0b0b22;
-		border-left: 3px solid #402fc8;
-		margin: 1.5em 10px;
-		padding: 1em 20px;
-		color: #fff;
-		font-style: italic;
-		width: fit-content;
-	}
-`;
-
-const portableTextComponents: Partial<PortableTextReactComponents> = {
-	types: {
-		image: ({ value }: { value: { caption: string; asset: { _ref: string } } }) => (
-			<MainImage caption={value.caption} image={value.asset._ref} />
-		),
-		codeBlock: ({ value }: any) => <CodeBlock code={value.code} language={value.language} />,
-	},
-
-	marks: {
-		link: ({ children, value }: any) => {
-			const rel = !value.href.startsWith('/') ? 'noreferrer noopener' : undefined;
-			return (
-				<a href={value.href} rel={rel}>
-					{children}
-				</a>
-			);
-		},
-	},
-	block: {
-		h1: ({ value }: any) => (
-			<h1 id={slugify(value.children[0].text, { lower: true })}>{value.children[0].text}</h1>
-		),
-		h2: ({ value }: any) => (
-			<h2 id={slugify(value.children[0].text, { lower: true })}>{value.children[0].text}</h2>
-		),
-		h3: ({ value }: any) => (
-			<h3 id={slugify(value.children[0].text, { lower: true })}>{value.children[0].text}</h3>
-		),
-		h4: ({ value }: any) => (
-			<h4 id={slugify(value.children[0].text, { lower: true })}>{value.children[0].text}</h4>
-		),
-	},
+export const TextComponent = ({
+	body,
+	ptImage,
+	pbImage,
+}: {
+	body: PageBuilderProps['body'];
+	ptImage?: string;
+	pbImage?: string;
+}) => {
+	return (
+		<PortableText
+			value={body}
+			components={{
+				types: {
+					image: ({ value }: Record<'value', Record<'asset', string>>) => {
+						const imageProps = useNextSanityImage(client, value.asset);
+						if (imageProps) {
+							return (
+								<Image
+									src={imageProps.src}
+									w="624px"
+									h="auto"
+									pt={ptImage}
+									pb={pbImage}
+								/>
+							);
+						}
+						return null;
+					},
+					codeBlock: ({ value }) => {
+						return (
+							<Code
+								colorScheme="black"
+								whiteSpace="pre-line"
+								key={value.code}
+								bg="black"
+								p="4"
+								w="100%"
+							>
+								{value.code}
+							</Code>
+						);
+					},
+				},
+				block: {
+					blockquote: ({ children }) => (
+						<Alert borderInlineStartStyle="solid" colorScheme="cyan" my="2">
+							{children}
+						</Alert>
+					),
+					h4: ({ children }) => (
+						<Heading as="h4" fontSize="lg">
+							{children}
+						</Heading>
+					),
+				},
+				list: {
+					bullet: ({ children }) => <UnorderedList>{children}</UnorderedList>,
+					number: ({ children }) => (
+						<OrderedList className="mt-lg">{children}</OrderedList>
+					),
+				},
+				listItem: {
+					bullet: ({ children }) => <ListItem>{children}</ListItem>,
+					checkmarks: ({ children }) => <ListItem>{children}</ListItem>,
+				},
+				marks: {
+					link: ({ children, value }) => {
+						const rel = !value.href.startsWith('/')
+							? 'noreferrer noopener'
+							: undefined;
+						return (
+							<Link href={value.href} rel={rel} color="cyan.500">
+								{children}
+							</Link>
+						);
+					},
+				},
+			}}
+		/>
+	);
 };
 
 function ContentBlock({ block }: { block: PageBuilderProps }) {
 	return (
-		<Container>
-			{/* Portable Text is badly typed and you can't export and extended TypedObject which is the interface for the value prop */}
-			<PortableText value={block.body as any} components={portableTextComponents} />
-		</Container>
+		<Box whiteSpace="pre-line">
+			<Heading as="h2" size="md" mb="3">
+				{block.title}
+			</Heading>
+			<TextComponent body={block.body} ptImage="6" pbImage="6" />
+		</Box>
 	);
 }
 

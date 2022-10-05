@@ -1,189 +1,54 @@
-import { PortableText } from '@portabletext/react';
-import styled from 'styled-components';
-import media from 'styled-media-query';
-import jp from 'jsonpath';
-import { useEffect, useState } from 'react';
+import { PageBuilderProps } from 'pages/build/[slug]';
+import { Box, Flex, Text } from '@chakra-ui/react';
+import { TextComponent } from './ContentBlock';
 
-const StepsWrapper = styled.div`
-	display: flex;
-	flex-wrap: wrap;
-	justify-content: unset;
-	color: #fff;
-
-	a {
-		color: #00d1ff;
-		:hover {
-			text-decoration: underline;
-		}
-	}
-
-	strong {
-		font-weight: 900;
-		color: #fff;
-	}
-	em {
-		font-style: italic;
-	}
-
-	.layerButton {
-		width: 100%;
-
-		button {
-			cursor: pointer;
-			padding: 8px 18px;
-			margin: 0px 2px;
-			color: #242731;
-			font-family: 'Inter';
-			font-style: normal;
-			font-weight: 700;
-			color: #00d1ff;
-			background: none;
-			border: none;
-		}
-
-		button.active {
-			background: #00d1ff;
-			border-radius: 100px;
-			color: #242731;
-		}
-	}
-
-	.pink.item {
-		border: 2px solid transparent;
-		border-radius: 4px;
-		background: linear-gradient(to right, #000, #000),
-			linear-gradient(73.6deg, #8e2de2 2.11%, #ed1eff 90.45%);
-		background-clip: padding-box, border-box;
-		background-origin: padding-box, border-box;
-
-		padding: 15px;
-		flex: 0 29.99%;
-		margin: 12px;
-		display: flex;
-		${media.lessThan('huge')`
-			flex: 0 46%;
-			
-			
-		`}
-		${media.lessThan('large')`
-			flex: 0 100%;
-			
-			
-		`}
-
-		.number {
-			min-width: 20px;
-			span {
-				height: 40px;
-				width: 40px;
-				line-height: 40px;
-				background-color: #ed1eff;
-				border-radius: 50%;
-				display: inline-block;
-				text-align: center;
-				margin-right: 10px;
-				font-weight: 700;
-				font-size: 14px;
-			}
-		}
-		.content {
-			flex: 1;
-		}
-	}
-	.black.item {
-		border: none;
-		background-color: #0b0b22;
-		border-radius: 4px;
-		padding: 15px;
-		flex: 0 29.99%;
-		margin: 12px;
-		display: flow-root;
-		${media.lessThan('huge')`
-			flex: 0 46%;
-			
-			
-		`}
-		${media.lessThan('large')`
-			flex: 0 100%;
-			
-			
-		`}
-
-		.number {
-			width: 100%;
-			margin-bottom: 10px;
-
-			span {
-				height: 40px;
-				width: 40px;
-				line-height: 40px;
-				background-color: #402fc8;
-				border-radius: 50%;
-				display: inline-block;
-				text-align: center;
-				margin-right: 10px;
-				font-weight: 700;
-				font-size: 14px;
-			}
-		}
-		.content {
-		}
-	}
-`;
-
-interface StepsBlockProps {
-	props: any;
+export interface StepsBlockProps {
+	style: string;
+	steps: { body: PageBuilderProps['body']; _key: string; _type: string }[];
 }
 
-export function StepsBlock({ props }: StepsBlockProps) {
-	const { style, steps } = props;
-
-	let layers = jp.query(steps, '$..layers[*]');
-	layers = [...new Set(layers)];
-
-	const [openLayer, setOpenLayer] = useState(layers[0]);
-	const [stepsData, setStepsData] = useState<any>(null);
-
-	useEffect(() => {
-		let filtered = steps.filter(function (el: any) {
-			if (el.layers) {
-				return el.layers.includes(openLayer);
-			} else return el;
-		});
-
-		setStepsData(filtered);
-	}, [openLayer]);
-
+export function StepsBlock({ style, steps }: StepsBlockProps) {
+	const isFullWidth = style === 'black';
 	return (
-		<StepsWrapper>
-			<div className={`${style} layerButton`}>
-				{layers &&
-					layers.map((layer, index) => (
-						<button
-							key={index}
-							value={layer}
-							onClick={() => {
-								setOpenLayer(layer);
-							}}
-							className={`${layer === openLayer ? 'active' : ''}`}
-						>
-							{layer}
-						</button>
-					))}
-			</div>
-
-			{stepsData &&
-				stepsData.map((step: any, index: number) => (
-					<div key={index} className={`${style} item`}>
-						<div className="number">
-							<span>{index + 1}</span>
-						</div>
-						<div className="content">
-							<PortableText value={step.body} />
-						</div>
-					</div>
-				))}
-		</StepsWrapper>
+		<Flex
+			gap="2"
+			flexWrap={isFullWidth ? 'nowrap' : 'wrap'}
+			flexDirection={isFullWidth ? 'column' : 'row'}
+		>
+			{steps.map((step, index) => (
+				<Flex
+					maxW={isFullWidth ? 'unset' : '300px'}
+					borderRadius="base"
+					borderWidth="1px"
+					borderStyle="solid"
+					borderColor="gray.900"
+					p="2"
+					key={step._key}
+					w="100%"
+					overflow="scroll"
+					flexWrap={{ base: 'wrap', md: 'nowrap' }}
+				>
+					<Box
+						background={isFullWidth ? 'purple.500' : 'pink.500'}
+						borderRadius="full"
+						minW="30px"
+						minH="30px"
+						m="3"
+						h="fit-content"
+						display="flex"
+						justifyContent="center"
+						alignItems="center"
+					>
+						<Text fontWeight="bold" fontSize="md">
+							{index + 1}
+						</Text>
+					</Box>
+					<Flex flexDir="column" py="2" pr="1" w="100%" px="2" pb="2">
+						<TextComponent body={step.body} ptImage="2" />
+					</Flex>
+				</Flex>
+			))}
+		</Flex>
 	);
 }
 

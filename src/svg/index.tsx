@@ -1,4 +1,3 @@
-export { default as LearnMoreArrow } from './LearnMoreArrow';
 export { default as Arrow } from './Arrow';
 export { default as Discord } from './Discord';
 export { default as Github } from './Github';

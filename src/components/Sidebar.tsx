@@ -1,38 +1,54 @@
-import styled from 'styled-components';
-import media from 'styled-media-query';
+import { Box, Heading, Hide } from '@chakra-ui/react';
+import { theme } from '@synthetixio/v3-theme';
+import { useRouter } from 'next/router';
+import { NavDocs } from 'src/typings/cms-types';
 import SideBarItem from './SideBarItem';
 import Socials from './Socials';
 
-const SidebarContainer = styled.div`
-	flex-basis: 300px;
-	flex-grow: 1;
-	padding: 30px;
-	border-right: 1px rgba(130, 130, 149, 0.3) solid;
+export interface SidebarProps {
+	navDocs: NavDocs[];
+	subSlug: 'guides' | 'build';
+}
 
-	${media.lessThan('medium')`
-                display: none;
-        `}
-`;
-
-const SocialWrap = styled.div`
-	position: absolute;
-	bottom: 20px;
-	svg * {
-		fill: #00d1ff !important;
-	}
-`;
-
-export default function Sidebar(props: any) {
-	const { navDocs, subSlug } = props;
+export default function Sidebar({ navDocs, subSlug }: SidebarProps) {
+	const { push, pathname } = useRouter();
+	const isGuidesStartPage =
+		pathname.split('/').length === 2 && pathname.split('/')[1] === 'guides';
 
 	return (
-		<SidebarContainer>
-			{navDocs.map((item: any, i: number) => (
-				<SideBarItem subSlug={subSlug} props={item} key={i} />
-			))}
-			<SocialWrap>
-				<Socials />
-			</SocialWrap>
-		</SidebarContainer>
+		<Hide below="md">
+			<Box
+				maxW="300px"
+				p="10"
+				borderRight="1px solid"
+				borderRightColor="gray.900"
+				minW="300px"
+				h="inherit"
+			>
+				{subSlug === 'guides' && (
+					<Heading
+						bgGradient={isGuidesStartPage && theme.gradients['green-cyan'][500]}
+						backgroundClip={isGuidesStartPage ? 'text' : 'unset'}
+						style={{
+							WebkitTextFillColor: isGuidesStartPage ? 'transparent' : 'none',
+						}}
+						onClick={() => push('/guides')}
+						cursor="pointer"
+						fontSize="lg"
+					>
+						User Guides Hub
+					</Heading>
+				)}
+				{navDocs.map((item, i) => (
+					<SideBarItem
+						subSlug={subSlug}
+						docs={item.docs}
+						title={item.title}
+						key={i.toString().concat(subSlug)}
+					/>
+				))}
+				<Socials fill={theme.colors.cyan[500]} />
+			</Box>
+		</Hide>
 	);
 }

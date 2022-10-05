@@ -1,6 +1,4 @@
-import React from 'react';
-import styled from 'styled-components';
-import media from 'styled-media-query';
+import React, { ReactNode } from 'react';
 import ContentBlock from './ContentBlock';
 import MainImage from './MainImage';
 import TableBlock from './TableBlock';
@@ -11,31 +9,34 @@ import ImgCarouselBlock from './ImgCarouselBlock';
 import IntroBlock from './IntroBlock';
 import GuideCarouselBlock from './GuideCarouselBlock';
 import TagsBlock from './TagsBlock';
-import { theme } from '../../styles/theme';
 import { Build } from 'pages/build/[slug]';
+import { GuideTag } from 'pages/guides';
+import { Box, Flex } from '@chakra-ui/react';
 
 interface PageBuilderProps {
 	pageBuilder: Build['pageBuilder'];
-	guideTags?: unknown;
+	guideTags?: GuideTag[];
 }
 
-function PageBuilder({ pageBuilder, guideTags = null }: PageBuilderProps) {
+function PageBuilder({ pageBuilder, guideTags }: PageBuilderProps) {
 	return (
 		<>
-			{pageBuilder.map((block) => {
+			{pageBuilder.map(block => {
 				switch (block._type) {
 					case 'mainImage':
 						return (
-							<>
-								{block.caption ||
-									(block.asset?._ref && (
-										<Row key={block._key}>
-											<Column>
-												<MainImage caption={block.caption} image={block.asset?._ref} />
-											</Column>
-										</Row>
-									))}
-							</>
+							<Box key={block._key} minWidth="300px" width="100%">
+								{block.asset?._ref && (
+									<Row>
+										<Column>
+											<MainImage
+												caption={block.caption}
+												image={block.asset?._ref}
+											/>
+										</Column>
+									</Row>
+								)}
+							</Box>
 						);
 					case 'contentBlock':
 						return (
@@ -49,111 +50,122 @@ function PageBuilder({ pageBuilder, guideTags = null }: PageBuilderProps) {
 						const columns = block.columns;
 						return (
 							<Row key={block._key}>
-								{columns?.map((col) => {
+								{columns?.map(col => {
 									return (
 										<Column key={col._key}>
-											<PageBuilder pageBuilder={[col as any]} />
+											<PageBuilder pageBuilder={[col]} />
 										</Column>
 									);
 								})}
 							</Row>
 						);
 					case 'tableBlock':
-						return (
-							<Row key={block._key}>
-								<Column>
-									<TableBlock props={block} />
-								</Column>
-							</Row>
-						);
+						if (block.table)
+							return (
+								<Row key={block._key}>
+									<Column>
+										<TableBlock table={block.table} />
+									</Column>
+								</Row>
+							);
 					case 'videoBlock':
-						return (
-							<Row key={block._key}>
-								<Column>
-									<VideoBlock props={block} />
-								</Column>
-							</Row>
-						);
-					case 'accordionBlock':
-						return (
-							<>
-								{block.accordions?.length && (
-									<Row key={block._key}>
-										<Column>
-											<AccordionBlock accordions={block.accordions} body={block.body} />
-										</Column>
-									</Row>
-								)}
-							</>
-						);
+						if (block.url) {
+							return (
+								<Row key={block._key}>
+									<Column>
+										<VideoBlock url={block.url} />
+									</Column>
+								</Row>
+							);
+						}
+					case 'accordionBlock': {
+						if (block.accordions?.length) {
+							return (
+								<Row key={block._key}>
+									<AccordionBlock
+										accordions={block.accordions}
+										body={block.body}
+									/>
+								</Row>
+							);
+						}
+					}
 					case 'stepsBlock':
-						return (
-							<Row key={block._key}>
-								<Column>
-									<StepsBlock props={block} />
-								</Column>
-							</Row>
-						);
+						if (block.style && block.steps) {
+							return (
+								<Row key={block._key}>
+									<Column>
+										<StepsBlock style={block.style} steps={block.steps} />
+									</Column>
+								</Row>
+							);
+						}
 					case 'imgCarouselBlock':
-						return (
-							<Row key={block._key}>
-								<Column>
-									<ImgCarouselBlock props={block} />
-								</Column>
-							</Row>
-						);
+						if (block.slides) {
+							return (
+								<Row key={block._key}>
+									<ImgCarouselBlock slides={block.slides} />
+								</Row>
+							);
+						}
 					case 'guideCarouselBlock':
 						return (
 							<Row key={block._key}>
 								<Column>
-									<GuideCarouselBlock props={block} />
+									<GuideCarouselBlock guides={block.guides} />
 								</Column>
 							</Row>
 						);
 					case 'introIconBlock':
-						return (
-							<Row key={block._key}>
-								<Column>
-									<IntroBlock props={block} />
-								</Column>
-							</Row>
-						);
+						if (block.iconLinkText && block.iconLinkURL && block.iconText) {
+							return (
+								<Row key={block._key}>
+									<Column>
+										<IntroBlock
+											body={block.body}
+											icon={block.icon}
+											iconLinkText={block.iconLinkText}
+											iconLinkURL={block.iconLinkURL}
+											iconText={block.iconText}
+										/>
+									</Column>
+								</Row>
+							);
+						}
 					case 'tagsBlock':
 						if (guideTags) {
 							return (
 								<Row key={block._key}>
 									<Column>
-										<TagsBlock guideTags={guideTags} props={block} />
+										<TagsBlock guideTags={guideTags} />
 									</Column>
 								</Row>
 							);
 						}
-						return <></>;
+						return null;
 					default:
-						return <></>;
+						return null;
 				}
 			})}
 		</>
 	);
 }
 
-const Row = styled.div`
-	display: flex;
-	flex-direction: row;
-	flex-wrap: wrap;
-	width: 100%;
-	${theme.pageBuilder.rows};
-`;
+const Row = ({ children }: { children: ReactNode }) => (
+	<Flex w="100%" margin="10px 0" flexWrap={{ base: 'wrap', md: 'nowrap' }}>
+		{children}
+	</Flex>
+);
 
-const Column = styled.div`
-	display: flex;
-	flex-direction: column;
-	flex-basis: 100%;
-	flex: 1;
-	margin-right: 10px;
-	${media.lessThan('medium')`
-		flex: 1 1 auto;
-	`};
-`;
+const Column = ({ children }: { children: ReactNode }) => (
+	<Flex
+		flexDir="column"
+		flexBasis={{ base: 'auto', md: '100%' }}
+		flexGrow="1"
+		mr="1"
+	>
+		{children}
+	</Flex>
+);
 
 export default PageBuilder;

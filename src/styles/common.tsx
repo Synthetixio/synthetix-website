@@ -1,15 +1,36 @@
+import { Box, BoxProps, keyframes } from '@chakra-ui/react';
+import { ReactNode } from 'react';
 import styled, { css } from 'styled-components';
 import media from 'styled-media-query';
 import { theme } from './theme';
+import { motion } from 'framer-motion';
 
-export const Section = styled.section<{ customMaxWidth?: boolean }>`
-	${({ theme }) => theme.animations.show};
-	opacity: 0;
-	width: 100%;
-	position: relative;
-	overflow: hidden;
-	${({ theme, customMaxWidth }) => (!customMaxWidth ? `max-width: ${theme.maxContentWidth}` : '')};
-`;
+interface SectionProps extends BoxProps {
+	customMaxWidth?: boolean;
+	children: ReactNode;
+}
+const showKeyframes = keyframes`to{opacity: 1;}`;
+const showAnimation = `${showKeyframes} 500ms ease-out forwards`;
+export const Section = ({
+	customMaxWidth,
+	children,
+	...rest
+}: SectionProps) => {
+	return (
+		<Box
+			as={motion.section}
+			animation={showAnimation}
+			w="100%"
+			opacity="0"
+			position="relative"
+			overflow="hidden"
+			maxWidth={customMaxWidth ? '' : '1920px'}
+			{...rest}
+		>
+			{children}
+		</Box>
+	);
+};
 
 export const ExternalLink = styled.a.attrs({
 	target: '_blank',
@@ -33,7 +54,11 @@ export const Line = styled.div<{ showOnMobile?: boolean }>`
 	width: 100vw;
 	height: 1px;
 	background: rgba(14, 4, 53, 0.29);
-	background-image: linear-gradient(0deg, rgba(14, 4, 53, 0.29), rgba(14, 4, 53, 0.29)),
+	background-image: linear-gradient(
+			0deg,
+			rgba(14, 4, 53, 0.29),
+			rgba(14, 4, 53, 0.29)
+		),
 		linear-gradient(88.63deg, #00d1ff -14.83%, #ed1eff 108.22%);
 	opacity: 0.39;
 

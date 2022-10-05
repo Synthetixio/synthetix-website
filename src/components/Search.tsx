@@ -1,8 +1,19 @@
 import { useState } from 'react';
-import styled from 'styled-components';
-import { IconContext } from 'react-icons';
-import { BiSearchAlt2 } from 'react-icons/bi';
-import { Modal } from 'react-responsive-modal';
+import {
+	Box,
+	Divider,
+	Flex,
+	Heading,
+	IconButton,
+	Input,
+	InputGroup,
+	InputLeftAddon,
+	Modal,
+	ModalContent,
+	ModalOverlay,
+	Text,
+} from '@chakra-ui/react';
+import Link from 'next/link';
 import {
 	InstantSearch,
 	connectSearchBox,
@@ -11,9 +22,8 @@ import {
 	connectHighlight,
 	connectStateResults,
 } from 'react-instantsearch-dom';
-import Link from 'next/link';
-
 import { algolia } from '../../src/lib/algolia';
+import { SearchIcon } from '@chakra-ui/icons';
 
 const Snippet = ({ highlight, attribute, hit }: any) => {
 	const parsedHit = highlight({
@@ -23,15 +33,20 @@ const Snippet = ({ highlight, attribute, hit }: any) => {
 	});
 
 	return (
-		<span>
-			{parsedHit.map((part: any, index: any) =>
-				part.isHighlighted ? (
-					<Mark key={index}>{part.value}</Mark>
-				) : (
-					<span key={index}>{part.value}</span>
-				)
+		<>
+			{parsedHit.map(
+				(part: { value: string; isHighlighted: boolean }, index: any) =>
+					part.isHighlighted ? (
+						<Text as="mark" key={index} bg="purple.500" display="inline">
+							{part.value}
+						</Text>
+					) : (
+						<Text key={index} display="inline">
+							{part.value}
+						</Text>
+					),
 			)}
-		</span>
+		</>
 	);
 };
 
@@ -40,37 +55,41 @@ const CustomSnippet = connectHighlight(Snippet);
 const SearchBox = ({ currentRefinement, refine }: any) => {
 	return (
 		<form noValidate action="" role="search">
-			<StyledInput className={'inputWithIcon'}>
+			<InputGroup>
+				<InputLeftAddon>
+					<SearchIcon />
+				</InputLeftAddon>
 				<Input
+					variant="unstyled"
+					bg="whiteAlpha.100"
+					p="2"
 					type="search"
 					value={currentRefinement}
-					onChange={(event) => refine(event.currentTarget.value)}
+					onChange={event => refine(event.currentTarget.value)}
 					placeholder="Search Content"
 				/>
-				<button className="left-icon">
-					<IconContext.Provider value={{ color: '#ffffff', size: '20px' }}>
-						<BiSearchAlt2 />
-					</IconContext.Provider>
-				</button>
-			</StyledInput>
+			</InputGroup>
 		</form>
 	);
 };
 
-const Results = connectStateResults(({ searchState, searchResults, children }: any) => {
-	if (searchState.query === undefined || searchState.query === '') {
-		return null;
-	}
-	return searchResults && searchResults.nbHits !== 0 && searchState.query !== '' ? (
-		children
-	) : (
-		<p>Query returned no results</p>
-	);
-});
+const Results = connectStateResults(
+	({ searchState, searchResults, children }: any) => {
+		if (searchState.query === undefined || searchState.query === '') {
+			return null;
+		}
+		return searchResults &&
+			searchResults.nbHits !== 0 &&
+			searchState.query !== '' ? (
+			children
+		) : (
+			<Text>Query returned no results</Text>
+		);
+	},
+);
 
 const Hits = ({ hits }: any) => (
-	<AllResults>
-		<hr />
+	<Flex direction="column" p="2">
 		{hits.map((hit: any) => {
 			let path = `/${hit.type}/${hit.path}`;
 			if (hit.type === 'guide') {
@@ -78,22 +97,31 @@ const Hits = ({ hits }: any) => (
 			}
 			const lastUpdated = new Date(hit.updatedAt);
 			return (
-				<Link key={hit.objectID} href={path}>
-					<SearchResult>
-						<h1>{hit.title}</h1>
-						<p>
+				<>
+					<Link key={hit.objectID} href={path}>
+						<Box
+							borderWidth="1px"
+							borderStyle="solid"
+							borderColor="gray.900"
+							borderRadius="md"
+							p="2"
+							my="2"
+							cursor="pointer"
+						>
+							<Heading size="md">{hit.title}</Heading>
 							<CustomSnippet hit={hit} attribute="body" />
-						</p>
-						<p>{hit.type}</p>
-						<p>
-							Last updated: {lastUpdated.getUTCDate()}/{lastUpdated.getUTCMonth() + 1}/
-							{lastUpdated.getUTCFullYear()}
-						</p>
-					</SearchResult>
-				</Link>
+							<Text textTransform="capitalize">{hit.type}</Text>
+							<Text>
+								Last updated: {lastUpdated.getUTCDate()}/
+								{lastUpdated.getUTCMonth() + 1}/{lastUpdated.getUTCFullYear()}
+							</Text>
+						</Box>
+					</Link>
+					<Divider color="gray.900" />
+				</>
 			);
 		})}
-	</AllResults>
+	</Flex>
 );
 
 const CustomHits: any = connectHits(Hits);
@@ -105,140 +133,38 @@ const Search = () => {
 	const onCloseModal = () => setOpen(false);
 	return (
 		<>
-			<SearchIcon onClick={onOpenModal}>
-				<IconContext.Provider value={{ color: '#ffffff', size: '30px' }}>
-					<BiSearchAlt2 onClick={onOpenModal} />
-				</IconContext.Provider>
-			</SearchIcon>
+			<IconButton
+				aria-label="search"
+				icon={<SearchIcon onClick={onOpenModal} cursor="pointer" w={6} h={6} />}
+				variant="unstyled"
+			/>
 
-			<Modal
-				open={open}
-				onClose={onCloseModal}
-				showCloseIcon={false}
-				classNames={{
-					overlay: 'customOverlay',
-					modal: 'customModal',
-				}}
-			>
-				<StyledModal>
-					<InstantSearch searchClient={algolia} indexName="pages">
-						<Configure
-							attributesToSnippet={['body']}
-							hitsPerPage={10}
-							analytics={true}
-							enablePersonalization={false}
-							distinct
-						/>
-						<CustomSearchBox
-							onSubmit={(event: any) => event.preventDefault()}
-							autoFocus
-							showLoadingIndicator
-						/>
-						<Results>
-							<CustomHits onClick={onCloseModal} />
-						</Results>
-					</InstantSearch>
-				</StyledModal>
+			<Modal isOpen={open} onClose={onCloseModal}>
+				<ModalOverlay />
+				<ModalContent bg="transparent">
+					<Box bg="navy.900" p="5" borderRadius="lg" boxShadow="base">
+						<InstantSearch searchClient={algolia} indexName="pages">
+							<Configure
+								attributesToSnippet={['body']}
+								hitsPerPage={10}
+								analytics={true}
+								enablePersonalization={false}
+								distinct
+							/>
+							<CustomSearchBox
+								onSubmit={(event: any) => event.preventDefault()}
+								autoFocus
+								showLoadingIndicator
+							/>
+							<Results>
+								<CustomHits onClick={onCloseModal} />
+							</Results>
+						</InstantSearch>
+					</Box>
+				</ModalContent>
 			</Modal>
 		</>
 	);
 };
-
-const SearchIcon = styled.div`
-	display: inline-block;
-	svg:hover {
-		cursor: pointer;
-		fill: #fff;
-	}
-`;
-const StyledModal = styled.div``;
-
-const Mark = styled.mark`
-	background-color: #8e2de2;
-	color: #fff;
-`;
-
-const Input = styled.input`
-	font-family: 'Inter';
-	font-style: normal;
-	font-weight: 400;
-	font-size: 16px;
-	line-height: 21px;
-	color: #ffffff;
-	height: 50px;
-	width: 100%;
-	border: none;
-	margin: 0;
-	outline: none;
-	padding: 8px;
-	box-sizing: border-box;
-	transition: 0.3s;
-	padding-left: 50px;
-	cursor: pointer;
-	background: linear-gradient(0deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.1)), #0b0b22;
-	border-radius: 8px;
-	}
-`;
-
-const StyledInput = styled.div`
-	position: fixed;
-
-	&.inputWithIcon {
-		position: relative;
-	}
-
-	.left-icon {
-		position: absolute;
-		left: 5px;
-		top: 50%;
-		transform: translateY(-50%);
-	}
-
-	button.left-icon {
-		background: none;
-		border: none;
-		position: absolute;
-		left: 5px;
-		top: 50%;
-		transform: translateY(-50%);
-	}
-`;
-
-const AllResults = styled.div`
-	max-height: 50vh;
-	border-top: 1px solid rgba(130, 130, 149, 0.3);
-
-	hr {
-		border: 1px solid rgba(130, 130, 149, 0.3);
-		margin: 24px 0;
-	}
-`;
-
-const SearchResult = styled.div`
-	border: 1px solid rgba(130, 130, 149, 0.3);
-	border-radius: 10px;
-	padding: 10px;
-	margin-bottom: 10px;
-	cursor: pointer;
-	:hover {
-		background: #09091b;
-		border: 1px solid rgba(130, 130, 149, 0.5);
-	}
-
-	h1 {
-		font-family: 'Inter';
-		font-style: normal;
-		font-weight: bolder;
-		font-size: 16px;
-		line-height: 21px;
-	}
-	p {
-		font-family: 'Inter';
-		font-style: normal;
-		font-weight: 400;
-		font-size: 12px;
-		line-height: 150%;
-	}
-`;
 
 export default Search;

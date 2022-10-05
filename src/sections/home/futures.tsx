@@ -1,14 +1,14 @@
 import styled from 'styled-components';
-import { Button } from '../../components';
 import media from 'styled-media-query';
 import Accordion, { AccordionItemsType } from 'src/components/Accordion/Accordion';
 import { useState } from 'react';
 import { FlexDivCol, Section, SectionTitle } from 'src/styles/common';
-import Image from 'next/image';
-import Graph from '../../../assets/graph.svg';
+import { useRouter } from 'next/router';
+import { Button } from '@chakra-ui/react';
 
 const FuturesSection = () => {
 	const [activeIndex, setActiveIndex] = useState<number>(0);
+	const { push } = useRouter();
 	return (
 		<FuturesContainer id="futures">
 			<Left>
@@ -24,9 +24,9 @@ const FuturesSection = () => {
 					activeIndex={activeIndex}
 					onAccordionItemChange={setActiveIndex}
 				/>
-				<BuildButton buttonType="primary" link="/futures" external={false} size="medium">
+				<Button onClick={() => push('/futures')} size="medium" w="146px" h="43px" marginTop="32px">
 					Learn More
-				</BuildButton>
+				</Button>
 			</AccordionContainer>
 		</FuturesContainer>
 	);
@@ -99,12 +99,6 @@ const AccordionContainer = styled(FlexDivCol)`
 	margin-top: 400px;
 		height: 580px;
 	`}
-`;
-
-const BuildButton = styled(Button)`
-	width: 146px;
-	height: 43px;
-	margin-top: 32px;
 `;
 
 const FadeToBlack = styled.div<{ ltr: boolean }>`

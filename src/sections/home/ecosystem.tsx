@@ -8,7 +8,7 @@ import Dhedge from '/public/powered-by/dhedge.svg';
 import Paraswap from '/public/powered-by/para.svg';
 import Yearn from '/public/powered-by/yearn.svg';
 import Aelin from '/public/powered-by/aelin.svg';
-import Image from 'next/image';
+import Image, { StaticImageData } from 'next/image';
 
 interface ImageProps {
 	title: string;

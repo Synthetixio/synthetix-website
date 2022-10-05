@@ -1,97 +1,98 @@
-import styled from 'styled-components';
 import jp from 'jsonpath';
-import media from 'styled-media-query';
-import Link from 'next/link';
-import { theme } from '../../styles/theme';
+import { Box, Flex, Heading, Image, Link, Text } from '@chakra-ui/react';
+import { GuideTag } from 'pages/guides';
+import { useNextSanityImage } from 'next-sanity-image';
+import { client } from 'src/lib/sanity';
 
-const Wrapper = styled.div`
-	display: flex;
-	flex-wrap: wrap;
-	justify-content: unset;
+const TagsBlock = ({ guideTags }: { guideTags: GuideTag[] }) => {
+	const allTags: GuideTag[] = jp.query(guideTags, '$..tags[*]');
+	const countOccurrence = (arr: GuideTag[]): GuideTag['tags'] => {
+		let uniqueArray: any = [],
+			hashTable: any = {};
 
-	h2 {
-		width: 100%;
-		${theme.pageBuilder.h2};
-	}
-`;
-
-const Tag = styled.div<{ color: any }>`
-	border: 2px solid ${(p) => p.color};
-	border-radius: 4px;
-	padding: 15px;
-	flex: 0 31%;
-	margin: 10px 10px 10px 0px;
-	display: flex;
-	${media.lessThan('huge')`flex: 0 48%;`}
-	${media.lessThan('large')`flex: 0 100%;`}
-
-	:hover {
-		cursor: pointer;
-		filter: brightness(120%);
-	}
-
-	.box {
-		width: 120px;
-		height: 100px;
-		background: linear-gradient(73.6deg, ${(p) => p.color} 2.11%, ${(p) => p.color} 80%);
-		border-radius: 3px;
-	}
-
-	.content {
-		width: fit-content;
-		margin-left: 10px;
-		.title {
-			font-family: 'Inter';
-			font-style: normal;
-			font-weight: 700;
-			font-size: 16px;
-			line-height: 17px;
-			color: #ffffff;
+		arr.forEach((item: any) => {
+			if (!hashTable[item.title]) {
+				uniqueArray.push((hashTable[item.title] = { ...item, occurrence: 0 }));
+			}
+			hashTable[item.title].occurrence++;
+		});
+		return uniqueArray;
+	};
+	const tags = countOccurrence(allTags).map(tag => {
+		if (tag.tagImage) {
+			return {
+				...tag,
+				tagImage: useNextSanityImage(client, tag.tagImage?.asset._ref),
+			};
+		} else {
+			return tag;
 		}
-		.intro {
-		}
-
-		.count {
-			display: inline;
-			position: absolute;
-			vertical-align: bottom;
-		}
-	}
-`;
-
-const TagsBlock = ({ guideTags }: any) => {
-	const allTags = jp.query(guideTags, '$..tags[*]');
-	const countOccurrence = (arr: any) => {
-			let uniqueArray: any = [],
-				hashTable: any = {};
-
-			arr.forEach((item: any) => {
-				if (!hashTable[item.title]) {
-					uniqueArray.push((hashTable[item.title] = { ...item, occurrence: 0 }));
-				}
-				hashTable[item.title].occurrence++;
-			});
-
-			return uniqueArray;
-		},
-		tags = countOccurrence(allTags);
+	});
 
 	return (
-		<Wrapper>
-			<h2>Tags Collections</h2>
-			{tags.map((tag: any, index: number) => (
-				<Link href={`/guides/tag/${tag.slug.current}`} key={index}>
-					<Tag color={tag.color.hex}>
-						<div className="box"></div>
-						<div className="content">
-							<p className="title">{tag.title}</p>
-							<p className="intro">{tag.introText}</p>
-							<p className="count">{tag.occurrence} Guides</p>
-						</div>
-					</Tag>
-				</Link>
-			))}
-		</Wrapper>
+		<Flex direction="column">
+			<Heading as="h2" size="md">
+				Tags Collections
+			</Heading>
+			<Flex flexWrap="wrap">
+				{tags.map((tag, index) => (
+					<Link
+						href={`/guides/tag/${tag.slug.current}`}
+						key={tag.title.concat(index.toString())}
+						ml="0"
+						mr="2"
+						mb="2"
+						mt="2"
+						overflowY="scroll"
+						textDecoration="none !important"
+						w={{ base: '100%', md: '300px' }}
+					>
+						<Flex
+							borderColor="gray.900"
+							borderStyle="solid"
+							borderWidth="1px"
+							borderRadius="base"
+							margin="margin: 10px 10px 10px 0px"
+							cursor="pointer"
+							textDecoration="none"
+							_hover={{ filter: 'brightness(120%)' }}
+						>
+							{tag.tagImage ? (
+								<Image
+									src={tag.tagImage.src}
+									w="120px"
+									h="120px"
+									borderRadius="base"
+									m="2"
+									bg={tag.color.hex}
+								/>
+							) : (
+								<Box
+									className="box"
+									w="120px"
+									h="120px"
+									background={tag.color.hex}
+									borderRadius="base"
+									m="2"
+								></Box>
+							)}
+							<Flex
+								w="fit-content"
+								mx="10px"
+								direction="column"
+								p="2"
+								overflowY="scroll"
+								py="3"
+							>
+								<Heading fontSize="md">{tag.title}</Heading>
+								<Text mb="auto">{tag.introText}</Text>
+								<Text>{tag.occurrence} Guides</Text>
+							</Flex>
+						</Flex>
+					</Link>
+				))}
+			</Flex>
+		</Flex>
 	);
 };
 

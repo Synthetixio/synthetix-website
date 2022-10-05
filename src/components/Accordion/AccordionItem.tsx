@@ -1,4 +1,4 @@
-import { ReactNodeArray } from 'react';
+import { ReactNode } from 'react';
 import { FlexDivCol, FlexDivRow } from '../../styles/common';
 import styled from 'styled-components';
 import media from 'styled-media-query';
@@ -6,8 +6,8 @@ import media from 'styled-media-query';
 export interface AccordionItemProps {
 	open: boolean;
 	title: string;
-	descriptions: ReactNodeArray;
-	buttons?: ReactNodeArray;
+	descriptions: ReactNode[];
+	buttons?: ReactNode[];
 	onHeaderClick: () => void;
 	isLast: boolean;
 }
