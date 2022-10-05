@@ -1,5 +1,5 @@
 import { Logo, Socials } from './';
-import { Box, Flex, Link, Show, Text } from '@chakra-ui/react';
+import { Box, Divider, Flex, Link, Show, Text } from '@chakra-ui/react';
 import {
 	Accordion,
 	AccordionItem,
@@ -85,10 +85,17 @@ export default function Footer() {
 												{menu.link && (
 													<Link
 														href={menu.link}
-														color="gray.500"
-														fontWeight="bold"
+														textDecoration="none !important"
 													>
-														<Text>{menu.title}</Text>
+														<Text
+															color="gray.500"
+															_hover={{ color: 'white' }}
+															fontFamily="heading"
+															fontSize="md"
+															fontWeight="bold"
+														>
+															{menu.title}
+														</Text>
 													</Link>
 												)}
 											</Flex>
@@ -101,7 +108,9 @@ export default function Footer() {
 							<Logo small={true} />
 						</Box>
 					</Flex>
-					<Socials isFooter />
+					<Box my="10">
+						<Socials isFooter />
+					</Box>
 				</Flex>
 			</Show>
 			<Show below="md">
@@ -111,43 +120,62 @@ export default function Footer() {
 					justifyContent="center"
 					alignItems="center"
 					flexDir="column"
+					pt="5"
 				>
 					{footerMenu.map(col => {
 						return (
-							<Accordion w="100%" allowToggle>
-								<AccordionItem>
-									<AccordionButton>
-										<Text fontWeight="bold" textTransform="uppercase" mr="auto">
-											{col[0].title}
-										</Text>
-										<AccordionIcon>
-											<ChevronRightIcon />
-										</AccordionIcon>
-									</AccordionButton>
-									<AccordionPanel>
-										<Flex flexDir="column" gap="2">
-											{col.map((menu, index) => (
-												<>
-													{!!index && (
-														<Link href={menu.link}>
-															<Text fontWeight="bold" color="gray.500">
-																{menu.title}
-															</Text>
-														</Link>
-													)}
-												</>
-											))}
-										</Flex>
-									</AccordionPanel>
-								</AccordionItem>
-							</Accordion>
+							<>
+								<Accordion w="100%" allowToggle>
+									<AccordionItem>
+										<AccordionButton>
+											<Text
+												fontWeight="bold"
+												textTransform="uppercase"
+												mr="auto"
+											>
+												{col[0].title}
+											</Text>
+											<AccordionIcon>
+												<ChevronRightIcon />
+											</AccordionIcon>
+										</AccordionButton>
+										<AccordionPanel>
+											<Flex flexDir="column" gap="2">
+												{col.map((menu, index) => (
+													<>
+														{!!index && (
+															<Link
+																href={menu.link}
+																textDecoration="none !important"
+															>
+																<Text
+																	fontWeight="bold"
+																	color="gray.500"
+																	_hover={{ color: 'white' }}
+																	fontFamily="heading"
+																	fontSize="md"
+																>
+																	{menu.title}
+																</Text>
+															</Link>
+														)}
+													</>
+												))}
+											</Flex>
+										</AccordionPanel>
+									</AccordionItem>
+								</Accordion>
+								<Divider color="gray.900" />
+							</>
 						);
 					})}
 
 					<Box m="5">
 						<Logo small={true} />
 					</Box>
-					<Socials isFooter />
+					<Box my="10">
+						<Socials isFooter />
+					</Box>
 				</Flex>
 			</Show>
 		</>

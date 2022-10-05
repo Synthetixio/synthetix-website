@@ -26,7 +26,6 @@ const HeaderComponent = ({ config }: HeaderProps) => {
 		}
 		setSubOpen(!!config?.items?.length);
 	}, [isOpen, itemsToString]);
-
 	return (
 		<Flex
 			as="header"
@@ -45,7 +44,7 @@ const HeaderComponent = ({ config }: HeaderProps) => {
 				height={12}
 				onClick={() => push('/')}
 				cursor="pointer"
-				mr="4"
+				mr={{ base: '', md: '8' }}
 			/>
 			<Show below="md">
 				<Box
@@ -73,7 +72,6 @@ const HeaderComponent = ({ config }: HeaderProps) => {
 				items={config?.items}
 				subOpen={subOpen}
 				setSubOpen={setSubOpen}
-				isHeader={true}
 				isOpen={isOpen}
 				data-test-id="header-menu"
 			/>

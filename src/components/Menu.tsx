@@ -1,4 +1,3 @@
-import Link from 'next/link';
 import { ImArrowUpRight2 } from 'react-icons/im';
 import Search from './Search';
 import { useRouter } from 'next/router';
@@ -6,6 +5,7 @@ import { ExternalLink } from '../styles/common';
 import {
 	Accordion,
 	AccordionButton,
+	AccordionIcon,
 	AccordionItem,
 	AccordionPanel,
 	Box,
@@ -55,11 +55,6 @@ const data: {
 		hideOnHeader: false,
 	},
 	{
-		externalLink: 'https://jobs.defialliance.co/companies/synthetix',
-		label: 'Careers',
-		hideOnHeader: true,
-	},
-	{
 		externalLink: 'https://blog.synthetix.io/',
 		label: 'Blog',
 		hideOnHeader: false,
@@ -70,12 +65,10 @@ const externalButtons = [
 	{
 		externalLink: 'https://stats.synthetix.io',
 		label: 'Stats',
-		hideOnHeader: false,
 	},
 	{
 		externalLink: 'https://staking.synthetix.io',
 		label: 'Staking',
-		hideOnHeader: false,
 	},
 ];
 
@@ -86,14 +79,12 @@ const isActive = (indexes: ExpandedIndex, index: number) => {
 };
 interface MenuProps {
 	isOpen?: boolean;
-	isHeader?: boolean;
 	items?: NavDocs[];
 	subOpen?: boolean;
 	setSubOpen?: Dispatch<SetStateAction<boolean>>;
 }
 
 const MenuComponent = ({
-	isHeader,
 	isOpen,
 	subOpen,
 	items,
@@ -107,14 +98,13 @@ const MenuComponent = ({
 
 	const isGuidesStartPage =
 		pathname.split('/').length === 2 && pathname.split('/')[1] === 'guides';
-
 	return (
 		<>
 			<Flex
 				as="ul"
 				left={!!isOpen ? 0 : '-100%'}
-				justifyContent={isHeader ? 'flex-start' : 'flex-end'}
-				flexWrap={{ base: 'wrap', md: 'nowrap' }}
+				justifyContent="flex-start"
+				flexWrap="nowrap"
 				zIndex="101"
 				width="100%"
 				position={{ base: 'fixed', md: 'static' }}
@@ -180,7 +170,9 @@ const MenuComponent = ({
 											>
 												{item.title}
 											</Heading>
-											<ChevronDownIcon w={6} h={6} />
+											<AccordionIcon>
+												<ChevronDownIcon w={6} h={6} />
+											</AccordionIcon>
 										</AccordionButton>
 										<AccordionPanel
 											display="flex"
@@ -222,133 +214,93 @@ const MenuComponent = ({
 								);
 							})}
 						</Accordion>
-						<Flex flexDirection="column" gap="5" pl="5" mt="5">
-							{isOpen &&
-								externalButtons.map(item => {
-									if (isHeader && !item.hideOnHeader) {
-										return (
-											<ExternalLink href={item.externalLink} key={item.label}>
-												<Button
-													variant="outline"
-													colorScheme="cyan"
-													key={item.label}
-													rightIcon={<ImArrowUpRight2 />}
-													size="lg"
-												>
-													{item.label}
-												</Button>
-											</ExternalLink>
-										);
-									}
-								})}
-						</Flex>
 					</Flex>
 				)) ||
 					data.map(item => {
-						if (isHeader) {
-							return (
-								!item.hideOnHeader && (
-									<MenuItem key={item.label} subOpen={!!subOpen} {...rest}>
-										{item.link ? (
-											<ChakraLink
-												transition={
-													urlFolderPathName === item.label
-														? 'color 0.3s ease-out'
-														: ''
-												}
-												_hover={{ color: 'cyan.500' }}
-												href={item.link}
-											>
-												<Text
-													fontFamily="heading"
-													fontWeight="bold"
-													color={
-														urlFolderPathName === item.label
-															? 'cyan.500'
-															: 'gray.500'
-													}
-													_hover={{ color: 'white' }}
-													fontSize={{ base: '2xl', md: 'md' }}
-												>
-													{item.label}
-												</Text>
-											</ChakraLink>
-										) : (
-											<ChakraLink
-												href={item.externalLink}
-												color="#828295"
-												_hover={{ color: 'cyan.500' }}
-												key={item.link}
-											>
-												<Text
-													fontFamily="heading"
-													fontWeight="bold"
-													color="gray.500"
-													_hover={{ color: 'white' }}
-													fontSize={{ base: '2xl', md: 'md' }}
-												>
-													{item.label}
-												</Text>
-											</ChakraLink>
-										)}
-									</MenuItem>
-								)
-							);
-						} else {
-							return (
-								<MenuItem subOpen={false} key={item.label}>
+						return (
+							!item.hideOnHeader && (
+								<MenuItem key={item.label} {...rest}>
 									{item.link ? (
-										<Link href={item.link}>
+										<ChakraLink
+											transition={
+												urlFolderPathName === item.label
+													? 'color 0.3s ease-out'
+													: ''
+											}
+											_hover={{ color: 'cyan.500' }}
+											href={item.link}
+										>
 											<Text
 												fontFamily="heading"
 												fontWeight="bold"
 												color={
 													urlFolderPathName === item.label
 														? 'cyan.500'
-														: 'white'
+														: 'gray.500'
 												}
+												_hover={{ color: 'white' }}
+												fontSize={{ base: '2xl', md: 'md' }}
 											>
 												{item.label}
 											</Text>
-										</Link>
+										</ChakraLink>
 									) : (
-										<ExternalLink href={item.externalLink} key={item.label}>
+										<ChakraLink
+											href={item.externalLink}
+											color="#828295"
+											_hover={{ color: 'cyan.500' }}
+											key={item.link}
+										>
 											<Text
 												fontFamily="heading"
 												fontWeight="bold"
-												color={
-													urlFolderPathName === item.label
-														? 'cyan.500'
-														: 'white'
-												}
+												color="gray.500"
+												_hover={{ color: 'white' }}
+												fontSize={{ base: '2xl', md: 'md' }}
 											>
 												{item.label}
 											</Text>
-										</ExternalLink>
+										</ChakraLink>
 									)}
 								</MenuItem>
-							);
-						}
+							)
+						);
 					})}
-				<Flex ml="auto" gap="2">
-					{!isOpen &&
-						externalButtons.map(item => {
-							if (isHeader && !item.hideOnHeader) {
-								return (
-									<ExternalLink href={item.externalLink} key={item.label}>
-										<Button
-											variant="outline"
-											colorScheme="cyan"
-											key={item.label}
-											rightIcon={<ImArrowUpRight2 />}
-										>
-											{item.label}
-										</Button>
-									</ExternalLink>
-								);
-							}
+				{!subOpen ? (
+					<Flex ml={{ base: '5', md: 'auto' }} gap="2">
+						{externalButtons.map(item => {
+							return (
+								<ExternalLink href={item.externalLink} key={item.label}>
+									<Button
+										variant="outline"
+										colorScheme="cyan"
+										key={item.label}
+										rightIcon={<ImArrowUpRight2 />}
+									>
+										{item.label}
+									</Button>
+								</ExternalLink>
+							);
 						})}
-				</Flex>
+					</Flex>
+				) : items?.length && !isOpen && subOpen ? (
+					<Flex ml={{ base: '5', md: 'auto' }} gap="2">
+						{externalButtons.map(item => {
+							return (
+								<ExternalLink href={item.externalLink} key={item.label}>
+									<Button
+										variant="outline"
+										colorScheme="cyan"
+										key={item.label}
+										rightIcon={<ImArrowUpRight2 />}
+									>
+										{item.label}
+									</Button>
+								</ExternalLink>
+							);
+						})}
+					</Flex>
+				) : null}
 			</Flex>
 			<Hide below="md">
 				<Divider orientation="vertical" mx="5" color="gray.500" h="30px" />
@@ -365,14 +317,7 @@ const MenuComponent = ({
 	);
 };
 
-export const MenuItem = ({
-	subOpen,
-	children,
-	...rest
-}: {
-	children: ReactNode;
-	subOpen: boolean;
-}) => (
+export const MenuItem = ({ children, ...rest }: { children: ReactNode }) => (
 	<Box
 		display={{ base: 'block', md: 'inline-block' }}
 		margin={{ base: '0 0 51px 20px', md: '10px 16px' }}
