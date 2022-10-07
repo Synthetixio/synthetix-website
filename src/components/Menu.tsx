@@ -40,13 +40,13 @@ const data: {
 	// 	hideOnHeader: false,
 	// },
 	{
-		link: '/guides',
-		label: 'Guides',
+		link: '/governance',
+		label: 'Governance',
 		hideOnHeader: false,
 	},
 	{
-		link: '/governance',
-		label: 'Governance',
+		link: '/guides',
+		label: 'Guides',
 		hideOnHeader: false,
 	},
 	{
