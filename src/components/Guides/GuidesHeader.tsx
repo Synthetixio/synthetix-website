@@ -1,6 +1,6 @@
 import { useNextSanityImage } from 'next-sanity-image';
 import { client } from '../../lib/sanity';
-import { Box, Heading, Text } from '@chakra-ui/react';
+import { Box, Flex, Heading, Text } from '@chakra-ui/react';
 
 interface GuidesHeaderProps {
 	mainImage: string;
@@ -16,7 +16,7 @@ export default function GuidesHeader({
 }: GuidesHeaderProps) {
 	const imageProps = useNextSanityImage(client, mainImage);
 	return (
-		<Box
+		<Flex
 			position="relative"
 			h="250px"
 			w="100%"
@@ -24,20 +24,14 @@ export default function GuidesHeader({
 			backgroundPosition="center center"
 			backgroundSize="cover"
 			borderRadius="base"
+			justifyContent="center"
+			alignItems="center"
 		>
-			<Box
-				position="absolute"
-				top="50%"
-				left="50%"
-				transform="translate(-50%,-50%)"
-				zIndex="99"
-				textAlign="center"
-				textTransform="uppercase"
-			>
+			<Box textAlign="center" textTransform="uppercase">
 				{subTitle && !subPos && <Text size="md">{subTitle}</Text>}
 				<Heading>{title}</Heading>
 				{subTitle && subPos && <Text size="md">{subTitle}</Text>}
 			</Box>
-		</Box>
+		</Flex>
 	);
 }
