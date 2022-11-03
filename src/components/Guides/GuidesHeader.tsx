@@ -18,10 +18,9 @@ export default function GuidesHeader({
 	return (
 		<Box
 			position="relative"
-			height="100%"
+			h="250px"
 			w="100%"
 			backgroundImage={imageProps.src}
-			minH="250px"
 			backgroundPosition="center center"
 			backgroundSize="cover"
 			borderRadius="base"
