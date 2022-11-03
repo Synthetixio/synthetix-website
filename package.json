@@ -79,7 +79,7 @@
 		"@babel/eslint-parser": "^7.18.9",
 		"@microsoft/eslint-formatter-sarif": "2.1.5",
 		"@svgr/cli": "^5.5.0",
-		"@synthetixio/synpress": "2.0.1",
+		"@synthetixio/synpress": "^3.0.0",
 		"@testing-library/dom": "^8.11.0",
 		"@testing-library/jest-dom": "^5.15.0",
 		"@testing-library/react": "^13.4.0",
@@ -106,6 +106,7 @@
 		"eslint-plugin-testing-library": "^5.6.1",
 		"eslint-plugin-ui-testing": "^2.0.1",
 		"husky": "^7.0.4",
+		"jest": "^27.0.0",
 		"next-sitemap": "1.3.2",
 		"typescript": "^4.4.4"
 	},
