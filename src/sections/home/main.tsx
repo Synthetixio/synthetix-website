@@ -1,9 +1,9 @@
+import { ArrowDownIcon } from '@chakra-ui/icons';
 import { PageTitle, Section, Subline } from 'src/styles/common';
 import SNXWave from 'src/svg/SNXWave';
 import styled from 'styled-components';
 import media from 'styled-media-query';
 import { headerHeight } from '../../components/Header';
-import { LearnMoreArrow } from '../../svg';
 
 const MainSection = () => {
 	const scrollToFeaturesSection = () => {
@@ -14,11 +14,15 @@ const MainSection = () => {
 			<Left>
 				<PageTitle>The derivatives liquidity protocol</PageTitle>
 				<SectionDescription>
-					Synthetix is a new financial primitive enabling the creation of synthetic assets, offering
-					unique derivatives and exposure to real-world assets on the blockchain.
+					Synthetix is a new financial primitive enabling the creation of
+					synthetic assets, offering unique derivatives and exposure to
+					real-world assets on the blockchain.
 				</SectionDescription>
-				<LearnMoreButton onClick={scrollToFeaturesSection} data-test-id="learn-more-btn">
-					Learn More <LearnMoreArrow />
+				<LearnMoreButton
+					onClick={scrollToFeaturesSection}
+					data-test-id="learn-more-btn"
+				>
+					Learn More <ArrowDownIcon />
 				</LearnMoreButton>
 			</Left>
 			<Right />

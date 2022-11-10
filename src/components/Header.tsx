@@ -1,79 +1,84 @@
 import { useState, useEffect } from 'react';
-import styled from 'styled-components';
-import media from 'styled-media-query';
 import HamburgerMenu from 'react-hamburger-menu';
 import { Menu } from './';
 import { useRouter } from 'next/router';
-import Image from 'next/image';
+import { Image, Flex, Show, Box } from '@chakra-ui/react';
+import { NavDocs } from 'src/typings/cms-types';
 
-const HeaderComponent = (props: any) => {
-	const { navDocs } = props || null;
+export interface HeaderProps {
+	config?: {
+		label: string;
+		navTitle: string;
+		items: NavDocs[];
+	};
+}
+
+const HeaderComponent = ({ config }: HeaderProps) => {
 	const [isOpen, setIsOpen] = useState<boolean>(false);
 	const [subOpen, setSubOpen] = useState<boolean>(false);
 	const { push } = useRouter();
+	const itemsToString = config?.toString();
 	useEffect(() => {
 		if (isOpen) {
-			document.body.classList.add('fixed');
+			document.documentElement.classList.add('stop-scrolling');
 		} else {
-			document.body.classList.remove('fixed');
+			document.documentElement.classList.remove('stop-scrolling');
 		}
-		setSubOpen(navDocs ? true : false);
-	}, [isOpen, navDocs]);
-
-	const clickMenu = () => {
-		setIsOpen(!isOpen);
-	};
-
+		setSubOpen(!!config?.items?.length);
+	}, [isOpen, itemsToString]);
 	return (
-		<StyledHeader>
-			<StyledImage src="/snx.svg" width={274} height={12} onClick={() => push('/')} />
-			<StyledHamburgerMenu
-				isOpen={isOpen}
-				menuClicked={clickMenu}
-				width={22}
-				height={16}
-				strokeWidth={2}
-				rotate={0}
-				color="white"
-				borderRadius={0}
-				animationDuration={0.3}
+		<Flex
+			as="header"
+			height={headerHeight.toString().concat('px')}
+			alignItems="center"
+			justifyContent={{ base: 'center', md: 'space-between' }}
+			zIndex="1000"
+			w="100%"
+			maxW="1920px"
+			background="transparent"
+			px="5"
+		>
+			<Image
+				src="/snx.svg"
+				width={200}
+				height={12}
+				onClick={() => push('/')}
+				cursor="pointer"
+				mr={{ base: '', md: '8' }}
 			/>
+			<Show below="md">
+				<Box
+					cursor="pointer"
+					userSelect="none"
+					top="39px"
+					left="20px"
+					position={isOpen ? 'fixed' : 'absolute'}
+					zIndex="999"
+				>
+					<HamburgerMenu
+						isOpen={isOpen}
+						menuClicked={() => setIsOpen(!isOpen)}
+						width={22}
+						height={16}
+						strokeWidth={2}
+						rotate={0}
+						color="white"
+						borderRadius={0}
+						animationDuration={0.3}
+					/>
+				</Box>
+			</Show>
 			<Menu
-				navDocs={navDocs}
+				items={config?.items}
 				subOpen={subOpen}
-				isHeader={true}
+				setSubOpen={setSubOpen}
 				isOpen={isOpen}
 				data-test-id="header-menu"
 			/>
-		</StyledHeader>
+		</Flex>
 	);
 };
 
 export const headerHeight = 100;
-const StyledImage = styled(Image)`
-	cursor: pointer;
-`;
-
-const StyledHeader = styled.header`
-	display: flex;
-	height: ${headerHeight}px;
-	align-items: center;
-	width: space-between;
-	z-index: 1000;
-`;
-
-const StyledHamburgerMenu = styled(HamburgerMenu)`
-	display: none;
-
-	${media.lessThan('medium')`
-		display: block;
-		cursor: pointer;
-		user-select: none;
-		left: 20px;
-		top: 39px;
-		position: ${(props) => ((props as any).isOpen ? 'fixed' : 'absolute')} !important;
-		z-index: 999;
-	`}
-`;
 
 export default HeaderComponent;

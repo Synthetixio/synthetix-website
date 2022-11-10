@@ -4,16 +4,65 @@ import slugify from 'slugify';
 import { BuildPageLayout } from 'src/components';
 import PageBuilder from '../../src/components/SanityPageBuilder/PageBuilder';
 import { client } from '../../src/lib/sanity';
-import { BuildPageLayoutProps, OrderedDoc } from 'src/components/Build/BuildPageLayout';
+import {
+	BuildPageLayoutProps,
+	OrderedDoc,
+} from 'src/components/Build/BuildPageLayout';
 import { GetStaticPropsContext } from 'next';
+import { TableBlockProps } from 'src/components/SanityPageBuilder/TableBlock';
+import { StepsBlockProps } from 'src/components/SanityPageBuilder/StepsBlock';
+import { Tag } from 'src/components/Guides/Tags';
+import ImgCarouselBlock from 'src/components/SanityPageBuilder/ImgCarouselBlock';
 
 interface BuildProps {
 	build: Build;
 	navDocs: { title: string; docs: OrderedDoc[] }[];
 }
 
+export interface Guide {
+	category: { _ref: string; _type: string };
+	icon: { _type: string; asset: { _ref: string; _type: string } };
+	introText: string;
+	mainImage: { _type: string; asset: { _ref: string; _type: string } };
+	pageBuilder: {
+		_key: string;
+		_type: string;
+		body: {
+			children: {
+				marks: string[];
+				text: string;
+				_key: string;
+				_type: string;
+			}[];
+			markDefs: unknown[];
+			style: string;
+			_key: string;
+			_type: string;
+		}[];
+		disabled: boolean;
+		title: string;
+		caption?: string;
+		asset?: { _ref: string };
+		accordions?: { heading: string; body: any }[];
+	};
+	publishAt: string;
+	slug: { _type: string; current: string };
+	subPos: boolean;
+	subTitle: string;
+	tags: Tag[];
+	title: string;
+	_id: string;
+	_type: string;
+	_createdAt: string;
+	_updatedAt: string;
+}
+
 export interface Build {
 	_updatedAt: string;
+	_createdAt?: string;
+	_id?: string;
+	_rev?: string;
+	_type?: string;
 	category: string;
 	categorySlug: { _type: string; current: string };
 	guideLPBanner?: {
@@ -26,6 +75,13 @@ export interface Build {
 	title: string;
 }
 
+export interface PageBuilderChildren {
+	marks: string[];
+	text: string;
+	_key: string;
+	_type: string;
+}
+
 export interface PageBuilderProps {
 	_key: string;
 	_id: string;
@@ -33,71 +89,59 @@ export interface PageBuilderProps {
 	_createdAt: string;
 	_updatedAt: string;
 	_rev: string;
-	body: unknown[];
+	style?: string;
+	steps: StepsBlockProps['steps'];
+	slides?: ImgCarouselBlock[];
+	body: {
+		children?: PageBuilderChildren[];
+		asset?: {
+			_ref: string;
+			_type: string;
+		};
+		markDefs: { href: string; _key: string; _type: string }[];
+		listItem?: string;
+		style: string;
+		_key?: string;
+		_type: string;
+		code?: string;
+	}[];
+	table?: TableBlockProps['table'];
+	url?: string;
 	disabled: boolean;
 	title: string;
 	caption?: string;
 	asset?: { _ref: string };
 	accordions?: { heading: string; body: any }[];
+	iconText?: string;
+	icon?: { asset: { _ref: string; _type: string } };
+	iconLinkText?: string;
+	iconLinkURL?: string;
 	guideLPBanner: {
 		_type: string;
 		asset: { _ref: string; _type: string };
 	};
-	columns?: {
-		_key: string;
-		_type: string;
-		body: unknown[];
-		disabled: boolean;
-		title: string;
-		caption?: string;
-		asset?: { _ref: string };
-		accordions?: { heading: string; body: any }[];
-	}[];
-	guides: {
-		category: { _ref: string; _type: string };
-		icon: { _type: string; asset: { _ref: string; _type: string } };
-		introText: string;
-		mainImage: { _type: string; asset: { _ref: string; _type: string } };
-		pageBuilder: {
-			_key: string;
-			_type: string;
-			body: unknown[];
-			disabled: boolean;
-			title: string;
-			caption?: string;
-			asset?: { _ref: string };
-			accordions?: { heading: string; body: any }[];
-		}[];
-		publishAt: string;
-		slug: { _type: string; current: string };
-		subPos: boolean;
-		subTitle: string;
-		tags: unknown[];
-		title: string;
-		_id: string;
-		_type: string;
-		_createdAt: string;
-		_updatedAt: string;
-	};
+	columns?: PageBuilderProps[];
+	guides: Guide[];
 }
 
 const BuildPage = ({ build, navDocs }: BuildProps) => {
 	//gather headings from all portable text
 	const headingsQuery = jp.query(
 		build,
-		'$..body[?(@.style=="h1" || @.style=="h2" || @.style=="h3" || @.style=="h4" )]'
+		'$..body[?(@.style=="h1" || @.style=="h2" || @.style=="h3" || @.style=="h4" )]',
 	);
-	const headings: BuildPageLayoutProps<OrderedDoc>['headings'] = headingsQuery.map((heading) => ({
-		style: heading.style,
-		text: heading.children[0].text,
-		slug: slugify(heading.children[0].text, { lower: true }),
-	}));
+	const headings: BuildPageLayoutProps<OrderedDoc>['headings'] =
+		headingsQuery.map(heading => ({
+			style: heading.style,
+			text: heading.children[0].text,
+			slug: slugify(heading.children[0].text, { lower: true }),
+		}));
 
 	const allDocsOrdered = navDocs
-		.map((doc) => {
+		.map(doc => {
 			const cat = doc.title;
 			const result: OrderedDoc[] = [];
-			doc.docs.forEach((node) => {
+			doc.docs.forEach(node => {
 				result.push({
 					...node,
 					cat,
@@ -107,8 +151,11 @@ const BuildPage = ({ build, navDocs }: BuildProps) => {
 		})
 		.flat();
 
-	const currentIndex = allDocsOrdered.findIndex((doc) => doc.slug.current === build.slug.current);
-	const nextDoc = currentIndex >= 0 ? allDocsOrdered[currentIndex + 1] : allDocsOrdered[0];
+	const currentIndex = allDocsOrdered.findIndex(
+		doc => doc.slug.current === build.slug.current,
+	);
+	const nextDoc =
+		currentIndex >= 0 ? allDocsOrdered[currentIndex + 1] : allDocsOrdered[0];
 	const prevDoc =
 		currentIndex >= 0
 			? allDocsOrdered[currentIndex - 1]
@@ -134,11 +181,11 @@ const BuildPage = ({ build, navDocs }: BuildProps) => {
 
 export async function getStaticPaths() {
 	const paths: Record<string, string>[] = await client.fetch(
-		`*[_type == "build" && defined(slug.current)][].slug.current`
+		`*[_type == "build" && defined(slug.current)][].slug.current`,
 	);
 
 	return {
-		paths: paths.map((slug) => ({ params: { slug } })),
+		paths: paths.map(slug => ({ params: { slug } })),
 		fallback: false,
 	};
 }
@@ -161,7 +208,7 @@ export async function getStaticProps(context: GetStaticPropsContext) {
   _updatedAt,
       }[0]
   `,
-		{ slug }
+		{ slug },
 	);
 
 	const navDocs = await client.fetch(`

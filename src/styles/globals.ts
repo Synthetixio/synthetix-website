@@ -11,7 +11,7 @@ export const GlobalStyle = createGlobalStyle`
 		-webkit-tap-highlight-color: transparent;
 		padding: 0;
 		margin: 0;
-		background-color: ${(props) => (props.theme as any).colors.bgBlack};
+		background-color: ${props => (props.theme as any).colors.bgBlack};
 		-webkit-tap-highlight-color: transparent;
 
 	}
@@ -30,6 +30,9 @@ export const GlobalStyle = createGlobalStyle`
 		font-weight: bolder;
 	}
 
+	html.stop-scrolling  {
+	overflow: hidden;
+}
 	@font-face {
 		font-family: 'GT America';
 		src: local('GT America'), local('GTAmerica'),

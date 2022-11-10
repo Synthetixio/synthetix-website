@@ -1,133 +1,17 @@
-import styled from 'styled-components';
-import media from 'styled-media-query';
-import { FlexDivColCentered } from 'src/styles/common';
-import Link from 'next/link';
-import Img from 'next/image';
-import { useNextSanityImage } from 'next-sanity-image';
 import { Header } from '..';
-import Sidebar from '../Sidebar';
+import Sidebar, { SidebarProps } from '../Sidebar';
 import BuildFooter from '../Build/BuildFooter';
+import { Box, Flex, Heading, Text } from '@chakra-ui/react';
+import { PageBuilderProps } from 'pages/build/[slug]';
+import Link from 'next/link';
 import Tags from '../Guides/Tags';
-import { client } from '../../lib/sanity';
-import { theme } from '../../styles/theme';
-import { OrderedDoc } from '../Build/BuildPageLayout';
-
-const OutWrapper = styled.div`
-	width: 100%;
-	background-color: #000; //TODO: refactor to body black background and remove this
-`;
-
-const ContentWrapper = styled.div`
-	display: flex;
-	flex-wrap: wrap;
-	position: relative;
-	gap: var(--s1);
-	max-width: ${({ theme }) => theme.maxContentWidthBuild};
-	width: 100%;
-	position: relative;
-	margin: 0 auto;
-`;
-
-const MainContent = styled.div`
-	flex-basis: 0;
-	flex-grow: 999;
-	min-inline-size: 50%;
-	padding: 0 50px;
-	min-height: 100vh; //TODO: refactor to body black background and remove this
-
-	${media.lessThan('medium')`
-		padding: 0 25px;
-	`}
-
-	h1 {
-		${theme.pageBuilder.h1};
-		margin-top: 25px;
-	}
-
-	h2 {
-		${theme.pageBuilder.h2};
-		margin-bottom: 25px;
-	}
-`;
-
-const CarouselItem = styled.div`
-	margin: 0px 10px;
-	text-align: center;
-	background: #0b0b22;
-	box-shadow: 0px 14px 14px rgba(0, 0, 0, 0.25);
-	border-radius: 5px;
-	padding: 10px;
-	cursor: pointer;
-	display: flex;
-	align-items: center;
-	justify-content: flex-start;
-	margin-bottom: 10px;
-`;
-
-const Left = styled.div`
-	display: flex;
-	justify-content: space-between;
-	align-items: center;
-`;
-
-const Right = styled.div`
-	display: block;
-	align-items: left;
-	justify-content: left;
-	text-align: left;
-	margin-left: 15px;
-
-	* {
-		margin-bottom: 5px;
-	}
-`;
-
-const Title = styled.div`
-	font-family: 'Inter';
-	font-style: normal;
-	font-weight: 700;
-	font-size: 14px;
-	color: #fff;
-`;
-const Intro = styled.div``;
-
-const Figure = styled.figure`
-	img {
-	}
-`;
-export interface GuideItemProps {
-	icon: string;
-	slug: { current: string };
-	tags: string;
-	title: string;
-	introText: string;
-}
-function GuideItem({ icon, slug, tags, title, introText }: GuideItemProps) {
-	const imageProps = useNextSanityImage(client, icon);
-	return (
-		<Link href={`/guides/${slug.current}`}>
-			<CarouselItem>
-				<Left>
-					<Figure>
-						<Img {...imageProps} layout="fixed" width={100} height={100} />
-					</Figure>
-				</Left>
-				<Right>
-					<Title>{title}</Title>
-					<Intro>{introText}</Intro>
-					<Tags tags={tags} />
-				</Right>
-			</CarouselItem>
-		</Link>
-	);
-}
 
 interface TagsPageLayoutProps {
-	navDocs: OrderedDoc[];
+	navDocs: SidebarProps['navDocs'];
 	updatedAt: string;
 	title: string;
 	subTitle: string;
-	guides: GuideItemProps[];
+	guides: PageBuilderProps['guides'];
 }
 
 export default function TagsPageLayout({
@@ -139,27 +23,60 @@ export default function TagsPageLayout({
 }: TagsPageLayoutProps) {
 	const subMenu = {
 		label: 'guides',
-		navtitle: 'User Guides',
+		navTitle: 'User Guides',
 		items: navDocs,
 	};
 
 	return (
-		<FlexDivColCentered>
-			<Header navDocs={subMenu} navShort={true} />
-			<OutWrapper>
-				<ContentWrapper>
-					<Sidebar navDocs={navDocs} subSlug="guides" />
-					<MainContent>
-						<h1>{title}</h1>
-						<h2>{subTitle}</h2>
-						{guides &&
-							guides.map((guide, index) => (
-								<GuideItem {...guide} key={title.concat(index.toString())} />
-							))}
-						<BuildFooter updatedAt={updatedAt} />
-					</MainContent>
-				</ContentWrapper>
-			</OutWrapper>
-		</FlexDivColCentered>
+		<Flex direction="column" alignItems="center" bg="navy.900">
+			<Header config={subMenu} />
+			<Flex position="relative" w="100%">
+				<Sidebar navDocs={navDocs} subSlug="guides" />
+				<Flex direction="column" w="full" maxW="800px" m="12" borderWidth="1px">
+					<Heading as="h1" size="xl" mb="2">
+						{title}
+					</Heading>
+					<Heading as="h2" size="lg" mb="2">
+						{subTitle}
+					</Heading>
+
+					{guides &&
+						guides.map((guide, index) => (
+							<Box
+								key={title.concat(index.toString())}
+								borderColor="gray.900"
+								borderStyle="solid"
+								borderWidth="1px"
+								my="2"
+							>
+								<Link
+									href={`/guides/${guide.slug.current}`}
+									style={{ margin: '10px' }}
+								>
+									<Flex
+										direction="column"
+										alignItems="center"
+										textAlign="center"
+										bg="navy.900"
+										boxShadow="base"
+										borderRadius="base"
+										p="24px"
+										cursor="pointer"
+										_hover={{ filter: 'brightness(120%)' }}
+										w="100%"
+									>
+										<Tags tags={guide.tags} />
+										<Text fontWeight="bold" my="2">
+											{guide.title}
+										</Text>
+										<Text>{guide.introText}</Text>
+									</Flex>
+								</Link>
+							</Box>
+						))}
+					<BuildFooter updatedAt={updatedAt} />
+				</Flex>
+			</Flex>
+		</Flex>
 	);
 }

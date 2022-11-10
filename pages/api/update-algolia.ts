@@ -5,7 +5,7 @@ import algoliasearch from 'algoliasearch';
 
 export const algolia = algoliasearch(
 	process.env.NEXT_PUBLIC_ALGOLIA_APP_ID!,
-	process.env.NEXT_ALGOLIA_ADMIN_KEY!
+	process.env.NEXT_ALGOLIA_ADMIN_KEY!,
 );
 
 const algoliaIndex = algolia.initIndex('pages');
@@ -33,7 +33,7 @@ export const sanityAlgolia = indexer(
 			      }`,
 		},
 	},
-	(document) => {
+	document => {
 		switch (document._type) {
 			case 'build':
 				return {
@@ -54,12 +54,15 @@ export const sanityAlgolia = indexer(
 			default:
 				return document;
 		}
-	}
+	},
 );
 
 const handler = (
 	req: { headers: { 'content-type': string }; body: WebhookBody },
-	res: { status: (status: number) => { send: (msg: string) => void }; json: (obj: object) => void }
+	res: {
+		status: (status: number) => { send: (msg: string) => void };
+		json: (obj: object) => void;
+	},
 ) => {
 	if (req.headers['content-type'] !== 'application/json') {
 		res.status(400);
@@ -67,15 +70,12 @@ const handler = (
 		return res;
 	}
 
-	return (
-		sanityAlgolia
-			// @TODO DEV remove client as any when type bug is fixed
-			.webhookSync(client as any, req.body)
-			.then(() => res.status(200).send('ok'))
-			.catch((error) => {
-				console.error(error);
-			})
-	);
+	return sanityAlgolia
+		.webhookSync(client, req.body)
+		.then(() => res.status(200).send('ok'))
+		.catch(error => {
+			console.error(error);
+		});
 };
 
 export default handler;

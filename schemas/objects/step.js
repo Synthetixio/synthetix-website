@@ -22,16 +22,18 @@ export default {
 			layers: 'layers',
 		},
 		prepare(value) {
-			const block = (value.blocks || []).find((block) => block._type === 'block');
+			const block = (value.blocks || []).find(block => block._type === 'block');
 			const layers = value.layers || null;
 			return {
 				title: block
 					? block.children
-							.filter((child) => child._type === 'span')
-							.map((span) => span.text)
+							.filter(child => child._type === 'span')
+							.map(span => span.text)
 							.join('')
 					: 'No title',
-				subtitle: layers ? layers.map((item) => `${item}, `).join('') : '*** No Layer Entered',
+				subtitle: layers
+					? layers.map(item => `${item}, `).join('')
+					: '*** No Layer Entered',
 			};
 		},
 	},

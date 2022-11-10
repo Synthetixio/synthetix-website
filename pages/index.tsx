@@ -6,27 +6,35 @@ import TotalSection from '../src/sections/home/total';
 import SynthSection from 'src/sections/home/synths';
 import Ecosystem from 'src/sections/home/ecosystem';
 import { PageLayout } from '../src/components';
-import media from 'styled-media-query';
-import styled from 'styled-components';
 import { Line } from 'src/styles/common';
 import PoweredBy from 'src/sections/home/poweredBy';
 import axios from 'axios';
+import { Box } from '@chakra-ui/react';
+import getSnxPrice from '../src/queries/snxPrice/snxPrice';
 
 export interface ApiStatsProps {
-	totalLocked?: number;
+	totalStakedValue?: number;
 }
 
-const Home = ({ totalLocked }: ApiStatsProps) => {
+const Home = ({ totalStakedValue }: ApiStatsProps) => {
 	return (
 		<>
 			<Head>
 				<title>Synthetix</title>
 			</Head>
 			<PageLayout>
-				<BgGradient />
+				<Box
+					position="absolute"
+					top="0"
+					left="0"
+					w="100%"
+					height="100vh"
+					bg="linear-gradient(180deg, #08021e 0%, #120446 146.21%)"
+					pointerEvents="none"
+				/>
 				<MainSection />
 				<Line />
-				<TotalSection totalLocked={totalLocked} />
+				<TotalSection totalStakedValue={totalStakedValue} />
 				<Line />
 				<Futures />
 				<Line />
@@ -35,44 +43,48 @@ const Home = ({ totalLocked }: ApiStatsProps) => {
 				<PoweredBy />
 				<Ecosystem />
 				<Line showOnMobile />
-				{/*  TODO @125 Mike maybe wants to reposition this section so that is why we hide it for now 
-				<PartnersSection /> */}
 			</PageLayout>
 		</>
 	);
 };
+const STAKED_SNX_DATA_URL = 'https://api.synthetix.io/staking-ratio';
 
-const BgGradient = styled.div`
-	position: absolute;
-	top: 0;
-	left: 0;
-	width: 100%;
-	height: 100vh;
-	min-height: 853px;
-	background: linear-gradient(180deg, #08021e 0%, #120446 146.21%);
-	pointer-events: none;
-
-	${media.lessThan('medium')`
-		height: 734px;
-		min-height: none;
-	`}
-`;
-
+type StakedSNXResponse = {
+	systemStakingPercent: number;
+	timestamp: number;
+	stakedSnx: {
+		ethereum: number;
+		optimism: number;
+	};
+};
 export const getServerSideProps: GetServerSideProps = async () => {
-	let totalLocked = 537861341;
 	try {
-		const response = await axios.get<{ totalLocked: number }>(
-			'https://exchange.api.synthetix.io/api/total-locked'
-		);
-		totalLocked = response.data?.totalLocked;
+		const [stakesSnxResponse, snxPrice] = await Promise.all([
+			axios.get<StakedSNXResponse>(STAKED_SNX_DATA_URL),
+			getSnxPrice(),
+		]);
+		const {
+			data: { stakedSnx },
+		} = stakesSnxResponse;
+
+		const totalStakedSnx = stakedSnx.optimism + stakedSnx.ethereum;
+		const valueTotalStaked = snxPrice * totalStakedSnx;
+		if (isNaN(valueTotalStaked)) {
+			throw Error('Unexpected NaN getting total staked value');
+		}
+		return {
+			props: {
+				totalStakedValue: valueTotalStaked,
+			},
+		};
 	} catch (e) {
 		console.log(e);
+		return {
+			props: {
+				totalStakedValue: 0,
+			},
+		};
 	}
-	return {
-		props: {
-			totalLocked,
-		},
-	};
 };
 
 export default Home;

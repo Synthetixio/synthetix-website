@@ -1,4 +1,7 @@
-import { orderRankField, orderRankOrdering } from '@sanity/orderable-document-list';
+import {
+	orderRankField,
+	orderRankOrdering,
+} from '@sanity/orderable-document-list';
 
 export default {
 	name: 'tag',
@@ -10,7 +13,7 @@ export default {
 			name: 'title',
 			title: 'Title',
 			type: 'string',
-			validation: (Rule) => Rule.required(),
+			validation: Rule => Rule.required(),
 		},
 		{
 			name: 'slug',
@@ -20,19 +23,27 @@ export default {
 				source: 'title',
 				maxLength: 96,
 			},
-			validation: (Rule) => Rule.required(),
+			validation: Rule => Rule.required(),
 		},
 		{
 			name: 'color',
 			title: 'Color',
 			type: 'color',
-			validation: (Rule) => Rule.required(),
+			validation: Rule => Rule.required(),
 		},
 		{
 			name: 'introText',
 			title: 'Intro Text',
 			type: 'text',
-			validation: (Rule) => Rule.required().min(10).max(160),
+			validation: Rule => Rule.required().min(10).max(160),
+		},
+		{
+			name: 'tagImage',
+			title: 'Tag image - 120x120 px',
+			type: 'image',
+			options: {
+				hotspot: true,
+			},
 		},
 		orderRankField({ type: 'tag', hidden: true }),
 	],

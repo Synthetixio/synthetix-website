@@ -1,12 +1,16 @@
-type LogoProps = { readonly small?: boolean };
+import { Link, LinkProps } from '@chakra-ui/react';
 
-const LogoComponent = ({ small }: LogoProps) => {
+interface LogoProps extends LinkProps {
+	small?: boolean;
+}
+
+const LogoComponent = ({ small, ...rest }: LogoProps) => {
 	const src = small ? '/logo-x.svg' : '/logo.svg';
 
 	return (
-		<a href="/">
-			<img src={src} alt="" />
-		</a>
+		<Link href="/" {...rest}>
+			<img src={src} alt="synthetix" />
+		</Link>
 	);
 };
 

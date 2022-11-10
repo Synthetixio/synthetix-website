@@ -1,114 +1,123 @@
-import styled from 'styled-components';
-import media from 'styled-media-query';
-import { useRouter } from 'next/router'
-import { ButtonCard } from '@synthetixio/ui';
-
-import { Line } from 'src/styles/common';
+import { useRouter } from 'next/router';
 import { OrderedDoc } from './BuildPageLayout';
-
-
-const BuildFooterContainer = styled.div`
-	display: flex;
-	flex-direction: row;
-	flex-wrap: wrap;
-	width: 100%;
-	display: flex;
-`;
-
-const Row = styled.div`
-	display: flex;
-	flex-direction: row;
-	flex-wrap: wrap;
-	width: 100%;
-	justify-content: center;
-
-`;
-
-
-const Box = styled.div`
-	display: flex;
-	flex-direction: column;
-	flex-basis: 100%;
-	flex: 1;
-	
-
-	span {
-		font-family: Inter;
-		font-style: normal;
-		font-weight: normal;
-		font-size: 12px;
-		text-transform: uppercase;
-		color: #828295;
-	}
-	h3{
-		font-family: Inter;
-		font-style: normal;
-		font-weight: bold;
-		font-size: 18px;
-		line-height: 24px;
-		text-transform: capitalize;
-		color: #FFFFFF;
-	}
-	
-	${media.lessThan('large')`
-		flex: 1 1 2000px;
-	`};
-
-	:hover {
-		cursor: pointer;
-		filter: brightness(120%);
-	}
-`;
-
-const Updated = styled.div`
-	margin-top: 20px;
-	margin-bottom: 20px;
-	font-style: italic;
-`;
+import { Box, Divider, Flex, Heading, Text } from '@chakra-ui/react';
+import { ArrowBackIcon, ArrowForwardIcon } from '@chakra-ui/icons';
 
 interface BuildFooterProps {
 	nextDoc?: OrderedDoc;
-	prevDoc?:OrderedDoc;
-	updatedAt:string;
-};
+	prevDoc?: OrderedDoc;
+	updatedAt: string;
+}
 
-export default function BuildFooter({nextDoc, prevDoc, updatedAt}: BuildFooterProps) {
+export default function BuildFooter({
+	nextDoc,
+	prevDoc,
+	updatedAt,
+}: BuildFooterProps) {
 	const lastUpdated = new Date(updatedAt);
 
 	const router = useRouter();
 	const handleClick = (path: string) => router.push(path);
 
 	return (
-
-		<BuildFooterContainer>
-			{prevDoc && 
-				<Box style={{'marginRight': '3px'}} onClick={(e) => handleClick(prevDoc.slug.current)}>
-					<Row>
+		<Box as="footer">
+			<Flex
+				mt="20px"
+				w="100%"
+				flexWrap={{ base: 'wrap', md: 'nowrap' }}
+				justifyContent="center"
+				gap="4"
+				mb="4"
+			>
+				{prevDoc && (
+					<Box
+						mr={{ base: '', md: '3px' }}
+						onClick={() => handleClick(prevDoc.slug.current)}
+						w="100%"
+					>
 						<ButtonCard
-						arrowDirection="left"
-						headline={prevDoc.title}
-						subline={prevDoc.cat}
-					/>
-					</Row>
-				</Box>
-			}
-			{nextDoc && 
-				<Box style={{'marginLeft': '3px'}} onClick={(e) => handleClick(nextDoc.slug.current)}>
-					<Row>
+							arrowDirection="left"
+							headline={prevDoc.title}
+							subline={prevDoc.cat}
+						/>
+					</Box>
+				)}
+				{nextDoc && (
+					<Box
+						w="100%"
+						ml={{ base: '', md: '3px' }}
+						onClick={() => handleClick(nextDoc.slug.current)}
+					>
 						<ButtonCard
-						arrowDirection="right"
-						headline={nextDoc.title}
-						subline={nextDoc.cat}
-					/>
-					</Row>
-				</Box>
-			}
-	
-			<Line showOnMobile />
-			<Updated>Last updated: {lastUpdated.getUTCDate()}/{lastUpdated.getUTCMonth()+1}/{lastUpdated.getUTCFullYear()}</Updated>
-		
-		</BuildFooterContainer>
-		
-					
+							arrowDirection="right"
+							headline={nextDoc.title}
+							subline={nextDoc.cat}
+						/>
+					</Box>
+				)}
+			</Flex>
+			<Divider borderColor="gray.900" />
+			<Text fontStyle="italic" my="20px">
+				Last updated: {lastUpdated.getUTCDate()}/{lastUpdated.getUTCMonth() + 1}
+				/{lastUpdated.getUTCFullYear()}
+			</Text>
+		</Box>
 	);
 }
+
+const ButtonCard = ({
+	arrowDirection,
+	headline,
+	subline,
+}: {
+	arrowDirection: 'left' | 'right';
+	headline: string;
+	subline: string;
+}) => {
+	return (
+		<Box
+			bg="linear-gradient(#ED1EFF, #00D1FF)"
+			p="1px"
+			borderRadius="base"
+			cursor="pointer"
+			_hover={{ filter: 'brightness(120%)' }}
+		>
+			<Flex
+				flexDirection="column"
+				px="6"
+				py="4"
+				w="100%"
+				bg="navy.900"
+				borderRadius="base"
+				position="relative"
+			>
+				<Text textAlign={arrowDirection === 'left' ? 'end' : 'start'}>
+					{subline}
+				</Text>
+				{arrowDirection === 'left' ? (
+					<ArrowBackIcon
+						position="absolute"
+						left="18px"
+						top="50%"
+						transform="translateY(-50%)"
+						boxSize="6"
+					/>
+				) : (
+					<ArrowForwardIcon
+						position="absolute"
+						right="18px"
+						top="50%"
+						transform="translateY(-50%)"
+						boxSize="6"
+					/>
+				)}
+				<Heading
+					size="md"
+					textAlign={arrowDirection === 'left' ? 'end' : 'start'}
+				>
+					{headline}
+				</Heading>
+			</Flex>
+		</Box>
+	);
+};
