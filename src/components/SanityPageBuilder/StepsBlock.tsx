@@ -25,7 +25,7 @@ export function StepsBlock({ style, steps }: StepsBlockProps) {
 					p="2"
 					key={step._key}
 					w="100%"
-					overflow="scroll"
+					overflow="auto"
 					flexWrap={{ base: 'wrap', md: 'nowrap' }}
 				>
 					<Box

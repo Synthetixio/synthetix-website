@@ -34,7 +34,7 @@ const TagsBlock = ({ guideTags }: { guideTags: GuideTag[] }) => {
 			<Heading as="h2" size="md">
 				Tags Collections
 			</Heading>
-			<Flex flexWrap="wrap">
+			<Flex flexWrap="wrap" alignContent="stretch">
 				{tags.map((tag, index) => (
 					<Link
 						href={`/guides/tag/${tag.slug.current}`}
@@ -43,11 +43,11 @@ const TagsBlock = ({ guideTags }: { guideTags: GuideTag[] }) => {
 						mr="2"
 						mb="2"
 						mt="2"
-						overflowY="scroll"
 						textDecoration="none !important"
 						w={{ base: '100%', md: '300px' }}
 					>
 						<Flex
+							height="100%"
 							borderColor="gray.900"
 							borderStyle="solid"
 							borderWidth="1px"
@@ -81,7 +81,7 @@ const TagsBlock = ({ guideTags }: { guideTags: GuideTag[] }) => {
 								mx="10px"
 								direction="column"
 								p="2"
-								overflowY="scroll"
+								overflowY="auto"
 								py="3"
 							>
 								<Heading fontSize="md">{tag.title}</Heading>
