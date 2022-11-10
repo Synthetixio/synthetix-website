@@ -6,13 +6,15 @@ import media from 'styled-media-query';
 
 const currencyFormat = '$0,0';
 
-const TotalSection = ({ totalLocked }: ApiStatsProps) => {
+const TotalSection = ({ totalStakedValue }: ApiStatsProps) => {
 	return (
 		<TotalContainer>
 			<TotalStakedBar>
-				<StakedHeader>Total value locked in Synthetix</StakedHeader>
+				<StakedHeader>Total value staked</StakedHeader>
 				<StakedValue>
-					{totalLocked ? numeral(totalLocked).format(currencyFormat) : '--'}
+					{totalStakedValue
+						? numeral(totalStakedValue).format(currencyFormat)
+						: '--'}
 				</StakedValue>
 			</TotalStakedBar>
 		</TotalContainer>
@@ -63,7 +65,13 @@ const StakedValue = styled.span`
 	-webkit-background-clip: text;
 	-webkit-text-fill-color: transparent;
 	text-fill-color: transparent;
-	background-image: linear-gradient(to right, #00d1ff 0%, #00d1ff 15%, #ed1eff 85%, #ed1eff 100%);
+	background-image: linear-gradient(
+		to right,
+		#00d1ff 0%,
+		#00d1ff 15%,
+		#ed1eff 85%,
+		#ed1eff 100%
+	);
 
 	${media.lessThan('medium')`
 		margin-top: 8px;
