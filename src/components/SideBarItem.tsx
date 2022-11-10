@@ -28,7 +28,7 @@ export default function SideBarItem({
 	}, [docs, router]);
 
 	return (
-		<Flex direction="column" alignItems="center" justifyContent="center" mt="4">
+		<Flex direction="column" mt="4">
 			<Flex
 				onClick={() => setIsOpen(!isOpen)}
 				alignItems="center"
