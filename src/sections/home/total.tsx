@@ -7,6 +7,10 @@ import media from 'styled-media-query';
 const currencyFormat = '$0,0';
 
 const TotalSection = ({ totalStakedValue }: ApiStatsProps) => {
+	if (!totalStakedValue) {
+		// If we missing data here don't render the section
+		return null;
+	}
 	return (
 		<TotalContainer>
 			<TotalStakedBar>
