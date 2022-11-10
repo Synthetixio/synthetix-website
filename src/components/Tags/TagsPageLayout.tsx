@@ -64,7 +64,6 @@ export default function TagsPageLayout({
 										cursor="pointer"
 										_hover={{ filter: 'brightness(120%)' }}
 										w="100%"
-										overflowY="scroll"
 									>
 										<Tags tags={guide.tags} />
 										<Text fontWeight="bold" my="2">
