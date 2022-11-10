@@ -1,3 +1,4 @@
+import { Fragment } from 'react';
 import { Logo, Socials } from './';
 import { Box, Divider, Flex, Link, Show, Text } from '@chakra-ui/react';
 import {
@@ -73,11 +74,11 @@ export default function Footer() {
 				<Flex w="100%" flexDir="column" maxW="5xl" as="footer">
 					<Flex w="100%" justifyContent="space-between">
 						<Flex gap="20" m="5" w="100%">
-							{footerMenu.map(col => {
+							{footerMenu.map((col, i) => {
 								return (
-									<Flex flexDir="column" gap="2">
+									<Flex flexDir="column" gap="2" key={'col' + i}>
 										{col.map((menu, index) => (
-											<Flex flexDir="column">
+											<Flex flexDir="column" key={'menu' + index + i}>
 												{!index && (
 													<Text fontWeight="bold" textTransform="uppercase">
 														{menu.title}
@@ -123,9 +124,9 @@ export default function Footer() {
 					flexDir="column"
 					pt="5"
 				>
-					{footerMenu.map(col => {
+					{footerMenu.map((col, i) => {
 						return (
-							<>
+							<Fragment key={'col' + i}>
 								<Accordion w="100%" allowToggle>
 									<AccordionItem>
 										<AccordionButton>
@@ -143,7 +144,7 @@ export default function Footer() {
 										<AccordionPanel>
 											<Flex flexDir="column" gap="2">
 												{col.map((menu, index) => (
-													<>
+													<Fragment key={(menu.link || 'menu-link') + index}>
 														{!!index && (
 															<Link
 																href={menu.link}
@@ -160,14 +161,14 @@ export default function Footer() {
 																</Text>
 															</Link>
 														)}
-													</>
+													</Fragment>
 												))}
 											</Flex>
 										</AccordionPanel>
 									</AccordionItem>
 								</Accordion>
 								<Divider color="gray.900" />
-							</>
+							</Fragment>
 						);
 					})}
 
