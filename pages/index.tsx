@@ -10,12 +10,13 @@ import { Line } from 'src/styles/common';
 import PoweredBy from 'src/sections/home/poweredBy';
 import axios from 'axios';
 import { Box } from '@chakra-ui/react';
+import getSnxPrice from '../src/queries/snxPrice/snxPrice';
 
 export interface ApiStatsProps {
-	totalLocked?: number;
+	totalStakedValue?: number;
 }
 
-const Home = ({ totalLocked }: ApiStatsProps) => {
+const Home = ({ totalStakedValue }: ApiStatsProps) => {
 	return (
 		<>
 			<Head>
@@ -33,7 +34,7 @@ const Home = ({ totalLocked }: ApiStatsProps) => {
 				/>
 				<MainSection />
 				<Line />
-				<TotalSection totalLocked={totalLocked} />
+				<TotalSection totalStakedValue={totalStakedValue} />
 				<Line />
 				<Futures />
 				<Line />
@@ -46,22 +47,44 @@ const Home = ({ totalLocked }: ApiStatsProps) => {
 		</>
 	);
 };
+const STAKED_SNX_DATA_URL = 'https://api.synthetix.io/staking-ratio';
 
+type StakedSNXResponse = {
+	systemStakingPercent: number;
+	timestamp: number;
+	stakedSnx: {
+		ethereum: number;
+		optimism: number;
+	};
+};
 export const getServerSideProps: GetServerSideProps = async () => {
-	let totalLocked = 537861341;
 	try {
-		const response = await axios.get<{ totalLocked: number }>(
-			'https://exchange.api.synthetix.io/api/total-locked',
-		);
-		totalLocked = response.data?.totalLocked;
+		const [stakesSnxResponse, snxPrice] = await Promise.all([
+			axios.get<StakedSNXResponse>(STAKED_SNX_DATA_URL),
+			getSnxPrice(),
+		]);
+		const {
+			data: { stakedSnx },
+		} = stakesSnxResponse;
+
+		const totalStakedSnx = stakedSnx.optimism + stakedSnx.ethereum;
+		const valueTotalStaked = snxPrice * totalStakedSnx;
+		if (isNaN(valueTotalStaked)) {
+			throw Error('Unexpected NaN getting total staked value');
+		}
+		return {
+			props: {
+				totalStakedValue: valueTotalStaked,
+			},
+		};
 	} catch (e) {
 		console.log(e);
+		return {
+			props: {
+				totalStakedValue: 0,
+			},
+		};
 	}
-	return {
-		props: {
-			totalLocked,
-		},
-	};
 };
 
 export default Home;
