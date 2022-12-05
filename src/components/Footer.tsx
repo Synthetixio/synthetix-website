@@ -29,6 +29,10 @@ const footerMenu = [
 			title: 'Blog',
 			link: 'https://blog.synthetix.io/',
 		},
+		{
+			title: 'Docs',
+			link: 'https://docs.synthetix.io/',
+		},
 	],
 	[
 		{ title: 'Dapps' },
@@ -71,7 +75,7 @@ export default function Footer() {
 	return (
 		<>
 			<Show above="md">
-				<Flex w="100%" flexDir="column" maxW="5xl" as="footer">
+				<Flex w="100%" flexDir="column" maxW="5xl" as="footer" mt={4}>
 					<Flex w="100%" justifyContent="space-between">
 						<Flex gap="20" m="5" w="100%">
 							{footerMenu.map((col, i) => {
