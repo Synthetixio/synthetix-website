@@ -9,15 +9,16 @@ import { ChakraProvider, ColorModeScript, extendTheme } from '@chakra-ui/react';
 import { theme as chakraTheme, Fonts } from '@synthetixio/v3-theme';
 import { useEffect } from 'react';
 
+const newTheme = extendTheme({
+	...chakraTheme,
+	useSystemColorMode: false,
+	config: { initialColorMode: 'dark' },
+	styles: {
+		global: { body: { bg: 'navy.900' } },
+	},
+});
+
 export default function MyApp({ Component, pageProps }: AppProps) {
-	const newTheme = extendTheme({
-		...chakraTheme,
-		useSystemColorMode: false,
-		config: { initialColorMode: 'dark' },
-		styles: {
-			global: { body: { bg: 'navy.900' } },
-		},
-	});
 	useEffect(
 		() =>
 			init({
