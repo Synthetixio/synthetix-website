@@ -25,7 +25,8 @@ export const EmailSignup = ({ page = 'home', ...props }: EmailSignupProps) => {
 
 	useEffect(() => {
 		const previouslySubmitted =
-			localStore.get('marketing-form-submission') === 'true';
+			localStore.get('marketing-form-submission') === true;
+
 		if (previouslySubmitted) {
 			dispatch({ type: AppEvents.SUBMIT });
 		}
