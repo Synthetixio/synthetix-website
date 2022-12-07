@@ -11,6 +11,7 @@ import PoweredBy from 'src/sections/home/poweredBy';
 import axios from 'axios';
 import { Box } from '@chakra-ui/react';
 import getSnxPrice from '../src/queries/snxPrice/snxPrice';
+import { EmailSection } from 'src/sections/email/EmailSection';
 
 export interface ApiStatsProps {
 	totalStakedValue?: number;
@@ -37,6 +38,7 @@ const Home = ({ totalStakedValue }: ApiStatsProps) => {
 				<TotalSection totalStakedValue={totalStakedValue} />
 				<Line />
 				<Futures />
+				<EmailSection />
 				<Line />
 				<SynthSection />
 				<Line />
@@ -57,6 +59,7 @@ type StakedSNXResponse = {
 		optimism: number;
 	};
 };
+
 export const getServerSideProps: GetServerSideProps = async () => {
 	try {
 		const [stakesSnxResponse, snxPrice] = await Promise.all([

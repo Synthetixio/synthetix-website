@@ -5,3 +5,6 @@ export const exchangesGraph =
 
 export const getAssetLogo = (name: string) =>
 	`https://raw.githubusercontent.com/Synthetixio/synthetix-assets/master/synths/${name}.svg`;
+
+export const MARKETING_URI =
+	'https://hooks.zapier.com/hooks/catch/10152802/bnfuyao/';
