@@ -16,20 +16,24 @@
 					"value": "1; mode=block"
 				},
 				{
-					"key": "Access-Control-Allow-Credentials", "value": "false"
+					"key": "Access-Control-Allow-Credentials",
+					"value": "false"
 				},
 				{
-					"key": "Access-Control-Allow-Origin", "value": "*"
+					"key": "Access-Control-Allow-Origin",
+					"value": "*"
 				},
 				{
-					"key": "Access-Control-Allow-Methods", "value": "GET,POST,OPTIONS"
+					"key": "Access-Control-Allow-Methods",
+					"value": "GET,POST,OPTIONS"
 				},
 				{
-					"key": "Access-Control-Allow-Headers", "value": "*"
-        			},
-        			{
+					"key": "Access-Control-Allow-Headers",
+					"value": "*"
+				},
+				{
 					"key": "Content-Security-Policy",
-					"value": "default-src 'self' https://www.youtube.com; script-src 'self' 'unsafe-inline' https://analytics.synthetix.io https://*.mailerlite.com https://cdn.sanity.io https://www.youtube.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://*.mailerlite.com; img-src 'self' data: https://raw.githubusercontent.com https://*.mailerlite.com https://cdn.sanity.io; font-src 'self' https://fonts.gstatic.com https://*.mailerlite.com; frame-ancestors 'self'; form-action 'self'; base-uri 'self'; connect-src 'self' https://*.mailerlite.com https://cloudflare-eth.com https://api.etherscan.io https://*.infura.io https://*.alchemyapi.io https://synths.snx.eth.link https://analytics.synthetix.io https://cdn.sanity.io https://*.algolia.net https://*.algolianet.com;"
+					"value": "default-src 'self' https://www.youtube.com; script-src 'self' 'unsafe-inline' https://analytics.synthetix.io https://*.mailerlite.com https://cdn.sanity.io https://hooks.zapier.com https://www.youtube.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://*.mailerlite.com; img-src 'self' data: https://raw.githubusercontent.com https://*.mailerlite.com https://cdn.sanity.io; font-src 'self' https://fonts.gstatic.com https://*.mailerlite.com; frame-ancestors 'self'; form-action 'self'; base-uri 'self'; connect-src 'self' https://*.mailerlite.com https://cloudflare-eth.com https://api.etherscan.io https://*.infura.io https://*.alchemyapi.io https://synths.snx.eth.link https://analytics.synthetix.io https://cdn.sanity.io https://*.algolia.net https://*.algolianet.com;"
 				},
 				{
 					"key": "Vary",
