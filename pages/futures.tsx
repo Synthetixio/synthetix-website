@@ -33,6 +33,7 @@ export async function getStaticProps() {
 	const yesterday = new Date(
 		new Date().getTime() / 1000 - 24 * 60 * 60,
 	).getTime();
+
 	const snx = getSNXJS({
 		useOvm: true,
 		networkId: NetworkIdByName['mainnet-ovm'],
@@ -66,6 +67,7 @@ export async function getStaticProps() {
 	const [, synthsRates] = await snx.contracts.SynthUtil.synthsRates();
 	const [, , sUSDBalances] =
 		await snx.contracts.SynthUtil.synthsTotalSupplies();
+
 	const synths: PerpetualSynth[] = await Promise.all(
 		snx.synths.map(async (synth, index) => {
 			const [synthCandle] = await getDailyCandles(
@@ -103,9 +105,9 @@ export async function getStaticProps() {
 			openInterest: USNumberFormat(
 				Number(debt.totalIssuedSynths.toNumber().toFixed(2)),
 			),
-			trades: USNumberFormat(dailyKwenta.trades.toNumber()),
+			trades: USNumberFormat(dailyKwenta?.trades?.toNumber() || 0),
 			tradingVolume: USNumberFormat(
-				Number(dailyKwenta.usdVolume.toNumber().toFixed(2)),
+				Number(dailyKwenta?.usdVolume?.toNumber().toFixed(2) || 0),
 			),
 			synths,
 		},
