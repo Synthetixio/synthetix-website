@@ -53,7 +53,7 @@ export const EmailSignup = ({ page = 'home', ...props }: EmailSignupProps) => {
 				});
 
 				dispatch({ type: AppEvents.SUBMIT });
-				localStore.set('marketing-form-submission', JSON.stringify(true));
+				localStore.set('marketing-form-submission', true);
 				inputRef!.current!.value = '';
 			} catch (error) {
 				dispatch({
