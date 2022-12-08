@@ -14,7 +14,7 @@ export const EmailSection = () => {
 					color="white"
 					mt={[6, 6, 0, 0]}
 				>
-					JOIN OUR NEWS LETTER
+					JOIN OUR NEWSLETTER
 				</Text>
 			</Box>
 			<EmailSignup page={`${pathname}`} mt={[8, 8, 0, 0]} />
