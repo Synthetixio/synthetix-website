@@ -9,6 +9,7 @@ import {
 	AccordionPanel,
 } from '@chakra-ui/react';
 import { ChevronRightIcon } from '@chakra-ui/icons';
+import { EmailFooter } from 'src/sections/email/EmailFooter';
 
 const footerMenu = [
 	[
@@ -28,6 +29,10 @@ const footerMenu = [
 		{
 			title: 'Blog',
 			link: 'https://blog.synthetix.io/',
+		},
+		{
+			title: 'Docs',
+			link: 'https://docs.synthetix.io/',
 		},
 	],
 	[
@@ -70,10 +75,10 @@ const footerMenu = [
 export default function Footer() {
 	return (
 		<>
-			<Show above="md">
-				<Flex w="100%" flexDir="column" maxW="5xl" as="footer">
+			<Show above="lg">
+				<Flex w="100%" flexDir="column" maxW="5xl" as="footer" mt={4}>
 					<Flex w="100%" justifyContent="space-between">
-						<Flex gap="20" m="5" w="100%">
+						<Flex gap="14" m="5" w="100%">
 							{footerMenu.map((col, i) => {
 								return (
 									<Flex flexDir="column" gap="2" key={'col' + i}>
@@ -106,6 +111,7 @@ export default function Footer() {
 								);
 							})}
 						</Flex>
+						<EmailFooter />
 						<Box m="5">
 							<Logo small={true} />
 						</Box>
@@ -171,7 +177,9 @@ export default function Footer() {
 							</Fragment>
 						);
 					})}
-
+					<Box mt={4}>
+						<EmailFooter />
+					</Box>
 					<Box m="5">
 						<Logo small={true} />
 					</Box>
