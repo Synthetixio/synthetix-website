@@ -1,172 +1,167 @@
-import { FlexDiv, Section } from 'src/styles/common';
-import { Kwenta } from 'src/svg';
-import SvgPoweredByWave from 'src/svg/PoweredByWave';
-import styled from 'styled-components';
-import media from 'styled-media-query';
+import { Flex, Box, Text, Image, FlexProps } from '@chakra-ui/react';
 
-export interface PoweredByProps {
+export interface PoweredByProps extends FlexProps {
 	openInterest: number;
 	tradingVolume: number;
 	trades: number;
 }
 
-export default function PoweredBy({ openInterest, tradingVolume, trades }: PoweredByProps) {
+export default function PoweredBy({
+	openInterest,
+	tradingVolume,
+	trades,
+	...props
+}: PoweredByProps) {
 	return (
-		<PoweredBySection customMaxWidth>
-			<PoweredByContentWrapper>
-				<SpaceBetween>
-					<StyledProtocolBox>
-						<SectionHeader>POWERED BY</SectionHeader>
-						<img src="logo.svg" alt="powered by" />
-					</StyledProtocolBox>
-					<StyledProtocolBox>
-						<SectionHeader isLast>TRADABLE ON</SectionHeader>
-						<Kwenta />
-					</StyledProtocolBox>
-				</SpaceBetween>
-				<GlowBoxesWrapper>
-					<GlowBox color="cyan">
-						<GlowBoxHeader color="cyan">TRADES</GlowBoxHeader>
-						<GlowBoxNumber>{trades}</GlowBoxNumber>
-						<GlowBoxTime>LAST 24h</GlowBoxTime>
-					</GlowBox>
-					<GlowBox color="pink">
-						<GlowBoxHeader color="pink">TRADING VOLUME</GlowBoxHeader>
-						<GlowBoxNumber>{tradingVolume}$</GlowBoxNumber>
-						<GlowBoxTime>LAST 24h</GlowBoxTime>
-					</GlowBox>
-					<GlowBox color="green">
-						<GlowBoxHeader color="green">OPEN INTEREST</GlowBoxHeader>
-						<GlowBoxNumber>{openInterest}$</GlowBoxNumber>
-						<GlowBoxTime>LAST 24h</GlowBoxTime>
-					</GlowBox>
-				</GlowBoxesWrapper>
-			</PoweredByContentWrapper>
-			<StyledSvgPoweredByWave />
-		</PoweredBySection>
+		<Flex
+			flexDirection="column"
+			minHeight="260px"
+			my={16}
+			width="100%"
+			{...props}
+		>
+			<Box>
+				<Text
+					fontFamily="GT America"
+					fontWeight="700"
+					fontSize="14px"
+					lineHeight="20px"
+					textTransform="uppercase"
+				>
+					Powered By
+				</Text>
+				<Image mt={2} src="logo.svg" />
+			</Box>
+			<Flex
+				justifyContent="space-between"
+				mt={8}
+				flexDirection={{ base: 'column', md: 'row' }}
+				alignItems="center"
+			>
+				<Flex
+					w="348px"
+					h="112px"
+					borderWidth="1px"
+					borderStyle="solid"
+					borderColor="cyan.500"
+					borderRadius="5px"
+					boxShadow="0px 0px 14px #00D1FF"
+					flexDirection="column"
+					justifyContent="center"
+					alignItems={{ base: 'center', md: 'flex-start' }}
+					fontWeight="700"
+					px={6}
+					py={4}
+					mr={{ base: 0, md: 4 }}
+					mt={{ base: 4, md: 0 }}
+				>
+					<Text
+						color="cyan.500"
+						textTransform="uppercase"
+						fontFamily="GT America"
+						fontSize="14px"
+					>
+						Trades
+					</Text>
+					<Text
+						color="cyan.500"
+						fontFamily="GT America"
+						fontSize="24px"
+						lineHeight="48px"
+						sx={{ fontStretch: 'expanded' }}
+					>
+						{trades}
+					</Text>
+					<Text color="white" fontFamily="GT America" fontSize="14px">
+						LAST
+						<Text as="span" ml={2}>
+							24h
+						</Text>
+					</Text>
+				</Flex>
+				<Flex
+					w="348px"
+					h="112px"
+					borderWidth="1px"
+					borderStyle="solid"
+					borderColor="pink.500"
+					borderRadius="5px"
+					boxShadow="0px 0px 14px #ED1EFF"
+					flexDirection="column"
+					justifyContent="center"
+					alignItems="center"
+					fontWeight="700"
+					px={6}
+					py={4}
+					mx={{ base: 0, md: 4 }}
+					mt={{ base: 4, md: 0 }}
+				>
+					<Text
+						color="pink.500"
+						textTransform="uppercase"
+						fontFamily="GT America"
+						fontSize="14px"
+					>
+						Trading Volume
+					</Text>
+					<Text
+						color="pink.500"
+						fontFamily="GT America"
+						fontSize="24px"
+						lineHeight="48px"
+						sx={{ fontStretch: 'expanded' }}
+					>
+						${tradingVolume}
+					</Text>
+					<Text color="white" fontFamily="GT America" fontSize="14px">
+						LAST
+						<Text as="span" ml={2}>
+							24h
+						</Text>
+					</Text>
+				</Flex>
+				<Flex
+					w="348px"
+					h="112px"
+					borderWidth="1px"
+					borderStyle="solid"
+					borderColor="green.500"
+					borderRadius="5px"
+					boxShadow="0px 0px 14px #31D8A4"
+					flexDirection="column"
+					justifyContent="center"
+					alignItems={{ base: 'center', md: 'flex-end' }}
+					fontWeight="700"
+					px={6}
+					py={4}
+					ml={{ base: 0, md: 4 }}
+					mt={{ base: 4, md: 0 }}
+				>
+					<Text
+						color="green.500"
+						textTransform="uppercase"
+						fontFamily="GT America"
+						fontSize="14px"
+					>
+						Open Interest
+					</Text>
+					<Text
+						color="green.500"
+						fontFamily="GT America"
+						fontSize="24px"
+						lineHeight="48px"
+						sx={{ fontStretch: 'expanded' }}
+					>
+						${openInterest}
+					</Text>
+					<Text color="white" fontFamily="GT America" fontSize="14px">
+						LAST
+						<Text as="span" ml={2}>
+							24h
+						</Text>
+					</Text>
+				</Flex>
+			</Flex>
+		</Flex>
 	);
 }
-
-const PoweredBySection = styled(Section)`
-	width: 100vw;
-	height: 100%;
-	min-height: 600px;
-	display: flex;
-	flex-direction: column;
-	justify-content: center;
-	align-items: center;
-	background-color: ${({ theme }) => theme.colors.bgBlackHighlighted};
-
-	${media.greaterThan('1920px' as any)`
-	min-height: 100vh;
-	`}
-
-	${media.lessThan('medium')`
-		min-height: 700px;
-	`}
-`;
-
-const PoweredByContentWrapper = styled.article`
-	position: absolute;
-	z-index: 10;
-	width: 100%;
-	max-width: 1920px;
-	padding: 0 128px;
-
-	${media.lessThan('medium')`
-		padding: 0 16px;
-	`}
-`;
-
-const StyledProtocolBox = styled.div`
-	width: 230px;
-	height: 100px;
-`;
-
-const SectionHeader = styled.h3<{ isLast?: boolean }>`
-	font-family: GT America;
-	font-style: normal;
-	font-weight: bold;
-	font-size: 14px;
-	line-height: 20px;
-	text-transform: uppercase;
-	color: white;
-	margin: 16px 0px;
-	text-align: ${({ isLast }) => (isLast ? 'end' : 'start')};
-	${media.lessThan('medium')`
-		text-align: start;
-	`}
-`;
-
-const SpaceBetween = styled(FlexDiv)`
-	justify-content: space-between;
-	${media.lessThan('medium')`
-		flex-direction: column;
-	align-items: center
-	`}
-`;
-
-const GlowBoxesWrapper = styled(FlexDiv)`
-	justify-content: space-between;
-	${media.lessThan('1000px' as any)`
-		flex-direction: column;
-		align-items: center;
-	`}
-`;
-
-const GlowBox = styled.div<{ color: 'pink' | 'green' | 'cyan' }>`
-	display: flex;
-	flex-direction: column;
-	width: 348px;
-	height: 112px;
-	background: ${({ theme }) => theme.colors.bgBlackHighlighted};
-	box-shadow: 0px 0px 14px ${({ theme, color }) => theme.colors[color]};
-	color: ${({ theme, color }) => theme.colors[color]};
-	margin: 16px;
-	border-radius: 5px;
-	padding: 12px 18px 18px;
-	text-align: ${({ color }) => {
-		if (color === 'green') return 'end';
-		if (color === 'pink') return 'center';
-		if (color === 'cyan') return 'start';
-	}};
-	${media.lessThan('medium')`
-			text-align:center;
-			width: 310px;
-	`}
-`;
-
-const GlowBoxHeader = styled.h3<{ color: 'pink' | 'green' | 'cyan' }>`
-	color: ${({ theme, color }) => theme.colors[color]};
-	font-family: GT America;
-	font-style: normal;
-	font-weight: bold;
-	font-size: 14px;
-`;
-
-const GlowBoxNumber = styled.span`
-	display: inline-block;
-	color: inherit;
-	font-family: GT America;
-	font-style: normal;
-	font-weight: 900;
-	font-size: 32px;
-	line-height: 48px;
-`;
-
-const GlowBoxTime = styled.span`
-	color: white;
-	display: inline-block;
-	font-family: GT America;
-	font-style: normal;
-	font-weight: bold;
-	font-size: 14px;
-	line-height: 140%;
-`;
-
-const StyledSvgPoweredByWave = styled(SvgPoweredByWave)`
-	position: absolute;
-	width: 100vw;
-	height: 100%;
-	pointer-events: none;
-`;

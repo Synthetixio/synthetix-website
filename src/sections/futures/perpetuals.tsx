@@ -1,106 +1,103 @@
-import { PerpetualSynth } from 'pages/futures';
 import { useState } from 'react';
-import { Button } from 'src/components';
+import { Flex, FlexProps, Text, Button, Link } from '@chakra-ui/react';
+import { PerpetualSynth } from 'pages/futures';
 import FutureSynthCard from 'src/components/FutureSynthCard';
-import { resetButtonCSS, Section, SectionTitle, Subline } from 'src/styles/common';
-import { theme } from 'src/styles/theme';
-import styled from 'styled-components';
-import media from 'styled-media-query';
 
-export default function Perpetuals(props: Record<'synths', PerpetualSynth[]>) {
+interface PerpetualsProps extends FlexProps {
+	synths: PerpetualSynth[];
+}
+
+export default function Perpetuals({ synths, ...props }: PerpetualsProps) {
 	const [activeTab, setActiveTab] = useState('all');
+
 	let tabs: string[] = ['all'];
+
 	const synthsDictionary: Record<string, JSX.Element[]> = {
 		all: [],
 	};
-	props.synths.forEach((synth) => {
+
+	synths.forEach(synth => {
 		if (!tabs.includes(synth.category)) {
 			tabs.push(synth.category);
 			synthsDictionary[synth.category] = [];
 		}
-		synthsDictionary[synth.category].push(<FutureSynthCard key={synth.name} {...synth} />);
+		synthsDictionary[synth.category].push(
+			<FutureSynthCard key={synth.name} {...synth} />,
+		);
 		synthsDictionary.all.push(<FutureSynthCard key={synth.name} {...synth} />);
 	});
+
 	return (
-		<PerpetualsSection customMaxWidth>
-			<PerpetualSectionTitle>TRADING PERPETUALS</PerpetualSectionTitle>
-			<PerpetualSubline>
-				Leveraging the Synthetix debt pool and our innovative liquidity framework, our traders are
-				guaranteed to have some of the best price execution around, with little to no slippage and
-				fills you can’t get elsewhere.
-			</PerpetualSubline>
-			<Categories>
-				{tabs.map((tab) => (
-					<TabButton key={tab} active={activeTab === tab} onClick={() => setActiveTab(tab)}>
+		<Flex flexDirection="column" alignItems="center" mt={8} {...props}>
+			<Text
+				fontFamily="GT America"
+				fontWeight="900"
+				fontSize={{ base: '20px', sm: '24px', md: '28px', lg: '32px' }}
+				mt={{ base: 4, md: 0 }}
+				lineHeight="35px"
+				textTransform="uppercase"
+				sx={{ fontStretch: 'expanded' }}
+				mb={4}
+				px={4}
+				width={{ base: '80%' }}
+				textAlign="center"
+			>
+				Trading Perpetuals
+			</Text>
+			<Text
+				opacity={0.7}
+				width={{ base: '90%', md: '50%' }}
+				textAlign="center"
+				fontSize="14px"
+				lineHeight="20px"
+			>
+				Leveraging the Synthetix debt pool and our innovative liquidity
+				framework, our traders are guaranteed to have some of the best price
+				execution around, with little to no slippage and fills you can’t get
+				elsewhere.
+			</Text>
+			<Flex width="100%" maxWidth="800px" justifyContent="center" my={10}>
+				{tabs.map(tab => (
+					<Button
+						key={tab}
+						onClick={() => setActiveTab(tab)}
+						color={activeTab === tab ? 'cyan.500' : '#ffffff50'}
+						bg="#0e052d"
+						bgGradient="unset"
+						_hover={{ bgGradient: 'unset' }}
+						_active={{ bg: '#0e052d' }}
+						textTransform="uppercase"
+						width="100px"
+						fontFamily="GT America"
+						lineHeight="48px"
+						sx={{ fontStretch: 'expanded' }}
+					>
 						{tab}
-					</TabButton>
+					</Button>
 				))}
-			</Categories>
-			<CategoriesContent>{synthsDictionary[activeTab]}</CategoriesContent>
-			<BuildButton link="https://kwenta.io/" external={true} size="large">
-				TRADE PERPETUAL FUTURES
-			</BuildButton>
-		</PerpetualsSection>
+			</Flex>
+			<Flex width="100%" justifyContent="center" flexWrap="wrap" maxW="1920px">
+				{synthsDictionary[activeTab]}
+			</Flex>
+			<Link
+				my={20}
+				href="https://kwenta.io/"
+				bg="cyan.500"
+				maxWidth="687px"
+				borderRadius="4px"
+				py={4}
+				mx={8}
+				color="#0E052F"
+				textAlign="center"
+				textTransform="uppercase"
+				fontWeight="700"
+				fontFamily="GT America"
+				_hover={{ textDecoration: 'none', bg: 'cyan.600' }}
+				target="_blank"
+				width="80%"
+			>
+				Trade Perpetual Futures
+			</Link>
+		</Flex>
 	);
 }
-
-const PerpetualsSection = styled(Section)`
-	padding: 70px 8px;
-	display: flex;
-	flex-direction: column;
-	align-items: center;
-	background-color: ${({ theme }) => theme.colors.bgBlackHighlighted};
-`;
-
-const PerpetualSectionTitle = styled(SectionTitle)`
-	text-align: center;
-`;
-
-const PerpetualSubline = styled(Subline)`
-	max-width: 710px;
-	text-align: center;
-`;
-
-const Categories = styled.div`
-	width: 100%;
-	max-width: 800px;
-	display: flex;
-	margin: 40px 0px;
-	justify-content: center;
-`;
-
-const CategoriesContent = styled.div`
-	width: 100%;
-	height: auto;
-	display: flex;
-	justify-content: center;
-	flex-wrap: wrap;
-	max-width: 1920px;
-`;
-
-const TabButton = styled.button<{ active: boolean }>`
-	${resetButtonCSS};
-	${theme.fonts.tab};
-	margin: auto;
-	text-transform: uppercase;
-
-	${media.lessThan('medium')`
-		font-size: 12px;
-		line-height: 48px;
-		margin-right: 18px;
-	`}
-`;
-
-const BuildButton = styled(Button)`
-	width: 687px;
-	height: 56px;
-	color: black;
-	margin: 60px;
-	background-color: ${({ theme }) => theme.colors.cyan};
-	box-shadow: 0px 0px 10px rgba(0, 209, 255, 0.9);
-	border-radius: 4px;
-
-	${media.lessThan('medium')`
-		width: 95%;
-	`}
-`;

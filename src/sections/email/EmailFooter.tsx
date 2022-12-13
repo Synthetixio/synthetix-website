@@ -14,6 +14,7 @@ export const EmailFooter = () => {
 					fontSize="18px"
 					color="white"
 					mb={4}
+					sx={{ fontStretch: 'expanded' }}
 				>
 					JOIN OUR NEWSLETTER TO KEEP UPDATED
 				</Text>
