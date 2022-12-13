@@ -5,7 +5,6 @@ import getSNXJS from 'src/lib/snxjs';
 import FuturesMain from 'src/sections/futures/main';
 import PoweredBy, { PoweredByProps } from 'src/sections/futures/poweredBy';
 import USP from 'src/sections/futures/usp';
-import { Line } from 'src/styles/common';
 import {
 	getDailyCandles,
 	getDailyExchangePartners,
@@ -64,6 +63,7 @@ export async function getStaticProps() {
 			timestamp: true,
 		},
 	);
+
 	const [, synthsRates] = await snx.contracts.SynthUtil.synthsRates();
 	const [, , sUSDBalances] =
 		await snx.contracts.SynthUtil.synthsTotalSupplies();
