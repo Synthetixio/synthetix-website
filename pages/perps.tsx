@@ -23,7 +23,7 @@ interface DecentralizedPerpetualFuturesProps extends PoweredByProps {
 export interface PerpetualSynth {
 	name: string;
 	priceInUSD: string;
-	volume: string;
+	volume?: string;
 	priceChange: number;
 	category: string;
 }
@@ -143,13 +143,13 @@ export default function DecentralizedPerpetualFutures({
 					byline="Get Updates on Perps Trading"
 					minH={{ base: '220px', sm: '260px', lg: '220px' }}
 				/>
-				<PoweredBy
+				{/* <PoweredBy
 					px={{ base: 10, sm: 10, md: 16, lg: 36 }}
 					openInterest={openInterest}
 					trades={trades}
 					tradingVolume={tradingVolume}
-				/>
-				<USP px={{ base: 10, sm: 10, md: 16, lg: 36 }} />
+				/> */}
+				<USP mt={20} px={{ base: 10, sm: 10, md: 16, lg: 36 }} />
 				<FrontEnds px={{ base: 10, sm: 10, md: 16, lg: 36 }} mt={20} />
 				<Perpetuals px={{ base: 10, sm: 10, md: 16, lg: 36 }} synths={synths} />
 				<Divider

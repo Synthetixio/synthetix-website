@@ -76,19 +76,21 @@ export default function FutureSynthCard({
 					</Text>
 					USD
 				</Text>
-				<Text fontSize="16px" lineHeight="20px" mt={4}>
-					VOL &nbsp;
-					<Text
-						fontFamily="heading"
-						fontSize="16px"
-						lineHeight="20px"
-						mt={1}
-						as="span"
-						color="#808191"
-					>
-						${volume}
+				{volume && (
+					<Text fontSize="16px" lineHeight="20px" mt={4}>
+						VOL &nbsp;
+						<Text
+							fontFamily="heading"
+							fontSize="16px"
+							lineHeight="20px"
+							mt={1}
+							as="span"
+							color="#808191"
+						>
+							${volume}
+						</Text>
 					</Text>
-				</Text>
+				)}
 			</Flex>
 		</Flex>
 	);
