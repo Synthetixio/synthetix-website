@@ -1,5 +1,5 @@
-import { Box, Flex, Image, Text } from '@chakra-ui/react';
-import { PerpetualSynth } from 'pages/futures';
+import { Flex, Image, Text } from '@chakra-ui/react';
+import { PerpetualSynth } from 'pages/perps';
 import { getAssetLogo } from 'src/constants/urls';
 import PriceArrow from 'src/svg/PriceArrow';
 

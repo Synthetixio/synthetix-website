@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { Flex, FlexProps, Text, Button, Link } from '@chakra-ui/react';
-import { PerpetualSynth } from 'pages/futures';
+import { PerpetualSynth } from 'pages/perps';
 import FutureSynthCard from 'src/components/FutureSynthCard';
 
 interface PerpetualsProps extends FlexProps {

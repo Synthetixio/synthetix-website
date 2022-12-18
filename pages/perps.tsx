@@ -2,18 +2,18 @@ import { NetworkIdByName } from '@synthetixio/contracts-interface';
 import Head from 'next/head';
 import { PageLayout } from 'src/components';
 import getSNXJS from 'src/lib/snxjs';
-import FuturesMain from 'src/sections/futures/main';
-import PoweredBy, { PoweredByProps } from 'src/sections/futures/poweredBy';
-import USP from 'src/sections/futures/usp';
+import FuturesMain from 'src/sections/perps/main';
+import PoweredBy, { PoweredByProps } from 'src/sections/perps/poweredBy';
+import USP from 'src/sections/perps/usp';
 import {
 	getDailyCandles,
 	getDailyExchangePartners,
 	getDebtStates,
 } from 'synthetix-subgraph';
-import Perpetuals from 'src/sections/futures/perpetuals';
+import Perpetuals from 'src/sections/perps/perpetuals';
 import { exchangesGraph, optimismGraphMain } from 'src/constants/urls';
 import { EmailSection } from 'src/sections/email/EmailSection';
-import FrontEnds from 'src/sections/futures/frontends';
+import FrontEnds from 'src/sections/perps/frontends';
 import { Divider } from '@chakra-ui/react';
 
 interface DecentralizedPerpetualFuturesProps extends PoweredByProps {

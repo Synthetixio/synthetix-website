@@ -99,7 +99,7 @@ export default function FuturesMain({ ...props }: FlexProps) {
 					width="100%"
 					bgGradient="linear(to-b, rgba(11,11,34,0), rgba(14,5,45,1))"
 				/>
-				<Image src="/futures/futures.png" />
+				<Image src="/perps/perps.png" />
 			</Box>
 		</Flex>
 	);

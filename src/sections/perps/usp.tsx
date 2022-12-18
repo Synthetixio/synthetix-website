@@ -67,6 +67,7 @@ export default function USP({ ...props }: FlexProps) {
 			<Grid templateColumns={{ base: 'repeat(1, 1fr)', md: 'repeat(2, 1fr)' }}>
 				{USPS.map(({ label, description, Icon }) => (
 					<GridItem
+						key={label}
 						h={{ base: '250px', sm: '200px', md: '180px', lg: '160px' }}
 					>
 						<Flex>
