@@ -40,7 +40,6 @@ export default function Perpetuals({ synths, ...props }: PerpetualsProps) {
 		);
 	});
 
-	console.log(synthsV2);
 	return (
 		<Flex flexDirection="column" alignItems="center" mt={8} {...props}>
 			<Text
@@ -156,7 +155,14 @@ export default function Perpetuals({ synths, ...props }: PerpetualsProps) {
 						lineHeight="20px"
 						opacity={0.7}
 					>
-						Additional assets to follow in 2023
+						Markets are dependant on{' '}
+						<Link
+							color="cyan.500"
+							href="https://sips.synthetix.io/all-sip/"
+							target="_blank"
+						>
+							governance
+						</Link>
 					</Text>
 				</>
 			)}
