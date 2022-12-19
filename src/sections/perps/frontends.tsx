@@ -198,7 +198,7 @@ const FrontEnds = ({ ...props }: FlexProps) => {
 					</Text>
 				</Box>
 				<Link
-					href="https://www.imdb.com/title/tt0209163/" // TODO: Replace this with CMS link
+					href="https://discord.com/invite/AEdUHzt" // TODO: Replace this with CMS link
 					target="_blank"
 					display="flex"
 					alignItems="center"

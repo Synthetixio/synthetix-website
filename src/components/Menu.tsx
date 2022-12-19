@@ -245,7 +245,7 @@ const MenuComponent = ({
 														: 'gray.500'
 												}
 												_hover={{ color: 'white' }}
-												fontSize={{ base: '2xl', md: 'md' }}
+												fontSize={{ base: '2xl', md: 'sm', lg: 'md' }}
 											>
 												{item.label}
 											</Text>
