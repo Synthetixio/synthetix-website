@@ -49,7 +49,7 @@ const footerMenu = [
 			title: 'Stats',
 			link: 'https://grafana.synthetix.io/d/pjPJZ6x7z/synthetix-system-stats?orgId=1&kiosk=full',
 		},
-		{ title: 'Perps', link: '/futures' },
+		{ title: 'Perps', link: '/perps' },
 	],
 	[
 		{ title: 'Community' },
