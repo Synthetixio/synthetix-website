@@ -7,7 +7,7 @@ interface PerpetualsProps extends FlexProps {
 	synths: PerpetualSynth[];
 }
 
-const perpV2Synths = ['sETH'];
+const perpV2Synths = ['sETH']; // TODO: Update with a direct query
 
 export default function Perpetuals({ synths, ...props }: PerpetualsProps) {
 	const [activeTab, setActiveTab] = useState('all');
