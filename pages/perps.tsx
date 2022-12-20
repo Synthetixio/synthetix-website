@@ -3,7 +3,7 @@ import Head from 'next/head';
 import { PageLayout } from 'src/components';
 import getSNXJS from 'src/lib/snxjs';
 import FuturesMain from 'src/sections/perps/main';
-import PoweredBy, { PoweredByProps } from 'src/sections/perps/poweredBy';
+import { PoweredByProps } from 'src/sections/perps/poweredBy';
 import USP from 'src/sections/perps/usp';
 import {
 	getDailyCandles,
@@ -140,8 +140,8 @@ export default function DecentralizedPerpetualFutures({
 						justifyContent: 'space-between',
 						px: { base: 10, sm: 10, md: 16, lg: 36 },
 					}}
+					minH={['220px', '220px', '180px', '158px']}
 					byline="Get Updates on Perps Trading"
-					minH={{ base: '220px', sm: '260px', lg: '220px' }}
 				/>
 				{/* <PoweredBy
 					px={{ base: 10, sm: 10, md: 16, lg: 36 }}
