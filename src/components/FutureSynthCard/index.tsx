@@ -1,8 +1,7 @@
-import { PerpetualSynth } from 'pages/futures';
+import { Flex, Image, Text } from '@chakra-ui/react';
+import { PerpetualSynth } from 'pages/perps';
 import { getAssetLogo } from 'src/constants/urls';
-import { FlexDiv } from 'src/styles/common';
 import PriceArrow from 'src/svg/PriceArrow';
-import styled from 'styled-components';
 
 export default function FutureSynthCard({
 	priceChange,
@@ -12,103 +11,87 @@ export default function FutureSynthCard({
 	name,
 }: PerpetualSynth) {
 	return (
-		<StyledFutureSynthCard>
-			<StyledSynthImage src={getAssetLogo(name)} />
-			<StyledFutureContent>
-				<FlexDiv>
-					<StyledSynthName>{name}</StyledSynthName>
-					<PriceArrow priceChange={priceChange} />
-					<StyledPriceChange positive={priceChange >= 0}>
-						{priceChange.toFixed(2)}%
-					</StyledPriceChange>
-				</FlexDiv>
-				<StyledSynthCategory>{category}</StyledSynthCategory>
-				<StyledPrefix>
-					<StyledSynthPrice>{priceInUSD}</StyledSynthPrice> USD
-				</StyledPrefix>
-				<StyledPrefix>
-					VOL &nbsp;
-					<StyledSynthVolume>${volume}</StyledSynthVolume>
-				</StyledPrefix>
-			</StyledFutureContent>
-		</StyledFutureSynthCard>
+		<Flex
+			width="298px"
+			height="165px"
+			bg="#10104e"
+			borderRadius="5px"
+			p="24px"
+			m={4}
+		>
+			<Image height="48px" width="48px" src={getAssetLogo(name)} />
+			<Flex width="100%" flexDirection="column" ml="12px">
+				<Flex justifyContent="space-between">
+					<Flex flexDirection="column">
+						<Text
+							fontFamily="Poppins"
+							fontSize="18px"
+							fontWeight="500"
+							lineHeight="24px"
+							mr="auto"
+						>
+							{name}
+						</Text>
+						<Text
+							fontFamily="heading"
+							fontWeight="600"
+							lineHeight="20px"
+							fontSize="14px"
+							textTransform="uppercase"
+							color="#808191"
+						>
+							{category}
+						</Text>
+					</Flex>
+					<Flex>
+						<PriceArrow priceChange={priceChange} />
+						<Text
+							fontFamily="heading"
+							ml={2}
+							color={priceChange >= 0 ? '#31D8A4' : '#FF7A68'}
+							lineHeight="20px"
+							fontWeight="700"
+						>
+							{priceChange.toFixed(2)}%
+						</Text>
+					</Flex>
+				</Flex>
+				<Text
+					fontSize="16px"
+					lineHeight="20px"
+					mt={4}
+					sx={{ fontStretch: 'expanded' }}
+				>
+					<Text
+						fontFamily="GT America"
+						fontStyle="normal"
+						fontWeight="900"
+						fontSize="18px"
+						lineHeight="20px"
+						mt={2}
+						mr={2}
+						as="span"
+					>
+						{priceInUSD}
+					</Text>
+					USD
+				</Text>
+				{volume && (
+					<Text fontSize="16px" lineHeight="20px" mt={4}>
+						VOL &nbsp;
+						<Text
+							fontFamily="heading"
+							fontSize="16px"
+							lineHeight="20px"
+							mt={1}
+							as="span"
+							color="#808191"
+						>
+							${volume}
+						</Text>
+					</Text>
+				)}
+			</Flex>
+		</Flex>
 	);
 }
-
-const StyledFutureSynthCard = styled.div`
-	width: 298px;
-	height: 152px;
-	background-color: #10104e;
-	border-radius: 5px;
-	display: flex;
-	padding: 24px;
-	margin: 16px;
-`;
-
-const StyledFutureContent = styled.div`
-	display: flex;
-	width: 100%;
-	flex-direction: column;
-	margin-left: 12px;
-`;
-
-const StyledPriceChange = styled.span<{ positive: boolean }>`
-	color: ${({ positive, theme }) => (positive ? theme.colors.green : theme.colors.red)};
-	font-family: Inter;
-	font-style: normal;
-	font-weight: bold;
-	font-size: 14px;
-	line-height: 24px;
-	margin-left: 8px;
-`;
-
-const StyledSynthName = styled.h6`
-	font-family: Poppins;
-	font-style: normal;
-	font-weight: 500;
-	font-size: 18px;
-	line-height: 24px;
-	color: white;
-	margin-right: auto;
-`;
-
-const StyledSynthImage = styled.img`
-	width: 48px;
-	height: 48px;
-`;
-
-const StyledSynthCategory = styled.span`
-	font-family: Inter;
-	font-style: normal;
-	font-weight: 600;
-	font-size: 14px;
-	line-height: 24px;
-	text-transform: uppercase;
-`;
-
-const StyledPrefix = styled.span`
-	font-style: normal;
-	font-size: 16px;
-	line-height: 20px;
-	margin-top: 12px;
-`;
-
-const StyledSynthPrice = styled.span`
-	font-family: GT America;
-	font-style: normal;
-	font-weight: 900;
-	font-size: 18px;
-	line-height: 20px;
-	color: white;
-	margin-top: 12px;
-`;
-
-const StyledSynthVolume = styled.span`
-	font-family: GT America;
-	font-style: normal;
-	font-weight: normal;
-	font-size: 16px;
-	line-height: 20px;
-	color: white;
-	margin-top: 4px;
-`;
