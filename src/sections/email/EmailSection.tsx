@@ -20,7 +20,11 @@ export const EmailSection = ({
 			innerProps={innerProps}
 			{...props}
 		>
-			<Box mr={[0, 0, 6, 6, 10]} height={[2, 2, 'unset', 'unset']}>
+			<Box
+				mr={[0, 0, 6, 6, 10]}
+				height={[2, 2, 'unset', 'unset']}
+				minWidth="40%"
+			>
 				<Text
 					fontFamily="GT America"
 					fontStyle="normal"
@@ -30,6 +34,7 @@ export const EmailSection = ({
 					mt={[6, 6, 0, 0]}
 					sx={{ fontStretch: 'expanded' }}
 					textAlign={{ base: 'center', md: 'unset' }}
+					minWidth="100%"
 				>
 					{byline}
 				</Text>

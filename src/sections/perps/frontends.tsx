@@ -13,8 +13,9 @@ const FrontEnds = ({ ...props }: FlexProps) => {
 			{...props}
 		>
 			<Text
+				as="h2"
 				fontFamily="GT America"
-				fontSize={{ base: '24px', md: '28px', lg: '32px' }}
+				fontSize="32px"
 				fontWeight="900"
 				lineHeight="35px"
 				textTransform="uppercase"

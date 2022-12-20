@@ -14,12 +14,13 @@ export default function FuturesMain({ ...props }: FlexProps) {
 		>
 			<Box minW="40%" mb={10} zIndex={1}>
 				<Text
+					as="h1"
 					fontFamily="GT America"
-					fontSize={{ base: '24px', md: '48px' }}
-					lineHeight={{ base: '38px', md: '44px' }}
+					fontSize={{ base: '26px', sm: '36px' }}
+					lineHeight={{ base: '38px' }}
 					fontStyle="normal"
 					textTransform="uppercase"
-					fontWeight="900"
+					fontWeight={900}
 					sx={{ fontStretch: 'expanded' }}
 				>
 					Decentralized <br />
@@ -88,6 +89,7 @@ export default function FuturesMain({ ...props }: FlexProps) {
 			<Box
 				width="55%"
 				position="absolute"
+				top="20"
 				right="-20"
 				display={{ base: 'none', md: 'block' }}
 			>

@@ -52,10 +52,11 @@ export default function USP({ ...props }: FlexProps) {
 	return (
 		<Flex flexDirection="column" {...props}>
 			<Text
+				as="h2"
 				mt={{ base: 8, md: 0 }}
 				fontFamily="GT America"
 				fontWeight="900"
-				fontSize={{ base: '24px', md: '32px' }}
+				fontSize="32px"
 				lineHeight="36px"
 				textTransform="uppercase"
 				sx={{ fontStretch: 'expanded' }}

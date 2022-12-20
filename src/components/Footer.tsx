@@ -76,7 +76,14 @@ export default function Footer() {
 	return (
 		<>
 			<Show above="lg">
-				<Flex w="100%" flexDir="column" maxW="5xl" as="footer" mt={4}>
+				<Flex
+					w="100%"
+					flexDir="column"
+					maxW="100%"
+					px={{ base: 10, sm: 10, md: 10, lg: 16, xl: 36 }}
+					as="footer"
+					mt={4}
+				>
 					<Flex w="100%" justifyContent="space-between">
 						<Flex gap="14" m="5" w="100%">
 							{footerMenu.map((col, i) => {
@@ -85,7 +92,11 @@ export default function Footer() {
 										{col.map((menu, index) => (
 											<Flex flexDir="column" key={'menu' + index + i}>
 												{!index && (
-													<Text fontWeight="bold" textTransform="uppercase">
+													<Text
+														fontWeight="bold"
+														textTransform="uppercase"
+														minW="95px"
+													>
 														{menu.title}
 													</Text>
 												)}

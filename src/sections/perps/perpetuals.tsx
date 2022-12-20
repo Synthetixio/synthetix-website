@@ -43,9 +43,10 @@ export default function Perpetuals({ synths, ...props }: PerpetualsProps) {
 	return (
 		<Flex flexDirection="column" alignItems="center" mt={8} {...props}>
 			<Text
+				as="h2"
 				fontFamily="GT America"
 				fontWeight="900"
-				fontSize={{ base: '20px', sm: '24px', md: '28px', lg: '32px' }}
+				fontSize="32px"
 				mt={{ base: 4, md: 0 }}
 				lineHeight="35px"
 				textTransform="uppercase"
