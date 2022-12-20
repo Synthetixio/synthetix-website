@@ -17,7 +17,9 @@ const HeaderComponent = ({ config }: HeaderProps) => {
 	const [isOpen, setIsOpen] = useState<boolean>(false);
 	const [subOpen, setSubOpen] = useState<boolean>(false);
 	const { push } = useRouter();
+
 	const itemsToString = config?.toString();
+
 	useEffect(() => {
 		if (isOpen) {
 			document.documentElement.classList.add('stop-scrolling');
@@ -26,6 +28,7 @@ const HeaderComponent = ({ config }: HeaderProps) => {
 		}
 		setSubOpen(!!config?.items?.length);
 	}, [isOpen, itemsToString]);
+
 	return (
 		<Flex
 			as="header"

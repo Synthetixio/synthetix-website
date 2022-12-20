@@ -2,20 +2,19 @@ import { NetworkIdByName } from '@synthetixio/contracts-interface';
 import Head from 'next/head';
 import { PageLayout } from 'src/components';
 import getSNXJS from 'src/lib/snxjs';
-import FuturesMain from 'src/sections/futures/main';
-import PoweredBy, { PoweredByProps } from 'src/sections/futures/poweredBy';
-import USP from 'src/sections/futures/usp';
-import { Line } from 'src/styles/common';
-import styled from 'styled-components';
-import media from 'styled-media-query';
+import FuturesMain from 'src/sections/perps/main';
+import { PoweredByProps } from 'src/sections/perps/poweredBy';
+import USP from 'src/sections/perps/usp';
 import {
 	getDailyCandles,
 	getDailyExchangePartners,
 	getDebtStates,
 } from 'synthetix-subgraph';
-import Perpetuals from 'src/sections/futures/perpetuals';
-import { headerHeight } from 'src/components/Header';
+import Perpetuals from 'src/sections/perps/perpetuals';
 import { exchangesGraph, optimismGraphMain } from 'src/constants/urls';
+import { EmailSection } from 'src/sections/email/EmailSection';
+import FrontEnds from 'src/sections/perps/frontends';
+import { Divider } from '@chakra-ui/react';
 
 interface DecentralizedPerpetualFuturesProps extends PoweredByProps {
 	synths: PerpetualSynth[];
@@ -24,7 +23,7 @@ interface DecentralizedPerpetualFuturesProps extends PoweredByProps {
 export interface PerpetualSynth {
 	name: string;
 	priceInUSD: string;
-	volume: string;
+	volume?: string;
 	priceChange: number;
 	category: string;
 }
@@ -64,6 +63,7 @@ export async function getStaticProps() {
 			timestamp: true,
 		},
 	);
+
 	const [, synthsRates] = await snx.contracts.SynthUtil.synthsRates();
 	const [, , sUSDBalances] =
 		await snx.contracts.SynthUtil.synthsTotalSupplies();
@@ -100,6 +100,7 @@ export async function getStaticProps() {
 			};
 		}),
 	);
+
 	return {
 		props: {
 			openInterest: USNumberFormat(
@@ -132,36 +133,31 @@ export default function DecentralizedPerpetualFutures({
 			<Head>
 				<title>Synthetix - Decentralized Perpetual Futures</title>
 			</Head>
-			<PageLayout>
-				<FuturesGradient />
-				<FuturesMain />
-				<PoweredBy
+			<PageLayout px={0} bg="#0e052d">
+				<FuturesMain px={{ base: 10, sm: 10, md: 16, lg: 36 }} />
+				<EmailSection
+					innerProps={{
+						justifyContent: 'space-between',
+						px: { base: 10, sm: 10, md: 16, lg: 36 },
+					}}
+					minH={['220px', '220px', '180px', '158px']}
+					byline="Get Updates on Perps Trading"
+				/>
+				{/* <PoweredBy
+					px={{ base: 10, sm: 10, md: 16, lg: 36 }}
 					openInterest={openInterest}
 					trades={trades}
 					tradingVolume={tradingVolume}
+				/> */}
+				<USP mt={20} px={{ base: 10, sm: 10, md: 16, lg: 36 }} />
+				<FrontEnds px={{ base: 10, sm: 10, md: 16, lg: 36 }} mt={20} />
+				<Perpetuals px={{ base: 10, sm: 10, md: 16, lg: 36 }} synths={synths} />
+				<Divider
+					color="transparent"
+					height="1px"
+					bgGradient="linear-gradient(0deg, rgba(14, 4, 53, 0.29), rgba(14, 4, 53, 0.29)), linear-gradient(88.63deg, #00D1FF -14.83%, #ED1EFF 108.22%);"
 				/>
-				<USP />
-				<Line />
-				<Perpetuals synths={synths} />
-				<Line showOnMobile />
 			</PageLayout>
 		</>
 	);
 }
-
-const FuturesGradient = styled.div`
-	background: linear-gradient(
-		180deg,
-		rgba(14, 5, 47, 0) 0%,
-		${({ theme }) => theme.colors.bgBlackHighlighted} 38.6%
-	);
-	width: 100vw;
-	height: 894px;
-	position: absolute;
-	top: 0;
-	left: 0;
-	${media.lessThan('medium')`
-		height: calc(100vh + ${headerHeight}px);
-		min-height: 600px;
-	`}
-`;

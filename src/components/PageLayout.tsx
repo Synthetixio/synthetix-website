@@ -1,10 +1,18 @@
-import { Flex } from '@chakra-ui/react';
+import { Flex, FlexProps } from '@chakra-ui/react';
 import { PropsWithChildren } from 'react';
 import { Footer, Header } from '.';
 
-export default function PageLayout({ children }: PropsWithChildren<{}>) {
+interface PageLayoutProps extends PropsWithChildren, FlexProps {}
+
+export default function PageLayout({ children, ...props }: PageLayoutProps) {
 	return (
-		<Flex direction="column" alignItems="center" bg="navy.900" px="2">
+		<Flex
+			direction="column"
+			alignItems="center"
+			bg="navy.900"
+			px="2"
+			{...props}
+		>
 			<Header />
 			{children}
 			<Footer />

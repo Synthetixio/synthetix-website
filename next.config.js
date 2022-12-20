@@ -15,7 +15,10 @@ module.exports = {
 		return execSync(lastCommitCommand).toString().trim();
 	},
 	async redirects() {
-		return [{ source: '/build/:slug', destination: '/', permanent: false }];
+		return [
+			{ source: '/build/:slug', destination: '/', permanent: false },
+			{ source: '/futures', destination: '/perps', permanent: false },
+		];
 	},
 	env: {
 		// Dynamic env variables

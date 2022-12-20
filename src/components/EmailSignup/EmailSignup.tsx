@@ -99,11 +99,13 @@ export const EmailSignup = ({ page = 'home', ...props }: EmailSignupProps) => {
 				borderWidth="1px"
 				borderColor="whiteAlpha.50"
 				borderRadius="md"
+				width="fit-content"
 			>
 				<Input
 					placeholder="Enter Your Email Address"
 					type="email"
 					minW={['250px', '300px']}
+					width={{ base: '250px', sm: '270px', md: '280px', lg: '400px' }}
 					fontFamily="heading"
 					fontSize="lg"
 					lineHeight="8"

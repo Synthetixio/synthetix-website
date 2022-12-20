@@ -40,6 +40,11 @@ const data: {
 	// 	hideOnHeader: false,
 	// },
 	{
+		link: '/perps',
+		label: 'Perps',
+		hideOnHeader: false,
+	},
+	{
 		link: '/governance',
 		label: 'Governance',
 		hideOnHeader: false,
@@ -77,6 +82,7 @@ const isActive = (indexes: ExpandedIndex, index: number) => {
 		? indexes === index
 		: indexes.includes(index);
 };
+
 interface MenuProps {
 	isOpen?: boolean;
 	items?: NavDocs[];
@@ -239,7 +245,7 @@ const MenuComponent = ({
 														: 'gray.500'
 												}
 												_hover={{ color: 'white' }}
-												fontSize={{ base: '2xl', md: 'md' }}
+												fontSize={{ base: '2xl', md: 'sm', lg: 'md' }}
 											>
 												{item.label}
 											</Text>

@@ -1,10 +1,12 @@
 import styled from 'styled-components';
 import media from 'styled-media-query';
-import Accordion, { AccordionItemsType } from 'src/components/Accordion/Accordion';
+import Accordion, {
+	AccordionItemsType,
+} from 'src/components/Accordion/Accordion';
 import { useState } from 'react';
 import { FlexDivCol, Section, SectionTitle } from 'src/styles/common';
 import { useRouter } from 'next/router';
-import { Button } from '@chakra-ui/react';
+import { Button, Link } from '@chakra-ui/react';
 
 const FuturesSection = () => {
 	const [activeIndex, setActiveIndex] = useState<number>(0);
@@ -24,9 +26,26 @@ const FuturesSection = () => {
 					activeIndex={activeIndex}
 					onAccordionItemChange={setActiveIndex}
 				/>
-				<Button onClick={() => push('/futures')} size="medium" w="146px" h="43px" marginTop="32px">
+				<Link
+					onClick={() => push('/futures')}
+					w="146px"
+					marginTop="32px"
+					borderRadius="4px"
+					bg="cyan.500"
+					boxShadow="0px 0px 10px rgba(0, 209, 255, 0.9)"
+					py={4}
+					width="147px"
+					color="black"
+					textTransform="uppercase"
+					fontFamily="GT America"
+					fontWeight="700"
+					fontSize="14px"
+					lineHeight="24px"
+					textAlign="center"
+					_hover={{ textDecoration: 'none', bg: 'cyan.300' }}
+				>
 					Learn More
-				</Button>
+				</Link>
 			</AccordionContainer>
 		</FuturesContainer>
 	);
@@ -137,9 +156,10 @@ const accordionItems: AccordionItemsType[] = [
 		title: 'Best Price Execution',
 		descriptions: [
 			<div key="Best Price Execution">
-				Leveraging the Synthetix debt pool and our innovative liquidity framework, our traders are
-				guaranteed to have some of the best price execution around, with little to no slippage and
-				fills you can’t get elsewhere.
+				Leveraging the Synthetix debt pool and our innovative liquidity
+				framework, our traders are guaranteed to have some of the best price
+				execution around, with little to no slippage and fills you can’t get
+				elsewhere.
 			</div>,
 		],
 	},
@@ -147,8 +167,9 @@ const accordionItems: AccordionItemsType[] = [
 		title: 'Lowest Downtime & Liquidation Risk',
 		descriptions: [
 			<div key="Lowest Downtime & Liquidation Risk">
-				Say goodbye to downtime during periods of high volatility. As an added bonus, our futures
-				contracts remove the risk of cascading liquidations due to forced selloffs.
+				Say goodbye to downtime during periods of high volatility. As an added
+				bonus, our futures contracts remove the risk of cascading liquidations
+				due to forced selloffs.
 			</div>,
 		],
 	},
@@ -156,9 +177,10 @@ const accordionItems: AccordionItemsType[] = [
 		title: 'Permissionless & Composable',
 		descriptions: [
 			<div key="Permissionless & Composable">
-				Get all the benefits of DeFi with a fully on-chain permissionless futures trading
-				experience. Looking to build with leveraged perpetual futures contracts? Learn more about
-				how to integrate perpetual futures powered by Synthetix into your project.
+				Get all the benefits of DeFi with a fully on-chain permissionless
+				futures trading experience. Looking to build with leveraged perpetual
+				futures contracts? Learn more about how to integrate perpetual futures
+				powered by Synthetix into your project.
 			</div>,
 		],
 	},
