@@ -28,7 +28,7 @@ export const EmailSection = ({
 				<Text
 					fontFamily="GT America"
 					fontStyle="normal"
-					fontSize={{ base: '24px', md: '28px', lg: '32px' }}
+					fontSize="24px"
 					color="white"
 					textTransform="uppercase"
 					mt={[6, 6, 0, 0]}
