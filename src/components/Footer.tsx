@@ -70,6 +70,7 @@ const footerMenu = [
 		{
 			title: 'Terms and Conditions',
 			link: 'https://staking.synthetix.io/terms',
+			newTab: true,
 		},
 		{ title: 'Help Center', link: '/guides' },
 		{ title: 'Create SIP/SCCPs', link: 'https://pr.synthetix.io/' },
@@ -108,6 +109,7 @@ export default function Footer() {
 													<Link
 														href={menu.link}
 														textDecoration="none !important"
+														target={menu?.newTab ? '_blank' : ''}
 													>
 														<Text
 															color="gray.500"
