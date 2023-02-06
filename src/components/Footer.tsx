@@ -67,6 +67,10 @@ const footerMenu = [
 			title: 'Brand Assets',
 			link: 'https://drive.google.com/drive/u/1/folders/1lYReAAGwzb39isEID1n-dDwvFwzKAGDj',
 		},
+		{
+			title: 'Terms and Conditions',
+			link: 'https://staking.synthetix.io/terms',
+		},
 		{ title: 'Help Center', link: '/guides' },
 		{ title: 'Create SIP/SCCPs', link: 'https://pr.synthetix.io/' },
 	],
