@@ -69,36 +69,38 @@ export async function getStaticProps() {
 		await snx.contracts.SynthUtil.synthsTotalSupplies();
 
 	const synths: PerpetualSynth[] = await Promise.all(
-		snx.synths.map(async (synth, index) => {
-			const [synthCandle] = await getDailyCandles(
-				exchangesGraph,
-				{
-					first: 1,
-					where: { synth: synth.name },
-					orderBy: 'timestamp',
-					orderDirection: 'desc',
-				},
-				{
-					open: true,
-					close: true,
-				},
-			);
-			const priceChange = synthCandle?.open
-				.sub(synthCandle.close)
-				.div(synthCandle?.open)
-				.mul(100);
-			return {
-				name: synth.name,
-				category: synth.category,
-				priceInUSD: USNumberFormat(
-					Number(snx.utils.formatEther(synthsRates[index])),
-				),
-				volume: USNumberFormat(
-					Number(snx.utils.formatEther(sUSDBalances[index])),
-				),
-				priceChange: priceChange ? priceChange.toNumber() : 0,
-			};
-		}),
+		snx.synths
+			.filter((_, index) => synthsRates[index])
+			.map(async (synth, index) => {
+				const [synthCandle] = await getDailyCandles(
+					exchangesGraph,
+					{
+						first: 1,
+						where: { synth: synth.name },
+						orderBy: 'timestamp',
+						orderDirection: 'desc',
+					},
+					{
+						open: true,
+						close: true,
+					},
+				);
+				const priceChange = synthCandle?.open
+					.sub(synthCandle.close)
+					.div(synthCandle?.open)
+					.mul(100);
+				return {
+					name: synth.name,
+					category: synth.category,
+					priceInUSD: USNumberFormat(
+						Number(snx.utils.formatEther(synthsRates[index])),
+					),
+					volume: USNumberFormat(
+						Number(snx.utils.formatEther(sUSDBalances[index])),
+					),
+					priceChange: priceChange ? priceChange.toNumber() : 0,
+				};
+			}),
 	);
 
 	return {
