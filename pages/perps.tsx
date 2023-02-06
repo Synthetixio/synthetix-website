@@ -15,7 +15,6 @@ import { exchangesGraph, optimismGraphMain } from 'src/constants/urls';
 import { EmailSection } from 'src/sections/email/EmailSection';
 import FrontEnds from 'src/sections/perps/frontends';
 import { Divider } from '@chakra-ui/react';
-import { formatEther } from 'ethers/lib/utils';
 
 interface DecentralizedPerpetualFuturesProps extends PoweredByProps {
 	synths: PerpetualSynth[];
@@ -68,8 +67,6 @@ export async function getStaticProps() {
 	const [, synthsRates] = await snx.contracts.SynthUtil.synthsRates();
 	const [, , sUSDBalances] =
 		await snx.contracts.SynthUtil.synthsTotalSupplies();
-
-	console.log(synthsRates, sUSDBalances);
 
 	const synths: PerpetualSynth[] = await Promise.all(
 		snx.synths
