@@ -61,7 +61,7 @@ const footerMenu = [
 		{ title: 'About' },
 		{
 			title: 'Careers',
-			link: 'https://jobs.defialliance.co/companies/synthetix',
+			link: 'https://jobs.paradigm.xyz/companies/synthetix',
 		},
 		{
 			title: 'Brand Assets',
