@@ -34,6 +34,10 @@ const footerMenu = [
 			title: 'Docs',
 			link: 'https://docs.synthetix.io/',
 		},
+		{
+			title: 'Terms',
+			link: 'https://staking.synthetix.io/terms',
+		},
 	],
 	[
 		{ title: 'Dapps' },
