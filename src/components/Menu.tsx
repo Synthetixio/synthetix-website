@@ -72,7 +72,7 @@ const externalButtons = [
 		label: 'Stats',
 	},
 	{
-		externalLink: 'https://staking.synthetix.io',
+		externalLink: 'https://staking.synthetix.eth.limo',
 		label: 'Staking',
 	},
 ];
