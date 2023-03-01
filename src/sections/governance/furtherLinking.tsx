@@ -9,7 +9,7 @@ export default function FurtherLinking() {
 			<StyledGrid />
 			<StyledButtonWrapper>
 				<StyledButtonWrapperLinearGradient>
-					<StyledLinkButtons href="https://staking.synthetix.io/gov">
+					<StyledLinkButtons href="https://staking.synthetix.eth.limo/gov">
 						<StyledSmallButtonLabel>GO TO</StyledSmallButtonLabel>
 						<StyledLargeButtonLabel>Staking</StyledLargeButtonLabel>
 						<StyledLeftArrow fill="cyan" />
