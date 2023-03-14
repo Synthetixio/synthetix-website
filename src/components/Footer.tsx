@@ -36,14 +36,14 @@ const footerMenu = [
 		},
 		{
 			title: 'Terms',
-			link: 'https://staking.synthetix.io/terms',
+			link: 'https://staking.synthetix.eth.limo/terms',
 		},
 	],
 	[
 		{ title: 'Dapps' },
 		{
 			title: 'Staking',
-			link: 'https://staking.synthetix.io/',
+			link: 'https://staking.synthetix.eth.limo/',
 		},
 		{
 			title: 'Governance',
@@ -73,7 +73,7 @@ const footerMenu = [
 		},
 		{
 			title: 'Terms and Conditions',
-			link: 'https://staking.synthetix.io/terms',
+			link: 'https://staking.synthetix.eth.limo/terms',
 		},
 		{ title: 'Help Center', link: '/guides' },
 		{ title: 'Create SIP/SCCPs', link: 'https://pr.synthetix.io/' },

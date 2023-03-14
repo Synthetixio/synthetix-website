@@ -163,7 +163,7 @@ const accordionItems: AccordionItemsType[] = [
 			<FlexDivRowResponsive key="stake-earn-buttons">
 				<BuildButton
 					buttonType="primary"
-					link="https://staking.synthetix.io/"
+					link="https://staking.synthetix.eth.limo/"
 					external={true}
 					size="medium"
 				>
