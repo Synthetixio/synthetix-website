@@ -50,8 +50,8 @@ const data: {
 		hideOnHeader: false,
 	},
 	{
-		link: '/guides',
-		label: 'Guides',
+		link: 'https://docs.synthetix.io/',
+		label: 'Docs',
 		hideOnHeader: false,
 	},
 	{
