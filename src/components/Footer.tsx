@@ -23,10 +23,6 @@ const footerMenu = [
 			link: '/governance',
 		},
 		{
-			title: 'Guides',
-			link: '/guides',
-		},
-		{
 			title: 'Blog',
 			link: 'https://blog.synthetix.io/',
 		},
@@ -75,7 +71,6 @@ const footerMenu = [
 			title: 'Terms and Conditions',
 			link: 'https://staking.synthetix.eth.limo/terms',
 		},
-		{ title: 'Help Center', link: '/guides' },
 		{ title: 'Create SIP/SCCPs', link: 'https://pr.synthetix.io/' },
 	],
 ];
