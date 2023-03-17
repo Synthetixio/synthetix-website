@@ -47,7 +47,7 @@ const footerMenu = [
 		},
 		{
 			title: 'Stats',
-			link: 'https://grafana.synthetix.io/d/pjPJZ6x7z/synthetix-system-stats?orgId=1&kiosk=full',
+			link: 'https://stats.synthetix.io',
 		},
 		{ title: 'Perps', link: '/perps' },
 	],
