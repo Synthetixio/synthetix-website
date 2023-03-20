@@ -83,7 +83,7 @@ const FrontEnds = ({ ...props }: FlexProps) => {
 							a single cross-margin contract.
 						</Text>
 						<Link
-							href="https://kwenta.io/"
+							href="https://kwenta.eth.limo/"
 							target="_blank"
 							alignSelf="flex-end"
 							display="flex"

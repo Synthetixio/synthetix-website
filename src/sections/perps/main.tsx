@@ -46,7 +46,7 @@ export default function FuturesMain({ ...props }: FlexProps) {
 				</Text>
 				<Flex mt={8}>
 					<Link
-						href="https://kwenta.io"
+						href="https://kwenta.eth.limo"
 						borderRadius="4px"
 						bg="cyan.500"
 						boxShadow="0px 0px 10px rgba(0, 209, 255, 0.9)"

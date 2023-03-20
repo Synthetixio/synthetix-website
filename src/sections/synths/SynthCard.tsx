@@ -40,8 +40,8 @@ const SynthCard: FC<SynthCardProps> = ({ synth, price, exchangeFeeRate, status }
 		<ExternalLink
 			href={
 				currencyKey !== 'sUSD'
-					? `https://kwenta.io/exchange/?quote=${currencyKey}&base=sUSD`
-					: `https://kwenta.io/exchange/?quote=${currencyKey}&base=sETH`
+					? `https://kwenta.eth.limo/exchange/?quote=${currencyKey}&base=sUSD`
+					: `https://kwenta.eth.limo/exchange/?quote=${currencyKey}&base=sETH`
 			}
 		>
 			<StyledCard>

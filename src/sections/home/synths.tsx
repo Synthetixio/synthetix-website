@@ -192,7 +192,7 @@ const accordionItems: AccordionItemsType[] = [
 			<BuildButton
 				size="medium"
 				buttonType="primary"
-				link="https://kwenta.io/"
+				link="https://kwenta.eth.limo/"
 				external={true}
 				key="trade-synth-button"
 				margin="19px 0px 0px"
