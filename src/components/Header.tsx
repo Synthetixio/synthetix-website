@@ -82,6 +82,6 @@ const HeaderComponent = ({ config }: HeaderProps) => {
 	);
 };
 
-export const headerHeight = 100;
+export const headerHeight = 70;
 
 export default HeaderComponent;

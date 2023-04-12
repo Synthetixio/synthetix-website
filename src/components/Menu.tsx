@@ -34,11 +34,6 @@ const data: {
 		label: 'Synths',
 		hideOnHeader: false,
 	},
-	// {
-	// 	link: '/build/welcome-to-snx',
-	// 	label: 'Build',
-	// 	hideOnHeader: false,
-	// },
 	{
 		link: '/perps',
 		label: 'Perps',
@@ -68,12 +63,8 @@ const data: {
 
 const externalButtons = [
 	{
-		externalLink: 'https://stats.synthetix.io',
-		label: 'Stats',
-	},
-	{
-		externalLink: 'https://staking.synthetix.eth.limo',
-		label: 'Staking',
+		externalLink: 'https://staking.synthetix.io',
+		label: 'Staking App',
 	},
 ];
 

@@ -9,7 +9,7 @@ import {
 	AccordionPanel,
 } from '@chakra-ui/react';
 import { ChevronRightIcon } from '@chakra-ui/icons';
-import { EmailFooter } from 'src/sections/email/EmailFooter';
+import { EmailSignUp } from './EmailSignUp';
 
 const footerMenu = [
 	[
@@ -87,8 +87,8 @@ export default function Footer() {
 					as="footer"
 					mt={4}
 				>
-					<Flex w="100%" justifyContent="space-between">
-						<Flex gap="14" m="5" w="100%">
+					<Flex w="100%">
+						<Flex gap="14" m="5">
 							{footerMenu.map((col, i) => {
 								return (
 									<Flex flexDir="column" gap="2" key={'col' + i}>
@@ -128,14 +128,12 @@ export default function Footer() {
 								);
 							})}
 						</Flex>
-						<EmailFooter />
-						<Box m="5">
-							<Logo small={true} />
-						</Box>
+						<EmailSignUp />
 					</Flex>
-					<Box my="10">
+					<Flex my="10" w="100%" justifyContent="space-between">
+						<Logo small={true} />
 						<Socials isFooter />
-					</Box>
+					</Flex>
 				</Flex>
 			</Show>
 			<Show below="md">
@@ -143,8 +141,8 @@ export default function Footer() {
 					as="footer"
 					w="100%"
 					justifyContent="center"
-					alignItems="center"
 					flexDir="column"
+					px="8px"
 					pt="5"
 				>
 					{footerMenu.map((col, i) => {
@@ -152,7 +150,7 @@ export default function Footer() {
 							<Fragment key={'col' + i}>
 								<Accordion w="100%" allowToggle>
 									<AccordionItem>
-										<AccordionButton>
+										<AccordionButton pl="0">
 											<Text
 												fontWeight="bold"
 												textTransform="uppercase"
@@ -194,15 +192,11 @@ export default function Footer() {
 							</Fragment>
 						);
 					})}
-					<Box mt={4}>
-						<EmailFooter />
-					</Box>
-					<Box m="5">
+					<EmailSignUp />
+					<Flex alignItems="center" my="32px" justifyContent="space-between">
 						<Logo small={true} />
-					</Box>
-					<Box my="10">
 						<Socials isFooter />
-					</Box>
+					</Flex>
 				</Flex>
 			</Show>
 		</>

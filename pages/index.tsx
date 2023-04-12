@@ -9,8 +9,9 @@ import { PageLayout } from '../src/components';
 import { Line } from 'src/styles/common';
 import PoweredBy from 'src/sections/home/poweredBy';
 import axios from 'axios';
-import { Box } from '@chakra-ui/react';
+import { Box, useColorMode } from '@chakra-ui/react';
 import getSnxPrice from '../src/queries/snxPrice/snxPrice';
+import { useEffect } from 'react';
 import { EmailSection } from 'src/sections/email/EmailSection';
 
 export interface ApiStatsProps {

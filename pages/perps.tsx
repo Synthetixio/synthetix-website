@@ -1,35 +1,177 @@
+import { useColorMode } from '@chakra-ui/react';
 import Head from 'next/head';
+import { useEffect } from 'react';
 import { PageLayout } from 'src/components';
-import FuturesMain from 'src/sections/perps/main';
-import USP from 'src/sections/perps/usp';
-import { EmailSection } from 'src/sections/email/EmailSection';
-import FrontEnds from 'src/sections/perps/frontends';
-import { Divider } from '@chakra-ui/react';
 
 export default function DecentralizedPerpetualFutures() {
+	const { colorMode, toggleColorMode } = useColorMode();
+	useEffect(() => {
+		if (colorMode === 'light') {
+			toggleColorMode();
+		}
+	}, [colorMode, toggleColorMode]);
 	return (
 		<>
 			<Head>
 				<title>Synthetix - Decentralized Perps</title>
 			</Head>
-			<PageLayout px={0} bg="#0e052d">
-				<FuturesMain px={{ base: 10, sm: 10, md: 16, lg: 36 }} />
-				<EmailSection
-					innerProps={{
-						justifyContent: 'space-between',
-						px: { base: 10, sm: 10, md: 16, lg: 36 },
-					}}
-					minH={['220px', '220px', '180px', '158px']}
-					byline="Get Updates on Perps Trading"
-				/>
-				<USP mt={20} px={{ base: 10, sm: 10, md: 16, lg: 36 }} />
-				<FrontEnds px={{ base: 10, sm: 10, md: 16, lg: 36 }} mt={20} />
-				<Divider
-					color="transparent"
-					height="1px"
-					bgGradient="linear-gradient(0deg, rgba(14, 4, 53, 0.29), rgba(14, 4, 53, 0.29)), linear-gradient(88.63deg, #00D1FF -14.83%, #ED1EFF 108.22%);"
-				/>
-			</PageLayout>
+			<PageLayout px={0} bg="#0e052d"></PageLayout>
 		</>
 	);
 }
+// import { useReducer, FocusEvent, useRef, useEffect } from 'react';
+// import {
+// 	Box,
+// 	Flex,
+// 	Button,
+// 	Input,
+// 	Text,
+// 	Spinner,
+// 	FlexProps,
+// } from '@chakra-ui/react';
+// import { AppEvents, initialState, reducer } from './reducer';
+// import { emailRegex } from 'src/utils/validation';
+// import { MARKETING_URI } from 'src/constants/urls';
+// import localStore from 'src/utils/localStore';
+
+// interface EmailSignupProps extends FlexProps {
+// 	page?: string;
+// }
+
+// export const EmailSignup = ({ page = 'home', ...props }: EmailSignupProps) => {
+// 	const [state, dispatch] = useReducer(reducer, initialState);
+// 	const inputRef = useRef<HTMLInputElement>(null);
+
+// 	const { submitted, errorMessage, valid, loading } = state;
+
+// 	useEffect(() => {
+// 		const previouslySubmitted =
+// 			localStore.get('marketing-form-submission') === true;
+
+// 		if (previouslySubmitted) {
+// 			dispatch({ type: AppEvents.SUBMIT });
+// 		}
+// 	}, []);
+
+// 	const onClick = async () => {
+// 		const headers = new Headers();
+// 		headers.append('Content-Type', 'application/json');
+
+// 		if (valid) {
+// 			dispatch({ type: AppEvents.LOADING });
+// 			try {
+// 				await fetch(MARKETING_URI, {
+// 					method: 'POST',
+// 					mode: 'no-cors',
+// 					headers,
+// 					redirect: 'follow',
+// 					body: JSON.stringify({
+// 						contact: {
+// 							email: inputRef?.current?.value,
+// 							route: page,
+// 						},
+// 					}),
+// 				});
+
+// 				dispatch({ type: AppEvents.SUBMIT });
+// 				localStore.set('marketing-form-submission', true);
+// 				inputRef!.current!.value = '';
+// 			} catch (error) {
+// 				dispatch({
+// 					type: AppEvents.ERROR,
+// 					payload: 'There has been an error.',
+// 				});
+// 			}
+// 		}
+// 	};
+
+// 	const onBlur = (e: FocusEvent<HTMLInputElement, Element>) => {
+// 		if (e.target.value) {
+// 			emailRegex.test(e.target.value)
+// 				? dispatch({
+// 						type: AppEvents.VALID,
+// 				  })
+// 				: dispatch({
+// 						type: AppEvents.ERROR,
+// 						payload: 'Please enter a valid email address.',
+// 				  });
+// 		} else {
+// 			dispatch({ type: AppEvents.CLEAR });
+// 		}
+// 	};
+
+// 	return (
+// 		<Flex
+// 			direction="column"
+// 			justifyContent="center"
+// 			height="100%"
+// 			pt="36px"
+// 			{...props}
+// 		>
+// 			<Flex
+// 				as="form"
+// 				noValidate
+// 				onSubmit={e => e.preventDefault()}
+// 				direction="row"
+// 				alignItems="center"
+// 				justifyContent="space-evenly"
+// 				height="fit-content"
+// 				bg="whiteAlpha.300"
+// 				borderWidth="1px"
+// 				borderColor="whiteAlpha.50"
+// 				borderRadius="md"
+// 				width="fit-content"
+// 			>
+// 				<Input
+// 					placeholder="Enter Your Email Address"
+// 					type="email"
+// 					minW={['250px', '300px']}
+// 					width={{ base: '250px', sm: '270px', md: '280px', lg: '400px' }}
+// 					fontFamily="heading"
+// 					fontSize="lg"
+// 					lineHeight="8"
+// 					isRequired
+// 					bg="transparent"
+// 					border="none"
+// 					my={0}
+// 					py={6}
+// 					_placeholder={{ color: 'gray.400' }}
+// 					onBlur={onBlur}
+// 					ref={inputRef}
+// 				/>
+// 				<Button
+// 					onClick={onClick}
+// 					height="44px"
+// 					flexShrink={0}
+// 					type="submit"
+// 					color="cyan.500"
+// 					fontFamily="GT America"
+// 					fontWeight="700"
+// 					bgGradient="none"
+// 					bgColor="#161B44"
+// 					fontSize="sm"
+// 					borderRadius="md"
+// 					boxShadow="0px 0px 10px rgba(0, 209, 255, 0.9);"
+// 					px={8}
+// 					_hover={{
+// 						bgGradient: 'none',
+// 						bgColor: '#161B4480',
+// 					}}
+// 					_active={{
+// 						bgColor: '#161B4490',
+// 					}}
+// 				>
+// 					{loading ? <Spinner /> : 'SIGN UP'}
+// 				</Button>
+// 			</Flex>
+// 			<Box minH="10">
+// 				{errorMessage && <Text mt={1}>{errorMessage}</Text>}
+// 				{submitted && typeof window !== 'undefined' && (
+// 					<Text color="green.500" mt={1}>
+// 						Thank you for Signing Up!
+// 					</Text>
+// 				)}
+// 			</Box>
+// 		</Flex>
+// 	);
+// };

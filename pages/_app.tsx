@@ -5,7 +5,7 @@ import { init } from '@socialgouv/matomo-next';
 import { theme } from '../src/styles/theme';
 import { GlobalStyle } from '../src/styles/globals';
 import smoothscroll from 'smoothscroll-polyfill';
-import { ChakraProvider, ColorModeScript, extendTheme } from '@chakra-ui/react';
+import { ChakraProvider, extendTheme } from '@chakra-ui/react';
 import { theme as chakraTheme, Fonts } from '@synthetixio/v3-theme';
 import { useEffect } from 'react';
 
@@ -31,11 +31,6 @@ export default function MyApp({ Component, pageProps }: AppProps) {
 	/* scroll behavior smooth is not supported by Safari > 15 */
 	if (typeof window !== 'undefined') {
 		smoothscroll.polyfill();
-		if (
-			'localStorage' in window &&
-			localStorage.getItem('chakra-ui-color-mode') === 'light'
-		)
-			localStorage.setItem('chakra-ui-color-mode', 'dark');
 	}
 	return (
 		<ThemeProvider theme={theme}>
@@ -142,7 +137,6 @@ export default function MyApp({ Component, pageProps }: AppProps) {
 			<GlobalStyle />
 			<Fonts />
 			<ChakraProvider theme={newTheme}>
-				<ColorModeScript initialColorMode={newTheme.initialColorMode} />
 				<Component {...pageProps} />
 			</ChakraProvider>
 		</ThemeProvider>
