@@ -77,7 +77,7 @@ function LinnSandstrom() {
 								isExternalLink
 								icon={<ArrowLinkOffIcon active />}
 								text="Trade"
-								link="https://kwenta.io/"
+								link="https://kwenta.eth.limo/"
 							></StyledLinkButton>
 						</StyledCardContent>
 					</StyledCard>
