@@ -15,7 +15,7 @@ export const EmailFooter = () => {
 					color="white"
 					mb={4}
 				>
-					JOIN OUR NEWSLETTER TO KEEP UPDATED
+					JOIN OUR NEWSLETTER
 				</Text>
 			</Box>
 			<EmailSignup pt={0} page={`footer ${pathname}`} />

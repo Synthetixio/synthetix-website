@@ -15,41 +15,13 @@ const footerMenu = [
 	[
 		{ title: 'Synthetix' },
 		{
-			title: 'Synths',
-			link: '/synths',
-		},
-		{
-			title: 'Governance',
-			link: '/governance',
-		},
-		{
-			title: 'Blog',
-			link: 'https://blog.synthetix.io/',
-		},
-		{
-			title: 'Docs',
-			link: 'https://docs.synthetix.io/',
-		},
-		{
-			title: 'Terms',
-			link: 'https://staking.synthetix.eth.limo/terms',
-		},
-	],
-	[
-		{ title: 'Dapps' },
-		{
 			title: 'Staking',
-			link: 'https://staking.synthetix.eth.limo/',
+			link: 'https://staking.synthetix.io/',
 		},
 		{
 			title: 'Governance',
 			link: 'https://governance.synthetix.io/',
 		},
-		{
-			title: 'Stats',
-			link: 'https://stats.synthetix.io',
-		},
-		{ title: 'Perps', link: '/perps' },
 	],
 	[
 		{ title: 'Community' },
@@ -69,9 +41,12 @@ const footerMenu = [
 		},
 		{
 			title: 'Terms and Conditions',
-			link: 'https://staking.synthetix.eth.limo/terms',
+			link: 'https://staking.synthetix.io/terms',
 		},
-		{ title: 'Create SIP/SCCPs', link: 'https://pr.synthetix.io/' },
+		{
+			title: 'Help Center',
+			link: 'https://docs.synthetix.io/synthetix-protocol/welcome-to-synthetix',
+		},
 	],
 ];
 
@@ -129,13 +104,11 @@ export default function Footer() {
 							})}
 						</Flex>
 						<EmailFooter />
-						<Box m="5">
-							<Logo small={true} />
-						</Box>
 					</Flex>
-					<Box my="10">
+					<Flex my="10" justifyContent="space-between">
+						<Logo small={true} />
 						<Socials isFooter />
-					</Box>
+					</Flex>
 				</Flex>
 			</Show>
 			<Show below="md">

@@ -79,6 +79,64 @@ export const EmailSignup = ({ page = 'home', ...props }: EmailSignupProps) => {
 		}
 	};
 
+	if (page !== '/') {
+		return (
+			<Flex
+				direction="column"
+				justifyContent="center"
+				height="100%"
+				pt="36px"
+				{...props}
+			>
+				<Flex
+					as="form"
+					noValidate
+					onSubmit={e => e.preventDefault()}
+					direction="row"
+					alignItems="center"
+					justifyContent="space-evenly"
+					height="fit-content"
+					width="fit-content"
+				>
+					<Input
+						size="lg"
+						py="8px"
+						px="16px"
+						placeholder="Enter Your Email Address"
+						type="email"
+						minW={['200px', '250px']}
+						w="100%"
+						fontFamily="heading"
+						fontSize="lg"
+						lineHeight="8"
+						isRequired
+						borderColor="gray.900"
+						_placeholder={{ color: 'gray.400' }}
+						onBlur={onBlur}
+						ref={inputRef}
+						mr="16px"
+					/>
+					<Button
+						onClick={onClick}
+						variant="outline"
+						colorScheme="gray"
+						size="lg"
+					>
+						{loading ? <Spinner /> : 'SIGN UP'}
+					</Button>
+				</Flex>
+				<Box minH="10">
+					{errorMessage && <Text mt={1}>{errorMessage}</Text>}
+					{submitted && typeof window !== 'undefined' && (
+						<Text color="green.500" mt={1}>
+							Thank you for Signing Up!
+						</Text>
+					)}
+				</Box>
+			</Flex>
+		);
+	}
+
 	return (
 		<Flex
 			direction="column"
@@ -104,8 +162,8 @@ export const EmailSignup = ({ page = 'home', ...props }: EmailSignupProps) => {
 				<Input
 					placeholder="Enter Your Email Address"
 					type="email"
-					minW={['250px', '300px']}
-					width={{ base: '250px', sm: '270px', md: '280px', lg: '400px' }}
+					minW={['200px', '250px']}
+					w="100%"
 					fontFamily="heading"
 					fontSize="lg"
 					lineHeight="8"

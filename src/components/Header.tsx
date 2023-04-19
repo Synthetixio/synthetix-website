@@ -3,22 +3,10 @@ import HamburgerMenu from 'react-hamburger-menu';
 import { Menu } from './';
 import { useRouter } from 'next/router';
 import { Image, Flex, Show, Box } from '@chakra-ui/react';
-import { NavDocs } from 'src/typings/cms-types';
 
-export interface HeaderProps {
-	config?: {
-		label: string;
-		navTitle: string;
-		items: NavDocs[];
-	};
-}
-
-const HeaderComponent = ({ config }: HeaderProps) => {
+const HeaderComponent = () => {
 	const [isOpen, setIsOpen] = useState<boolean>(false);
-	const [subOpen, setSubOpen] = useState<boolean>(false);
 	const { push } = useRouter();
-
-	const itemsToString = config?.toString();
 
 	useEffect(() => {
 		if (isOpen) {
@@ -26,8 +14,7 @@ const HeaderComponent = ({ config }: HeaderProps) => {
 		} else {
 			document.documentElement.classList.remove('stop-scrolling');
 		}
-		setSubOpen(!!config?.items?.length);
-	}, [isOpen, itemsToString]);
+	}, [isOpen]);
 
 	return (
 		<Flex
@@ -40,6 +27,7 @@ const HeaderComponent = ({ config }: HeaderProps) => {
 			maxW="1920px"
 			background="transparent"
 			px="5"
+			bg="navy.900"
 		>
 			<Image
 				src="/snx.svg"
@@ -53,7 +41,7 @@ const HeaderComponent = ({ config }: HeaderProps) => {
 				<Box
 					cursor="pointer"
 					userSelect="none"
-					top="39px"
+					top="25px"
 					left="20px"
 					position={isOpen ? 'fixed' : 'absolute'}
 					zIndex="999"
@@ -71,17 +59,11 @@ const HeaderComponent = ({ config }: HeaderProps) => {
 					/>
 				</Box>
 			</Show>
-			<Menu
-				items={config?.items}
-				subOpen={subOpen}
-				setSubOpen={setSubOpen}
-				isOpen={isOpen}
-				data-test-id="header-menu"
-			/>
+			<Menu isOpen={isOpen} data-test-id="header-menu" />
 		</Flex>
 	);
 };
 
-export const headerHeight = 100;
+export const headerHeight = 65;
 
 export default HeaderComponent;
