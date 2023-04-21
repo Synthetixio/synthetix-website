@@ -58,7 +58,7 @@ export default function Footer() {
 					w="100%"
 					flexDir="column"
 					maxW="100%"
-					px={{ base: 10, sm: 10, md: 10, lg: 16, xl: 36 }}
+					px={{ base: 10, sm: 10, md: 10, lg: 0, xl: 0 }}
 					as="footer"
 					mt={4}
 				>

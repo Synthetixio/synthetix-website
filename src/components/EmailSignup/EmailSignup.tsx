@@ -104,7 +104,7 @@ export const EmailSignup = ({ page = 'home', ...props }: EmailSignupProps) => {
 						px="16px"
 						placeholder="Enter Your Email Address"
 						type="email"
-						minW={['200px', '250px']}
+						minW={['150px', '200px']}
 						w="100%"
 						fontFamily="heading"
 						fontSize="lg"

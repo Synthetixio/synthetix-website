@@ -1,14 +1,10 @@
-import { Icon, IconProps } from '@chakra-ui/react';
+import { Icon, IconProps, useBreakpoint } from '@chakra-ui/react';
 
-interface SNXPerpsLooperProps extends IconProps {
-	mobile?: boolean;
-}
+interface SNXPerpsLooperProps extends IconProps {}
 
-export default function SNXPerpsLooper({
-	mobile = false,
-	...props
-}: SNXPerpsLooperProps) {
-	if (mobile) {
+export default function SNXPerpsLooper({ ...props }: SNXPerpsLooperProps) {
+	const breakpoint = useBreakpoint({ ssr: true });
+	if (breakpoint === 'base' || breakpoint === 'md' || breakpoint === 'sm') {
 		return (
 			<Icon
 				width="480px"

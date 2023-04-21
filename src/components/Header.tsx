@@ -21,45 +21,53 @@ const HeaderComponent = () => {
 			as="header"
 			height={headerHeight.toString().concat('px')}
 			alignItems="center"
-			justifyContent={{ base: 'center', md: 'space-between' }}
-			zIndex="1000"
-			w="100%"
-			maxW="1920px"
-			background="transparent"
+			justifyContent="center"
+			minW="100vw"
 			px="5"
 			bg="navy.900"
+			borderBottomColor="gray.900"
+			borderBottomWidth="1px"
+			borderBottomStyle="solid"
+			zIndex={9999}
 		>
-			<Image
-				src="/snx.svg"
-				width={200}
-				height={12}
-				onClick={() => push('/')}
-				cursor="pointer"
-				mr={{ base: '', md: '8' }}
-			/>
-			<Show below="md">
-				<Box
+			<Flex
+				w="100%"
+				maxW="768px"
+				alignItems="center"
+				justifyContent="space-between"
+			>
+				<Image
+					src="/snx.svg"
+					width={200}
+					height={12}
+					onClick={() => push('/')}
 					cursor="pointer"
-					userSelect="none"
-					top="25px"
-					left="20px"
-					position={isOpen ? 'fixed' : 'absolute'}
-					zIndex="999"
-				>
-					<HamburgerMenu
-						isOpen={isOpen}
-						menuClicked={() => setIsOpen(!isOpen)}
-						width={22}
-						height={16}
-						strokeWidth={2}
-						rotate={0}
-						color="white"
-						borderRadius={0}
-						animationDuration={0.3}
-					/>
-				</Box>
-			</Show>
-			<Menu isOpen={isOpen} data-test-id="header-menu" />
+					mr={{ base: '', md: '8' }}
+				/>
+				<Show below="md">
+					<Box
+						cursor="pointer"
+						userSelect="none"
+						top="25px"
+						left="20px"
+						position={isOpen ? 'fixed' : 'absolute'}
+						zIndex="999"
+					>
+						<HamburgerMenu
+							isOpen={isOpen}
+							menuClicked={() => setIsOpen(!isOpen)}
+							width={22}
+							height={16}
+							strokeWidth={2}
+							rotate={0}
+							color="white"
+							borderRadius={0}
+							animationDuration={0.3}
+						/>
+					</Box>
+				</Show>
+				<Menu isOpen={isOpen} data-test-id="header-menu" />
+			</Flex>
 		</Flex>
 	);
 };
