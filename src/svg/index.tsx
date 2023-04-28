@@ -1,7 +1,6 @@
 export { default as Arrow } from './Arrow';
 export { default as Discord } from './Discord';
 export { default as Github } from './Github';
-export { default as Kwenta } from './Kwenta';
 export { default as PDefiance } from './PDefiance';
 export { default as PDtc } from './PDtc';
 export { default as PHashed } from './PHashed';
