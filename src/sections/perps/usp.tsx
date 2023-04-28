@@ -4,8 +4,9 @@ import {
 	FlexProps,
 	Grid,
 	GridItem,
-	Box,
 	Heading,
+	Link,
+	Box,
 } from '@chakra-ui/react';
 
 const USPS = [
@@ -31,8 +32,16 @@ const USPS = [
 	},
 	{
 		label: 'Easy to Integrate',
-		description:
-			'Visit docs.synthetix.io for integration guides and code samples on how to integrate Synthetix Perps.',
+		description: [
+			'Visit ',
+			<Link
+				href="https://docs.synthetix.io/synthetix-protocol/welcome-to-synthetix"
+				color="cyan.500"
+			>
+				docs.synthetix.io
+			</Link>,
+			' for integration guides and code samples on how to integrate Synthetix Perps.',
+		],
 	},
 	{
 		label: 'Supported Launch',
@@ -69,7 +78,26 @@ export default function USP({ ...props }: FlexProps) {
 							<Text fontWeight="700" fontSize="lg">
 								{label}
 							</Text>
-							<Text color="gray.500">{description}</Text>
+							<Box display="inline">
+								{Array.isArray(description) ? (
+									description.map(d => {
+										if (typeof d === 'string') {
+											return (
+												<Text
+													key={d.toString()}
+													color="gray.500"
+													display="inline"
+													fontSize={{ base: 'md', lg: 'sm' }}
+												>
+													{d}
+												</Text>
+											);
+										} else return d;
+									})
+								) : (
+									<Text color="gray.500">{description}</Text>
+								)}
+							</Box>
 						</Flex>
 					</GridItem>
 				))}

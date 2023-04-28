@@ -32,9 +32,15 @@ const HeaderComponent = () => {
 		>
 			<Flex
 				w="100%"
-				maxW="768px"
 				alignItems="center"
-				justifyContent="space-between"
+				justifyContent={{ base: 'center', md: 'space-between' }}
+				maxW={{
+					base: '100vw',
+					md: '48rem',
+					lg: '62rem',
+					xl: '80rem',
+					'2xl': '96rem',
+				}}
 			>
 				<Image
 					src="/snx.svg"

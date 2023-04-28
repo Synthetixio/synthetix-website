@@ -12,6 +12,7 @@ export default function FuturesMain() {
 			bg="navy.900"
 			wrap={{ base: 'wrap-reverse', lg: 'nowrap' }}
 			mb="48px"
+			p={{ lg: '0 24px' }}
 		>
 			<Flex
 				w={{ base: '100%', lg: '600px' }}

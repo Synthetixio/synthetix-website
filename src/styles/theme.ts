@@ -91,7 +91,6 @@ export const theme = {
 	fonts: {
 		body: css`
 			font-family: Inter;
-			font-size: 14px;
 			line-height: 20px;
 			color: rgba(255, 255, 255, 0.7);
 			overflow-x: hidden;

@@ -18,7 +18,13 @@ export default function PageLayout({
 					direction="column"
 					alignItems="center"
 					w="100%"
-					maxW={{ lg: '768px' }}
+					maxW={{
+						base: '100vw',
+						md: '48rem',
+						lg: '62rem',
+						xl: '80rem',
+						'2xl': '96rem',
+					}}
 					px={{ base: '16px', md: '24px', lg: '0px' }}
 					{...props}
 				>
