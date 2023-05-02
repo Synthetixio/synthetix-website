@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react';
 import HamburgerMenu from 'react-hamburger-menu';
 import { Menu } from './';
 import { useRouter } from 'next/router';
-import { Image, Flex, Show, Box } from '@chakra-ui/react';
+import { Image, Flex, Show, Box, Hide } from '@chakra-ui/react';
 
 const HeaderComponent = () => {
 	const [isOpen, setIsOpen] = useState<boolean>(false);
@@ -33,7 +33,7 @@ const HeaderComponent = () => {
 			<Flex
 				w="100%"
 				alignItems="center"
-				justifyContent={{ base: 'center', md: 'space-between' }}
+				justifyContent={{ base: 'center', lg: 'space-between' }}
 				maxW={{
 					base: '100vw',
 					md: '48rem',
@@ -41,6 +41,7 @@ const HeaderComponent = () => {
 					xl: '80rem',
 					'2xl': '96rem',
 				}}
+				px={{ base: '16px', lg: '24px' }}
 			>
 				<Image
 					src="/snx.svg"
@@ -54,7 +55,7 @@ const HeaderComponent = () => {
 					<Box
 						cursor="pointer"
 						userSelect="none"
-						top="25px"
+						top="15px"
 						left="20px"
 						position={isOpen ? 'fixed' : 'absolute'}
 						zIndex="999"
@@ -72,7 +73,9 @@ const HeaderComponent = () => {
 						/>
 					</Box>
 				</Show>
-				<Menu isOpen={isOpen} data-test-id="header-menu" />
+				<Hide below="md">
+					<Menu isOpen={isOpen} data-test-id="header-menu" />
+				</Hide>
 			</Flex>
 		</Flex>
 	);

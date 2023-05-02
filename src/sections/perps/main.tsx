@@ -18,7 +18,7 @@ export default function FuturesMain() {
 				w={{ base: '100%', lg: '600px' }}
 				flexDir="column"
 				p={{ base: 0, lg: '80px 0px' }}
-				mt={{ base: '450px', md: '0px', lg: 0 }}
+				mt={{ base: '400px', md: '0px', lg: 0 }}
 			>
 				<Heading
 					fontWeight={{ base: '700', md: '800' }}
@@ -29,30 +29,32 @@ export default function FuturesMain() {
 					Decentralized <br /> Perpetual <br /> Futures
 				</Heading>
 				<Text
-					fontSize="16px"
+					fontSize={{ base: 'md' }}
 					lineHeight={{ base: '20px', md: '24px' }}
 					fontWeight={400}
 					color="gray.500"
-					maxW="container.sm"
+					w={{ base: '100%', md: '600px' }}
 					mb="24px"
 				>
-					Synthetix perpetual futures are a set of permissionless and
-					decentralized smart contracts, offering deep liquidity and low trading
-					fees on a range of synthetic assets. Third party integrators have
-					decided to integrate with Synthetix.
+					Synthetix Perps offers integrators deep liquidity, low fees and
+					additional resources for building your own frontend.
 				</Text>
 				<Flex w="100%">
-					<Button mr="24px" w="100%" maxW="340px">
+					<Button mr="24px" w="100%" size={{ base: 'lg' }}>
 						See Integrators
 					</Button>
 					<Button
+						size={{ base: 'lg' }}
 						w="100%"
-						maxW="340px"
 						variant="outline"
 						colorScheme="gray"
 						rightIcon={<LinkOffIcon white />}
 						onClick={() =>
-							window.open('https://watcher.synthetix.io/', '_blank', 'noopener')
+							window.open(
+								'https://watcher.synthetix.io/',
+								'_blank',
+								'noopener noreferrer',
+							)
 						}
 					>
 						See Stats
@@ -61,7 +63,7 @@ export default function FuturesMain() {
 			</Flex>
 			<SNXPerpsLooper
 				transform={{
-					base: 'translate(-50%, 0%)',
+					base: 'translate(-50%, -10%)',
 					lg: 'translate(-60%, -25%)',
 				}}
 				top="-30px"

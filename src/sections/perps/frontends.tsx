@@ -7,7 +7,6 @@ import {
 	Link,
 	Image,
 	Icon,
-	Show,
 	Hide,
 } from '@chakra-ui/react';
 import { Conduit, Kwenta, Synthetix, dHedge } from './icons/Frontends';
@@ -69,16 +68,21 @@ const FrontEnds = ({ ...props }: FlexProps) => {
 				xl: '80rem',
 				'2xl': '96rem',
 			}}
-			pt="48px"
 			flexDirection="column"
 			alignItems="center"
 			position="relative"
 			width="100%"
+			mt={{ base: '48px' }}
 			mb="64px"
-			p={{ base: '24px' }}
+			px={{ base: '24px' }}
 			{...props}
 		>
-			<Heading mb="16px" w="100%" fontSize="48px">
+			<Heading
+				mb="16px"
+				w="100%"
+				fontSize={{ base: '36px', md: '48px' }}
+				fontWeight={{ base: '700' }}
+			>
 				Integrators
 			</Heading>
 			<Text color="gray.500" w="100%">
@@ -114,21 +118,28 @@ function FrontendCard({
 			flexDir="column"
 			alignItems="flex-start"
 			w={{ base: '100%', lg: '396px', '2xl': '480px' }}
-			h={{ base: '284px', lg: '374px', '2xl': '326px' }}
 			bg="navy.900"
 			borderWidth="1px"
 			borderStyle="solid"
 			borderRadius="base"
 			borderColor="gray.900"
 			mt="24px"
-			p="24px"
+			p={{ base: '16px', md: '24px' }}
 		>
-			<Hide below="sm">
-				{logo}
-				<Heading my="16px" fontSize="18px">
-					{name}
-				</Heading>
-				<Text mb="auto" fontSize="14px">
+			<Hide above="md">
+				<Flex>
+					{logo}
+					<Text
+						my="16px"
+						fontSize="lg"
+						ml="16px"
+						color="white"
+						fontWeight={700}
+					>
+						{name}
+					</Text>
+				</Flex>
+				<Text mb={{ base: '16px' }} fontSize="16px">
 					{Array.isArray(description) ? (
 						<>
 							{description[0]}{' '}
@@ -141,14 +152,12 @@ function FrontendCard({
 					)}
 				</Text>
 			</Hide>
-			<Hide above="sm">
-				<Flex>
-					{logo}
-					<Heading my="16px" fontSize="18px" ml="16px">
-						{name}
-					</Heading>
-				</Flex>
-				<Text mb="auto" fontSize="14px">
+			<Hide below="md">
+				{logo}
+				<Heading my="16px" fontSize="18px">
+					{name}
+				</Heading>
+				<Text mb={{ base: '16px' }} fontSize="14px">
 					{Array.isArray(description) ? (
 						<>
 							{description[0]}{' '}
@@ -165,7 +174,7 @@ function FrontendCard({
 				variant={name !== 'Synthetix' ? 'outline' : 'solid'}
 				onClick={() => window.open(link, '_blank', 'noopener,noreferrer')}
 				w={{ base: '100%', lg: '180px' }}
-				size="sm"
+				size={{ base: 'lg', md: 'sm' }}
 				rightIcon={
 					name === 'Synthetix' ? undefined : (
 						<Icon

@@ -167,7 +167,7 @@ export default function Footer() {
 							</Fragment>
 						);
 					})}
-					<Box mt={4}>
+					<Box mt={4} w="100%">
 						<EmailFooter />
 					</Box>
 					<Box m="5">

@@ -62,17 +62,28 @@ export default function USP() {
 		>
 			<Heading
 				fontSize={{ base: '36px', md: '48px' }}
-				textAlign={{ base: 'start', lg: 'center' }}
+				lineHeight={{ base: '43px' }}
+				textAlign="start"
 				mb="16px"
 			>
 				Protocol Features
 			</Heading>
-
-			<Grid templateColumns={{ base: 'repeat(1, 1fr)', md: 'repeat(2, 1fr)' }}>
+			<Grid
+				templateColumns={{
+					base: 'repeat(1, 1fr)',
+					md: 'repeat(2, 1fr)',
+					lg: 'repeat(3, 1fr)',
+				}}
+			>
 				{USPS.map(({ label, description }) => (
 					<GridItem key={label} p="24px" my="20px">
 						<Flex flexDir="column">
-							<Text fontWeight="700" fontSize="lg">
+							<Text
+								fontWeight="700"
+								fontSize={{ base: 'lg' }}
+								lineHeight={{ base: '28px' }}
+								mb={{ base: '16px' }}
+							>
 								{label}
 							</Text>
 							<Box display="inline">
@@ -85,6 +96,7 @@ export default function USP() {
 													color="gray.500"
 													display="inline"
 													fontSize={{ base: 'md', lg: 'sm' }}
+													lineHeight={{ base: '24px' }}
 												>
 													{d}
 												</Text>

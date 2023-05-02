@@ -83,7 +83,7 @@ export const EmailSignup = ({ page = 'home', ...props }: EmailSignupProps) => {
 		return (
 			<Flex
 				direction="column"
-				justifyContent="center"
+				mt={{ base: '8px' }}
 				height="100%"
 				pt="36px"
 				{...props}
@@ -96,7 +96,7 @@ export const EmailSignup = ({ page = 'home', ...props }: EmailSignupProps) => {
 					alignItems="center"
 					justifyContent="space-evenly"
 					height="fit-content"
-					width="fit-content"
+					width="100%"
 				>
 					<Input
 						size="lg"
@@ -198,7 +198,7 @@ export const EmailSignup = ({ page = 'home', ...props }: EmailSignupProps) => {
 						bgColor: '#161B4490',
 					}}
 				>
-					{loading ? <Spinner /> : 'SIGN UP'}
+					{loading ? <Spinner /> : 'Sign Up'}
 				</Button>
 			</Flex>
 			<Box minH="10">

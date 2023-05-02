@@ -1,4 +1,4 @@
-import { Flex, FlexProps } from '@chakra-ui/react';
+import { Divider, Flex, FlexProps } from '@chakra-ui/react';
 import { PropsWithChildren } from 'react';
 import { Footer, Header } from '.';
 
@@ -25,11 +25,12 @@ export default function PageLayout({
 						xl: '80rem',
 						'2xl': '96rem',
 					}}
-					px={{ base: '16px', md: '24px', lg: '0px' }}
+					px={{ base: '16px', lg: '24px' }}
 					{...props}
 				>
 					<Header />
 					{children}
+					<Divider minW="100vw" borderColor="gray.900" />
 					<Footer />
 				</Flex>
 			</Flex>
