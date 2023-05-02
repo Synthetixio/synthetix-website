@@ -18,7 +18,7 @@ export default function FuturesMain() {
 				w={{ base: '100%', lg: '600px' }}
 				flexDir="column"
 				p={{ base: 0, lg: '80px 0px' }}
-				mt={{ base: '450px', lg: 0 }}
+				mt={{ base: '450px', md: '0px', lg: 0 }}
 			>
 				<Heading
 					fontWeight={{ base: '700', md: '800' }}
@@ -29,9 +29,9 @@ export default function FuturesMain() {
 					Decentralized <br /> Perpetual <br /> Futures
 				</Heading>
 				<Text
-					size={{ base: 'sm' }}
+					fontSize="16px"
 					lineHeight={{ base: '20px', md: '24px' }}
-					fontWeight={{ base: 400 }}
+					fontWeight={400}
 					color="gray.500"
 					maxW="container.sm"
 					mb="24px"
@@ -41,7 +41,7 @@ export default function FuturesMain() {
 					fees on a range of synthetic assets. Third party integrators have
 					decided to integrate with Synthetix.
 				</Text>
-				<Flex w="100%" justifyContent="center">
+				<Flex w="100%">
 					<Button mr="24px" w="100%" maxW="340px">
 						See Integrators
 					</Button>
@@ -60,7 +60,10 @@ export default function FuturesMain() {
 				</Flex>
 			</Flex>
 			<SNXPerpsLooper
-				transform={{ base: 'translate(-50%, 0%)', lg: 'translate(-50%, -25%)' }}
+				transform={{
+					base: 'translate(-50%, 0%)',
+					lg: 'translate(-60%, -25%)',
+				}}
 				top="-30px"
 				left="50%"
 				position={{ base: 'absolute', lg: 'relative' }}

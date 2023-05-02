@@ -1,7 +1,6 @@
 import {
 	Text,
 	Flex,
-	FlexProps,
 	Grid,
 	GridItem,
 	Heading,
@@ -51,30 +50,27 @@ const USPS = [
 	},
 ];
 
-export default function USP({ ...props }: FlexProps) {
+export default function USP() {
 	return (
 		<Flex
 			flexDirection="column"
-			{...props}
+			h="100%"
 			bg="navy.900"
-			p="24px"
+			p={{ base: '0px', lg: '24px' }}
 			pt="48px"
 			mb="64px"
 		>
-			<Heading size="4xl" textAlign="center" mb="16px">
+			<Heading
+				fontSize={{ base: '36px', md: '48px' }}
+				textAlign={{ base: 'start', lg: 'center' }}
+				mb="16px"
+			>
 				Protocol Features
 			</Heading>
-			<Text textAlign="center" color="gray.500" mb="24px">
-				Synthetix Perps offers integrators deep liquidity, low fees and
-				additional resources for building your own front end.
-			</Text>
+
 			<Grid templateColumns={{ base: 'repeat(1, 1fr)', md: 'repeat(2, 1fr)' }}>
 				{USPS.map(({ label, description }) => (
-					<GridItem
-						key={label}
-						h={{ base: '250px', sm: '200px', md: '180px', lg: '160px' }}
-						p="24px"
-					>
+					<GridItem key={label} p="24px" my="20px">
 						<Flex flexDir="column">
 							<Text fontWeight="700" fontSize="lg">
 								{label}

@@ -11,7 +11,7 @@ export default function Action() {
 				'2xl': '96rem',
 			}}
 			w="100%"
-			h="292px"
+			h={{ base: '590px', lg: '292px' }}
 			borderWidth="1px"
 			borderStyle="solid"
 			borderColor="gray.900"
@@ -19,12 +19,13 @@ export default function Action() {
 			borderRadius="base"
 			m="24px 0px 68px"
 			bg="navy.900"
+			flexDirection={{ base: 'column-reverse', lg: 'row' }}
 		>
 			<Flex flexDir="column" p={{ md: '42px 16px' }} maxW="800px" w="100%">
-				<Heading fontSize={{ lg: '36px' }}>
+				<Heading fontSize={{ base: '36px' }}>
 					Want to integrate Synthetix Perps <br /> with your Platform?
 				</Heading>
-				<Text mt="16px" color="gray.500" fontSize={{ lg: '16px' }}>
+				<Text mt="16px" color="gray.500" fontSize={{ base: '16px' }}>
 					Learn more about how to integrate Perps and other Synthetix markets in
 					our developer documentation and reach out to the developers at&nbsp;
 					<Link href="mailto: perps@snxdao.io" color="cyan.500">
@@ -32,7 +33,7 @@ export default function Action() {
 					</Link>
 				</Text>
 				<Button
-					size="md"
+					size="sm"
 					maxW="180px"
 					mt="24px"
 					onClick={() =>
@@ -54,12 +55,12 @@ export default function Action() {
 function Ornament() {
 	return (
 		<Icon
-			width="526"
-			height="292"
+			width="526px"
+			height="292px"
 			viewBox="0 0 526 292"
 			fill="none"
 			xmlns="http://www.w3.org/2000/svg"
-			position={{ md: 'absolute' }}
+			position={{ lg: 'absolute' }}
 			right="0"
 		>
 			<mask

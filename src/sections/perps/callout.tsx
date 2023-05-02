@@ -7,7 +7,12 @@ export default function Callout() {
 			<Text mb="16px" color="gray.500" fontSize="sm" fontWeight="400">
 				SYNTHETIX PERPS
 			</Text>
-			<Text fontWeight="700" fontSize="36px" lineHeight="40px" maxW="800px">
+			<Text
+				fontWeight="700"
+				fontSize={{ base: '30px', md: '36px"' }}
+				lineHeight="40px"
+				maxW="800px"
+			>
 				Synthetix <GradientText>perpetual futures</GradientText> are a set of
 				permissionless and decentralized smart contracts, offering{' '}
 				<GradientText>deep liquidity and low trading fees</GradientText> on a

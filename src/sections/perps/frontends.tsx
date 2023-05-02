@@ -6,6 +6,9 @@ import {
 	Button,
 	Link,
 	Image,
+	Icon,
+	Show,
+	Hide,
 } from '@chakra-ui/react';
 import { Conduit, Kwenta, Synthetix, dHedge } from './icons/Frontends';
 
@@ -72,6 +75,7 @@ const FrontEnds = ({ ...props }: FlexProps) => {
 			position="relative"
 			width="100%"
 			mb="64px"
+			p={{ base: '24px' }}
 			{...props}
 		>
 			<Heading mb="16px" w="100%" fontSize="48px">
@@ -81,7 +85,11 @@ const FrontEnds = ({ ...props }: FlexProps) => {
 				Multiple front ends have chosen to integrate Synthetix’ composable and
 				permissionless smart contracts
 			</Text>
-			<Flex w="100%" flexWrap="wrap" mt="24px">
+			<Flex
+				w="100%"
+				flexWrap="wrap"
+				justifyContent={{ lg: 'space-around', '2xl': 'space-between' }}
+			>
 				{FrontendCards.map((card, i) => (
 					<FrontendCard {...card} key={card.name.concat(i.toString())} />
 				))}
@@ -105,34 +113,82 @@ function FrontendCard({
 		<Flex
 			flexDir="column"
 			alignItems="flex-start"
-			w={{ base: '100%', md: '480px' }}
-			h={{ base: '100%', md: '326px' }}
+			w={{ base: '100%', lg: '396px', '2xl': '480px' }}
+			h={{ base: '284px', lg: '374px', '2xl': '326px' }}
 			bg="navy.900"
 			borderWidth="1px"
 			borderStyle="solid"
 			borderRadius="base"
 			borderColor="gray.900"
-			mr="12px"
-			mb="12px"
+			mt="24px"
 			p="24px"
 		>
-			{logo}
-			<Heading my="16px">{name}</Heading>
-			<Text mb="auto" fontSize="14px">
-				{Array.isArray(description) ? (
-					<>
-						{description[0]}{' '}
-						<Link href="mailto: perps@snxdao.io" color="cyan.500">
-							perps@snxdao.io.
-						</Link>
-					</>
-				) : (
-					description
-				)}
-			</Text>
+			<Hide below="sm">
+				{logo}
+				<Heading my="16px" fontSize="18px">
+					{name}
+				</Heading>
+				<Text mb="auto" fontSize="14px">
+					{Array.isArray(description) ? (
+						<>
+							{description[0]}{' '}
+							<Link href="mailto: perps@snxdao.io" color="cyan.500">
+								perps@snxdao.io.
+							</Link>
+						</>
+					) : (
+						description
+					)}
+				</Text>
+			</Hide>
+			<Hide above="sm">
+				<Flex>
+					{logo}
+					<Heading my="16px" fontSize="18px" ml="16px">
+						{name}
+					</Heading>
+				</Flex>
+				<Text mb="auto" fontSize="14px">
+					{Array.isArray(description) ? (
+						<>
+							{description[0]}{' '}
+							<Link href="mailto: perps@snxdao.io" color="cyan.500">
+								perps@snxdao.io.
+							</Link>
+						</>
+					) : (
+						description
+					)}
+				</Text>
+			</Hide>
 			<Button
 				variant={name !== 'Synthetix' ? 'outline' : 'solid'}
 				onClick={() => window.open(link, '_blank', 'noopener,noreferrer')}
+				w={{ base: '100%', lg: '180px' }}
+				size="sm"
+				rightIcon={
+					name === 'Synthetix' ? undefined : (
+						<Icon
+							width="14px"
+							height="14px"
+							viewBox="0 0 14 14"
+							fill="none"
+							xmlns="http://www.w3.org/2000/svg"
+						>
+							<g clip-path="url(#clip0_4786_501)">
+								<path
+									d="M9.07952 4.47127L4.65444 4.47127L4.65445 3.30478L11.071 3.30478L11.071 9.7213L9.90448 9.7213L9.90448 5.29623L4.11717 11.325L3.29221 10.5001L9.07952 4.47127Z"
+									fill="#00D1FF"
+								/>
+							</g>
+							<defs>
+								<clipPath id="clip0_4786_501">
+									<rect width="14" height="14" fill="white" />
+								</clipPath>
+							</defs>
+						</Icon>
+					)
+				}
 			>
 				{name !== 'Synthetix' ? `Visit ${name}` : 'Integrate with Synthetix'}
 			</Button>
