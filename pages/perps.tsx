@@ -21,8 +21,8 @@ export default function DecentralizedPerpetualFutures() {
 					flexDir="column"
 					alignItems="center"
 					w="100vw"
-					bg="radial-gradient(circle at left 600px, rgba(238, 46, 255, 0.2) 4%, transparent, transparent 50%),
-					radial-gradient(circle at right 700px, rgba(0, 209, 255, 0.2) 3%, transparent, transparent 50%)"
+					bg="radial-gradient(circle at left 600px, rgba(238, 46, 255, 0.2) 4%, transparent, transparent 40%),
+					radial-gradient(circle at right 700px, rgba(0, 209, 255, 0.2) 3%, transparent, transparent 40%)"
 				>
 					<Action />
 					<FrontEnds />

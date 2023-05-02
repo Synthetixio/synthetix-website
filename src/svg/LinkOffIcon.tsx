@@ -15,7 +15,7 @@ export default function LinkOffIcon({ white, ...props }: LinkOffIconProps) {
 				xmlns="http://www.w3.org/2000/svg"
 				{...props}
 			>
-				<g clip-path="url(#clip0_4279_6279)">
+				<g clipPath="url(#clip0_4279_6279)">
 					<path
 						d="M10.3765 5.10995L5.31929 5.10995L5.31929 3.77682L12.6525 3.77682L12.6525 11.11L11.3193 11.11L11.3193 6.05276L4.70526 12.9428L3.76245 12L10.3765 5.10995Z"
 						fill="white"

@@ -1022,7 +1022,7 @@ export default function SNXPerpsLooper({ ...props }: SNXPerpsLooperProps) {
 						filterUnits="userSpaceOnUse"
 						colorInterpolationFilters="sRGB"
 					>
-						<feFlood flood-opacity="0" result="BackgroundImageFix" />
+						<feFlood floodOpacity="0" result="BackgroundImageFix" />
 						<feColorMatrix
 							in="SourceAlpha"
 							type="matrix"
@@ -1061,8 +1061,8 @@ export default function SNXPerpsLooper({ ...props }: SNXPerpsLooperProps) {
 						y2="649.728"
 						gradientUnits="userSpaceOnUse"
 					>
-						<stop stop-color="#ED1EFF" />
-						<stop offset="1" stop-color="#00D1FF" />
+						<stop stopColor="#ED1EFF" />
+						<stop offset="1" stopColor="#00D1FF" />
 					</linearGradient>
 					<linearGradient
 						id="paint1_linear_4319_42529"
@@ -1072,8 +1072,8 @@ export default function SNXPerpsLooper({ ...props }: SNXPerpsLooperProps) {
 						y2="647.553"
 						gradientUnits="userSpaceOnUse"
 					>
-						<stop stop-color="#ED1EFF" />
-						<stop offset="1" stop-color="#00D1FF" />
+						<stop stopColor="#ED1EFF" />
+						<stop offset="1" stopColor="#00D1FF" />
 					</linearGradient>
 					<linearGradient
 						id="paint2_linear_4319_42529"
@@ -1083,8 +1083,8 @@ export default function SNXPerpsLooper({ ...props }: SNXPerpsLooperProps) {
 						y2="645.299"
 						gradientUnits="userSpaceOnUse"
 					>
-						<stop stop-color="#ED1EFF" />
-						<stop offset="1" stop-color="#00D1FF" />
+						<stop stopColor="#ED1EFF" />
+						<stop offset="1" stopColor="#00D1FF" />
 					</linearGradient>
 					<linearGradient
 						id="paint3_linear_4319_42529"
@@ -1094,8 +1094,8 @@ export default function SNXPerpsLooper({ ...props }: SNXPerpsLooperProps) {
 						y2="642.966"
 						gradientUnits="userSpaceOnUse"
 					>
-						<stop stop-color="#ED1EFF" />
-						<stop offset="1" stop-color="#00D1FF" />
+						<stop stopColor="#ED1EFF" />
+						<stop offset="1" stopColor="#00D1FF" />
 					</linearGradient>
 					<linearGradient
 						id="paint4_linear_4319_42529"
@@ -1105,8 +1105,8 @@ export default function SNXPerpsLooper({ ...props }: SNXPerpsLooperProps) {
 						y2="640.557"
 						gradientUnits="userSpaceOnUse"
 					>
-						<stop stop-color="#ED1EFF" />
-						<stop offset="1" stop-color="#00D1FF" />
+						<stop stopColor="#ED1EFF" />
+						<stop offset="1" stopColor="#00D1FF" />
 					</linearGradient>
 					<linearGradient
 						id="paint5_linear_4319_42529"
@@ -1116,8 +1116,8 @@ export default function SNXPerpsLooper({ ...props }: SNXPerpsLooperProps) {
 						y2="638.071"
 						gradientUnits="userSpaceOnUse"
 					>
-						<stop stop-color="#ED1EFF" />
-						<stop offset="1" stop-color="#00D1FF" />
+						<stop stopColor="#ED1EFF" />
+						<stop offset="1" stopColor="#00D1FF" />
 					</linearGradient>
 					<linearGradient
 						id="paint6_linear_4319_42529"
@@ -1127,8 +1127,8 @@ export default function SNXPerpsLooper({ ...props }: SNXPerpsLooperProps) {
 						y2="635.513"
 						gradientUnits="userSpaceOnUse"
 					>
-						<stop stop-color="#ED1EFF" />
-						<stop offset="1" stop-color="#00D1FF" />
+						<stop stopColor="#ED1EFF" />
+						<stop offset="1" stopColor="#00D1FF" />
 					</linearGradient>
 					<linearGradient
 						id="paint7_linear_4319_42529"
@@ -1138,8 +1138,8 @@ export default function SNXPerpsLooper({ ...props }: SNXPerpsLooperProps) {
 						y2="632.882"
 						gradientUnits="userSpaceOnUse"
 					>
-						<stop stop-color="#ED1EFF" />
-						<stop offset="1" stop-color="#00D1FF" />
+						<stop stopColor="#ED1EFF" />
+						<stop offset="1" stopColor="#00D1FF" />
 					</linearGradient>
 					<linearGradient
 						id="paint8_linear_4319_42529"
@@ -1149,8 +1149,8 @@ export default function SNXPerpsLooper({ ...props }: SNXPerpsLooperProps) {
 						y2="630.179"
 						gradientUnits="userSpaceOnUse"
 					>
-						<stop stop-color="#ED1EFF" />
-						<stop offset="1" stop-color="#00D1FF" />
+						<stop stopColor="#ED1EFF" />
+						<stop offset="1" stopColor="#00D1FF" />
 					</linearGradient>
 					<linearGradient
 						id="paint9_linear_4319_42529"
@@ -1160,8 +1160,8 @@ export default function SNXPerpsLooper({ ...props }: SNXPerpsLooperProps) {
 						y2="627.408"
 						gradientUnits="userSpaceOnUse"
 					>
-						<stop stop-color="#ED1EFF" />
-						<stop offset="1" stop-color="#00D1FF" />
+						<stop stopColor="#ED1EFF" />
+						<stop offset="1" stopColor="#00D1FF" />
 					</linearGradient>
 					<linearGradient
 						id="paint10_linear_4319_42529"
@@ -1171,8 +1171,8 @@ export default function SNXPerpsLooper({ ...props }: SNXPerpsLooperProps) {
 						y2="624.569"
 						gradientUnits="userSpaceOnUse"
 					>
-						<stop stop-color="#ED1EFF" />
-						<stop offset="1" stop-color="#00D1FF" />
+						<stop stopColor="#ED1EFF" />
+						<stop offset="1" stopColor="#00D1FF" />
 					</linearGradient>
 					<linearGradient
 						id="paint11_linear_4319_42529"
@@ -1182,8 +1182,8 @@ export default function SNXPerpsLooper({ ...props }: SNXPerpsLooperProps) {
 						y2="621.664"
 						gradientUnits="userSpaceOnUse"
 					>
-						<stop stop-color="#ED1EFF" />
-						<stop offset="1" stop-color="#00D1FF" />
+						<stop stopColor="#ED1EFF" />
+						<stop offset="1" stopColor="#00D1FF" />
 					</linearGradient>
 					<linearGradient
 						id="paint12_linear_4319_42529"
@@ -1193,8 +1193,8 @@ export default function SNXPerpsLooper({ ...props }: SNXPerpsLooperProps) {
 						y2="618.695"
 						gradientUnits="userSpaceOnUse"
 					>
-						<stop stop-color="#ED1EFF" />
-						<stop offset="1" stop-color="#00D1FF" />
+						<stop stopColor="#ED1EFF" />
+						<stop offset="1" stopColor="#00D1FF" />
 					</linearGradient>
 					<linearGradient
 						id="paint13_linear_4319_42529"
@@ -1204,8 +1204,8 @@ export default function SNXPerpsLooper({ ...props }: SNXPerpsLooperProps) {
 						y2="615.662"
 						gradientUnits="userSpaceOnUse"
 					>
-						<stop stop-color="#ED1EFF" />
-						<stop offset="1" stop-color="#00D1FF" />
+						<stop stopColor="#ED1EFF" />
+						<stop offset="1" stopColor="#00D1FF" />
 					</linearGradient>
 					<linearGradient
 						id="paint14_linear_4319_42529"
@@ -1215,8 +1215,8 @@ export default function SNXPerpsLooper({ ...props }: SNXPerpsLooperProps) {
 						y2="612.57"
 						gradientUnits="userSpaceOnUse"
 					>
-						<stop stop-color="#ED1EFF" />
-						<stop offset="1" stop-color="#00D1FF" />
+						<stop stopColor="#ED1EFF" />
+						<stop offset="1" stopColor="#00D1FF" />
 					</linearGradient>
 					<linearGradient
 						id="paint15_linear_4319_42529"
@@ -1226,8 +1226,8 @@ export default function SNXPerpsLooper({ ...props }: SNXPerpsLooperProps) {
 						y2="609.417"
 						gradientUnits="userSpaceOnUse"
 					>
-						<stop stop-color="#ED1EFF" />
-						<stop offset="1" stop-color="#00D1FF" />
+						<stop stopColor="#ED1EFF" />
+						<stop offset="1" stopColor="#00D1FF" />
 					</linearGradient>
 					<linearGradient
 						id="paint16_linear_4319_42529"
@@ -1237,8 +1237,8 @@ export default function SNXPerpsLooper({ ...props }: SNXPerpsLooperProps) {
 						y2="606.207"
 						gradientUnits="userSpaceOnUse"
 					>
-						<stop stop-color="#ED1EFF" />
-						<stop offset="1" stop-color="#00D1FF" />
+						<stop stopColor="#ED1EFF" />
+						<stop offset="1" stopColor="#00D1FF" />
 					</linearGradient>
 					<linearGradient
 						id="paint17_linear_4319_42529"
@@ -1248,8 +1248,8 @@ export default function SNXPerpsLooper({ ...props }: SNXPerpsLooperProps) {
 						y2="602.941"
 						gradientUnits="userSpaceOnUse"
 					>
-						<stop stop-color="#ED1EFF" />
-						<stop offset="1" stop-color="#00D1FF" />
+						<stop stopColor="#ED1EFF" />
+						<stop offset="1" stopColor="#00D1FF" />
 					</linearGradient>
 					<linearGradient
 						id="paint18_linear_4319_42529"
@@ -1259,8 +1259,8 @@ export default function SNXPerpsLooper({ ...props }: SNXPerpsLooperProps) {
 						y2="599.622"
 						gradientUnits="userSpaceOnUse"
 					>
-						<stop stop-color="#ED1EFF" />
-						<stop offset="1" stop-color="#00D1FF" />
+						<stop stopColor="#ED1EFF" />
+						<stop offset="1" stopColor="#00D1FF" />
 					</linearGradient>
 					<linearGradient
 						id="paint19_linear_4319_42529"
@@ -1270,8 +1270,8 @@ export default function SNXPerpsLooper({ ...props }: SNXPerpsLooperProps) {
 						y2="596.25"
 						gradientUnits="userSpaceOnUse"
 					>
-						<stop stop-color="#ED1EFF" />
-						<stop offset="1" stop-color="#00D1FF" />
+						<stop stopColor="#ED1EFF" />
+						<stop offset="1" stopColor="#00D1FF" />
 					</linearGradient>
 					<linearGradient
 						id="paint20_linear_4319_42529"
@@ -1281,8 +1281,8 @@ export default function SNXPerpsLooper({ ...props }: SNXPerpsLooperProps) {
 						y2="592.827"
 						gradientUnits="userSpaceOnUse"
 					>
-						<stop stop-color="#ED1EFF" />
-						<stop offset="1" stop-color="#00D1FF" />
+						<stop stopColor="#ED1EFF" />
+						<stop offset="1" stopColor="#00D1FF" />
 					</linearGradient>
 					<linearGradient
 						id="paint21_linear_4319_42529"
@@ -1292,8 +1292,8 @@ export default function SNXPerpsLooper({ ...props }: SNXPerpsLooperProps) {
 						y2="589.356"
 						gradientUnits="userSpaceOnUse"
 					>
-						<stop stop-color="#ED1EFF" />
-						<stop offset="1" stop-color="#00D1FF" />
+						<stop stopColor="#ED1EFF" />
+						<stop offset="1" stopColor="#00D1FF" />
 					</linearGradient>
 					<linearGradient
 						id="paint22_linear_4319_42529"
@@ -1303,8 +1303,8 @@ export default function SNXPerpsLooper({ ...props }: SNXPerpsLooperProps) {
 						y2="585.837"
 						gradientUnits="userSpaceOnUse"
 					>
-						<stop stop-color="#ED1EFF" />
-						<stop offset="1" stop-color="#00D1FF" />
+						<stop stopColor="#ED1EFF" />
+						<stop offset="1" stopColor="#00D1FF" />
 					</linearGradient>
 					<linearGradient
 						id="paint23_linear_4319_42529"
@@ -1314,8 +1314,8 @@ export default function SNXPerpsLooper({ ...props }: SNXPerpsLooperProps) {
 						y2="582.274"
 						gradientUnits="userSpaceOnUse"
 					>
-						<stop stop-color="#ED1EFF" />
-						<stop offset="1" stop-color="#00D1FF" />
+						<stop stopColor="#ED1EFF" />
+						<stop offset="1" stopColor="#00D1FF" />
 					</linearGradient>
 					<linearGradient
 						id="paint24_linear_4319_42529"
@@ -1325,8 +1325,8 @@ export default function SNXPerpsLooper({ ...props }: SNXPerpsLooperProps) {
 						y2="578.667"
 						gradientUnits="userSpaceOnUse"
 					>
-						<stop stop-color="#ED1EFF" />
-						<stop offset="1" stop-color="#00D1FF" />
+						<stop stopColor="#ED1EFF" />
+						<stop offset="1" stopColor="#00D1FF" />
 					</linearGradient>
 					<linearGradient
 						id="paint25_linear_4319_42529"
@@ -1336,8 +1336,8 @@ export default function SNXPerpsLooper({ ...props }: SNXPerpsLooperProps) {
 						y2="575.018"
 						gradientUnits="userSpaceOnUse"
 					>
-						<stop stop-color="#ED1EFF" />
-						<stop offset="1" stop-color="#00D1FF" />
+						<stop stopColor="#ED1EFF" />
+						<stop offset="1" stopColor="#00D1FF" />
 					</linearGradient>
 					<linearGradient
 						id="paint26_linear_4319_42529"
@@ -1347,8 +1347,8 @@ export default function SNXPerpsLooper({ ...props }: SNXPerpsLooperProps) {
 						y2="571.33"
 						gradientUnits="userSpaceOnUse"
 					>
-						<stop stop-color="#ED1EFF" />
-						<stop offset="1" stop-color="#00D1FF" />
+						<stop stopColor="#ED1EFF" />
+						<stop offset="1" stopColor="#00D1FF" />
 					</linearGradient>
 					<linearGradient
 						id="paint27_linear_4319_42529"
@@ -1358,8 +1358,8 @@ export default function SNXPerpsLooper({ ...props }: SNXPerpsLooperProps) {
 						y2="567.604"
 						gradientUnits="userSpaceOnUse"
 					>
-						<stop stop-color="#ED1EFF" />
-						<stop offset="1" stop-color="#00D1FF" />
+						<stop stopColor="#ED1EFF" />
+						<stop offset="1" stopColor="#00D1FF" />
 					</linearGradient>
 					<linearGradient
 						id="paint28_linear_4319_42529"
@@ -1369,8 +1369,8 @@ export default function SNXPerpsLooper({ ...props }: SNXPerpsLooperProps) {
 						y2="563.842"
 						gradientUnits="userSpaceOnUse"
 					>
-						<stop stop-color="#ED1EFF" />
-						<stop offset="1" stop-color="#00D1FF" />
+						<stop stopColor="#ED1EFF" />
+						<stop offset="1" stopColor="#00D1FF" />
 					</linearGradient>
 					<linearGradient
 						id="paint29_linear_4319_42529"
@@ -1380,8 +1380,8 @@ export default function SNXPerpsLooper({ ...props }: SNXPerpsLooperProps) {
 						y2="560.045"
 						gradientUnits="userSpaceOnUse"
 					>
-						<stop stop-color="#ED1EFF" />
-						<stop offset="1" stop-color="#00D1FF" />
+						<stop stopColor="#ED1EFF" />
+						<stop offset="1" stopColor="#00D1FF" />
 					</linearGradient>
 					<linearGradient
 						id="paint30_linear_4319_42529"
@@ -1391,8 +1391,8 @@ export default function SNXPerpsLooper({ ...props }: SNXPerpsLooperProps) {
 						y2="556.217"
 						gradientUnits="userSpaceOnUse"
 					>
-						<stop stop-color="#ED1EFF" />
-						<stop offset="1" stop-color="#00D1FF" />
+						<stop stopColor="#ED1EFF" />
+						<stop offset="1" stopColor="#00D1FF" />
 					</linearGradient>
 					<linearGradient
 						id="paint31_linear_4319_42529"
@@ -1402,8 +1402,8 @@ export default function SNXPerpsLooper({ ...props }: SNXPerpsLooperProps) {
 						y2="552.358"
 						gradientUnits="userSpaceOnUse"
 					>
-						<stop stop-color="#ED1EFF" />
-						<stop offset="1" stop-color="#00D1FF" />
+						<stop stopColor="#ED1EFF" />
+						<stop offset="1" stopColor="#00D1FF" />
 					</linearGradient>
 					<linearGradient
 						id="paint32_linear_4319_42529"
@@ -1413,8 +1413,8 @@ export default function SNXPerpsLooper({ ...props }: SNXPerpsLooperProps) {
 						y2="548.47"
 						gradientUnits="userSpaceOnUse"
 					>
-						<stop stop-color="#ED1EFF" />
-						<stop offset="1" stop-color="#00D1FF" />
+						<stop stopColor="#ED1EFF" />
+						<stop offset="1" stopColor="#00D1FF" />
 					</linearGradient>
 					<linearGradient
 						id="paint33_linear_4319_42529"
@@ -1424,8 +1424,8 @@ export default function SNXPerpsLooper({ ...props }: SNXPerpsLooperProps) {
 						y2="544.556"
 						gradientUnits="userSpaceOnUse"
 					>
-						<stop stop-color="#ED1EFF" />
-						<stop offset="1" stop-color="#00D1FF" />
+						<stop stopColor="#ED1EFF" />
+						<stop offset="1" stopColor="#00D1FF" />
 					</linearGradient>
 					<linearGradient
 						id="paint34_linear_4319_42529"
@@ -1435,8 +1435,8 @@ export default function SNXPerpsLooper({ ...props }: SNXPerpsLooperProps) {
 						y2="540.616"
 						gradientUnits="userSpaceOnUse"
 					>
-						<stop stop-color="#ED1EFF" />
-						<stop offset="1" stop-color="#00D1FF" />
+						<stop stopColor="#ED1EFF" />
+						<stop offset="1" stopColor="#00D1FF" />
 					</linearGradient>
 					<linearGradient
 						id="paint35_linear_4319_42529"
@@ -1446,8 +1446,8 @@ export default function SNXPerpsLooper({ ...props }: SNXPerpsLooperProps) {
 						y2="536.654"
 						gradientUnits="userSpaceOnUse"
 					>
-						<stop stop-color="#ED1EFF" />
-						<stop offset="1" stop-color="#00D1FF" />
+						<stop stopColor="#ED1EFF" />
+						<stop offset="1" stopColor="#00D1FF" />
 					</linearGradient>
 					<linearGradient
 						id="paint36_linear_4319_42529"
@@ -1457,8 +1457,8 @@ export default function SNXPerpsLooper({ ...props }: SNXPerpsLooperProps) {
 						y2="532.67"
 						gradientUnits="userSpaceOnUse"
 					>
-						<stop stop-color="#ED1EFF" />
-						<stop offset="1" stop-color="#00D1FF" />
+						<stop stopColor="#ED1EFF" />
+						<stop offset="1" stopColor="#00D1FF" />
 					</linearGradient>
 					<linearGradient
 						id="paint37_linear_4319_42529"
@@ -1468,8 +1468,8 @@ export default function SNXPerpsLooper({ ...props }: SNXPerpsLooperProps) {
 						y2="528.668"
 						gradientUnits="userSpaceOnUse"
 					>
-						<stop stop-color="#ED1EFF" />
-						<stop offset="1" stop-color="#00D1FF" />
+						<stop stopColor="#ED1EFF" />
+						<stop offset="1" stopColor="#00D1FF" />
 					</linearGradient>
 					<linearGradient
 						id="paint38_linear_4319_42529"
@@ -1479,8 +1479,8 @@ export default function SNXPerpsLooper({ ...props }: SNXPerpsLooperProps) {
 						y2="524.647"
 						gradientUnits="userSpaceOnUse"
 					>
-						<stop stop-color="#ED1EFF" />
-						<stop offset="1" stop-color="#00D1FF" />
+						<stop stopColor="#ED1EFF" />
+						<stop offset="1" stopColor="#00D1FF" />
 					</linearGradient>
 					<linearGradient
 						id="paint39_linear_4319_42529"
@@ -1490,8 +1490,8 @@ export default function SNXPerpsLooper({ ...props }: SNXPerpsLooperProps) {
 						y2="520.611"
 						gradientUnits="userSpaceOnUse"
 					>
-						<stop stop-color="#ED1EFF" />
-						<stop offset="1" stop-color="#00D1FF" />
+						<stop stopColor="#ED1EFF" />
+						<stop offset="1" stopColor="#00D1FF" />
 					</linearGradient>
 					<linearGradient
 						id="paint40_linear_4319_42529"
@@ -1501,8 +1501,8 @@ export default function SNXPerpsLooper({ ...props }: SNXPerpsLooperProps) {
 						y2="516.562"
 						gradientUnits="userSpaceOnUse"
 					>
-						<stop stop-color="#ED1EFF" />
-						<stop offset="1" stop-color="#00D1FF" />
+						<stop stopColor="#ED1EFF" />
+						<stop offset="1" stopColor="#00D1FF" />
 					</linearGradient>
 					<linearGradient
 						id="paint41_linear_4319_42529"
@@ -1512,8 +1512,8 @@ export default function SNXPerpsLooper({ ...props }: SNXPerpsLooperProps) {
 						y2="512.501"
 						gradientUnits="userSpaceOnUse"
 					>
-						<stop stop-color="#ED1EFF" />
-						<stop offset="1" stop-color="#00D1FF" />
+						<stop stopColor="#ED1EFF" />
+						<stop offset="1" stopColor="#00D1FF" />
 					</linearGradient>
 					<linearGradient
 						id="paint42_linear_4319_42529"
@@ -1523,8 +1523,8 @@ export default function SNXPerpsLooper({ ...props }: SNXPerpsLooperProps) {
 						y2="508.429"
 						gradientUnits="userSpaceOnUse"
 					>
-						<stop stop-color="#ED1EFF" />
-						<stop offset="1" stop-color="#00D1FF" />
+						<stop stopColor="#ED1EFF" />
+						<stop offset="1" stopColor="#00D1FF" />
 					</linearGradient>
 					<linearGradient
 						id="paint43_linear_4319_42529"
@@ -1534,8 +1534,8 @@ export default function SNXPerpsLooper({ ...props }: SNXPerpsLooperProps) {
 						y2="504.349"
 						gradientUnits="userSpaceOnUse"
 					>
-						<stop stop-color="#ED1EFF" />
-						<stop offset="1" stop-color="#00D1FF" />
+						<stop stopColor="#ED1EFF" />
+						<stop offset="1" stopColor="#00D1FF" />
 					</linearGradient>
 					<linearGradient
 						id="paint44_linear_4319_42529"
@@ -1545,8 +1545,8 @@ export default function SNXPerpsLooper({ ...props }: SNXPerpsLooperProps) {
 						y2="500.262"
 						gradientUnits="userSpaceOnUse"
 					>
-						<stop stop-color="#ED1EFF" />
-						<stop offset="1" stop-color="#00D1FF" />
+						<stop stopColor="#ED1EFF" />
+						<stop offset="1" stopColor="#00D1FF" />
 					</linearGradient>
 					<linearGradient
 						id="paint45_linear_4319_42529"
@@ -1556,8 +1556,8 @@ export default function SNXPerpsLooper({ ...props }: SNXPerpsLooperProps) {
 						y2="496.171"
 						gradientUnits="userSpaceOnUse"
 					>
-						<stop stop-color="#ED1EFF" />
-						<stop offset="1" stop-color="#00D1FF" />
+						<stop stopColor="#ED1EFF" />
+						<stop offset="1" stopColor="#00D1FF" />
 					</linearGradient>
 					<linearGradient
 						id="paint46_linear_4319_42529"
@@ -1567,8 +1567,8 @@ export default function SNXPerpsLooper({ ...props }: SNXPerpsLooperProps) {
 						y2="492.078"
 						gradientUnits="userSpaceOnUse"
 					>
-						<stop stop-color="#ED1EFF" />
-						<stop offset="1" stop-color="#00D1FF" />
+						<stop stopColor="#ED1EFF" />
+						<stop offset="1" stopColor="#00D1FF" />
 					</linearGradient>
 					<linearGradient
 						id="paint47_linear_4319_42529"
@@ -1578,8 +1578,8 @@ export default function SNXPerpsLooper({ ...props }: SNXPerpsLooperProps) {
 						y2="487.983"
 						gradientUnits="userSpaceOnUse"
 					>
-						<stop stop-color="#ED1EFF" />
-						<stop offset="1" stop-color="#00D1FF" />
+						<stop stopColor="#ED1EFF" />
+						<stop offset="1" stopColor="#00D1FF" />
 					</linearGradient>
 					<linearGradient
 						id="paint48_linear_4319_42529"
@@ -1589,8 +1589,8 @@ export default function SNXPerpsLooper({ ...props }: SNXPerpsLooperProps) {
 						y2="483.889"
 						gradientUnits="userSpaceOnUse"
 					>
-						<stop stop-color="#ED1EFF" />
-						<stop offset="1" stop-color="#00D1FF" />
+						<stop stopColor="#ED1EFF" />
+						<stop offset="1" stopColor="#00D1FF" />
 					</linearGradient>
 					<linearGradient
 						id="paint49_linear_4319_42529"
@@ -1600,8 +1600,8 @@ export default function SNXPerpsLooper({ ...props }: SNXPerpsLooperProps) {
 						y2="479.797"
 						gradientUnits="userSpaceOnUse"
 					>
-						<stop stop-color="#ED1EFF" />
-						<stop offset="1" stop-color="#00D1FF" />
+						<stop stopColor="#ED1EFF" />
+						<stop offset="1" stopColor="#00D1FF" />
 					</linearGradient>
 					<linearGradient
 						id="paint50_linear_4319_42529"
@@ -1611,8 +1611,8 @@ export default function SNXPerpsLooper({ ...props }: SNXPerpsLooperProps) {
 						y2="475.71"
 						gradientUnits="userSpaceOnUse"
 					>
-						<stop stop-color="#ED1EFF" />
-						<stop offset="1" stop-color="#00D1FF" />
+						<stop stopColor="#ED1EFF" />
+						<stop offset="1" stopColor="#00D1FF" />
 					</linearGradient>
 					<linearGradient
 						id="paint51_linear_4319_42529"
@@ -1622,8 +1622,8 @@ export default function SNXPerpsLooper({ ...props }: SNXPerpsLooperProps) {
 						y2="471.629"
 						gradientUnits="userSpaceOnUse"
 					>
-						<stop stop-color="#ED1EFF" />
-						<stop offset="1" stop-color="#00D1FF" />
+						<stop stopColor="#ED1EFF" />
+						<stop offset="1" stopColor="#00D1FF" />
 					</linearGradient>
 					<linearGradient
 						id="paint52_linear_4319_42529"
@@ -1633,8 +1633,8 @@ export default function SNXPerpsLooper({ ...props }: SNXPerpsLooperProps) {
 						y2="467.555"
 						gradientUnits="userSpaceOnUse"
 					>
-						<stop stop-color="#ED1EFF" />
-						<stop offset="1" stop-color="#00D1FF" />
+						<stop stopColor="#ED1EFF" />
+						<stop offset="1" stopColor="#00D1FF" />
 					</linearGradient>
 					<linearGradient
 						id="paint53_linear_4319_42529"
@@ -1644,8 +1644,8 @@ export default function SNXPerpsLooper({ ...props }: SNXPerpsLooperProps) {
 						y2="463.491"
 						gradientUnits="userSpaceOnUse"
 					>
-						<stop stop-color="#ED1EFF" />
-						<stop offset="1" stop-color="#00D1FF" />
+						<stop stopColor="#ED1EFF" />
+						<stop offset="1" stopColor="#00D1FF" />
 					</linearGradient>
 					<linearGradient
 						id="paint54_linear_4319_42529"
@@ -1655,8 +1655,8 @@ export default function SNXPerpsLooper({ ...props }: SNXPerpsLooperProps) {
 						y2="459.438"
 						gradientUnits="userSpaceOnUse"
 					>
-						<stop stop-color="#ED1EFF" />
-						<stop offset="1" stop-color="#00D1FF" />
+						<stop stopColor="#ED1EFF" />
+						<stop offset="1" stopColor="#00D1FF" />
 					</linearGradient>
 					<linearGradient
 						id="paint55_linear_4319_42529"
@@ -1666,8 +1666,8 @@ export default function SNXPerpsLooper({ ...props }: SNXPerpsLooperProps) {
 						y2="455.398"
 						gradientUnits="userSpaceOnUse"
 					>
-						<stop stop-color="#ED1EFF" />
-						<stop offset="1" stop-color="#00D1FF" />
+						<stop stopColor="#ED1EFF" />
+						<stop offset="1" stopColor="#00D1FF" />
 					</linearGradient>
 					<linearGradient
 						id="paint56_linear_4319_42529"
@@ -1677,8 +1677,8 @@ export default function SNXPerpsLooper({ ...props }: SNXPerpsLooperProps) {
 						y2="451.372"
 						gradientUnits="userSpaceOnUse"
 					>
-						<stop stop-color="#ED1EFF" />
-						<stop offset="1" stop-color="#00D1FF" />
+						<stop stopColor="#ED1EFF" />
+						<stop offset="1" stopColor="#00D1FF" />
 					</linearGradient>
 					<linearGradient
 						id="paint57_linear_4319_42529"
@@ -1688,8 +1688,8 @@ export default function SNXPerpsLooper({ ...props }: SNXPerpsLooperProps) {
 						y2="447.363"
 						gradientUnits="userSpaceOnUse"
 					>
-						<stop stop-color="#ED1EFF" />
-						<stop offset="1" stop-color="#00D1FF" />
+						<stop stopColor="#ED1EFF" />
+						<stop offset="1" stopColor="#00D1FF" />
 					</linearGradient>
 					<linearGradient
 						id="paint58_linear_4319_42529"
@@ -1699,8 +1699,8 @@ export default function SNXPerpsLooper({ ...props }: SNXPerpsLooperProps) {
 						y2="443.371"
 						gradientUnits="userSpaceOnUse"
 					>
-						<stop stop-color="#ED1EFF" />
-						<stop offset="1" stop-color="#00D1FF" />
+						<stop stopColor="#ED1EFF" />
+						<stop offset="1" stopColor="#00D1FF" />
 					</linearGradient>
 					<linearGradient
 						id="paint59_linear_4319_42529"
@@ -1710,8 +1710,8 @@ export default function SNXPerpsLooper({ ...props }: SNXPerpsLooperProps) {
 						y2="439.398"
 						gradientUnits="userSpaceOnUse"
 					>
-						<stop stop-color="#ED1EFF" />
-						<stop offset="1" stop-color="#00D1FF" />
+						<stop stopColor="#ED1EFF" />
+						<stop offset="1" stopColor="#00D1FF" />
 					</linearGradient>
 					<linearGradient
 						id="paint60_linear_4319_42529"
@@ -1721,8 +1721,8 @@ export default function SNXPerpsLooper({ ...props }: SNXPerpsLooperProps) {
 						y2="435.447"
 						gradientUnits="userSpaceOnUse"
 					>
-						<stop stop-color="#ED1EFF" />
-						<stop offset="1" stop-color="#00D1FF" />
+						<stop stopColor="#ED1EFF" />
+						<stop offset="1" stopColor="#00D1FF" />
 					</linearGradient>
 					<linearGradient
 						id="paint61_linear_4319_42529"
@@ -1732,8 +1732,8 @@ export default function SNXPerpsLooper({ ...props }: SNXPerpsLooperProps) {
 						y2="431.518"
 						gradientUnits="userSpaceOnUse"
 					>
-						<stop stop-color="#ED1EFF" />
-						<stop offset="1" stop-color="#00D1FF" />
+						<stop stopColor="#ED1EFF" />
+						<stop offset="1" stopColor="#00D1FF" />
 					</linearGradient>
 					<linearGradient
 						id="paint62_linear_4319_42529"
@@ -1743,8 +1743,8 @@ export default function SNXPerpsLooper({ ...props }: SNXPerpsLooperProps) {
 						y2="427.613"
 						gradientUnits="userSpaceOnUse"
 					>
-						<stop stop-color="#ED1EFF" />
-						<stop offset="1" stop-color="#00D1FF" />
+						<stop stopColor="#ED1EFF" />
+						<stop offset="1" stopColor="#00D1FF" />
 					</linearGradient>
 					<linearGradient
 						id="paint63_linear_4319_42529"
@@ -1754,8 +1754,8 @@ export default function SNXPerpsLooper({ ...props }: SNXPerpsLooperProps) {
 						y2="423.733"
 						gradientUnits="userSpaceOnUse"
 					>
-						<stop stop-color="#ED1EFF" />
-						<stop offset="1" stop-color="#00D1FF" />
+						<stop stopColor="#ED1EFF" />
+						<stop offset="1" stopColor="#00D1FF" />
 					</linearGradient>
 					<linearGradient
 						id="paint64_linear_4319_42529"
@@ -1765,8 +1765,8 @@ export default function SNXPerpsLooper({ ...props }: SNXPerpsLooperProps) {
 						y2="419.881"
 						gradientUnits="userSpaceOnUse"
 					>
-						<stop stop-color="#ED1EFF" />
-						<stop offset="1" stop-color="#00D1FF" />
+						<stop stopColor="#ED1EFF" />
+						<stop offset="1" stopColor="#00D1FF" />
 					</linearGradient>
 					<linearGradient
 						id="paint65_linear_4319_42529"
@@ -1776,8 +1776,8 @@ export default function SNXPerpsLooper({ ...props }: SNXPerpsLooperProps) {
 						y2="416.058"
 						gradientUnits="userSpaceOnUse"
 					>
-						<stop stop-color="#ED1EFF" />
-						<stop offset="1" stop-color="#00D1FF" />
+						<stop stopColor="#ED1EFF" />
+						<stop offset="1" stopColor="#00D1FF" />
 					</linearGradient>
 					<linearGradient
 						id="paint66_linear_4319_42529"
@@ -1787,8 +1787,8 @@ export default function SNXPerpsLooper({ ...props }: SNXPerpsLooperProps) {
 						y2="412.264"
 						gradientUnits="userSpaceOnUse"
 					>
-						<stop stop-color="#ED1EFF" />
-						<stop offset="1" stop-color="#00D1FF" />
+						<stop stopColor="#ED1EFF" />
+						<stop offset="1" stopColor="#00D1FF" />
 					</linearGradient>
 					<linearGradient
 						id="paint67_linear_4319_42529"
@@ -1798,8 +1798,8 @@ export default function SNXPerpsLooper({ ...props }: SNXPerpsLooperProps) {
 						y2="408.501"
 						gradientUnits="userSpaceOnUse"
 					>
-						<stop stop-color="#ED1EFF" />
-						<stop offset="1" stop-color="#00D1FF" />
+						<stop stopColor="#ED1EFF" />
+						<stop offset="1" stopColor="#00D1FF" />
 					</linearGradient>
 					<linearGradient
 						id="paint68_linear_4319_42529"
@@ -1809,8 +1809,8 @@ export default function SNXPerpsLooper({ ...props }: SNXPerpsLooperProps) {
 						y2="404.773"
 						gradientUnits="userSpaceOnUse"
 					>
-						<stop stop-color="#ED1EFF" />
-						<stop offset="1" stop-color="#00D1FF" />
+						<stop stopColor="#ED1EFF" />
+						<stop offset="1" stopColor="#00D1FF" />
 					</linearGradient>
 					<linearGradient
 						id="paint69_linear_4319_42529"
@@ -1820,8 +1820,8 @@ export default function SNXPerpsLooper({ ...props }: SNXPerpsLooperProps) {
 						y2="401.077"
 						gradientUnits="userSpaceOnUse"
 					>
-						<stop stop-color="#ED1EFF" />
-						<stop offset="1" stop-color="#00D1FF" />
+						<stop stopColor="#ED1EFF" />
+						<stop offset="1" stopColor="#00D1FF" />
 					</linearGradient>
 					<linearGradient
 						id="paint70_linear_4319_42529"
@@ -1831,8 +1831,8 @@ export default function SNXPerpsLooper({ ...props }: SNXPerpsLooperProps) {
 						y2="397.418"
 						gradientUnits="userSpaceOnUse"
 					>
-						<stop stop-color="#ED1EFF" />
-						<stop offset="1" stop-color="#00D1FF" />
+						<stop stopColor="#ED1EFF" />
+						<stop offset="1" stopColor="#00D1FF" />
 					</linearGradient>
 					<linearGradient
 						id="paint71_linear_4319_42529"
@@ -1842,8 +1842,8 @@ export default function SNXPerpsLooper({ ...props }: SNXPerpsLooperProps) {
 						y2="393.795"
 						gradientUnits="userSpaceOnUse"
 					>
-						<stop stop-color="#ED1EFF" />
-						<stop offset="1" stop-color="#00D1FF" />
+						<stop stopColor="#ED1EFF" />
+						<stop offset="1" stopColor="#00D1FF" />
 					</linearGradient>
 					<linearGradient
 						id="paint72_linear_4319_42529"
@@ -1853,8 +1853,8 @@ export default function SNXPerpsLooper({ ...props }: SNXPerpsLooperProps) {
 						y2="390.21"
 						gradientUnits="userSpaceOnUse"
 					>
-						<stop stop-color="#ED1EFF" />
-						<stop offset="1" stop-color="#00D1FF" />
+						<stop stopColor="#ED1EFF" />
+						<stop offset="1" stopColor="#00D1FF" />
 					</linearGradient>
 					<linearGradient
 						id="paint73_linear_4319_42529"
@@ -1864,8 +1864,8 @@ export default function SNXPerpsLooper({ ...props }: SNXPerpsLooperProps) {
 						y2="386.664"
 						gradientUnits="userSpaceOnUse"
 					>
-						<stop stop-color="#ED1EFF" />
-						<stop offset="1" stop-color="#00D1FF" />
+						<stop stopColor="#ED1EFF" />
+						<stop offset="1" stopColor="#00D1FF" />
 					</linearGradient>
 					<linearGradient
 						id="paint74_linear_4319_42529"
@@ -1875,8 +1875,8 @@ export default function SNXPerpsLooper({ ...props }: SNXPerpsLooperProps) {
 						y2="383.16"
 						gradientUnits="userSpaceOnUse"
 					>
-						<stop stop-color="#ED1EFF" />
-						<stop offset="1" stop-color="#00D1FF" />
+						<stop stopColor="#ED1EFF" />
+						<stop offset="1" stopColor="#00D1FF" />
 					</linearGradient>
 					<linearGradient
 						id="paint75_linear_4319_42529"
@@ -1886,8 +1886,8 @@ export default function SNXPerpsLooper({ ...props }: SNXPerpsLooperProps) {
 						y2="379.697"
 						gradientUnits="userSpaceOnUse"
 					>
-						<stop stop-color="#ED1EFF" />
-						<stop offset="1" stop-color="#00D1FF" />
+						<stop stopColor="#ED1EFF" />
+						<stop offset="1" stopColor="#00D1FF" />
 					</linearGradient>
 					<linearGradient
 						id="paint76_linear_4319_42529"
@@ -1897,8 +1897,8 @@ export default function SNXPerpsLooper({ ...props }: SNXPerpsLooperProps) {
 						y2="376.277"
 						gradientUnits="userSpaceOnUse"
 					>
-						<stop stop-color="#ED1EFF" />
-						<stop offset="1" stop-color="#00D1FF" />
+						<stop stopColor="#ED1EFF" />
+						<stop offset="1" stopColor="#00D1FF" />
 					</linearGradient>
 					<linearGradient
 						id="paint77_linear_4319_42529"
@@ -1908,8 +1908,8 @@ export default function SNXPerpsLooper({ ...props }: SNXPerpsLooperProps) {
 						y2="372.902"
 						gradientUnits="userSpaceOnUse"
 					>
-						<stop stop-color="#ED1EFF" />
-						<stop offset="1" stop-color="#00D1FF" />
+						<stop stopColor="#ED1EFF" />
+						<stop offset="1" stopColor="#00D1FF" />
 					</linearGradient>
 					<linearGradient
 						id="paint78_linear_4319_42529"
@@ -1919,8 +1919,8 @@ export default function SNXPerpsLooper({ ...props }: SNXPerpsLooperProps) {
 						y2="369.572"
 						gradientUnits="userSpaceOnUse"
 					>
-						<stop stop-color="#ED1EFF" />
-						<stop offset="1" stop-color="#00D1FF" />
+						<stop stopColor="#ED1EFF" />
+						<stop offset="1" stopColor="#00D1FF" />
 					</linearGradient>
 					<linearGradient
 						id="paint79_linear_4319_42529"
@@ -1930,8 +1930,8 @@ export default function SNXPerpsLooper({ ...props }: SNXPerpsLooperProps) {
 						y2="366.289"
 						gradientUnits="userSpaceOnUse"
 					>
-						<stop stop-color="#ED1EFF" />
-						<stop offset="1" stop-color="#00D1FF" />
+						<stop stopColor="#ED1EFF" />
+						<stop offset="1" stopColor="#00D1FF" />
 					</linearGradient>
 					<linearGradient
 						id="paint80_linear_4319_42529"
@@ -1941,8 +1941,8 @@ export default function SNXPerpsLooper({ ...props }: SNXPerpsLooperProps) {
 						y2="363.053"
 						gradientUnits="userSpaceOnUse"
 					>
-						<stop stop-color="#ED1EFF" />
-						<stop offset="1" stop-color="#00D1FF" />
+						<stop stopColor="#ED1EFF" />
+						<stop offset="1" stopColor="#00D1FF" />
 					</linearGradient>
 					<linearGradient
 						id="paint81_linear_4319_42529"
@@ -1952,8 +1952,8 @@ export default function SNXPerpsLooper({ ...props }: SNXPerpsLooperProps) {
 						y2="359.865"
 						gradientUnits="userSpaceOnUse"
 					>
-						<stop stop-color="#ED1EFF" />
-						<stop offset="1" stop-color="#00D1FF" />
+						<stop stopColor="#ED1EFF" />
+						<stop offset="1" stopColor="#00D1FF" />
 					</linearGradient>
 					<linearGradient
 						id="paint82_linear_4319_42529"
@@ -1963,8 +1963,8 @@ export default function SNXPerpsLooper({ ...props }: SNXPerpsLooperProps) {
 						y2="356.726"
 						gradientUnits="userSpaceOnUse"
 					>
-						<stop stop-color="#ED1EFF" />
-						<stop offset="1" stop-color="#00D1FF" />
+						<stop stopColor="#ED1EFF" />
+						<stop offset="1" stopColor="#00D1FF" />
 					</linearGradient>
 					<linearGradient
 						id="paint83_linear_4319_42529"
@@ -1974,8 +1974,8 @@ export default function SNXPerpsLooper({ ...props }: SNXPerpsLooperProps) {
 						y2="353.638"
 						gradientUnits="userSpaceOnUse"
 					>
-						<stop stop-color="#ED1EFF" />
-						<stop offset="1" stop-color="#00D1FF" />
+						<stop stopColor="#ED1EFF" />
+						<stop offset="1" stopColor="#00D1FF" />
 					</linearGradient>
 					<linearGradient
 						id="paint84_linear_4319_42529"
@@ -1985,8 +1985,8 @@ export default function SNXPerpsLooper({ ...props }: SNXPerpsLooperProps) {
 						y2="350.602"
 						gradientUnits="userSpaceOnUse"
 					>
-						<stop stop-color="#ED1EFF" />
-						<stop offset="1" stop-color="#00D1FF" />
+						<stop stopColor="#ED1EFF" />
+						<stop offset="1" stopColor="#00D1FF" />
 					</linearGradient>
 					<linearGradient
 						id="paint85_linear_4319_42529"
@@ -1996,8 +1996,8 @@ export default function SNXPerpsLooper({ ...props }: SNXPerpsLooperProps) {
 						y2="347.618"
 						gradientUnits="userSpaceOnUse"
 					>
-						<stop stop-color="#ED1EFF" />
-						<stop offset="1" stop-color="#00D1FF" />
+						<stop stopColor="#ED1EFF" />
+						<stop offset="1" stopColor="#00D1FF" />
 					</linearGradient>
 					<linearGradient
 						id="paint86_linear_4319_42529"
@@ -2007,8 +2007,8 @@ export default function SNXPerpsLooper({ ...props }: SNXPerpsLooperProps) {
 						y2="344.687"
 						gradientUnits="userSpaceOnUse"
 					>
-						<stop stop-color="#ED1EFF" />
-						<stop offset="1" stop-color="#00D1FF" />
+						<stop stopColor="#ED1EFF" />
+						<stop offset="1" stopColor="#00D1FF" />
 					</linearGradient>
 					<linearGradient
 						id="paint87_linear_4319_42529"
@@ -2018,8 +2018,8 @@ export default function SNXPerpsLooper({ ...props }: SNXPerpsLooperProps) {
 						y2="341.809"
 						gradientUnits="userSpaceOnUse"
 					>
-						<stop stop-color="#ED1EFF" />
-						<stop offset="1" stop-color="#00D1FF" />
+						<stop stopColor="#ED1EFF" />
+						<stop offset="1" stopColor="#00D1FF" />
 					</linearGradient>
 					<linearGradient
 						id="paint88_linear_4319_42529"
@@ -2029,8 +2029,8 @@ export default function SNXPerpsLooper({ ...props }: SNXPerpsLooperProps) {
 						y2="338.988"
 						gradientUnits="userSpaceOnUse"
 					>
-						<stop stop-color="#ED1EFF" />
-						<stop offset="1" stop-color="#00D1FF" />
+						<stop stopColor="#ED1EFF" />
+						<stop offset="1" stopColor="#00D1FF" />
 					</linearGradient>
 					<linearGradient
 						id="paint89_linear_4319_42529"
@@ -2040,8 +2040,8 @@ export default function SNXPerpsLooper({ ...props }: SNXPerpsLooperProps) {
 						y2="336.22"
 						gradientUnits="userSpaceOnUse"
 					>
-						<stop stop-color="#ED1EFF" />
-						<stop offset="1" stop-color="#00D1FF" />
+						<stop stopColor="#ED1EFF" />
+						<stop offset="1" stopColor="#00D1FF" />
 					</linearGradient>
 					<linearGradient
 						id="paint90_linear_4319_42529"
@@ -2051,8 +2051,8 @@ export default function SNXPerpsLooper({ ...props }: SNXPerpsLooperProps) {
 						y2="333.509"
 						gradientUnits="userSpaceOnUse"
 					>
-						<stop stop-color="#ED1EFF" />
-						<stop offset="1" stop-color="#00D1FF" />
+						<stop stopColor="#ED1EFF" />
+						<stop offset="1" stopColor="#00D1FF" />
 					</linearGradient>
 					<linearGradient
 						id="paint91_linear_4319_42529"
@@ -2062,8 +2062,8 @@ export default function SNXPerpsLooper({ ...props }: SNXPerpsLooperProps) {
 						y2="330.856"
 						gradientUnits="userSpaceOnUse"
 					>
-						<stop stop-color="#ED1EFF" />
-						<stop offset="1" stop-color="#00D1FF" />
+						<stop stopColor="#ED1EFF" />
+						<stop offset="1" stopColor="#00D1FF" />
 					</linearGradient>
 					<linearGradient
 						id="paint92_linear_4319_42529"
@@ -2073,8 +2073,8 @@ export default function SNXPerpsLooper({ ...props }: SNXPerpsLooperProps) {
 						y2="328.259"
 						gradientUnits="userSpaceOnUse"
 					>
-						<stop stop-color="#ED1EFF" />
-						<stop offset="1" stop-color="#00D1FF" />
+						<stop stopColor="#ED1EFF" />
+						<stop offset="1" stopColor="#00D1FF" />
 					</linearGradient>
 					<linearGradient
 						id="paint93_linear_4319_42529"
@@ -2084,8 +2084,8 @@ export default function SNXPerpsLooper({ ...props }: SNXPerpsLooperProps) {
 						y2="325.721"
 						gradientUnits="userSpaceOnUse"
 					>
-						<stop stop-color="#ED1EFF" />
-						<stop offset="1" stop-color="#00D1FF" />
+						<stop stopColor="#ED1EFF" />
+						<stop offset="1" stopColor="#00D1FF" />
 					</linearGradient>
 					<linearGradient
 						id="paint94_linear_4319_42529"
@@ -2095,8 +2095,8 @@ export default function SNXPerpsLooper({ ...props }: SNXPerpsLooperProps) {
 						y2="323.241"
 						gradientUnits="userSpaceOnUse"
 					>
-						<stop stop-color="#ED1EFF" />
-						<stop offset="1" stop-color="#00D1FF" />
+						<stop stopColor="#ED1EFF" />
+						<stop offset="1" stopColor="#00D1FF" />
 					</linearGradient>
 					<linearGradient
 						id="paint95_linear_4319_42529"
@@ -2106,8 +2106,8 @@ export default function SNXPerpsLooper({ ...props }: SNXPerpsLooperProps) {
 						y2="320.821"
 						gradientUnits="userSpaceOnUse"
 					>
-						<stop stop-color="#ED1EFF" />
-						<stop offset="1" stop-color="#00D1FF" />
+						<stop stopColor="#ED1EFF" />
+						<stop offset="1" stopColor="#00D1FF" />
 					</linearGradient>
 					<linearGradient
 						id="paint96_linear_4319_42529"
@@ -2117,8 +2117,8 @@ export default function SNXPerpsLooper({ ...props }: SNXPerpsLooperProps) {
 						y2="318.46"
 						gradientUnits="userSpaceOnUse"
 					>
-						<stop stop-color="#ED1EFF" />
-						<stop offset="1" stop-color="#00D1FF" />
+						<stop stopColor="#ED1EFF" />
+						<stop offset="1" stopColor="#00D1FF" />
 					</linearGradient>
 					<linearGradient
 						id="paint97_linear_4319_42529"
@@ -2128,8 +2128,8 @@ export default function SNXPerpsLooper({ ...props }: SNXPerpsLooperProps) {
 						y2="316.16"
 						gradientUnits="userSpaceOnUse"
 					>
-						<stop stop-color="#ED1EFF" />
-						<stop offset="1" stop-color="#00D1FF" />
+						<stop stopColor="#ED1EFF" />
+						<stop offset="1" stopColor="#00D1FF" />
 					</linearGradient>
 					<linearGradient
 						id="paint98_linear_4319_42529"
@@ -2139,8 +2139,8 @@ export default function SNXPerpsLooper({ ...props }: SNXPerpsLooperProps) {
 						y2="313.92"
 						gradientUnits="userSpaceOnUse"
 					>
-						<stop stop-color="#ED1EFF" />
-						<stop offset="1" stop-color="#00D1FF" />
+						<stop stopColor="#ED1EFF" />
+						<stop offset="1" stopColor="#00D1FF" />
 					</linearGradient>
 					<clipPath id="clip0_4319_42529">
 						<rect
@@ -3171,7 +3171,7 @@ export default function SNXPerpsLooper({ ...props }: SNXPerpsLooperProps) {
 					filterUnits="userSpaceOnUse"
 					colorInterpolationFilters="sRGB"
 				>
-					<feFlood flood-opacity="0" result="BackgroundImageFix" />
+					<feFlood floodOpacity="0" result="BackgroundImageFix" />
 					<feColorMatrix
 						in="SourceAlpha"
 						type="matrix"
@@ -3210,8 +3210,8 @@ export default function SNXPerpsLooper({ ...props }: SNXPerpsLooperProps) {
 					y2="1231.78"
 					gradientUnits="userSpaceOnUse"
 				>
-					<stop stop-color="#ED1EFF" />
-					<stop offset="1" stop-color="#00D1FF" />
+					<stop stopColor="#ED1EFF" />
+					<stop offset="1" stopColor="#00D1FF" />
 				</linearGradient>
 				<linearGradient
 					id="paint1_linear_2256_25876"
@@ -3221,8 +3221,8 @@ export default function SNXPerpsLooper({ ...props }: SNXPerpsLooperProps) {
 					y2="1227.65"
 					gradientUnits="userSpaceOnUse"
 				>
-					<stop stop-color="#ED1EFF" />
-					<stop offset="1" stop-color="#00D1FF" />
+					<stop stopColor="#ED1EFF" />
+					<stop offset="1" stopColor="#00D1FF" />
 				</linearGradient>
 				<linearGradient
 					id="paint2_linear_2256_25876"
@@ -3232,8 +3232,8 @@ export default function SNXPerpsLooper({ ...props }: SNXPerpsLooperProps) {
 					y2="1223.38"
 					gradientUnits="userSpaceOnUse"
 				>
-					<stop stop-color="#ED1EFF" />
-					<stop offset="1" stop-color="#00D1FF" />
+					<stop stopColor="#ED1EFF" />
+					<stop offset="1" stopColor="#00D1FF" />
 				</linearGradient>
 				<linearGradient
 					id="paint3_linear_2256_25876"
@@ -3243,8 +3243,8 @@ export default function SNXPerpsLooper({ ...props }: SNXPerpsLooperProps) {
 					y2="1218.96"
 					gradientUnits="userSpaceOnUse"
 				>
-					<stop stop-color="#ED1EFF" />
-					<stop offset="1" stop-color="#00D1FF" />
+					<stop stopColor="#ED1EFF" />
+					<stop offset="1" stopColor="#00D1FF" />
 				</linearGradient>
 				<linearGradient
 					id="paint4_linear_2256_25876"
@@ -3254,8 +3254,8 @@ export default function SNXPerpsLooper({ ...props }: SNXPerpsLooperProps) {
 					y2="1214.39"
 					gradientUnits="userSpaceOnUse"
 				>
-					<stop stop-color="#ED1EFF" />
-					<stop offset="1" stop-color="#00D1FF" />
+					<stop stopColor="#ED1EFF" />
+					<stop offset="1" stopColor="#00D1FF" />
 				</linearGradient>
 				<linearGradient
 					id="paint5_linear_2256_25876"
@@ -3265,8 +3265,8 @@ export default function SNXPerpsLooper({ ...props }: SNXPerpsLooperProps) {
 					y2="1209.68"
 					gradientUnits="userSpaceOnUse"
 				>
-					<stop stop-color="#ED1EFF" />
-					<stop offset="1" stop-color="#00D1FF" />
+					<stop stopColor="#ED1EFF" />
+					<stop offset="1" stopColor="#00D1FF" />
 				</linearGradient>
 				<linearGradient
 					id="paint6_linear_2256_25876"
@@ -3276,8 +3276,8 @@ export default function SNXPerpsLooper({ ...props }: SNXPerpsLooperProps) {
 					y2="1204.83"
 					gradientUnits="userSpaceOnUse"
 				>
-					<stop stop-color="#ED1EFF" />
-					<stop offset="1" stop-color="#00D1FF" />
+					<stop stopColor="#ED1EFF" />
+					<stop offset="1" stopColor="#00D1FF" />
 				</linearGradient>
 				<linearGradient
 					id="paint7_linear_2256_25876"
@@ -3287,8 +3287,8 @@ export default function SNXPerpsLooper({ ...props }: SNXPerpsLooperProps) {
 					y2="1199.84"
 					gradientUnits="userSpaceOnUse"
 				>
-					<stop stop-color="#ED1EFF" />
-					<stop offset="1" stop-color="#00D1FF" />
+					<stop stopColor="#ED1EFF" />
+					<stop offset="1" stopColor="#00D1FF" />
 				</linearGradient>
 				<linearGradient
 					id="paint8_linear_2256_25876"
@@ -3298,8 +3298,8 @@ export default function SNXPerpsLooper({ ...props }: SNXPerpsLooperProps) {
 					y2="1194.72"
 					gradientUnits="userSpaceOnUse"
 				>
-					<stop stop-color="#ED1EFF" />
-					<stop offset="1" stop-color="#00D1FF" />
+					<stop stopColor="#ED1EFF" />
+					<stop offset="1" stopColor="#00D1FF" />
 				</linearGradient>
 				<linearGradient
 					id="paint9_linear_2256_25876"
@@ -3309,8 +3309,8 @@ export default function SNXPerpsLooper({ ...props }: SNXPerpsLooperProps) {
 					y2="1189.46"
 					gradientUnits="userSpaceOnUse"
 				>
-					<stop stop-color="#ED1EFF" />
-					<stop offset="1" stop-color="#00D1FF" />
+					<stop stopColor="#ED1EFF" />
+					<stop offset="1" stopColor="#00D1FF" />
 				</linearGradient>
 				<linearGradient
 					id="paint10_linear_2256_25876"
@@ -3320,8 +3320,8 @@ export default function SNXPerpsLooper({ ...props }: SNXPerpsLooperProps) {
 					y2="1184.08"
 					gradientUnits="userSpaceOnUse"
 				>
-					<stop stop-color="#ED1EFF" />
-					<stop offset="1" stop-color="#00D1FF" />
+					<stop stopColor="#ED1EFF" />
+					<stop offset="1" stopColor="#00D1FF" />
 				</linearGradient>
 				<linearGradient
 					id="paint11_linear_2256_25876"
@@ -3331,8 +3331,8 @@ export default function SNXPerpsLooper({ ...props }: SNXPerpsLooperProps) {
 					y2="1178.57"
 					gradientUnits="userSpaceOnUse"
 				>
-					<stop stop-color="#ED1EFF" />
-					<stop offset="1" stop-color="#00D1FF" />
+					<stop stopColor="#ED1EFF" />
+					<stop offset="1" stopColor="#00D1FF" />
 				</linearGradient>
 				<linearGradient
 					id="paint12_linear_2256_25876"
@@ -3342,8 +3342,8 @@ export default function SNXPerpsLooper({ ...props }: SNXPerpsLooperProps) {
 					y2="1172.94"
 					gradientUnits="userSpaceOnUse"
 				>
-					<stop stop-color="#ED1EFF" />
-					<stop offset="1" stop-color="#00D1FF" />
+					<stop stopColor="#ED1EFF" />
+					<stop offset="1" stopColor="#00D1FF" />
 				</linearGradient>
 				<linearGradient
 					id="paint13_linear_2256_25876"
@@ -3353,8 +3353,8 @@ export default function SNXPerpsLooper({ ...props }: SNXPerpsLooperProps) {
 					y2="1167.19"
 					gradientUnits="userSpaceOnUse"
 				>
-					<stop stop-color="#ED1EFF" />
-					<stop offset="1" stop-color="#00D1FF" />
+					<stop stopColor="#ED1EFF" />
+					<stop offset="1" stopColor="#00D1FF" />
 				</linearGradient>
 				<linearGradient
 					id="paint14_linear_2256_25876"
@@ -3364,8 +3364,8 @@ export default function SNXPerpsLooper({ ...props }: SNXPerpsLooperProps) {
 					y2="1161.33"
 					gradientUnits="userSpaceOnUse"
 				>
-					<stop stop-color="#ED1EFF" />
-					<stop offset="1" stop-color="#00D1FF" />
+					<stop stopColor="#ED1EFF" />
+					<stop offset="1" stopColor="#00D1FF" />
 				</linearGradient>
 				<linearGradient
 					id="paint15_linear_2256_25876"
@@ -3375,8 +3375,8 @@ export default function SNXPerpsLooper({ ...props }: SNXPerpsLooperProps) {
 					y2="1155.35"
 					gradientUnits="userSpaceOnUse"
 				>
-					<stop stop-color="#ED1EFF" />
-					<stop offset="1" stop-color="#00D1FF" />
+					<stop stopColor="#ED1EFF" />
+					<stop offset="1" stopColor="#00D1FF" />
 				</linearGradient>
 				<linearGradient
 					id="paint16_linear_2256_25876"
@@ -3386,8 +3386,8 @@ export default function SNXPerpsLooper({ ...props }: SNXPerpsLooperProps) {
 					y2="1149.27"
 					gradientUnits="userSpaceOnUse"
 				>
-					<stop stop-color="#ED1EFF" />
-					<stop offset="1" stop-color="#00D1FF" />
+					<stop stopColor="#ED1EFF" />
+					<stop offset="1" stopColor="#00D1FF" />
 				</linearGradient>
 				<linearGradient
 					id="paint17_linear_2256_25876"
@@ -3397,8 +3397,8 @@ export default function SNXPerpsLooper({ ...props }: SNXPerpsLooperProps) {
 					y2="1143.08"
 					gradientUnits="userSpaceOnUse"
 				>
-					<stop stop-color="#ED1EFF" />
-					<stop offset="1" stop-color="#00D1FF" />
+					<stop stopColor="#ED1EFF" />
+					<stop offset="1" stopColor="#00D1FF" />
 				</linearGradient>
 				<linearGradient
 					id="paint18_linear_2256_25876"
@@ -3408,8 +3408,8 @@ export default function SNXPerpsLooper({ ...props }: SNXPerpsLooperProps) {
 					y2="1136.78"
 					gradientUnits="userSpaceOnUse"
 				>
-					<stop stop-color="#ED1EFF" />
-					<stop offset="1" stop-color="#00D1FF" />
+					<stop stopColor="#ED1EFF" />
+					<stop offset="1" stopColor="#00D1FF" />
 				</linearGradient>
 				<linearGradient
 					id="paint19_linear_2256_25876"
@@ -3419,8 +3419,8 @@ export default function SNXPerpsLooper({ ...props }: SNXPerpsLooperProps) {
 					y2="1130.39"
 					gradientUnits="userSpaceOnUse"
 				>
-					<stop stop-color="#ED1EFF" />
-					<stop offset="1" stop-color="#00D1FF" />
+					<stop stopColor="#ED1EFF" />
+					<stop offset="1" stopColor="#00D1FF" />
 				</linearGradient>
 				<linearGradient
 					id="paint20_linear_2256_25876"
@@ -3430,8 +3430,8 @@ export default function SNXPerpsLooper({ ...props }: SNXPerpsLooperProps) {
 					y2="1123.9"
 					gradientUnits="userSpaceOnUse"
 				>
-					<stop stop-color="#ED1EFF" />
-					<stop offset="1" stop-color="#00D1FF" />
+					<stop stopColor="#ED1EFF" />
+					<stop offset="1" stopColor="#00D1FF" />
 				</linearGradient>
 				<linearGradient
 					id="paint21_linear_2256_25876"
@@ -3441,8 +3441,8 @@ export default function SNXPerpsLooper({ ...props }: SNXPerpsLooperProps) {
 					y2="1117.32"
 					gradientUnits="userSpaceOnUse"
 				>
-					<stop stop-color="#ED1EFF" />
-					<stop offset="1" stop-color="#00D1FF" />
+					<stop stopColor="#ED1EFF" />
+					<stop offset="1" stopColor="#00D1FF" />
 				</linearGradient>
 				<linearGradient
 					id="paint22_linear_2256_25876"
@@ -3452,8 +3452,8 @@ export default function SNXPerpsLooper({ ...props }: SNXPerpsLooperProps) {
 					y2="1110.65"
 					gradientUnits="userSpaceOnUse"
 				>
-					<stop stop-color="#ED1EFF" />
-					<stop offset="1" stop-color="#00D1FF" />
+					<stop stopColor="#ED1EFF" />
+					<stop offset="1" stopColor="#00D1FF" />
 				</linearGradient>
 				<linearGradient
 					id="paint23_linear_2256_25876"
@@ -3463,8 +3463,8 @@ export default function SNXPerpsLooper({ ...props }: SNXPerpsLooperProps) {
 					y2="1103.89"
 					gradientUnits="userSpaceOnUse"
 				>
-					<stop stop-color="#ED1EFF" />
-					<stop offset="1" stop-color="#00D1FF" />
+					<stop stopColor="#ED1EFF" />
+					<stop offset="1" stopColor="#00D1FF" />
 				</linearGradient>
 				<linearGradient
 					id="paint24_linear_2256_25876"
@@ -3474,8 +3474,8 @@ export default function SNXPerpsLooper({ ...props }: SNXPerpsLooperProps) {
 					y2="1097.06"
 					gradientUnits="userSpaceOnUse"
 				>
-					<stop stop-color="#ED1EFF" />
-					<stop offset="1" stop-color="#00D1FF" />
+					<stop stopColor="#ED1EFF" />
+					<stop offset="1" stopColor="#00D1FF" />
 				</linearGradient>
 				<linearGradient
 					id="paint25_linear_2256_25876"
@@ -3485,8 +3485,8 @@ export default function SNXPerpsLooper({ ...props }: SNXPerpsLooperProps) {
 					y2="1090.14"
 					gradientUnits="userSpaceOnUse"
 				>
-					<stop stop-color="#ED1EFF" />
-					<stop offset="1" stop-color="#00D1FF" />
+					<stop stopColor="#ED1EFF" />
+					<stop offset="1" stopColor="#00D1FF" />
 				</linearGradient>
 				<linearGradient
 					id="paint26_linear_2256_25876"
@@ -3496,8 +3496,8 @@ export default function SNXPerpsLooper({ ...props }: SNXPerpsLooperProps) {
 					y2="1083.15"
 					gradientUnits="userSpaceOnUse"
 				>
-					<stop stop-color="#ED1EFF" />
-					<stop offset="1" stop-color="#00D1FF" />
+					<stop stopColor="#ED1EFF" />
+					<stop offset="1" stopColor="#00D1FF" />
 				</linearGradient>
 				<linearGradient
 					id="paint27_linear_2256_25876"
@@ -3507,8 +3507,8 @@ export default function SNXPerpsLooper({ ...props }: SNXPerpsLooperProps) {
 					y2="1076.08"
 					gradientUnits="userSpaceOnUse"
 				>
-					<stop stop-color="#ED1EFF" />
-					<stop offset="1" stop-color="#00D1FF" />
+					<stop stopColor="#ED1EFF" />
+					<stop offset="1" stopColor="#00D1FF" />
 				</linearGradient>
 				<linearGradient
 					id="paint28_linear_2256_25876"
@@ -3518,8 +3518,8 @@ export default function SNXPerpsLooper({ ...props }: SNXPerpsLooperProps) {
 					y2="1068.95"
 					gradientUnits="userSpaceOnUse"
 				>
-					<stop stop-color="#ED1EFF" />
-					<stop offset="1" stop-color="#00D1FF" />
+					<stop stopColor="#ED1EFF" />
+					<stop offset="1" stopColor="#00D1FF" />
 				</linearGradient>
 				<linearGradient
 					id="paint29_linear_2256_25876"
@@ -3529,8 +3529,8 @@ export default function SNXPerpsLooper({ ...props }: SNXPerpsLooperProps) {
 					y2="1061.75"
 					gradientUnits="userSpaceOnUse"
 				>
-					<stop stop-color="#ED1EFF" />
-					<stop offset="1" stop-color="#00D1FF" />
+					<stop stopColor="#ED1EFF" />
+					<stop offset="1" stopColor="#00D1FF" />
 				</linearGradient>
 				<linearGradient
 					id="paint30_linear_2256_25876"
@@ -3540,8 +3540,8 @@ export default function SNXPerpsLooper({ ...props }: SNXPerpsLooperProps) {
 					y2="1054.49"
 					gradientUnits="userSpaceOnUse"
 				>
-					<stop stop-color="#ED1EFF" />
-					<stop offset="1" stop-color="#00D1FF" />
+					<stop stopColor="#ED1EFF" />
+					<stop offset="1" stopColor="#00D1FF" />
 				</linearGradient>
 				<linearGradient
 					id="paint31_linear_2256_25876"
@@ -3551,8 +3551,8 @@ export default function SNXPerpsLooper({ ...props }: SNXPerpsLooperProps) {
 					y2="1047.18"
 					gradientUnits="userSpaceOnUse"
 				>
-					<stop stop-color="#ED1EFF" />
-					<stop offset="1" stop-color="#00D1FF" />
+					<stop stopColor="#ED1EFF" />
+					<stop offset="1" stopColor="#00D1FF" />
 				</linearGradient>
 				<linearGradient
 					id="paint32_linear_2256_25876"
@@ -3562,8 +3562,8 @@ export default function SNXPerpsLooper({ ...props }: SNXPerpsLooperProps) {
 					y2="1039.81"
 					gradientUnits="userSpaceOnUse"
 				>
-					<stop stop-color="#ED1EFF" />
-					<stop offset="1" stop-color="#00D1FF" />
+					<stop stopColor="#ED1EFF" />
+					<stop offset="1" stopColor="#00D1FF" />
 				</linearGradient>
 				<linearGradient
 					id="paint33_linear_2256_25876"
@@ -3573,8 +3573,8 @@ export default function SNXPerpsLooper({ ...props }: SNXPerpsLooperProps) {
 					y2="1032.39"
 					gradientUnits="userSpaceOnUse"
 				>
-					<stop stop-color="#ED1EFF" />
-					<stop offset="1" stop-color="#00D1FF" />
+					<stop stopColor="#ED1EFF" />
+					<stop offset="1" stopColor="#00D1FF" />
 				</linearGradient>
 				<linearGradient
 					id="paint34_linear_2256_25876"
@@ -3584,8 +3584,8 @@ export default function SNXPerpsLooper({ ...props }: SNXPerpsLooperProps) {
 					y2="1024.92"
 					gradientUnits="userSpaceOnUse"
 				>
-					<stop stop-color="#ED1EFF" />
-					<stop offset="1" stop-color="#00D1FF" />
+					<stop stopColor="#ED1EFF" />
+					<stop offset="1" stopColor="#00D1FF" />
 				</linearGradient>
 				<linearGradient
 					id="paint35_linear_2256_25876"
@@ -3595,8 +3595,8 @@ export default function SNXPerpsLooper({ ...props }: SNXPerpsLooperProps) {
 					y2="1017.41"
 					gradientUnits="userSpaceOnUse"
 				>
-					<stop stop-color="#ED1EFF" />
-					<stop offset="1" stop-color="#00D1FF" />
+					<stop stopColor="#ED1EFF" />
+					<stop offset="1" stopColor="#00D1FF" />
 				</linearGradient>
 				<linearGradient
 					id="paint36_linear_2256_25876"
@@ -3606,8 +3606,8 @@ export default function SNXPerpsLooper({ ...props }: SNXPerpsLooperProps) {
 					y2="1009.86"
 					gradientUnits="userSpaceOnUse"
 				>
-					<stop stop-color="#ED1EFF" />
-					<stop offset="1" stop-color="#00D1FF" />
+					<stop stopColor="#ED1EFF" />
+					<stop offset="1" stopColor="#00D1FF" />
 				</linearGradient>
 				<linearGradient
 					id="paint37_linear_2256_25876"
@@ -3617,8 +3617,8 @@ export default function SNXPerpsLooper({ ...props }: SNXPerpsLooperProps) {
 					y2="1002.27"
 					gradientUnits="userSpaceOnUse"
 				>
-					<stop stop-color="#ED1EFF" />
-					<stop offset="1" stop-color="#00D1FF" />
+					<stop stopColor="#ED1EFF" />
+					<stop offset="1" stopColor="#00D1FF" />
 				</linearGradient>
 				<linearGradient
 					id="paint38_linear_2256_25876"
@@ -3628,8 +3628,8 @@ export default function SNXPerpsLooper({ ...props }: SNXPerpsLooperProps) {
 					y2="994.645"
 					gradientUnits="userSpaceOnUse"
 				>
-					<stop stop-color="#ED1EFF" />
-					<stop offset="1" stop-color="#00D1FF" />
+					<stop stopColor="#ED1EFF" />
+					<stop offset="1" stopColor="#00D1FF" />
 				</linearGradient>
 				<linearGradient
 					id="paint39_linear_2256_25876"
@@ -3639,8 +3639,8 @@ export default function SNXPerpsLooper({ ...props }: SNXPerpsLooperProps) {
 					y2="986.993"
 					gradientUnits="userSpaceOnUse"
 				>
-					<stop stop-color="#ED1EFF" />
-					<stop offset="1" stop-color="#00D1FF" />
+					<stop stopColor="#ED1EFF" />
+					<stop offset="1" stopColor="#00D1FF" />
 				</linearGradient>
 				<linearGradient
 					id="paint40_linear_2256_25876"
@@ -3650,8 +3650,8 @@ export default function SNXPerpsLooper({ ...props }: SNXPerpsLooperProps) {
 					y2="979.316"
 					gradientUnits="userSpaceOnUse"
 				>
-					<stop stop-color="#ED1EFF" />
-					<stop offset="1" stop-color="#00D1FF" />
+					<stop stopColor="#ED1EFF" />
+					<stop offset="1" stopColor="#00D1FF" />
 				</linearGradient>
 				<linearGradient
 					id="paint41_linear_2256_25876"
@@ -3661,8 +3661,8 @@ export default function SNXPerpsLooper({ ...props }: SNXPerpsLooperProps) {
 					y2="971.615"
 					gradientUnits="userSpaceOnUse"
 				>
-					<stop stop-color="#ED1EFF" />
-					<stop offset="1" stop-color="#00D1FF" />
+					<stop stopColor="#ED1EFF" />
+					<stop offset="1" stopColor="#00D1FF" />
 				</linearGradient>
 				<linearGradient
 					id="paint42_linear_2256_25876"
@@ -3672,8 +3672,8 @@ export default function SNXPerpsLooper({ ...props }: SNXPerpsLooperProps) {
 					y2="963.896"
 					gradientUnits="userSpaceOnUse"
 				>
-					<stop stop-color="#ED1EFF" />
-					<stop offset="1" stop-color="#00D1FF" />
+					<stop stopColor="#ED1EFF" />
+					<stop offset="1" stopColor="#00D1FF" />
 				</linearGradient>
 				<linearGradient
 					id="paint43_linear_2256_25876"
@@ -3683,8 +3683,8 @@ export default function SNXPerpsLooper({ ...props }: SNXPerpsLooperProps) {
 					y2="956.162"
 					gradientUnits="userSpaceOnUse"
 				>
-					<stop stop-color="#ED1EFF" />
-					<stop offset="1" stop-color="#00D1FF" />
+					<stop stopColor="#ED1EFF" />
+					<stop offset="1" stopColor="#00D1FF" />
 				</linearGradient>
 				<linearGradient
 					id="paint44_linear_2256_25876"
@@ -3694,8 +3694,8 @@ export default function SNXPerpsLooper({ ...props }: SNXPerpsLooperProps) {
 					y2="948.414"
 					gradientUnits="userSpaceOnUse"
 				>
-					<stop stop-color="#ED1EFF" />
-					<stop offset="1" stop-color="#00D1FF" />
+					<stop stopColor="#ED1EFF" />
+					<stop offset="1" stopColor="#00D1FF" />
 				</linearGradient>
 				<linearGradient
 					id="paint45_linear_2256_25876"
@@ -3705,8 +3705,8 @@ export default function SNXPerpsLooper({ ...props }: SNXPerpsLooperProps) {
 					y2="940.659"
 					gradientUnits="userSpaceOnUse"
 				>
-					<stop stop-color="#ED1EFF" />
-					<stop offset="1" stop-color="#00D1FF" />
+					<stop stopColor="#ED1EFF" />
+					<stop offset="1" stopColor="#00D1FF" />
 				</linearGradient>
 				<linearGradient
 					id="paint46_linear_2256_25876"
@@ -3716,8 +3716,8 @@ export default function SNXPerpsLooper({ ...props }: SNXPerpsLooperProps) {
 					y2="932.897"
 					gradientUnits="userSpaceOnUse"
 				>
-					<stop stop-color="#ED1EFF" />
-					<stop offset="1" stop-color="#00D1FF" />
+					<stop stopColor="#ED1EFF" />
+					<stop offset="1" stopColor="#00D1FF" />
 				</linearGradient>
 				<linearGradient
 					id="paint47_linear_2256_25876"
@@ -3727,8 +3727,8 @@ export default function SNXPerpsLooper({ ...props }: SNXPerpsLooperProps) {
 					y2="925.134"
 					gradientUnits="userSpaceOnUse"
 				>
-					<stop stop-color="#ED1EFF" />
-					<stop offset="1" stop-color="#00D1FF" />
+					<stop stopColor="#ED1EFF" />
+					<stop offset="1" stopColor="#00D1FF" />
 				</linearGradient>
 				<linearGradient
 					id="paint48_linear_2256_25876"
@@ -3738,8 +3738,8 @@ export default function SNXPerpsLooper({ ...props }: SNXPerpsLooperProps) {
 					y2="917.372"
 					gradientUnits="userSpaceOnUse"
 				>
-					<stop stop-color="#ED1EFF" />
-					<stop offset="1" stop-color="#00D1FF" />
+					<stop stopColor="#ED1EFF" />
+					<stop offset="1" stopColor="#00D1FF" />
 				</linearGradient>
 				<linearGradient
 					id="paint49_linear_2256_25876"
@@ -3749,8 +3749,8 @@ export default function SNXPerpsLooper({ ...props }: SNXPerpsLooperProps) {
 					y2="909.617"
 					gradientUnits="userSpaceOnUse"
 				>
-					<stop stop-color="#ED1EFF" />
-					<stop offset="1" stop-color="#00D1FF" />
+					<stop stopColor="#ED1EFF" />
+					<stop offset="1" stopColor="#00D1FF" />
 				</linearGradient>
 				<linearGradient
 					id="paint50_linear_2256_25876"
@@ -3760,8 +3760,8 @@ export default function SNXPerpsLooper({ ...props }: SNXPerpsLooperProps) {
 					y2="901.867"
 					gradientUnits="userSpaceOnUse"
 				>
-					<stop stop-color="#ED1EFF" />
-					<stop offset="1" stop-color="#00D1FF" />
+					<stop stopColor="#ED1EFF" />
+					<stop offset="1" stopColor="#00D1FF" />
 				</linearGradient>
 				<linearGradient
 					id="paint51_linear_2256_25876"
@@ -3771,8 +3771,8 @@ export default function SNXPerpsLooper({ ...props }: SNXPerpsLooperProps) {
 					y2="894.129"
 					gradientUnits="userSpaceOnUse"
 				>
-					<stop stop-color="#ED1EFF" />
-					<stop offset="1" stop-color="#00D1FF" />
+					<stop stopColor="#ED1EFF" />
+					<stop offset="1" stopColor="#00D1FF" />
 				</linearGradient>
 				<linearGradient
 					id="paint52_linear_2256_25876"
@@ -3782,8 +3782,8 @@ export default function SNXPerpsLooper({ ...props }: SNXPerpsLooperProps) {
 					y2="886.407"
 					gradientUnits="userSpaceOnUse"
 				>
-					<stop stop-color="#ED1EFF" />
-					<stop offset="1" stop-color="#00D1FF" />
+					<stop stopColor="#ED1EFF" />
+					<stop offset="1" stopColor="#00D1FF" />
 				</linearGradient>
 				<linearGradient
 					id="paint53_linear_2256_25876"
@@ -3793,8 +3793,8 @@ export default function SNXPerpsLooper({ ...props }: SNXPerpsLooperProps) {
 					y2="878.702"
 					gradientUnits="userSpaceOnUse"
 				>
-					<stop stop-color="#ED1EFF" />
-					<stop offset="1" stop-color="#00D1FF" />
+					<stop stopColor="#ED1EFF" />
+					<stop offset="1" stopColor="#00D1FF" />
 				</linearGradient>
 				<linearGradient
 					id="paint54_linear_2256_25876"
@@ -3804,8 +3804,8 @@ export default function SNXPerpsLooper({ ...props }: SNXPerpsLooperProps) {
 					y2="871.019"
 					gradientUnits="userSpaceOnUse"
 				>
-					<stop stop-color="#ED1EFF" />
-					<stop offset="1" stop-color="#00D1FF" />
+					<stop stopColor="#ED1EFF" />
+					<stop offset="1" stopColor="#00D1FF" />
 				</linearGradient>
 				<linearGradient
 					id="paint55_linear_2256_25876"
@@ -3815,8 +3815,8 @@ export default function SNXPerpsLooper({ ...props }: SNXPerpsLooperProps) {
 					y2="863.359"
 					gradientUnits="userSpaceOnUse"
 				>
-					<stop stop-color="#ED1EFF" />
-					<stop offset="1" stop-color="#00D1FF" />
+					<stop stopColor="#ED1EFF" />
+					<stop offset="1" stopColor="#00D1FF" />
 				</linearGradient>
 				<linearGradient
 					id="paint56_linear_2256_25876"
@@ -3826,8 +3826,8 @@ export default function SNXPerpsLooper({ ...props }: SNXPerpsLooperProps) {
 					y2="855.726"
 					gradientUnits="userSpaceOnUse"
 				>
-					<stop stop-color="#ED1EFF" />
-					<stop offset="1" stop-color="#00D1FF" />
+					<stop stopColor="#ED1EFF" />
+					<stop offset="1" stopColor="#00D1FF" />
 				</linearGradient>
 				<linearGradient
 					id="paint57_linear_2256_25876"
@@ -3837,8 +3837,8 @@ export default function SNXPerpsLooper({ ...props }: SNXPerpsLooperProps) {
 					y2="848.125"
 					gradientUnits="userSpaceOnUse"
 				>
-					<stop stop-color="#ED1EFF" />
-					<stop offset="1" stop-color="#00D1FF" />
+					<stop stopColor="#ED1EFF" />
+					<stop offset="1" stopColor="#00D1FF" />
 				</linearGradient>
 				<linearGradient
 					id="paint58_linear_2256_25876"
@@ -3848,8 +3848,8 @@ export default function SNXPerpsLooper({ ...props }: SNXPerpsLooperProps) {
 					y2="840.557"
 					gradientUnits="userSpaceOnUse"
 				>
-					<stop stop-color="#ED1EFF" />
-					<stop offset="1" stop-color="#00D1FF" />
+					<stop stopColor="#ED1EFF" />
+					<stop offset="1" stopColor="#00D1FF" />
 				</linearGradient>
 				<linearGradient
 					id="paint59_linear_2256_25876"
@@ -3859,8 +3859,8 @@ export default function SNXPerpsLooper({ ...props }: SNXPerpsLooperProps) {
 					y2="833.026"
 					gradientUnits="userSpaceOnUse"
 				>
-					<stop stop-color="#ED1EFF" />
-					<stop offset="1" stop-color="#00D1FF" />
+					<stop stopColor="#ED1EFF" />
+					<stop offset="1" stopColor="#00D1FF" />
 				</linearGradient>
 				<linearGradient
 					id="paint60_linear_2256_25876"
@@ -3870,8 +3870,8 @@ export default function SNXPerpsLooper({ ...props }: SNXPerpsLooperProps) {
 					y2="825.534"
 					gradientUnits="userSpaceOnUse"
 				>
-					<stop stop-color="#ED1EFF" />
-					<stop offset="1" stop-color="#00D1FF" />
+					<stop stopColor="#ED1EFF" />
+					<stop offset="1" stopColor="#00D1FF" />
 				</linearGradient>
 				<linearGradient
 					id="paint61_linear_2256_25876"
@@ -3881,8 +3881,8 @@ export default function SNXPerpsLooper({ ...props }: SNXPerpsLooperProps) {
 					y2="818.087"
 					gradientUnits="userSpaceOnUse"
 				>
-					<stop stop-color="#ED1EFF" />
-					<stop offset="1" stop-color="#00D1FF" />
+					<stop stopColor="#ED1EFF" />
+					<stop offset="1" stopColor="#00D1FF" />
 				</linearGradient>
 				<linearGradient
 					id="paint62_linear_2256_25876"
@@ -3892,8 +3892,8 @@ export default function SNXPerpsLooper({ ...props }: SNXPerpsLooperProps) {
 					y2="810.683"
 					gradientUnits="userSpaceOnUse"
 				>
-					<stop stop-color="#ED1EFF" />
-					<stop offset="1" stop-color="#00D1FF" />
+					<stop stopColor="#ED1EFF" />
+					<stop offset="1" stopColor="#00D1FF" />
 				</linearGradient>
 				<linearGradient
 					id="paint63_linear_2256_25876"
@@ -3903,8 +3903,8 @@ export default function SNXPerpsLooper({ ...props }: SNXPerpsLooperProps) {
 					y2="803.328"
 					gradientUnits="userSpaceOnUse"
 				>
-					<stop stop-color="#ED1EFF" />
-					<stop offset="1" stop-color="#00D1FF" />
+					<stop stopColor="#ED1EFF" />
+					<stop offset="1" stopColor="#00D1FF" />
 				</linearGradient>
 				<linearGradient
 					id="paint64_linear_2256_25876"
@@ -3914,8 +3914,8 @@ export default function SNXPerpsLooper({ ...props }: SNXPerpsLooperProps) {
 					y2="796.025"
 					gradientUnits="userSpaceOnUse"
 				>
-					<stop stop-color="#ED1EFF" />
-					<stop offset="1" stop-color="#00D1FF" />
+					<stop stopColor="#ED1EFF" />
+					<stop offset="1" stopColor="#00D1FF" />
 				</linearGradient>
 				<linearGradient
 					id="paint65_linear_2256_25876"
@@ -3925,8 +3925,8 @@ export default function SNXPerpsLooper({ ...props }: SNXPerpsLooperProps) {
 					y2="788.777"
 					gradientUnits="userSpaceOnUse"
 				>
-					<stop stop-color="#ED1EFF" />
-					<stop offset="1" stop-color="#00D1FF" />
+					<stop stopColor="#ED1EFF" />
+					<stop offset="1" stopColor="#00D1FF" />
 				</linearGradient>
 				<linearGradient
 					id="paint66_linear_2256_25876"
@@ -3936,8 +3936,8 @@ export default function SNXPerpsLooper({ ...props }: SNXPerpsLooperProps) {
 					y2="781.582"
 					gradientUnits="userSpaceOnUse"
 				>
-					<stop stop-color="#ED1EFF" />
-					<stop offset="1" stop-color="#00D1FF" />
+					<stop stopColor="#ED1EFF" />
+					<stop offset="1" stopColor="#00D1FF" />
 				</linearGradient>
 				<linearGradient
 					id="paint67_linear_2256_25876"
@@ -3947,8 +3947,8 @@ export default function SNXPerpsLooper({ ...props }: SNXPerpsLooperProps) {
 					y2="774.45"
 					gradientUnits="userSpaceOnUse"
 				>
-					<stop stop-color="#ED1EFF" />
-					<stop offset="1" stop-color="#00D1FF" />
+					<stop stopColor="#ED1EFF" />
+					<stop offset="1" stopColor="#00D1FF" />
 				</linearGradient>
 				<linearGradient
 					id="paint68_linear_2256_25876"
@@ -3958,8 +3958,8 @@ export default function SNXPerpsLooper({ ...props }: SNXPerpsLooperProps) {
 					y2="767.38"
 					gradientUnits="userSpaceOnUse"
 				>
-					<stop stop-color="#ED1EFF" />
-					<stop offset="1" stop-color="#00D1FF" />
+					<stop stopColor="#ED1EFF" />
+					<stop offset="1" stopColor="#00D1FF" />
 				</linearGradient>
 				<linearGradient
 					id="paint69_linear_2256_25876"
@@ -3969,8 +3969,8 @@ export default function SNXPerpsLooper({ ...props }: SNXPerpsLooperProps) {
 					y2="760.374"
 					gradientUnits="userSpaceOnUse"
 				>
-					<stop stop-color="#ED1EFF" />
-					<stop offset="1" stop-color="#00D1FF" />
+					<stop stopColor="#ED1EFF" />
+					<stop offset="1" stopColor="#00D1FF" />
 				</linearGradient>
 				<linearGradient
 					id="paint70_linear_2256_25876"
@@ -3980,8 +3980,8 @@ export default function SNXPerpsLooper({ ...props }: SNXPerpsLooperProps) {
 					y2="753.437"
 					gradientUnits="userSpaceOnUse"
 				>
-					<stop stop-color="#ED1EFF" />
-					<stop offset="1" stop-color="#00D1FF" />
+					<stop stopColor="#ED1EFF" />
+					<stop offset="1" stopColor="#00D1FF" />
 				</linearGradient>
 				<linearGradient
 					id="paint71_linear_2256_25876"
@@ -3991,8 +3991,8 @@ export default function SNXPerpsLooper({ ...props }: SNXPerpsLooperProps) {
 					y2="746.568"
 					gradientUnits="userSpaceOnUse"
 				>
-					<stop stop-color="#ED1EFF" />
-					<stop offset="1" stop-color="#00D1FF" />
+					<stop stopColor="#ED1EFF" />
+					<stop offset="1" stopColor="#00D1FF" />
 				</linearGradient>
 				<linearGradient
 					id="paint72_linear_2256_25876"
@@ -4002,8 +4002,8 @@ export default function SNXPerpsLooper({ ...props }: SNXPerpsLooperProps) {
 					y2="739.773"
 					gradientUnits="userSpaceOnUse"
 				>
-					<stop stop-color="#ED1EFF" />
-					<stop offset="1" stop-color="#00D1FF" />
+					<stop stopColor="#ED1EFF" />
+					<stop offset="1" stopColor="#00D1FF" />
 				</linearGradient>
 				<linearGradient
 					id="paint73_linear_2256_25876"
@@ -4013,8 +4013,8 @@ export default function SNXPerpsLooper({ ...props }: SNXPerpsLooperProps) {
 					y2="733.051"
 					gradientUnits="userSpaceOnUse"
 				>
-					<stop stop-color="#ED1EFF" />
-					<stop offset="1" stop-color="#00D1FF" />
+					<stop stopColor="#ED1EFF" />
+					<stop offset="1" stopColor="#00D1FF" />
 				</linearGradient>
 				<linearGradient
 					id="paint74_linear_2256_25876"
@@ -4024,8 +4024,8 @@ export default function SNXPerpsLooper({ ...props }: SNXPerpsLooperProps) {
 					y2="726.409"
 					gradientUnits="userSpaceOnUse"
 				>
-					<stop stop-color="#ED1EFF" />
-					<stop offset="1" stop-color="#00D1FF" />
+					<stop stopColor="#ED1EFF" />
+					<stop offset="1" stopColor="#00D1FF" />
 				</linearGradient>
 				<linearGradient
 					id="paint75_linear_2256_25876"
@@ -4035,8 +4035,8 @@ export default function SNXPerpsLooper({ ...props }: SNXPerpsLooperProps) {
 					y2="719.843"
 					gradientUnits="userSpaceOnUse"
 				>
-					<stop stop-color="#ED1EFF" />
-					<stop offset="1" stop-color="#00D1FF" />
+					<stop stopColor="#ED1EFF" />
+					<stop offset="1" stopColor="#00D1FF" />
 				</linearGradient>
 				<linearGradient
 					id="paint76_linear_2256_25876"
@@ -4046,8 +4046,8 @@ export default function SNXPerpsLooper({ ...props }: SNXPerpsLooperProps) {
 					y2="713.358"
 					gradientUnits="userSpaceOnUse"
 				>
-					<stop stop-color="#ED1EFF" />
-					<stop offset="1" stop-color="#00D1FF" />
+					<stop stopColor="#ED1EFF" />
+					<stop offset="1" stopColor="#00D1FF" />
 				</linearGradient>
 				<linearGradient
 					id="paint77_linear_2256_25876"
@@ -4057,8 +4057,8 @@ export default function SNXPerpsLooper({ ...props }: SNXPerpsLooperProps) {
 					y2="706.96"
 					gradientUnits="userSpaceOnUse"
 				>
-					<stop stop-color="#ED1EFF" />
-					<stop offset="1" stop-color="#00D1FF" />
+					<stop stopColor="#ED1EFF" />
+					<stop offset="1" stopColor="#00D1FF" />
 				</linearGradient>
 				<linearGradient
 					id="paint78_linear_2256_25876"
@@ -4068,8 +4068,8 @@ export default function SNXPerpsLooper({ ...props }: SNXPerpsLooperProps) {
 					y2="700.646"
 					gradientUnits="userSpaceOnUse"
 				>
-					<stop stop-color="#ED1EFF" />
-					<stop offset="1" stop-color="#00D1FF" />
+					<stop stopColor="#ED1EFF" />
+					<stop offset="1" stopColor="#00D1FF" />
 				</linearGradient>
 				<linearGradient
 					id="paint79_linear_2256_25876"
@@ -4079,8 +4079,8 @@ export default function SNXPerpsLooper({ ...props }: SNXPerpsLooperProps) {
 					y2="694.422"
 					gradientUnits="userSpaceOnUse"
 				>
-					<stop stop-color="#ED1EFF" />
-					<stop offset="1" stop-color="#00D1FF" />
+					<stop stopColor="#ED1EFF" />
+					<stop offset="1" stopColor="#00D1FF" />
 				</linearGradient>
 				<linearGradient
 					id="paint80_linear_2256_25876"
@@ -4090,8 +4090,8 @@ export default function SNXPerpsLooper({ ...props }: SNXPerpsLooperProps) {
 					y2="688.287"
 					gradientUnits="userSpaceOnUse"
 				>
-					<stop stop-color="#ED1EFF" />
-					<stop offset="1" stop-color="#00D1FF" />
+					<stop stopColor="#ED1EFF" />
+					<stop offset="1" stopColor="#00D1FF" />
 				</linearGradient>
 				<linearGradient
 					id="paint81_linear_2256_25876"
@@ -4101,8 +4101,8 @@ export default function SNXPerpsLooper({ ...props }: SNXPerpsLooperProps) {
 					y2="682.243"
 					gradientUnits="userSpaceOnUse"
 				>
-					<stop stop-color="#ED1EFF" />
-					<stop offset="1" stop-color="#00D1FF" />
+					<stop stopColor="#ED1EFF" />
+					<stop offset="1" stopColor="#00D1FF" />
 				</linearGradient>
 				<linearGradient
 					id="paint82_linear_2256_25876"
@@ -4112,8 +4112,8 @@ export default function SNXPerpsLooper({ ...props }: SNXPerpsLooperProps) {
 					y2="676.294"
 					gradientUnits="userSpaceOnUse"
 				>
-					<stop stop-color="#ED1EFF" />
-					<stop offset="1" stop-color="#00D1FF" />
+					<stop stopColor="#ED1EFF" />
+					<stop offset="1" stopColor="#00D1FF" />
 				</linearGradient>
 				<linearGradient
 					id="paint83_linear_2256_25876"
@@ -4123,8 +4123,8 @@ export default function SNXPerpsLooper({ ...props }: SNXPerpsLooperProps) {
 					y2="670.438"
 					gradientUnits="userSpaceOnUse"
 				>
-					<stop stop-color="#ED1EFF" />
-					<stop offset="1" stop-color="#00D1FF" />
+					<stop stopColor="#ED1EFF" />
+					<stop offset="1" stopColor="#00D1FF" />
 				</linearGradient>
 				<linearGradient
 					id="paint84_linear_2256_25876"
@@ -4134,8 +4134,8 @@ export default function SNXPerpsLooper({ ...props }: SNXPerpsLooperProps) {
 					y2="664.683"
 					gradientUnits="userSpaceOnUse"
 				>
-					<stop stop-color="#ED1EFF" />
-					<stop offset="1" stop-color="#00D1FF" />
+					<stop stopColor="#ED1EFF" />
+					<stop offset="1" stopColor="#00D1FF" />
 				</linearGradient>
 				<linearGradient
 					id="paint85_linear_2256_25876"
@@ -4145,8 +4145,8 @@ export default function SNXPerpsLooper({ ...props }: SNXPerpsLooperProps) {
 					y2="659.025"
 					gradientUnits="userSpaceOnUse"
 				>
-					<stop stop-color="#ED1EFF" />
-					<stop offset="1" stop-color="#00D1FF" />
+					<stop stopColor="#ED1EFF" />
+					<stop offset="1" stopColor="#00D1FF" />
 				</linearGradient>
 				<linearGradient
 					id="paint86_linear_2256_25876"
@@ -4156,8 +4156,8 @@ export default function SNXPerpsLooper({ ...props }: SNXPerpsLooperProps) {
 					y2="653.469"
 					gradientUnits="userSpaceOnUse"
 				>
-					<stop stop-color="#ED1EFF" />
-					<stop offset="1" stop-color="#00D1FF" />
+					<stop stopColor="#ED1EFF" />
+					<stop offset="1" stopColor="#00D1FF" />
 				</linearGradient>
 				<linearGradient
 					id="paint87_linear_2256_25876"
@@ -4167,8 +4167,8 @@ export default function SNXPerpsLooper({ ...props }: SNXPerpsLooperProps) {
 					y2="648.014"
 					gradientUnits="userSpaceOnUse"
 				>
-					<stop stop-color="#ED1EFF" />
-					<stop offset="1" stop-color="#00D1FF" />
+					<stop stopColor="#ED1EFF" />
+					<stop offset="1" stopColor="#00D1FF" />
 				</linearGradient>
 				<linearGradient
 					id="paint88_linear_2256_25876"
@@ -4178,8 +4178,8 @@ export default function SNXPerpsLooper({ ...props }: SNXPerpsLooperProps) {
 					y2="642.664"
 					gradientUnits="userSpaceOnUse"
 				>
-					<stop stop-color="#ED1EFF" />
-					<stop offset="1" stop-color="#00D1FF" />
+					<stop stopColor="#ED1EFF" />
+					<stop offset="1" stopColor="#00D1FF" />
 				</linearGradient>
 				<linearGradient
 					id="paint89_linear_2256_25876"
@@ -4189,8 +4189,8 @@ export default function SNXPerpsLooper({ ...props }: SNXPerpsLooperProps) {
 					y2="637.419"
 					gradientUnits="userSpaceOnUse"
 				>
-					<stop stop-color="#ED1EFF" />
-					<stop offset="1" stop-color="#00D1FF" />
+					<stop stopColor="#ED1EFF" />
+					<stop offset="1" stopColor="#00D1FF" />
 				</linearGradient>
 				<linearGradient
 					id="paint90_linear_2256_25876"
@@ -4200,8 +4200,8 @@ export default function SNXPerpsLooper({ ...props }: SNXPerpsLooperProps) {
 					y2="632.278"
 					gradientUnits="userSpaceOnUse"
 				>
-					<stop stop-color="#ED1EFF" />
-					<stop offset="1" stop-color="#00D1FF" />
+					<stop stopColor="#ED1EFF" />
+					<stop offset="1" stopColor="#00D1FF" />
 				</linearGradient>
 				<linearGradient
 					id="paint91_linear_2256_25876"
@@ -4211,8 +4211,8 @@ export default function SNXPerpsLooper({ ...props }: SNXPerpsLooperProps) {
 					y2="627.247"
 					gradientUnits="userSpaceOnUse"
 				>
-					<stop stop-color="#ED1EFF" />
-					<stop offset="1" stop-color="#00D1FF" />
+					<stop stopColor="#ED1EFF" />
+					<stop offset="1" stopColor="#00D1FF" />
 				</linearGradient>
 				<linearGradient
 					id="paint92_linear_2256_25876"
@@ -4222,8 +4222,8 @@ export default function SNXPerpsLooper({ ...props }: SNXPerpsLooperProps) {
 					y2="622.326"
 					gradientUnits="userSpaceOnUse"
 				>
-					<stop stop-color="#ED1EFF" />
-					<stop offset="1" stop-color="#00D1FF" />
+					<stop stopColor="#ED1EFF" />
+					<stop offset="1" stopColor="#00D1FF" />
 				</linearGradient>
 				<linearGradient
 					id="paint93_linear_2256_25876"
@@ -4233,8 +4233,8 @@ export default function SNXPerpsLooper({ ...props }: SNXPerpsLooperProps) {
 					y2="617.511"
 					gradientUnits="userSpaceOnUse"
 				>
-					<stop stop-color="#ED1EFF" />
-					<stop offset="1" stop-color="#00D1FF" />
+					<stop stopColor="#ED1EFF" />
+					<stop offset="1" stopColor="#00D1FF" />
 				</linearGradient>
 				<linearGradient
 					id="paint94_linear_2256_25876"
@@ -4244,8 +4244,8 @@ export default function SNXPerpsLooper({ ...props }: SNXPerpsLooperProps) {
 					y2="612.812"
 					gradientUnits="userSpaceOnUse"
 				>
-					<stop stop-color="#ED1EFF" />
-					<stop offset="1" stop-color="#00D1FF" />
+					<stop stopColor="#ED1EFF" />
+					<stop offset="1" stopColor="#00D1FF" />
 				</linearGradient>
 				<linearGradient
 					id="paint95_linear_2256_25876"
@@ -4255,8 +4255,8 @@ export default function SNXPerpsLooper({ ...props }: SNXPerpsLooperProps) {
 					y2="608.223"
 					gradientUnits="userSpaceOnUse"
 				>
-					<stop stop-color="#ED1EFF" />
-					<stop offset="1" stop-color="#00D1FF" />
+					<stop stopColor="#ED1EFF" />
+					<stop offset="1" stopColor="#00D1FF" />
 				</linearGradient>
 				<linearGradient
 					id="paint96_linear_2256_25876"
@@ -4266,8 +4266,8 @@ export default function SNXPerpsLooper({ ...props }: SNXPerpsLooperProps) {
 					y2="603.747"
 					gradientUnits="userSpaceOnUse"
 				>
-					<stop stop-color="#ED1EFF" />
-					<stop offset="1" stop-color="#00D1FF" />
+					<stop stopColor="#ED1EFF" />
+					<stop offset="1" stopColor="#00D1FF" />
 				</linearGradient>
 				<linearGradient
 					id="paint97_linear_2256_25876"
@@ -4277,8 +4277,8 @@ export default function SNXPerpsLooper({ ...props }: SNXPerpsLooperProps) {
 					y2="599.387"
 					gradientUnits="userSpaceOnUse"
 				>
-					<stop stop-color="#ED1EFF" />
-					<stop offset="1" stop-color="#00D1FF" />
+					<stop stopColor="#ED1EFF" />
+					<stop offset="1" stopColor="#00D1FF" />
 				</linearGradient>
 				<linearGradient
 					id="paint98_linear_2256_25876"
@@ -4288,8 +4288,8 @@ export default function SNXPerpsLooper({ ...props }: SNXPerpsLooperProps) {
 					y2="595.142"
 					gradientUnits="userSpaceOnUse"
 				>
-					<stop stop-color="#ED1EFF" />
-					<stop offset="1" stop-color="#00D1FF" />
+					<stop stopColor="#ED1EFF" />
+					<stop offset="1" stopColor="#00D1FF" />
 				</linearGradient>
 				<clipPath id="clip0_2256_25876">
 					<rect

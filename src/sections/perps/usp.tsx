@@ -37,6 +37,7 @@ const USPS = [
 			<Link
 				href="https://docs.synthetix.io/synthetix-protocol/welcome-to-synthetix"
 				color="cyan.500"
+				key="link-component"
 			>
 				docs.synthetix.io
 			</Link>,
