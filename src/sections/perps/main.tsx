@@ -8,23 +8,24 @@ export default function FuturesMain() {
 			position="relative"
 			as="section"
 			w="100%"
-			height={{ base: 'auto', lg: '600px' }}
+			height={{ base: 'auto' }}
 			bg="navy.900"
-			wrap={{ base: 'wrap-reverse', lg: 'nowrap' }}
+			wrap={{ base: 'wrap-reverse', xl: 'nowrap' }}
 			mb="48px"
-			p={{ lg: '0 24px' }}
 		>
 			<Flex
 				w={{ base: '100%', lg: '600px' }}
 				flexDir="column"
-				p={{ base: 0, lg: '80px 0px' }}
-				mt={{ base: '400px', md: '0px', lg: 0 }}
+				p={{ base: 0 }}
+				mt={{ base: '400px', md: '0px', lg: '550px', xl: '0px' }}
 			>
 				<Heading
 					fontWeight={{ base: '700', md: '800' }}
 					fontSize={{ base: '48px', md: '60px' }}
 					lineHeight={{ base: '48px', md: '60px' }}
 					mb="24px"
+					// In case the text overflows into the picture
+					zIndex={2}
 				>
 					Decentralized <br /> Perpetual <br /> Futures
 				</Heading>
@@ -33,7 +34,7 @@ export default function FuturesMain() {
 					lineHeight={{ base: '20px', md: '24px' }}
 					fontWeight={400}
 					color="gray.500"
-					w={{ base: '100%', md: '600px' }}
+					w={{ base: '100%' }}
 					mb="24px"
 				>
 					Synthetix Perps offers integrators deep liquidity, low fees and
@@ -64,11 +65,12 @@ export default function FuturesMain() {
 			<SNXPerpsLooper
 				transform={{
 					base: 'translate(-50%, -10%)',
-					lg: 'translate(-60%, -25%)',
+					lg: 'translate(-50%, -25%)',
+					xl: 'translate(-60%, -25%)',
 				}}
 				top="-30px"
 				left="50%"
-				position={{ base: 'absolute', lg: 'relative' }}
+				position={{ base: 'absolute', xl: 'unset' }}
 			/>
 		</Flex>
 	);

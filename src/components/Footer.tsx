@@ -170,12 +170,10 @@ export default function Footer() {
 					<Box mt={4} w="100%">
 						<EmailFooter />
 					</Box>
-					<Box m="5">
+					<Flex m="5" justifyContent="space-between" w="100%">
 						<Logo small={true} />
-					</Box>
-					<Box my="10">
 						<Socials isFooter />
-					</Box>
+					</Flex>
 				</Flex>
 			</Show>
 		</>

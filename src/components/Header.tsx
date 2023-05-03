@@ -33,7 +33,7 @@ const HeaderComponent = () => {
 			<Flex
 				w="100%"
 				alignItems="center"
-				justifyContent={{ base: 'center', lg: 'space-between' }}
+				justifyContent={{ base: 'center', xl: 'space-between' }}
 				maxW={{
 					base: '100vw',
 					md: '48rem',
@@ -41,7 +41,7 @@ const HeaderComponent = () => {
 					xl: '80rem',
 					'2xl': '96rem',
 				}}
-				px={{ base: '16px', lg: '24px' }}
+				px={{ base: '16px', xl: '24px' }}
 			>
 				<Image
 					src="/snx.svg"
@@ -49,9 +49,9 @@ const HeaderComponent = () => {
 					height={12}
 					onClick={() => push('/')}
 					cursor="pointer"
-					mr={{ base: '', md: '8' }}
+					mr={{ base: '', xl: '8' }}
 				/>
-				<Show below="md">
+				<Show below="xl">
 					<Box
 						cursor="pointer"
 						userSelect="none"
@@ -73,7 +73,7 @@ const HeaderComponent = () => {
 						/>
 					</Box>
 				</Show>
-				<Hide below="md">
+				<Hide below="xl">
 					<Menu isOpen={isOpen} data-test-id="header-menu" />
 				</Hide>
 			</Flex>

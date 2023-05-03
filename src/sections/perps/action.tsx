@@ -28,21 +28,24 @@ export default function Action() {
 				borderColor="gray.900"
 				borderRadius="base"
 				bg="navy.900"
-				flexDir={{ base: 'column' }}
+				flexDir={{ base: 'column', lg: 'row' }}
 				mb={{ base: '16px' }}
+				position={{ lg: 'relative' }}
 			>
 				<Image
 					src="/ornament.png"
 					alt="Ornament"
-					w={{ base: '448px' }}
-					height={{ base: '216px' }}
-					objectFit="none"
+					position={{ base: 'relative', lg: 'absolute' }}
+					top={{ lg: 0 }}
+					right={{ lg: 0 }}
+					w={{ base: '448px', md: '100%', lg: '320px' }}
+					height={{ base: '216px', lg: '296px' }}
+					objectFit={{ base: 'none', md: 'cover', lg: 'none' }}
 				/>
 				<Flex
 					flexDir="column"
-					maxW="600px"
-					w="100%"
-					p={{ base: '16px', xl: '48px' }}
+					w={{ base: '100%', lg: '648px' }}
+					p={{ base: '16px', lg: '48px 0px 48px 48px' }}
 				>
 					<Heading
 						fontSize={{ base: '30px', md: '36px' }}
@@ -60,7 +63,7 @@ export default function Action() {
 						</Link>
 					</Text>
 					<Button
-						size="lg"
+						size={{ base: 'lg', lg: 'sm' }}
 						maxW={{ base: '205px' }}
 						mt="24px"
 						onClick={() =>

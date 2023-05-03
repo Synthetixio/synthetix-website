@@ -8,6 +8,7 @@ import {
 	Image,
 	Icon,
 	Hide,
+	Show,
 } from '@chakra-ui/react';
 import { Conduit, Kwenta, Synthetix, dHedge } from './icons/Frontends';
 
@@ -92,7 +93,8 @@ const FrontEnds = ({ ...props }: FlexProps) => {
 			<Flex
 				w="100%"
 				flexWrap="wrap"
-				justifyContent={{ lg: 'space-around', '2xl': 'space-between' }}
+				justifyContent={{ lg: 'flex-start', '2xl': 'space-between' }}
+				columnGap="24px"
 			>
 				{FrontendCards.map((card, i) => (
 					<FrontendCard {...card} key={card.name.concat(i.toString())} />
@@ -152,7 +154,7 @@ function FrontendCard({
 					)}
 				</Text>
 			</Hide>
-			<Hide below="md">
+			<Show above="md">
 				{logo}
 				<Heading my="16px" fontSize="18px">
 					{name}
@@ -169,7 +171,7 @@ function FrontendCard({
 						description
 					)}
 				</Text>
-			</Hide>
+			</Show>
 			<Button
 				variant={name !== 'Synthetix' ? 'outline' : 'solid'}
 				onClick={() => window.open(link, '_blank', 'noopener,noreferrer')}
@@ -184,7 +186,7 @@ function FrontendCard({
 							fill="none"
 							xmlns="http://www.w3.org/2000/svg"
 						>
-							<g clip-path="url(#clip0_4786_501)">
+							<g clipPath="url(#clip0_4786_501)">
 								<path
 									d="M9.07952 4.47127L4.65444 4.47127L4.65445 3.30478L11.071 3.30478L11.071 9.7213L9.90448 9.7213L9.90448 5.29623L4.11717 11.325L3.29221 10.5001L9.07952 4.47127Z"
 									fill="#00D1FF"
