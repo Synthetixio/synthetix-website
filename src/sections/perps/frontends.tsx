@@ -119,7 +119,7 @@ function FrontendCard({
 		<Flex
 			flexDir="column"
 			alignItems="flex-start"
-			w={{ base: '100%', lg: '396px' }}
+			w={{ base: '100%', lg: '396px', '2xl': '480px' }}
 			bg="navy.900"
 			borderWidth="1px"
 			borderStyle="solid"
@@ -159,7 +159,11 @@ function FrontendCard({
 				<Heading my="16px" fontSize="18px">
 					{name}
 				</Heading>
-				<Text mb={{ base: '16px' }} fontSize="16px" lineHeight="24px">
+				<Text
+					mb={{ base: '16px', lg: 'auto' }}
+					fontSize="16px"
+					lineHeight="24px"
+				>
 					{Array.isArray(description) ? (
 						<>
 							{description[0]}{' '}
@@ -173,6 +177,7 @@ function FrontendCard({
 				</Text>
 			</Show>
 			<Button
+				mt={{ lg: '16px' }}
 				variant={name !== 'Synthetix' ? 'outline' : 'solid'}
 				onClick={() => window.open(link, '_blank', 'noopener,noreferrer')}
 				w={{ base: '100%', lg: '180px' }}
