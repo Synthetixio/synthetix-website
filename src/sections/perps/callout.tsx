@@ -3,7 +3,7 @@ import { ReactNode } from 'react';
 
 export default function Callout() {
 	return (
-		<Flex as="section" direction="column" w="100%" mb="68px">
+		<Flex as="section" direction="column" w="100%" mb="68px" mt="48px">
 			<Text
 				mb="24px"
 				color="gray.500"

@@ -19,7 +19,7 @@ export default function Action() {
 				'2xl': '96rem',
 			}}
 			w="100%"
-			px="16px"
+			px={{ base: '16px', lg: '24px' }}
 		>
 			<Flex
 				w="100%"
@@ -63,7 +63,7 @@ export default function Action() {
 						</Link>
 					</Text>
 					<Button
-						size={{ base: 'lg', lg: 'sm' }}
+						size={{ base: 'lg', md: 'sm' }}
 						maxW={{ base: '205px' }}
 						mt="24px"
 						onClick={() =>

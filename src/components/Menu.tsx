@@ -85,7 +85,7 @@ const MenuComponent = ({ isOpen, ...rest }: MenuProps) => {
 											urlFolderPathName === item.label ? 'cyan.500' : 'gray.500'
 										}
 										_hover={{ color: 'white' }}
-										fontSize={{ base: '2xl', md: 'sm', lg: 'md' }}
+										fontSize={{ base: '2xl', md: 'sm' }}
 									>
 										{item.label}
 									</Text>
@@ -102,7 +102,7 @@ const MenuComponent = ({ isOpen, ...rest }: MenuProps) => {
 										fontWeight="bold"
 										color="gray.500"
 										_hover={{ color: 'white' }}
-										fontSize={{ base: '2xl', md: 'md' }}
+										fontSize={{ base: '2xl', md: 'sm' }}
 									>
 										{item.label}
 									</Text>

@@ -23,7 +23,7 @@ const HeaderComponent = () => {
 			alignItems="center"
 			justifyContent="center"
 			minW="100vw"
-			px="5"
+			px="24px"
 			bg="navy.900"
 			borderBottomColor="gray.900"
 			borderBottomWidth="1px"
@@ -41,7 +41,6 @@ const HeaderComponent = () => {
 					xl: '80rem',
 					'2xl': '96rem',
 				}}
-				px={{ base: '16px', xl: '24px' }}
 			>
 				<Image
 					src="/snx.svg"
@@ -51,7 +50,8 @@ const HeaderComponent = () => {
 					cursor="pointer"
 					mr={{ base: '', xl: '8' }}
 				/>
-				<Show below="xl">
+				{/* if using below="xl" we will see both, menu and hamburger menu */}
+				<Show breakpoint="(max-width: 1279px)">
 					<Box
 						cursor="pointer"
 						userSelect="none"
@@ -73,9 +73,9 @@ const HeaderComponent = () => {
 						/>
 					</Box>
 				</Show>
-				<Hide below="xl">
+				<Show above="xl">
 					<Menu isOpen={isOpen} data-test-id="header-menu" />
-				</Hide>
+				</Show>
 			</Flex>
 		</Flex>
 	);

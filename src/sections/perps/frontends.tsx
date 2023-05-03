@@ -93,7 +93,7 @@ const FrontEnds = ({ ...props }: FlexProps) => {
 			<Flex
 				w="100%"
 				flexWrap="wrap"
-				justifyContent={{ lg: 'flex-start', '2xl': 'space-between' }}
+				justifyContent={{ lg: 'flex-start' }}
 				columnGap="24px"
 			>
 				{FrontendCards.map((card, i) => (
@@ -119,7 +119,7 @@ function FrontendCard({
 		<Flex
 			flexDir="column"
 			alignItems="flex-start"
-			w={{ base: '100%', lg: '396px', '2xl': '480px' }}
+			w={{ base: '100%', lg: '396px' }}
 			bg="navy.900"
 			borderWidth="1px"
 			borderStyle="solid"
@@ -159,7 +159,7 @@ function FrontendCard({
 				<Heading my="16px" fontSize="18px">
 					{name}
 				</Heading>
-				<Text mb={{ base: '16px' }} fontSize="14px">
+				<Text mb={{ base: '16px' }} fontSize="16px" lineHeight="24px">
 					{Array.isArray(description) ? (
 						<>
 							{description[0]}{' '}
