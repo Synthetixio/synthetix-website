@@ -10,46 +10,81 @@ import {
 	Hide,
 	Show,
 } from '@chakra-ui/react';
-import { Conduit, Kwenta, Synthetix, dHedge } from './icons/Frontends';
 
 const FrontendCards = [
 	{
-		logo: <Image src="/polynomial.png" w="50px" h="50px" />,
+		logo: (
+			<Image
+				src="/polynomial.png"
+				w={{ base: '40px', xl: '50px' }}
+				h={{ base: '40px', xl: '50px' }}
+			/>
+		),
 		name: 'Polynomial',
 		description:
 			'Polynomial is a DeFi derivatives powerhouse that offers derivatives-based products built on top of Synthetix such as perps, power perps, and vaults. It is a one-stop solution built on top of Polynomial smart contract wallets.',
 		link: 'https://www.polynomial.fi/',
 	},
 	{
-		logo: Kwenta,
+		logo: (
+			<Image
+				src="/kwenta-frontend.png"
+				w={{ base: '40px', xl: '50px' }}
+				h={{ base: '40px', xl: '50px' }}
+			/>
+		),
 		name: 'Kwenta',
 		description:
 			'Kwenta is a decentralized derivatives trading platform offering perpetual futures and options trading on Optimism. Gain exposure to a variety of crypto and real-world assets, and advanced tooling through Kwenta Smart Margin.',
 		link: 'https://kwenta.io/',
 	},
 	{
-		logo: <Image src="/decentrex.png" w="50px" h="50px" />,
+		logo: (
+			<Image
+				src="/decentrex.png"
+				w={{ base: '40px', xl: '50px' }}
+				h={{ base: '40px', xl: '50px' }}
+			/>
+		),
 		name: 'Decentrex',
 		description:
 			'Decentrex is a decentralized perpetual futures exchange and leverage aggregator. On Decentrex, users have access to deep liquidity and lightning fast trades, thanks to the powerful infrastructure provided by Synthetix and Optimism.',
 		link: 'https://kwenta.io/',
 	},
 	{
-		logo: dHedge,
+		logo: (
+			<Image
+				src="/dhedge.png"
+				w={{ base: '40px', xl: '50px' }}
+				h={{ base: '40px', xl: '50px' }}
+			/>
+		),
 		name: 'dHedge',
 		description:
 			'dHEDGE is a decentralized asset management protocol. It empowers users to access high-performing vaults managed by skilled asset managers. Asset managers can utilize sophisticated DeFi instruments like Kwenta perpetual futures and Lyra options to generate returns.',
 		link: 'https://www.dhedge.org/',
 	},
 	{
-		logo: Conduit,
+		logo: (
+			<Image
+				src="/conduit.png"
+				w={{ base: '40px', xl: '50px' }}
+				h={{ base: '40px', xl: '50px' }}
+			/>
+		),
 		name: 'Conduit',
 		description:
 			'Conduit is a community-centric, perpetual trading platform that provides a high performing, modular user experience. It introduces novel features that are intuitive to users, with Synthetix as the backbone. Your gateway to crypto trading.',
 		link: 'https://alpha.conduit.lol/',
 	},
 	{
-		logo: Synthetix,
+		logo: (
+			<Image
+				src="/synthetix-frontend.png"
+				w={{ base: '40px', xl: '50px' }}
+				h={{ base: '40px', xl: '50px' }}
+			/>
+		),
 		name: 'Synthetix',
 		description: [
 			'Learn more about how to integrate Perps and other Synthetix markets in our developer documentation and reach out to the developers at ',
@@ -75,7 +110,7 @@ const FrontEnds = ({ ...props }: FlexProps) => {
 			width="100%"
 			mt={{ base: '48px' }}
 			mb="64px"
-			px={{ base: '24px' }}
+			px={{ base: '16px', lg: '24px' }}
 			{...props}
 		>
 			<Heading
@@ -119,7 +154,8 @@ function FrontendCard({
 		<Flex
 			flexDir="column"
 			alignItems="flex-start"
-			w={{ base: '100%', lg: '396px', '2xl': '480px' }}
+			w={{ base: '100%', lg: '396px', xl: '394px' }}
+			height={{ base: '272px', md: '284px', lg: '356px', xl: '374px' }}
 			bg="navy.900"
 			borderWidth="1px"
 			borderStyle="solid"
@@ -129,7 +165,7 @@ function FrontendCard({
 			p={{ base: '16px', md: '24px' }}
 		>
 			<Hide above="md">
-				<Flex>
+				<Flex alignItems="center" h="40px" mb="16px">
 					{logo}
 					<Text
 						my="16px"
@@ -141,7 +177,7 @@ function FrontendCard({
 						{name}
 					</Text>
 				</Flex>
-				<Text mb={{ base: '16px' }} fontSize="16px">
+				<Text mb={{ base: 'auto' }} fontSize="16px" color="gray.500">
 					{Array.isArray(description) ? (
 						<>
 							{description[0]}{' '}
@@ -163,6 +199,7 @@ function FrontendCard({
 					mb={{ base: '16px', lg: 'auto' }}
 					fontSize="16px"
 					lineHeight="24px"
+					color="gray.500"
 				>
 					{Array.isArray(description) ? (
 						<>

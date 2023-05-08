@@ -15,7 +15,7 @@ const HeaderComponent = () => {
 			document.documentElement.classList.remove('stop-scrolling');
 		}
 	}, [isOpen]);
-
+	// HEADER JUST LIKE EVERY OTEHR CONTENT 24px to the side
 	return (
 		<Flex
 			as="header"
