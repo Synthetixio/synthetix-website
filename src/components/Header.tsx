@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react';
 import HamburgerMenu from 'react-hamburger-menu';
 import { Menu } from './';
 import { useRouter } from 'next/router';
-import { Image, Flex, Show, Box, Hide } from '@chakra-ui/react';
+import { Image, Flex, Show, Box } from '@chakra-ui/react';
 
 const HeaderComponent = () => {
 	const [isOpen, setIsOpen] = useState<boolean>(false);
@@ -19,7 +19,7 @@ const HeaderComponent = () => {
 	return (
 		<Flex
 			as="header"
-			height={headerHeight.toString().concat('px')}
+			minH={headerHeight.toString().concat('px')}
 			alignItems="center"
 			justifyContent="center"
 			minW="100vw"

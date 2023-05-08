@@ -39,13 +39,13 @@ export default function Action() {
 					top={{ lg: 0 }}
 					right={{ lg: 0 }}
 					w={{ base: '448px', md: '100%', lg: '320px' }}
-					height={{ base: '216px', lg: '296px' }}
+					height={{ base: '216px', lg: '257px' }}
 					objectFit={{ base: 'none', md: 'cover', lg: 'none' }}
 				/>
 				<Flex
 					flexDir="column"
 					w={{ base: '100%', lg: '648px' }}
-					p={{ base: '16px', lg: '48px 0px 48px 48px' }}
+					p={{ base: '16px', lg: '24px 0px 24px 24px' }}
 				>
 					<Heading
 						fontSize={{ base: '30px', md: '36px' }}
@@ -64,6 +64,7 @@ export default function Action() {
 					</Text>
 					<Button
 						size={{ base: 'lg', md: 'sm' }}
+						h={{ md: '40px' }}
 						maxW={{ base: '205px' }}
 						mt="24px"
 						onClick={() =>
@@ -73,9 +74,8 @@ export default function Action() {
 								'noopener noreferrer',
 							)
 						}
-						fontSize={{ base: '14px' }}
 					>
-						Integrate with Synthetix
+						<Text fontSize={{ base: '14px' }}>Integrate with Synthetix</Text>
 					</Button>
 				</Flex>
 			</Flex>

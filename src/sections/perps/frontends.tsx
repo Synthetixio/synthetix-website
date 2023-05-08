@@ -49,7 +49,7 @@ const FrontendCards = [
 		name: 'Decentrex',
 		description:
 			'Decentrex is a decentralized perpetual futures exchange and leverage aggregator. On Decentrex, users have access to deep liquidity and lightning fast trades, thanks to the powerful infrastructure provided by Synthetix and Optimism.',
-		link: 'https://kwenta.io/',
+		link: 'https://decentrex.com/trade/ETH-USD',
 	},
 	{
 		logo: (
