@@ -123,7 +123,7 @@ export default function Footer() {
 						</Flex>
 						<EmailFooter />
 					</Flex>
-					<Flex my="10" justifyContent="space-between">
+					<Flex m="16px" justifyContent="space-between">
 						<Logo small={true} />
 						<Socials isFooter />
 					</Flex>
