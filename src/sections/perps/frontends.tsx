@@ -197,7 +197,7 @@ function FrontendCard({
 					{name}
 				</Heading>
 				<Text
-					mb={{ base: '16px', lg: 'auto' }}
+					mb={{ base: 'auto' }}
 					fontSize="16px"
 					lineHeight="24px"
 					color="gray.500"
