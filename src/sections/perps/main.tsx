@@ -41,7 +41,16 @@ export default function FuturesMain() {
 					additional resources for building your own frontend.
 				</Text>
 				<Flex w="100%">
-					<Button mr="24px" w="100%" size={{ base: 'lg', xl: 'md' }}>
+					<Button
+						mr="24px"
+						w="100%"
+						size={{ base: 'lg', xl: 'md' }}
+						onClick={() => {
+							document
+								.querySelector('#frontends-integrators')
+								?.scrollIntoView({ behavior: 'smooth' });
+						}}
+					>
 						See Integrators
 					</Button>
 					<Button

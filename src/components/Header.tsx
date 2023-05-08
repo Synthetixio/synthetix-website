@@ -15,7 +15,7 @@ const HeaderComponent = () => {
 			document.documentElement.classList.remove('stop-scrolling');
 		}
 	}, [isOpen]);
-	// HEADER JUST LIKE EVERY OTEHR CONTENT 24px to the side
+
 	return (
 		<Flex
 			as="header"
@@ -55,7 +55,7 @@ const HeaderComponent = () => {
 					<Box
 						cursor="pointer"
 						userSelect="none"
-						top="15px"
+						top="25px"
 						left="20px"
 						position={isOpen ? 'fixed' : 'absolute'}
 						zIndex="999"
@@ -73,9 +73,7 @@ const HeaderComponent = () => {
 						/>
 					</Box>
 				</Show>
-				<Show above="xl">
-					<Menu isOpen={isOpen} data-test-id="header-menu" />
-				</Show>
+				<Menu isOpen={isOpen} data-test-id="header-menu" />
 			</Flex>
 		</Flex>
 	);

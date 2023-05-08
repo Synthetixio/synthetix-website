@@ -138,18 +138,6 @@ const accordionItems: AccordionItemsType[] = [
 				stocks, commodities and anything else with a price.
 			</div>,
 		],
-		buttons: [
-			<BuildButton
-				size="medium"
-				buttonType="secondary"
-				link="/synths"
-				external={false}
-				key="synthetix-assets-description-four"
-				margin="19px 0px 0px"
-			>
-				EXPLORE SYNTHS
-			</BuildButton>,
-		],
 	},
 	{
 		title: 'Stake & Earn',

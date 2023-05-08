@@ -97,6 +97,7 @@ const FrontendCards = [
 const FrontEnds = ({ ...props }: FlexProps) => {
 	return (
 		<Flex
+			id="frontends-integrators"
 			maxW={{
 				base: '100vw',
 				md: '48rem',

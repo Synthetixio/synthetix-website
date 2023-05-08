@@ -56,13 +56,13 @@ const MenuComponent = ({ isOpen, ...rest }: MenuProps) => {
 				flexWrap="nowrap"
 				zIndex="101"
 				width="100%"
-				position={{ base: 'fixed', md: 'static' }}
-				direction={{ base: 'column', md: 'row' }}
+				position={{ base: 'fixed', xl: 'static' }}
+				direction={{ base: 'column', xl: 'row' }}
 				top="0"
-				pt={{ base: '100px', md: '0px' }}
-				height={{ base: '100%', md: 'auto' }}
+				pt={{ base: '100px', xl: '0px' }}
+				height={{ base: '100%', xl: 'auto' }}
 				transition="all 250ms linear"
-				background={{ base: 'navy.900', md: 'transparent' }}
+				background={{ base: 'navy.900', xl: 'transparent' }}
 				{...rest}
 			>
 				{data.map(item => {
@@ -111,7 +111,7 @@ const MenuComponent = ({ isOpen, ...rest }: MenuProps) => {
 						</MenuItem>
 					);
 				})}
-				<Flex ml={{ base: '5', md: 'auto' }} gap="2" alignItems="center">
+				<Flex ml={{ base: '16px', xl: 'auto' }} gap="2" alignItems="center">
 					{externalButtons.map(item => {
 						return (
 							<ExternalLink href={item.externalLink} key={item.label}>
@@ -120,6 +120,7 @@ const MenuComponent = ({ isOpen, ...rest }: MenuProps) => {
 									colorScheme="cyan"
 									key={item.label}
 									rightIcon={<ImArrowUpRight2 />}
+									mt={{ base: '8px', xl: '0' }}
 								>
 									{item.label}
 								</Button>
