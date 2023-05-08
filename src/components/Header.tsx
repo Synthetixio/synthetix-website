@@ -23,7 +23,6 @@ const HeaderComponent = () => {
 			alignItems="center"
 			justifyContent="center"
 			minW="100vw"
-			px="24px"
 			bg="navy.900"
 			borderBottomColor="gray.900"
 			borderBottomWidth="1px"
@@ -41,6 +40,7 @@ const HeaderComponent = () => {
 					xl: '80rem',
 					'2xl': '96rem',
 				}}
+				px="24px"
 			>
 				<Image
 					src="/snx.svg"
