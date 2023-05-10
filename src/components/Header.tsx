@@ -28,6 +28,7 @@ const HeaderComponent = () => {
 			borderBottomWidth="1px"
 			borderBottomStyle="solid"
 			zIndex={9999}
+			position={{base: 'fixed', xl: 'unset'}}
 		>
 			<Flex
 				w="100%"

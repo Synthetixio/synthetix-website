@@ -122,7 +122,7 @@ export const EmailSignup = ({ page = 'home', ...props }: EmailSignupProps) => {
 						colorScheme="gray"
 						size="lg"
 					>
-						{loading ? <Spinner /> : 'SIGN UP'}
+						{loading ? <Spinner /> : 'Sign Up'}
 					</Button>
 				</Flex>
 				<Box minH="10">

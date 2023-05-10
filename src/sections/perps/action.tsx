@@ -20,6 +20,7 @@ export default function Action() {
 			}}
 			w="100%"
 			px={{ base: '16px', lg: '24px' }}
+			my="62px"
 		>
 			<Flex
 				w="100%"
@@ -39,13 +40,13 @@ export default function Action() {
 					top={{ lg: 0 }}
 					right={{ lg: 0 }}
 					w={{ base: '448px', md: '100%', lg: '320px' }}
-					height={{ base: '216px', lg: '257px' }}
+					height={{ base: '289px', lg: '257px' }}
 					objectFit={{ base: 'none', md: 'cover', lg: 'none' }}
 				/>
 				<Flex
 					flexDir="column"
 					w={{ base: '100%', lg: '648px' }}
-					p={{ base: '16px', lg: '24px 0px 24px 24px' }}
+					p={{ base: '32px 16px 16px 16px', lg: '24px 0px 24px 24px' }}
 				>
 					<Heading
 						fontSize={{ base: '30px', md: '36px' }}

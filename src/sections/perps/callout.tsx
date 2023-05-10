@@ -3,9 +3,9 @@ import { ReactNode } from 'react';
 
 export default function Callout() {
 	return (
-		<Flex as="section" direction="column" w="100%" mb="68px" mt="48px">
+		<Flex as="section" direction="column" w="100%" my="62px">
 			<Text
-				mb="24px"
+				mb="16px"
 				color="gray.500"
 				fontSize={{ base: 'md' }}
 				fontWeight="400"

@@ -109,8 +109,7 @@ const FrontEnds = ({ ...props }: FlexProps) => {
 			alignItems="center"
 			position="relative"
 			width="100%"
-			mt={{ base: '48px' }}
-			mb="64px"
+			my="62px"
 			px={{ base: '16px', lg: '24px' }}
 			{...props}
 		>
@@ -156,7 +155,7 @@ function FrontendCard({
 			flexDir="column"
 			alignItems="flex-start"
 			w={{ base: '100%', lg: '396px', xl: '394px' }}
-			height={{ base: '272px', md: '284px', lg: '356px', xl: '374px' }}
+			height={{ base: '303px', md: '284px', lg: '356px', xl: '374px' }}
 			bg="navy.900"
 			borderWidth="1px"
 			borderStyle="solid"
@@ -178,7 +177,7 @@ function FrontendCard({
 						{name}
 					</Text>
 				</Flex>
-				<Text mb={{ base: 'auto' }} fontSize="16px" color="gray.500">
+				<Text mb={{ base: '16px' }} fontSize="16px" color="gray.500">
 					{Array.isArray(description) ? (
 						<>
 							{description[0]}{' '}

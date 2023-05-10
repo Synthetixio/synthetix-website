@@ -15,19 +15,14 @@ const USPS = [
 			'All supported markets benefit from deep liquidity and low fees, thanks to the use of fully decentralized off-chain oracles and Synthetix liquidity.',
 	},
 	{
-		label: 'Revenue Share',
-		description:
-			'Integrators receive a share of the fees they process, based on a volume and paid in $SNX: 10% of first $1m in fees, 7.5% for $1M - $5M, and 5% for >$5M. Protocols have discretion to use these rewards as they see fit.',
-	},
-	{
-		label: 'Capital Efficient',
-		description:
-			'The protocol supports leverage up to 25x on supported markets, making Synthetix Perps highly capital-efficient.',
-	},
-	{
 		label: 'Wide Variety of Assets',
 		description:
 			'Synthetix Perps supports a wide array of synthetic assets, which is determined and updated by the decentralized governance process.',
+	},
+	{
+		label: 'Revenue Share',
+		description:
+			'Integrators receive a share of the fees they process, based on a volume and paid in $SNX: 10% of first $1m in fees, 7.5% for $1M - $5M, and 5% for >$5M. Protocols have discretion to use these rewards as they see fit.',
 	},
 	{
 		label: 'Easy to Integrate',
@@ -44,6 +39,11 @@ const USPS = [
 		],
 	},
 	{
+		label: 'Capital Efficient',
+		description:
+			'The protocol supports leverage up to 25x on supported markets, making Synthetix Perps highly capital-efficient.',
+	},
+	{
 		label: 'Supported Launch',
 		description:
 			'There is a thriving ecosystem of integrators and related Synthetix protocols, to provide feedback, early testing and support.',
@@ -52,7 +52,7 @@ const USPS = [
 
 export default function USP() {
 	return (
-		<Flex flexDirection="column" h="100%" bg="navy.900" pt="48px" mb="64px">
+		<Flex flexDirection="column" h="100%" bg="navy.900" my="62px">
 			<Heading
 				fontSize={{ base: '36px', md: '48px' }}
 				lineHeight={{ base: '43px' }}

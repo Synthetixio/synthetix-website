@@ -11,7 +11,7 @@ export default function FuturesMain() {
 			height={{ base: 'auto' }}
 			bg="navy.900"
 			wrap={{ base: 'wrap-reverse', xl: 'nowrap' }}
-			mb="48px"
+			my="62px"
 		>
 			<Flex
 				w={{ base: '100%', lg: '600px' }}
@@ -35,7 +35,7 @@ export default function FuturesMain() {
 					fontWeight={400}
 					color="gray.500"
 					w={{ base: '100%' }}
-					mb="24px"
+					mb="16px"
 				>
 					Synthetix Perps offers integrators deep liquidity, low fees and
 					additional resources for building your own frontend.
@@ -80,6 +80,7 @@ export default function FuturesMain() {
 				top="-30px"
 				left="50%"
 				position={{ base: 'absolute' }}
+				height={{base :'480px'}}
 			/>
 		</Flex>
 	);
