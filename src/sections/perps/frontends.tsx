@@ -109,7 +109,7 @@ const FrontEnds = ({ ...props }: FlexProps) => {
 			alignItems="center"
 			position="relative"
 			width="100%"
-			my="62px"
+			my={{ base: '62px', md: '100px' }}
 			px={{ base: '16px', lg: '24px' }}
 			{...props}
 		>
@@ -129,7 +129,7 @@ const FrontEnds = ({ ...props }: FlexProps) => {
 				w="100%"
 				flexWrap="wrap"
 				justifyContent={{ lg: 'flex-start' }}
-				columnGap="24px"
+				columnGap={{ lg: '16px' }}
 			>
 				{FrontendCards.map((card, i) => (
 					<FrontendCard {...card} key={card.name.concat(i.toString())} />
@@ -154,7 +154,7 @@ function FrontendCard({
 		<Flex
 			flexDir="column"
 			alignItems="flex-start"
-			w={{ base: '100%', lg: '396px', xl: '394px' }}
+			w={{ base: '100%', lg: '467px', xl: '394px' }}
 			height={{ base: '303px', md: '284px', lg: '356px', xl: '374px' }}
 			bg="navy.900"
 			borderWidth="1px"

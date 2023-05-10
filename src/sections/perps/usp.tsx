@@ -52,7 +52,12 @@ const USPS = [
 
 export default function USP() {
 	return (
-		<Flex flexDirection="column" h="100%" bg="navy.900" my="62px">
+		<Flex
+			flexDirection="column"
+			h="100%"
+			bg="navy.900"
+			my={{ base: '62px', md: '100px' }}
+		>
 			<Heading
 				fontSize={{ base: '36px', md: '48px' }}
 				lineHeight={{ base: '43px' }}

@@ -11,13 +11,13 @@ export default function FuturesMain() {
 			height={{ base: 'auto' }}
 			bg="navy.900"
 			wrap={{ base: 'wrap-reverse', xl: 'nowrap' }}
-			my="62px"
+			mb={{ base: '62px', md: '100px' }}
 		>
 			<Flex
 				w={{ base: '100%', lg: '600px' }}
 				flexDir="column"
 				p={{ base: 0 }}
-				mt={{ base: '400px', md: '0px', lg: '550px', xl: '77px' }}
+				mt={{ base: '400px', md: '533px', lg: '550px', xl: '77px' }}
 			>
 				<Heading
 					fontWeight={{ base: '700', md: '800' }}
@@ -35,15 +35,15 @@ export default function FuturesMain() {
 					fontWeight={400}
 					color="gray.500"
 					w={{ base: '100%' }}
-					mb="16px"
+					mb={{ base: '16px', md: '24px' }}
 				>
 					Synthetix Perps offers integrators deep liquidity, low fees and
 					additional resources for building your own frontend.
 				</Text>
-				<Flex w="100%">
+				<Flex>
 					<Button
 						mr="24px"
-						w="100%"
+						w={{ md: '288px' }}
 						size={{ base: 'lg', xl: 'md' }}
 						onClick={() => {
 							document
@@ -55,7 +55,7 @@ export default function FuturesMain() {
 					</Button>
 					<Button
 						size={{ base: 'lg', xl: 'md' }}
-						w="100%"
+						w={{ md: '288px' }}
 						variant="outline"
 						colorScheme="gray"
 						rightIcon={<LinkOffIcon white />}
@@ -74,13 +74,13 @@ export default function FuturesMain() {
 			<SNXPerpsLooper
 				transform={{
 					base: 'translate(-50%, -10%)',
-					lg: 'translate(-50%, -25%)',
+					md: 'translate(-50%, 10%)',
+					lg: 'translate(-50%, -20%)',
 					xl: 'translate(0%, -25%)',
 				}}
 				top="-30px"
 				left="50%"
 				position={{ base: 'absolute' }}
-				height={{base :'480px'}}
 			/>
 		</Flex>
 	);

@@ -20,7 +20,7 @@ export default function Action() {
 			}}
 			w="100%"
 			px={{ base: '16px', lg: '24px' }}
-			my="62px"
+			my={{ base: '62px', md: '100px' }}
 		>
 			<Flex
 				w="100%"
@@ -41,7 +41,7 @@ export default function Action() {
 					right={{ lg: 0 }}
 					w={{ base: '448px', md: '100%', lg: '320px' }}
 					height={{ base: '289px', lg: '257px' }}
-					objectFit={{ base: 'none', md: 'cover', lg: 'none' }}
+					objectFit={{ base: 'cover' }}
 				/>
 				<Flex
 					flexDir="column"

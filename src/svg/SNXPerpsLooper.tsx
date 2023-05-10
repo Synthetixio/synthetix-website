@@ -2157,11 +2157,12 @@ export default function SNXPerpsLooper({ ...props }: SNXPerpsLooperProps) {
 	if (breakpoint === 'md') {
 		return (
 			<Icon
-				width="744"
-				height="612"
+				width="744px"
+				height="612px"
 				viewBox="0 0 744 612"
 				fill="none"
 				xmlns="http://www.w3.org/2000/svg"
+				{...props}
 			>
 				<rect
 					opacity="0.010101"
