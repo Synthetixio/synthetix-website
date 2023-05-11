@@ -27,7 +27,7 @@ const Socials = ({ isFooter, fill }: { fill?: string; isFooter?: boolean }) => {
 		<Flex
 			as="ul"
 			alignItems="center"
-			gap="4"
+			gap="6"
 			mt={isFooter ? '0' : '20'}
 			ml={isFooter ? '3' : ''}
 		>

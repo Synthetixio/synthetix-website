@@ -154,7 +154,7 @@ function FrontendCard({
 		<Flex
 			flexDir="column"
 			alignItems="flex-start"
-			w={{ base: '100%', lg: '467px', xl: '394px' }}
+			w={{ base: '100%', lg: '464px', xl: '394px' }}
 			height={{ base: '303px', md: '284px', lg: '356px', xl: '374px' }}
 			bg="navy.900"
 			borderWidth="1px"
@@ -217,7 +217,7 @@ function FrontendCard({
 				mt={{ lg: '16px' }}
 				variant={name !== 'Synthetix' ? 'outline' : 'solid'}
 				onClick={() => window.open(link, '_blank', 'noopener,noreferrer')}
-				w={{ base: '100%', lg: '180px' }}
+				w={{ base: '100%', xl: '180px' }}
 				size={{ base: 'lg', md: 'sm' }}
 				rightIcon={
 					name === 'Synthetix' ? undefined : (
