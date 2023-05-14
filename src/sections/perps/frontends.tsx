@@ -23,7 +23,7 @@ const FrontendCards = [
 		name: 'Polynomial',
 		description:
 			'Polynomial is a DeFi derivatives powerhouse that offers derivatives-based products built on top of Synthetix such as perps, power perps, and vaults. It is a one-stop solution built on top of Polynomial smart contract wallets.',
-		link: 'https://www.polynomial.fi/',
+		link: 'https://trade.polynomial.fi/',
 	},
 	{
 		logo: (
@@ -36,7 +36,7 @@ const FrontendCards = [
 		name: 'Kwenta',
 		description:
 			'Kwenta is a decentralized derivatives trading platform offering perpetual futures and options trading on Optimism. Gain exposure to a variety of crypto and real-world assets, and advanced tooling through Kwenta Smart Margin.',
-		link: 'https://kwenta.io/',
+		link: 'https://kwenta.eth.limo/dashboard/markets/',
 	},
 	{
 		logo: (
@@ -62,7 +62,7 @@ const FrontendCards = [
 		name: 'dHedge',
 		description:
 			'dHEDGE is a decentralized asset management protocol. It empowers users to access high-performing vaults managed by skilled asset managers. Asset managers can utilize sophisticated DeFi instruments like Kwenta perpetual futures and Lyra options to generate returns.',
-		link: 'https://www.dhedge.org/',
+		link: 'https://app.dhedge.org/#',
 	},
 	{
 		logo: (
@@ -90,7 +90,7 @@ const FrontendCards = [
 			'Learn more about how to integrate Perps and other Synthetix markets in our developer documentation and reach out to the developers at ',
 			'perps@snxdao.io.',
 		],
-		link: 'https://discord.com/invite/AEdUHzt',
+		link: 'https://docs.synthetix.io/integrations/perps-integration-guide',
 	},
 ];
 
@@ -123,7 +123,7 @@ const FrontEnds = ({ ...props }: FlexProps) => {
 			</Heading>
 			<Text color="gray.500" w="100%">
 				Multiple front ends have chosen to integrate Synthetix’ composable and
-				permissionless smart contracts
+				permissionless smart contracts.
 			</Text>
 			<Flex
 				w="100%"

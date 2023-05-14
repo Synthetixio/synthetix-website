@@ -8,6 +8,7 @@ export default function Callout() {
 			direction="column"
 			w="100%"
 			my={{ base: '62px', md: '100px' }}
+			maxW={{ base: '800px' }}
 		>
 			<Text
 				mb="16px"
@@ -19,8 +20,8 @@ export default function Callout() {
 			</Text>
 			<Text
 				fontWeight="700"
-				fontSize={{ base: '30px', md: '36px' }}
-				lineHeight="40px"
+				fontSize={{ base: '30px', md: '48px' }}
+				lineHeight={{ base: '40px', md: '57px' }}
 				w={{ base: '100%', lg: '800px' }}
 			>
 				Synthetix <GradientText>perpetual futures</GradientText> are a set of

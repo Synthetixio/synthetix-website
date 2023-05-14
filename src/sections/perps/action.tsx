@@ -46,21 +46,26 @@ export default function Action() {
 				<Flex
 					flexDir="column"
 					w={{ base: '100%', lg: '648px' }}
-					p={{ base: '32px 16px 16px 16px', lg: '24px 0px 24px 24px' }}
+					p={{ base: '16px', md: '48px' }}
 				>
 					<Heading
 						fontSize={{ base: '30px', md: '36px' }}
 						lineHeight={{ base: '40px' }}
 						fontWeight={{ base: '700' }}
 					>
-						Want to integrate Synthetix Perps with your Platform?
+						Integrate Synthetix Perps with your Platform
 					</Heading>
 					<Text mt="16px" color="gray.500" fontSize={{ base: '16px' }}>
 						Learn more about how to integrate Perps and other Synthetix markets
-						in our developer documentation and reach out to the developers
-						at&nbsp;
-						<Link href="mailto: perps@snxdao.io" color="cyan.500">
-							perps@snxdao.io.
+						in our developer documentation and reach out to the developer
+						over&nbsp;
+						<Link
+							href="https://discord.gg/synthetix"
+							color="cyan.500"
+							target="_blank"
+							rel="noopener noreferrer"
+						>
+							Synthetix Discord.
 						</Link>
 					</Text>
 					<Button
@@ -70,7 +75,7 @@ export default function Action() {
 						mt="24px"
 						onClick={() =>
 							window.open(
-								'https://discord.com/invite/AEdUHzt',
+								'https://docs.synthetix.io/integrations/perps-integration-guide',
 								'_blank',
 								'noopener noreferrer',
 							)
