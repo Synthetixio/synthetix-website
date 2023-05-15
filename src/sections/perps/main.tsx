@@ -17,12 +17,12 @@ export default function FuturesMain() {
 				w={{ base: '100%', lg: '600px' }}
 				flexDir="column"
 				p={{ base: 0 }}
-				mt={{ base: '400px', md: '533px', lg: '550px', xl: '77px' }}
+				mt={{ base: '400px', md: '533px', lg: '550px', xl: '184px' }}
 			>
 				<Heading
 					fontWeight={{ base: '700', md: '800' }}
 					fontSize={{ base: '48px', md: '60px' }}
-					lineHeight={{ base: '48px', md: '60px' }}
+					lineHeight={{ base: '57px', md: '72px' }}
 					mb="24px"
 					// In case the text overflows into the picture
 					zIndex={2}
@@ -43,7 +43,7 @@ export default function FuturesMain() {
 				<Flex>
 					<Button
 						mr="24px"
-						w={{ md: '288px' }}
+						w={{ base: '100%' }}
 						size={{ base: 'lg', xl: 'md' }}
 						onClick={() => {
 							document
@@ -55,7 +55,7 @@ export default function FuturesMain() {
 					</Button>
 					<Button
 						size={{ base: 'lg', xl: 'md' }}
-						w={{ md: '288px' }}
+						w={{ base: '100%' }}
 						variant="outline"
 						colorScheme="gray"
 						rightIcon={<LinkOffIcon white />}
@@ -67,7 +67,7 @@ export default function FuturesMain() {
 							)
 						}
 					>
-						See Stats
+						See Perps Stats
 					</Button>
 				</Flex>
 			</Flex>
@@ -76,7 +76,7 @@ export default function FuturesMain() {
 					base: 'translate(-50%, -10%)',
 					md: 'translate(-50%, 10%)',
 					lg: 'translate(-50%, -20%)',
-					xl: 'translate(0%, -25%)',
+					xl: 'translate(-5%, -20%)',
 				}}
 				top="-30px"
 				left="50%"

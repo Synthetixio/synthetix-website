@@ -74,13 +74,13 @@ export default function USP() {
 				}}
 			>
 				{USPS.map(({ label, description }) => (
-					<GridItem key={label} p="24px" my="20px">
+					<GridItem key={label} mx="16px" my="8px">
 						<Flex flexDir="column">
 							<Text
 								fontWeight="700"
 								fontSize={{ base: 'lg' }}
 								lineHeight={{ base: '28px' }}
-								mb={{ base: '16px' }}
+								mb={{ base: '24px' }}
 							>
 								{label}
 							</Text>

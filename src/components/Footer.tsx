@@ -79,7 +79,7 @@ export default function Footer() {
 	return (
 		<>
 			<Show above="lg">
-				<Flex w="100%" flexDir="column" maxW="100%" as="footer" mt={4}>
+				<Flex w="100%" flexDir="column" maxW="100%" as="footer" my={'24px'}>
 					<Flex w="100%" justifyContent="space-between">
 						<Flex gap="14" m="5" w="100%">
 							{footerMenu.map((col, i) => {
@@ -136,7 +136,7 @@ export default function Footer() {
 					justifyContent="center"
 					alignItems="center"
 					flexDir="column"
-					pt="5"
+					my="24px"
 				>
 					{footerMenu.map((col, i) => {
 						return (

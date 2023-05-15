@@ -39,8 +39,8 @@ export default function Action() {
 					position={{ base: 'relative', lg: 'absolute' }}
 					top={{ lg: 0 }}
 					right={{ lg: 0 }}
-					w={{ base: '448px', md: '100%', lg: '320px' }}
-					height={{ base: '289px', lg: '257px' }}
+					w={{ base: '448px', md: '100%', lg: '418px' }}
+					height={{ base: '289px', lg: '328px' }}
 					objectFit={{ base: 'cover' }}
 				/>
 				<Flex
@@ -53,14 +53,14 @@ export default function Action() {
 						lineHeight={{ base: '40px' }}
 						fontWeight={{ base: '700' }}
 					>
-						Integrate Synthetix Perps with your Platform
+						Integrate Synthetix Perps with your Platform.
 					</Heading>
 					<Text mt="16px" color="gray.500" fontSize={{ base: '16px' }}>
 						Learn more about how to integrate Perps and other Synthetix markets
 						in our developer documentation and reach out to the developer
 						over&nbsp;
 						<Link
-							href="https://discord.gg/synthetix"
+							href="https://discord.com/channels/413890591840272394/459603818246701056"
 							color="cyan.500"
 							target="_blank"
 							rel="noopener noreferrer"

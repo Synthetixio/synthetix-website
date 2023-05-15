@@ -88,7 +88,7 @@ const FrontendCards = [
 		name: 'Synthetix',
 		description: [
 			'Learn more about how to integrate Perps and other Synthetix markets in our developer documentation and reach out to the developers at ',
-			'perps@snxdao.io.',
+			'Synthetix Discord.',
 		],
 		link: 'https://docs.synthetix.io/integrations/perps-integration-guide',
 	},
@@ -154,7 +154,7 @@ function FrontendCard({
 		<Flex
 			flexDir="column"
 			alignItems="flex-start"
-			w={{ base: '100%', lg: '464px', xl: '394px' }}
+			w={{ base: '100%', lg: '464px', xl: '394px', '2xl': '480px' }}
 			height={{ base: '303px', md: '284px', lg: '356px', xl: '374px' }}
 			bg="navy.900"
 			borderWidth="1px"
@@ -204,8 +204,11 @@ function FrontendCard({
 					{Array.isArray(description) ? (
 						<>
 							{description[0]}{' '}
-							<Link href="mailto: perps@snxdao.io" color="cyan.500">
-								perps@snxdao.io.
+							<Link
+								href="https://discord.com/channels/413890591840272394/459603818246701056"
+								color="cyan.500"
+							>
+								{description[1]}
 							</Link>
 						</>
 					) : (
@@ -218,7 +221,7 @@ function FrontendCard({
 				variant={name !== 'Synthetix' ? 'outline' : 'solid'}
 				onClick={() => window.open(link, '_blank', 'noopener,noreferrer')}
 				w={{ base: '100%', xl: '180px' }}
-				size={{ base: 'lg', md: 'sm' }}
+				size={{ base: 'lg', xl: 'sm' }}
 				rightIcon={
 					name === 'Synthetix' ? undefined : (
 						<Icon

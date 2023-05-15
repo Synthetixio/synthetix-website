@@ -31,6 +31,7 @@ const MainSection = () => {
 };
 
 const MainContainer = styled(Section)`
+	margin-top: 60px;
 	position: relative;
 	${({ theme }) => theme.animations.show};
 	opacity: 0;

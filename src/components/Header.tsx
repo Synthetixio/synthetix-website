@@ -28,7 +28,7 @@ const HeaderComponent = () => {
 			borderBottomWidth="1px"
 			borderBottomStyle="solid"
 			zIndex={9999}
-			position={{base: 'fixed', xl: 'unset'}}
+			position={{ base: 'fixed' }}
 		>
 			<Flex
 				w="100%"
@@ -49,7 +49,7 @@ const HeaderComponent = () => {
 					height={12}
 					onClick={() => push('/')}
 					cursor="pointer"
-					mr={{ base: '', xl: '8' }}
+					mr={{ base: '', xl: '32px' }}
 				/>
 				{/* if using below="xl" we will see both, menu and hamburger menu */}
 				<Show breakpoint="(max-width: 1279px)">
