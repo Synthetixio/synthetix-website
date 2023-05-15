@@ -17,7 +17,7 @@ export default function FuturesMain() {
 				w={{ base: '100%', lg: '600px' }}
 				flexDir="column"
 				p={{ base: 0 }}
-				mt={{ base: '400px', md: '533px', lg: '550px', xl: '184px' }}
+				mt={{ base: '465px', md: '533px', lg: '550px', xl: '184px' }}
 			>
 				<Heading
 					fontWeight={{ base: '700', md: '800' }}
@@ -73,7 +73,7 @@ export default function FuturesMain() {
 			</Flex>
 			<SNXPerpsLooper
 				transform={{
-					base: 'translate(-50%, -10%)',
+					base: 'translate(-50%, 10%)',
 					md: 'translate(-50%, 10%)',
 					lg: 'translate(-50%, -20%)',
 					xl: 'translate(-5%, -20%)',

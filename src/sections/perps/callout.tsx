@@ -8,7 +8,6 @@ export default function Callout() {
 			direction="column"
 			w="100%"
 			my={{ base: '62px', md: '100px' }}
-			maxW={{ base: '800px' }}
 		>
 			<Text
 				mb="16px"

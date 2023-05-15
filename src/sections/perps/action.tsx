@@ -5,6 +5,7 @@ import {
 	Heading,
 	Image,
 	Link,
+	Show,
 	Text,
 } from '@chakra-ui/react';
 
@@ -39,8 +40,9 @@ export default function Action() {
 					position={{ base: 'relative', lg: 'absolute' }}
 					top={{ lg: 0 }}
 					right={{ lg: 0 }}
+					transform={{ lg: 'translate(0%, -7%)' }}
 					w={{ base: '448px', md: '100%', lg: '418px' }}
-					height={{ base: '289px', lg: '328px' }}
+					height={{ base: '289px', lg: '354px' }}
 					objectFit={{ base: 'cover' }}
 				/>
 				<Flex
@@ -48,13 +50,24 @@ export default function Action() {
 					w={{ base: '100%', lg: '648px' }}
 					p={{ base: '16px', md: '48px' }}
 				>
-					<Heading
-						fontSize={{ base: '30px', md: '36px' }}
-						lineHeight={{ base: '40px' }}
-						fontWeight={{ base: '700' }}
-					>
-						Integrate Synthetix Perps with your Platform.
-					</Heading>
+					<Show below="sm">
+						<Heading
+							fontSize={{ base: '36px' }}
+							lineHeight={{ base: '40px' }}
+							fontWeight={{ base: '700' }}
+						>
+							Integrate Synthetix Perps with your Platform.
+						</Heading>
+					</Show>
+					<Show above="sm">
+						<Heading
+							fontSize={{ base: '36px' }}
+							lineHeight={{ base: '40px' }}
+							fontWeight={{ base: '700' }}
+						>
+							Integrate Synthetix Perps <br /> with your Platform.
+						</Heading>
+					</Show>
 					<Text mt="16px" color="gray.500" fontSize={{ base: '16px' }}>
 						Learn more about how to integrate Perps and other Synthetix markets
 						in our developer documentation and reach out to the developer
