@@ -1,8 +1,8 @@
 import Discord from '../svg/Discord';
 import Twitter from '../svg/Twitter';
 import Github from '../svg/Github';
-import Link from 'next/link';
-import { Flex } from '@chakra-ui/react';
+
+import { Flex, Link } from '@chakra-ui/react';
 
 const data = (fill?: string) => [
 	{
@@ -27,15 +27,18 @@ const Socials = ({ isFooter, fill }: { fill?: string; isFooter?: boolean }) => {
 		<Flex
 			as="ul"
 			alignItems="center"
-			gap="4"
 			mt={isFooter ? '0' : '20'}
 			ml={isFooter ? '3' : ''}
 		>
-			{data(fill).map(s => (
-				<Link href={s.link} key={s.link} passHref>
-					<a target="_blank" rel="noopener noreferrer">
-						{s.image}
-					</a>
+			{data(fill).map((s, index) => (
+				<Link
+					href={s.link}
+					key={s.link}
+					mx={index === 1 ? { base: '16px', lg: '42px' } : ''}
+					target="_blank"
+					rel="noopener noreferrer"
+				>
+					{s.image}
 				</Link>
 			))}
 		</Flex>

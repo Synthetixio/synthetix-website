@@ -3,22 +3,10 @@ import HamburgerMenu from 'react-hamburger-menu';
 import { Menu } from './';
 import { useRouter } from 'next/router';
 import { Image, Flex, Show, Box } from '@chakra-ui/react';
-import { NavDocs } from 'src/typings/cms-types';
 
-export interface HeaderProps {
-	config?: {
-		label: string;
-		navTitle: string;
-		items: NavDocs[];
-	};
-}
-
-const HeaderComponent = ({ config }: HeaderProps) => {
+const HeaderComponent = () => {
 	const [isOpen, setIsOpen] = useState<boolean>(false);
-	const [subOpen, setSubOpen] = useState<boolean>(false);
 	const { push } = useRouter();
-
-	const itemsToString = config?.toString();
 
 	useEffect(() => {
 		if (isOpen) {
@@ -26,62 +14,72 @@ const HeaderComponent = ({ config }: HeaderProps) => {
 		} else {
 			document.documentElement.classList.remove('stop-scrolling');
 		}
-		setSubOpen(!!config?.items?.length);
-	}, [isOpen, itemsToString]);
+	}, [isOpen]);
 
 	return (
 		<Flex
 			as="header"
-			height={headerHeight.toString().concat('px')}
+			minH={headerHeight.toString().concat('px')}
 			alignItems="center"
-			justifyContent={{ base: 'center', md: 'space-between' }}
-			zIndex="1000"
-			w="100%"
-			maxW="1920px"
-			background="transparent"
-			px="5"
+			justifyContent="center"
+			minW="100vw"
+			bg="navy.900"
+			borderBottomColor="gray.900"
+			borderBottomWidth="1px"
+			borderBottomStyle="solid"
+			zIndex={9999}
+			position={{ base: 'fixed' }}
 		>
-			<Image
-				src="/snx.svg"
-				width={200}
-				height={12}
-				onClick={() => push('/')}
-				cursor="pointer"
-				mr={{ base: '', md: '8' }}
-			/>
-			<Show below="md">
-				<Box
+			<Flex
+				w="100%"
+				alignItems="center"
+				justifyContent={{ base: 'center', xl: 'space-between' }}
+				maxW={{
+					base: '100vw',
+					md: '48rem',
+					lg: '62rem',
+					xl: '80rem',
+					'2xl': '96rem',
+				}}
+				px="24px"
+			>
+				<Image
+					src="/snx.svg"
+					width={200}
+					height={12}
+					onClick={() => push('/')}
 					cursor="pointer"
-					userSelect="none"
-					top="39px"
-					left="20px"
-					position={isOpen ? 'fixed' : 'absolute'}
-					zIndex="999"
-				>
-					<HamburgerMenu
-						isOpen={isOpen}
-						menuClicked={() => setIsOpen(!isOpen)}
-						width={22}
-						height={16}
-						strokeWidth={2}
-						rotate={0}
-						color="white"
-						borderRadius={0}
-						animationDuration={0.3}
-					/>
-				</Box>
-			</Show>
-			<Menu
-				items={config?.items}
-				subOpen={subOpen}
-				setSubOpen={setSubOpen}
-				isOpen={isOpen}
-				data-test-id="header-menu"
-			/>
+					mr={{ base: '', xl: '32px' }}
+				/>
+				{/* if using below="xl" we will see both, menu and hamburger menu */}
+				<Show breakpoint="(max-width: 1279px)">
+					<Box
+						cursor="pointer"
+						userSelect="none"
+						top="25px"
+						left="20px"
+						position={isOpen ? 'fixed' : 'absolute'}
+						zIndex="999"
+					>
+						<HamburgerMenu
+							isOpen={isOpen}
+							menuClicked={() => setIsOpen(!isOpen)}
+							width={22}
+							height={16}
+							strokeWidth={2}
+							rotate={0}
+							color="white"
+							borderRadius={0}
+							animationDuration={0.3}
+						/>
+					</Box>
+				</Show>
+				<Menu isOpen={isOpen} data-test-id="header-menu" />
+			</Flex>
 		</Flex>
 	);
 };
 
-export const headerHeight = 100;
+export const headerHeight = 65;
 
 export default HeaderComponent;

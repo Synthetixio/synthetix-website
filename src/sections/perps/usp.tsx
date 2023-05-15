@@ -1,110 +1,109 @@
-import { Text, Flex, FlexProps, Grid, GridItem, Box } from '@chakra-ui/react';
-
 import {
-	Verified,
-	Downtime,
-	Algorithm,
-	Optimism,
-	Assets,
-	GasStation,
-} from 'src/svg';
+	Text,
+	Flex,
+	Grid,
+	GridItem,
+	Heading,
+	Link,
+	Box,
+} from '@chakra-ui/react';
 
 const USPS = [
 	{
-		label: 'Best Price Execution',
+		label: 'Deep Liquidity & Low Fees',
 		description:
-			'Traders using platforms tied into the Synthetix protocol for perpetual futures contracts are guaranteed to have some of the best price execution available, with little to no slippage and fills you can’t get elsewhere.',
-		Icon: Verified,
+			'All supported markets benefit from deep liquidity and low fees, thanks to the use of fully decentralized off-chain oracles and Synthetix liquidity.',
 	},
 	{
-		label: 'Lowest Downtime & Liquidation Risk',
+		label: 'Wide Variety of Assets',
 		description:
-			'Users are unlikely to experience the downtime seen on CEXs during periods of high volatility. Because our synths are merely reflections of price action, the risk of cascading liquidations due to forced selloffs is eliminated.',
-		Icon: Downtime,
+			'Synthetix Perps supports a wide array of synthetic assets, which is determined and updated by the decentralized governance process.',
 	},
 	{
-		label: 'Simulated Liquidity',
+		label: 'Revenue Share',
 		description:
-			'Simulated liquidity is the fundamental algorithm behind all synthetic assets available for trading on the Synthetix protocol. It ensures that traders get great liquidity with low to no slippage across any asset pair with up to 10x leverage.',
-		Icon: Algorithm,
+			'Integrators receive a share of the fees they process, based on a volume and paid in $SNX: 10% of first $1m in fees, 7.5% for $1M - $5M, and 5% for >$5M. Protocols have discretion to use these rewards as they see fit.',
 	},
 	{
-		label: 'Secure Layer 2',
-		description:
-			'As an EVM equivalent solution, OE ensures that the security of Ethereum Mainnet is carried over to Layer 2. Simple code means your funds are as secure as keeping them on mainnet, without the cost of gas.',
-		Icon: Optimism,
+		label: 'Easy to Integrate',
+		description: [
+			'Visit ',
+			<Link
+				href="https://docs.synthetix.io/synthetix-protocol/welcome-to-synthetix"
+				color="cyan.500"
+				key="link-component"
+			>
+				docs.synthetix.io
+			</Link>,
+			' for integration guides and code samples on how to integrate Synthetix Perps.',
+		],
 	},
 	{
-		label: 'Any Asset Class',
+		label: 'Capital Efficient',
 		description:
-			'Get all the benefits of DeFi with a fully on-chain permissionless futures trading experience across a number of asset classes. Get leveraged exposure to price action in any market and trade between crypto tokens, commodities, currencies and more all in one place. ',
-		Icon: Assets,
+			'The protocol supports leverage up to 25x on supported markets, making Synthetix Perps highly capital-efficient.',
 	},
 	{
-		label: 'Low Gas and Fees',
+		label: 'Supported Launch',
 		description:
-			'Built on Optimistic Ethereum, your gas goes further with gas prices that are considerably lower than L1 and transactions that happen almost instantaneously.',
-		Icon: GasStation,
+			'There is a thriving ecosystem of integrators and related Synthetix protocols, to provide feedback, early testing and support.',
 	},
 ];
 
-export default function USP({ ...props }: FlexProps) {
+export default function USP() {
 	return (
-		<Flex flexDirection="column" {...props}>
-			<Text
-				as="h2"
-				mt={{ base: 8, md: 0 }}
-				fontFamily="GT America"
-				fontWeight="900"
-				fontSize="32px"
-				lineHeight="36px"
-				textTransform="uppercase"
-				sx={{ fontStretch: 'expanded' }}
-				mb={28}
-				textAlign="center"
+		<Flex
+			flexDirection="column"
+			h="100%"
+			bg="navy.900"
+			my={{ base: '62px', md: '100px' }}
+		>
+			<Heading
+				fontSize={{ base: '36px', md: '48px' }}
+				lineHeight={{ base: '43px' }}
+				textAlign="start"
+				mb="16px"
 			>
-				Trade Perpetual Futures Like the Best
-			</Text>
-			<Grid templateColumns={{ base: 'repeat(1, 1fr)', md: 'repeat(2, 1fr)' }}>
-				{USPS.map(({ label, description, Icon }) => (
-					<GridItem
-						key={label}
-						h={{ base: '250px', sm: '200px', md: '180px', lg: '160px' }}
-					>
-						<Flex>
-							<Flex
-								width={{ base: '68px', lg: '93px' }}
-								height={{ base: '68px', lg: '93px' }}
-								borderWidth="1px"
-								borderStyle="solid"
-								borderColor="cyan.500"
-								borderRadius="full"
-								justifyContent="center"
-								alignItems="center"
-								bgGradient="linear-gradient(180deg, #08021E 0%, #120446 146.21%)"
-								boxShadow="0px 0px 14px #00D1FF"
+				Protocol Features
+			</Heading>
+			<Grid
+				templateColumns={{
+					base: 'repeat(1, 1fr)',
+					md: 'repeat(2, 1fr)',
+					lg: 'repeat(3, 1fr)',
+				}}
+			>
+				{USPS.map(({ label, description }) => (
+					<GridItem key={label} mx="16px" my="8px">
+						<Flex flexDir="column">
+							<Text
+								fontWeight="700"
+								fontSize={{ base: 'lg' }}
+								lineHeight={{ base: '28px' }}
+								mb={{ base: '24px' }}
 							>
-								<Icon width={{ base: '30', md: '40', lg: '55' }} />
-							</Flex>
-							<Box width={{ base: '70%', md: '80%' }} ml={8}>
-								<Text
-									fontFamily="GT America"
-									fontWeight="700"
-									fontSize="16px"
-									color="cyan.500"
-									mb={2}
-								>
-									{label}
-								</Text>
-								<Text
-									fontFamily="heading"
-									fontSize="14px"
-									lineHeight="20px"
-									opacity={0.7}
-									pr={2}
-								>
-									{description}
-								</Text>
+								{label}
+							</Text>
+							<Box display="inline">
+								{Array.isArray(description) ? (
+									description.map(d => {
+										if (typeof d === 'string') {
+											return (
+												<Text
+													key={d.toString()}
+													color="gray.500"
+													display="inline"
+													fontSize={{ base: 'md', lg: 'sm' }}
+													lineHeight={{ base: '24px' }}
+												>
+													{d}
+												</Text>
+											);
+										} else return d;
+									})
+								) : (
+									<Text color="gray.500">{description}</Text>
+								)}
 							</Box>
 						</Flex>
 					</GridItem>

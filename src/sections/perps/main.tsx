@@ -1,108 +1,87 @@
-import { Text, Flex, Box, Link, FlexProps, Image } from '@chakra-ui/react';
+import { Button, Flex, Heading, Text } from '@chakra-ui/react';
+import LinkOffIcon from 'src/svg/LinkOffIcon';
+import SNXPerpsLooper from 'src/svg/SNXPerpsLooper';
 
-export default function FuturesMain({ ...props }: FlexProps) {
+export default function FuturesMain() {
 	return (
 		<Flex
-			borderTop="1px solid #FFFFFF10"
-			flexDirection="row"
-			justifyContent="space-between"
-			alignItems="center"
-			minHeight={{ base: '450px', md: '630px' }}
-			width="100%"
 			position="relative"
-			{...props}
+			as="section"
+			w="100%"
+			height={{ base: 'auto' }}
+			bg="navy.900"
+			wrap={{ base: 'wrap-reverse', xl: 'nowrap' }}
+			mb={{ base: '62px', md: '100px' }}
 		>
-			<Box minW="40%" mb={10} zIndex={1}>
-				<Text
-					as="h1"
-					fontFamily="GT America"
-					fontSize={{ base: '26px', sm: '36px' }}
-					lineHeight={{ base: '38px' }}
-					fontStyle="normal"
-					textTransform="uppercase"
-					fontWeight={900}
-					sx={{ fontStretch: 'expanded' }}
-				>
-					Decentralized <br />
-					Perpetual <br />
-					Futures
-				</Text>
-				<Text
-					fontFamily="heading"
-					fontSize="sm"
-					mt={4}
-					lineHeight="5"
-					fontWeight="400"
-					opacity={0.7}
-					maxW="450px"
-				>
-					Many platforms already leverage the deep liquidity and composability
-					of Synthetix to deliver better trades with lower slippage, hedging,
-					and other unique use cases.&nbsp;
-					<Text fontWeight="700" as="span">
-						Synthetix perpetual futures are available to trade through various
-						decentralized exchanges.
-					</Text>
-				</Text>
-				<Flex mt={8}>
-					<Link
-						href="https://kwenta.eth.limo"
-						borderRadius="4px"
-						bg="cyan.500"
-						boxShadow="0px 0px 10px rgba(0, 209, 255, 0.9)"
-						py={4}
-						width="147px"
-						color="black"
-						textTransform="uppercase"
-						fontFamily="GT America"
-						fontWeight="700"
-						fontSize="14px"
-						lineHeight="24px"
-						textAlign="center"
-						mr={8}
-						target="_blank"
-						_hover={{ textDecoration: 'none', bg: 'cyan.300' }}
-					>
-						Start Trading
-					</Link>
-					<Link
-						href="https://discord.com/invite/AEdUHzt"
-						borderRadius="4px"
-						bg="cyan.500"
-						boxShadow="0px 0px 10px rgba(0, 209, 255, 0.9)"
-						width="147px"
-						py={4}
-						color="black"
-						textTransform="uppercase"
-						fontFamily="GT America"
-						fontWeight="700"
-						fontSize="14px"
-						lineHeight="24px"
-						textAlign="center"
-						_hover={{ textDecoration: 'none', bg: 'cyan.300' }}
-						target="_blank"
-					>
-						Discord
-					</Link>
-				</Flex>
-			</Box>
-			<Box
-				width="55%"
-				position="absolute"
-				top="20"
-				right="-20"
-				display={{ base: 'none', md: 'block' }}
+			<Flex
+				w={{ base: '100%', lg: '600px' }}
+				flexDir="column"
+				p={{ base: 0 }}
+				mt={{ base: '400px', md: '533px', lg: '550px', xl: '184px' }}
 			>
-				<Box
-					position="absolute"
-					zIndex={0}
-					bottom="0"
-					height="40%"
-					width="100%"
-					bgGradient="linear(to-b, rgba(11,11,34,0), rgba(14,5,45,1))"
-				/>
-				<Image src="/perps/perps.png" />
-			</Box>
+				<Heading
+					fontWeight={{ base: '700', md: '800' }}
+					fontSize={{ base: '48px', md: '60px' }}
+					lineHeight={{ base: '57px', md: '72px' }}
+					mb="24px"
+					// In case the text overflows into the picture
+					zIndex={2}
+				>
+					Decentralized <br /> Perpetual <br /> Futures
+				</Heading>
+				<Text
+					fontSize={{ base: 'md' }}
+					lineHeight={{ base: '20px', md: '24px' }}
+					fontWeight={400}
+					color="gray.500"
+					w={{ base: '100%' }}
+					mb={{ base: '16px', md: '24px' }}
+				>
+					Synthetix Perps offers integrators deep liquidity, low fees and
+					additional resources for building your own frontend.
+				</Text>
+				<Flex>
+					<Button
+						mr="24px"
+						w={{ base: '100%' }}
+						size={{ base: 'lg', xl: 'md' }}
+						onClick={() => {
+							document
+								.querySelector('#frontends-integrators')
+								?.scrollIntoView({ behavior: 'smooth' });
+						}}
+					>
+						See Integrators
+					</Button>
+					<Button
+						size={{ base: 'lg', xl: 'md' }}
+						w={{ base: '100%' }}
+						variant="outline"
+						colorScheme="gray"
+						rightIcon={<LinkOffIcon white />}
+						onClick={() =>
+							window.open(
+								'https://watcher.synthetix.io/',
+								'_blank',
+								'noopener noreferrer',
+							)
+						}
+					>
+						See Perps Stats
+					</Button>
+				</Flex>
+			</Flex>
+			<SNXPerpsLooper
+				transform={{
+					base: 'translate(-50%, -10%)',
+					md: 'translate(-50%, 10%)',
+					lg: 'translate(-50%, -20%)',
+					xl: 'translate(-5%, -20%)',
+				}}
+				top="-30px"
+				left="50%"
+				position={{ base: 'absolute' }}
+			/>
 		</Flex>
 	);
 }
