@@ -15,47 +15,29 @@ const footerMenu = [
 	[
 		{ title: 'Synthetix' },
 		{
-			title: 'Synths',
-			link: '/synths',
+			title: 'Home',
+			link: 'https://synthetix.io/',
+		},
+		{
+			title: 'Perps',
+			link: 'https://synthetix.io/perps',
 		},
 		{
 			title: 'Governance',
-			link: '/governance',
+			link: 'https://governance.synthetix.io',
+		},
+		{
+			title: 'Docs',
+			link: 'https://docs.synthetix.io/synthetix-protocol/welcome-to-synthetix',
 		},
 		{
 			title: 'Blog',
 			link: 'https://blog.synthetix.io/',
 		},
 		{
-			title: 'Docs',
-			link: 'https://docs.synthetix.io/',
-		},
-		{
-			title: 'Terms',
-			link: 'https://staking.synthetix.eth.limo/terms',
-		},
-	],
-	[
-		{ title: 'Dapps' },
-		{
-			title: 'Staking',
-			link: 'https://staking.synthetix.eth.limo/',
-		},
-		{
-			title: 'Governance',
-			link: 'https://governance.synthetix.io/',
-		},
-		{
 			title: 'Stats',
-			link: 'https://stats.synthetix.io',
+			link: 'https://dune.com/synthetix_community/synthetix-stats',
 		},
-		{ title: 'Perps', link: '/perps' },
-	],
-	[
-		{ title: 'Community' },
-		{ title: 'Discord', link: 'https://discord.com/invite/AEdUHzt' },
-		{ title: 'Twitter', link: 'https://twitter.com/synthetix_io' },
-		{ title: 'GitHub', link: 'https://github.com/Synthetixio' },
 	],
 	[
 		{ title: 'About' },
@@ -69,9 +51,27 @@ const footerMenu = [
 		},
 		{
 			title: 'Terms and Conditions',
-			link: 'https://staking.synthetix.eth.limo/terms',
+			link: 'https://staking.synthetix.io/terms',
 		},
-		{ title: 'Create SIP/SCCPs', link: 'https://pr.synthetix.io/' },
+		{
+			title: 'Help Center',
+			link: 'https://docs.synthetix.io/synthetix-protocol/welcome-to-synthetix',
+		},
+	],
+	[
+		{ title: 'Dapps' },
+		{
+			title: 'Staking',
+			link: 'https://staking.synthetix.io',
+		},
+		{
+			title: 'Governance',
+			link: 'https://governance.synthetix.io',
+		},
+		{
+			title: 'Stats',
+			link: 'https://dune.com/synthetix_community/synthetix-stats',
+		},
 	],
 ];
 
@@ -79,14 +79,7 @@ export default function Footer() {
 	return (
 		<>
 			<Show above="lg">
-				<Flex
-					w="100%"
-					flexDir="column"
-					maxW="100%"
-					px={{ base: 10, sm: 10, md: 10, lg: 16, xl: 36 }}
-					as="footer"
-					mt={4}
-				>
+				<Flex w="100%" flexDir="column" maxW="100%" as="footer" my={'24px'}>
 					<Flex w="100%" justifyContent="space-between">
 						<Flex gap="14" m="5" w="100%">
 							{footerMenu.map((col, i) => {
@@ -129,13 +122,11 @@ export default function Footer() {
 							})}
 						</Flex>
 						<EmailFooter />
-						<Box m="5">
-							<Logo small={true} />
-						</Box>
 					</Flex>
-					<Box my="10">
+					<Flex m="16px" justifyContent="space-between">
+						<Logo small={true} />
 						<Socials isFooter />
-					</Box>
+					</Flex>
 				</Flex>
 			</Show>
 			<Show below="md">
@@ -145,14 +136,14 @@ export default function Footer() {
 					justifyContent="center"
 					alignItems="center"
 					flexDir="column"
-					pt="5"
+					my="24px"
 				>
 					{footerMenu.map((col, i) => {
 						return (
 							<Fragment key={'col' + i}>
 								<Accordion w="100%" allowToggle>
 									<AccordionItem>
-										<AccordionButton>
+										<AccordionButton px="0">
 											<Text
 												fontWeight="bold"
 												textTransform="uppercase"
@@ -164,7 +155,7 @@ export default function Footer() {
 												<ChevronRightIcon />
 											</AccordionIcon>
 										</AccordionButton>
-										<AccordionPanel>
+										<AccordionPanel px="0px">
 											<Flex flexDir="column" gap="2">
 												{col.map((menu, index) => (
 													<Fragment key={(menu.link || 'menu-link') + index}>
@@ -172,6 +163,7 @@ export default function Footer() {
 															<Link
 																href={menu.link}
 																textDecoration="none !important"
+																mt="24px"
 															>
 																<Text
 																	fontWeight="bold"
@@ -194,15 +186,13 @@ export default function Footer() {
 							</Fragment>
 						);
 					})}
-					<Box mt={4}>
+					<Box mt={4} w="100%">
 						<EmailFooter />
 					</Box>
-					<Box m="5">
+					<Flex m="5" justifyContent="space-between" w="100%">
 						<Logo small={true} />
-					</Box>
-					<Box my="10">
 						<Socials isFooter />
-					</Box>
+					</Flex>
 				</Flex>
 			</Show>
 		</>

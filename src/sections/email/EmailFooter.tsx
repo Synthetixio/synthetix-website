@@ -6,18 +6,21 @@ export const EmailFooter = () => {
 	const { pathname } = useRouter();
 
 	return (
-		<Flex flexDir="column" justifyContent="center" height="100%" mt={5} pl={8}>
-			<Box>
-				<Text
-					fontFamily="heading"
-					fontStyle="normal"
-					fontWeight="700"
-					color="white"
-					mb={4}
-				>
-					JOIN OUR NEWSLETTER TO KEEP UPDATED
-				</Text>
-			</Box>
+		<Flex
+			flexDir="column"
+			justifyContent="center"
+			height="100%"
+			mt={5}
+			w="100%"
+		>
+			<Text
+				fontFamily="heading"
+				fontStyle="normal"
+				fontWeight="700"
+				color="white"
+			>
+				JOIN OUR NEWSLETTER
+			</Text>
 			<EmailSignup pt={0} page={`footer ${pathname}`} />
 		</Flex>
 	);

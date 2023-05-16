@@ -22,7 +22,7 @@ const poweredByCards: PoweredByCards[] = [
 		name: 'Kwenta',
 		description:
 			'Trade with up to 10x leverage and simulated liquidity for the best price fills. Coming soon.',
-		link: 'https://kwenta.io',
+		link: 'https://kwenta.eth.limo',
 		logo: '/kwenta.png',
 	},
 	{

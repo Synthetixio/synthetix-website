@@ -1,228 +1,221 @@
-import { Flex, Text, FlexProps, Box, Divider, Link } from '@chakra-ui/react';
-import { Decentrex, Kwenta, LooperGroup, SuperSynthyIcon } from 'src/svg';
-import { ImArrowUpRight2 } from 'react-icons/im';
+import {
+	Flex,
+	Text,
+	FlexProps,
+	Heading,
+	Button,
+	Link,
+	Image,
+	Icon,
+	Hide,
+	Show,
+} from '@chakra-ui/react';
+
+const FrontendCards = [
+	{
+		logo: <Image src="/polynomial.png" h={{ base: '40px', xl: '50px' }} />,
+		name: 'Polynomial',
+		description:
+			'Polynomial is a DeFi derivatives powerhouse that offers derivatives-based products built on top of Synthetix such as perps, power perps, and vaults. It is a one-stop solution built on top of Polynomial smart contract wallets.',
+		link: 'https://trade.polynomial.fi/',
+	},
+	{
+		logo: <Image src="/kwenta-frontend.png" h={{ base: '40px', xl: '50px' }} />,
+		name: 'Kwenta',
+		description:
+			'Kwenta is a decentralized derivatives trading platform offering perpetual futures and options trading on Optimism. Gain exposure to a variety of crypto and real-world assets, and advanced tooling through Kwenta Smart Margin.',
+		link: 'https://kwenta.eth.limo/dashboard/markets/',
+	},
+	{
+		logo: <Image src="/decentrex.png" h={{ base: '40px', xl: '50px' }} />,
+		name: 'Decentrex',
+		description:
+			'Decentrex is a decentralized perpetual futures exchange and leverage aggregator. On Decentrex, users have access to deep liquidity and lightning fast trades, thanks to the powerful infrastructure provided by Synthetix and Optimism.',
+		link: 'https://decentrex.com/trade/ETH-USD',
+	},
+	{
+		logo: <Image src="/dhedge.png" h={{ base: '40px', xl: '50px' }} />,
+		name: 'dHedge',
+		description:
+			'dHEDGE is a decentralized asset management protocol. It empowers users to access high-performing vaults managed by skilled asset managers. Asset managers can utilize sophisticated DeFi instruments like Kwenta perpetual futures and Lyra options to generate returns.',
+		link: 'https://app.dhedge.org/#',
+	},
+	{
+		logo: <Image src="/conduit.png" h={{ base: '40px', xl: '50px' }} />,
+		name: 'Conduit',
+		description:
+			'Conduit is a community-centric, perpetual trading platform that provides a high performing, modular user experience. It introduces novel features that are intuitive to users, with Synthetix as the backbone. Your gateway to crypto trading.',
+		link: 'https://alpha.conduit.lol/',
+	},
+	{
+		logo: (
+			<Image src="/synthetix-frontend.png" h={{ base: '40px', xl: '50px' }} />
+		),
+		name: 'Synthetix',
+		description: [
+			'Learn more about how to integrate Perps and other Synthetix markets in our developer documentation and reach out to the developers at ',
+			'Synthetix Discord.',
+		],
+		link: 'https://docs.synthetix.io/integrations/perps-integration-guide',
+	},
+];
 
 const FrontEnds = ({ ...props }: FlexProps) => {
 	return (
 		<Flex
+			id="frontends-integrators"
+			maxW={{
+				base: '100vw',
+				md: '48rem',
+				lg: '62rem',
+				xl: '80rem',
+				'2xl': '96rem',
+			}}
 			flexDirection="column"
 			alignItems="center"
 			position="relative"
-			height={{ base: 'fit-content', md: '610px' }}
 			width="100%"
+			my={{ base: '62px', md: '100px' }}
+			px={{ base: '16px', lg: '24px' }}
 			{...props}
 		>
-			<Text
-				as="h2"
-				fontFamily="GT America"
-				fontSize="32px"
-				fontWeight="900"
-				lineHeight="35px"
-				textTransform="uppercase"
-				sx={{ fontStretch: 'expanded' }}
-				mb={4}
-				textAlign="center"
-				zIndex={1}
+			<Heading
+				mb="16px"
+				w="100%"
+				fontSize={{ base: '36px', md: '48px' }}
+				fontWeight={{ base: '700' }}
 			>
-				Frontend Operators
+				Integrators
+			</Heading>
+			<Text color="gray.500" w="100%">
+				Multiple front ends have chosen to integrate Synthetix’ composable and
+				permissionless smart contracts.
 			</Text>
-			<Text
-				fontFamily="heading"
-				fontSize="14px"
-				opacity={0.7}
-				lineHeight="22px"
-				maxWidth="710px"
-				textAlign="center"
-				zIndex={1}
-			>
-				Synthetix powers a fully composable and permissionless perps contract
-				that is integrated with several DEX front ends and other decentralized
-				financial instruments. The following have been reviewed by the Synthetix
-				community
-			</Text>
-			<LooperGroup position="absolute" top="-10" zIndex={0} />
 			<Flex
-				width="100%"
-				justifyContent="center"
-				alignItems={{ base: 'center', md: 'unset' }}
-				zIndex={1}
-				mt={16}
-				flexDirection={{ base: 'column', md: 'row' }}
+				w="100%"
+				flexWrap="wrap"
+				justifyContent={{ lg: 'flex-start' }}
+				columnGap={{ lg: '16px', xl: '24px' }}
 			>
-				<Box
-					bgGradient="linear(to-r, cyan.500, pink.500)"
-					width={{ base: '100%', md: '467px' }}
-					minHeight="207px"
-					mx={4}
-					p={8}
-					borderRadius="5px"
-					borderStyle="solid"
-					position="relative"
-					boxShadow="0px 0px 20px #00000040"
-				>
-					<Flex
-						flexDirection="column"
-						justifyContent="space-between"
-						position="absolute"
-						bg="navy.900"
-						borderRadius="4px"
-						top={1}
-						bottom={1}
-						left={1}
-						right={1}
-						p={4}
-					>
-						<Box height="40px" mb={1}>
-							<Kwenta />
-						</Box>
-						<Divider color="whiteAlpha.200" />
-						<Text fontSize="12px" lineHeight="18px" color="gray" mt={2}>
-							Kwenta is a decentralized derivatives trading platform, live on
-							Optimism, offering real-world and on-chain synthetic assets using
-							the power of the Synthetix protocol. Trade any perps markets from
-							a single cross-margin contract.
-						</Text>
-						<Link
-							href="https://kwenta.io/"
-							target="_blank"
-							alignSelf="flex-end"
-							display="flex"
-							alignItems="center"
-							px={3}
-							py={2}
-							borderRadius="5px"
-							borderWidth="1px"
-							borderStyle="solid"
-							borderColor="cyan.500"
-							width="fit-content"
-							bg="navy.900"
-							_hover={{ textDecoration: 'none', bg: '#00D1FF15' }}
-							mt={2}
-						>
-							<Text color="cyan.500" mr={2} fontWeight="700">
-								Trade on Kwenta
-							</Text>
-							<ImArrowUpRight2 color="#00D1FF" />
-						</Link>
-					</Flex>
-				</Box>
-				<Box
-					bgGradient="linear(to-r, cyan.500, pink.500)"
-					width={{ base: '100%', md: '467px' }}
-					minHeight="220px"
-					height="fit-content"
-					p={8}
-					mx={4}
-					borderRadius="5px"
-					borderStyle="solid"
-					position="relative"
-					boxShadow="0px 0px 20px #00000040"
-					mt={{ base: 8, md: 0 }}
-				>
-					<Flex
-						flexDirection="column"
-						justifyContent="space-between"
-						position="absolute"
-						bg="navy.900"
-						borderRadius="4px"
-						top={1}
-						bottom={1}
-						left={1}
-						right={1}
-						p={4}
-					>
-						<Box height="40px" mb={1}>
-							<Decentrex ml={-2} width="200px" />
-						</Box>
-						<Divider color="whiteAlpha.200" />
-						<Text fontSize="12px" lineHeight="18px" color="gray" mt={2}>
-							Decentrex is a decentralized perpetual futures exchange and
-							leverage aggregator. On Decentrex, users have access to deep
-							liquidity and lightning fast trades, thanks to the powerful
-							infrastructure provided by Synthetix and Optimism.
-						</Text>
-						<Link
-							href="https://decentrex.com/"
-							target="_blank"
-							alignSelf="flex-end"
-							display="flex"
-							alignItems="center"
-							px={3}
-							py={2}
-							borderRadius="5px"
-							borderWidth="1px"
-							borderStyle="solid"
-							borderColor="cyan.500"
-							width="fit-content"
-							bg="navy.900"
-							_hover={{ textDecoration: 'none', bg: '#00D1FF15' }}
-							mt={2}
-						>
-							<Text color="cyan.500" mr={2} fontWeight="700">
-								Trade on Decentrex
-							</Text>
-							<ImArrowUpRight2 color="#00D1FF" />
-						</Link>
-					</Flex>
-				</Box>
-			</Flex>
-			<Flex
-				mt={8}
-				zIndex={1}
-				maxWidth="965px"
-				width="100%"
-				bgGradient="linear(to-tr, rgb(56,18,91), rgb(95,12,102))"
-				px={6}
-				py={4}
-				borderRadius="10px"
-				borderWidth="1px"
-				borderColor="pink.500"
-				borderStyle="solid"
-				alignItems="center"
-				justifyContent="space-between"
-				flexDirection={{ base: 'column', md: 'row' }}
-			>
-				<SuperSynthyIcon />
-				<Box px={2} width={{ base: '100%', md: '75%' }} mt={{ base: 4, md: 0 }}>
-					<Text
-						fontFamily="heading"
-						fontWeight="700"
-						fontSize="14px"
-						lineHeight="21px"
-					>
-						Want to integrate Synthetix Perps with your Platform?
-					</Text>
-					<Text mt={1} color="gray" fontSize="12px" lineHeight="18px">
-						Learn more about how to integrate Perps and other Synthetix markets
-						in our developer documentation and reach out to the team at
-						<Text as="span"> perps@snxdao.io</Text>
-					</Text>
-				</Box>
-				<Link
-					href="https://discord.com/invite/AEdUHzt" // TODO: Replace this with CMS link
-					target="_blank"
-					display="flex"
-					alignItems="center"
-					px={3}
-					py={2}
-					borderRadius="5px"
-					borderWidth="1px"
-					borderStyle="solid"
-					borderColor="cyan.500"
-					width="fit-content"
-					fontWeight="700"
-					height="fit-content"
-					mt={{ base: 4, md: 0 }}
-					_hover={{ textDecoration: 'none', bg: 'rgba(18,27,51,0.15)' }}
-				>
-					<Text color="cyan.500" mr={2}>
-						Learn More
-					</Text>
-					<ImArrowUpRight2 color="#00D1FF" />
-				</Link>
+				{FrontendCards.map((card, i) => (
+					<FrontendCard {...card} key={card.name.concat(i.toString())} />
+				))}
 			</Flex>
 		</Flex>
 	);
 };
+
+function FrontendCard({
+	logo,
+	name,
+	description,
+	link,
+}: {
+	logo: JSX.Element;
+	name: string;
+	description: string | string[];
+	link: string;
+}) {
+	return (
+		<Flex
+			flexDir="column"
+			alignItems="flex-start"
+			w={{ base: '100%', lg: '464px', xl: '394px', '2xl': '480px' }}
+			height={{ base: '303px', md: '284px', lg: '356px', xl: '374px' }}
+			bg="navy.900"
+			borderWidth="1px"
+			borderStyle="solid"
+			borderRadius="base"
+			borderColor="gray.900"
+			mt={{ base: '16px', xl: '24px' }}
+			p={{ base: '16px', md: '24px' }}
+		>
+			<Hide above="md">
+				<Flex alignItems="center" h="40px" mb="16px">
+					{logo}
+					<Text
+						my="16px"
+						fontSize="lg"
+						ml="16px"
+						color="white"
+						fontWeight={700}
+					>
+						{name}
+					</Text>
+				</Flex>
+				<Text mb={{ base: 'auto' }} fontSize="16px" color="gray.500">
+					{Array.isArray(description) ? (
+						<>
+							{description[0]}{' '}
+							<Link href="mailto: perps@snxdao.io" color="cyan.500">
+								perps@snxdao.io.
+							</Link>
+						</>
+					) : (
+						description
+					)}
+				</Text>
+			</Hide>
+			<Show above="md">
+				{logo}
+				<Heading my="16px" fontSize="18px">
+					{name}
+				</Heading>
+				<Text
+					mb={{ base: 'auto' }}
+					fontSize="16px"
+					lineHeight="24px"
+					color="gray.500"
+				>
+					{Array.isArray(description) ? (
+						<>
+							{description[0]}{' '}
+							<Link
+								href="https://discord.com/channels/413890591840272394/459603818246701056"
+								color="cyan.500"
+							>
+								{description[1]}
+							</Link>
+						</>
+					) : (
+						description
+					)}
+				</Text>
+			</Show>
+			<Button
+				mt={{ lg: '16px' }}
+				variant={name !== 'Synthetix' ? 'outline' : 'solid'}
+				onClick={() => window.open(link, '_blank', 'noopener,noreferrer')}
+				w={{ base: '100%', xl: '180px' }}
+				size={{ base: 'lg', xl: 'sm' }}
+				rightIcon={
+					name === 'Synthetix' ? undefined : (
+						<Icon
+							width="14px"
+							height="14px"
+							viewBox="0 0 14 14"
+							fill="none"
+							xmlns="http://www.w3.org/2000/svg"
+						>
+							<g clipPath="url(#clip0_4786_501)">
+								<path
+									d="M9.07952 4.47127L4.65444 4.47127L4.65445 3.30478L11.071 3.30478L11.071 9.7213L9.90448 9.7213L9.90448 5.29623L4.11717 11.325L3.29221 10.5001L9.07952 4.47127Z"
+									fill="#00D1FF"
+								/>
+							</g>
+							<defs>
+								<clipPath id="clip0_4786_501">
+									<rect width="14" height="14" fill="white" />
+								</clipPath>
+							</defs>
+						</Icon>
+					)
+				}
+			>
+				{name !== 'Synthetix' ? `Visit ${name}` : 'Integrate with Synthetix'}
+			</Button>
+		</Flex>
+	);
+}
 
 export default FrontEnds;

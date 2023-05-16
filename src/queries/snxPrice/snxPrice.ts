@@ -1,8 +1,8 @@
-import getSNXJS from 'src/lib/snxjs';
+import Synthetix from '@synthetixio/contracts-interface';
 import { ethers } from 'ethers';
 
 const getSnxPrice = async () => {
-	const snxjs = getSNXJS({ useOvm: false });
+	const snxjs = Synthetix({ useOvm: false });
 	const [snxPriceBn] = await snxjs.contracts.ExchangeRates.ratesForCurrencies([
 		ethers.utils.formatBytes32String('SNX'),
 	]);
