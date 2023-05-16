@@ -41,7 +41,7 @@ const USPS = [
 	{
 		label: 'Capital Efficient',
 		description:
-			'The protocol supports leverage up to 25x on supported markets, making Synthetix Perps highly capital-efficient.',
+			'The protocol supports leverage up to 50x on supported markets, making Synthetix Perps highly capital-efficient.',
 	},
 	{
 		label: 'Supported Launch',
