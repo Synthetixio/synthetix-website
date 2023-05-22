@@ -7,7 +7,7 @@ export default function Table() {
 		<StyledTableSection customMaxWidth>
 			<DAOToCommunityGradientWrapper>
 				<StyledLabel color="cyan">
-					DOAs & <br />
+					DAOs & <br />
 					Councils
 				</StyledLabel>
 				<StyledCircle color="cyan" />
@@ -69,7 +69,9 @@ export default function Table() {
 						</StyledDuty>
 					</StyledDutiesWrapper>
 					<StyledVerticalLinePink />
-					<StyledDutyEntity color="pink">Community Contributors</StyledDutyEntity>
+					<StyledDutyEntity color="pink">
+						Community Contributors
+					</StyledDutyEntity>
 				</DutiesRow>
 				{/* Third Row */}
 				<DutiesRow>
@@ -99,8 +101,12 @@ export default function Table() {
 					<StyledDutyEntity color="cyan">Spartan Council</StyledDutyEntity>
 					<StyledVerticalLineCyan />
 					<StyledDutiesWrapper style={{ marginRight: 'auto' }}>
-						<StyledDuty color="grey">Vote on SIPs / SCCPs Feasibility &</StyledDuty>
-						<StyledDuty color="grey">Risk Assessment on SIPs / SCCPs</StyledDuty>
+						<StyledDuty color="grey">
+							Vote on SIPs / SCCPs Feasibility &
+						</StyledDuty>
+						<StyledDuty color="grey">
+							Risk Assessment on SIPs / SCCPs
+						</StyledDuty>
 						<StyledDuty color="green">Induct pDAO members</StyledDuty>
 					</StyledDutiesWrapper>
 				</DutiesRow>
@@ -169,7 +175,8 @@ const StyledCircle = styled.div<{ color?: 'cyan' | 'pink' }>`
 	border-radius: 50%;
 	min-width: 21px;
 	min-height: 21px;
-	background-color: ${({ color, theme }) => theme.colors[color ? color : 'cyan']};
+	background-color: ${({ color, theme }) =>
+		theme.colors[color ? color : 'cyan']};
 `;
 
 const DAOAndCommunityDutiesWrapper = styled.div`
