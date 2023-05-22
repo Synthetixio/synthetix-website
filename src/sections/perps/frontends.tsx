@@ -13,18 +13,18 @@ import {
 
 const FrontendCards = [
 	{
-		logo: <Image src="/polynomial.png" h={{ base: '40px', xl: '50px' }} />,
-		name: 'Polynomial',
-		description:
-			'Polynomial is a DeFi derivatives powerhouse that offers derivatives-based products built on top of Synthetix such as perps, power perps, and vaults. It is a one-stop solution built on top of Polynomial smart contract wallets.',
-		link: 'https://trade.polynomial.fi/',
-	},
-	{
 		logo: <Image src="/kwenta-frontend.png" h={{ base: '40px', xl: '50px' }} />,
 		name: 'Kwenta',
 		description:
 			'Kwenta is a decentralized derivatives trading platform offering perpetual futures and options trading on Optimism. Gain exposure to a variety of crypto and real-world assets, and advanced tooling through Kwenta Smart Margin.',
 		link: 'https://kwenta.eth.limo/dashboard/markets/',
+	},
+	{
+		logo: <Image src="/polynomial.png" h={{ base: '40px', xl: '50px' }} />,
+		name: 'Polynomial',
+		description:
+			'Polynomial is a DeFi derivatives powerhouse that offers derivatives-based products built on top of Synthetix such as perps, power perps, and vaults. It is a one-stop solution built on top of Polynomial smart contract wallets.',
+		link: 'https://trade.polynomial.fi/',
 	},
 	{
 		logo: <Image src="/decentrex.png" h={{ base: '40px', xl: '50px' }} />,
