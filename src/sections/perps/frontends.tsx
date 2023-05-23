@@ -48,15 +48,11 @@ const FrontendCards = [
 		link: 'https://alpha.conduit.lol/',
 	},
 	{
-		logo: (
-			<Image src="/synthetix-frontend.png" h={{ base: '40px', xl: '50px' }} />
-		),
-		name: 'Synthetix',
-		description: [
-			'Learn more about how to integrate Perps and other Synthetix markets in our developer documentation and reach out to the developers at ',
-			'Synthetix Discord.',
-		],
-		link: 'https://docs.synthetix.io/integrations/perps-integration-guide',
+		logo: <Image src="/lyra-perps.png" h={{ base: '40px', xl: '50px' }} />,
+		name: 'Lyra',
+		description:
+			'Lyra is an option AMM that allows traders to buy and sell options on cryptocurrencies against a pool of liquidity. Lyra leverages Synthetix perpetual futures to hedge delta exposure and provide market neutral, organic yield to its liquidity providers.',
+		link: 'https://app.lyra.finance/#/trade/optimism/seth-susd',
 	},
 ];
 
@@ -167,24 +163,12 @@ function FrontendCard({
 					lineHeight="24px"
 					color="gray.500"
 				>
-					{Array.isArray(description) ? (
-						<>
-							{description[0]}{' '}
-							<Link
-								href="https://discord.com/channels/413890591840272394/459603818246701056"
-								color="cyan.500"
-							>
-								{description[1]}
-							</Link>
-						</>
-					) : (
-						description
-					)}
+					{description}
 				</Text>
 			</Show>
 			<Button
 				mt={{ lg: '16px' }}
-				variant={name !== 'Synthetix' ? 'outline' : 'solid'}
+				variant="outline"
 				onClick={() => window.open(link, '_blank', 'noopener,noreferrer')}
 				w={{ base: '100%', xl: '180px' }}
 				size={{ base: 'lg', xl: 'sm' }}
@@ -212,7 +196,7 @@ function FrontendCard({
 					)
 				}
 			>
-				{name !== 'Synthetix' ? `Visit ${name}` : 'Integrate with Synthetix'}
+				Visit {name}
 			</Button>
 		</Flex>
 	);
