@@ -6,5 +6,16 @@ import Button from './Button';
 import Logo from './Logo';
 import PageLayout from './PageLayout';
 import ArrowPath from './ArrowPath';
+import BoxLink from './BoxLink';
 
-export { Header, Menu, Footer, Button, Socials, Logo, PageLayout, ArrowPath };
+export {
+	Header,
+	Menu,
+	Footer,
+	Button,
+	Socials,
+	Logo,
+	PageLayout,
+	ArrowPath,
+	BoxLink,
+};
