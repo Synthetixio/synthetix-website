@@ -1,6 +1,7 @@
 import Head from 'next/head';
 import { GetServerSideProps } from 'next';
-import MainSection from '../src/sections/home/main';
+import Hero from '../src/sections/home/hero';
+import Volume from '../src/sections/home/volume';
 import Futures from '../src/sections/home/futures';
 import TotalSection from '../src/sections/home/total';
 import SynthSection from 'src/sections/home/synths';
@@ -23,18 +24,9 @@ const Home = ({ totalStakedValue }: ApiStatsProps) => {
 			<Head>
 				<title>Synthetix</title>
 			</Head>
-			<PageLayout>
-				<Box
-					position="absolute"
-					top="0"
-					left="0"
-					w="100%"
-					height="100vh"
-					bg="linear-gradient(180deg, #08021e 0%, #120446 146.21%)"
-					pointerEvents="none"
-				/>
-				<MainSection />
-				<Line />
+			<PageLayout useChakra>
+				<Hero />
+				<Volume />
 				<TotalSection totalStakedValue={totalStakedValue} />
 				<Line />
 				<Futures />

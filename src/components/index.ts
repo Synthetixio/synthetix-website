@@ -6,7 +6,7 @@ import Button from './Button';
 import Logo from './Logo';
 import PageLayout from './PageLayout';
 import ArrowPath from './ArrowPath';
-import BoxLink from './BoxLink';
+import { BoxLink } from './BoxLink';
 
 export {
 	Header,
