@@ -1,5 +1,5 @@
 import { Fragment } from 'react';
-import { Logo, Socials } from './';
+import { Logo, Socials } from '../';
 import { Box, Divider, Flex, Link, Show, Text } from '@chakra-ui/react';
 import {
 	Accordion,
@@ -75,7 +75,7 @@ const footerMenu = [
 	],
 ];
 
-export default function Footer() {
+export function Footer() {
 	return (
 		<>
 			<Show above="lg">

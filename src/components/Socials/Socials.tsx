@@ -1,6 +1,6 @@
-import Discord from '../svg/Discord';
-import Twitter from '../svg/Twitter';
-import Github from '../svg/Github';
+import Discord from '../../svg/Discord';
+import Twitter from '../../svg/Twitter';
+import Github from '../../svg/Github';
 
 import { Flex, Link } from '@chakra-ui/react';
 
@@ -22,7 +22,13 @@ const data = (fill?: string) => [
 	},
 ];
 
-const Socials = ({ isFooter, fill }: { fill?: string; isFooter?: boolean }) => {
+export const Socials = ({
+	isFooter,
+	fill,
+}: {
+	fill?: string;
+	isFooter?: boolean;
+}) => {
 	return (
 		<Flex
 			as="ul"
@@ -44,5 +50,3 @@ const Socials = ({ isFooter, fill }: { fill?: string; isFooter?: boolean }) => {
 		</Flex>
 	);
 };
-
-export default Socials;

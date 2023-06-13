@@ -4,7 +4,7 @@ interface LogoProps extends LinkProps {
 	small?: boolean;
 }
 
-const LogoComponent = ({ small, ...rest }: LogoProps) => {
+export const Logo = ({ small, ...rest }: LogoProps) => {
 	const src = small ? '/logo-x.svg' : '/logo.svg';
 
 	return (
@@ -13,5 +13,3 @@ const LogoComponent = ({ small, ...rest }: LogoProps) => {
 		</Link>
 	);
 };
-
-export default LogoComponent;

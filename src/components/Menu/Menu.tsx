@@ -1,6 +1,6 @@
 import { ImArrowUpRight2 } from 'react-icons/im';
 import { useRouter } from 'next/router';
-import { ExternalLink } from '../styles/common';
+import { ExternalLink } from '../../styles/common';
 import { Box, Button, Flex, Link as ChakraLink, Text } from '@chakra-ui/react';
 import { ReactNode } from 'react';
 
@@ -43,7 +43,7 @@ interface MenuProps {
 	isOpen?: boolean;
 }
 
-const MenuComponent = ({ isOpen, ...rest }: MenuProps) => {
+export const Menu = ({ isOpen, ...rest }: MenuProps) => {
 	const { pathname } = useRouter();
 	const urlFolderPathName = pathname.split('/')[1];
 
@@ -143,5 +143,3 @@ export const MenuItem = ({ children, ...rest }: { children: ReactNode }) => (
 		{children}
 	</Box>
 );
-
-export default MenuComponent;

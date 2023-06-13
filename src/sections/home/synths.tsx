@@ -1,11 +1,11 @@
 import styled from 'styled-components';
-import { Button } from '../../components';
 import media from 'styled-media-query';
 import Accordion, {
 	AccordionItemsType,
 } from 'src/components/Accordion/Accordion';
 import { useState } from 'react';
 import { FlexDiv, Section, SectionTitle } from 'src/styles/common';
+import Button from 'src/components/Button/Button';
 
 const SynthSection = () => {
 	const [activeIndex, setActiveIndex] = useState<number>(0);

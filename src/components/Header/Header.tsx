@@ -1,10 +1,10 @@
 import { useState, useEffect } from 'react';
 import HamburgerMenu from 'react-hamburger-menu';
-import { Menu } from './';
 import { useRouter } from 'next/router';
 import { Image, Flex, Show, Box } from '@chakra-ui/react';
+import { Menu } from '..';
 
-const HeaderComponent = () => {
+export const Header = () => {
 	const [isOpen, setIsOpen] = useState<boolean>(false);
 	const { push } = useRouter();
 
@@ -81,5 +81,3 @@ const HeaderComponent = () => {
 };
 
 export const headerHeight = 65;
-
-export default HeaderComponent;

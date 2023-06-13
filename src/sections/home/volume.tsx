@@ -1,8 +1,9 @@
-import { Box, Button, Divider, Flex, Heading, Text } from '@chakra-ui/react';
+import { Box, Button, Flex, Heading, Text } from '@chakra-ui/react';
+import { VectorLine } from 'src/components';
 
 const Volume = () => {
 	return (
-		<Box width="100%" position="relative">
+		<Box width="100%" position="relative" minHeight="400px" mt={6}>
 			<Flex justifyContent="space-between" width="100%">
 				<Flex flexDirection="column">
 					<Text
@@ -51,19 +52,23 @@ const Volume = () => {
 				See All Stats
 			</Button>
 
-			{/* Dividers are being used for aesthetic purposes */}
-			<Box
-				position="absolute"
-				top="20px"
-				right="-10%"
-				height="1px"
-				width="500px"
-				bg="gray.50"
-				// opacity={0.1}
-				sx={{
-					transform: 'rotate(90deg)',
-				}}
-			/>
+			{/* These boxes are being used for aesthetic purposes in the background */}
+
+			{/* Vertical Lines */}
+			<VectorLine top="33%" left="-17.5%" />
+			<VectorLine top="33%" left="-22.5%" />
+			<VectorLine top="33%" left="-27.5%" />
+
+			<VectorLine top="33%" left="27.5%" />
+
+			<VectorLine top="33%" right="-12.5%" />
+			<VectorLine top="33%" right="-17.5%" />
+			<VectorLine top="33%" right="-22.5%" />
+			<VectorLine top="33%" right="-27.5%" />
+
+			{/* Horizontal Lines */}
+			<VectorLine direction="horizontal" top="12%" left="0%" width="100%" />
+			<VectorLine direction="horizontal" top="38%" left="0%" width="100%" />
 		</Box>
 	);
 };

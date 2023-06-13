@@ -1,6 +1,6 @@
 import { Divider, Flex, FlexProps } from '@chakra-ui/react';
 import { PropsWithChildren } from 'react';
-import { Footer, Header } from '.';
+import { Footer, Header } from '..';
 
 interface PageLayoutProps extends PropsWithChildren, FlexProps {
 	useChakra?: boolean;
