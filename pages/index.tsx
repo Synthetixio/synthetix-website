@@ -5,13 +5,13 @@ import Volume from '../src/sections/home/volume';
 import Futures from '../src/sections/home/futures';
 import SynthSection from 'src/sections/home/synths';
 import Ecosystem from 'src/sections/home/ecosystem';
+import { PageLayout } from 'src/components';
 import { Line } from 'src/styles/common';
 import PoweredBy from 'src/sections/home/poweredBy';
 import axios from 'axios';
-import { Box } from '@chakra-ui/react';
+
 import getSnxPrice from '../src/queries/snxPrice/snxPrice';
 import { EmailSection } from 'src/sections/email/EmailSection';
-import PageLayout from 'src/components/PageLayout/PageLayout';
 
 export interface ApiStatsProps {
 	totalStakedValue?: number;
@@ -27,14 +27,14 @@ const Home = ({ totalStakedValue }: ApiStatsProps) => {
 				<Hero />
 				<Volume />
 				<Ecosystem />
-				<Futures />
+				{/* <Futures />
 				<EmailSection />
 				<Line />
 				<SynthSection />
 				<Line />
 				<PoweredBy />
 				<Ecosystem />
-				<Line showOnMobile />
+				<Line showOnMobile /> */}
 			</PageLayout>
 		</>
 	);

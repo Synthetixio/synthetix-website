@@ -28,12 +28,13 @@ const HeroSection = () => {
 						lineHeight="72px"
 						fontSize="60px"
 						color="gray.50"
+						mb="16px"
 					>
 						The Liquidity Layer of DeFi
 					</Heading>
 				</Box>
 				<Text
-					mt="16px"
+					mb="16px"
 					fontSize="16px"
 					lineHeight="24px"
 					color="gray.500"
@@ -44,7 +45,7 @@ const HeroSection = () => {
 					perpetual futures, options, sports AMMs, and more across EVM chains.
 					Learn more about markets that leverage Synthetix liquidity.
 				</Text>
-				<Button mt="32px" width="fit-content">
+				<Button mt="16px" width="fit-content" borderRadius="4px">
 					Explore Ecosystem
 				</Button>
 			</Flex>

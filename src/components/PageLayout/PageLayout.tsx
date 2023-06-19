@@ -6,11 +6,7 @@ interface PageLayoutProps extends PropsWithChildren, FlexProps {
 	useChakra?: boolean;
 }
 
-export default function PageLayout({
-	children,
-	useChakra,
-	...props
-}: PageLayoutProps) {
+export function PageLayout({ children, useChakra, ...props }: PageLayoutProps) {
 	if (useChakra) {
 		return (
 			<Flex minW="100vw" bg="navy.900" justifyContent="center">

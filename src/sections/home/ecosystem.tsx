@@ -9,6 +9,7 @@ export const Ecosystem = () => {
 					fontSize="16px"
 					fontFamily="heading"
 					color="gray.500"
+					mb={4}
 				>
 					SYNTHETIX ECOSYSTEM
 				</Text>
@@ -18,7 +19,7 @@ export const Ecosystem = () => {
 						color="gray.50"
 						fontSize="48px"
 						lineHeight="56px"
-						my={4}
+						mb={4}
 					>
 						A Network of DeFi Apps Powered by Synthetix
 					</Heading>
@@ -37,18 +38,6 @@ export const Ecosystem = () => {
 					</Text>
 				</Box>
 			</Box>
-			{/* Gradient */}
-			<Flex
-				position="absolute"
-				left="-800px"
-				top="400px"
-				width="1100px"
-				height="529px"
-				bgGradient="linear-gradient(73.6deg, #34EDB3 2.11%, #00D1FF 100%)"
-				filter="blur(250px)"
-				zIndex={0}
-			></Flex>
-			{/* Boxes */}
 		</Box>
 	);
 };

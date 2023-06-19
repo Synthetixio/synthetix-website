@@ -7,15 +7,16 @@ import {
 	Link,
 	Show,
 	Text,
+	Image,
 } from '@chakra-ui/react';
 
 export function IntegratorCard({
-	logo,
+	uri,
 	name,
 	description,
 	link,
 }: {
-	logo: JSX.Element;
+	uri: string;
 	name: string;
 	description: string | string[];
 	link: string;
@@ -36,7 +37,7 @@ export function IntegratorCard({
 		>
 			<Hide above="md">
 				<Flex alignItems="center" h="40px" mb="16px">
-					{logo}
+					<Image src={uri} h={{ base: '40px', xl: '50px' }} />
 					<Text
 						my="16px"
 						fontSize="lg"
@@ -61,7 +62,7 @@ export function IntegratorCard({
 				</Text>
 			</Hide>
 			<Show above="md">
-				{logo}
+				<Image src={uri} h={{ base: '40px', xl: '50px' }} />{' '}
 				<Heading my="16px" fontSize="18px">
 					{name}
 				</Heading>
