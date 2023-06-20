@@ -1,7 +1,6 @@
 import { Box, Button, Flex, Heading, Text } from '@chakra-ui/react';
-import { VectorLines } from 'src/components';
 
-const Volume = () => {
+export const Volume = () => {
 	return (
 		<Box width="100%" position="relative" minHeight="550px" mt={6}>
 			<Box zIndex={1} position="relative">
@@ -58,9 +57,6 @@ const Volume = () => {
 					See All Stats
 				</Button>
 			</Box>
-			<VectorLines position="absolute" top={-550} width="100%" zIndex={0} />
 		</Box>
 	);
 };
-
-export default Volume;

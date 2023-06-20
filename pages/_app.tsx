@@ -37,6 +37,7 @@ export default function MyApp({ Component, pageProps }: AppProps) {
 		)
 			localStorage.setItem('chakra-ui-color-mode', 'dark');
 	}
+
 	return (
 		<ThemeProvider theme={theme}>
 			<Head>

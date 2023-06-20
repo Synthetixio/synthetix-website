@@ -1,7 +1,7 @@
 import { Box, Button, Flex, Heading, Text } from '@chakra-ui/react';
 import SNXPerpsLooper from 'src/svg/SNXPerpsLooper';
 
-const HeroSection = () => {
+export const Hero = () => {
 	return (
 		<Flex mt="65px" position="relative" height="700px" width="100%">
 			<Flex
@@ -64,5 +64,3 @@ const HeroSection = () => {
 		</Flex>
 	);
 };
-
-export default HeroSection;

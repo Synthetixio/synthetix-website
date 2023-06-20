@@ -7,6 +7,6 @@ export * from './Logo';
 export * from './PageLayout';
 export * from './ArrowPath';
 export * from './BoxLink';
-export * from './VectorLines';
 export * from './IntegratorCard';
 export * from './PageLayout';
+export * from './IntegratorCardPerps';

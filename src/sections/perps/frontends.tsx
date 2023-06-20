@@ -1,6 +1,6 @@
 import { Flex, Text, FlexProps, Heading, Image } from '@chakra-ui/react';
-import { IntegratorCard } from 'src/components';
-import { integrators } from 'src/utils/integrators';
+import { IntegratorCardPerps } from 'src/components';
+import { perpsPageIntegrators } from 'src/utils/integrators';
 
 const FrontEnds = ({ ...props }: FlexProps) => {
 	return (
@@ -39,11 +39,17 @@ const FrontEnds = ({ ...props }: FlexProps) => {
 				justifyContent={{ lg: 'flex-start' }}
 				columnGap={{ lg: '16px', xl: '24px' }}
 			>
-				{integrators.map((card, i) => (
-					<IntegratorCard
-						{...card}
-						key={card.name.concat(i.toString())}
-						uri={card.uri}
+				{perpsPageIntegrators.map(({ description, link, name, uri }, i) => (
+					<IntegratorCardPerps
+						name={name}
+						link={link}
+						description={description}
+						key={name.concat(i.toString())}
+						uri={uri}
+						mt={{ base: '16px', xl: '24px' }}
+						p={{ base: '16px', md: '24px' }}
+						w={{ base: '100%', lg: '464px', xl: '394px', '2xl': '480px' }}
+						height={{ base: '303px', md: '284px', lg: '356px', xl: '374px' }}
 					/>
 				))}
 			</Flex>

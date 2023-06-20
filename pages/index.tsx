@@ -1,17 +1,13 @@
 import Head from 'next/head';
 import { GetServerSideProps } from 'next';
-import Hero from '../src/sections/home/hero';
-import Volume from '../src/sections/home/volume';
 import Futures from '../src/sections/home/futures';
 import SynthSection from 'src/sections/home/synths';
-import Ecosystem from 'src/sections/home/ecosystem';
+import { Hero, Volume, Ecosystem, Integrators } from 'src/sections/home';
 import { PageLayout } from 'src/components';
 import { Line } from 'src/styles/common';
-import PoweredBy from 'src/sections/home/poweredBy';
 import axios from 'axios';
 
 import getSnxPrice from '../src/queries/snxPrice/snxPrice';
-import { EmailSection } from 'src/sections/email/EmailSection';
 
 export interface ApiStatsProps {
 	totalStakedValue?: number;
@@ -27,6 +23,7 @@ const Home = ({ totalStakedValue }: ApiStatsProps) => {
 				<Hero />
 				<Volume />
 				<Ecosystem />
+				<Integrators />
 				{/* <Futures />
 				<EmailSection />
 				<Line />
