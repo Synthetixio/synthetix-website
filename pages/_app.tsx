@@ -16,6 +16,56 @@ const newTheme = extendTheme({
 	styles: {
 		global: { body: { bg: 'navy.900' } },
 	},
+	textStyles: {
+		'heading-4xl': {
+			fontSize: { base: '60px', lg: '72px' },
+			fontFamily: 'heading',
+			lineHeight: '72px',
+			fontWeight: 700,
+		},
+		'heading-3xl': {
+			fontSize: { base: '48px', lg: '60px' },
+			fontFamily: 'heading',
+			lineHeight: { base: '57.6px', lg: '60px' },
+			fontWeight: 700,
+		},
+		'heading-2xl': {
+			fontSize: { base: '36px', lg: '48px' },
+			fontFamily: 'heading',
+			lineHeight: { base: '43.2px', lg: '48px' },
+			fontWeight: 700,
+		},
+		'heading-xl': {
+			fontSize: { base: '30px', lg: '48px' },
+			fontFamily: 'heading',
+			lineHeight: { base: '36px', lg: '43.2px' },
+			fontWeight: 700,
+		},
+		'heading-lg': {
+			fontSize: { base: '24px', lg: '30px' },
+			fontFamily: 'heading',
+			lineHeight: { base: '28.8px', lg: '36px' },
+			fontWeight: 700,
+		},
+		'heading-md': {
+			fontSize: { base: '20px', lg: '24px' },
+			fontFamily: 'heading',
+			lineHeight: '24px',
+			fontWeight: 700,
+		},
+		'heading-sm': {
+			fontSize: '16px',
+			fontFamily: 'heading',
+			lineHeight: '19.2px',
+			fontWeight: 700,
+		},
+		'heading-xs': {
+			fontSize: '14px',
+			fontFamily: 'heading',
+			lineHeight: '16.8px',
+			fontWeight: 700,
+		},
+	},
 });
 
 export default function MyApp({ Component, pageProps }: AppProps) {

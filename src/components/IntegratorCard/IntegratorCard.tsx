@@ -8,12 +8,14 @@ import {
 	FlexProps,
 	LinkBox,
 	LinkOverlay,
+	Box,
 } from '@chakra-ui/react';
 
 interface IntegratorCardProps extends FlexProps {
 	uri: string;
 	name: string;
-	description: string | string[];
+	description: string;
+	largestDescription: string;
 	link: string;
 	tag: string;
 }
@@ -22,6 +24,7 @@ export const IntegratorCard = ({
 	uri,
 	name,
 	description,
+	largestDescription,
 	link,
 	tag,
 	...props
@@ -31,17 +34,23 @@ export const IntegratorCard = ({
 			as={Flex}
 			flexDir="column"
 			alignItems="flex-start"
-			bg="navy.900"
+			bg="#0E052F"
 			borderWidth="1px"
 			borderStyle="solid"
-			borderRadius="base"
+			borderRadius="5px"
 			borderColor="gray.900"
 			{...props}
 		>
 			<LinkOverlay href={link} isExternal>
-				<Flex justifyContent="space-between" width="100%" alignItems="center">
+				<Flex justifyContent="space-between" width="100%">
 					<Image src={uri} h={{ base: '40px', xl: '50px' }} />
-					<Tag px="8px" py="2px" background="whiteAlpha.500" borderRadius="4px">
+					<Tag
+						px="8px"
+						height="fit-content"
+						py="2px"
+						background="whiteAlpha.500"
+						borderRadius="4px"
+					>
 						<TagLabel
 							fontSize="12px"
 							color="white"
@@ -55,14 +64,26 @@ export const IntegratorCard = ({
 				<Heading my="16px" fontSize="18px">
 					{name}
 				</Heading>
-				<Text
-					mb={{ base: 'auto' }}
-					fontSize="16px"
-					lineHeight="24px"
-					color="gray.500"
-				>
-					{description}
-				</Text>
+				<Box position="relative">
+					<Text
+						fontSize="16px"
+						lineHeight="24px"
+						color="gray.500"
+						fontWeight={400}
+						position="absolute"
+					>
+						{description}
+					</Text>
+					{/* NOTE: Hack to make items same height. */}
+					<Text
+						fontSize="16px"
+						lineHeight="24px"
+						fontWeight={400}
+						color="transparent"
+					>
+						{largestDescription}
+					</Text>
+				</Box>
 			</LinkOverlay>
 		</LinkBox>
 	);
