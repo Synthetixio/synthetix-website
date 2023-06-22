@@ -6,7 +6,7 @@ interface ArrowWrapperProps {
 	height: number;
 }
 
-export default function ArrowWrapper({
+export function ArrowWrapper({
 	width,
 	height,
 	children,

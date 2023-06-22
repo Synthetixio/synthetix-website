@@ -30,19 +30,25 @@ const absolutePathEl = ' L ';
 const quadraticBezierCurveEl = ' Q ';
 
 const getClientRects = (id: string) => {
-	if (process.browser) return document.getElementById(id)?.getClientRects().item(0);
+	if (process.browser)
+		return document.getElementById(id)?.getClientRects().item(0);
 };
 
 const sliceCoords = (coords: string) => {
 	const pureCoords = coords.includes(absolutePathEl) ? coords.slice(3) : coords;
 	const indexOfComma = pureCoords.indexOf(',');
-	return [pureCoords.slice(0, indexOfComma), pureCoords.slice(indexOfComma + 1)];
+	return [
+		pureCoords.slice(0, indexOfComma),
+		pureCoords.slice(indexOfComma + 1),
+	];
 };
 
-const offsetToRightBottom = (xCoords: number, yCoords: number) => `${xCoords + 15},${yCoords + 15}`;
-const offsetToLeft = (xCoords: number, yCoords: number) => `${xCoords - 15},${yCoords}`;
+const offsetToRightBottom = (xCoords: number, yCoords: number) =>
+	`${xCoords + 15},${yCoords + 15}`;
+const offsetToLeft = (xCoords: number, yCoords: number) =>
+	`${xCoords - 15},${yCoords}`;
 
-export default function ArrowPath({
+export function ArrowPath({
 	edges = [],
 	startPosition,
 	endPosition,
@@ -84,18 +90,42 @@ export default function ArrowPath({
 	};
 
 	const arrowPointsDictionary: Record<PositionDetails['position'], string> = {
-		left: `${endOffset.left - globalOffset.left + 2} ${endOffset.top - globalOffset.top},
-				${endOffset.left - globalOffset.left - 10} ${endOffset.top - globalOffset.top - 6},
-				${endOffset.left - globalOffset.left - 10} ${endOffset.top - globalOffset.top + 6}`,
-		right: `${endOffset.left - globalOffset.left - 2} ${endOffset.top - globalOffset.top},
-				${endOffset.left - globalOffset.left + 10} ${endOffset.top - globalOffset.top - 6},
-				${endOffset.left - globalOffset.left + 10} ${endOffset.top - globalOffset.top + 6}`,
-		bottom: `${endOffset.left - globalOffset.left} ${endOffset.top - globalOffset.top - 2},
-				${endOffset.left - globalOffset.left - 6} ${endOffset.top - globalOffset.top + 10},
-				${endOffset.left - globalOffset.left + 6} ${endOffset.top - globalOffset.top + 10}`,
-		top: `${endOffset.left - globalOffset.left} ${endOffset.top - globalOffset.top + 2},
-				${endOffset.left - globalOffset.left - 6} ${endOffset.top - globalOffset.top - 10},
-				${endOffset.left - globalOffset.left + 6} ${endOffset.top - globalOffset.top - 10}`,
+		left: `${endOffset.left - globalOffset.left + 2} ${
+			endOffset.top - globalOffset.top
+		},
+				${endOffset.left - globalOffset.left - 10} ${
+			endOffset.top - globalOffset.top - 6
+		},
+				${endOffset.left - globalOffset.left - 10} ${
+			endOffset.top - globalOffset.top + 6
+		}`,
+		right: `${endOffset.left - globalOffset.left - 2} ${
+			endOffset.top - globalOffset.top
+		},
+				${endOffset.left - globalOffset.left + 10} ${
+			endOffset.top - globalOffset.top - 6
+		},
+				${endOffset.left - globalOffset.left + 10} ${
+			endOffset.top - globalOffset.top + 6
+		}`,
+		bottom: `${endOffset.left - globalOffset.left} ${
+			endOffset.top - globalOffset.top - 2
+		},
+				${endOffset.left - globalOffset.left - 6} ${
+			endOffset.top - globalOffset.top + 10
+		},
+				${endOffset.left - globalOffset.left + 6} ${
+			endOffset.top - globalOffset.top + 10
+		}`,
+		top: `${endOffset.left - globalOffset.left} ${
+			endOffset.top - globalOffset.top + 2
+		},
+				${endOffset.left - globalOffset.left - 6} ${
+			endOffset.top - globalOffset.top - 10
+		},
+				${endOffset.left - globalOffset.left + 6} ${
+			endOffset.top - globalOffset.top - 10
+		}`,
 	};
 
 	const calculateAllEdges = (edges: ArrowPathProps['edges']) => {
@@ -113,7 +143,9 @@ export default function ArrowPath({
 							? (edge.y - globalOffset.top + startOffset.top).toFixed(0)
 							: calculateYPosition(edge.y).toFixed(0);
 
-					previousCoords = absolutePathEl.concat(xCoords.concat(',').concat(yCoords));
+					previousCoords = absolutePathEl.concat(
+						xCoords.concat(',').concat(yCoords),
+					);
 					return previousCoords;
 				}
 				previousCoords = absolutePathEl
@@ -121,14 +153,14 @@ export default function ArrowPath({
 						(typeof edge.x === 'number'
 							? Number(sliceCoords(previousCoords)[0]) + edge.x
 							: calculateXPosition(edge.x)
-						).toFixed(0)
+						).toFixed(0),
 					)
 					.concat(',')
 					.concat(
 						(typeof edge.y === 'number'
 							? Number(sliceCoords(previousCoords)[1]) + edge.y
 							: calculateYPosition(edge.y)
-						).toFixed(0)
+						).toFixed(0),
 					);
 				return previousCoords;
 			});
@@ -139,11 +171,15 @@ export default function ArrowPath({
 	const calculateAllCurves = (edges: string[]) => {
 		let prevCurveCoords: string;
 		return edges.map((edge, index) => {
-			const [xCoords, yCoords] = sliceCoords(edge).map((coords) => Number(coords));
+			const [xCoords, yCoords] = sliceCoords(edge).map(coords =>
+				Number(coords),
+			);
 			let nextCoords: number[];
 			const hasMoreThanOneEdge = !!edges[index + 1];
 			if (hasMoreThanOneEdge) {
-				nextCoords = sliceCoords(edges[index + 1]).map((coords) => Number(coords));
+				nextCoords = sliceCoords(edges[index + 1]).map(coords =>
+					Number(coords),
+				);
 			} else {
 				nextCoords = [endOffset.left, endOffset.top];
 			}
@@ -153,29 +189,46 @@ export default function ArrowPath({
 						prevCurveCoords = `${xCoords - 15},${yCoords - 15}`;
 						return edge
 							.concat(quadraticBezierCurveEl)
-							.concat(`${xCoords - 15},${yCoords + 5} ${xCoords - 15},${yCoords - 15}`);
+							.concat(
+								`${xCoords - 15},${yCoords + 5} ${xCoords - 15},${
+									yCoords - 15
+								}`,
+							);
 					}
 					if (!hasMoreThanOneEdge && yCoords < nextCoords[1]) {
 						return edge
 							.concat(quadraticBezierCurveEl)
-							.concat(`${xCoords - 15},${yCoords + 5} ${xCoords - 15},${yCoords - 15}`);
+							.concat(
+								`${xCoords - 15},${yCoords + 5} ${xCoords - 15},${
+									yCoords - 15
+								}`,
+							);
 					}
 					prevCurveCoords = `${xCoords - 15},${yCoords + 15}`;
 					return edge
 						.concat(quadraticBezierCurveEl)
-						.concat(`${xCoords - 15},${yCoords + 5} ${xCoords - 15},${yCoords + 15}`);
+						.concat(
+							`${xCoords - 15},${yCoords + 5} ${xCoords - 15},${yCoords + 15}`,
+						);
 				}
 				if (startPosition.position === 'right') {
 					if (yCoords > nextCoords[1]) {
 						prevCurveCoords = `${xCoords + 15},${yCoords - 15}`;
 						return edge
 							.concat(quadraticBezierCurveEl)
-							.concat(` ${xCoords + 15},${yCoords} ${xCoords + 15},${yCoords - 15}`);
+							.concat(
+								` ${xCoords + 15},${yCoords} ${xCoords + 15},${yCoords - 15}`,
+							);
 					}
 					prevCurveCoords = `${offsetToRightBottom(xCoords, yCoords)}`;
 					return edge
 						.concat(quadraticBezierCurveEl)
-						.concat(`${xCoords + 15},${yCoords + 5} ${offsetToRightBottom(xCoords, yCoords)}`);
+						.concat(
+							`${xCoords + 15},${yCoords + 5} ${offsetToRightBottom(
+								xCoords,
+								yCoords,
+							)}`,
+						);
 				}
 				if (startPosition.position === 'bottom') {
 					if (!hasMoreThanOneEdge && endPosition.position === 'left') {
@@ -194,12 +247,22 @@ export default function ArrowPath({
 							.concat(',')
 							.concat((yCoords - 35).toFixed(0))
 							.concat(quadraticBezierCurveEl)
-							.concat(`${xCoords},${yCoords - 5} ${offsetToLeft(xCoords - 15, yCoords)}`);
+							.concat(
+								`${xCoords},${yCoords - 5} ${offsetToLeft(
+									xCoords - 15,
+									yCoords,
+								)}`,
+							);
 					}
 					prevCurveCoords = `${offsetToRightBottom(xCoords, yCoords)}`;
 					return edge
 						.concat(quadraticBezierCurveEl)
-						.concat(`${xCoords},${yCoords + 15} ${offsetToRightBottom(xCoords, yCoords)}`);
+						.concat(
+							`${xCoords},${yCoords + 15} ${offsetToRightBottom(
+								xCoords,
+								yCoords,
+							)}`,
+						);
 				}
 				if (startPosition.position === 'top') {
 					if (!hasMoreThanOneEdge && endPosition.position === 'right') {
@@ -209,7 +272,9 @@ export default function ArrowPath({
 							.concat(',')
 							.concat((yCoords + 15).toFixed(0))
 							.concat(quadraticBezierCurveEl)
-							.concat(`${xCoords},${yCoords} ${offsetToLeft(xCoords, yCoords)}`);
+							.concat(
+								`${xCoords},${yCoords} ${offsetToLeft(xCoords, yCoords)}`,
+							);
 					}
 					if (!hasMoreThanOneEdge && endPosition.position === 'left') {
 						prevCurveCoords = `${offsetToRightBottom(xCoords, yCoords)}`;
@@ -223,12 +288,17 @@ export default function ArrowPath({
 					prevCurveCoords = `${offsetToRightBottom(xCoords, yCoords)}`;
 					return edge
 						.concat(quadraticBezierCurveEl)
-						.concat(`${xCoords},${yCoords + 15} ${offsetToRightBottom(xCoords, yCoords)}`);
+						.concat(
+							`${xCoords},${yCoords + 15} ${offsetToRightBottom(
+								xCoords,
+								yCoords,
+							)}`,
+						);
 				}
 				return edge;
 			}
-			const [prevXCoords, prevYCoords] = sliceCoords(prevCurveCoords).map((coords) =>
-				Number(coords)
+			const [prevXCoords, prevYCoords] = sliceCoords(prevCurveCoords).map(
+				coords => Number(coords),
 			);
 			if (index === edges.length - 1) {
 				if (endPosition.position === 'left') {
@@ -239,7 +309,7 @@ export default function ArrowPath({
 							.concat(',')
 							.concat((yCoords - 15).toFixed(0));
 						const curve = quadraticBezierCurveEl.concat(
-							`${xCoords - 15},${yCoords} ${xCoords + 5},${yCoords}`
+							`${xCoords - 15},${yCoords} ${xCoords + 5},${yCoords}`,
 						);
 						return startPointOfCurve.concat(curve);
 					}
@@ -250,7 +320,7 @@ export default function ArrowPath({
 							.concat(',')
 							.concat((yCoords + 15).toFixed(0));
 						const curve = quadraticBezierCurveEl.concat(
-							`${xCoords - 5},${yCoords} ${xCoords + 15},${yCoords}`
+							`${xCoords - 5},${yCoords} ${xCoords + 15},${yCoords}`,
 						);
 						return startPointOfCurve.concat(curve);
 					}
@@ -260,7 +330,7 @@ export default function ArrowPath({
 							.concat(',')
 							.concat((yCoords - 15).toFixed(0));
 						const curve = quadraticBezierCurveEl.concat(
-							`${xCoords + 15},${yCoords} ${xCoords + 30},${yCoords}`
+							`${xCoords + 15},${yCoords} ${xCoords + 30},${yCoords}`,
 						);
 						return startPointOfCurve.concat(curve);
 					}
@@ -270,7 +340,7 @@ export default function ArrowPath({
 							.concat(',')
 							.concat((yCoords + 15).toFixed(0));
 						const curve = quadraticBezierCurveEl.concat(
-							`${xCoords + 5},${yCoords} ${xCoords + 15},${yCoords}`
+							`${xCoords + 5},${yCoords} ${xCoords + 15},${yCoords}`,
 						);
 						return startPointOfCurve.concat(curve);
 					}
@@ -283,7 +353,7 @@ export default function ArrowPath({
 						.concat(',')
 						.concat(prevYCoords.toFixed(0));
 					const curve = quadraticBezierCurveEl.concat(
-						`${xCoords},${yCoords + 15} ${xCoords},${yCoords + 30}`
+						`${xCoords},${yCoords + 15} ${xCoords},${yCoords + 30}`,
 					);
 					return startPointOfCurve.concat(curve);
 				}
@@ -294,7 +364,7 @@ export default function ArrowPath({
 						.concat(',')
 						.concat((yCoords - 15).toFixed(0));
 					const curve = quadraticBezierCurveEl.concat(
-						`${xCoords + 15},${yCoords} ${offsetToLeft(xCoords, yCoords)}`
+						`${xCoords + 15},${yCoords} ${offsetToLeft(xCoords, yCoords)}`,
 					);
 					return startPointOfCurve.concat(curve);
 				}
@@ -331,7 +401,11 @@ export default function ArrowPath({
 						.concat(',')
 						.concat(yCoords.toFixed(0))
 						.concat(quadraticBezierCurveEl)
-						.concat(`${offsetToLeft(xCoords, yCoords)} ${xCoords - 15},${yCoords + 15}`);
+						.concat(
+							`${offsetToLeft(xCoords, yCoords)} ${xCoords - 15},${
+								yCoords + 15
+							}`,
+						);
 				}
 				prevCurveCoords = `${xCoords - 5},${yCoords - 15}`;
 				return absolutePathEl
@@ -349,7 +423,9 @@ export default function ArrowPath({
 					.concat(',')
 					.concat((yCoords - 15).toFixed(0))
 					.concat(quadraticBezierCurveEl)
-					.concat(`${xCoords + 5},${yCoords} ${offsetToLeft(xCoords, yCoords)}`);
+					.concat(
+						`${xCoords + 5},${yCoords} ${offsetToLeft(xCoords, yCoords)}`,
+					);
 			}
 			return edge;
 		});
@@ -357,10 +433,16 @@ export default function ArrowPath({
 
 	useEffect(() => {
 		if (arrowWrapper) {
-			setGlobalOffset({ top: Math.round(arrowWrapper.top), left: Math.round(arrowWrapper.left) });
+			setGlobalOffset({
+				top: Math.round(arrowWrapper.top),
+				left: Math.round(arrowWrapper.left),
+			});
 		}
 		if (startElement) {
-			if (startPosition.position === 'left' || startPosition.position === 'right') {
+			if (
+				startPosition.position === 'left' ||
+				startPosition.position === 'right'
+			) {
 				setStartOffset({
 					top: Math.round(startElement.top + startElement.height / 2),
 					left: Math.round(startElement[startPosition.position]),
@@ -385,7 +467,9 @@ export default function ArrowPath({
 				});
 			}
 		}
-		const combinedEdgesWithArches = calculateAllCurves(calculateAllEdges(edges));
+		const combinedEdgesWithArches = calculateAllCurves(
+			calculateAllEdges(edges),
+		);
 		setAllEdges(combinedEdgesWithArches);
 		if (startElement && endElement) {
 			const length = (
@@ -441,12 +525,14 @@ export default function ArrowPath({
 				))}
 			<path
 				id={startPosition.id.concat(endPosition.id)}
-				className={active ? (mainArrow ? 'drawMainArrow' : 'draw') : 'stopAnimation'}
+				className={
+					active ? (mainArrow ? 'drawMainArrow' : 'draw') : 'stopAnimation'
+				}
 				d={`M ${startOffset.left - globalOffset.left},${
 					startOffset.top - globalOffset.top
-				} ${allEdges.toString().replace(/,/gm, ' ')} L ${endOffset.left - globalOffset.left},${
-					endOffset.top - globalOffset.top
-				}`}
+				} ${allEdges.toString().replace(/,/gm, ' ')} L ${
+					endOffset.left - globalOffset.left
+				},${endOffset.top - globalOffset.top}`}
 				strokeWidth={mainArrow ? '3' : '2'}
 				stroke={color ? theme.colors[color] : theme.colors.lightViolet}
 				strokeDasharray={mainArrow ? '0' : '4'}

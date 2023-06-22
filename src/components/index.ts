@@ -12,3 +12,4 @@ export * from './PageLayout';
 export * from './IntegratorCardPerps';
 export * from './EllipticalGradient';
 export * from './GradientText';
+export * from './ArrowWrapper';
