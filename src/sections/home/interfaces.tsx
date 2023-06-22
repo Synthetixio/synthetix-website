@@ -42,10 +42,9 @@ export const Interfaces = () => {
 						lineHeight="24px"
 						color="gray.500"
 					>
-						At et ac nullam platea consequat lacus ac dapibus ullamcorper sit
-						nec phasellus vestibulum consectetur et sagittis hendrerit nisi.At a
-						dis parturient diam per metus etiam dictumst adipiscing a leo ad
-						ligula enim sapien.Sed ut elementum sociosqu.
+						Stake your collateral via the Synthetix staking dapp to provide
+						liquidity to the Synthetix ecosystem. Earn weekly inflation
+						incentives and fees generated from your liquidity.
 					</Text>
 					<Button
 						mt="16px"
@@ -95,10 +94,9 @@ export const Interfaces = () => {
 						lineHeight="24px"
 						color="gray.500"
 					>
-						At et ac nullam platea consequat lacus ac dapibus ullamcorper sit
-						nec phasellus vestibulum consectetur et sagittis hendrerit nisi.At a
-						dis parturient diam per metus etiam dictumst adipiscing a leo ad
-						ligula enim sapien.Sed ut elementum sociosqu.
+						V3 staking is now live. Provide liquidity directly to the V3 system
+						with greater flexibility over which pools and markets you have
+						exposure to.
 					</Text>
 				</Flex>
 			</Flex>

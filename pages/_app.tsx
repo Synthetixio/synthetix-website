@@ -14,7 +14,12 @@ const newTheme = extendTheme({
 	useSystemColorMode: false,
 	config: { initialColorMode: 'dark' },
 	styles: {
-		global: { body: { bg: 'navy.900' } },
+		global: {
+			body: { bg: 'navy.900' },
+			'::selection': {
+				bg: '#00D1FF',
+			},
+		},
 	},
 	textStyles: {
 		'heading-4xl': {
