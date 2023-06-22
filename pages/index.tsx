@@ -1,8 +1,20 @@
 import Head from 'next/head';
 import { GetServerSideProps } from 'next';
-import Futures from '../src/sections/home/futures';
-import SynthSection from 'src/sections/home/synths';
-import { Hero, Volume, Ecosystem, Integrators } from 'src/sections/home';
+import {
+	Hero,
+	Volume,
+	Ecosystem,
+	Integrators,
+	Interested,
+	Collateral,
+	Stats,
+	Interfaces,
+	Staking,
+	Perps,
+	AggregatedStats,
+	Governance,
+} from 'src/sections/home';
+
 import { PageLayout } from 'src/components';
 import { Line } from 'src/styles/common';
 import axios from 'axios';
@@ -24,18 +36,19 @@ const Home = ({ totalStakedValue }: ApiStatsProps) => {
 				<Volume />
 				<Ecosystem />
 				<Integrators />
-				{/* <Futures />
-				<EmailSection />
-				<Line />
-				<SynthSection />
-				<Line />
-				<PoweredBy />
-				<Ecosystem />
-				<Line showOnMobile /> */}
+				<Interested />
+				<Collateral />
+				<Stats />
+				<Interfaces />
+				<Staking />
+				<Perps />
+				<AggregatedStats />
+				<Governance />
 			</PageLayout>
 		</>
 	);
 };
+
 const STAKED_SNX_DATA_URL = 'https://api.synthetix.io/staking-ratio';
 
 type StakedSNXResponse = {

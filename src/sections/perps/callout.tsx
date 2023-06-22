@@ -1,5 +1,6 @@
 import { Box, Flex, Text } from '@chakra-ui/react';
 import { ReactNode } from 'react';
+import { GradientText } from 'src/components';
 
 export default function Callout() {
 	return (
@@ -31,16 +32,3 @@ export default function Callout() {
 		</Flex>
 	);
 }
-
-const GradientText = ({ children }: { children: ReactNode }) => {
-	return (
-		<Box
-			display="inline"
-			bg="linear-gradient(73.6deg, #34EDB3 2.11%, #00D1FF 100%)"
-			backgroundClip="text"
-			text-fill-color="transparent"
-		>
-			{children}
-		</Box>
-	);
-};

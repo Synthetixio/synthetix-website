@@ -1,4 +1,4 @@
-import { Flex, Heading, Text, Box } from '@chakra-ui/react';
+import { Heading, Text, Box } from '@chakra-ui/react';
 
 export const Ecosystem = () => {
 	return (

@@ -12,3 +12,4 @@ export { default as Plus } from './Plus';
 export { default as LooperGroup } from './LooperGroup';
 export { default as Decentrex } from './Decentrex';
 export { default as SuperSynthyIcon } from './SuperSynthyIcon';
+export * from './ArrowDiagonal';
