@@ -46,9 +46,9 @@ export default function GovernanceMain() {
 					Synthetix protocol is governed, maintained and built by a combination
 					of community members, core contributors, and several elected
 					committees and councils that are voted on by SNX stakers. Learn more
-					about how these governing bodies interact, what they're responsible
-					for, and how they influence protocol improvements via SIPs, SCCPs and
-					other work.
+					about how these governing bodies interact, what they&apos;re
+					responsible for, and how they influence protocol improvements via
+					SIPs, SCCPs and other work.
 				</StyledGovernanceSubline>
 				<FlexDivCentered>
 					<StyledButtonWrapperLinearGradient height="124px" margin="16px">

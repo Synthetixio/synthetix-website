@@ -14,10 +14,23 @@
 		"skipLibCheck": true,
 		"sourceMap": true,
 		"strict": true,
-		"target": "es6",
+		"target": "ES2020",
 		"baseUrl": ".",
 		"incremental": true
 	},
-	"exclude": [".github", ".next", "_site", "coverage", "cypress", "node_modules", "public"],
-	"include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", "./node_modules/@sanity/base/types/**/*.ts"]
+	"exclude": [
+		".github",
+		".next",
+		"_site",
+		"coverage",
+		"cypress",
+		"node_modules",
+		"public"
+	],
+	"include": [
+		"next-env.d.ts",
+		"**/*.ts",
+		"**/*.tsx",
+		"./node_modules/@sanity/base/types/**/*.ts"
+	]
 }

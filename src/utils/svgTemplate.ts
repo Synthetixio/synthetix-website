@@ -6,9 +6,8 @@
  * @see https://www.smooth-code.com/open-source/svgr/docs/typescript/
  * @see https://github.com/smooth-code/svgr
  */
-/* @ts-ignore */
-// eslint-disable-next-line @typescript-eslint/explicit-function-return-type
-function template({ template }, opts, { imports, componentName, props, jsx, exports }) {
+
+function template({ template }: any, _opts: any, { componentName, jsx }: any) {
 	const typeScriptTpl = template.smart({ plugins: ['typescript'] });
 
 	return typeScriptTpl.ast`
