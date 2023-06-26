@@ -17,7 +17,7 @@ export const Integrators = () => {
 			justifyContent={{ base: 'space-between', lg: 'flex-start' }}
 			mb="76px"
 		>
-			<EllipticalGradient
+			{/* <EllipticalGradient
 				zIndex={0}
 				position="absolute"
 				bottom={0}
@@ -25,7 +25,7 @@ export const Integrators = () => {
 				right={0}
 				width="100%"
 				opacity={0.5}
-			/>
+			/> */}
 			{integrators.map(({ description, link, name, uri, tag }, i) => (
 				<IntegratorCard
 					className="integratorCard"

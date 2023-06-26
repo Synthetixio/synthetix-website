@@ -1,9 +1,17 @@
-import { Box, Button, Flex, Heading, Text } from '@chakra-ui/react';
+import Link from 'next/link';
+import {
+	Button,
+	Flex,
+	Heading,
+	Link as ChakraLink,
+	Text,
+} from '@chakra-ui/react';
 import { Spartan } from 'src/svg/Spartan';
+import { links } from 'src/utils/constants';
 
 export const Governance = () => {
 	return (
-		<Flex w="100%" mb="210px" position="relative">
+		<Flex w="100%" mt="100px" mb="265px" position="relative">
 			<Flex flexDirection="column" width="55%">
 				<Text
 					fontSize="16px"
@@ -37,34 +45,38 @@ export const Governance = () => {
 					ecosystem is more broadly maintained and improved by a combination of
 					core contributors, ecosystem partners, and community members.
 				</Text>
-				<Box mt="16px">
-					<Button px="16px" py="8px" width="fit-content">
-						Learn More
-					</Button>
-					<Button
-						ml="24px"
+				<Flex mt="16px">
+					<Link href="/governance">
+						<Button as={Text} px="16px" py="10px" width="fit-content">
+							Learn More
+						</Button>
+					</Link>
+					<ChakraLink
+						ml="16px"
+						padding="10px 16px"
+						bg="transparent"
 						bgGradient="none"
 						color="white"
-						bg="navy.900"
 						border="1px"
 						borderColor="gray.900"
-						px="16px"
-						py="8px"
-						width="fit-content"
+						borderRadius="4px"
+						fontSize="14px"
+						fontWeight={700}
+						fontFamily="heading"
 						_hover={{
-							bg: 'navy.900',
-							opacity: 0.8,
+							bg: 'gray.900',
 						}}
 						_active={{
-							bg: 'navy.900',
-							opacity: 0.8,
+							bg: 'gray.900',
 						}}
+						href={links.governanceApp}
+						target="_blank"
 					>
 						Governance App
-					</Button>
-				</Box>
+					</ChakraLink>
+				</Flex>
 			</Flex>
-			<Spartan position="absolute" right="-100" top="-100" />
+			<Spartan position="absolute" right="-50" top="-150" width="1000px" />
 		</Flex>
 	);
 };

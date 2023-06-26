@@ -1,24 +1,32 @@
-import { Button, Flex, Text, Box, Tag, TagLabel } from '@chakra-ui/react';
+import {
+	Flex,
+	Text,
+	Box,
+	Tag,
+	TagLabel,
+	LinkBox,
+	LinkOverlay,
+} from '@chakra-ui/react';
 import { Logo } from 'src/components';
 import { ArrowDiagonal } from 'src/svg';
+import { links } from 'src/utils/constants';
 
 export const Interfaces = () => {
 	return (
 		<Box>
 			<Text
 				fontFamily="heading"
-				fontSize="48px"
-				color="gray.50"
-				lineHeight="57.6px"
+				fontSize="16px"
+				color="gray.500"
+				lineHeight="28px"
 				mb="24px"
-				fontWeight={700}
 			>
-				Staking Interfaces
+				STAKING INTERFACES
 			</Text>
 			<Flex justifyContent="space-between">
 				<Flex
 					flexDirection="column"
-					bg="#0E052F"
+					bg="navy.700"
 					p="24px"
 					width="49.5%"
 					borderRadius="5px"
@@ -46,18 +54,34 @@ export const Interfaces = () => {
 						liquidity to the Synthetix ecosystem. Earn weekly inflation
 						incentives and fees generated from your liquidity.
 					</Text>
-					<Button
-						mt="16px"
-						width="fit-content"
-						variant="outline"
-						rightIcon={<ArrowDiagonal />}
-					>
-						Stake on V2
-					</Button>
+					<LinkBox mt="16px">
+						<Flex
+							alignItems="center"
+							p="10px 16px"
+							bg="transparent"
+							border="1px"
+							borderColor="cyan.500"
+							borderRadius="4px"
+							width="fit-content"
+						>
+							<LinkOverlay href={links.stakingV2} target="_blank">
+								<Text
+									fontSize="14px"
+									fontFamily="heading"
+									fontWeight={700}
+									lineHeight="20px"
+									color="cyan.500"
+								>
+									Stake on V2
+								</Text>
+							</LinkOverlay>
+							<ArrowDiagonal ml={2} />
+						</Flex>
+					</LinkBox>
 				</Flex>
 				<Flex
 					flexDirection="column"
-					bg="#0E052F"
+					bg="navy.700"
 					p="24px"
 					width="49.5%"
 					borderRadius="5px"

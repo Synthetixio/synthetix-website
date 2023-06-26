@@ -1,5 +1,5 @@
-import { Box, Button, Flex, Heading, Link, Text } from '@chakra-ui/react';
-import { duneLink } from 'src/utils/constants';
+import { Box, Flex, Heading, Link, Text } from '@chakra-ui/react';
+import { links } from 'src/utils/constants';
 
 export const Volume = () => {
 	return (
@@ -65,7 +65,7 @@ export const Volume = () => {
 						_active={{
 							bg: 'gray.900',
 						}}
-						href={duneLink}
+						href={links.duneLink}
 						target="_blank"
 					>
 						See All Stats

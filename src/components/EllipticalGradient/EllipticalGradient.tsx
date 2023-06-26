@@ -33,7 +33,7 @@ export const EllipticalGradient = ({
 					width="2281.7"
 					height="1483.43"
 					filterUnits="userSpaceOnUse"
-					color-interpolation-filters="sRGB"
+					colorInterpolationFilters="sRGB"
 				>
 					<feFlood floodOpacity="0" result="BackgroundImageFix" />
 					<feBlend
@@ -54,7 +54,7 @@ export const EllipticalGradient = ({
 					width="1996.33"
 					height="1333.52"
 					filterUnits="userSpaceOnUse"
-					color-interpolation-filters="sRGB"
+					colorInterpolationFilters="sRGB"
 				>
 					<feFlood floodOpacity="0" result="BackgroundImageFix" />
 					<feBlend

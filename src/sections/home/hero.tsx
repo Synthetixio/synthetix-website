@@ -5,8 +5,7 @@ export const Hero = () => {
 	const onClick = () => {
 		const ecosystem = document.getElementById('ecosystem');
 		if (ecosystem) {
-			const offset = ecosystem.getBoundingClientRect().top;
-			window.scrollTo({ top: offset - 100, behavior: 'smooth' });
+			ecosystem.scrollIntoView({ behavior: 'smooth' });
 		}
 	};
 
@@ -52,10 +51,8 @@ export const Hero = () => {
 					mt="16px"
 					gap="8px"
 					p="10px 16px"
-					width="fit-content"
 					borderRadius="4px"
-					// TODO: Update theme
-					bgGradient="linear(to-r, #34EDB3, #00D1FF)"
+					width="fit-content"
 					onClick={onClick}
 				>
 					Explore Ecosystem

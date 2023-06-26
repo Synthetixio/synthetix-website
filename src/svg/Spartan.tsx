@@ -7,8 +7,8 @@ export const Spartan = ({
 }: IconProps) => {
 	return (
 		<Icon
-			width="1112"
-			height="663"
+			width={width}
+			height={height}
 			viewBox="0 0 1112 663"
 			fill="none"
 			{...props}

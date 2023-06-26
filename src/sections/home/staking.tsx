@@ -1,12 +1,12 @@
-import { Button, Flex, Heading, Text } from '@chakra-ui/react';
-import { InterestedLooper } from 'src/svg/InterestedLooper';
+import { Flex, Link, Text } from '@chakra-ui/react';
 import { StakingLooper } from 'src/svg/StakingLooper';
+import { links } from 'src/utils/constants';
 
 export const Staking = () => {
 	return (
-		<Flex my="200px" w="100%">
+		<Flex w="100%" mt="24px" mb="100px">
 			<Flex
-				bg="#0E052F"
+				bg="navy.700"
 				p="48px"
 				borderRadius="5px"
 				border="1px"
@@ -17,13 +17,19 @@ export const Staking = () => {
 				justifyContent="flex-end"
 			>
 				<Flex flexDirection="column" width="72%">
-					<Heading textStyle="heading-4xl" mb="16px">
+					<Text
+						fontSize="36px"
+						lineHeight="120%"
+						fontWeight={700}
+						mb="16px"
+						color="gray.50"
+					>
 						Synthetix Staking Guide
-					</Heading>
+					</Text>
 					<Text
 						fontFamily="heading"
-						fontSize="12px"
-						lineHeight="16px"
+						fontSize="16px"
+						lineHeight="24px"
 						color="gray.500"
 						mb="24px"
 					>
@@ -31,9 +37,20 @@ export const Staking = () => {
 						collateral underwrites the liquidity of the protocol and powers our
 						ecosystem. Stakers are rewarded for provisioning this liquidity.
 					</Text>
-					<Button p="10px" width="fit-content">
-						Get Started
-					</Button>
+					<Link
+						p="10px 16px"
+						width="fit-content"
+						color="black"
+						fontFamily="heading"
+						fontWeight={700}
+						_hover={{ textDecoration: 'none' }}
+						href={links.stakingGuide}
+						target="_blank"
+						bgGradient="linear(to-r, #34EDB3, cyan.500)"
+						borderRadius="4px"
+					>
+						<Text>Get Started</Text>
+					</Link>
 				</Flex>
 				<StakingLooper
 					height="100%"

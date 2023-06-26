@@ -1,5 +1,6 @@
-import { Button, Flex, Heading, Text } from '@chakra-ui/react';
+import { Flex, Link, Text } from '@chakra-ui/react';
 import { InterestedLooper } from 'src/svg/InterestedLooper';
+import { links } from 'src/utils/constants';
 
 export const Interested = () => {
 	return (
@@ -28,9 +29,21 @@ export const Interested = () => {
 						by visiting the developer documentation and joining the Synthetix
 						Discord
 					</Text>
-					<Button p="10px 16px" width="fit-content">
+					<Link
+						bgGradient="linear(to-r, #34EDB3, cyan.500)"
+						mt="16px"
+						gap="8px"
+						p="10px 16px"
+						borderRadius="4px"
+						width="fit-content"
+						color="black"
+						fontWeight={700}
+						_hover={{ textDecoration: 'none', opacity: 0.8 }}
+						href={links.v3IntegrationGuide}
+						target="_blank"
+					>
 						Integrate with Synthetix
-					</Button>
+					</Link>
 				</Flex>
 				<InterestedLooper position="absolute" top="0" right="-180" bottom="0" />
 			</Flex>

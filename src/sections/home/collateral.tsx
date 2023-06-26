@@ -1,9 +1,10 @@
-import { Button, Flex, Heading, Text } from '@chakra-ui/react';
+import { Button, Flex, Link, Text } from '@chakra-ui/react';
 import { GradientText } from 'src/components';
+import { links } from 'src/utils/constants';
 
 export const Collateral = () => {
 	return (
-		<Flex w="100%" justifyContent="flex-end" mb="210px">
+		<Flex w="100%" justifyContent="flex-end" my="100px">
 			<Flex flexDirection="column" width="55%">
 				<Text
 					fontSize="16px"
@@ -25,12 +26,27 @@ export const Collateral = () => {
 					<GradientText>Staking Collateral</GradientText> with Synthetix{' '}
 					<GradientText>helps support deep liquidity</GradientText>, low
 					slippage, and highly competitive trading fees for our derivatives
-					markets. Stakers get <GradientText>rewarded</GradientText> for helping
-					to support a more robust ecosystem.
+					markets.
+					<Text mt="40px">
+						Stakers get <GradientText>rewarded</GradientText> for helping to
+						support a more robust ecosystem.
+					</Text>
 				</Text>
-				<Button p="10px" width="fit-content">
+				<Link
+					href={links.stakingV2}
+					target="_blank"
+					bgGradient="linear(to-r, #34EDB3, cyan.500)"
+					mt="16px"
+					gap="8px"
+					p="10px 16px"
+					borderRadius="4px"
+					width="fit-content"
+					color="black"
+					fontWeight={700}
+					_hover={{ textDecoration: 'none', opacity: 0.8 }}
+				>
 					Start Staking
-				</Button>
+				</Link>
 			</Flex>
 		</Flex>
 	);
