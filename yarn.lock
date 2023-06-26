@@ -10792,17 +10792,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"eslint-plugin-testing-library@npm:^5.6.1":
-  version: 5.6.1
-  resolution: "eslint-plugin-testing-library@npm:5.6.1"
-  dependencies:
-    "@typescript-eslint/utils": ^5.13.0
-  peerDependencies:
-    eslint: ^7.5.0 || ^8.0.0
-  checksum: bf081c6a44eece3ee56ff8b789785001ea15158b631f9982aed57b6b8113cf300cc8467b4956b38f303908727188b10e22da038d42cc3245a151a7d989a05c3c
-  languageName: node
-  linkType: hard
-
 "eslint-plugin-testing-library@npm:^5.9.1":
   version: 5.9.1
   resolution: "eslint-plugin-testing-library@npm:5.9.1"
@@ -21140,12 +21129,7 @@ __metadata:
     eslint: ^8.6.0
     eslint-config-next: latest
     eslint-config-prettier: ^8.8.0
-    eslint-plugin-chai-friendly: ^0.7.2
-    eslint-plugin-cypress: ^2.12.1
-    eslint-plugin-import: ^2.26.0
     eslint-plugin-prettier: ^4.2.1
-    eslint-plugin-testing-library: ^5.6.1
-    eslint-plugin-ui-testing: ^2.0.1
     ethers: 5.6.9
     framer-motion: ^7
     husky: ^7.0.4

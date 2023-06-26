@@ -12,6 +12,7 @@ import { useEffect } from 'react';
 const newTheme = extendTheme({
 	...chakraTheme,
 	colors: {
+		...chakraTheme.colors,
 		navy: {
 			700: '#0B0B22',
 			900: '#06061B',
