@@ -2,7 +2,7 @@ import { Heading, Text, Box } from '@chakra-ui/react';
 
 export const Ecosystem = () => {
 	return (
-		<Box width="100%" position="relative" id="ecosystem">
+		<Box width="100%" position="relative" id="ecosystem" my="100px">
 			<Box position="relative" zIndex={1}>
 				<Text
 					lineHeight="24px"
@@ -19,7 +19,8 @@ export const Ecosystem = () => {
 						color="gray.50"
 						fontSize="48px"
 						lineHeight="56px"
-						mb={4}
+						width="600px"
+						mb="16px"
 					>
 						A Network of DeFi Apps Powered by Synthetix
 					</Heading>
@@ -28,6 +29,7 @@ export const Ecosystem = () => {
 						lineHeight="24px"
 						fontFamily="heading"
 						color="gray.500"
+						mb="16px"
 					>
 						Each Vault supports a single collateral asset. Pools connected to
 						one or more Markets. All external collateral will be onboarded into

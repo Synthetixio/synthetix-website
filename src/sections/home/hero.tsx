@@ -1,4 +1,4 @@
-import { Box, Button, Flex, Heading, Text } from '@chakra-ui/react';
+import { Box, Button, Flex, Text, Heading } from '@chakra-ui/react';
 import SNXPerpsLooper from 'src/svg/SNXPerpsLooper';
 
 export const Hero = () => {
@@ -51,8 +51,11 @@ export const Hero = () => {
 				<Button
 					mt="16px"
 					gap="8px"
+					p="10px 16px"
 					width="fit-content"
 					borderRadius="4px"
+					// TODO: Update theme
+					bgGradient="linear(to-r, #34EDB3, #00D1FF)"
 					onClick={onClick}
 				>
 					Explore Ecosystem

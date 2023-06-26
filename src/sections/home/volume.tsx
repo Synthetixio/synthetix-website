@@ -1,4 +1,5 @@
-import { Box, Button, Flex, Heading, Text } from '@chakra-ui/react';
+import { Box, Button, Flex, Heading, Link, Text } from '@chakra-ui/react';
+import { duneLink } from 'src/utils/constants';
 
 export const Volume = () => {
 	return (
@@ -46,23 +47,30 @@ export const Volume = () => {
 						</Heading>
 					</Flex>
 				</Flex>
-				<Button
-					gap="8px"
-					bg="transparent"
-					bgGradient="none"
-					mt="34px"
-					color="white"
-					border="1px"
-					borderColor="gray.900"
-					_hover={{
-						bg: 'gray.900',
-					}}
-					_active={{
-						bg: 'gray.900',
-					}}
-				>
-					See All Stats
-				</Button>
+				<Box mt="24px">
+					<Link
+						padding="10px 16px"
+						bg="transparent"
+						bgGradient="none"
+						color="white"
+						border="1px"
+						borderColor="gray.900"
+						borderRadius="4px"
+						fontSize="14px"
+						fontWeight={700}
+						fontFamily="heading"
+						_hover={{
+							bg: 'gray.900',
+						}}
+						_active={{
+							bg: 'gray.900',
+						}}
+						href={duneLink}
+						target="_blank"
+					>
+						See All Stats
+					</Link>
+				</Box>
 			</Box>
 		</Box>
 	);

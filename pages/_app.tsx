@@ -11,6 +11,12 @@ import { useEffect } from 'react';
 
 const newTheme = extendTheme({
 	...chakraTheme,
+	colors: {
+		navy: {
+			700: '#0B0B22',
+			900: '#06061B',
+		},
+	},
 	useSystemColorMode: false,
 	config: { initialColorMode: 'dark' },
 	styles: {
@@ -43,7 +49,7 @@ const newTheme = extendTheme({
 		'heading-xl': {
 			fontSize: { base: '30px', lg: '48px' },
 			fontFamily: 'heading',
-			lineHeight: { base: '36px', lg: '43.2px' },
+			lineHeight: { base: '36px', lg: '120%' },
 			fontWeight: 700,
 		},
 		'heading-lg': {

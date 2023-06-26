@@ -13,9 +13,9 @@ export const Integrators = () => {
 	return (
 		<Flex
 			flexWrap="wrap"
-			my={20}
 			width="100%"
 			justifyContent={{ base: 'space-between', lg: 'flex-start' }}
+			mb="76px"
 		>
 			<EllipticalGradient
 				zIndex={0}
@@ -36,7 +36,7 @@ export const Integrators = () => {
 					key={name.concat(i.toString())}
 					uri={uri}
 					tag={tag}
-					mt={{ base: '24px' }}
+					mb={{ base: '24px' }}
 					mr={{ lg: '24px' }}
 					p={{ base: '24px' }}
 					width={{
