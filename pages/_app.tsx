@@ -25,7 +25,7 @@ const newTheme = extendTheme({
 		'heading-4xl': {
 			fontSize: { base: '60px', lg: '72px' },
 			fontFamily: 'heading',
-			lineHeight: '72px',
+			lineHeight: '120%',
 			fontWeight: 700,
 		},
 		'heading-3xl': {

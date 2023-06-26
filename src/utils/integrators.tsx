@@ -40,14 +40,6 @@ export const integrators: integratorItem[] = [
 		tag: 'ASST MGMT',
 	},
 	{
-		uri: '/conduit.svg',
-		name: 'Conduit',
-		description:
-			'Conduit is a community-centric, perpetual trading platform that provides a high performing, modular user experience. It introduces novel features that are intuitive to users, with Synthetix as the backbone. Your gateway to crypto trading.',
-		link: 'https://alpha.conduit.lol/',
-		tag: 'PERPS',
-	},
-	{
 		uri: '/lyra.svg',
 		name: 'Lyra',
 		description:
@@ -92,7 +84,6 @@ const perpsIntegrators = [
 	'Kwenta',
 	'Polynomial',
 	'Decentrex',
-	'Conduit',
 	'dHedge',
 	'Lyra',
 ];
