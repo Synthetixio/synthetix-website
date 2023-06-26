@@ -7,7 +7,11 @@
  * @see https://github.com/smooth-code/svgr
  */
 
-function template({ template }: any, _opts: any, { componentName, jsx }: any) {
+export function template(
+	{ template }: any,
+	_opts: any,
+	{ componentName, jsx }: any,
+) {
 	const typeScriptTpl = template.smart({ plugins: ['typescript'] });
 
 	return typeScriptTpl.ast`
@@ -26,5 +30,3 @@ type Props = {
 export default ${componentName};
 `;
 }
-
-module.exports = template;
