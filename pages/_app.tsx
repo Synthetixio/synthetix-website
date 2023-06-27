@@ -25,6 +25,7 @@ const newTheme = extendTheme({
 			body: { bg: 'navy.900' },
 			'::selection': {
 				bg: '#00D1FF',
+				color: '#000000',
 			},
 		},
 	},

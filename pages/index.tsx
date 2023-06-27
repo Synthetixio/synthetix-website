@@ -50,6 +50,12 @@ const Home = ({ totalStakedValue }: ApiStatsProps) => {
 };
 
 const STAKED_SNX_DATA_URL = 'https://api.synthetix.io/staking-ratio';
+const VOLUME_DATA_URL = 'https://api.dune.com/api/v1/query/2499125/results';
+const ACTIVE_STAKERS_URL = 'https://api.dune.com/api/v1/query/2647572/results';
+const INTEGRATORS_VOLUME_URL =
+	'https://api.dune.com/api/v1/query/2647536/results';
+const OPEN_INTEREST_URL = 'https://api.dune.com/api/v1/query/2441903/results';
+const TRADING_FEES_URL = 'https://api.dune.com/api/v1/query/1893390/results';
 
 type StakedSNXResponse = {
 	systemStakingPercent: number;
@@ -65,7 +71,11 @@ export const getServerSideProps: GetServerSideProps = async () => {
 		const [stakesSnxResponse, snxPrice] = await Promise.all([
 			axios.get<StakedSNXResponse>(STAKED_SNX_DATA_URL),
 			getSnxPrice(),
+			axios.get(VOLUME_DATA_URL, {
+				headers: { 'x-dune-api-key': 'process.env.DUNE_API_KEY' },
+			}),
 		]);
+
 		const {
 			data: { stakedSnx },
 		} = stakesSnxResponse;

@@ -30,7 +30,13 @@ export const Hero = () => {
 					Fueling the next generation of permissionless DeFi protocols.
 				</Text>
 				<Box width="600px">
-					<Text color="gray.50" mb="16px" width="500px" textStyle="heading-4xl">
+					<Text
+						as="h2"
+						textStyle="heading-4xl"
+						color="gray.50"
+						mb="16px"
+						width="500px"
+					>
 						The Liquidity Layer of DeFi
 					</Text>
 				</Box>
