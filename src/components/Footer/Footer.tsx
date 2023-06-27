@@ -47,15 +47,15 @@ const footerMenu = [
 		},
 		{
 			title: 'Brand Assets',
-			link: 'https://drive.google.com/drive/u/1/folders/1lYReAAGwzb39isEID1n-dDwvFwzKAGDj',
+			link: 'https://docs.synthetix.io/brand-assets/resources',
 		},
 		{
 			title: 'Terms and Conditions',
 			link: 'https://staking.synthetix.io/terms',
 		},
 		{
-			title: 'Help Center',
-			link: 'https://docs.synthetix.io/synthetix-protocol/welcome-to-synthetix',
+			title: 'Community Support',
+			link: 'https://discord.com/channels/413890591840272394/479848672289488906',
 		},
 	],
 	[
