@@ -2,7 +2,7 @@ import { Heading, Text, Box } from '@chakra-ui/react';
 
 export const Ecosystem = () => {
 	return (
-		<Box id="ecosystem">
+		<Box id="ecosystem" position="relative">
 			<Box width="100%" position="relative" my="100px">
 				<Box position="relative" zIndex={1}>
 					<Text
@@ -42,6 +42,17 @@ export const Ecosystem = () => {
 					</Box>
 				</Box>
 			</Box>
+			<Box
+				position="absolute"
+				bgGradient="linear-gradient(44deg, #EE2EFF 0%, #5744EA 100%)"
+				width="584px"
+				height="536px"
+				zIndex={0}
+				borderRadius="100%"
+				filter="blur(250px)"
+				top="20px"
+				left="-200px"
+			/>
 		</Box>
 	);
 };

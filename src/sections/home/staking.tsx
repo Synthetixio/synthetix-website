@@ -4,7 +4,7 @@ import { links } from 'src/utils/constants';
 
 export const Staking = () => {
 	return (
-		<Flex w="100%" mt="24px" mb="100px">
+		<Flex w="100%" mt="24px" mb="100px" position="relative">
 			<Flex
 				bg="navy.700"
 				p="48px"
@@ -15,6 +15,7 @@ export const Staking = () => {
 				position="relative"
 				w="100%"
 				justifyContent="flex-end"
+				zIndex={1}
 			>
 				<Flex flexDirection="column" width="72%">
 					<Text

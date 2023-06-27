@@ -1,11 +1,11 @@
-import { Button, Flex, Link, Text } from '@chakra-ui/react';
+import { Box, Flex, Link, Text } from '@chakra-ui/react';
 import { GradientText } from 'src/components';
 import { links } from 'src/utils/constants';
 
 export const Collateral = () => {
 	return (
-		<Flex w="100%" justifyContent="flex-end" my="100px">
-			<Flex flexDirection="column" width="55%">
+		<Flex w="100%" justifyContent="flex-end" my="100px" position="relative">
+			<Flex flexDirection="column" width="55%" zIndex={1}>
 				<Text
 					fontSize="16px"
 					lineHeight="24px"
@@ -48,6 +48,16 @@ export const Collateral = () => {
 					Start Staking
 				</Link>
 			</Flex>
+			<Box
+				position="absolute"
+				bgGradient="linear-gradient(44deg, #34EDB3 0%, #00D1FF 100%)"
+				width="584px"
+				height="536px"
+				zIndex={0}
+				borderRadius="100%"
+				filter="blur(250px)"
+				left="-300"
+			/>
 		</Flex>
 	);
 };

@@ -1,4 +1,4 @@
-import { Button, Flex, Text } from '@chakra-ui/react';
+import { Box, Button, Flex, Text } from '@chakra-ui/react';
 import { GradientText } from 'src/components';
 
 export const Perps = () => {
@@ -10,8 +10,8 @@ export const Perps = () => {
 	};
 
 	return (
-		<Flex w="100%" my="100px">
-			<Flex flexDirection="column" width="55%">
+		<Flex w="100%" my="100px" position="relative">
+			<Flex flexDirection="column" width="55%" zIndex="1">
 				<Text
 					fontSize="16px"
 					lineHeight="24px"
@@ -38,6 +38,16 @@ export const Perps = () => {
 					Explore all Integrators
 				</Button>
 			</Flex>
+			<Box
+				position="absolute"
+				bgGradient="linear-gradient(44deg, #EE2EFF 0%, #5744EA 100%)"
+				width="584px"
+				height="536px"
+				zIndex={0}
+				borderRadius="100%"
+				filter="blur(250px)"
+				right="0"
+			/>
 		</Flex>
 	);
 };
