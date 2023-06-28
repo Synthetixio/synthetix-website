@@ -79,26 +79,11 @@ export const integrators: integratorItem[] = [
 		tag: 'ASST MGMT',
 	},
 	{
-		uri: '/pyth.svg',
-		name: 'Pyth',
-		description: 'Low-latency market data from institutional sources.',
-		link: 'https://pyth.network/',
-		tag: 'ORACLE',
-	},
-	{
 		uri: '/overtime.svg',
 		name: 'Overtime Markets',
 		description: 'Sports positional markets, built on Thales.',
 		link: 'https://overtimemarkets.xyz/',
 		tag: 'AMM',
-	},
-	{
-		uri: '/chainlink.svg',
-		name: 'Chainlink',
-		description:
-			'Chainlink is the industry-standard Web3 services platform connecting the people, businesses, and data of today with the Web3 world of tomorrow.',
-		link: 'https://chain.link/',
-		tag: 'ORACLE',
 	},
 ];
 

@@ -1,5 +1,5 @@
 import { Flex } from '@chakra-ui/react';
-import { EllipticalGradient, IntegratorCard } from 'src/components';
+import { IntegratorCard } from 'src/components';
 import { integrators } from 'src/utils/integrators';
 
 export const Integrators = () => {
@@ -17,15 +17,6 @@ export const Integrators = () => {
 			justifyContent={{ base: 'space-between', lg: 'flex-start' }}
 			mb="76px"
 		>
-			{/* <EllipticalGradient
-				zIndex={0}
-				position="absolute"
-				bottom={0}
-				left={0}
-				right={0}
-				width="100%"
-				opacity={0.5}
-			/> */}
 			{integrators.map(({ description, link, name, uri, tag }, i) => (
 				<IntegratorCard
 					className="integratorCard"

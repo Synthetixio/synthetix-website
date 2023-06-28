@@ -10,3 +10,4 @@ export * from './staking';
 export * from './perps';
 export * from './aggregatedStats';
 export * from './governance';
+export * from './partners';
