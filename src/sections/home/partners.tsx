@@ -24,7 +24,7 @@ export const Partners = () => {
 				<Image height="29px" alt="iosiro" src="/iosiro.png" />
 				<Image alt="macro" src="/macro.svg" />
 				<Image alt="optimism" src="/optimism.svg" />
-				<Image alt="pyth" src="/pyth.svg" />
+				<Image alt="pyth" src="/pythText.svg" />
 			</Flex>
 		</Box>
 	);
