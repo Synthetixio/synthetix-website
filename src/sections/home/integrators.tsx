@@ -2,7 +2,11 @@ import { Flex } from '@chakra-ui/react';
 import { IntegratorCard } from 'src/components';
 import { integrators } from 'src/utils/integrators';
 
-export const Integrators = () => {
+interface IntegratorsProps {
+	sortList: string[];
+}
+
+export const Integrators = ({ sortList }: IntegratorsProps) => {
 	// TOTAL HACK
 	const largestDescription = integrators.reduce((prev, current) => {
 		return prev.description.length > current.description.length
@@ -10,6 +14,7 @@ export const Integrators = () => {
 			: current;
 	});
 
+	console.log(sortList);
 	return (
 		<Flex
 			flexWrap="wrap"

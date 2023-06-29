@@ -1,7 +1,17 @@
-import { Flex, Text, Box, Button, Link } from '@chakra-ui/react';
+import { Flex, Text, Box, Link } from '@chakra-ui/react';
 import { links } from 'src/utils/constants';
 
-export const Stats = () => {
+interface StatsProps {
+	tvl: string;
+	uniqueStakers: string;
+	cumulativeTradingFees: string;
+}
+
+export const Stats = ({
+	tvl,
+	uniqueStakers,
+	cumulativeTradingFees,
+}: StatsProps) => {
 	return (
 		<Box width="100%" my="100px">
 			<Flex justifyContent="space-between" width="100%">
@@ -15,7 +25,7 @@ export const Stats = () => {
 					>
 						TVL
 					</Text>
-					<Text textStyle="heading-4xl">$500M</Text>
+					<Text textStyle="heading-4xl">{`$${tvl}`}</Text>
 				</Flex>
 				<Flex flexDirection="column">
 					<Text
@@ -27,7 +37,7 @@ export const Stats = () => {
 					>
 						UNIQUE STAKERS
 					</Text>
-					<Text textStyle="heading-4xl">60,789</Text>
+					<Text textStyle="heading-4xl">{uniqueStakers}</Text>
 				</Flex>
 				<Flex flexDirection="column">
 					<Text
@@ -39,7 +49,7 @@ export const Stats = () => {
 					>
 						TOTAL TRADING FEES
 					</Text>
-					<Text textStyle="heading-4xl">$60M</Text>
+					<Text textStyle="heading-4xl">{`$${cumulativeTradingFees}`}</Text>
 				</Flex>
 			</Flex>
 			<Box mt="24px">

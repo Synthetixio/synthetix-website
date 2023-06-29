@@ -21,7 +21,7 @@ export const Partners = () => {
 				<Image alt="cannon" src="/cannon.svg" />
 				<Image alt="chainlink" src="/chainlinkText.svg" />
 				<Image alt="infura" src="/infura.svg" />
-				<Image height="29px" alt="iosiro" src="/iosiro.png" />
+				<Image height="29px" alt="iosiro" src="/iosiro.svg" />
 				<Image alt="macro" src="/macro.svg" />
 				<Image alt="optimism" src="/optimism.svg" />
 				<Image alt="pyth" src="/pythText.svg" />

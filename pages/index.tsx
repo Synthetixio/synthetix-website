@@ -20,12 +20,71 @@ import { PageLayout } from 'src/components';
 import axios from 'axios';
 
 import getSnxPrice from '../src/queries/snxPrice/snxPrice';
+import {
+	StakedSNXResponse,
+	VolumeResponse,
+	ActiveStakerResponse,
+	IntegratorsVolumeResponse,
+	OpenInterestResponse,
+	TradingFeesResponse,
+	VolumeData,
+	ActiveStakersData,
+	GraphqlResponse,
+} from 'src/typings';
+import { numberWithCommas } from 'src/utils/formatters/number';
+import millify from 'millify';
+import { utils } from 'ethers';
 
 export interface ApiStatsProps {
 	totalStakedValue?: number;
+	tradingVolume?: VolumeData;
+	activeStakers?: ActiveStakersData;
+	integratorForLatestDate?: string[];
+	openInterestForLatestDate?: number;
+	markets?: number;
+	uniqueTradingAccounts?: string;
 }
 
-const Home = ({ totalStakedValue }: ApiStatsProps) => {
+const Home = ({
+	totalStakedValue,
+	activeStakers,
+	integratorForLatestDate,
+	tradingVolume,
+	openInterestForLatestDate,
+	markets,
+	uniqueTradingAccounts,
+}: ApiStatsProps) => {
+	// NOTE BACKUP VALUES ARE BASED ON 20/6/23 data
+
+	const tvl = `${numberWithCommas(
+		totalStakedValue?.toFixed(0) || '478393038', // TVL 20/6/23
+	)}`; // VOLUME 20/6/23
+	const uniqueStakers = numberWithCommas(
+		`${activeStakers?.All_stakers || 43937}`, // STAKERS 20/6/23
+	);
+
+	const cumulativeTradingVolume = `${numberWithCommas(
+		tradingVolume?.cumulative_volume.toFixed(0) || '13590466291', // VOLUME 20/6/23
+	)}`;
+
+	const cumulativeTradingFees = `${numberWithCommas(
+		tradingVolume?.cumulative_fees.toFixed(0) || '12457449', // FEES 20/6/23
+	)}`;
+
+	const volumeMillified = millify(
+		Math.floor(tradingVolume?.cumulative_volume || 13590466291),
+	);
+
+	const oiMillified = millify(
+		Math.floor(openInterestForLatestDate || 122087440),
+	);
+
+	const marketsData = `${markets || 42}`;
+
+	const uniqueTradingAccountsData = numberWithCommas(
+		uniqueTradingAccounts || '12646',
+	);
+
 	return (
 		<>
 			<Head>
@@ -33,16 +92,25 @@ const Home = ({ totalStakedValue }: ApiStatsProps) => {
 			</Head>
 			<PageLayout useChakra>
 				<Hero />
-				<Volume />
+				<Volume tvl={tvl} cumulativeTradingVolume={cumulativeTradingVolume} />
 				<Ecosystem />
-				<Integrators />
+				<Integrators sortList={integratorForLatestDate || []} />
 				<Interested />
 				<Collateral />
-				<Stats />
+				<Stats
+					uniqueStakers={uniqueStakers}
+					cumulativeTradingFees={cumulativeTradingFees}
+					tvl={tvl}
+				/>
 				<Interfaces />
 				<Staking />
 				<Perps />
-				<AggregatedStats />
+				<AggregatedStats
+					allTimeVolume={volumeMillified}
+					markets={marketsData}
+					openInterest={oiMillified}
+					uniqueTradingAccounts={uniqueTradingAccountsData}
+				/>
 				<Governance />
 				<Partners />
 			</PageLayout>
@@ -57,69 +125,23 @@ const INTEGRATORS_VOLUME_URL =
 	'https://api.dune.com/api/v1/query/2647536/results';
 const OPEN_INTEREST_URL = 'https://api.dune.com/api/v1/query/2441903/results';
 const TRADING_FEES_URL = 'https://api.dune.com/api/v1/query/1893390/results';
-
-type StakedSNXResponse = {
-	systemStakingPercent: number;
-	timestamp: number;
-	stakedSnx: {
-		ethereum: number;
-		optimism: number;
-	};
-};
-
-type VolumeData = {
-	cumulative_fees: number;
-	cumulative_volume: number;
-	days30_fee: number;
-	days30_total_fee: number;
-	days30_vol: number;
-	days7_fee: number;
-	days7_total_fee: number;
-	days7_vol: number;
-	time: string;
-	total_fees: number;
-	total_volume: number;
-};
-
-type VolumeResponse = {
-	result: {
-		rows: VolumeData[];
-	};
-};
-
-type ActiveStakersData = {
-	All_stakers: number;
-	L1_stakers: number;
-	L2_stakers: number;
-	time: string;
-};
-
-type ActiveStakerResponse = {
-	result: {
-		rows: ActiveStakersData[];
-	};
-};
-
-type IntegratorsVolumeData = {
-	daily_fee: number;
-	day: string;
-	integrator_cum_fee: number;
-	tracking_code: string;
-};
-
-type IntegratorsVolumeResponse = {
-	result: {
-		rows: IntegratorsVolumeData[];
-	};
-};
-
-type OpenInterestResponse = {
-	result: {
-		rows: IntegratorsVolumeData[];
-	};
-};
+const graphqlUrl =
+	'https://api.thegraph.com/subgraphs/name/synthetix-perps/perps';
 
 const apiKey = process?.env?.NEXT_DUNE_API_KEY || '';
+
+const graphqlQuery = `
+query {
+  futuresMarkets {
+    id
+    isActive
+    marketKey
+  }
+  dailyStats(orderBy: day, orderDirection: desc, first: 1) {
+    cumulativeTraders
+  }
+}
+`;
 
 export const getServerSideProps: GetServerSideProps = async () => {
 	try {
@@ -131,6 +153,7 @@ export const getServerSideProps: GetServerSideProps = async () => {
 			{ data: integratorsData },
 			{ data: openInterestData },
 			{ data: tradingFeesData },
+			{ data: graphqlResponse },
 		] = await Promise.all([
 			axios.get<StakedSNXResponse>(STAKED_SNX_DATA_URL),
 			getSnxPrice(),
@@ -146,8 +169,11 @@ export const getServerSideProps: GetServerSideProps = async () => {
 			axios.get<OpenInterestResponse>(OPEN_INTEREST_URL, {
 				headers: { 'x-dune-api-key': apiKey },
 			}),
-			axios.get(TRADING_FEES_URL, {
+			axios.get<TradingFeesResponse>(TRADING_FEES_URL, {
 				headers: { 'x-dune-api-key': apiKey },
+			}),
+			axios.post<GraphqlResponse>(graphqlUrl, {
+				query: graphqlQuery,
 			}),
 		]);
 
@@ -177,7 +203,24 @@ export const getServerSideProps: GetServerSideProps = async () => {
 			.sort((a, b) => (a.daily_fee > b.daily_fee ? -1 : 1))
 			.map(item => item.tracking_code.split('\x00')[0]);
 
-		// console.log('Open interest data', openInterestData.result.rows);
+		const openInterest = openInterestData.result.rows.sort((a, b) =>
+			a.day > b.day ? -1 : 1,
+		);
+
+		const openInterestForLatestDate = openInterest
+			.filter(item => item.day === openInterest[0].day)
+			.reduce((acc, item) => acc + Math.abs(item.size_usd), 0);
+
+		const tradingFees = tradingFeesData.result.rows.sort((a, b) =>
+			a.day > b.day ? -1 : 1,
+		);
+
+		const markets = graphqlResponse?.data?.futuresMarkets.filter(
+			({ marketKey }) => utils.parseBytes32String(marketKey).includes('PERP'),
+		).length;
+
+		const uniqueTradingAccounts =
+			graphqlResponse?.data?.dailyStats[0]?.cumulativeTraders;
 
 		if (isNaN(valueTotalStaked)) {
 			throw Error('Unexpected NaN getting total staked value');
@@ -188,13 +231,17 @@ export const getServerSideProps: GetServerSideProps = async () => {
 				tradingVolume,
 				activeStakers,
 				integratorForLatestDate,
+				openInterestForLatestDate,
+				tradingFees: tradingFees[0],
+				markets,
+				uniqueTradingAccounts,
 			},
 		};
 	} catch (e) {
 		console.log(e);
 		return {
 			props: {
-				totalStakedValue: 0,
+				totalStakedValue: null,
 				tradingVolume: null,
 				totalValueLocked: null,
 				integratorsByVolume: null,
@@ -203,8 +250,8 @@ export const getServerSideProps: GetServerSideProps = async () => {
 				totalTradingFees: null,
 				allTimeVolume: null,
 				openInterest: null,
-				uniqueTradingAccounts: null,
-				markets: null,
+				uniqueTradingAccounts: 12646,
+				markets: 42,
 			},
 		};
 	}

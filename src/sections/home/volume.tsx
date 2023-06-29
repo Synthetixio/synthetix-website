@@ -1,7 +1,12 @@
 import { Box, Flex, Heading, Link, Text } from '@chakra-ui/react';
 import { links } from 'src/utils/constants';
 
-export const Volume = () => {
+interface VolumeProps {
+	tvl: string;
+	cumulativeTradingVolume: string;
+}
+
+export const Volume = ({ tvl, cumulativeTradingVolume }: VolumeProps) => {
 	return (
 		<Box width="100%" position="relative" my="100px">
 			<Box zIndex={1} position="relative">
@@ -23,7 +28,7 @@ export const Volume = () => {
 							fontSize="100px"
 							color="gray.50"
 						>
-							3,586,302,420
+							{cumulativeTradingVolume}
 						</Heading>
 					</Flex>
 					<Flex flexDirection="column" mt="45px">
@@ -43,7 +48,7 @@ export const Volume = () => {
 							fontSize="100px"
 							color="gray.50"
 						>
-							450,234,456
+							{tvl}
 						</Heading>
 					</Flex>
 				</Flex>

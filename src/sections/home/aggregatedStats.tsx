@@ -1,7 +1,19 @@
-import { Flex, Text, Box, Button, Link } from '@chakra-ui/react';
+import { Flex, Text, Box, Link } from '@chakra-ui/react';
 import { links } from 'src/utils/constants';
 
-export const AggregatedStats = () => {
+interface AggregatedStatsProps {
+	allTimeVolume: string;
+	openInterest: string;
+	uniqueTradingAccounts: string;
+	markets: string;
+}
+
+export const AggregatedStats = ({
+	allTimeVolume,
+	openInterest,
+	uniqueTradingAccounts,
+	markets,
+}: AggregatedStatsProps) => {
 	return (
 		<Box width="100%" my="100px">
 			<Flex justifyContent="space-between" width="100%">
@@ -15,7 +27,7 @@ export const AggregatedStats = () => {
 					>
 						ALL TIME VOLUME
 					</Text>
-					<Text textStyle="heading-4xl">$11B</Text>
+					<Text textStyle="heading-4xl">${allTimeVolume}</Text>
 				</Flex>
 				<Flex flexDirection="column">
 					<Text
@@ -27,7 +39,7 @@ export const AggregatedStats = () => {
 					>
 						OPEN INTEREST
 					</Text>
-					<Text textStyle="heading-4xl">$123M</Text>
+					<Text textStyle="heading-4xl">${openInterest}</Text>
 				</Flex>
 				<Flex flexDirection="column">
 					<Text
@@ -39,7 +51,7 @@ export const AggregatedStats = () => {
 					>
 						UNIQUE TRADING ACCOUNTS
 					</Text>
-					<Text textStyle="heading-4xl">60,789</Text>
+					<Text textStyle="heading-4xl">{uniqueTradingAccounts}</Text>
 				</Flex>
 				<Flex flexDirection="column">
 					<Text
@@ -51,7 +63,7 @@ export const AggregatedStats = () => {
 					>
 						MARKETS
 					</Text>
-					<Text textStyle="heading-4xl">24</Text>
+					<Text textStyle="heading-4xl">{markets}</Text>
 				</Flex>
 			</Flex>
 			<Box mt="24px">

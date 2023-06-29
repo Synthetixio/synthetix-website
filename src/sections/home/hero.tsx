@@ -1,4 +1,4 @@
-import { Box, Button, Flex, Text, Heading } from '@chakra-ui/react';
+import { Box, Button, Flex, Text } from '@chakra-ui/react';
 import SNXPerpsLooper from 'src/svg/SNXPerpsLooper';
 
 export const Hero = () => {
