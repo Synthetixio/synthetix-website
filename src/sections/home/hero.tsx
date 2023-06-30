@@ -14,7 +14,7 @@ export const Hero = () => {
 	}
 
 	return (
-		<Flex pt="182px" position="relative" width="100%">
+		<Flex pt="182px" position="relative" width="100%" id="hero">
 			<Flex
 				flexDirection="column"
 				justifyContent="center"
