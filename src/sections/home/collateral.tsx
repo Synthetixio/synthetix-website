@@ -22,12 +22,13 @@ export const Collateral = () => {
 					color="white"
 					fontWeight={700}
 					mb="16px"
+					as="div"
 				>
 					<GradientText>Staking Collateral</GradientText> with Synthetix{' '}
 					<GradientText>helps support deep liquidity</GradientText>, low
 					slippage, and highly competitive trading fees for our derivatives
 					markets.
-					<Text mt="40px">
+					<Text mt="40px" as="div">
 						Stakers get <GradientText>rewarded</GradientText> for helping to
 						support a more robust ecosystem.
 					</Text>

@@ -2,12 +2,16 @@ import { Box, Button, Flex, Text } from '@chakra-ui/react';
 import { GradientText } from 'src/components';
 
 export const Perps = () => {
-	const onClick = () => {
-		const ecosystem = document.getElementById('ecosystem');
-		if (ecosystem) {
-			ecosystem.scrollIntoView({ behavior: 'smooth' });
-		}
-	};
+	let onClick = () => {};
+
+	if (typeof window !== 'undefined') {
+		onClick = () => {
+			const ecosystem = document.getElementById('ecosystem');
+			if (ecosystem) {
+				ecosystem.scrollIntoView({ behavior: 'smooth' });
+			}
+		};
+	}
 
 	return (
 		<Flex w="100%" my="100px" position="relative">
@@ -28,6 +32,7 @@ export const Perps = () => {
 					color="white"
 					fontWeight={700}
 					mb="24px"
+					as="div"
 				>
 					Synthetix <GradientText>perpetual futures</GradientText> are a set of
 					composable and decentralized smart contracts{' '}

@@ -2,12 +2,16 @@ import { Box, Button, Flex, Text } from '@chakra-ui/react';
 import SNXPerpsLooper from 'src/svg/SNXPerpsLooper';
 
 export const Hero = () => {
-	const onClick = () => {
-		const ecosystem = document.getElementById('ecosystem');
-		if (ecosystem) {
-			ecosystem.scrollIntoView({ behavior: 'smooth' });
-		}
-	};
+	let onClick = () => {};
+
+	if (typeof window !== 'undefined') {
+		onClick = () => {
+			const ecosystem = document.getElementById('ecosystem');
+			if (ecosystem) {
+				ecosystem.scrollIntoView({ behavior: 'smooth' });
+			}
+		};
+	}
 
 	return (
 		<Flex pt="182px" position="relative" width="100%">
