@@ -18,7 +18,7 @@ export const integrators: integratorItem[] = [
 		uri: '/kwenta.svg',
 		name: 'Kwenta',
 		description:
-			'Kwenta is a decentralized derivatives trading platform offering perpetual futures and options trading on Optimism. Gain exposure to a variety of crypto and real-world assets, and advanced tooling through Kwenta Smart Margin.',
+			'Trade crypto, forex, and commodities with up to 50x leverage and deep liquidity.',
 		link: 'https://kwenta.eth.limo/dashboard/markets/',
 		tag: 'PERPS',
 	},
@@ -26,23 +26,15 @@ export const integrators: integratorItem[] = [
 		uri: '/polynomial.svg',
 		name: 'Polynomial',
 		description:
-			'Polynomial is a DeFi derivatives powerhouse that offers derivatives-based products built on top of Synthetix such as perps, power perps, and vaults. It is a one-stop solution built on top of Polynomial smart contract wallets.',
+			"Trade perps with Polynomial's smart wallet to access up to 50x leverage.",
 		link: 'https://trade.polynomial.fi/',
-		tag: 'PERPS',
-	},
-	{
-		uri: '/decentrex.png',
-		name: 'Decentrex',
-		description:
-			'Decentrex is a decentralized perpetual futures exchange and leverage aggregator. On Decentrex, users have access to deep liquidity and lightning fast trades, thanks to the powerful infrastructure provided by Synthetix and Optimism.',
-		link: 'https://decentrex.com/trade/ETH-USD',
 		tag: 'PERPS',
 	},
 	{
 		uri: '/dhedge.svg',
 		name: 'dHedge',
 		description:
-			'dHEDGE is a decentralized asset management protocol. It empowers users to access high-performing vaults managed by skilled asset managers. Asset managers can utilize sophisticated DeFi instruments like Kwenta perpetual futures and Lyra options to generate returns.',
+			'Use your sUSD to find permissionless investment managers and automated strategies.',
 		link: 'https://app.dhedge.org/#',
 		tag: 'ASST MGMT',
 	},
@@ -50,7 +42,7 @@ export const integrators: integratorItem[] = [
 		uri: '/lyra.svg',
 		name: 'Lyra',
 		description:
-			'Lyra is an option AMM that allows traders to buy and sell options on cryptocurrencies against a pool of liquidity. Lyra leverages Synthetix perpetual futures to hedge delta exposure and provide market neutral, organic yield to its liquidity providers.',
+			'Lyra is the leading decentralized options protocol and uses Synthetix to delta hedge their AMM.',
 		link: 'https://app.lyra.finance/#/trade/optimism/seth-susd',
 		tag: 'OPTIONS',
 	},
@@ -58,7 +50,7 @@ export const integrators: integratorItem[] = [
 		uri: '/thales.svg',
 		name: 'Thales',
 		description:
-			'Trade various parimutuel markets like price up or down, sports markets, and others.',
+			'Use your sUSD to take positions on parimutuel crypto markets.',
 		link: 'https://thalesmarket.io/',
 		tag: 'PARIMUTUEL',
 	},
@@ -66,7 +58,7 @@ export const integrators: integratorItem[] = [
 		uri: '/curve.svg',
 		name: 'Curve',
 		description:
-			'Deposit your synths into curve pools for yield on synth pairs and help provide liquidity to the ecosystem.',
+			'Deposit synths into Curve pools to provide liquidity to the ecosystem and earn yield.',
 		link: 'https://curve.fi/',
 		tag: 'SPOT',
 	},
@@ -74,14 +66,15 @@ export const integrators: integratorItem[] = [
 		uri: '/toros.svg',
 		name: 'Toros',
 		description:
-			'Toros enables a suite of one-click financial tools which simplify complex strategies.',
+			'Toros enables a suite of one-click financial tools that simplify complex strategies.',
 		link: 'https://toros.finance/',
 		tag: 'ASST MGMT',
 	},
 	{
 		uri: '/overtime.svg',
 		name: 'Overtime Markets',
-		description: 'Sports positional markets, built on Thales.',
+		description:
+			"Use your sUSD to take positions on sporting events with Overtime's sports AMM.",
 		link: 'https://overtimemarkets.xyz/',
 		tag: 'AMM',
 	},

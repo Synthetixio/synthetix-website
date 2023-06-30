@@ -14,7 +14,6 @@ export const Integrators = ({ sortList }: IntegratorsProps) => {
 			: current;
 	});
 
-	console.log(sortList);
 	return (
 		<Flex
 			flexWrap="wrap"
@@ -22,27 +21,39 @@ export const Integrators = ({ sortList }: IntegratorsProps) => {
 			justifyContent={{ base: 'space-between', lg: 'flex-start' }}
 			mb="76px"
 		>
-			{integrators.map(({ description, link, name, uri, tag }, i) => (
-				<IntegratorCard
-					className="integratorCard"
-					name={name}
-					link={link}
-					description={description}
-					largestDescription={largestDescription.description}
-					key={name.concat(i.toString())}
-					uri={uri}
-					tag={tag}
-					mb={{ base: '24px' }}
-					mr={{ lg: '24px' }}
-					p={{ base: '24px' }}
-					width={{
-						base: '100%',
-						md: 'calc(50% - 12px)',
-						lg: 'calc(30% - 12px)',
-						xl: 'calc(22% - 12px)',
-					}}
-				/>
-			))}
+			{integrators
+				.sort((a, b) => {
+					const aIndex = sortList.indexOf(a.name);
+					const bIndex = sortList.indexOf(b.name);
+					if (aIndex === -1) {
+						return 1;
+					}
+					if (bIndex === -1) {
+						return -1;
+					}
+					return aIndex - bIndex;
+				})
+				.map(({ description, link, name, uri, tag }, i) => (
+					<IntegratorCard
+						className="integratorCard"
+						name={name}
+						link={link}
+						description={description}
+						largestDescription={largestDescription.description}
+						key={name.concat(i.toString())}
+						uri={uri}
+						tag={tag}
+						mb={{ base: '24px' }}
+						mr={{ lg: '24px' }}
+						p={{ base: '24px' }}
+						width={{
+							base: '100%',
+							md: 'calc(50% - 12px)',
+							lg: 'calc(30% - 12px)',
+							xl: 'calc(22% - 12px)',
+						}}
+					/>
+				))}
 		</Flex>
 	);
 };
