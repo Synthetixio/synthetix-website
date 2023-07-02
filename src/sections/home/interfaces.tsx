@@ -38,8 +38,8 @@ export const Interfaces = () => {
 						my="16px"
 						color="gray.50"
 						fontWeight={700}
-						fontSize="18px"
-						lineHeight="28px"
+						fontSize="36px"
+						lineHeight="40px"
 						fontFamily="heading"
 					>
 						Staking Interface V2
@@ -90,7 +90,7 @@ export const Interfaces = () => {
 				>
 					<Flex width="100%" justifyContent="space-between">
 						<Logo small />
-						<Tag bgColor="whiteAlpha.500">
+						<Tag bgColor="whiteAlpha.300">
 							<TagLabel
 								color="white"
 								fontSize="12px"
@@ -106,11 +106,11 @@ export const Interfaces = () => {
 						my="16px"
 						color="gray.50"
 						fontWeight={700}
-						fontSize="18px"
-						lineHeight="28px"
+						fontSize="36px"
+						lineHeight="40px"
 						fontFamily="heading"
 					>
-						Staking Interface V3 (experimental)
+						Staking Interface V3
 					</Text>
 					<Text
 						fontFamily="heading"

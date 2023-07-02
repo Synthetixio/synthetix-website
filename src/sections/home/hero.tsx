@@ -23,16 +23,6 @@ export const Hero = () => {
 				pb={20}
 				zIndex={1}
 			>
-				<Text
-					fontSize="16px"
-					lineHeight="24px"
-					color="gray.500"
-					fontFamily="heading"
-					mb="16px"
-					fontWeight={400}
-				>
-					Fueling the next generation of permissionless DeFi protocols.
-				</Text>
 				<Box width="600px">
 					<Text
 						as="h2"
@@ -45,7 +35,7 @@ export const Hero = () => {
 					</Text>
 				</Box>
 				<Text
-					mb="16px"
+					mb="24px"
 					fontSize="16px"
 					lineHeight="24px"
 					color="gray.500"
@@ -53,12 +43,11 @@ export const Hero = () => {
 					fontWeight={400}
 					width="625px"
 				>
-					Synthetix powers the liquidity for permissionless derivatives like
-					perpetual futures, options, sports AMMs, and more across EVM chains.
-					Learn more about markets that leverage Synthetix liquidity.
+					Synthetix provides liquidity for permissionless derivatives like
+					perpetual futures, options, parimutuel markets, and more across EVM
+					chains. Powering the next generation of permissionless protocols.
 				</Text>
 				<Button
-					mt="16px"
 					gap="8px"
 					p="10px 16px"
 					borderRadius="4px"

@@ -31,7 +31,6 @@ export const Interested = () => {
 					</Text>
 					<Link
 						bgGradient="linear(to-r, #34EDB3, cyan.500)"
-						mt="16px"
 						gap="8px"
 						p="10px 16px"
 						borderRadius="4px"
@@ -45,7 +44,13 @@ export const Interested = () => {
 						Integrate with Synthetix
 					</Link>
 				</Flex>
-				<InterestedLooper position="absolute" top="0" right="-180" bottom="0" />
+				<InterestedLooper
+					height="100%"
+					position="absolute"
+					top="0"
+					right="0"
+					bottom="0"
+				/>
 			</Flex>
 		</Flex>
 	);

@@ -43,12 +43,16 @@ export const IntegratorCard = ({
 		>
 			<LinkOverlay href={link} isExternal>
 				<Flex justifyContent="space-between" width="100%">
-					<Image src={uri} h={{ base: '40px', xl: '50px' }} />
+					<Image
+						alt={`${name}-logo`}
+						src={uri}
+						h={{ base: '40px', xl: '50px' }}
+					/>
 					<Tag
 						px="8px"
 						height="fit-content"
 						py="2px"
-						background="whiteAlpha.500"
+						background="whiteAlpha.300"
 						borderRadius="4px"
 					>
 						<TagLabel

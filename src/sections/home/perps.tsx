@@ -15,7 +15,7 @@ export const Perps = () => {
 
 	return (
 		<Flex w="100%" my="100px" position="relative">
-			<Flex flexDirection="column" width="55%" zIndex="1">
+			<Flex flexDirection="column" width="800px" zIndex="1">
 				<Text
 					fontSize="16px"
 					lineHeight="24px"
@@ -39,7 +39,12 @@ export const Perps = () => {
 					<GradientText>powering an ecosystem</GradientText> of derivatives
 					projects
 				</Text>
-				<Button p="10px 16px" onClick={onClick} width="fit-content">
+				<Button
+					p="10px 16px"
+					borderRadius="base"
+					onClick={onClick}
+					width="fit-content"
+				>
 					Explore all Integrators
 				</Button>
 			</Flex>

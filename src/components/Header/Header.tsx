@@ -50,6 +50,7 @@ export const Header = () => {
 					onClick={() => push('/')}
 					cursor="pointer"
 					mr={{ base: '', xl: '32px' }}
+					alt="logo"
 				/>
 				{/* if using below="xl" we will see both, menu and hamburger menu */}
 				<Show breakpoint="(max-width: 1279px)">

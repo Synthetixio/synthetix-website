@@ -17,7 +17,12 @@ export const Staking = () => {
 				justifyContent="flex-end"
 				zIndex={1}
 			>
-				<Flex flexDirection="column" width="72%">
+				<Flex
+					flexDirection="column"
+					width="72%"
+					pl="48px"
+					justifyContent="flex-end"
+				>
 					<Text
 						fontSize="36px"
 						lineHeight="120%"

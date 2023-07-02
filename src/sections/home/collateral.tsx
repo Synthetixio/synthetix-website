@@ -21,8 +21,9 @@ export const Collateral = () => {
 					lineHeight="57.6px"
 					color="white"
 					fontWeight={700}
-					mb="16px"
+					mb="24px"
 					as="div"
+					width="800px"
 				>
 					<GradientText>Staking Collateral</GradientText> with Synthetix{' '}
 					<GradientText>helps support deep liquidity</GradientText>, low
@@ -37,7 +38,6 @@ export const Collateral = () => {
 					href={links.stakingV2}
 					target="_blank"
 					bgGradient="linear(to-r, #34EDB3, cyan.500)"
-					mt="16px"
 					gap="8px"
 					p="10px 16px"
 					borderRadius="4px"

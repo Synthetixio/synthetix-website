@@ -1,4 +1,5 @@
-import { Box, Flex, Heading, Link, Text } from '@chakra-ui/react';
+import { Box, Button, Flex, Heading, Link, Text } from '@chakra-ui/react';
+import { ExternalLink } from 'src/styles/common';
 import { links } from 'src/utils/constants';
 
 interface VolumeProps {
@@ -31,7 +32,7 @@ export const Volume = ({ tvl, cumulativeTradingVolume }: VolumeProps) => {
 							{cumulativeTradingVolume}
 						</Heading>
 					</Flex>
-					<Flex flexDirection="column" mt="45px">
+					<Flex flexDirection="column" mt="48px">
 						<Text
 							fontSize="16px"
 							lineHeight="24px"
@@ -53,27 +54,19 @@ export const Volume = ({ tvl, cumulativeTradingVolume }: VolumeProps) => {
 					</Flex>
 				</Flex>
 				<Box mt="24px">
-					<Link
-						padding="10px 16px"
-						bg="transparent"
-						bgGradient="none"
-						color="white"
-						border="1px"
-						borderColor="gray.900"
-						borderRadius="4px"
-						fontSize="14px"
-						fontWeight={700}
-						fontFamily="heading"
-						_hover={{
-							bg: 'gray.900',
-						}}
-						_active={{
-							bg: 'gray.900',
-						}}
-						href={links.duneLink}
-						target="_blank"
-					>
-						See All Stats
+					<Link href={links.duneLink} target="_blank">
+						<Button
+							w="fit-content"
+							size={{ base: 'lg', xl: 'md' }}
+							variant="outline"
+							colorScheme="gray"
+							borderRadius="4px"
+							fontWeight={700}
+							fontSize="14px"
+							padding="10px 16px"
+						>
+							See All Stats
+						</Button>
 					</Link>
 				</Box>
 			</Box>

@@ -121,6 +121,7 @@ export const Menu = ({ isOpen, ...rest }: MenuProps) => {
 									key={item.label}
 									rightIcon={<ImArrowUpRight2 />}
 									mt={{ base: '8px', xl: '0' }}
+									borderRadius="4px"
 								>
 									{item.label}
 								</Button>

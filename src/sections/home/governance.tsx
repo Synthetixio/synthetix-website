@@ -47,7 +47,13 @@ export const Governance = () => {
 				</Text>
 				<Flex mt="16px">
 					<Link href="/governance">
-						<Button as={Text} px="16px" py="10px" width="fit-content">
+						<Button
+							as={Text}
+							borderRadius="base"
+							px="16px"
+							py="10px"
+							width="fit-content"
+						>
 							Learn More
 						</Button>
 					</Link>
@@ -76,7 +82,7 @@ export const Governance = () => {
 					</ChakraLink>
 				</Flex>
 			</Flex>
-			<Spartan position="absolute" right="-50" top="-150" width="1000px" />
+			<Spartan position="absolute" right="-70" top="-150" width="1000px" />
 		</Flex>
 	);
 };

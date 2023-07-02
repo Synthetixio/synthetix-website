@@ -1,4 +1,4 @@
-import { Flex, Text, Box, Link } from '@chakra-ui/react';
+import { Flex, Text, Box, Link, Button } from '@chakra-ui/react';
 import { links } from 'src/utils/constants';
 
 interface AggregatedStatsProps {
@@ -67,27 +67,19 @@ export const AggregatedStats = ({
 				</Flex>
 			</Flex>
 			<Box mt="24px">
-				<Link
-					padding="10px 16px"
-					bg="transparent"
-					bgGradient="none"
-					color="white"
-					border="1px"
-					borderColor="gray.900"
-					borderRadius="4px"
-					fontSize="14px"
-					fontWeight={700}
-					fontFamily="heading"
-					_hover={{
-						bg: 'gray.900',
-					}}
-					_active={{
-						bg: 'gray.900',
-					}}
-					href={links.duneLink}
-					target="_blank"
-				>
-					See All Stats
+				<Link href={links.duneLink} target="_blank">
+					<Button
+						w="fit-content"
+						size={{ base: 'lg', xl: 'md' }}
+						variant="outline"
+						colorScheme="gray"
+						borderRadius="4px"
+						fontWeight={700}
+						fontSize="14px"
+						padding="10px 16px"
+					>
+						See All Stats
+					</Button>
 				</Link>
 			</Box>
 		</Box>

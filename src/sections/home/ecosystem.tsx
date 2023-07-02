@@ -2,9 +2,9 @@ import { Heading, Text, Box } from '@chakra-ui/react';
 
 export const Ecosystem = () => {
 	return (
-		<Box id="ecosystem" position="relative">
-			<Box width="100%" position="relative" my="100px">
-				<Box position="relative" zIndex={1}>
+		<Box id="ecosystem" position="relative" w="100%">
+			<Box width="100%" my="100px">
+				<Box width="100%" position="relative" zIndex={1}>
 					<Text
 						lineHeight="24px"
 						fontSize="16px"
@@ -32,12 +32,9 @@ export const Ecosystem = () => {
 							color="gray.500"
 							mb="16px"
 						>
-							Each Vault supports a single collateral asset. Pools connected to
-							one or more Markets. All external collateral will be onboarded
-							into the protocol through Synthetix governance. Stakers have an
-							increasing range of Pools to allocate their capital to. This gives
-							stakers more control over their credit as the V3 system provides
-							more options for both liquidity and hedging.
+							Explore the growing ecosystem of decentralized apps built on top
+							of Synthetix liquidity. The Synthetix ecosystem is comprised of
+							derivatives exchanges, sUSD utility, and more
 						</Text>
 					</Box>
 				</Box>

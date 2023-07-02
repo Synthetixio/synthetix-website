@@ -57,19 +57,19 @@ const Home = ({
 	// NOTE BACKUP VALUES ARE BASED ON 20/6/23 data
 
 	const tvl = `${numberWithCommas(
-		totalStakedValue?.toFixed(2) || '478393038.0', // TVL 20/6/23
+		totalStakedValue?.toFixed(0) || '478393038', // TVL 20/6/23
 	)}`; // VOLUME 20/6/23
 
 	const uniqueStakers = numberWithCommas(
-		activeStakers?.All_stakers.toFixed(2) || '43937.0', // STAKERS 20/6/23
+		activeStakers?.All_stakers.toFixed(0) || '43937', // STAKERS 20/6/23
 	);
 
 	const cumulativeTradingVolume = `${numberWithCommas(
-		tradingVolume?.cumulative_volume.toFixed(2) || '13590466291.0', // VOLUME 20/6/23
+		tradingVolume?.cumulative_volume.toFixed(0) || '13590466291', // VOLUME 20/6/23
 	)}`;
 
 	const cumulativeTradingFees = `${numberWithCommas(
-		tradingVolume?.cumulative_fees.toFixed(2) || '12457449.0', // FEES 20/6/23
+		tradingVolume?.cumulative_fees.toFixed(0) || '12457449', // FEES 20/6/23
 	)}`;
 
 	const volumeMillified = millify(
@@ -83,7 +83,7 @@ const Home = ({
 	const marketsData = `${markets || 42}`;
 
 	const uniqueTradingAccountsData = numberWithCommas(
-		uniqueTradingAccounts || '12646.0',
+		uniqueTradingAccounts || '12646',
 	);
 
 	return (
