@@ -5,14 +5,21 @@ import {
 	Heading,
 	Link as ChakraLink,
 	Text,
+	Show,
 } from '@chakra-ui/react';
 import { Spartan } from 'src/svg/Spartan';
 import { links } from 'src/utils/constants';
 
 export const Governance = () => {
 	return (
-		<Flex w="100%" mt="100px" mb="265px" position="relative">
-			<Flex flexDirection="column" width="55%">
+		<Flex
+			w="100%"
+			mt={{ base: '50px', md: '100px' }}
+			mb="265px"
+			position="relative"
+			flexDirection={{ base: 'column' }}
+		>
+			<Flex flexDirection="column" width="100%">
 				<Text
 					fontSize="16px"
 					lineHeight="24px"
@@ -28,6 +35,7 @@ export const Governance = () => {
 					fontSize="48px"
 					lineHeight="57.6px"
 					color="gray.50"
+					width="57.5%"
 					mb="16px"
 				>
 					Protocol Governance
@@ -37,7 +45,7 @@ export const Governance = () => {
 					fontFamily="heading"
 					lineHeight="24px"
 					color="gray.500"
-					width="57%"
+					width={{ base: '100%', md: '57%' }}
 					mb="16px"
 				>
 					The Synthetix protocol is governed by a decentralized set of
@@ -82,7 +90,24 @@ export const Governance = () => {
 					</ChakraLink>
 				</Flex>
 			</Flex>
-			<Spartan position="absolute" right="-70" top="-150" width="1000px" />
+			<Show above="base" below="md">
+				<Flex
+					position="relative"
+					width="100%"
+					height="300px"
+					justifyContent={'center'}
+				>
+					<Spartan position="absolute" top="-75" width="500px" />
+				</Flex>
+			</Show>
+			<Show above="md">
+				<Spartan
+					position="absolute"
+					right="-79"
+					top="-150"
+					width={{ md: '500px', lg: '600px', xl: '900px' }}
+				/>
+			</Show>
 		</Flex>
 	);
 };

@@ -13,18 +13,24 @@ export const Partners = () => {
 			</Text>
 			<Flex
 				w="100%"
-				mt="16px"
-				justifyContent="space-between"
+				justifyContent={{ base: 'start', xl: 'space-between' }}
 				alignItems="center"
+				flexWrap={{ base: 'wrap', xl: 'nowrap' }}
 			>
-				<Image alt="blocknative" src="/blocknative.svg" />
-				<Image alt="cannon" src="/cannon.svg" />
-				<Image alt="chainlink" src="/chainlinkText.svg" />
-				<Image alt="infura" src="/infura.svg" />
-				<Image height="29px" alt="iosiro" src="/iosiro.svg" />
-				<Image alt="macro" src="/macro.svg" />
-				<Image alt="optimism" src="/optimism.svg" />
-				<Image alt="pyth" src="/pythText.svg" />
+				<Image alt="blocknative" src="/blocknative.svg" mr="16px" mt="16px" />
+				<Image alt="cannon" src="/cannon.svg" mr="16px" mt="16px" />
+				<Image alt="chainlink" src="/chainlinkText.svg" mr="16px" mt="16px" />
+				<Image alt="infura" src="/infura.svg" mr="16px" mt="16px" />
+				<Image
+					height="29px"
+					alt="iosiro"
+					src="/iosiro.svg"
+					mr="16px"
+					mt="16px"
+				/>
+				<Image alt="macro" src="/macro.svg" mr="16px" mt="16px" />
+				<Image alt="optimism" src="/optimism.svg" mr="16px" mt="16px" />
+				<Image alt="pyth" src="/pythText.svg" mr="16px" mt="16px" />
 			</Flex>
 		</Box>
 	);
