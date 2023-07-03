@@ -1,4 +1,4 @@
-import { Flex, Link, Text } from '@chakra-ui/react';
+import { Box, Flex, Link, Show, Text } from '@chakra-ui/react';
 import { StakingLooper } from 'src/svg/StakingLooper';
 import { links } from 'src/utils/constants';
 
@@ -7,21 +7,31 @@ export const Staking = () => {
 		<Flex w="100%" mt="24px" mb="100px" position="relative">
 			<Flex
 				bg="navy.700"
-				p="48px"
+				minHeight="300px"
+				maxHeight={{ base: 'unset', lg: '328px' }}
 				borderRadius="5px"
 				border="1px"
 				borderColor="gray.900"
-				maxHeight="288px"
 				position="relative"
+				p={{ base: '0', lg: '48px' }}
 				w="100%"
 				justifyContent="flex-end"
 				zIndex={1}
+				flexDirection={{ base: 'column', lg: 'row' }}
 			>
+				<Show above="base" below="lg">
+					<Flex width="100%" height="290px" position="relative">
+						<StakingLooper position="absolute" left="0" top="0" bottom="0" />
+					</Flex>
+				</Show>
 				<Flex
 					flexDirection="column"
-					width="72%"
-					pl="48px"
-					justifyContent="flex-end"
+					justifyContent="center"
+					width="100%"
+					ml={{ base: '0px', lg: '300px' }}
+					px={{ base: '16px', sm: '24px', lg: '48px' }}
+					pb={{ base: '16px', sm: '24px', lg: '48px' }}
+					pt={{ base: '0px', lg: '48px' }}
 				>
 					<Text
 						fontSize="36px"
@@ -58,13 +68,15 @@ export const Staking = () => {
 						<Text>Get Started</Text>
 					</Link>
 				</Flex>
-				<StakingLooper
-					height="100%"
-					position="absolute"
-					left="0"
-					top="0"
-					bottom="0"
-				/>
+				<Show above="lg">
+					<StakingLooper
+						height="100%"
+						position="absolute"
+						left="0"
+						top="0"
+						bottom="0"
+					/>
+				</Show>
 			</Flex>
 		</Flex>
 	);

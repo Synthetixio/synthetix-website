@@ -9,15 +9,17 @@ import {
 	LinkBox,
 	LinkOverlay,
 	Box,
+	Show,
 } from '@chakra-ui/react';
 
 interface IntegratorCardProps extends FlexProps {
-	uri: string;
-	name: string;
-	description: string;
-	largestDescription: string;
-	link: string;
-	tag: string;
+	uri?: string;
+	name?: string;
+	description?: string;
+	largestDescription?: string;
+	link?: string;
+	tag?: string;
+	enabled?: boolean;
 }
 
 export const IntegratorCard = ({
@@ -27,6 +29,7 @@ export const IntegratorCard = ({
 	largestDescription,
 	link,
 	tag,
+	enabled = true,
 	...props
 }: IntegratorCardProps) => {
 	return (
@@ -34,14 +37,16 @@ export const IntegratorCard = ({
 			as={Flex}
 			flexDir="column"
 			alignItems="flex-start"
-			bg="#0B0B22"
+			bg="navy.700"
 			borderWidth="1px"
 			borderStyle="solid"
 			borderRadius="5px"
 			borderColor="gray.900"
 			{...props}
+			cursor={enabled ? 'pointer' : 'default'}
+			pointerEvents={enabled ? 'auto' : 'none'}
 		>
-			<LinkOverlay href={link} isExternal>
+			<LinkOverlay href={link} isExternal width="100%">
 				<Flex justifyContent="space-between" width="100%">
 					<Image
 						alt={`${name}-logo`}
@@ -68,26 +73,28 @@ export const IntegratorCard = ({
 				<Heading my="16px" fontSize="18px">
 					{name}
 				</Heading>
-				<Box position="relative">
-					<Text
-						fontSize="16px"
-						lineHeight="24px"
-						color="gray.500"
-						fontWeight={400}
-						position="absolute"
-					>
-						{description}
-					</Text>
-					{/* NOTE: Hack to make items same height. */}
-					<Text
-						fontSize="16px"
-						lineHeight="24px"
-						fontWeight={400}
-						color="transparent"
-					>
-						{largestDescription}
-					</Text>
-				</Box>
+				<Show above="md">
+					<Box position="relative">
+						<Text
+							fontSize="16px"
+							lineHeight="24px"
+							color="gray.500"
+							fontWeight={400}
+							position="absolute"
+						>
+							{description}
+						</Text>
+						{/* NOTE: Hack to make items same height. */}
+						<Text
+							fontSize="16px"
+							lineHeight="24px"
+							fontWeight={400}
+							color="transparent"
+						>
+							{largestDescription}
+						</Text>
+					</Box>
+				</Show>
 			</LinkOverlay>
 		</LinkBox>
 	);

@@ -9,7 +9,7 @@ interface VolumeProps {
 
 export const Volume = ({ tvl, cumulativeTradingVolume }: VolumeProps) => {
 	return (
-		<Box width="100%" position="relative" my="100px">
+		<Box width="100%" position="relative" my={{ base: '50px', md: '100px' }}>
 			<Box zIndex={1} position="relative">
 				<Flex flexDirection="column" width="100%">
 					<Flex flexDirection="column">
@@ -25,8 +25,8 @@ export const Volume = ({ tvl, cumulativeTradingVolume }: VolumeProps) => {
 						<Heading
 							fontFamily="heading"
 							fontWeight={700}
-							lineHeight="100px"
-							fontSize="100px"
+							lineHeight={{ base: '60px', md: '100px' }}
+							fontSize={{ base: '60px', md: '100px' }}
 							color="gray.50"
 						>
 							{cumulativeTradingVolume}
@@ -45,8 +45,8 @@ export const Volume = ({ tvl, cumulativeTradingVolume }: VolumeProps) => {
 						<Heading
 							fontFamily="heading"
 							fontWeight={700}
-							lineHeight="100px"
-							fontSize="100px"
+							lineHeight={{ base: '60px', md: '100px' }}
+							fontSize={{ base: '60px', md: '100px' }}
 							color="gray.50"
 						>
 							{tvl}

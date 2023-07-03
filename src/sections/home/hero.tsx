@@ -1,4 +1,5 @@
 import { Box, Button, Flex, Text } from '@chakra-ui/react';
+import SNXMainLooperPlaceholder from 'src/svg/SNXMainLooperPlaceholder';
 import SNXPerpsLooper from 'src/svg/SNXPerpsLooper';
 
 export const Hero = () => {
@@ -14,26 +15,29 @@ export const Hero = () => {
 	}
 
 	return (
-		<Flex pt="182px" position="relative" width="100%" id="hero">
+		<Flex
+			pt="182px"
+			width="100%"
+			id="hero"
+			flexDirection={{ base: 'column-reverse', xl: 'row' }}
+		>
 			<Flex
 				flexDirection="column"
 				justifyContent="center"
-				maxWidth="50%"
 				height="100%"
 				pb={20}
 				zIndex={1}
+				mt={{ base: '400px', xl: '50px' }}
 			>
-				<Box width="600px">
-					<Text
-						as="h2"
-						textStyle="heading-4xl"
-						color="gray.50"
-						mb="16px"
-						width="500px"
-					>
-						The Liquidity Layer of DeFi
-					</Text>
-				</Box>
+				<Text
+					as="h2"
+					textStyle="heading-3xl"
+					color="gray.50"
+					mb="16px"
+					width={{ base: '320px', md: '420px', lg: '500px', '2xl': '580px' }}
+				>
+					The Liquidity Layer of DeFi
+				</Text>
 				<Text
 					mb="24px"
 					fontSize="16px"
@@ -41,7 +45,6 @@ export const Hero = () => {
 					color="gray.500"
 					fontFamily="heading"
 					fontWeight={400}
-					width="625px"
 				>
 					Synthetix provides liquidity for permissionless derivatives like
 					perpetual futures, options, parimutuel markets, and more across EVM
@@ -57,18 +60,19 @@ export const Hero = () => {
 					Explore Ecosystem
 				</Button>
 			</Flex>
-			<SNXPerpsLooper
-				transform={{
-					// TODO: Confirm sizing for base and md
-					base: 'translate(-50%, 10%)',
-					md: 'translate(-50%, 0%)',
-					lg: 'translate(-5%, -15%)',
-				}}
-				top="-30px"
-				left="50%"
-				position={{ base: 'absolute' }}
-				zIndex={0}
-			/>
+			<Flex position="relative" width="100%" justifyContent="center">
+				<SNXMainLooperPlaceholder
+					transform={{
+						base: 'translate(0%, -20%)',
+						md: 'translate(0%, -15%)',
+						xl: 'translate(0%, -10%)',
+					}}
+					top="-130px"
+					width={{ base: '600px', md: '700px', xl: '800px' }}
+					position={{ base: 'absolute' }}
+					zIndex={0}
+				/>
+			</Flex>
 		</Flex>
 	);
 };

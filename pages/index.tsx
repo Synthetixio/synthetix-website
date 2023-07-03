@@ -80,6 +80,11 @@ const Home = ({
 		Math.floor(openInterestForLatestDate || 122087440),
 	);
 
+	const tvlMillified = millify(totalStakedValue || 478393038);
+	const cumulativeTradingFeesMillified = millify(
+		Math.floor(tradingVolume?.cumulative_fees || 12457449),
+	);
+
 	const marketsData = `${markets || 42}`;
 
 	const uniqueTradingAccountsData = numberWithCommas(
@@ -100,8 +105,8 @@ const Home = ({
 				<Collateral />
 				<Stats
 					uniqueStakers={uniqueStakers}
-					cumulativeTradingFees={cumulativeTradingFees}
-					tvl={tvl}
+					cumulativeTradingFees={cumulativeTradingFeesMillified}
+					tvl={tvlMillified}
 				/>
 				<Interfaces />
 				<Staking />

@@ -26,7 +26,7 @@ export const Perps = () => {
 					SYNTHETIX PERPS
 				</Text>
 				<Text
-					fontSize="48px"
+					fontSize={{ base: '36px', md: '48px' }}
 					fontFamily="heading"
 					lineHeight="120%"
 					color="white"

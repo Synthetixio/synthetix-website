@@ -33,19 +33,19 @@ const newTheme = extendTheme({
 		'heading-4xl': {
 			fontSize: { base: '60px', lg: '72px' },
 			fontFamily: 'heading',
-			lineHeight: '120%',
+			lineHeight: { base: '57.6px', lg: '72px' },
 			fontWeight: 700,
 		},
 		'heading-3xl': {
-			fontSize: { base: '48px', lg: '60px' },
+			fontSize: { base: '48px', md: '60px' },
 			fontFamily: 'heading',
-			lineHeight: { base: '57.6px', lg: '60px' },
+			lineHeight: { base: '57.6px', md: '72px', lg: '60px' },
 			fontWeight: 700,
 		},
 		'heading-2xl': {
-			fontSize: { base: '36px', lg: '48px' },
+			fontSize: { base: '36px', md: '48px' },
 			fontFamily: 'heading',
-			lineHeight: { base: '43.2px', lg: '48px' },
+			lineHeight: { base: '43.2px', md: '48px' },
 			fontWeight: 700,
 		},
 		'heading-xl': {

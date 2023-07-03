@@ -3,7 +3,7 @@ import { Heading, Text, Box } from '@chakra-ui/react';
 export const Ecosystem = () => {
 	return (
 		<Box id="ecosystem" position="relative" w="100%">
-			<Box width="100%" my="100px">
+			<Box width="100%" my={{ base: '75px', lg: '100px' }}>
 				<Box width="100%" position="relative" zIndex={1}>
 					<Text
 						lineHeight="24px"
@@ -14,14 +14,13 @@ export const Ecosystem = () => {
 					>
 						SYNTHETIX ECOSYSTEM
 					</Text>
-					<Box width="52.5%">
+					<Box width="100%">
 						<Heading
 							fontWeight={700}
 							color="gray.50"
-							fontSize="48px"
-							lineHeight="56px"
-							width="600px"
 							mb="16px"
+							textStyle="heading-2xl"
+							width={{ base: '70%', sm: '575px' }}
 						>
 							A Network of DeFi Apps Powered by Synthetix
 						</Heading>
@@ -31,6 +30,7 @@ export const Ecosystem = () => {
 							fontFamily="heading"
 							color="gray.500"
 							mb="16px"
+							width={{ base: '100%', md: '780px' }}
 						>
 							Explore the growing ecosystem of decentralized apps built on top
 							of Synthetix liquidity. The Synthetix ecosystem is comprised of

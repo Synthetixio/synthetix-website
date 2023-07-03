@@ -4,8 +4,17 @@ import { links } from 'src/utils/constants';
 
 export const Collateral = () => {
 	return (
-		<Flex w="100%" justifyContent="flex-end" my="100px" position="relative">
-			<Flex flexDirection="column" width="55%" zIndex={1}>
+		<Flex
+			w="100%"
+			justifyContent={{ base: 'flex-start', lg: 'flex-end' }}
+			my={{ base: '64px', lg: '100px' }}
+			position="relative"
+		>
+			<Flex
+				flexDirection="column"
+				width={{ base: '100%', lg: '800px' }}
+				zIndex={1}
+			>
 				<Text
 					fontSize="16px"
 					lineHeight="24px"
@@ -16,23 +25,29 @@ export const Collateral = () => {
 					SYNTHETIX STAKING
 				</Text>
 				<Text
-					fontSize="48px"
+					fontSize={{ base: '36px', lg: '48px' }}
 					fontFamily="heading"
-					lineHeight="57.6px"
+					lineHeight="120%"
 					color="white"
 					fontWeight={700}
 					mb="24px"
 					as="div"
-					width="800px"
+					width={{ base: '100%' }}
 				>
 					<GradientText>Staking Collateral</GradientText> with Synthetix{' '}
 					<GradientText>helps support deep liquidity</GradientText>, low
 					slippage, and highly competitive trading fees for our derivatives
-					markets.
-					<Text mt="40px" as="div">
+					markets.{' '}
+					<Text display={{ base: 'unset', lg: 'none' }}>
 						Stakers get <GradientText>rewarded</GradientText> for helping to
 						support a more robust ecosystem.
 					</Text>
+					<Box display={{ base: 'none', lg: 'unset' }}>
+						<Text mt="40px">
+							Stakers get <GradientText>rewarded</GradientText> for helping to
+							support a more robust ecosystem.
+						</Text>
+					</Box>
 				</Text>
 				<Link
 					href={links.stakingV2}

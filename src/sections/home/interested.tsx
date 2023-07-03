@@ -1,4 +1,4 @@
-import { Flex, Link, Text } from '@chakra-ui/react';
+import { Flex, Link, Show, Text } from '@chakra-ui/react';
 import { InterestedLooper } from 'src/svg/InterestedLooper';
 import { links } from 'src/utils/constants';
 
@@ -9,13 +9,43 @@ export const Interested = () => {
 				bg="navy.700"
 				border="1px"
 				borderColor="gray.900"
-				p="48px"
 				borderRadius="5px"
 				position="relative"
 				w="100%"
+				flexDirection={{ base: 'column', lg: 'row' }}
 			>
-				<Flex flexDirection="column" width="55%">
-					<Text textStyle="heading-xl" mb="16px">
+				<Show below="lg">
+					<Flex display="relative" height="250px" width="100%" bg="navy.700">
+						<InterestedLooper
+							height="400px"
+							position="absolute"
+							top="0"
+							right="0"
+							bottom="0"
+							zIndex={0}
+						/>
+					</Flex>
+				</Show>
+				<Flex
+					flexDirection="column"
+					width="100%"
+					bg="navy.700"
+					zIndex={{ base: 1, lg: 'unset' }}
+					px={{ base: '16px', md: '48px' }}
+					pb={{ base: '16px', md: '48px' }}
+					pt="16px"
+				>
+					<Text
+						as="h2"
+						fontSize="36px"
+						lineHeight="120%"
+						fontFamily="heading"
+						color="gray.50"
+						mb="16px"
+						fontWeight={700}
+						width={{ base: '100%', lg: '55%' }}
+						zIndex={1}
+					>
 						Interested in building in the Synthetix Ecosystem?
 					</Text>
 					<Text
@@ -24,6 +54,7 @@ export const Interested = () => {
 						lineHeight="24px"
 						color="gray.500"
 						mb="24px"
+						width={{ base: '100%', lg: '55%' }}
 					>
 						Learn more about how to integrate Perps and other Synthetix markets
 						by visiting the developer documentation and joining the Synthetix
@@ -44,13 +75,16 @@ export const Interested = () => {
 						Integrate with Synthetix
 					</Link>
 				</Flex>
-				<InterestedLooper
-					height="100%"
-					position="absolute"
-					top="0"
-					right="0"
-					bottom="0"
-				/>
+				<Show above="lg">
+					<InterestedLooper
+						height="100%"
+						position="absolute"
+						top="0"
+						right="0"
+						bottom="0"
+						zIndex={0}
+					/>
+				</Show>
 			</Flex>
 		</Flex>
 	);

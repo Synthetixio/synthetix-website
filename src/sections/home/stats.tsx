@@ -14,8 +14,12 @@ export const Stats = ({
 }: StatsProps) => {
 	return (
 		<Box width="100%" my="100px">
-			<Flex justifyContent="space-between" width="100%">
-				<Flex flexDirection="column">
+			<Flex
+				justifyContent="space-between"
+				width="100%"
+				flexDirection={{ base: 'column', md: 'row' }}
+			>
+				<Flex flexDirection="column" mb={{ base: '24px', md: 'unset' }}>
 					<Text
 						fontSize="16px"
 						lineHeight="24px"
@@ -27,7 +31,7 @@ export const Stats = ({
 					</Text>
 					<Text textStyle="heading-4xl">{`$${tvl}`}</Text>
 				</Flex>
-				<Flex flexDirection="column">
+				<Flex flexDirection="column" mb={{ base: '24px', md: 'unset' }}>
 					<Text
 						fontSize="16px"
 						lineHeight="24px"
@@ -39,7 +43,7 @@ export const Stats = ({
 					</Text>
 					<Text textStyle="heading-4xl">{uniqueStakers}</Text>
 				</Flex>
-				<Flex flexDirection="column">
+				<Flex flexDirection="column" mb={{ base: '24px', md: 'unset' }}>
 					<Text
 						fontSize="16px"
 						lineHeight="24px"
