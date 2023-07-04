@@ -1,12 +1,19 @@
 import { Box, Button, Flex, Heading, Link, Text } from '@chakra-ui/react';
+import { VolumeData } from 'src/typings';
 import { links } from 'src/utils/constants';
+import { numberWithCommas } from 'src/utils/formatters/number';
 
 interface VolumeProps {
-	tvl: string;
-	cumulativeTradingVolume: string;
+	totalStakedValue: number;
+	tradingVolume: VolumeData;
 }
 
-export const Volume = ({ tvl, cumulativeTradingVolume }: VolumeProps) => {
+export const Volume = ({ totalStakedValue, tradingVolume }: VolumeProps) => {
+	const tvl = `${numberWithCommas(totalStakedValue?.toFixed(0))}`;
+	const cumulativeTradingVolume = `${numberWithCommas(
+		tradingVolume?.cumulative_volume.toFixed(0),
+	)}`;
+
 	return (
 		<Box width="100%" position="relative" my={{ base: '60px', md: '100px' }}>
 			<Box zIndex={1} position="relative">

@@ -31,8 +31,6 @@ import {
 	ActiveStakersData,
 	GraphqlResponse,
 } from 'src/typings';
-import { numberWithCommas } from 'src/utils/formatters/number';
-import millify from 'millify';
 import { utils } from 'ethers';
 
 export interface ApiStatsProps {
@@ -54,39 +52,6 @@ const Home = ({
 	markets,
 	uniqueTradingAccounts,
 }: ApiStatsProps) => {
-	// NOTE BACKUP VALUES ARE BASED ON 20/6/23 data
-
-	const tvl = `${numberWithCommas(
-		totalStakedValue?.toFixed(0) || '478393038', // TVL 20/6/23
-	)}`; // VOLUME 20/6/23
-
-	const uniqueStakers = numberWithCommas(
-		activeStakers?.All_stakers.toFixed(0) || '43937', // STAKERS 20/6/23
-	);
-
-	const cumulativeTradingVolume = `${numberWithCommas(
-		tradingVolume?.cumulative_volume.toFixed(0) || '13590466291', // VOLUME 20/6/23
-	)}`;
-
-	const volumeMillified = millify(
-		Math.floor(tradingVolume?.cumulative_volume || 13590466291),
-	);
-
-	const oiMillified = millify(
-		Math.floor(openInterestForLatestDate || 122087440),
-	);
-
-	const tvlMillified = millify(totalStakedValue || 478393038);
-	const cumulativeTradingFeesMillified = millify(
-		Math.floor(tradingVolume?.cumulative_fees || 12457449),
-	);
-
-	const marketsData = `${markets || 42}`;
-
-	const uniqueTradingAccountsData = numberWithCommas(
-		uniqueTradingAccounts || '12646',
-	);
-
 	return (
 		<>
 			<Head>
@@ -94,25 +59,37 @@ const Home = ({
 			</Head>
 			<PageLayout useChakra>
 				<Hero />
-				<Volume tvl={tvl} cumulativeTradingVolume={cumulativeTradingVolume} />
+				{totalStakedValue && tradingVolume && (
+					<Volume
+						totalStakedValue={totalStakedValue}
+						tradingVolume={tradingVolume}
+					/>
+				)}
 				<Ecosystem />
 				<Integrators sortList={integratorForLatestDate || []} />
 				<Interested />
 				<Collateral />
-				<Stats
-					uniqueStakers={uniqueStakers}
-					cumulativeTradingFees={cumulativeTradingFeesMillified}
-					tvl={tvlMillified}
-				/>
+				{activeStakers && tradingVolume && totalStakedValue && (
+					<Stats
+						totalStakedValue={totalStakedValue}
+						tradingVolume={tradingVolume}
+						activeStakers={activeStakers}
+					/>
+				)}
 				<Interfaces />
 				<Staking />
 				<Perps />
-				<AggregatedStats
-					allTimeVolume={volumeMillified}
-					markets={marketsData}
-					openInterest={oiMillified}
-					uniqueTradingAccounts={uniqueTradingAccountsData}
-				/>
+				{tradingVolume &&
+					markets &&
+					uniqueTradingAccounts &&
+					openInterestForLatestDate && (
+						<AggregatedStats
+							tradingVolume={tradingVolume}
+							openInterestForLatestDate={openInterestForLatestDate}
+							markets={markets.toFixed()}
+							uniqueTradingAccounts={uniqueTradingAccounts}
+						/>
+					)}
 				<Governance />
 				<Partners />
 			</PageLayout>

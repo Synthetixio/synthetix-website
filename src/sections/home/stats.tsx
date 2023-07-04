@@ -1,17 +1,25 @@
 import { Flex, Text, Box, Link, Button } from '@chakra-ui/react';
+import millify from 'millify';
+import { ActiveStakersData, VolumeData } from 'src/typings';
 import { links } from 'src/utils/constants';
+import { numberWithCommas } from 'src/utils/formatters/number';
 
 interface StatsProps {
-	tvl: string;
-	uniqueStakers: string;
-	cumulativeTradingFees: string;
+	activeStakers: ActiveStakersData;
+	tradingVolume: VolumeData;
+	totalStakedValue: number;
 }
 
 export const Stats = ({
-	tvl,
-	uniqueStakers,
-	cumulativeTradingFees,
+	activeStakers,
+	tradingVolume,
+	totalStakedValue,
 }: StatsProps) => {
+	const uniqueStakers = numberWithCommas(activeStakers?.All_stakers.toFixed(0));
+	const cumulativeTradingFeesMillified = millify(
+		Math.floor(tradingVolume?.cumulative_fees || 12457449),
+	);
+	const tvlMillified = millify(totalStakedValue);
 	return (
 		<Box width="100%" my={{ base: '75px', lg: '100px' }} zIndex={1}>
 			<Flex
@@ -29,7 +37,7 @@ export const Stats = ({
 					>
 						TVL
 					</Text>
-					<Text textStyle="heading-4xl">{`$${tvl}`}</Text>
+					<Text textStyle="heading-4xl">${tvlMillified}</Text>
 				</Flex>
 				<Flex flexDirection="column" mb={{ base: '48px', lg: 'unset' }}>
 					<Text
@@ -53,7 +61,7 @@ export const Stats = ({
 					>
 						TOTAL TRADING FEES
 					</Text>
-					<Text textStyle="heading-4xl">{`$${cumulativeTradingFees}`}</Text>
+					<Text textStyle="heading-4xl">${cumulativeTradingFeesMillified}</Text>
 				</Flex>
 			</Flex>
 			<Box mt="24px">
