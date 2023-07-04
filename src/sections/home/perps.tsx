@@ -26,13 +26,11 @@ export const Perps = () => {
 					SYNTHETIX PERPS
 				</Text>
 				<Text
-					fontSize={{ base: '36px', md: '48px' }}
 					fontFamily="heading"
-					lineHeight="120%"
 					color="white"
-					fontWeight={700}
 					mb="24px"
 					as="div"
+					textStyle="heading-2xl"
 				>
 					Synthetix <GradientText>perpetual futures</GradientText> are a set of
 					composable and decentralized smart contracts{' '}

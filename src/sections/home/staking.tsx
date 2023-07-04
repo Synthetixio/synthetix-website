@@ -1,4 +1,4 @@
-import { Flex, Link, Show, Text } from '@chakra-ui/react';
+import { Button, Flex, Link, Show, Text } from '@chakra-ui/react';
 import { StakingLooper } from 'src/svg/StakingLooper';
 import { links } from 'src/utils/constants';
 
@@ -38,13 +38,7 @@ export const Staking = () => {
 					pb={{ base: '16px', sm: '24px', lg: '48px' }}
 					pt={{ base: '0px', lg: '48px' }}
 				>
-					<Text
-						fontSize="36px"
-						lineHeight="120%"
-						fontWeight={700}
-						mb="16px"
-						color="gray.50"
-					>
+					<Text mb="16px" color="gray.50" textStyle="heading-xl">
 						Synthetix Staking Guide
 					</Text>
 					<Text
@@ -58,20 +52,17 @@ export const Staking = () => {
 						collateral underwrites the liquidity of the protocol and powers our
 						ecosystem. Stakers are rewarded for provisioning this liquidity.
 					</Text>
-					<Link
-						p="10px 16px"
-						width="fit-content"
-						color="black"
-						fontFamily="heading"
-						fontWeight={700}
-						_hover={{ textDecoration: 'none' }}
-						href={links.stakingGuide}
-						target="_blank"
-						bgGradient="linear(to-r, #34EDB3, cyan.500)"
-						borderRadius="4px"
-						size={{ base: 'lg', md: 'md' }}
-					>
-						<Text>Get Started</Text>
+					<Link href={links.stakingGuide} target="_blank">
+						<Button
+							w="fit-content"
+							borderRadius="4px"
+							fontWeight={700}
+							fontSize="14px"
+							padding="10px 16px"
+							size={{ base: 'lg', md: 'md' }}
+						>
+							Get Started
+						</Button>
 					</Link>
 				</Flex>
 				<Show above="lg">

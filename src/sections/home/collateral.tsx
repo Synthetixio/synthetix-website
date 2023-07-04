@@ -1,4 +1,4 @@
-import { Box, Flex, Link, Text } from '@chakra-ui/react';
+import { Box, Button, Flex, Link, Text } from '@chakra-ui/react';
 import { GradientText } from 'src/components';
 import { links } from 'src/utils/constants';
 
@@ -25,13 +25,11 @@ export const Collateral = () => {
 					SYNTHETIX STAKING
 				</Text>
 				<Text
-					fontSize={{ base: '36px', lg: '48px' }}
 					fontFamily="heading"
-					lineHeight="120%"
 					color="white"
-					fontWeight={700}
 					mb="24px"
 					as="div"
+					textStyle="heading-2xl"
 					width={{ base: '100%' }}
 				>
 					<GradientText>Staking Collateral</GradientText> with Synthetix{' '}
@@ -49,20 +47,18 @@ export const Collateral = () => {
 						</Text>
 					</Box>
 				</Text>
-				<Link
-					href={links.stakingV2}
-					target="_blank"
-					bgGradient="linear(to-r, #34EDB3, cyan.500)"
-					gap="8px"
-					p="10px 16px"
-					borderRadius="4px"
-					width="fit-content"
-					color="black"
-					fontWeight={700}
-					_hover={{ textDecoration: 'none', opacity: 0.8 }}
-					size={{ base: 'lg', md: 'md' }}
-				>
-					Start Staking
+				<Link href={links.stakingV2} target="_blank">
+					<Button
+						w="fit-content"
+						colorScheme="gray"
+						borderRadius="4px"
+						fontWeight={700}
+						fontSize="14px"
+						padding="10px 16px"
+						size={{ base: 'lg', md: 'md' }}
+					>
+						Start Staking
+					</Button>
 				</Link>
 			</Flex>
 			<Box

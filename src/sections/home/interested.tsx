@@ -1,4 +1,4 @@
-import { Flex, Link, Show, Text } from '@chakra-ui/react';
+import { Button, Flex, Link, Show, Text } from '@chakra-ui/react';
 import { InterestedLooper } from 'src/svg/InterestedLooper';
 import { links } from 'src/utils/constants';
 
@@ -31,20 +31,18 @@ export const Interested = () => {
 					width="100%"
 					bg="navy.700"
 					zIndex={{ base: 1, lg: 'unset' }}
-					px={{ base: '16px', md: '48px' }}
-					pb={{ base: '16px', md: '48px' }}
-					pt="16px"
+					px={{ base: '16px', md: '24px', lg: '48px' }}
+					pb={{ base: '16px', md: '24px', lg: '48px' }}
+					pt={{ base: '16px', md: '24px', lg: '48px' }}
 				>
 					<Text
 						as="h2"
-						fontSize="36px"
-						lineHeight="120%"
 						fontFamily="heading"
 						color="gray.50"
 						mb="16px"
-						fontWeight={700}
-						width={{ base: '100%', lg: '55%' }}
 						zIndex={1}
+						textStyle="heading-xl"
+						width={{ base: '100%', md: '57%' }}
 					>
 						Interested in building in the Synthetix Ecosystem?
 					</Text>
@@ -60,20 +58,19 @@ export const Interested = () => {
 						by visiting the developer documentation and joining the Synthetix
 						Discord
 					</Text>
-					<Link
-						bgGradient="linear(to-r, #34EDB3, cyan.500)"
-						gap="8px"
-						p="10px 16px"
-						borderRadius="4px"
-						width="fit-content"
-						color="black"
-						fontWeight={700}
-						_hover={{ textDecoration: 'none', opacity: 0.8 }}
-						href={links.v3IntegrationGuide}
-						target="_blank"
-						size={{ base: 'lg', md: 'md' }}
-					>
-						Integrate with Synthetix
+
+					<Link href={links.v3IntegrationGuide} target="_blank">
+						<Button
+							w="fit-content"
+							colorScheme="gray"
+							borderRadius="4px"
+							fontWeight={700}
+							fontSize="14px"
+							padding="10px 16px"
+							size={{ base: 'lg', md: 'md' }}
+						>
+							Integrate with Synthetix
+						</Button>
 					</Link>
 				</Flex>
 				<Show above="lg">

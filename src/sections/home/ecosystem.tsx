@@ -20,15 +20,16 @@ export const Ecosystem = () => {
 						SYNTHETIX ECOSYSTEM
 					</Text>
 					<Box width="100%">
-						<Heading
+						<Text
 							fontWeight={700}
 							color="gray.50"
 							mb="16px"
 							textStyle="heading-2xl"
 							maxWidth={'575px'}
+							as="h2"
 						>
 							A Network of DeFi Apps Powered by Synthetix
-						</Heading>
+						</Text>
 						<Text
 							fontSize="16px"
 							lineHeight="24px"

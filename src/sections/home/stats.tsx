@@ -51,7 +51,7 @@ export const Stats = ({
 					</Text>
 					<Text textStyle="heading-4xl">{uniqueStakers}</Text>
 				</Flex>
-				<Flex flexDirection="column" mb={{ base: '48px', lg: 'unset' }}>
+				<Flex flexDirection="column">
 					<Text
 						fontSize="16px"
 						lineHeight="24px"

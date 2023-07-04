@@ -33,8 +33,7 @@ export const Interfaces = () => {
 					p="24px"
 					width={{
 						base: '100%',
-						md: 'calc(50% - 8px)',
-						lg: 'calc(50% - 12px)',
+						md: 'calc(50% - 12px)',
 					}}
 					borderRadius="5px"
 					border="1px"
@@ -42,14 +41,7 @@ export const Interfaces = () => {
 					mb={{ base: '16px', md: '0px' }}
 				>
 					<Logo small />
-					<Text
-						my="16px"
-						color="gray.50"
-						fontWeight={700}
-						fontSize="36px"
-						lineHeight="40px"
-						fontFamily="heading"
-					>
+					<Text my="16px" fontFamily="heading" textStyle="heading-xl">
 						Staking Interface V2
 					</Text>
 					<Text
@@ -93,8 +85,7 @@ export const Interfaces = () => {
 					p="24px"
 					width={{
 						base: '100%',
-						md: 'calc(50% - 8px)',
-						lg: 'calc(50% - 12px)',
+						md: 'calc(50% - 12px)',
 					}}
 					borderRadius="5px"
 					border="1px"
@@ -117,10 +108,8 @@ export const Interfaces = () => {
 					<Text
 						my="16px"
 						color="gray.50"
-						fontWeight={700}
-						fontSize="36px"
-						lineHeight="40px"
 						fontFamily="heading"
+						textStyle="heading-xl"
 					>
 						Staking Interface V3
 					</Text>

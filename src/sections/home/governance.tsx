@@ -18,7 +18,7 @@ export const Governance = () => {
 			position="relative"
 			flexDirection={{ base: 'column' }}
 		>
-			<Flex flexDirection="column" width="100%">
+			<Flex flexDirection="column" width="100%" zIndex={1}>
 				<Text
 					fontSize="16px"
 					lineHeight="24px"
@@ -30,11 +30,9 @@ export const Governance = () => {
 				</Text>
 				<Heading
 					fontFamily="heading"
-					fontWeight={700}
-					fontSize="48px"
-					lineHeight="57.6px"
 					color="gray.50"
 					mb="16px"
+					textStyle="heading-2xl"
 				>
 					Protocol Governance
 				</Heading>
@@ -65,30 +63,21 @@ export const Governance = () => {
 							Learn More
 						</Button>
 					</Link>
-					<ChakraLink
-						ml="16px"
-						padding="7.5px 16px"
-						bg="transparent"
-						bgGradient="none"
-						color="white"
-						border="1px"
-						borderColor="gray.900"
-						borderRadius="4px"
-						fontSize="16px"
-						fontWeight={700}
-						fontFamily="heading"
-						_hover={{
-							bg: 'gray.900',
-						}}
-						_active={{
-							bg: 'gray.900',
-						}}
-						href={links.governanceApp}
-						target="_blank"
-						size={{ base: 'lg', md: 'md' }}
-					>
-						Governance App
-					</ChakraLink>
+					<Link href={links.governanceApp} target="_blank">
+						<Button
+							w="fit-content"
+							variant="outline"
+							colorScheme="gray"
+							borderRadius="4px"
+							fontWeight={700}
+							fontSize="14px"
+							padding="10px 16px"
+							size={{ base: 'lg', md: 'md' }}
+							ml="16px"
+						>
+							Governance App
+						</Button>
+					</Link>
 				</Flex>
 			</Flex>
 			<Show above="base" below="md">

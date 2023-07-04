@@ -45,11 +45,11 @@ const newTheme = extendTheme({
 		'heading-2xl': {
 			fontSize: { base: '36px', md: '48px' },
 			fontFamily: 'heading',
-			lineHeight: { base: '43.2px', md: '48px' },
+			lineHeight: { base: '120%' },
 			fontWeight: 700,
 		},
 		'heading-xl': {
-			fontSize: { base: '30px', lg: '48px' },
+			fontSize: { base: '24px', lg: '36px' },
 			fontFamily: 'heading',
 			lineHeight: { base: '36px', lg: '120%' },
 			fontWeight: 700,

@@ -48,15 +48,14 @@ export const Volume = ({ totalStakedValue, tradingVolume }: VolumeProps) => {
 						>
 							TOTAL VALUE LOCKED
 						</Text>
-						<Heading
+						<Text
 							fontFamily="heading"
-							fontWeight={700}
-							lineHeight={{ base: '60px', md: '90px' }}
-							fontSize={{ base: '60px', md: '90px' }}
+							as="h2"
+							textStyle="heading-3xl"
 							color="gray.50"
 						>
 							{tvl}
-						</Heading>
+						</Text>
 					</Flex>
 				</Flex>
 				<Box mt="24px">
