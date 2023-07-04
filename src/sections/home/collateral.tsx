@@ -7,7 +7,7 @@ export const Collateral = () => {
 		<Flex
 			w="100%"
 			justifyContent={{ base: 'flex-start', lg: 'flex-end' }}
-			my={{ base: '64px', lg: '100px' }}
+			my={{ base: '60px', md: '100px' }}
 			position="relative"
 		>
 			<Flex
@@ -60,6 +60,7 @@ export const Collateral = () => {
 					color="black"
 					fontWeight={700}
 					_hover={{ textDecoration: 'none', opacity: 0.8 }}
+					size={{ base: 'lg', md: 'md' }}
 				>
 					Start Staking
 				</Link>

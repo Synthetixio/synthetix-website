@@ -1,10 +1,15 @@
-import { Box, Flex, Link, Show, Text } from '@chakra-ui/react';
+import { Flex, Link, Show, Text } from '@chakra-ui/react';
 import { StakingLooper } from 'src/svg/StakingLooper';
 import { links } from 'src/utils/constants';
 
 export const Staking = () => {
 	return (
-		<Flex w="100%" mt="24px" mb="100px" position="relative">
+		<Flex
+			w="100%"
+			mt="16px"
+			mb={{ base: '60px', lg: '100px' }}
+			position="relative"
+		>
 			<Flex
 				bg="navy.700"
 				minHeight="300px"
@@ -13,7 +18,7 @@ export const Staking = () => {
 				border="1px"
 				borderColor="gray.900"
 				position="relative"
-				p={{ base: '0', lg: '48px' }}
+				pl={{ base: '0', lg: '48px' }}
 				w="100%"
 				justifyContent="flex-end"
 				zIndex={1}
@@ -64,6 +69,7 @@ export const Staking = () => {
 						target="_blank"
 						bgGradient="linear(to-r, #34EDB3, cyan.500)"
 						borderRadius="4px"
+						size={{ base: 'lg', md: 'md' }}
 					>
 						<Text>Get Started</Text>
 					</Link>

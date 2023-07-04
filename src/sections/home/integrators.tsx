@@ -19,7 +19,7 @@ export const Integrators = ({ sortList }: IntegratorsProps) => {
 			flexWrap="wrap"
 			width="100%"
 			justifyContent={{ base: 'space-between' }}
-			mb={{ base: '100px', md: '50px', lg: '124px' }}
+			mb={{ base: '60px', md: '100px' }}
 		>
 			{integrators
 				.sort((a, b) => {
@@ -43,8 +43,8 @@ export const Integrators = ({ sortList }: IntegratorsProps) => {
 						key={name.concat(i.toString())}
 						uri={uri}
 						tag={tag}
-						mb={{ base: '24px' }}
-						mr={{ lg: '24px' }}
+						mb={{ base: '16px' }}
+						mr={{ lg: '16px' }}
 						p={{ base: '24px' }}
 						width={{
 							base: '48.5%',
@@ -52,7 +52,7 @@ export const Integrators = ({ sortList }: IntegratorsProps) => {
 							lg: 'calc(32% - 12px)',
 							xl: 'calc(24% - 12px)',
 						}}
-						minHeight="270px"
+						minHeight={{ md: '270px' }}
 					/>
 				))}
 			<IntegratorCard
@@ -67,8 +67,8 @@ export const Integrators = ({ sortList }: IntegratorsProps) => {
 				key={'blank'}
 				uri={'/kwenta.svg'}
 				tag={'Perps'}
-				mb={{ base: '24px' }}
-				mr={{ lg: '24px' }}
+				mb={{ base: '16px' }}
+				mr={{ lg: '16px' }}
 				p={{ base: '24px' }}
 				width={{
 					base: '48.5%',
@@ -76,7 +76,7 @@ export const Integrators = ({ sortList }: IntegratorsProps) => {
 					lg: 'calc(32% - 12px)',
 					xl: 'calc(24% - 12px)',
 				}}
-				minHeight="270px"
+				minHeight={{ md: '270px' }}
 				opacity={0}
 				enabled={false}
 				display={{ base: 'none', lg: 'initial', xl: 'none' }}

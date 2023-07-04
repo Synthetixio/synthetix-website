@@ -15,13 +15,13 @@ export const AggregatedStats = ({
 	markets,
 }: AggregatedStatsProps) => {
 	return (
-		<Box width="100%" my="100px">
+		<Box width="100%" my={{ base: '60px', lg: '100px' }} zIndex={1}>
 			<Flex
 				justifyContent="space-between"
 				width="100%"
-				flexDirection={{ base: 'column', md: 'row' }}
+				flexDirection={{ base: 'column', lg: 'row' }}
 			>
-				<Flex flexDirection="column" mb={{ base: '24px', md: 'unset' }}>
+				<Flex flexDirection="column" mb={{ base: '24px', lg: 'unset' }}>
 					<Text
 						fontSize="16px"
 						lineHeight="24px"
@@ -33,7 +33,7 @@ export const AggregatedStats = ({
 					</Text>
 					<Text textStyle="heading-4xl">${allTimeVolume}</Text>
 				</Flex>
-				<Flex flexDirection="column" mb={{ base: '24px', md: 'unset' }}>
+				<Flex flexDirection="column" mb={{ base: '24px', lg: 'unset' }}>
 					<Text
 						fontSize="16px"
 						lineHeight="24px"
@@ -45,7 +45,7 @@ export const AggregatedStats = ({
 					</Text>
 					<Text textStyle="heading-4xl">${openInterest}</Text>
 				</Flex>
-				<Flex flexDirection="column" mb={{ base: '24px', md: 'unset' }}>
+				<Flex flexDirection="column" mb={{ base: '24px', lg: 'unset' }}>
 					<Text
 						fontSize="16px"
 						lineHeight="24px"
@@ -57,7 +57,7 @@ export const AggregatedStats = ({
 					</Text>
 					<Text textStyle="heading-4xl">{uniqueTradingAccounts}</Text>
 				</Flex>
-				<Flex flexDirection="column" mb={{ base: '24px', md: 'unset' }}>
+				<Flex flexDirection="column" mb={{ base: '24px', lg: 'unset' }}>
 					<Text
 						fontSize="16px"
 						lineHeight="24px"
@@ -74,13 +74,13 @@ export const AggregatedStats = ({
 				<Link href={links.duneLink} target="_blank">
 					<Button
 						w="fit-content"
-						size={{ base: 'lg', xl: 'md' }}
 						variant="outline"
 						colorScheme="gray"
 						borderRadius="4px"
 						fontWeight={700}
 						fontSize="14px"
 						padding="10px 16px"
+						size={{ base: 'lg', md: 'md' }}
 					>
 						See All Stats
 					</Button>

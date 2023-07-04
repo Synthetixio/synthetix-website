@@ -1,5 +1,4 @@
 import { Box, Button, Flex, Heading, Link, Text } from '@chakra-ui/react';
-import { ExternalLink } from 'src/styles/common';
 import { links } from 'src/utils/constants';
 
 interface VolumeProps {
@@ -9,7 +8,7 @@ interface VolumeProps {
 
 export const Volume = ({ tvl, cumulativeTradingVolume }: VolumeProps) => {
 	return (
-		<Box width="100%" position="relative" my={{ base: '50px', md: '100px' }}>
+		<Box width="100%" position="relative" my={{ base: '60px', md: '100px' }}>
 			<Box zIndex={1} position="relative">
 				<Flex flexDirection="column" width="100%">
 					<Flex flexDirection="column">
@@ -25,8 +24,8 @@ export const Volume = ({ tvl, cumulativeTradingVolume }: VolumeProps) => {
 						<Heading
 							fontFamily="heading"
 							fontWeight={700}
-							lineHeight={{ base: '60px', md: '100px' }}
-							fontSize={{ base: '60px', md: '100px' }}
+							lineHeight={{ base: '56px', md: '90px' }}
+							fontSize={{ base: '56px', md: '90px' }}
 							color="gray.50"
 						>
 							{cumulativeTradingVolume}
@@ -45,8 +44,8 @@ export const Volume = ({ tvl, cumulativeTradingVolume }: VolumeProps) => {
 						<Heading
 							fontFamily="heading"
 							fontWeight={700}
-							lineHeight={{ base: '60px', md: '100px' }}
-							fontSize={{ base: '60px', md: '100px' }}
+							lineHeight={{ base: '60px', md: '90px' }}
+							fontSize={{ base: '60px', md: '90px' }}
 							color="gray.50"
 						>
 							{tvl}
@@ -57,7 +56,7 @@ export const Volume = ({ tvl, cumulativeTradingVolume }: VolumeProps) => {
 					<Link href={links.duneLink} target="_blank">
 						<Button
 							w="fit-content"
-							size={{ base: 'lg', xl: 'md' }}
+							size={{ base: 'lg', md: 'md' }}
 							variant="outline"
 							colorScheme="gray"
 							borderRadius="4px"

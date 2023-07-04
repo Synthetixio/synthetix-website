@@ -1,6 +1,5 @@
-import { Box, Button, Flex, Text } from '@chakra-ui/react';
+import { Button, Flex, Text } from '@chakra-ui/react';
 import SNXMainLooperPlaceholder from 'src/svg/SNXMainLooperPlaceholder';
-import SNXPerpsLooper from 'src/svg/SNXPerpsLooper';
 
 export const Hero = () => {
 	let onClick = () => {};
@@ -56,6 +55,7 @@ export const Hero = () => {
 					borderRadius="4px"
 					width="fit-content"
 					onClick={onClick}
+					size={{ base: 'lg', md: 'md' }}
 				>
 					Explore Ecosystem
 				</Button>

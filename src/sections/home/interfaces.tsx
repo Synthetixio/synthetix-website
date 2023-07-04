@@ -19,19 +19,27 @@ export const Interfaces = () => {
 				fontSize="16px"
 				color="gray.500"
 				lineHeight="28px"
-				mb="24px"
+				mb="16px"
 			>
 				STAKING INTERFACES
 			</Text>
-			<Flex justifyContent="space-between">
+			<Flex
+				flexDirection={{ base: 'column', md: 'row' }}
+				justifyContent="space-between"
+			>
 				<Flex
 					flexDirection="column"
 					bg="navy.700"
 					p="24px"
-					width="49.5%"
+					width={{
+						base: '100%',
+						md: 'calc(50% - 8px)',
+						lg: 'calc(50% - 12px)',
+					}}
 					borderRadius="5px"
 					border="1px"
 					borderColor="gray.900"
+					mb={{ base: '16px', md: '0px' }}
 				>
 					<Logo small />
 					<Text
@@ -83,7 +91,11 @@ export const Interfaces = () => {
 					flexDirection="column"
 					bg="navy.700"
 					p="24px"
-					width="49.5%"
+					width={{
+						base: '100%',
+						md: 'calc(50% - 8px)',
+						lg: 'calc(50% - 12px)',
+					}}
 					borderRadius="5px"
 					border="1px"
 					borderColor="gray.900"

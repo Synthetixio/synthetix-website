@@ -14,7 +14,7 @@ export const Perps = () => {
 	}
 
 	return (
-		<Flex w="100%" my="100px" position="relative">
+		<Flex w="100%" my={{ base: '60px', lg: '100px' }} position="relative">
 			<Flex flexDirection="column" width="800px" zIndex="1">
 				<Text
 					fontSize="16px"
@@ -44,6 +44,7 @@ export const Perps = () => {
 					borderRadius="base"
 					onClick={onClick}
 					width="fit-content"
+					size={{ base: 'lg', md: 'md' }}
 				>
 					Explore all Integrators
 				</Button>

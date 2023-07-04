@@ -4,7 +4,7 @@ import { links } from 'src/utils/constants';
 
 export const Interested = () => {
 	return (
-		<Flex mb="100px" w="100%" mt="16px">
+		<Flex mb={{ base: '60px', lg: '100px' }} w="100%" mt="16px">
 			<Flex
 				bg="navy.700"
 				border="1px"
@@ -71,6 +71,7 @@ export const Interested = () => {
 						_hover={{ textDecoration: 'none', opacity: 0.8 }}
 						href={links.v3IntegrationGuide}
 						target="_blank"
+						size={{ base: 'lg', md: 'md' }}
 					>
 						Integrate with Synthetix
 					</Link>

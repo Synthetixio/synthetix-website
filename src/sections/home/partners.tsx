@@ -2,7 +2,7 @@ import { Box, Flex, Image, Text } from '@chakra-ui/react';
 
 export const Partners = () => {
 	return (
-		<Box my="100px" width="100%">
+		<Box my={{ base: '60px', lg: '120px' }} width="100%">
 			<Text
 				color="gray.500"
 				fontSize="16px"

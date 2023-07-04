@@ -14,8 +14,7 @@ export const Governance = () => {
 	return (
 		<Flex
 			w="100%"
-			mt={{ base: '50px', md: '100px' }}
-			mb="265px"
+			my={{ base: '60px', md: '100px' }}
 			position="relative"
 			flexDirection={{ base: 'column' }}
 		>
@@ -35,7 +34,6 @@ export const Governance = () => {
 					fontSize="48px"
 					lineHeight="57.6px"
 					color="gray.50"
-					width="57.5%"
 					mb="16px"
 				>
 					Protocol Governance
@@ -59,22 +57,24 @@ export const Governance = () => {
 							as={Text}
 							borderRadius="base"
 							px="16px"
-							py="10px"
+							py="20px"
 							width="fit-content"
+							size={{ base: 'lg', md: 'md' }}
+							fontSize="16px"
 						>
 							Learn More
 						</Button>
 					</Link>
 					<ChakraLink
 						ml="16px"
-						padding="10px 16px"
+						padding="7.5px 16px"
 						bg="transparent"
 						bgGradient="none"
 						color="white"
 						border="1px"
 						borderColor="gray.900"
 						borderRadius="4px"
-						fontSize="14px"
+						fontSize="16px"
 						fontWeight={700}
 						fontFamily="heading"
 						_hover={{
@@ -85,6 +85,7 @@ export const Governance = () => {
 						}}
 						href={links.governanceApp}
 						target="_blank"
+						size={{ base: 'lg', md: 'md' }}
 					>
 						Governance App
 					</ChakraLink>

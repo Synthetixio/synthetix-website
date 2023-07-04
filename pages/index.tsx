@@ -68,10 +68,6 @@ const Home = ({
 		tradingVolume?.cumulative_volume.toFixed(0) || '13590466291', // VOLUME 20/6/23
 	)}`;
 
-	const cumulativeTradingFees = `${numberWithCommas(
-		tradingVolume?.cumulative_fees.toFixed(0) || '12457449', // FEES 20/6/23
-	)}`;
-
 	const volumeMillified = millify(
 		Math.floor(tradingVolume?.cumulative_volume || 13590466291),
 	);

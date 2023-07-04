@@ -13,13 +13,13 @@ export const Stats = ({
 	cumulativeTradingFees,
 }: StatsProps) => {
 	return (
-		<Box width="100%" my="100px">
+		<Box width="100%" my={{ base: '75px', lg: '100px' }} zIndex={1}>
 			<Flex
 				justifyContent="space-between"
 				width="100%"
-				flexDirection={{ base: 'column', md: 'row' }}
+				flexDirection={{ base: 'column', lg: 'row' }}
 			>
-				<Flex flexDirection="column" mb={{ base: '24px', md: 'unset' }}>
+				<Flex flexDirection="column" mb={{ base: '48px', lg: 'unset' }}>
 					<Text
 						fontSize="16px"
 						lineHeight="24px"
@@ -31,7 +31,7 @@ export const Stats = ({
 					</Text>
 					<Text textStyle="heading-4xl">{`$${tvl}`}</Text>
 				</Flex>
-				<Flex flexDirection="column" mb={{ base: '24px', md: 'unset' }}>
+				<Flex flexDirection="column" mb={{ base: '48px', lg: 'unset' }}>
 					<Text
 						fontSize="16px"
 						lineHeight="24px"
@@ -43,7 +43,7 @@ export const Stats = ({
 					</Text>
 					<Text textStyle="heading-4xl">{uniqueStakers}</Text>
 				</Flex>
-				<Flex flexDirection="column" mb={{ base: '24px', md: 'unset' }}>
+				<Flex flexDirection="column" mb={{ base: '48px', lg: 'unset' }}>
 					<Text
 						fontSize="16px"
 						lineHeight="24px"
