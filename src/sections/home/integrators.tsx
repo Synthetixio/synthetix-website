@@ -44,13 +44,11 @@ export const Integrators = ({ sortList }: IntegratorsProps) => {
 						uri={uri}
 						tag={tag}
 						mb={{ base: '16px' }}
-						mr={{ lg: '16px' }}
 						p={{ base: '24px' }}
 						width={{
-							base: '48.5%',
-							md: '48.5%',
-							lg: 'calc(32% - 12px)',
-							xl: 'calc(24% - 12px)',
+							base: 'calc(50% - 10px)',
+							lg: 'calc(33% - 10.85px)',
+							xl: 'calc(25% - 16px)',
 						}}
 						minHeight={{ md: '270px' }}
 					/>
@@ -68,13 +66,11 @@ export const Integrators = ({ sortList }: IntegratorsProps) => {
 				uri={'/kwenta.svg'}
 				tag={'Perps'}
 				mb={{ base: '16px' }}
-				mr={{ lg: '16px' }}
 				p={{ base: '24px' }}
 				width={{
-					base: '48.5%',
-					md: '48.5%',
-					lg: 'calc(32% - 12px)',
-					xl: 'calc(24% - 12px)',
+					base: 'calc(50% - 10px)',
+					lg: 'calc(33% - 10.85px)',
+					xl: 'calc(25% - 16px)',
 				}}
 				minHeight={{ md: '270px' }}
 				opacity={0}
