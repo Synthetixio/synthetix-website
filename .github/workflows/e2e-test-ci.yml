@@ -11,6 +11,8 @@ jobs:
           cache: 'yarn'
       - run: yarn install
       - run: yarn dev & yarn e2e:run
+      env:
+        NEXT_DUNE_API_KEY: ${{ vars.NEXT_DUNE_API_KEY }}
       - name: Tests ✅
         if: ${{ success() }}
         run: |
