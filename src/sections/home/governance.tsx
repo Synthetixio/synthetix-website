@@ -1,12 +1,5 @@
 import Link from 'next/link';
-import {
-	Button,
-	Flex,
-	Heading,
-	Link as ChakraLink,
-	Text,
-	Show,
-} from '@chakra-ui/react';
+import { Button, Flex, Text, Show } from '@chakra-ui/react';
 import { Spartan } from 'src/svg/Spartan';
 import { links } from 'src/utils/constants';
 
@@ -28,14 +21,14 @@ export const Governance = () => {
 				>
 					SYNTHETIX GOVERNANCE
 				</Text>
-				<Heading
+				<Text
 					fontFamily="heading"
 					color="gray.50"
 					mb="16px"
 					textStyle="heading-2xl"
 				>
 					Protocol Governance
-				</Heading>
+				</Text>
 				<Text
 					fontSize="16px"
 					fontFamily="heading"

@@ -40,7 +40,7 @@ export const Ecosystem = () => {
 						>
 							Explore the growing ecosystem of decentralized apps built on top
 							of Synthetix liquidity. The Synthetix ecosystem is comprised of
-							derivatives exchanges, sUSD utility, and more
+							derivatives exchanges, sUSD utility, and more.
 						</Text>
 					</Box>
 				</Box>

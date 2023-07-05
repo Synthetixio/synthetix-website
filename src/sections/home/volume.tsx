@@ -31,8 +31,8 @@ export const Volume = ({ totalStakedValue, tradingVolume }: VolumeProps) => {
 						<Heading
 							fontFamily="heading"
 							fontWeight={700}
-							lineHeight={{ base: '56px', md: '90px' }}
-							fontSize={{ base: '56px', md: '90px' }}
+							lineHeight={{ base: '50px', md: '90px' }}
+							fontSize={{ base: '50px', md: '90px' }}
 							color="gray.50"
 						>
 							{cumulativeTradingVolume}
@@ -48,14 +48,15 @@ export const Volume = ({ totalStakedValue, tradingVolume }: VolumeProps) => {
 						>
 							TOTAL VALUE LOCKED
 						</Text>
-						<Text
+						<Heading
 							fontFamily="heading"
-							as="h2"
-							textStyle="heading-3xl"
+							fontWeight={700}
+							lineHeight={{ base: '50px', md: '90px' }}
+							fontSize={{ base: '50px', md: '90px' }}
 							color="gray.50"
 						>
 							{tvl}
-						</Text>
+						</Heading>
 					</Flex>
 				</Flex>
 				<Box mt="24px">

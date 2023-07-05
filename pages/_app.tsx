@@ -49,7 +49,7 @@ const newTheme = extendTheme({
 			fontWeight: 700,
 		},
 		'heading-xl': {
-			fontSize: { base: '24px', lg: '36px' },
+			fontSize: { base: '30px', lg: '36px' },
 			fontFamily: 'heading',
 			lineHeight: { base: '36px', lg: '120%' },
 			fontWeight: 700,
