@@ -53,7 +53,7 @@ export const IntegratorCardPerps = ({
 					{Array.isArray(description) ? (
 						<>
 							{description[0]}{' '}
-							<Link href="mailto: perps@snxdao.io" color="cyan.500">
+							<Link href="mailto:perps@snxdao.io" color="cyan.500">
 								perps@snxdao.io.
 							</Link>
 						</>
