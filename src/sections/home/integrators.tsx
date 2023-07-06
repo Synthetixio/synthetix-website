@@ -7,7 +7,8 @@ interface IntegratorsProps {
 }
 
 export const Integrators = ({ sortList }: IntegratorsProps) => {
-	// TOTAL HACK
+	// We use this element (with display none) to get the largest description length.
+	// This means we will have consistent heights across cards.
 	const largestDescription = integrators.reduce((prev, current) => {
 		return prev.description.length > current.description.length
 			? prev

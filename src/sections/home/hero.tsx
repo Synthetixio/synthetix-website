@@ -2,16 +2,14 @@ import { Button, Flex, Text } from '@chakra-ui/react';
 import SNXMainLooperPlaceholder from 'src/svg/SNXMainLooperPlaceholder';
 
 export const Hero = () => {
-	let onClick = () => {};
-
-	if (typeof window !== 'undefined') {
-		onClick = () => {
+	const onClick = () => {
+		if (typeof window !== 'undefined') {
 			const ecosystem = document.getElementById('ecosystem');
 			if (ecosystem) {
 				ecosystem.scrollIntoView({ behavior: 'smooth' });
 			}
-		};
-	}
+		}
+	};
 
 	return (
 		<Flex

@@ -2,16 +2,14 @@ import { Box, Button, Flex, Text } from '@chakra-ui/react';
 import { GradientText } from 'src/components';
 
 export const Perps = () => {
-	let onClick = () => {};
-
-	if (typeof window !== 'undefined') {
-		onClick = () => {
+	const onClick = () => {
+		if (typeof window !== 'undefined') {
 			const ecosystem = document.getElementById('ecosystem');
 			if (ecosystem) {
 				ecosystem.scrollIntoView({ behavior: 'smooth' });
 			}
-		};
-	}
+		}
+	};
 
 	return (
 		<Flex w="100%" my={{ base: '60px', lg: '100px' }} position="relative">
