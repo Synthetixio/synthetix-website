@@ -11,10 +11,23 @@ import { useEffect } from 'react';
 
 const newTheme = extendTheme({
 	...chakraTheme,
+	colors: {
+		...chakraTheme.colors,
+		navy: {
+			700: '#0B0B22',
+			900: '#06061B',
+		},
+	},
 	useSystemColorMode: false,
 	config: { initialColorMode: 'dark' },
 	styles: {
-		global: { body: { bg: 'navy.900' } },
+		global: {
+			body: { bg: 'navy.900' },
+			'::selection': {
+				bg: '#00D1FF',
+				color: '#000000',
+			},
+		},
 	},
 });
 
@@ -37,6 +50,7 @@ export default function MyApp({ Component, pageProps }: AppProps) {
 		)
 			localStorage.setItem('chakra-ui-color-mode', 'dark');
 	}
+
 	return (
 		<ThemeProvider theme={theme}>
 			<Head>
