@@ -31,7 +31,7 @@ export const Hero = () => {
 					textStyle="heading-3xl"
 					color="gray.50"
 					mb="16px"
-					width={{ base: '320px', md: '420px', lg: '500px', '2xl': '580px' }}
+					width={{ base: '320px', md: '420px', lg: '525px', '2xl': '628px' }}
 				>
 					The Liquidity Layer of DeFi
 				</Text>

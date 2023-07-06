@@ -6,7 +6,7 @@ export const Collateral = () => {
 	return (
 		<Flex
 			w="100%"
-			justifyContent={{ base: 'flex-start', lg: 'flex-end' }}
+			justifyContent={{ base: 'flex-start', xl: 'flex-end' }}
 			my={{ base: '60px', md: '100px' }}
 			position="relative"
 		>
@@ -36,12 +36,12 @@ export const Collateral = () => {
 					<GradientText>helps support deep liquidity</GradientText>, low
 					slippage, and highly competitive trading fees for our derivatives
 					markets.{' '}
-					<Text display={{ base: 'unset', lg: 'none' }}>
+					<Text display={{ base: 'unset', lg: 'none' }} as="div">
 						Stakers get <GradientText>rewarded</GradientText> for helping to
 						support a more robust ecosystem.
 					</Text>
 					<Box display={{ base: 'none', lg: 'unset' }}>
-						<Text mt="40px">
+						<Text mt="40px" as="div">
 							Stakers get <GradientText>rewarded</GradientText> for helping to
 							support a more robust ecosystem.
 						</Text>
