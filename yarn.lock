@@ -4355,18 +4355,18 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@synthetixio/v3-theme@npm:1.1.0":
-  version: 1.1.0
-  resolution: "@synthetixio/v3-theme@npm:1.1.0"
+"@synthetixio/v3-theme@npm:^3.1.1":
+  version: 3.1.1
+  resolution: "@synthetixio/v3-theme@npm:3.1.1"
   peerDependencies:
-    "@chakra-ui/icons": ^2.0.9
-    "@chakra-ui/react": ^2.2.8
-    "@emotion/react": ^11.10.0
-    "@emotion/styled": ^11.10.0
-    framer-motion: ^7.0.0
+    "@chakra-ui/icons": ^2.0.19
+    "@chakra-ui/react": ^2.6.1
+    "@emotion/react": ^11.11.0
+    "@emotion/styled": ^11.11.0
+    framer-motion: ^10.12.16
     react: ^18.2.0
     react-dom: ^18.2.0
-  checksum: 1032ac2c75dcd72dda8a0649c13cc68ab349ea5757cd574e89a47e93a9ca31629a3efaac9ffab0fd2a56fff7ae3ea6f4f90258033491c79a986539d8413a1a37
+  checksum: 724e34fc3bfd523cc8c0bfc802f8f2d0b89a27e97d8575de54c12c613fd885a175803055863d5cda9e19fd79cbbf5912e11abf9cb95711eb80f55967cf29f69b
   languageName: node
   linkType: hard
 
@@ -21125,7 +21125,7 @@ __metadata:
     "@svgr/cli": ^5.5.0
     "@synthetixio/contracts-interface": ^2.74.3
     "@synthetixio/synpress": ^3.0.0
-    "@synthetixio/v3-theme": 1.1.0
+    "@synthetixio/v3-theme": ^3.1.1
     "@testing-library/dom": ^8.11.0
     "@testing-library/jest-dom": ^5.15.0
     "@testing-library/react": ^13.4.0

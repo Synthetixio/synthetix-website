@@ -25,7 +25,7 @@
 		"@emotion/styled": "^11",
 		"@socialgouv/matomo-next": "1.2.2",
 		"@synthetixio/contracts-interface": "^2.74.3",
-		"@synthetixio/v3-theme": "1.1.0",
+		"@synthetixio/v3-theme": "^3.1.1",
 		"@vercel/node": "^1.14.0",
 		"algoliasearch": "^4.13.0",
 		"axios": "0.23.0",
