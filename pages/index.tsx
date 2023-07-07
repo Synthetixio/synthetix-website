@@ -1,5 +1,5 @@
 import Head from 'next/head';
-import { GetServerSideProps } from 'next';
+import { GetServerSideProps, GetStaticProps } from 'next';
 import {
 	Hero,
 	Volume,
@@ -104,7 +104,7 @@ const INTEGRATORS_VOLUME_URL =
 	'https://api.dune.com/api/v1/query/2647536/results';
 const OPEN_INTEREST_URL = 'https://api.dune.com/api/v1/query/2441903/results';
 const TRADING_FEES_URL = 'https://api.dune.com/api/v1/query/1893390/results';
-const graphqlUrl =
+const graphqlUrlPerps =
 	'https://api.thegraph.com/subgraphs/name/synthetix-perps/perps';
 
 const apiKey = process?.env?.NEXT_DUNE_API_KEY || '';
@@ -122,7 +122,7 @@ query {
 }
 `;
 
-export const getServerSideProps: GetServerSideProps = async () => {
+export const getStaticProps: GetStaticProps = async () => {
 	try {
 		const [
 			stakesSnxResponse,
@@ -132,7 +132,7 @@ export const getServerSideProps: GetServerSideProps = async () => {
 			{ data: integratorsData },
 			{ data: openInterestData },
 			{ data: tradingFeesData },
-			{ data: graphqlResponse },
+			{ data: graphqlResponsePerps },
 		] = await Promise.all([
 			axios.get<StakedSNXResponse>(STAKED_SNX_DATA_URL),
 			getSnxPrice(),
@@ -151,7 +151,7 @@ export const getServerSideProps: GetServerSideProps = async () => {
 			axios.get<TradingFeesResponse>(TRADING_FEES_URL, {
 				headers: { 'x-dune-api-key': apiKey },
 			}),
-			axios.post<GraphqlResponse>(graphqlUrl, {
+			axios.post<GraphqlResponse>(graphqlUrlPerps, {
 				query: graphqlQuery,
 			}),
 		]);
@@ -194,12 +194,12 @@ export const getServerSideProps: GetServerSideProps = async () => {
 			a.day > b.day ? -1 : 1,
 		);
 
-		const markets = graphqlResponse?.data?.futuresMarkets.filter(
+		const markets = graphqlResponsePerps?.data?.futuresMarkets.filter(
 			({ marketKey }) => utils.parseBytes32String(marketKey).includes('PERP'),
 		).length;
 
 		const uniqueTradingAccounts =
-			graphqlResponse?.data?.dailyStats[0]?.cumulativeTraders;
+			graphqlResponsePerps?.data?.dailyStats[0]?.cumulativeTraders;
 
 		if (isNaN(valueTotalStaked)) {
 			throw Error('Unexpected NaN getting total staked value');
@@ -215,6 +215,7 @@ export const getServerSideProps: GetServerSideProps = async () => {
 				markets,
 				uniqueTradingAccounts,
 			},
+			revalidate: 600,
 		};
 	} catch (e) {
 		console.log(e);
