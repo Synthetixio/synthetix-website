@@ -256,7 +256,7 @@ export const getStaticProps: GetStaticProps = async () => {
 				markets,
 				uniqueTradingAccounts,
 			},
-			revalidate: 600,
+			revalidate: 600 * 10,
 		};
 	} catch (e) {
 		console.log(e);
