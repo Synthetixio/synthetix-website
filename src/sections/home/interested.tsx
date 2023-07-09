@@ -17,7 +17,8 @@ export const Interested = () => {
 				<Show below="lg">
 					<Flex display="relative" height="250px" width="100%" bg="navy.700">
 						<InterestedLooper
-							height="400px"
+							maxHeight="400px"
+							maxWidth="100%"
 							position="absolute"
 							top="0"
 							right="0"
