@@ -1,5 +1,5 @@
 import Head from 'next/head';
-import { GetServerSideProps } from 'next';
+import { GetStaticProps } from 'next';
 import {
 	Hero,
 	Volume,
@@ -30,11 +30,13 @@ import {
 	VolumeData,
 	ActiveStakersData,
 	GraphqlResponse,
+	SwapsResponse,
 } from 'src/typings';
 import { utils } from 'ethers';
 
 export interface ApiStatsProps {
 	totalStakedValue?: number;
+	swapsVolumeTotal: number;
 	tradingVolume?: VolumeData;
 	activeStakers?: ActiveStakersData;
 	integratorForLatestDate?: string[];
@@ -45,6 +47,7 @@ export interface ApiStatsProps {
 
 const Home = ({
 	totalStakedValue,
+	swapsVolumeTotal,
 	activeStakers,
 	integratorForLatestDate,
 	tradingVolume,
@@ -59,9 +62,10 @@ const Home = ({
 			</Head>
 			<PageLayout useChakra>
 				<Hero />
-				{totalStakedValue && tradingVolume && (
+				{totalStakedValue && tradingVolume && swapsVolumeTotal && (
 					<Volume
 						totalStakedValue={totalStakedValue}
+						swapsVolumeTotal={swapsVolumeTotal}
 						tradingVolume={tradingVolume}
 					/>
 				)}
@@ -104,7 +108,9 @@ const INTEGRATORS_VOLUME_URL =
 	'https://api.dune.com/api/v1/query/2647536/results';
 const OPEN_INTEREST_URL = 'https://api.dune.com/api/v1/query/2441903/results';
 const TRADING_FEES_URL = 'https://api.dune.com/api/v1/query/1893390/results';
-const graphqlUrl =
+const SWAPS_URL = 'https://api.dune.com/api/v1/query/1240426/results';
+
+const graphqlUrlPerps =
 	'https://api.thegraph.com/subgraphs/name/synthetix-perps/perps';
 
 const apiKey = process?.env?.NEXT_DUNE_API_KEY || '';
@@ -122,7 +128,7 @@ query {
 }
 `;
 
-export const getServerSideProps: GetServerSideProps = async () => {
+export const getStaticProps: GetStaticProps = async () => {
 	try {
 		const [
 			stakesSnxResponse,
@@ -132,7 +138,8 @@ export const getServerSideProps: GetServerSideProps = async () => {
 			{ data: integratorsData },
 			{ data: openInterestData },
 			{ data: tradingFeesData },
-			{ data: graphqlResponse },
+			{ data: swapsData },
+			{ data: graphqlResponsePerps },
 		] = await Promise.all([
 			axios.get<StakedSNXResponse>(STAKED_SNX_DATA_URL),
 			getSnxPrice(),
@@ -151,7 +158,10 @@ export const getServerSideProps: GetServerSideProps = async () => {
 			axios.get<TradingFeesResponse>(TRADING_FEES_URL, {
 				headers: { 'x-dune-api-key': apiKey },
 			}),
-			axios.post<GraphqlResponse>(graphqlUrl, {
+			axios.get<SwapsResponse>(SWAPS_URL, {
+				headers: { 'x-dune-api-key': apiKey },
+			}),
+			axios.post<GraphqlResponse>(graphqlUrlPerps, {
 				query: graphqlQuery,
 			}),
 		]);
@@ -194,19 +204,50 @@ export const getServerSideProps: GetServerSideProps = async () => {
 			a.day > b.day ? -1 : 1,
 		);
 
-		const markets = graphqlResponse?.data?.futuresMarkets.filter(
+		const markets = graphqlResponsePerps?.data?.futuresMarkets.filter(
 			({ marketKey }) => utils.parseBytes32String(marketKey).includes('PERP'),
 		).length;
 
 		const uniqueTradingAccounts =
-			graphqlResponse?.data?.dailyStats[0]?.cumulativeTraders;
+			graphqlResponsePerps?.data?.dailyStats[0]?.cumulativeTraders;
+
+		let swapsVolumeTotal: { name: string; amount: number }[] = [];
+
+		swapsData?.result?.rows?.forEach(item => {
+			const { source, dest, source_amount, dest_amount } = item;
+
+			const sourceAmount = Number(source_amount);
+			const destAmount = Number(dest_amount);
+			const total = sourceAmount + destAmount;
+
+			const pair1 = swapsVolumeTotal.find(
+				item => item.name === `${source}-${dest}`,
+			);
+			const pair2 = swapsVolumeTotal.find(
+				item => item.name === `${dest}-${source}`,
+			);
+
+			if (!pair1 && !pair2) {
+				swapsVolumeTotal.push({
+					name: `${source}-${dest}`,
+					amount: total,
+				});
+			}
+		});
+
+		const swapsVolumeTotalReduced = swapsVolumeTotal.reduce(
+			(acc, item) => item.amount + acc,
+			0,
+		);
 
 		if (isNaN(valueTotalStaked)) {
 			throw Error('Unexpected NaN getting total staked value');
 		}
+
 		return {
 			props: {
 				totalStakedValue: valueTotalStaked,
+				swapsVolumeTotal: swapsVolumeTotalReduced,
 				tradingVolume,
 				activeStakers,
 				integratorForLatestDate,
@@ -215,12 +256,14 @@ export const getServerSideProps: GetServerSideProps = async () => {
 				markets,
 				uniqueTradingAccounts,
 			},
+			revalidate: 600 * 10,
 		};
 	} catch (e) {
 		console.log(e);
 		return {
 			props: {
 				totalStakedValue: null,
+				swapsVolumeTotal: null,
 				tradingVolume: null,
 				activeStakers: null,
 				inegratorForLatestDate: null,

@@ -25,14 +25,21 @@ export const Staking = () => {
 				flexDirection={{ base: 'column', lg: 'row' }}
 			>
 				<Show above="base" below="lg">
-					<Flex width="100%" height="290px" position="relative">
-						<StakingLooper position="absolute" left="0" top="0" bottom="0" />
+					<Flex maxWidth="100%" height="290px" position="relative">
+						<StakingLooper
+							maxHeight="100%"
+							maxWidth="100%"
+							position="absolute"
+							left="0"
+							top="0"
+							bottom="0"
+						/>
 					</Flex>
 				</Show>
 				<Flex
 					flexDirection="column"
 					justifyContent="center"
-					width="100%"
+					maxWidth="100%"
 					ml={{ base: '0px', lg: '300px' }}
 					px={{ base: '16px', sm: '24px', lg: '48px' }}
 					pb={{ base: '16px', sm: '24px', lg: '48px' }}

@@ -5,13 +5,23 @@ import { numberWithCommas } from 'src/utils/formatters/number';
 
 interface VolumeProps {
 	totalStakedValue: number;
+	swapsVolumeTotal: number;
 	tradingVolume: VolumeData;
 }
 
-export const Volume = ({ totalStakedValue, tradingVolume }: VolumeProps) => {
+export const Volume = ({
+	totalStakedValue,
+	tradingVolume,
+	swapsVolumeTotal,
+}: VolumeProps) => {
 	const tvl = `${numberWithCommas(totalStakedValue?.toFixed(0))}`;
+
 	const cumulativeTradingVolume = `${numberWithCommas(
-		tradingVolume?.cumulative_volume.toFixed(0),
+		(
+			tradingVolume?.cumulative_volume +
+			5765647285 + // Note Include Perps V1 Volume https://dune.com/queries/541996/1018884 (retired product)
+			swapsVolumeTotal
+		).toFixed(),
 	)}`;
 
 	return (

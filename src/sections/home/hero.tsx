@@ -1,5 +1,5 @@
-import { Button, Flex, Text } from '@chakra-ui/react';
-import SNXMainLooperPlaceholder from 'src/svg/SNXMainLooperPlaceholder';
+import { Box, Button, Flex, Text } from '@chakra-ui/react';
+import SNXMainLooper from 'src/svg/SNXMainLooper';
 
 export const Hero = () => {
 	const onClick = () => {
@@ -12,26 +12,21 @@ export const Hero = () => {
 	};
 
 	return (
-		<Flex
-			pt="182px"
-			width="100%"
-			id="hero"
-			flexDirection={{ base: 'column-reverse', xl: 'row' }}
-		>
+		<Flex pt="182px" width="100%" id="hero" flexDirection="row">
 			<Flex
 				flexDirection="column"
 				justifyContent="center"
 				height="100%"
 				pb={20}
-				zIndex={1}
-				mt={{ base: '400px', xl: '50px' }}
+				zIndex={2}
+				mt="50px"
 			>
 				<Text
 					as="h2"
 					textStyle="heading-3xl"
 					color="gray.50"
 					mb="16px"
-					width={{ base: '320px', md: '420px', lg: '500px', '2xl': '580px' }}
+					width={{ base: '320px', md: '420px', lg: '525px', '2xl': '628px' }}
 				>
 					The Liquidity Layer of DeFi
 				</Text>
@@ -42,6 +37,7 @@ export const Hero = () => {
 					color="gray.500"
 					fontFamily="heading"
 					fontWeight={400}
+					width={{ base: '100%', lg: '525px', '2xl': '628px' }}
 				>
 					Synthetix provides liquidity for permissionless derivatives like
 					perpetual futures, options, parimutuel markets, and more across EVM
@@ -58,19 +54,24 @@ export const Hero = () => {
 					Explore Ecosystem
 				</Button>
 			</Flex>
-			<Flex position="relative" width="100%" justifyContent="center">
-				<SNXMainLooperPlaceholder
-					transform={{
-						base: 'translate(0%, -20%)',
-						md: 'translate(0%, -15%)',
-						xl: 'translate(0%, -10%)',
-					}}
-					top="-130px"
-					width={{ base: '600px', md: '700px', xl: '800px' }}
-					position={{ base: 'absolute' }}
-					zIndex={0}
-				/>
-			</Flex>
+			<Box
+				position="absolute"
+				bg="#06061B"
+				width="584px"
+				height="536px"
+				zIndex={1}
+				borderRadius="100%"
+				filter="blur(250px)"
+				top="20px"
+				left={{ base: '-500px' }}
+			/>
+			<SNXMainLooper
+				top={{ base: '0px', md: '50px', lg: '100px' }}
+				left={{ base: '-200px', sm: '-100px' }}
+				position="absolute"
+				zIndex={0}
+				width={{ base: '250%', sm: '200%', md: '175%', lg: 'unset' }}
+			/>
 		</Flex>
 	);
 };
