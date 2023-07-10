@@ -28,7 +28,10 @@ export type FormatCurrencyOptions = {
 export const toBigNumber = (value: NumericValue) => new BigNumber(value);
 
 // TODO: implement max decimals
-export const formatNumber = (value: NumericValue, options?: FormatNumberOptions) => {
+export const formatNumber = (
+	value: NumericValue,
+	options?: FormatNumberOptions,
+) => {
 	const prefix = options?.prefix;
 	const suffix = options?.suffix;
 
@@ -37,7 +40,11 @@ export const formatNumber = (value: NumericValue, options?: FormatNumberOptions)
 		formattedValue.push(prefix);
 	}
 
-	formattedValue.push(toBigNumber(value).toFormat(options?.minDecimals ?? DEFAULT_NUMBER_DECIMALS));
+	formattedValue.push(
+		toBigNumber(value).toFormat(
+			options?.minDecimals ?? DEFAULT_NUMBER_DECIMALS,
+		),
+	);
 	if (suffix) {
 		formattedValue.push(` ${suffix}`);
 	}
@@ -45,7 +52,10 @@ export const formatNumber = (value: NumericValue, options?: FormatNumberOptions)
 	return formattedValue.join('');
 };
 
-export const formatFiatCurrency = (value: NumericValue, options?: FormatCurrencyOptions) =>
+export const formatFiatCurrency = (
+	value: NumericValue,
+	options?: FormatCurrencyOptions,
+) =>
 	formatNumber(value, {
 		prefix: options?.sign,
 		suffix: options?.currencyKey,
@@ -53,8 +63,20 @@ export const formatFiatCurrency = (value: NumericValue, options?: FormatCurrency
 		maxDecimals: options?.maxDecimals,
 	});
 
-export const formatPercent = (value: NumericValue, options?: { minDecimals: number }) => {
+export const formatPercent = (
+	value: NumericValue,
+	options?: { minDecimals: number },
+) => {
 	const decimals = options?.minDecimals ?? 2;
 
 	return `${toBigNumber(value).multipliedBy(100).toFixed(decimals)}%`;
 };
+
+export function numberWithCommas(value: string, decimals?: number) {
+	const parts = value.split('.');
+	parts[0] = parts[0].replace(/\B(?=(\d{3})+(?!\d))/g, ',');
+	const joinedParts = parts.join('.');
+	return decimals
+		? joinedParts.substring(0, joinedParts.indexOf('.') + decimals)
+		: joinedParts;
+}

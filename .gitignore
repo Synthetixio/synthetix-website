@@ -46,6 +46,7 @@ tests/e2e/screenshots/
 /sanity/dist
  
 .env.local
+.env
 
 .yarn/*
 .yarn/cache

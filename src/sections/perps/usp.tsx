@@ -21,8 +21,17 @@ const USPS = [
 	},
 	{
 		label: 'Revenue Share',
-		description:
-			'Integrators receive a share of the fees they process, based on a volume and paid in $SNX: 10% of first $1m in fees, 7.5% for $1M - $5M, and 5% for >$5M. Protocols have discretion to use these rewards as they see fit.',
+		description: [
+			'Integrators are rewarded for driving volume through Synthetix Perps. ',
+			<Link
+				href="https://blog.synthetix.io/partner-volume-rewards-for-synthetix-perps-integrators/"
+				color="cyan.500"
+				key="link-component"
+				target="_blank"
+			>
+				Learn more.
+			</Link>,
+		],
 	},
 	{
 		label: 'Easy to Integrate',
@@ -32,6 +41,7 @@ const USPS = [
 				href="https://docs.synthetix.io/synthetix-protocol/welcome-to-synthetix"
 				color="cyan.500"
 				key="link-component"
+				target="_blank"
 			>
 				docs.synthetix.io
 			</Link>,

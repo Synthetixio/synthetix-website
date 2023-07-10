@@ -1,90 +1,276 @@
 import Head from 'next/head';
-import { GetServerSideProps } from 'next';
-import MainSection from '../src/sections/home/main';
-import Futures from '../src/sections/home/futures';
-import TotalSection from '../src/sections/home/total';
-import SynthSection from 'src/sections/home/synths';
-import Ecosystem from 'src/sections/home/ecosystem';
-import { PageLayout } from '../src/components';
-import { Line } from 'src/styles/common';
-import PoweredBy from 'src/sections/home/poweredBy';
+import { GetStaticProps } from 'next';
+import {
+	Hero,
+	Volume,
+	Ecosystem,
+	Integrators,
+	Interested,
+	Collateral,
+	Stats,
+	Interfaces,
+	Staking,
+	Perps,
+	AggregatedStats,
+	Governance,
+	Partners,
+} from 'src/sections/home';
+
+import { PageLayout } from 'src/components';
 import axios from 'axios';
-import { Box } from '@chakra-ui/react';
+
 import getSnxPrice from '../src/queries/snxPrice/snxPrice';
-import { EmailSection } from 'src/sections/email/EmailSection';
+import {
+	StakedSNXResponse,
+	VolumeResponse,
+	ActiveStakerResponse,
+	IntegratorsVolumeResponse,
+	OpenInterestResponse,
+	TradingFeesResponse,
+	VolumeData,
+	ActiveStakersData,
+	GraphqlResponse,
+	SwapsResponse,
+} from 'src/typings';
+import { utils } from 'ethers';
 
 export interface ApiStatsProps {
 	totalStakedValue?: number;
+	swapsVolumeTotal: number;
+	tradingVolume?: VolumeData;
+	activeStakers?: ActiveStakersData;
+	integratorForLatestDate?: string[];
+	openInterestForLatestDate?: number;
+	markets?: number;
+	uniqueTradingAccounts?: string;
 }
 
-const Home = ({ totalStakedValue }: ApiStatsProps) => {
+const Home = ({
+	totalStakedValue,
+	swapsVolumeTotal,
+	activeStakers,
+	integratorForLatestDate,
+	tradingVolume,
+	openInterestForLatestDate,
+	markets,
+	uniqueTradingAccounts,
+}: ApiStatsProps) => {
 	return (
 		<>
 			<Head>
 				<title>Synthetix</title>
 			</Head>
-			<PageLayout>
-				<Box
-					position="absolute"
-					top="0"
-					left="0"
-					w="100%"
-					height="100vh"
-					bg="linear-gradient(180deg, #08021e 0%, #120446 146.21%)"
-					pointerEvents="none"
-				/>
-				<MainSection />
-				<Line />
-				<TotalSection totalStakedValue={totalStakedValue} />
-				<Line />
-				<Futures />
-				<EmailSection />
-				<Line />
-				<SynthSection />
-				<Line />
-				<PoweredBy />
+			<PageLayout useChakra>
+				<Hero />
+				{totalStakedValue && tradingVolume && swapsVolumeTotal && (
+					<Volume
+						totalStakedValue={totalStakedValue}
+						swapsVolumeTotal={swapsVolumeTotal}
+						tradingVolume={tradingVolume}
+					/>
+				)}
 				<Ecosystem />
-				<Line showOnMobile />
+				<Integrators sortList={integratorForLatestDate || []} />
+				<Interested />
+				<Collateral />
+				{activeStakers && tradingVolume && totalStakedValue && (
+					<Stats
+						totalStakedValue={totalStakedValue}
+						tradingVolume={tradingVolume}
+						activeStakers={activeStakers}
+					/>
+				)}
+				<Interfaces />
+				<Staking />
+				<Perps />
+				{tradingVolume &&
+					markets &&
+					uniqueTradingAccounts &&
+					openInterestForLatestDate && (
+						<AggregatedStats
+							tradingVolume={tradingVolume}
+							openInterestForLatestDate={openInterestForLatestDate}
+							markets={markets.toFixed()}
+							uniqueTradingAccounts={uniqueTradingAccounts}
+						/>
+					)}
+				<Governance />
+				<Partners />
 			</PageLayout>
 		</>
 	);
 };
+
 const STAKED_SNX_DATA_URL = 'https://api.synthetix.io/staking-ratio';
+const VOLUME_DATA_URL = 'https://api.dune.com/api/v1/query/2499125/results';
+const ACTIVE_STAKERS_URL = 'https://api.dune.com/api/v1/query/2647572/results';
+const INTEGRATORS_VOLUME_URL =
+	'https://api.dune.com/api/v1/query/2647536/results';
+const OPEN_INTEREST_URL = 'https://api.dune.com/api/v1/query/2441903/results';
+const TRADING_FEES_URL = 'https://api.dune.com/api/v1/query/1893390/results';
+const SWAPS_URL = 'https://api.dune.com/api/v1/query/1240426/results';
 
-type StakedSNXResponse = {
-	systemStakingPercent: number;
-	timestamp: number;
-	stakedSnx: {
-		ethereum: number;
-		optimism: number;
-	};
-};
+const graphqlUrlPerps =
+	'https://api.thegraph.com/subgraphs/name/synthetix-perps/perps';
 
-export const getServerSideProps: GetServerSideProps = async () => {
+const apiKey = process?.env?.NEXT_DUNE_API_KEY || '';
+
+const graphqlQuery = `
+query {
+  futuresMarkets {
+    id
+    isActive
+    marketKey
+  }
+  dailyStats(orderBy: day, orderDirection: desc, first: 1) {
+    cumulativeTraders
+  }
+}
+`;
+
+export const getStaticProps: GetStaticProps = async () => {
 	try {
-		const [stakesSnxResponse, snxPrice] = await Promise.all([
+		const [
+			stakesSnxResponse,
+			snxPrice,
+			{ data: volumeData },
+			{ data: activeStakersData },
+			{ data: integratorsData },
+			{ data: openInterestData },
+			{ data: tradingFeesData },
+			{ data: swapsData },
+			{ data: graphqlResponsePerps },
+		] = await Promise.all([
 			axios.get<StakedSNXResponse>(STAKED_SNX_DATA_URL),
 			getSnxPrice(),
+			axios.get<VolumeResponse>(VOLUME_DATA_URL, {
+				headers: { 'x-dune-api-key': apiKey },
+			}),
+			axios.get<ActiveStakerResponse>(ACTIVE_STAKERS_URL, {
+				headers: { 'x-dune-api-key': apiKey },
+			}),
+			axios.get<IntegratorsVolumeResponse>(INTEGRATORS_VOLUME_URL, {
+				headers: { 'x-dune-api-key': apiKey },
+			}),
+			axios.get<OpenInterestResponse>(OPEN_INTEREST_URL, {
+				headers: { 'x-dune-api-key': apiKey },
+			}),
+			axios.get<TradingFeesResponse>(TRADING_FEES_URL, {
+				headers: { 'x-dune-api-key': apiKey },
+			}),
+			axios.get<SwapsResponse>(SWAPS_URL, {
+				headers: { 'x-dune-api-key': apiKey },
+			}),
+			axios.post<GraphqlResponse>(graphqlUrlPerps, {
+				query: graphqlQuery,
+			}),
 		]);
+
 		const {
 			data: { stakedSnx },
 		} = stakesSnxResponse;
 
 		const totalStakedSnx = stakedSnx.optimism + stakedSnx.ethereum;
 		const valueTotalStaked = snxPrice * totalStakedSnx;
+
+		const tradingVolume = volumeData.result.rows.sort((a, b) =>
+			b.time > a.time ? 1 : -1,
+		)[0];
+
+		const activeStakers = activeStakersData.result.rows.sort((a, b) =>
+			b.time > a.time ? 1 : -1,
+		)[0];
+
+		const integratorsVolume = integratorsData.result.rows.sort((a, b) =>
+			b.day > a.day ? 1 : -1,
+		);
+
+		// Get the integrator volume for the latest date
+		// and sort by daily fee
+		const integratorForLatestDate = integratorsVolume
+			.filter(item => item.day === integratorsVolume[0].day)
+			.sort((a, b) => (a.daily_fee > b.daily_fee ? -1 : 1))
+			.map(item => item.tracking_code.split('\x00')[0]);
+
+		const openInterest = openInterestData.result.rows.sort((a, b) =>
+			a.day > b.day ? -1 : 1,
+		);
+
+		const openInterestForLatestDate = openInterest
+			.filter(item => item.day === openInterest[0].day)
+			.reduce((acc, item) => acc + Math.abs(item.size_usd), 0);
+
+		const tradingFees = tradingFeesData.result.rows.sort((a, b) =>
+			a.day > b.day ? -1 : 1,
+		);
+
+		const markets = graphqlResponsePerps?.data?.futuresMarkets.filter(
+			({ marketKey }) => utils.parseBytes32String(marketKey).includes('PERP'),
+		).length;
+
+		const uniqueTradingAccounts =
+			graphqlResponsePerps?.data?.dailyStats[0]?.cumulativeTraders;
+
+		let swapsVolumeTotal: { name: string; amount: number }[] = [];
+
+		swapsData?.result?.rows?.forEach(item => {
+			const { source, dest, source_amount, dest_amount } = item;
+
+			const sourceAmount = Number(source_amount);
+			const destAmount = Number(dest_amount);
+			const total = sourceAmount + destAmount;
+
+			const pair1 = swapsVolumeTotal.find(
+				item => item.name === `${source}-${dest}`,
+			);
+			const pair2 = swapsVolumeTotal.find(
+				item => item.name === `${dest}-${source}`,
+			);
+
+			if (!pair1 && !pair2) {
+				swapsVolumeTotal.push({
+					name: `${source}-${dest}`,
+					amount: total,
+				});
+			}
+		});
+
+		const swapsVolumeTotalReduced = swapsVolumeTotal.reduce(
+			(acc, item) => item.amount + acc,
+			0,
+		);
+
 		if (isNaN(valueTotalStaked)) {
 			throw Error('Unexpected NaN getting total staked value');
 		}
+
 		return {
 			props: {
 				totalStakedValue: valueTotalStaked,
+				swapsVolumeTotal: swapsVolumeTotalReduced,
+				tradingVolume,
+				activeStakers,
+				integratorForLatestDate,
+				openInterestForLatestDate,
+				tradingFees: tradingFees[0],
+				markets,
+				uniqueTradingAccounts,
 			},
+			revalidate: 600 * 10,
 		};
 	} catch (e) {
 		console.log(e);
 		return {
 			props: {
-				totalStakedValue: 0,
+				totalStakedValue: null,
+				swapsVolumeTotal: null,
+				tradingVolume: null,
+				activeStakers: null,
+				inegratorForLatestDate: null,
+				openInterestForLatestDate: null,
+				tradingFees: null,
+				markets: null,
+				uniqueTradingAccounts: null,
 			},
 		};
 	}

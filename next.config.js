@@ -11,6 +11,7 @@ console.debug(
  * @type {import('next').NextConfig}
  */
 module.exports = {
+	transpilePackages: ['@synthetixio/v3-theme'],
 	async generateBuildId() {
 		return execSync(lastCommitCommand).toString().trim();
 	},
