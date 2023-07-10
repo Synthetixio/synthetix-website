@@ -272,6 +272,7 @@ export const getStaticProps: GetStaticProps = async () => {
 				markets: null,
 				uniqueTradingAccounts: null,
 			},
+			revalidate: 5,
 		};
 	}
 };
