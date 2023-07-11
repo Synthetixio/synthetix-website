@@ -50,7 +50,6 @@ export const Collateral = () => {
 				<Link href={links.stakingV2} target="_blank">
 					<Button
 						w="fit-content"
-						colorScheme="gray"
 						borderRadius="4px"
 						fontWeight={700}
 						fontSize="14px"
