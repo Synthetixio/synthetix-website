@@ -20,6 +20,8 @@ interface IntegratorCardProps extends FlexProps {
 	link?: string;
 	tag?: string;
 	enabled?: boolean;
+	imageWidth?: string;
+	imageHeight?: string;
 }
 
 export const IntegratorCard = ({
@@ -30,6 +32,8 @@ export const IntegratorCard = ({
 	link,
 	tag,
 	enabled = true,
+	imageHeight,
+	imageWidth,
 	...props
 }: IntegratorCardProps) => {
 	return (
@@ -55,7 +59,8 @@ export const IntegratorCard = ({
 						display={{ base: 'none', md: 'unset' }}
 						alt={`${name}-logo`}
 						src={uri}
-						h={{ base: '40px', xl: '50px' }}
+						h={{ base: imageHeight, xl: '50px' }}
+						w={{ base: imageWidth, xl: '50px' }}
 					/>
 					<Tag
 						px="8px"
@@ -79,7 +84,8 @@ export const IntegratorCard = ({
 					display={{ md: 'none' }}
 					alt={`${name}-logo`}
 					src={uri}
-					h={{ base: '40px', xl: '50px' }}
+					h={{ base: imageHeight, xl: '50px' }}
+					w={{ base: imageWidth, xl: '50px' }}
 				/>
 				<Heading my="16px" fontSize="18px">
 					{name}

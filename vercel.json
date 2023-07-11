@@ -33,7 +33,7 @@
 				},
 				{
 					"key": "Content-Security-Policy",
-					"value": "default-src 'self' https://www.youtube.com; script-src 'self' 'unsafe-inline' https://analytics.synthetix.io https://*.mailerlite.com https://cdn.sanity.io https://www.youtube.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://*.mailerlite.com; img-src 'self' data: https://raw.githubusercontent.com https://*.mailerlite.com https://cdn.sanity.io; font-src 'self' https://fonts.gstatic.com https://*.mailerlite.com; frame-ancestors 'self'; form-action 'self'; base-uri 'self'; connect-src 'self' https://*.mailerlite.com https://cloudflare-eth.com https://api.etherscan.io https://*.infura.io https://*.alchemyapi.io https://synths.snx.eth.link https://analytics.synthetix.io https://cdn.sanity.io https://*.algolia.net https://*.algolianet.com https://hooks.zapier.com;"
+					"value": "default-src 'self' https://www.youtube.com; script-src 'self' 'unsafe-inline' https://analytics.synthetix.io https://*.mailerlite.com https://cdn.sanity.io https://www.youtube.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://*.mailerlite.com; img-src 'self' data: https://raw.githubusercontent.com https://*.mailerlite.com https://cdn.sanity.io; font-src 'self' https://fonts.synthetix.io https://fonts.gstatic.com https://*.mailerlite.com; frame-ancestors 'self'; form-action 'self'; base-uri 'self'; connect-src 'self' https://*.mailerlite.com https://cloudflare-eth.com https://api.etherscan.io https://*.infura.io https://*.alchemyapi.io https://synths.snx.eth.link https://analytics.synthetix.io https://cdn.sanity.io https://*.algolia.net https://*.algolianet.com https://hooks.zapier.com;"
 				},
 				{
 					"key": "Vary",

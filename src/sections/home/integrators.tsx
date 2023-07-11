@@ -34,26 +34,41 @@ export const Integrators = ({ sortList }: IntegratorsProps) => {
 					}
 					return aIndex - bIndex;
 				})
-				.map(({ description, link, name, uri, tag }, i) => (
-					<IntegratorCard
-						className="integratorCard"
-						name={name}
-						link={link}
-						description={description}
-						largestDescription={largestDescription.description}
-						key={name.concat(i.toString())}
-						uri={uri}
-						tag={tag}
-						mb={{ base: '16px' }}
-						p={{ base: '24px' }}
-						width={{
-							base: 'calc(50% - 10px)',
-							lg: 'calc(33% - 10.85px)',
-							xl: 'calc(25% - 16px)',
-						}}
-						minHeight={{ md: '270px' }}
-					/>
-				))}
+				.map(
+					(
+						{
+							description,
+							link,
+							name,
+							uri,
+							tag,
+							height: iconHeight,
+							width: iconWidth,
+						},
+						i,
+					) => (
+						<IntegratorCard
+							className="integratorCard"
+							name={name}
+							link={link}
+							description={description}
+							largestDescription={largestDescription.description}
+							key={name.concat(i.toString())}
+							uri={uri}
+							tag={tag}
+							mb={{ base: '16px' }}
+							p={{ base: '24px' }}
+							width={{
+								base: 'calc(50% - 10px)',
+								lg: 'calc(33% - 10.85px)',
+								xl: 'calc(25% - 16px)',
+							}}
+							minHeight={{ md: '270px' }}
+							imageHeight={iconHeight}
+							imageWidth={iconWidth}
+						/>
+					),
+				)}
 			<IntegratorCard
 				_hover={{
 					cursor: 'default',
