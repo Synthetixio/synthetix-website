@@ -41,8 +41,8 @@ export const Volume = ({
 						<Heading
 							fontFamily="heading"
 							fontWeight={700}
-							lineHeight={{ base: '50px', md: '90px' }}
-							fontSize={{ base: '50px', md: '90px' }}
+							lineHeight={{ base: '44px', md: '90px' }}
+							fontSize={{ base: '44px', md: '90px' }}
 							color="gray.50"
 						>
 							{cumulativeTradingVolume}
@@ -61,8 +61,8 @@ export const Volume = ({
 						<Heading
 							fontFamily="heading"
 							fontWeight={700}
-							lineHeight={{ base: '50px', md: '90px' }}
-							fontSize={{ base: '50px', md: '90px' }}
+							lineHeight={{ base: '44px', md: '90px' }}
+							fontSize={{ base: '44px', md: '90px' }}
 							color="gray.50"
 						>
 							{tvl}

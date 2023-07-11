@@ -36,11 +36,7 @@ export const Collateral = () => {
 					<GradientText>helps support deep liquidity</GradientText>, low
 					slippage, and highly competitive trading fees for our derivatives
 					markets.{' '}
-					<Text display={{ base: 'unset', lg: 'none' }} as="div">
-						Stakers get <GradientText>rewarded</GradientText> for helping to
-						support a more robust ecosystem.
-					</Text>
-					<Box display={{ base: 'none', lg: 'unset' }}>
+					<Box>
 						<Text mt="40px" as="div">
 							Stakers get <GradientText>rewarded</GradientText> for helping to
 							support a more robust ecosystem.

@@ -47,8 +47,12 @@ export const IntegratorCard = ({
 			pointerEvents={enabled ? 'auto' : 'none'}
 		>
 			<LinkOverlay href={link} isExternal width="100%">
-				<Flex justifyContent="space-between" width="100%">
+				<Flex
+					justifyContent={{ base: 'flex-end', md: 'space-between' }}
+					width="100%"
+				>
 					<Image
+						display={{ base: 'none', md: 'unset' }}
 						alt={`${name}-logo`}
 						src={uri}
 						h={{ base: '40px', xl: '50px' }}
@@ -70,6 +74,13 @@ export const IntegratorCard = ({
 						</TagLabel>
 					</Tag>
 				</Flex>
+				<Image
+					mt={{ base: '16px', md: '0px' }}
+					display={{ md: 'none' }}
+					alt={`${name}-logo`}
+					src={uri}
+					h={{ base: '40px', xl: '50px' }}
+				/>
 				<Heading my="16px" fontSize="18px">
 					{name}
 				</Heading>
@@ -84,7 +95,6 @@ export const IntegratorCard = ({
 						>
 							{description}
 						</Text>
-						{/* NOTE: Hack to make items same height. */}
 						<Text
 							fontSize="16px"
 							lineHeight="24px"
