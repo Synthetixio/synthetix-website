@@ -129,7 +129,7 @@ export function Footer() {
 					</Flex>
 				</Flex>
 			</Show>
-			<Show below="md">
+			<Show below="lg">
 				<Flex
 					as="footer"
 					w="100%"

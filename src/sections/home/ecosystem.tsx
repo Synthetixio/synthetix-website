@@ -28,7 +28,7 @@ export const Ecosystem = () => {
 							maxWidth={'575px'}
 							as="h2"
 						>
-							A Network of DeFi Apps Powered by Synthetix
+							An Ecosystem of DeFi Apps Powered by Synthetix.
 						</Text>
 						<Text
 							fontSize="16px"

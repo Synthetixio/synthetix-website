@@ -20,6 +20,8 @@ interface IntegratorCardProps extends FlexProps {
 	link?: string;
 	tag?: string;
 	enabled?: boolean;
+	imageWidth?: string;
+	imageHeight?: string;
 }
 
 export const IntegratorCard = ({
@@ -30,6 +32,8 @@ export const IntegratorCard = ({
 	link,
 	tag,
 	enabled = true,
+	imageHeight,
+	imageWidth,
 	...props
 }: IntegratorCardProps) => {
 	return (
@@ -47,11 +51,16 @@ export const IntegratorCard = ({
 			pointerEvents={enabled ? 'auto' : 'none'}
 		>
 			<LinkOverlay href={link} isExternal width="100%">
-				<Flex justifyContent="space-between" width="100%">
+				<Flex
+					justifyContent={{ base: 'flex-end', md: 'space-between' }}
+					width="100%"
+				>
 					<Image
+						display={{ base: 'none', md: 'unset' }}
 						alt={`${name}-logo`}
 						src={uri}
-						h={{ base: '40px', xl: '50px' }}
+						h={{ base: imageHeight, xl: '50px' }}
+						w={{ base: imageWidth, xl: '50px' }}
 					/>
 					<Tag
 						px="8px"
@@ -70,6 +79,14 @@ export const IntegratorCard = ({
 						</TagLabel>
 					</Tag>
 				</Flex>
+				<Image
+					mt={{ base: '16px', md: '0px' }}
+					display={{ md: 'none' }}
+					alt={`${name}-logo`}
+					src={uri}
+					h={{ base: imageHeight, xl: '50px' }}
+					w={{ base: imageWidth, xl: '50px' }}
+				/>
 				<Heading my="16px" fontSize="18px">
 					{name}
 				</Heading>
@@ -84,7 +101,6 @@ export const IntegratorCard = ({
 						>
 							{description}
 						</Text>
-						{/* NOTE: Hack to make items same height. */}
 						<Text
 							fontSize="16px"
 							lineHeight="24px"

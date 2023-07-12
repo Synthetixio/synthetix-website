@@ -11,6 +11,8 @@ interface integratorItem {
 		| 'SPOT'
 		| 'AMM'
 		| 'ORACLE';
+	height: string;
+	width: string;
 }
 
 export const integrators: integratorItem[] = [
@@ -21,6 +23,8 @@ export const integrators: integratorItem[] = [
 			'Trade crypto, forex, and commodities with up to 50x leverage and deep liquidity.',
 		link: 'https://kwenta.eth.limo/dashboard/markets/',
 		tag: 'PERPS',
+		height: '50px',
+		width: '50px',
 	},
 	{
 		uri: '/polynomial.svg',
@@ -29,6 +33,8 @@ export const integrators: integratorItem[] = [
 			"Trade perps with Polynomial's smart wallet to access up to 50x leverage.",
 		link: 'https://trade.polynomial.fi/',
 		tag: 'PERPS',
+		height: '50px',
+		width: '50px',
 	},
 	{
 		uri: '/dhedge.svg',
@@ -37,6 +43,8 @@ export const integrators: integratorItem[] = [
 			'Use your sUSD to find permissionless investment managers and automated strategies.',
 		link: 'https://app.dhedge.org/#',
 		tag: 'ASST MGMT',
+		height: '50px',
+		width: '50px',
 	},
 	{
 		uri: '/lyra.svg',
@@ -45,6 +53,8 @@ export const integrators: integratorItem[] = [
 			'Lyra is the leading decentralized options protocol and uses Synthetix to delta hedge their AMM.',
 		link: 'https://app.lyra.finance/#/trade/optimism/seth-susd',
 		tag: 'OPTIONS',
+		height: '50px',
+		width: '50px',
 	},
 	{
 		uri: '/thales.svg',
@@ -53,6 +63,8 @@ export const integrators: integratorItem[] = [
 			'Use your sUSD to take positions on parimutuel crypto markets.',
 		link: 'https://thalesmarket.io/',
 		tag: 'PARIMUTUEL',
+		height: '50px',
+		width: '50px',
 	},
 	{
 		uri: '/curve.svg',
@@ -61,6 +73,8 @@ export const integrators: integratorItem[] = [
 			'Deposit synths into Curve pools to provide liquidity to the ecosystem and earn yield.',
 		link: 'https://curve.fi/',
 		tag: 'SPOT',
+		height: '50px',
+		width: '50px',
 	},
 	{
 		uri: '/toros.svg',
@@ -69,6 +83,8 @@ export const integrators: integratorItem[] = [
 			'Toros enables a suite of one-click financial tools that simplify complex strategies.',
 		link: 'https://toros.finance/',
 		tag: 'ASST MGMT',
+		height: '50px',
+		width: '50px',
 	},
 	{
 		uri: '/overtime.svg',
@@ -77,6 +93,8 @@ export const integrators: integratorItem[] = [
 			"Use your sUSD to take positions on sporting events with Overtime's sports AMM.",
 		link: 'https://overtimemarkets.xyz/',
 		tag: 'AMM',
+		height: '50px',
+		width: '50px',
 	},
 ];
 

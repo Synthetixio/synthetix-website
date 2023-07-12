@@ -63,7 +63,6 @@ export const Interested = () => {
 					<Link href={links.v3IntegrationGuide} target="_blank">
 						<Button
 							w="fit-content"
-							colorScheme="gray"
 							borderRadius="4px"
 							fontWeight={700}
 							fontSize="14px"
