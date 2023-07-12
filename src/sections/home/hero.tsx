@@ -57,8 +57,8 @@ export const Hero = () => {
 			<Box
 				position="absolute"
 				bg="#06061B"
-				width="584px"
-				height="536px"
+				width="800px"
+				height="800px"
 				zIndex={1}
 				borderRadius="100%"
 				filter="blur(250px)"
