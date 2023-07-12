@@ -9,7 +9,7 @@ export const Governance = () => {
 			w="100%"
 			my={{ base: '60px', md: '100px' }}
 			position="relative"
-			flexDirection={{ base: 'column' }}
+			flexDirection={{ base: 'column-reverse', md: 'column' }}
 		>
 			<Flex flexDirection="column" width="100%" zIndex={1}>
 				<Text
@@ -80,13 +80,18 @@ export const Governance = () => {
 					height="300px"
 					justifyContent={'center'}
 				>
-					<Spartan position="absolute" top="-75" width="500px" />
+					<Spartan
+						position="absolute"
+						top={{ base: '-50px', sm: '-50px' }}
+						width="100%"
+						height="max-content"
+					/>
 				</Flex>
 			</Show>
 			<Show above="md">
 				<Spartan
 					position="absolute"
-					right="-79"
+					right="-80px"
 					top="-150"
 					width={{ md: '500px', lg: '600px', xl: '900px' }}
 				/>

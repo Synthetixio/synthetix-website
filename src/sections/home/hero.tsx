@@ -57,8 +57,8 @@ export const Hero = () => {
 			<Box
 				position="absolute"
 				bg="#06061B"
-				width="584px"
-				height="536px"
+				width="800px"
+				height="800px"
 				zIndex={1}
 				borderRadius="100%"
 				filter="blur(250px)"
@@ -67,7 +67,7 @@ export const Hero = () => {
 			/>
 			<SNXMainLooper
 				top={{ base: '0px', md: '50px', lg: '100px' }}
-				left={{ base: '-200px', sm: '-100px' }}
+				left={{ base: '-200px', sm: '-100px', md: 'unset' }}
 				position="absolute"
 				zIndex={0}
 				width={{ base: '250%', sm: '200%', md: '175%', lg: 'unset' }}
