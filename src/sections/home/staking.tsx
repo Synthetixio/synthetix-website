@@ -1,4 +1,4 @@
-import { Button, Flex, Link, Show, Text } from '@chakra-ui/react';
+import { Button, Flex, Link, Show, Text, Image } from '@chakra-ui/react';
 import { StakingLooper } from 'src/svg/StakingLooper';
 import { links } from 'src/utils/constants';
 
@@ -25,14 +25,17 @@ export const Staking = () => {
 				flexDirection={{ base: 'column', lg: 'row' }}
 			>
 				<Show above="base" below="lg">
-					<Flex maxWidth="100%" height="290px" position="relative">
-						<StakingLooper
+					<Flex maxWidth="100%" height="290px" position="relative" mb={4}>
+						<Image
+							src="/StakingLooper.png"
+							alt="Staking Looper"
 							maxHeight="100%"
 							maxWidth="100%"
 							position="absolute"
 							left="0"
 							top="0"
 							bottom="0"
+							right="0"
 						/>
 					</Flex>
 				</Show>

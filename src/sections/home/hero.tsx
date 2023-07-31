@@ -1,4 +1,4 @@
-import { Box, Button, Flex, Text } from '@chakra-ui/react';
+import { Box, Button, Flex, Show, Text, Image } from '@chakra-ui/react';
 import SNXMainLooper from 'src/svg/SNXMainLooper';
 
 export const Hero = () => {
@@ -65,13 +65,28 @@ export const Hero = () => {
 				top="20px"
 				left={{ base: '-500px' }}
 			/>
-			<SNXMainLooper
-				top={{ base: '0px', md: '50px', lg: '100px' }}
-				left={{ base: '-200px', sm: '-100px', md: 'unset' }}
-				position="absolute"
-				zIndex={0}
-				width={{ base: '250%', sm: '200%', md: '175%', lg: 'unset' }}
-			/>
+			{/* Png for smaller devices, Svg for larger */}
+			<Show above="md">
+				<SNXMainLooper
+					top={{ base: '0px', md: '50px', lg: '100px' }}
+					left={{ base: '-200px', sm: '-100px', md: 'unset' }}
+					position="absolute"
+					zIndex={0}
+					width={{ base: '250%', sm: '200%', md: '175%', lg: 'unset' }}
+				/>
+			</Show>
+			<Show below="md">
+				<Image
+					src="/SnxMainLooper.png"
+					alt="Main looper"
+					top={{ base: '125px', md: '50px' }}
+					left={{ base: '-20%', sm: '0%' }}
+					position="absolute"
+					zIndex={0}
+					minWidth={{ base: '700px' }}
+					width="250%"
+				/>
+			</Show>
 		</Flex>
 	);
 };

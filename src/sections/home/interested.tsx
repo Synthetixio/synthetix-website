@@ -1,4 +1,4 @@
-import { Button, Flex, Link, Show, Text } from '@chakra-ui/react';
+import { Button, Flex, Link, Show, Text, Image } from '@chakra-ui/react';
 import { InterestedLooper } from 'src/svg/InterestedLooper';
 import { links } from 'src/utils/constants';
 
@@ -16,7 +16,7 @@ export const Interested = () => {
 			>
 				<Show below="lg">
 					<Flex display="relative" height="250px" width="100%" bg="navy.700">
-						<InterestedLooper
+						<Image
 							maxHeight="400px"
 							maxWidth="100%"
 							position="absolute"
@@ -24,6 +24,8 @@ export const Interested = () => {
 							right="0"
 							bottom="0"
 							zIndex={0}
+							src="/InterestedLooper.png"
+							alt="Interested Looper"
 						/>
 					</Flex>
 				</Show>
@@ -59,7 +61,6 @@ export const Interested = () => {
 						by visiting the developer documentation and joining the Synthetix
 						Discord
 					</Text>
-
 					<Link href={links.v3IntegrationGuide} target="_blank">
 						<Button
 							w="fit-content"
