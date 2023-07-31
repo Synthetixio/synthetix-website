@@ -116,16 +116,16 @@ const graphqlUrlPerps =
 const apiKey = process?.env?.NEXT_DUNE_API_KEY || '';
 
 const graphqlQuery = `
-query {
-  futuresMarkets {
-    id
-    isActive
-    marketKey
-  }
-  dailyStats(orderBy: day, orderDirection: desc, first: 1) {
-    cumulativeTraders
-  }
-}
+	query {
+		futuresMarkets {
+			id
+			isActive
+			marketKey
+		}
+		dailyStats(orderBy: day, orderDirection: desc, first: 1) {
+			cumulativeTraders
+		}
+	}
 `;
 
 export const getStaticProps: GetStaticProps = async () => {
@@ -256,7 +256,7 @@ export const getStaticProps: GetStaticProps = async () => {
 				markets,
 				uniqueTradingAccounts,
 			},
-			revalidate: 600 * 10,
+			revalidate: 60 * 10,
 		};
 	} catch (e) {
 		console.log(e);
