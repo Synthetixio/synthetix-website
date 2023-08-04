@@ -108,7 +108,7 @@ const INTEGRATORS_VOLUME_URL =
 	'https://api.dune.com/api/v1/query/2647536/results';
 const OPEN_INTEREST_URL = 'https://api.dune.com/api/v1/query/2441903/results';
 const TRADING_FEES_URL = 'https://api.dune.com/api/v1/query/1893390/results';
-const SWAPS_URL = 'https://api.dune.com/api/v1/query/1240426/results';
+const SWAPS_URL = 'https://api.dune.com/api/v1/query/2816419/results';
 
 const graphqlUrlPerps =
 	'https://api.thegraph.com/subgraphs/name/synthetix-perps/perps';
@@ -214,25 +214,12 @@ export const getStaticProps: GetStaticProps = async () => {
 		let swapsVolumeTotal: { name: string; amount: number }[] = [];
 
 		swapsData?.result?.rows?.forEach(item => {
-			const { source, dest, source_amount, dest_amount } = item;
+			const { volume, currency_key } = item;
 
-			const sourceAmount = Number(source_amount);
-			const destAmount = Number(dest_amount);
-			const total = sourceAmount + destAmount;
-
-			const pair1 = swapsVolumeTotal.find(
-				item => item.name === `${source}-${dest}`,
-			);
-			const pair2 = swapsVolumeTotal.find(
-				item => item.name === `${dest}-${source}`,
-			);
-
-			if (!pair1 && !pair2) {
-				swapsVolumeTotal.push({
-					name: `${source}-${dest}`,
-					amount: total,
-				});
-			}
+			swapsVolumeTotal.push({
+				name: currency_key,
+				amount: volume,
+			});
 		});
 
 		const swapsVolumeTotalReduced = swapsVolumeTotal.reduce(

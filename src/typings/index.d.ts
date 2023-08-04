@@ -88,19 +88,10 @@ export type TradingFeesResponse = {
 };
 
 export type SwapsData = {
-	dest: string;
-	dest_amount: number;
-	dest_avg: number;
-	median_dest: number;
-	median_source: number;
-	ninenine_dest: number;
-	ninenine_source: number;
-	one_percentile_dest: number;
-	one_percentile_source: number;
-	source: string;
-	source_amount: number;
-	source_avg: number;
-	swaps: number;
+	currency_key: string;
+	time: string;
+	volume: number;
+	volume_native: number;
 };
 
 export type SwapsResponse = {
