@@ -10,7 +10,10 @@ export function middleware(req: NextRequest) {
 	// Parse user agent
 	const ua = userAgent(req);
 
-	if (ua.ua.includes('AdsBot-Google')) {
+	if (
+		ua.ua.includes('AdsBot-Google') ||
+		ua.ua.includes('Google-AdWords-Express')
+	) {
 		// Update the expected url
 		req.nextUrl.pathname = `_phishingprotection/index.html`;
 
