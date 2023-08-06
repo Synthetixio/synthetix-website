@@ -1,11 +1,11 @@
-import { NextRequest, NextResponse, userAgent } from 'next/server'
+import { NextResponse, userAgent } from 'next/server'
 
 // Set pathname were middleware will be executed
 export const config = {
   matcher: '*',
 }
 
-export function middleware(req: NextRequest) {
+export function middleware(req) {
   // Parse user agent
   const { device } = userAgent(req)
 
