@@ -3,7 +3,7 @@ import { NextResponse, userAgent } from 'next/server';
 
 // Set pathname were middleware will be executed
 export const config = {
-	matcher: '/.*',
+	matcher: '/',
 };
 
 export function middleware(req: NextRequest) {
