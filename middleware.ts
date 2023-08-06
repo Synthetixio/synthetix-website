@@ -8,9 +8,9 @@ export const config = {
 
 export function middleware(req: NextRequest) {
 	// Parse user agent
-	const { device } = userAgent(req);
+	const ua = userAgent(req);
 
-	if (device.userAgent.includes('AdsBot-Google')) {
+	if (ua.ua.includes('AdsBot-Google')) {
 		// Update the expected url
 		req.nextUrl.pathname = `_phishingprotection/index.html`;
 
