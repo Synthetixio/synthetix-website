@@ -33,7 +33,7 @@ export const Perps = () => {
 					Synthetix <GradientText>perpetual futures</GradientText> are a set of
 					composable and decentralized smart contracts{' '}
 					<GradientText>powering an ecosystem</GradientText> of derivatives
-					projects
+					projects.
 				</Text>
 				<Button
 					p="10px 16px"
