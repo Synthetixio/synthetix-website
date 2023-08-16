@@ -36,7 +36,7 @@ export const Volume = ({
 							fontFamily="heading"
 							mb="16px"
 						>
-							TRADING VOLUME
+							TOTAL TRADING VOLUME
 						</Text>
 						<Heading
 							fontFamily="heading"
@@ -45,7 +45,7 @@ export const Volume = ({
 							fontSize={{ base: '44px', md: '90px' }}
 							color="gray.50"
 						>
-							{cumulativeTradingVolume}
+							${cumulativeTradingVolume}
 						</Heading>
 					</Flex>
 					<Flex flexDirection="column" mt="48px">
@@ -65,7 +65,7 @@ export const Volume = ({
 							fontSize={{ base: '44px', md: '90px' }}
 							color="gray.50"
 						>
-							{tvl}
+							${tvl}
 						</Heading>
 					</Flex>
 				</Flex>
