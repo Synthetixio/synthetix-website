@@ -243,7 +243,7 @@ export const getStaticProps: GetStaticProps = async () => {
 				markets,
 				uniqueTradingAccounts,
 			},
-			revalidate: 60 * 10,
+			revalidate: 60 * 60,
 		};
 	} catch (e) {
 		console.log(e);
@@ -259,7 +259,7 @@ export const getStaticProps: GetStaticProps = async () => {
 				markets: null,
 				uniqueTradingAccounts: null,
 			},
-			revalidate: 5,
+			revalidate: 60 * 5,
 		};
 	}
 };

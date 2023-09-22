@@ -1,6 +1,9 @@
 import axios from 'axios';
 import type { NextApiRequest, NextApiResponse } from 'next';
 import { IntegratorsVolumeResponse } from 'src/typings';
+import NodeCache from 'node-cache';
+
+const cache = new NodeCache({ stdTTL: 3600 });
 
 const INTEGRATORS_VOLUME_URL =
 	'https://api.dune.com/api/v1/query/2647536/results';
@@ -41,8 +44,16 @@ export default async function handler(
 	res: NextApiResponse,
 ) {
 	try {
+		const cacheKey = 'integratorsVolume';
+		const cachedData = cache.get(cacheKey);
+
+		if (cachedData) {
+			res.status(200).json({ result: cachedData });
+			return;
+		}
+
 		const result = await fetchDuneData();
-		res.setHeader('Cache-Control', 's-maxage=3600');
+		cache.set(cacheKey, result, 3600);
 		res.status(200).json({ result });
 	} catch (err) {
 		res.status(500).json({ error: 'failed to load data' });
