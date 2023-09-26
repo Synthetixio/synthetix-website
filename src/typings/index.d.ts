@@ -112,3 +112,46 @@ export type GraphqlResponse = {
 		}[];
 	};
 };
+
+export type PnLVolumeResponse = {
+	execution_id: string;
+	query_id: number;
+	state: string;
+	submitted_at: string;
+	expires_at: string;
+	execution_started_at: string;
+	execution_ended_at: string;
+	result: {
+		rows: PnLVolumeRow[];
+	};
+};
+
+export type PnLVolumeRow = {
+	daily_fee: number;
+	daily_pnl: number;
+	day: string;
+	loss: number;
+	net_to_stakers: number;
+	profit: number;
+	total_fees: number;
+	total_pnl: number;
+};
+
+export type InterestVolumeResponse = {
+	execution_id: string;
+	query_id: number;
+	state: string;
+	submitted_at: string;
+	expires_at: string;
+	execution_started_at: string;
+	execution_ended_at: string;
+	result: {
+		rows: InterestVolumeRow[];
+	};
+};
+
+export type InterestVolumeRow = {
+	day: string;
+	long: number;
+	short: number;
+};
