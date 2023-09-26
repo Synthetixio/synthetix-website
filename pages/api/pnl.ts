@@ -1,38 +1,28 @@
 import axios from 'axios';
 import type { NextApiRequest, NextApiResponse } from 'next';
-import { IntegratorsVolumeResponse } from 'src/typings';
+import { PnLVolumeResponse } from 'src/typings';
 import { cache } from 'src/utils/cache';
 
-const INTEGRATORS_VOLUME_URL =
-	'https://api.dune.com/api/v1/query/2647536/results';
+const PNL_VOLUME_URL = 'https://api.dune.com/api/v1/query/2429954/results';
 
 const apiKey = process?.env?.NEXT_DUNE_API_KEY || '';
 
 async function fetchDuneData() {
 	try {
-		const { data: integratorsData } =
-			await axios.get<IntegratorsVolumeResponse>(INTEGRATORS_VOLUME_URL, {
+		const { data: pnlData } = await axios.get<PnLVolumeResponse>(
+			PNL_VOLUME_URL,
+			{
 				headers: { 'x-dune-api-key': apiKey },
-			});
-
-		const integratorsVolume = integratorsData.result.rows.sort((a, b) =>
-			b.day > a.day ? 1 : -1,
+			},
 		);
 
-		// Get the integrator volume for the latest date
-		// and sort by daily fee
-		const integratorForLatestDate = integratorsVolume
-			.filter(item => item.day === integratorsVolume[0].day)
-			.sort((a, b) => (a.daily_fee > b.daily_fee ? -1 : 1))
-			.map(item => item.tracking_code.split('\x00')[0]);
+		console.log('pnl data', pnlData.result.rows);
 
-		return {
-			integratorForLatestDate,
-		};
+		return pnlData;
 	} catch (error) {
 		console.log('Error fetching dune data', error);
 		return {
-			integratorForLatestDate: null,
+			result: null,
 		};
 	}
 }
@@ -42,7 +32,7 @@ export default async function handler(
 	res: NextApiResponse,
 ) {
 	try {
-		const cacheKey = 'integratorsVolume';
+		const cacheKey = 'pnlVolume';
 		const cachedData = cache.get(cacheKey);
 
 		if (cachedData) {
