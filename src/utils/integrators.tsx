@@ -51,7 +51,7 @@ export const integrators: integratorItem[] = [
 		name: 'Lyra',
 		description:
 			'Lyra is the leading decentralized options protocol and uses Synthetix to delta hedge their AMM.',
-		link: 'https://app.lyra.finance/#/trade/optimism/seth-susd',
+		link: 'https://app.lyra.finance/#/trade/optimism/eth-usd',
 		tag: 'OPTIONS',
 		height: '50px',
 		width: '50px',
