@@ -51,7 +51,7 @@ export default async function handler(
 		}
 
 		const result = await fetchDuneData();
-		cache.set(cacheKey, result, 3600);
+		cache.set(cacheKey, result, 10800); // Refresh cache every 3 hours
 		res.status(200).json({ result });
 	} catch (err) {
 		res.status(500).json({ error: 'failed to load data' });
