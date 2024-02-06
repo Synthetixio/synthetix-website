@@ -1,6 +1,7 @@
 import Head from 'next/head';
 import { PageLayout } from 'src/components';
-import GovernanceMain from 'src/sections/governance/main';
+import GovernanceCallout from 'src/sections/governance/callout';
+import GovernanceHeader from 'src/sections/governance/header';
 
 export default function Governance() {
 	return (
@@ -9,7 +10,8 @@ export default function Governance() {
 				<title>Synthetix - Governance</title>
 			</Head>
 			<PageLayout>
-				<GovernanceMain />
+				<GovernanceHeader />
+				<GovernanceCallout />
 			</PageLayout>
 		</>
 	);

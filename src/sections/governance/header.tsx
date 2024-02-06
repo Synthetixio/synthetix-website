@@ -2,14 +2,14 @@ import { Box, Button, Flex, Heading, Text } from '@chakra-ui/react';
 import Image from 'next/image';
 import Link from 'next/link';
 
-export default function GovernanceMain() {
+export default function GovernanceHeader() {
 	return (
-		<Flex flexDir="column" position="relative">
+		<Flex flexDir="column" position="relative" pb={{ base: '60px' }}>
 			<Box
 				position="absolute"
 				width={1178}
 				height={608}
-				top={{ base: '20px' }}
+				top={{ base: '50px' }}
 				right={{ base: '-560px' }}
 				zIndex={0}
 			>
