@@ -6,7 +6,7 @@ import { Flex, Link } from '@chakra-ui/react';
 
 const data = (fill?: string) => [
 	{
-		link: 'https://discord.com/invite/AEdUHzt',
+		link: 'https://discord.com/invite/ptfNSByB8P',
 		label: 'discord',
 		image: <Discord fill={fill} />,
 	},
