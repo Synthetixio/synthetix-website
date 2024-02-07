@@ -34,7 +34,7 @@ export default function GovernanceHeader() {
 				representative councils elected by the community, ensuring every
 				decision reflects the collective voice of its users.
 			</Text>
-			<Link href="https://governance.synthetix.io/">
+			<Link href="https://governance.synthetix.io/" rel="noopener noreferrer">
 				<Button mt={{ base: 6 }} w="fit-content" h={{ base: 12 }} zIndex={10}>
 					Vote for Governance
 				</Button>

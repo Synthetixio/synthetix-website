@@ -2,6 +2,7 @@ import Head from 'next/head';
 import { PageLayout } from 'src/components';
 import GovernanceCallout from 'src/sections/governance/callout';
 import GovernanceEcosystem from 'src/sections/governance/ecosystem';
+import GovernanceFeatures from 'src/sections/governance/features';
 import GovernanceHeader from 'src/sections/governance/header';
 
 export default function Governance() {
@@ -14,6 +15,7 @@ export default function Governance() {
 				<GovernanceHeader />
 				<GovernanceCallout />
 				<GovernanceEcosystem />
+				<GovernanceFeatures />
 			</PageLayout>
 		</>
 	);
