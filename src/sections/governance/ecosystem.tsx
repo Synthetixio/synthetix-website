@@ -296,9 +296,10 @@ export default function GovernanceEcosystem() {
 				</Heading>
 
 				<Text display="inline" fontSize={{ base: '16px' }} color="gray.500">
-					Explore Synthetix's governance system. Learn how decisions are made
-					through our community-elected councils and proposals (SIPs and SCCPs)
-					by visiting our documentation and joining the conversation on Discord.
+					Explore Synthetix&apos;s governance system. Learn how decisions are
+					made through our community-elected councils and proposals (SIPs and
+					SCCPs) by visiting our documentation and joining the conversation on
+					Discord.
 				</Text>
 
 				<Link

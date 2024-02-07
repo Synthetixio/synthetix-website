@@ -17,7 +17,7 @@ export default function GovernanceAction() {
 			<Text color="gray.500" fontSize={{ base: '14px' }} mb={{ base: 4 }}>
 				Play a pivotal role in Synthetix Governance. As a staker, your votes in
 				council elections and contributions to proposals are essential, steering
-				the protocol's direction and evolution.
+				the protocol&apos;s direction and evolution.
 			</Text>
 			<Flex gap="6" my={{ base: 6 }}>
 				<Link
