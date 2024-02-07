@@ -1,5 +1,4 @@
 import { Box, Flex, Heading, Text } from '@chakra-ui/react';
-import { Fragment } from 'react';
 
 const FEATURES = [
 	{
@@ -60,53 +59,62 @@ export default function GovernanceFeatures() {
 			>
 				Protocol Features
 			</Heading>
-			<Flex flexDir="column" zIndex={10} mt={{ base: 10 }}>
-				<Box display="inline">
-					{FEATURES.map(feature => {
-						return (
-							<Fragment key={feature.title}>
-								<Heading
-									fontSize={{ base: '18px' }}
-									lineHeight={{ base: '28px' }}
-									mt={{ base: 8 }}
-									mb={{ base: 4 }}
-								>
-									{feature.title}
-								</Heading>
-								{Array.isArray(feature.description) ? (
-									feature.description.map((d, index) => {
-										console.log(index % 2, index);
-										if (index % 2 === 1)
-											return (
-												<Text
-													fontSize={{ base: '16px' }}
-													color="cyan.500"
-													key={d.concat(index.toString())}
-													display="inline"
-												>
-													{d}
-												</Text>
-											);
+
+			<Flex
+				flexDir={{ base: 'column', md: 'row' }}
+				mt={{ base: 10 }}
+				zIndex={10}
+				flexWrap={{ md: 'wrap' }}
+				gap={{ md: 4 }}
+			>
+				{FEATURES.map(feature => {
+					return (
+						<Box
+							w={{ base: '100%', md: '312px' }}
+							key={feature.title}
+							p={{ base: 4, md: 6 }}
+						>
+							<Heading
+								fontSize={{ base: '18px' }}
+								lineHeight={{ base: '28px' }}
+								mt={{ base: 8 }}
+								mb={{ base: 4 }}
+							>
+								{feature.title}
+							</Heading>
+							{Array.isArray(feature.description) ? (
+								feature.description.map((d, index) => {
+									console.log(index % 2, index);
+									if (index % 2 === 1)
 										return (
 											<Text
 												fontSize={{ base: '16px' }}
-												color="gray.500"
+												color="cyan.500"
 												key={d.concat(index.toString())}
 												display="inline"
 											>
 												{d}
 											</Text>
 										);
-									})
-								) : (
-									<Text fontSize={{ base: '16px' }} color="gray.500">
-										{feature.description}
-									</Text>
-								)}
-							</Fragment>
-						);
-					})}
-				</Box>
+									return (
+										<Text
+											fontSize={{ base: '16px' }}
+											color="gray.500"
+											key={d.concat(index.toString())}
+											display="inline"
+										>
+											{d}
+										</Text>
+									);
+								})
+							) : (
+								<Text fontSize={{ base: '16px' }} color="gray.500">
+									{feature.description}
+								</Text>
+							)}
+						</Box>
+					);
+				})}
 			</Flex>
 		</Flex>
 	);

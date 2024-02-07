@@ -146,13 +146,7 @@ const COUNCILS = [
 
 export default function GovernanceEcosystem() {
 	return (
-		<Flex
-			flexDir="column"
-			w="100%"
-			my={{ base: 10 }}
-			position="relative"
-			overflow="hidden"
-		>
+		<Flex flexDir="column" w="100%" my={{ base: 10 }} position="relative">
 			<Box
 				position="absolute"
 				bgGradient="linear-gradient(44deg, #EE2EFF 0%, #5744EA 100%)"
@@ -161,8 +155,8 @@ export default function GovernanceEcosystem() {
 				zIndex={0}
 				borderRadius="100%"
 				filter="blur(250px)"
-				top="200px"
-				left="-200px"
+				top="300px"
+				left={{ base: '-200px', md: '-100px' }}
 			/>
 			<Text
 				color="gray.500"
@@ -189,88 +183,99 @@ export default function GovernanceEcosystem() {
 				The Synthetix Protocol is governed by four councils, each responsible
 				for a core aspect of a DAO.
 			</Text>
-			{COUNCILS.map(council => {
-				return (
-					<Flex
-						key={council.title.concat(council.link)}
-						flexDir="column"
-						rounded="base"
-						boxShadow="lg"
-						bg="navy.700"
-						border="1px solid"
-						borderColor="gray.900"
-						p={{ base: '6' }}
-						mb={{ base: '4' }}
-						zIndex={1}
-					>
-						{council.icon}
-						<Heading my={{ base: 4 }}>{council.title}</Heading>
-						<Box>
-							{council.description.map(description => {
-								if (typeof description === 'object')
-									return (
-										<Link
-											href={description.link}
-											key={description.link.concat(description.text)}
-											style={{ display: 'inline' }}
-											target="_blank"
-											rel="noopener noreferrer"
-										>
-											<Text
-												fontSize={{ base: '16px' }}
-												color="cyan.500"
-												display="inline"
+			<Flex
+				flexDir={{ base: 'column', md: 'row' }}
+				flexWrap={{ md: 'wrap' }}
+				gap={{ md: 4 }}
+			>
+				{COUNCILS.map(council => {
+					return (
+						<Flex
+							maxW={{ md: '360px', lg: '510px', xl: '638px' }}
+							key={council.title.concat(council.link)}
+							flexDir="column"
+							rounded="base"
+							boxShadow="lg"
+							bg="navy.700"
+							border="1px solid"
+							borderColor="gray.900"
+							p={{ base: '6' }}
+							mb={{ base: '4' }}
+							zIndex={1}
+						>
+							{council.icon}
+							<Heading my={{ base: 4 }}>{council.title}</Heading>
+							<Box>
+								{council.description.map(description => {
+									if (typeof description === 'object')
+										return (
+											<Link
+												href={description.link}
+												key={description.link.concat(description.text)}
+												style={{ display: 'inline' }}
+												target="_blank"
+												rel="noopener noreferrer"
 											>
-												{description.text}
-											</Text>
-										</Link>
+												<Text
+													fontSize={{ base: '16px' }}
+													color="cyan.500"
+													display="inline"
+												>
+													{description.text}
+												</Text>
+											</Link>
+										);
+									return (
+										<Text
+											display="inline"
+											fontSize={{ base: '16px' }}
+											color="gray.500"
+											key={description}
+										>
+											{description}
+										</Text>
 									);
-								return (
-									<Text
-										display="inline"
-										fontSize={{ base: '16px' }}
-										color="gray.500"
-										key={description}
-									>
-										{description}
-									</Text>
-								);
-							})}
-						</Box>
-						<Link href={council.link} target="_blank" rel="noopener noreferrer">
-							<Button
-								mt={{ base: '6' }}
-								variant="outline"
-								colorScheme="gray"
-								color="white"
-								rightIcon={
-									<svg
-										xmlns="http://www.w3.org/2000/svg"
-										width="18"
-										height="18"
-										viewBox="0 0 18 18"
-										fill="none"
-									>
-										<g clip-path="url(#clip0_6845_45)">
-											<path
-												d="M11.6733 5.7487L5.98387 5.7487L5.98387 4.24892L14.2337 4.24892L14.2337 12.4987L12.7339 12.4987L12.7339 6.80936L5.29308 14.5607L4.23242 13.5L11.6733 5.7487Z"
-												fill="white"
-											/>
-										</g>
-										<defs>
-											<clipPath id="clip0_6845_45">
-												<rect width="18" height="18" fill="white" />
-											</clipPath>
-										</defs>
-									</svg>
-								}
+								})}
+							</Box>
+							<Link
+								href={council.link}
+								target="_blank"
+								rel="noopener noreferrer"
 							>
-								View Council
-							</Button>
-						</Link>
-					</Flex>
-				);
-			})}
+								<Button
+									mt={{ base: '6' }}
+									variant="outline"
+									colorScheme="gray"
+									color="white"
+									rightIcon={
+										<svg
+											xmlns="http://www.w3.org/2000/svg"
+											width="18"
+											height="18"
+											viewBox="0 0 18 18"
+											fill="none"
+										>
+											<g clip-path="url(#clip0_6845_45)">
+												<path
+													d="M11.6733 5.7487L5.98387 5.7487L5.98387 4.24892L14.2337 4.24892L14.2337 12.4987L12.7339 12.4987L12.7339 6.80936L5.29308 14.5607L4.23242 13.5L11.6733 5.7487Z"
+													fill="white"
+												/>
+											</g>
+											<defs>
+												<clipPath id="clip0_6845_45">
+													<rect width="18" height="18" fill="white" />
+												</clipPath>
+											</defs>
+										</svg>
+									}
+								>
+									View Council
+								</Button>
+							</Link>
+						</Flex>
+					);
+				})}
+			</Flex>
 
 			<Flex
 				flexDir="column"
@@ -283,6 +288,7 @@ export default function GovernanceEcosystem() {
 				mb={{ base: '4' }}
 				zIndex={10}
 				pos="relative"
+				overflow="hidden"
 			>
 				<InterestedLooper
 					position="absolute"

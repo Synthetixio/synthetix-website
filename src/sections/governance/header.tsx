@@ -4,13 +4,13 @@ import Link from 'next/link';
 
 export default function GovernanceHeader() {
 	return (
-		<Flex flexDir="column" position="relative" pb={{ base: '60px' }}>
+		<Flex flexDir="column" position="relative" pb={{ base: '60px' }} w="100%">
 			<Box
 				position="absolute"
 				width={1178}
 				height={608}
 				top={{ base: '50px' }}
-				right={{ base: '-560px' }}
+				right={{ base: '-560px', md: '-440px' }}
 				zIndex={0}
 			>
 				<Image
@@ -20,7 +20,12 @@ export default function GovernanceHeader() {
 					height={608}
 				/>
 			</Box>
-			<Heading fontSize={{ base: '48px' }} mt={{ base: 56 }} zIndex={10}>
+			<Heading
+				fontSize={{ base: '48px' }}
+				mt={{ base: 56 }}
+				zIndex={10}
+				maxW={{ md: '483px' }}
+			>
 				A Decentralized Governance
 			</Heading>
 			<Text
@@ -29,6 +34,7 @@ export default function GovernanceHeader() {
 				color="gray.500"
 				mt={{ base: 4 }}
 				zIndex={10}
+				maxW={{ md: '483px' }}
 			>
 				Synthetix is a decentralized protocol run by governance, with
 				representative councils elected by the community, ensuring every
