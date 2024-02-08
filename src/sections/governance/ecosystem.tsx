@@ -149,7 +149,7 @@ export default function GovernanceEcosystem() {
 		<Flex
 			flexDir="column"
 			w="100%"
-			my={{ base: 10 }}
+			py={{ base: '60px' }}
 			position="relative"
 			alignItems="center"
 		>
@@ -213,7 +213,7 @@ export default function GovernanceEcosystem() {
 							p={{ base: '6' }}
 							mb={{ base: '4' }}
 							zIndex={1}
-							height={{ xl: '486px' }}
+							height={{ md: '603px', xl: '486px' }}
 						>
 							{council.icon}
 							<Heading my={{ base: 4 }}>{council.title}</Heading>
@@ -253,9 +253,9 @@ export default function GovernanceEcosystem() {
 								href={council.link}
 								target="_blank"
 								rel="noopener noreferrer"
+								style={{ marginTop: 'auto' }}
 							>
 								<Button
-									mt={{ base: '6' }}
 									variant="outline"
 									colorScheme="gray"
 									color="white"
@@ -311,7 +311,7 @@ export default function GovernanceEcosystem() {
 					bottom="0"
 					zIndex={0}
 				/>
-				<Heading my={{ base: 4 }} mt={{ base: '341px', xl: 12 }} maxW="700px">
+				<Heading mb={{ base: 12 }} mt={{ base: '290px', xl: 12 }} maxW="700px">
 					Learn more about Synthetix Governance
 				</Heading>
 

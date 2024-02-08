@@ -4,7 +4,7 @@ import Link from 'next/link';
 
 export default function GovernanceAction() {
 	return (
-		<Flex flexDir="column" w="100%" my={{ base: 10 }} pos="relative">
+		<Flex flexDir="column" w="100%" py={{ base: '60px' }} pos="relative">
 			<Text
 				color="gray.500"
 				fontSize={{ base: '16px' }}
@@ -70,10 +70,10 @@ export default function GovernanceAction() {
 				borderColor="gray.900"
 				boxShadow="dark-lg"
 			>
-				<Heading mb={{ md: 6 }}>
+				<Heading mb={{ base: 4 }}>
 					Want to hear all about Governance updates?
 				</Heading>
-				<Text fontSize={{ md: '16px' }} color="gray.500" mb={{ md: 6 }}>
+				<Text fontSize={{ md: '16px' }} color="gray.500" mb={{ base: 6 }}>
 					Learn more about governance by reading the documentation on each
 					council and how they interact with each other
 				</Text>

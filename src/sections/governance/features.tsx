@@ -48,7 +48,7 @@ export default function GovernanceFeatures() {
 		<Flex
 			position="relative"
 			flexDir="column"
-			my={{ base: 10 }}
+			py={{ base: '60px' }}
 			alignItems="center"
 		>
 			<Box

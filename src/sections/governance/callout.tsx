@@ -6,7 +6,7 @@ export default function GovernanceCallout() {
 		<Flex
 			flexDir="column"
 			w="100%"
-			my={{ base: 10, md: 20 }}
+			py={{ base: '60px', md: 20 }}
 			maxW="800px"
 			alignSelf="start"
 		>

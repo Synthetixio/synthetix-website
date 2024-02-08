@@ -10,7 +10,7 @@ export default function GovernanceHeader() {
 				width={1178}
 				height={608}
 				top={{ base: '50px' }}
-				right={{ base: '-560px', md: '-440px' }}
+				right={{ base: '-580px', md: '-440px' }}
 				zIndex={0}
 			>
 				<Image
