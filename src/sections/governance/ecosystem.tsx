@@ -146,7 +146,13 @@ const COUNCILS = [
 
 export default function GovernanceEcosystem() {
 	return (
-		<Flex flexDir="column" w="100%" my={{ base: 10 }} position="relative">
+		<Flex
+			flexDir="column"
+			w="100%"
+			my={{ base: 10 }}
+			position="relative"
+			alignItems="center"
+		>
 			<Box
 				position="absolute"
 				bgGradient="linear-gradient(44deg, #EE2EFF 0%, #5744EA 100%)"
@@ -163,6 +169,7 @@ export default function GovernanceEcosystem() {
 				fontSize={{ base: '16px' }}
 				mb={{ base: 1 }}
 				zIndex={10}
+				w="100%"
 			>
 				SYNTHETIX ECOSYSTEM
 			</Text>
@@ -171,10 +178,12 @@ export default function GovernanceEcosystem() {
 				lineHeight={{ base: '120%' }}
 				mb={{ base: 1 }}
 				zIndex={10}
+				w="100%"
 			>
 				Governing Councils
 			</Heading>
 			<Text
+				w="100%"
 				color="gray.500"
 				fontSize={{ base: '14px' }}
 				mb={{ base: 4 }}
@@ -187,21 +196,24 @@ export default function GovernanceEcosystem() {
 				flexDir={{ base: 'column', md: 'row' }}
 				flexWrap={{ md: 'wrap' }}
 				gap={{ md: 4 }}
+				alignItems="center"
+				justifyContent="center"
 			>
 				{COUNCILS.map(council => {
 					return (
 						<Flex
-							maxW={{ md: '360px', lg: '510px', xl: '638px' }}
+							maxW={{ md: '360px', lg: '414px', xl: '606px' }}
 							key={council.title.concat(council.link)}
 							flexDir="column"
 							rounded="base"
-							boxShadow="lg"
+							boxShadow="dark-lg"
 							bg="navy.700"
 							border="1px solid"
 							borderColor="gray.900"
 							p={{ base: '6' }}
 							mb={{ base: '4' }}
 							zIndex={1}
+							height={{ xl: '486px' }}
 						>
 							{council.icon}
 							<Heading my={{ base: 4 }}>{council.title}</Heading>
@@ -280,7 +292,7 @@ export default function GovernanceEcosystem() {
 			<Flex
 				flexDir="column"
 				rounded="base"
-				boxShadow="lg"
+				boxShadow="dark-lg"
 				bg="navy.700"
 				border="1px solid"
 				borderColor="gray.900"
@@ -289,6 +301,8 @@ export default function GovernanceEcosystem() {
 				zIndex={10}
 				pos="relative"
 				overflow="hidden"
+				maxW="1236px"
+				w="100%"
 			>
 				<InterestedLooper
 					position="absolute"
@@ -297,11 +311,16 @@ export default function GovernanceEcosystem() {
 					bottom="0"
 					zIndex={0}
 				/>
-				<Heading my={{ base: 4 }} mt={{ base: '341px' }}>
+				<Heading my={{ base: 4 }} mt={{ base: '341px', xl: 12 }} maxW="700px">
 					Learn more about Synthetix Governance
 				</Heading>
 
-				<Text display="inline" fontSize={{ base: '16px' }} color="gray.500">
+				<Text
+					display="inline"
+					fontSize={{ base: '16px' }}
+					color="gray.500"
+					maxW="700px"
+				>
 					Explore Synthetix&apos;s governance system. Learn how decisions are
 					made through our community-elected councils and proposals (SIPs and
 					SCCPs) by visiting our documentation and joining the conversation on

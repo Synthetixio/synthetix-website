@@ -3,7 +3,13 @@ import { GradientText } from 'src/components';
 
 export default function GovernanceCallout() {
 	return (
-		<Flex flexDir="column" w="100%" my={{ base: 10 }}>
+		<Flex
+			flexDir="column"
+			w="100%"
+			my={{ base: 10, md: 20 }}
+			maxW="800px"
+			alignSelf="start"
+		>
 			<Text color="gray.500" fontSize={{ base: '16px' }} mb={{ base: 4 }}>
 				SYNTHETIX GOVERNANCE
 			</Text>

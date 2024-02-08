@@ -15,6 +15,11 @@ const FEATURES = [
 		],
 	},
 	{
+		title: 'Election Cycle',
+		description:
+			'Elections occur every epoch, a period spanning four months. During this phase, SNX stakers cast their votes, selecting the individuals they believe are best suited to guide each council.',
+	},
+	{
 		title: 'Decision-Making on Proposals',
 		description: [
 			'Once elected, Spartan Councillors have the responsibility to deliberate on',
@@ -40,7 +45,12 @@ const FEATURES = [
 
 export default function GovernanceFeatures() {
 	return (
-		<Flex position="relative" flexDir="column" my={{ base: 10 }}>
+		<Flex
+			position="relative"
+			flexDir="column"
+			my={{ base: 10 }}
+			alignItems="center"
+		>
 			<Box
 				position="absolute"
 				bgGradient="linear-gradient(44deg, #34EDB3 0%, #00D1FF 100%)"
@@ -52,12 +62,13 @@ export default function GovernanceFeatures() {
 				left="-300"
 			/>
 			<Heading
+				w="100%"
 				fontSize={{ base: '36px' }}
 				lineHeight={{ base: '120%' }}
 				mb={{ base: 1 }}
 				zIndex={10}
 			>
-				Protocol Features
+				How does Governance work?
 			</Heading>
 
 			<Flex
@@ -70,7 +81,7 @@ export default function GovernanceFeatures() {
 				{FEATURES.map(feature => {
 					return (
 						<Box
-							w={{ base: '100%', md: '312px' }}
+							w={{ base: '100%', md: '360px' }}
 							key={feature.title}
 							p={{ base: 4, md: 6 }}
 						>
@@ -84,7 +95,6 @@ export default function GovernanceFeatures() {
 							</Heading>
 							{Array.isArray(feature.description) ? (
 								feature.description.map((d, index) => {
-									console.log(index % 2, index);
 									if (index % 2 === 1)
 										return (
 											<Text
