@@ -74,7 +74,7 @@ export default function GovernanceMain() {
 				</FlexDivCentered>
 				<FlexDivCentered style={{ marginBottom: '52px' }}>
 					<StyledButtonWrapperLinearGradient height="124px" margin="16px">
-						<StyledLinkButtons href="https://discord.com/invite/ptfNSByB8P">
+						<StyledLinkButtons href="https://discord.com/invite/KVeCZe6ahW">
 							<StyledButtonLabel>SYNTHETIX FORUM</StyledButtonLabel>
 							<StyledButtonText>
 								Join the community governance discussion <br /> in realtime.
