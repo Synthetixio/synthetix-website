@@ -62,7 +62,7 @@ export default function GovernanceAction() {
 			</Show>
 			<Flex
 				w="100%"
-				p="12"
+				p={{ base: '4', md: '12' }}
 				flexDir="column"
 				rounded="base"
 				bg="navy.700"
