@@ -63,7 +63,7 @@ export default function GovernanceFeatures() {
 			/>
 			<Heading
 				w="100%"
-				fontSize={{ base: '36px' }}
+				fontSize={{ base: '36px', lg: '48px' }}
 				lineHeight={{ base: '120%' }}
 				mb={{ base: 1 }}
 				zIndex={10}
@@ -76,12 +76,12 @@ export default function GovernanceFeatures() {
 				mt={{ base: 10 }}
 				zIndex={10}
 				flexWrap={{ md: 'wrap' }}
-				gap={{ md: 4 }}
+				gap={{ md: 4, '2xl': 6 }}
 			>
 				{FEATURES.map(feature => {
 					return (
 						<Box
-							w={{ base: '100%', md: '360px', lg: '300px' }}
+							w={{ base: '100%', md: '360px', lg: '396px', '2xl': '480px' }}
 							key={feature.title}
 							p={{ base: 4, md: 6 }}
 						>

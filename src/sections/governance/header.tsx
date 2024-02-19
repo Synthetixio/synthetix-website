@@ -21,7 +21,7 @@ export default function GovernanceHeader() {
 				/>
 			</Box>
 			<Heading
-				fontSize={{ base: '48px' }}
+				fontSize={{ base: '48px', lg: '60px' }}
 				mt={{ base: 56 }}
 				zIndex={10}
 				maxW={{ md: '483px' }}

@@ -1,6 +1,6 @@
-import { Box, Button, Flex, Heading, Show, Text } from '@chakra-ui/react';
-import Image from 'next/image';
+import { Button, Flex, Heading, Show, Text } from '@chakra-ui/react';
 import Link from 'next/link';
+import Shield from 'src/svg/Shield';
 
 export default function GovernanceAction() {
 	return (
@@ -9,15 +9,15 @@ export default function GovernanceAction() {
 				color="gray.500"
 				fontSize={{ base: '16px' }}
 				mb={{ base: 4 }}
-				w={{ base: '100%', md: '360px' }}
+				w={{ base: '100%', md: '360px', lg: '525px' }}
 			>
 				SYNTHETIX GOVERNANCE
 			</Text>
 			<Heading
-				fontSize={{ base: '36px' }}
+				fontSize={{ base: '36px', lg: '48px' }}
 				lineHeight={{ base: '120%' }}
 				mb={{ base: 4 }}
-				w={{ base: '100%', md: '360px' }}
+				w={{ base: '100%', md: '360px', lg: '525px' }}
 			>
 				Participate in Governance
 			</Heading>
@@ -25,7 +25,7 @@ export default function GovernanceAction() {
 				color="gray.500"
 				fontSize={{ base: '14px' }}
 				mb={{ base: 4 }}
-				w={{ base: '100%', md: '360px' }}
+				w={{ base: '100%', md: '360px', lg: '525px' }}
 			>
 				Play a pivotal role in Synthetix Governance. As a staker, your votes in
 				council elections and contributions to proposals are essential, steering
@@ -33,7 +33,7 @@ export default function GovernanceAction() {
 			</Text>
 			<Flex gap="6" my={{ base: 6 }}>
 				<Link
-					href="https://sips.synthetix.io/all-sip/"
+					href="https://sips.synthetix.io/"
 					target="_blank"
 					rel="noopener noreferrer"
 				>
@@ -49,18 +49,17 @@ export default function GovernanceAction() {
 					</Button>
 				</Link>
 			</Flex>
-			<Show above="md">
-				<Box
-					width={{ md: '510px' }}
-					height="581px"
-					position="absolute"
-					top={0}
-					right={{ md: '-150px' }}
-				>
-					<Image src="shield.svg" alt="shield" width="1110" height="581" />
-				</Box>
-			</Show>
+			<Shield
+				width={{ md: '810px', lg: '100%' }}
+				height={{ base: '450px', lg: '450px' }}
+				position={{ md: 'absolute' }}
+				top={0}
+				zIndex={1}
+				right={{ md: '-350px', lg: '-300px' }}
+			/>
+
 			<Flex
+				mt={{ base: '60px' }}
 				w="100%"
 				p={{ base: '4', md: '12' }}
 				flexDir="column"
@@ -78,7 +77,7 @@ export default function GovernanceAction() {
 					council and how they interact with each other
 				</Text>
 				<Link
-					href="https://discord.com/invite/ptfNSByB8P"
+					href="https://discord.com/channels/413890591840272394/937743028095967332"
 					target="_blank"
 					rel="noopener noreferrer"
 				>

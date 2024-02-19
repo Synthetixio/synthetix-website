@@ -13,7 +13,10 @@ export default function GovernanceCallout() {
 			<Text color="gray.500" fontSize={{ base: '16px' }} mb={{ base: 4 }}>
 				SYNTHETIX GOVERNANCE
 			</Text>
-			<Heading fontSize={{ base: '36px' }} lineHeight={{ base: '120%' }}>
+			<Heading
+				fontSize={{ base: '36px', lg: '48px' }}
+				lineHeight={{ base: '120%' }}
+			>
 				The Synthetix protocol is governed by a{' '}
 				<GradientText>decentralized</GradientText> set of representative
 				councils that are <GradientText>voted on by stakers</GradientText>.

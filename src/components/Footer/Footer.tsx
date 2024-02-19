@@ -78,7 +78,7 @@ const footerMenu = [
 export function Footer() {
 	return (
 		<>
-			<Show above="lg">
+			<Show above="md">
 				<Flex w="100%" flexDir="column" maxW="100%" as="footer" my={'24px'}>
 					<Flex w="100%" justifyContent="space-between">
 						<Flex gap="14" m="5" w="100%">
@@ -129,7 +129,7 @@ export function Footer() {
 					</Flex>
 				</Flex>
 			</Show>
-			<Show below="lg">
+			<Show below="md">
 				<Flex
 					as="footer"
 					w="100%"

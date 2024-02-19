@@ -19,7 +19,7 @@ const data: {
 		label: 'Governance',
 	},
 	{
-		link: 'https://docs.synthetix.io/',
+		externalLink: 'https://docs.synthetix.io/',
 		label: 'Docs',
 	},
 	{
@@ -96,6 +96,7 @@ export const Menu = ({ isOpen, ...rest }: MenuProps) => {
 									color="#828295"
 									_hover={{ color: 'cyan.500' }}
 									key={item.link}
+									target="_blank"
 								>
 									<Text
 										fontFamily="heading"

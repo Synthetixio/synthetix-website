@@ -138,7 +138,7 @@ const COUNCILS = [
 		description: [
 			'The Ambassador Council, established via ',
 			{ link: 'https://sips.synthetix.io/sips/sip-157/', text: 'SIP-157' },
-			"is responsible for promoting Synthetix's interest in the DeFi ecosystem. This advocation comes through two primary means: governance and partnerships. Governance includes seeking governance power in protocols that may be beneficial for Synthetix, and voting for proposals in the interest of the community. Partnerships include working with Synthetix integrators to help them integrate within the Synthetix Ecosystem.",
+			" is responsible for promoting Synthetix's interest in the DeFi ecosystem. This advocation comes through two primary means: governance and partnerships. Governance includes seeking governance power in protocols that may be beneficial for Synthetix, and voting for proposals in the interest of the community. Partnerships include working with Synthetix integrators to help them integrate within the Synthetix Ecosystem.",
 		],
 		link: 'https://governance.synthetix.io/#/councils/ambassador',
 	},
@@ -185,8 +185,8 @@ export default function GovernanceEcosystem() {
 			<Text
 				w="100%"
 				color="gray.500"
-				fontSize={{ base: '14px' }}
-				mb={{ base: 4 }}
+				fontSize={{ base: '14px', lg: '16px' }}
+				mb={{ base: 4, lg: 6 }}
 				zIndex={10}
 			>
 				The Synthetix Protocol is governed by four councils, each responsible
@@ -195,15 +195,15 @@ export default function GovernanceEcosystem() {
 			<Flex
 				flexDir={{ base: 'column', md: 'row' }}
 				flexWrap={{ md: 'wrap' }}
-				gap={{ md: 4 }}
+				gap={{ md: 4, lg: 6 }}
 				alignItems="center"
 				justifyContent="center"
 			>
 				{COUNCILS.map(council => {
 					return (
 						<Flex
-							maxW={{ md: '360px', lg: '462px', xl: '606px' }}
 							key={council.title.concat(council.link)}
+							maxW={{ md: '360px', lg: '604px', '2xl': '732px' }}
 							flexDir="column"
 							rounded="base"
 							boxShadow="dark-lg"
@@ -211,7 +211,7 @@ export default function GovernanceEcosystem() {
 							border="1px solid"
 							borderColor="gray.900"
 							p={{ base: '6' }}
-							mb={{ base: '4' }}
+							my={{ base: 4, lg: 'unset' }}
 							zIndex={1}
 							height={{ md: '603px', lg: '486px', xl: '486px' }}
 						>
@@ -259,6 +259,7 @@ export default function GovernanceEcosystem() {
 									variant="outline"
 									colorScheme="gray"
 									color="white"
+									mt={{ base: '24px', md: 'unset' }}
 									rightIcon={
 										<svg
 											xmlns="http://www.w3.org/2000/svg"
@@ -298,17 +299,17 @@ export default function GovernanceEcosystem() {
 				borderColor="gray.900"
 				p={{ base: '6', lg: 12 }}
 				mb={{ base: '4' }}
+				mt={{ base: 2, lg: 6 }}
 				zIndex={10}
 				pos="relative"
 				overflow="hidden"
-				maxW="1236px"
 				w="100%"
 			>
 				<InterestedLooper
 					position="absolute"
 					top="0px"
-					right="0"
-					bottom="0"
+					right="0px"
+					bottom="0px"
 					zIndex={0}
 				/>
 				<Heading
