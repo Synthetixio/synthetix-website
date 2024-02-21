@@ -4,13 +4,18 @@ import Link from 'next/link';
 
 export default function GovernanceHeader() {
 	return (
-		<Flex flexDir="column" position="relative" pb={{ base: '60px' }} w="100%">
+		<Flex
+			flexDir="column"
+			position="relative"
+			pb={{ base: '60px', lg: '100px' }}
+			w="100%"
+		>
 			<Box
 				position="absolute"
 				width={1178}
 				height={608}
-				top={{ base: '50px' }}
-				right={{ base: '-580px', md: '-440px' }}
+				top={{ base: '50px', xl: '100px' }}
+				right={{ base: '-580px', md: '-440px', xl: '-300px' }}
 				zIndex={0}
 			>
 				<Image
@@ -21,7 +26,7 @@ export default function GovernanceHeader() {
 				/>
 			</Box>
 			<Heading
-				fontSize={{ base: '48px', lg: '60px' }}
+				fontSize={{ base: '48px', md: '60px' }}
 				mt={{ base: 56 }}
 				zIndex={10}
 				maxW={{ md: '483px' }}

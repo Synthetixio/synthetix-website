@@ -48,7 +48,7 @@ export default function GovernanceFeatures() {
 		<Flex
 			position="relative"
 			flexDir="column"
-			py={{ base: '60px' }}
+			py={{ base: '60px', lg: '100px' }}
 			alignItems="center"
 		>
 			<Box
@@ -63,7 +63,7 @@ export default function GovernanceFeatures() {
 			/>
 			<Heading
 				w="100%"
-				fontSize={{ base: '36px', lg: '48px' }}
+				fontSize={{ base: '36px', md: '48px' }}
 				lineHeight={{ base: '120%' }}
 				mb={{ base: 1 }}
 				zIndex={10}
@@ -81,7 +81,7 @@ export default function GovernanceFeatures() {
 				{FEATURES.map(feature => {
 					return (
 						<Box
-							w={{ base: '100%', md: '360px', lg: '396px', '2xl': '480px' }}
+							w={{ base: '100%', md: '360px', lg: '304px', '2xl': '480px' }}
 							key={feature.title}
 							p={{ base: 4, md: 6 }}
 						>

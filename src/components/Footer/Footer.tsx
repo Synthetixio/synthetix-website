@@ -1,6 +1,6 @@
 import { Fragment } from 'react';
 import { Logo, Socials } from '../';
-import { Box, Divider, Flex, Link, Show, Text } from '@chakra-ui/react';
+import { Box, Divider, Flex, Hide, Link, Show, Text } from '@chakra-ui/react';
 import {
 	Accordion,
 	AccordionItem,
@@ -78,7 +78,7 @@ const footerMenu = [
 export function Footer() {
 	return (
 		<>
-			<Show above="md">
+			<Show above="lg">
 				<Flex w="100%" flexDir="column" maxW="100%" as="footer" my={'24px'}>
 					<Flex w="100%" justifyContent="space-between">
 						<Flex gap="14" m="5" w="100%">
@@ -129,7 +129,7 @@ export function Footer() {
 					</Flex>
 				</Flex>
 			</Show>
-			<Show below="md">
+			<Hide above="lg">
 				<Flex
 					as="footer"
 					w="100%"
@@ -194,7 +194,7 @@ export function Footer() {
 						<Socials isFooter />
 					</Flex>
 				</Flex>
-			</Show>
+			</Hide>
 		</>
 	);
 }

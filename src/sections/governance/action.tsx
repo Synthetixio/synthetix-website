@@ -4,7 +4,12 @@ import Shield from 'src/svg/Shield';
 
 export default function GovernanceAction() {
 	return (
-		<Flex flexDir="column" w="100%" py={{ base: '60px' }} pos="relative">
+		<Flex
+			flexDir="column"
+			w="100%"
+			py={{ base: '60px', lg: '100px' }}
+			pos="relative"
+		>
 			<Text
 				color="gray.500"
 				fontSize={{ base: '16px' }}
@@ -14,7 +19,7 @@ export default function GovernanceAction() {
 				SYNTHETIX GOVERNANCE
 			</Text>
 			<Heading
-				fontSize={{ base: '36px', lg: '48px' }}
+				fontSize={{ base: '36px', md: '48px' }}
 				lineHeight={{ base: '120%' }}
 				mb={{ base: 4 }}
 				w={{ base: '100%', md: '360px', lg: '525px' }}
@@ -50,12 +55,13 @@ export default function GovernanceAction() {
 				</Link>
 			</Flex>
 			<Shield
-				width={{ md: '810px', lg: '100%' }}
-				height={{ base: '450px', lg: '450px' }}
+				width={{ base: '100%', md: '810px', lg: '100%' }}
+				transform={{ base: 'scale(1.6)', md: 'unset' }}
+				height={{ base: '450px' }}
 				position={{ md: 'absolute' }}
 				top={0}
 				zIndex={1}
-				right={{ md: '-350px', lg: '-300px' }}
+				right={{ md: '-300px' }}
 			/>
 
 			<Flex

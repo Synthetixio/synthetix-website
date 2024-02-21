@@ -149,7 +149,7 @@ export default function GovernanceEcosystem() {
 		<Flex
 			flexDir="column"
 			w="100%"
-			py={{ base: '60px' }}
+			py={{ base: '60px', lg: '100px' }}
 			position="relative"
 			alignItems="center"
 		>
@@ -174,7 +174,7 @@ export default function GovernanceEcosystem() {
 				SYNTHETIX ECOSYSTEM
 			</Text>
 			<Heading
-				fontSize={{ base: '48px' }}
+				fontSize={{ base: '36px', md: '48px' }}
 				lineHeight={{ base: '120%' }}
 				mb={{ base: 1 }}
 				zIndex={10}
@@ -203,7 +203,7 @@ export default function GovernanceEcosystem() {
 					return (
 						<Flex
 							key={council.title.concat(council.link)}
-							maxW={{ md: '360px', lg: '604px', '2xl': '732px' }}
+							maxW={{ md: '360px', lg: '460px', xl: '604px', '2xl': '732px' }}
 							flexDir="column"
 							rounded="base"
 							boxShadow="dark-lg"
