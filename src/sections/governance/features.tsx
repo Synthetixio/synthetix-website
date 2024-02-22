@@ -81,7 +81,13 @@ export default function GovernanceFeatures() {
 				{FEATURES.map(feature => {
 					return (
 						<Box
-							w={{ base: '100%', md: '360px', lg: '304px', '2xl': '480px' }}
+							w={{
+								base: '100%',
+								md: '360px',
+								lg: '304px',
+								xl: '400px',
+								'2xl': '480px',
+							}}
 							key={feature.title}
 							p={{ base: 4, md: 6 }}
 						>

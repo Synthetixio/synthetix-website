@@ -56,8 +56,8 @@ export default function GovernanceAction() {
 			</Flex>
 			<Shield
 				width={{ base: '100%', md: '810px', lg: '100%' }}
-				transform={{ base: 'scale(1.6)', md: 'unset' }}
-				height={{ base: '450px' }}
+				transform={{ base: 'scale(2)', md: 'unset' }}
+				height={{ base: '500px' }}
 				position={{ md: 'absolute' }}
 				top={0}
 				zIndex={1}
@@ -65,9 +65,9 @@ export default function GovernanceAction() {
 			/>
 
 			<Flex
-				mt={{ base: '60px' }}
+				mt={{ base: '120px', lg: '200px' }}
 				w="100%"
-				p={{ base: '4', md: '12' }}
+				p={{ base: '6', md: '12' }}
 				flexDir="column"
 				rounded="base"
 				bg="navy.700"
@@ -75,10 +75,10 @@ export default function GovernanceAction() {
 				borderColor="gray.900"
 				boxShadow="dark-lg"
 			>
-				<Heading mb={{ base: 4 }}>
+				<Heading mb={{ base: 4 }} fontSize="30px">
 					Want to hear all about Governance updates?
 				</Heading>
-				<Text fontSize={{ md: '16px' }} color="gray.500" mb={{ base: 6 }}>
+				<Text fontSize={{ base: '16px' }} color="gray.500" mb={{ base: 6 }}>
 					Learn more about governance by reading the documentation on each
 					council and how they interact with each other
 				</Text>

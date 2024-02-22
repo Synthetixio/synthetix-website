@@ -210,7 +210,7 @@ export default function GovernanceEcosystem() {
 							bg="navy.700"
 							border="1px solid"
 							borderColor="gray.900"
-							p={{ base: '6' }}
+							p={{ base: '6', xl: '12' }}
 							my={{ base: 4, lg: 'unset' }}
 							zIndex={1}
 							height={{ md: '603px', lg: '486px', xl: '486px' }}
@@ -307,10 +307,12 @@ export default function GovernanceEcosystem() {
 			>
 				<InterestedLooper
 					position="absolute"
-					top="0px"
-					right="0px"
+					top="-100px"
+					right="-50px"
 					bottom="0px"
 					zIndex={0}
+					height="490px"
+					viewBox="0 0 590 488px"
 				/>
 				<Heading
 					mb={{ base: 12, lg: 4 }}
