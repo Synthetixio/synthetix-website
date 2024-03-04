@@ -13,7 +13,7 @@ export default function DecentralizedPerpetualFutures() {
 			<Head>
 				<title>Synthetix - Decentralized Perps</title>
 			</Head>
-			<PageLayout useChakra>
+			<PageLayout>
 				<FuturesMain />
 				<Callout />
 				<USP />

@@ -1,6 +1,6 @@
 import { Fragment } from 'react';
 import { Logo, Socials } from '../';
-import { Box, Divider, Flex, Link, Show, Text } from '@chakra-ui/react';
+import { Box, Divider, Flex, Hide, Link, Show, Text } from '@chakra-ui/react';
 import {
 	Accordion,
 	AccordionItem,
@@ -129,7 +129,7 @@ export function Footer() {
 					</Flex>
 				</Flex>
 			</Show>
-			<Show below="lg">
+			<Hide above="lg">
 				<Flex
 					as="footer"
 					w="100%"
@@ -194,7 +194,7 @@ export function Footer() {
 						<Socials isFooter />
 					</Flex>
 				</Flex>
-			</Show>
+			</Hide>
 		</>
 	);
 }
