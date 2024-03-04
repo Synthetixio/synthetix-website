@@ -25,8 +25,16 @@ export const PinkSpotLight = ({ ...rest }) => {
 					colorInterpolationFilters="sRGB"
 				>
 					<feFlood floodOpacity="0" result="BackgroundImageFix" />
-					<feBlend mode="normal" in="SourceGraphic" in2="BackgroundImageFix" result="shape" />
-					<feGaussianBlur stdDeviation="150" result="effect1_foregroundBlur_2050_85940" />
+					<feBlend
+						mode="normal"
+						in="SourceGraphic"
+						in2="BackgroundImageFix"
+						result="shape"
+					/>
+					<feGaussianBlur
+						stdDeviation="150"
+						result="effect1_foregroundBlur_2050_85940"
+					/>
 				</filter>
 			</defs>
 		</svg>
@@ -60,8 +68,16 @@ export const CyanSpotlight = ({ ...rest }) => {
 					colorInterpolationFilters="sRGB"
 				>
 					<feFlood floodOpacity="0" result="BackgroundImageFix" />
-					<feBlend mode="normal" in="SourceGraphic" in2="BackgroundImageFix" result="shape" />
-					<feGaussianBlur stdDeviation="150" result="effect1_foregroundBlur_2050_85939" />
+					<feBlend
+						mode="normal"
+						in="SourceGraphic"
+						in2="BackgroundImageFix"
+						result="shape"
+					/>
+					<feGaussianBlur
+						stdDeviation="150"
+						result="effect1_foregroundBlur_2050_85939"
+					/>
 				</filter>
 			</defs>
 		</svg>

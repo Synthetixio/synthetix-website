@@ -320,8 +320,15 @@ export default function SNXWave(props: Props) {
 					/>
 					<feOffset />
 					<feGaussianBlur stdDeviation="12" />
-					<feColorMatrix type="matrix" values="0 0 0 0 0 0 0 0 0 0.82 0 0 0 0 1 0 0 0 0.63 0" />
-					<feBlend mode="normal" in2="BackgroundImageFix" result="effect1_dropShadow_1762:5060" />
+					<feColorMatrix
+						type="matrix"
+						values="0 0 0 0 0 0 0 0 0 0.82 0 0 0 0 1 0 0 0 0.63 0"
+					/>
+					<feBlend
+						mode="normal"
+						in2="BackgroundImageFix"
+						result="effect1_dropShadow_1762:5060"
+					/>
 					<feBlend
 						mode="normal"
 						in="SourceGraphic"

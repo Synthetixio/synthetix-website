@@ -5,7 +5,10 @@ interface PriceArrowProps extends Props {
 	priceChange: number;
 }
 
-const PriceArrow = ({ priceChange, ...props }: PriceArrowProps): JSX.Element => {
+const PriceArrow = ({
+	priceChange,
+	...props
+}: PriceArrowProps): JSX.Element => {
 	return (
 		<svg
 			width="14"
@@ -13,7 +16,10 @@ const PriceArrow = ({ priceChange, ...props }: PriceArrowProps): JSX.Element => 
 			viewBox="0 0 14 16"
 			fill="none"
 			xmlns="http://www.w3.org/2000/svg"
-			style={{ marginTop: 2, transform: priceChange >= 0 ? 'rotate(0)' : 'rotate(180deg)' }}
+			style={{
+				marginTop: 2,
+				transform: priceChange >= 0 ? 'rotate(0)' : 'rotate(180deg)',
+			}}
 			{...props}
 		>
 			<path

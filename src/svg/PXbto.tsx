@@ -18,7 +18,10 @@ const SvgPXbto = (props: Props): JSX.Element => {
 					width={1}
 					height={1}
 				>
-					<use xlinkHref="#p-xbto_svg__image0" transform="matrix(.00167 0 0 .00531 0 -.01)" />
+					<use
+						xlinkHref="#p-xbto_svg__image0"
+						transform="matrix(.00167 0 0 .00531 0 -.01)"
+					/>
 				</pattern>
 				<image
 					id="p-xbto_svg__image0"

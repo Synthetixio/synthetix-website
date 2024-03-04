@@ -8,7 +8,13 @@ export default function GradientLine({ ...rest }) {
 			xmlns="http://www.w3.org/2000/svg"
 			{...rest}
 		>
-			<line y1="1" x2="600" y2="1" stroke="url(#paint0_linear_2052_83299)" strokeWidth="2" />
+			<line
+				y1="1"
+				x2="600"
+				y2="1"
+				stroke="url(#paint0_linear_2052_83299)"
+				strokeWidth="2"
+			/>
 			<defs>
 				<linearGradient
 					id="paint0_linear_2052_83299"

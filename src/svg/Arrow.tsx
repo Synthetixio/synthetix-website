@@ -3,7 +3,7 @@ import { theme } from 'src/styles/theme';
 
 interface ArrowProps extends Props {
 	disabled?: boolean;
-	fill?: keyof typeof theme['colors'];
+	fill?: keyof (typeof theme)['colors'];
 }
 
 const SvgArrow = ({ disabled, fill, ...props }: ArrowProps): JSX.Element => {

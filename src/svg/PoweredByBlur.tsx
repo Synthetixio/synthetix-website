@@ -37,8 +37,16 @@ export default function PoweredByBlur(props: Props) {
 					colorInterpolationFilters="sRGB"
 				>
 					<feFlood floodOpacity="0" result="BackgroundImageFix" />
-					<feBlend mode="normal" in="SourceGraphic" in2="BackgroundImageFix" result="shape" />
-					<feGaussianBlur stdDeviation="150" result="effect1_foregroundBlur_1590:70586" />
+					<feBlend
+						mode="normal"
+						in="SourceGraphic"
+						in2="BackgroundImageFix"
+						result="shape"
+					/>
+					<feGaussianBlur
+						stdDeviation="150"
+						result="effect1_foregroundBlur_1590:70586"
+					/>
 				</filter>
 				<filter
 					id="filter1_f_1590:70586"
@@ -50,8 +58,16 @@ export default function PoweredByBlur(props: Props) {
 					colorInterpolationFilters="sRGB"
 				>
 					<feFlood floodOpacity="0" result="BackgroundImageFix" />
-					<feBlend mode="normal" in="SourceGraphic" in2="BackgroundImageFix" result="shape" />
-					<feGaussianBlur stdDeviation="150" result="effect1_foregroundBlur_1590:70586" />
+					<feBlend
+						mode="normal"
+						in="SourceGraphic"
+						in2="BackgroundImageFix"
+						result="shape"
+					/>
+					<feGaussianBlur
+						stdDeviation="150"
+						result="effect1_foregroundBlur_1590:70586"
+					/>
 				</filter>
 				<clipPath id="clip0_1590:70586">
 					<rect width="1440" height="653" fill="white" />
