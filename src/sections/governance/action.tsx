@@ -41,6 +41,7 @@ export default function GovernanceAction() {
 					href="https://sips.synthetix.io/"
 					target="_blank"
 					rel="noopener noreferrer"
+					style={{ zIndex: 10 }}
 				>
 					<Button>All SIPs & SCCPs</Button>
 				</Link>
@@ -48,6 +49,7 @@ export default function GovernanceAction() {
 					href="https://pr.synthetix.io/"
 					target="_blank"
 					rel="noopener noreferrer"
+					style={{ zIndex: 10 }}
 				>
 					<Button variant="outline" colorScheme="gray" color="white">
 						Create a SIP
