@@ -60,7 +60,7 @@ const Home = ({
 			<Head>
 				<title>Synthetix</title>
 			</Head>
-			<PageLayout useChakra>
+			<PageLayout>
 				<Hero />
 				{totalStakedValue && tradingVolume && swapsVolumeTotal && (
 					<Volume

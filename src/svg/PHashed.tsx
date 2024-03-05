@@ -18,7 +18,10 @@ const SvgPHashed = (props: Props): JSX.Element => {
 					width={1}
 					height={1}
 				>
-					<use xlinkHref="#p-hashed_svg__image0" transform="matrix(.00195 0 0 .0051 0 -.002)" />
+					<use
+						xlinkHref="#p-hashed_svg__image0"
+						transform="matrix(.00195 0 0 .0051 0 -.002)"
+					/>
 				</pattern>
 				<image
 					id="p-hashed_svg__image0"

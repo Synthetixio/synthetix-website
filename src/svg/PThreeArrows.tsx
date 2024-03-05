@@ -22,7 +22,10 @@ const SvgPThreeArrows = (props: Props): JSX.Element => {
 				<path fill="#C4C4C4" d="M87.594 17h312.409v38H87.594z" />
 			</mask>
 			<g mask="url(#p-three-arrows_svg__a)">
-				<path fill="url(#p-three-arrows_svg__pattern0)" d="M16.547 3h389.294v66.667H16.547z" />
+				<path
+					fill="url(#p-three-arrows_svg__pattern0)"
+					d="M16.547 3h389.294v66.667H16.547z"
+				/>
 			</g>
 			<mask
 				id="p-three-arrows_svg__b"
@@ -35,7 +38,10 @@ const SvgPThreeArrows = (props: Props): JSX.Element => {
 				<path fill="#C4C4C4" d="M0 0h78.832v72H0z" />
 			</mask>
 			<g mask="url(#p-three-arrows_svg__b)">
-				<path fill="url(#p-three-arrows_svg__pattern1)" d="M8.758 5h389.294v66.667H8.758z" />
+				<path
+					fill="url(#p-three-arrows_svg__pattern1)"
+					d="M8.758 5h389.294v66.667H8.758z"
+				/>
 			</g>
 			<defs>
 				<pattern

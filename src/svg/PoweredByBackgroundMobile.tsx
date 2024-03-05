@@ -222,7 +222,10 @@ export default function PoweredByBackgroundMobile(props: Props) {
 					/>
 				</g>
 				<path d="M0 0H375V172H0V0Z" fill="url(#paint30_radial_1590:70498)" />
-				<path d="M0 257H375V429H0V257Z" fill="url(#paint31_radial_1590:70498)" />
+				<path
+					d="M0 257H375V429H0V257Z"
+					fill="url(#paint31_radial_1590:70498)"
+				/>
 				<path
 					fillRule="evenodd"
 					clipRule="evenodd"
@@ -499,8 +502,16 @@ export default function PoweredByBackgroundMobile(props: Props) {
 					colorInterpolationFilters="sRGB"
 				>
 					<feFlood floodOpacity="0" result="BackgroundImageFix" />
-					<feBlend mode="normal" in="SourceGraphic" in2="BackgroundImageFix" result="shape" />
-					<feGaussianBlur stdDeviation="150" result="effect1_foregroundBlur_1590:70498" />
+					<feBlend
+						mode="normal"
+						in="SourceGraphic"
+						in2="BackgroundImageFix"
+						result="shape"
+					/>
+					<feGaussianBlur
+						stdDeviation="150"
+						result="effect1_foregroundBlur_1590:70498"
+					/>
 				</filter>
 				<filter
 					id="filter1_f_1590:70498"
@@ -512,8 +523,16 @@ export default function PoweredByBackgroundMobile(props: Props) {
 					colorInterpolationFilters="sRGB"
 				>
 					<feFlood floodOpacity="0" result="BackgroundImageFix" />
-					<feBlend mode="normal" in="SourceGraphic" in2="BackgroundImageFix" result="shape" />
-					<feGaussianBlur stdDeviation="150" result="effect1_foregroundBlur_1590:70498" />
+					<feBlend
+						mode="normal"
+						in="SourceGraphic"
+						in2="BackgroundImageFix"
+						result="shape"
+					/>
+					<feGaussianBlur
+						stdDeviation="150"
+						result="effect1_foregroundBlur_1590:70498"
+					/>
 				</filter>
 				<linearGradient
 					id="paint0_linear_1590:70498"

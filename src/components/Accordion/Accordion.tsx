@@ -2,7 +2,10 @@ import { FlexDivCol } from '../../styles/common';
 import styled from 'styled-components';
 import AccordionItem, { AccordionItemProps } from './AccordionItem';
 
-export type AccordionItemsType = Omit<AccordionItemProps, 'onHeaderClick' | 'open' | 'isLast'>;
+export type AccordionItemsType = Omit<
+	AccordionItemProps,
+	'onHeaderClick' | 'open' | 'isLast'
+>;
 
 export interface AccordionProps {
 	items: AccordionItemsType[];
@@ -10,7 +13,11 @@ export interface AccordionProps {
 	activeIndex: number;
 }
 
-export default function Accordion({ items, onAccordionItemChange, activeIndex }: AccordionProps) {
+export default function Accordion({
+	items,
+	onAccordionItemChange,
+	activeIndex,
+}: AccordionProps) {
 	return (
 		<AccordionContainer>
 			{items.map((item, index) => {

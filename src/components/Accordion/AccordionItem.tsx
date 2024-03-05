@@ -30,7 +30,9 @@ export default function AccordionItem({
 				<AccordionItemInner isLast={isLast}>
 					{open && (
 						<AnimationContainer>
-							<AccordionItemDescriptionContainer>{descriptions}</AccordionItemDescriptionContainer>
+							<AccordionItemDescriptionContainer>
+								{descriptions}
+							</AccordionItemDescriptionContainer>
 							{buttons}
 						</AnimationContainer>
 					)}
@@ -79,7 +81,8 @@ const Circle = styled.span<ActiveItemProps>`
 	left: -4px;
 	width: 10px;
 	height: 10px;
-	border: 2px solid ${({ active, theme }) => (active ? theme.colors.cyan : theme.colors.gray50)};
+	border: 2px solid
+		${({ active, theme }) => (active ? theme.colors.cyan : theme.colors.gray50)};
 	border-radius: 50%;
 `;
 
@@ -91,7 +94,8 @@ const LastCircle = styled(Circle)`
 
 const AccordionItemHeadline = styled.h3<ActiveItemProps>`
 	${({ theme }) => theme.fonts.smallHeadline};
-	color: ${({ active, theme }) => (active ? theme.colors.cyan : theme.colors.gray50)};
+	color: ${({ active, theme }) =>
+		active ? theme.colors.cyan : theme.colors.gray50};
 	margin-left: 24px;
 	line-height: 19px;
 	text-align: start;

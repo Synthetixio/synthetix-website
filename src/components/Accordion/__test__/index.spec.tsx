@@ -17,11 +17,17 @@ const queryTextsDictionary = {
 
 const items: AccordionItemsType[] = [
 	{
-		descriptions: [<span key="test-key1">{queryTextsDictionary.descriptions.notVisible}</span>],
+		descriptions: [
+			<span key="test-key1">
+				{queryTextsDictionary.descriptions.notVisible}
+			</span>,
+		],
 		title: queryTextsDictionary.titles.first,
 	},
 	{
-		descriptions: [<span key="test-key2">{queryTextsDictionary.descriptions.visible}</span>],
+		descriptions: [
+			<span key="test-key2">{queryTextsDictionary.descriptions.visible}</span>,
+		],
 		title: queryTextsDictionary.titles.second,
 	},
 ];
@@ -43,10 +49,12 @@ describe('Accordion', () => {
 					onAccordionItemChange={onAccordionItemChange}
 					items={items}
 				/>
-			</ThemeProvider>
+			</ThemeProvider>,
 		);
 
-		expect(screen.queryByText(queryTextsDictionary.descriptions.notVisible)).toBeNull();
+		expect(
+			screen.queryByText(queryTextsDictionary.descriptions.notVisible),
+		).toBeNull();
 	});
 
 	test('should render the accordion item description if it have the active index', () => {
@@ -58,10 +66,12 @@ describe('Accordion', () => {
 					onAccordionItemChange={onAccordionItemChange}
 					items={items}
 				/>
-			</ThemeProvider>
+			</ThemeProvider>,
 		);
 
-		expect(screen.queryByText(queryTextsDictionary.descriptions.notVisible)).toBeInTheDocument();
+		expect(
+			screen.queryByText(queryTextsDictionary.descriptions.notVisible),
+		).toBeInTheDocument();
 	});
 
 	test('should render the all the existing titles', () => {
@@ -72,11 +82,11 @@ describe('Accordion', () => {
 					onAccordionItemChange={onAccordionItemChange}
 					items={items}
 				/>
-			</ThemeProvider>
+			</ThemeProvider>,
 		);
-		const allTitles = items.map((item) => screen.queryByText(item.title));
+		const allTitles = items.map(item => screen.queryByText(item.title));
 		expect(allTitles.length).toBe(2);
-		allTitles.forEach((title) => expect(title).toBeInTheDocument());
+		allTitles.forEach(title => expect(title).toBeInTheDocument());
 	});
 
 	test('should call the onAccordionItemChange when the title of the accordion item is clicked', async () => {
@@ -88,7 +98,7 @@ describe('Accordion', () => {
 					onAccordionItemChange={mockHandleClick}
 					items={items}
 				/>
-			</ThemeProvider>
+			</ThemeProvider>,
 		);
 
 		userEvent.click(screen.queryByText(queryTextsDictionary.titles.first)!);
@@ -104,10 +114,10 @@ describe('Accordion', () => {
 					onAccordionItemChange={onAccordionItemChange}
 					items={items}
 				/>
-			</ThemeProvider>
+			</ThemeProvider>,
 		);
 		expect(
-			screen.queryByText(queryTextsDictionary.descriptions.notVisible)
+			screen.queryByText(queryTextsDictionary.descriptions.notVisible),
 		).not.toBeInTheDocument();
 		userEvent.click(screen.queryByText(queryTextsDictionary.titles.first)!);
 
@@ -118,10 +128,12 @@ describe('Accordion', () => {
 					onAccordionItemChange={onAccordionItemChange}
 					items={items}
 				/>
-			</ThemeProvider>
+			</ThemeProvider>,
 		);
 
-		expect(screen.queryByText(queryTextsDictionary.descriptions.notVisible)).toBeInTheDocument();
+		expect(
+			screen.queryByText(queryTextsDictionary.descriptions.notVisible),
+		).toBeInTheDocument();
 	});
 
 	test('should not render any other description when the already active title is clicked', async () => {
@@ -132,9 +144,11 @@ describe('Accordion', () => {
 					onAccordionItemChange={onAccordionItemChange}
 					items={items}
 				/>
-			</ThemeProvider>
+			</ThemeProvider>,
 		);
-		expect(screen.queryByText(queryTextsDictionary.descriptions.visible)).toBeInTheDocument();
+		expect(
+			screen.queryByText(queryTextsDictionary.descriptions.visible),
+		).toBeInTheDocument();
 		userEvent.click(screen.queryByText(queryTextsDictionary.titles.second)!);
 
 		rerender(
@@ -144,12 +158,14 @@ describe('Accordion', () => {
 					onAccordionItemChange={onAccordionItemChange}
 					items={items}
 				/>
-			</ThemeProvider>
+			</ThemeProvider>,
 		);
 		expect(
-			screen.queryByText(queryTextsDictionary.descriptions.notVisible)
+			screen.queryByText(queryTextsDictionary.descriptions.notVisible),
 		).not.toBeInTheDocument();
 
-		expect(screen.queryByText(queryTextsDictionary.descriptions.visible)).toBeInTheDocument();
+		expect(
+			screen.queryByText(queryTextsDictionary.descriptions.visible),
+		).toBeInTheDocument();
 	});
 });

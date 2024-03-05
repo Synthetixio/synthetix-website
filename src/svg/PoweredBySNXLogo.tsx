@@ -162,7 +162,10 @@ export default function PoweredBySNXLogo(props: Props) {
 					fill="url(#paint29_linear_1590:70463)"
 				/>
 				<path d="M510 0H2V165H510V0Z" fill="url(#paint30_radial_1590:70463)" />
-				<path d="M510 357H2V522H510V357Z" fill="url(#paint31_radial_1590:70463)" />
+				<path
+					d="M510 357H2V522H510V357Z"
+					fill="url(#paint31_radial_1590:70463)"
+				/>
 			</g>
 			<defs>
 				<linearGradient

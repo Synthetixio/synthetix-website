@@ -1,4 +1,4 @@
-import { Button, Flex, Link, Show, Text, Image } from '@chakra-ui/react';
+import { Button, Flex, Link, Show, Text, Image, Box } from '@chakra-ui/react';
 import { InterestedLooper } from 'src/svg/InterestedLooper';
 import { links } from 'src/utils/constants';
 
@@ -13,6 +13,7 @@ export const Interested = () => {
 				position="relative"
 				w="100%"
 				flexDirection={{ base: 'column', lg: 'row' }}
+				overflow="hidden"
 			>
 				<Show below="lg">
 					<Flex display="relative" height="250px" width="100%" bg="navy.700">
@@ -76,12 +77,13 @@ export const Interested = () => {
 				</Flex>
 				<Show above="lg">
 					<InterestedLooper
-						height="100%"
+						height="435px"
 						position="absolute"
-						top="0"
-						right="0"
+						top="-100px"
+						right="-50px"
 						bottom="0"
 						zIndex={0}
+						viewBox={`0 0 100% 435px`}
 					/>
 				</Show>
 			</Flex>
