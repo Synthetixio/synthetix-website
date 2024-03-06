@@ -316,7 +316,7 @@ export default function GovernanceEcosystem() {
 				/>
 				<Heading
 					mb={{ base: 12, lg: 4 }}
-					mt={{ base: '290px', lg: 0 }}
+					mt={{ base: '390px', lg: 0 }}
 					maxW={{ lg: '399px', xl: '700px' }}
 				>
 					Learn more about Synthetix Governance
