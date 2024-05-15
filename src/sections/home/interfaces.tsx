@@ -111,7 +111,7 @@ export const Interfaces = () => {
 						fontFamily="heading"
 						textStyle="heading-xl"
 					>
-						Staking Interface V3
+						Liquidity Interface for V3
 					</Text>
 					<Text
 						fontFamily="heading"
