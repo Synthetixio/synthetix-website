@@ -48,7 +48,7 @@ export const Hero = () => {
 					p="10px 16px"
 					borderRadius="4px"
 					width="fit-content"
-					onClick={onClick}
+					onClick={() => window.open('https://liquidity.synthetix.eth.limo/', '_blank')}
 					size={{ base: 'lg', md: 'md' }}
 				>
 					Liquidity App 
