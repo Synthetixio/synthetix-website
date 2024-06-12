@@ -51,7 +51,7 @@ export const Hero = () => {
 					onClick={onClick}
 					size={{ base: 'lg', md: 'md' }}
 				>
-					Explore Ecosystem
+					Liquidity App 
 				</Button>
 			</Flex>
 			<Box
