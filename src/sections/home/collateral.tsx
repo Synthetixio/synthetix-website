@@ -38,7 +38,7 @@ export const Collateral = () => {
 					markets.{' '}
 					<Box>
 						<Text mt="40px" as="div">
-							Depositors earn <GradientText>rewarded</GradientText> fees and incentives.
+							Depositors <GradientText>earn</GradientText> fees and incentives.
 						</Text>
 					</Box>
 				</Text>
