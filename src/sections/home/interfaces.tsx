@@ -1,12 +1,4 @@
-import {
-	Flex,
-	Text,
-	Box,
-	Tag,
-	TagLabel,
-	LinkBox,
-	LinkOverlay,
-} from '@chakra-ui/react';
+import { Flex, Text, Box, LinkBox, LinkOverlay } from '@chakra-ui/react';
 import { Logo } from 'src/components';
 import { ArrowDiagonal } from 'src/svg';
 import { links } from 'src/utils/constants';
