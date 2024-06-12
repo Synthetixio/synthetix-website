@@ -32,14 +32,13 @@ export const Collateral = () => {
 					textStyle="heading-2xl"
 					width={{ base: '100%' }}
 				>
-					<GradientText>Staking Collateral</GradientText> with Synthetix{' '}
-					<GradientText>helps support deep liquidity</GradientText>, low
+					<GradientText>Depositing Collateral</GradientText> with Synthetix{' '}
+					<GradientText>supports deep liquidity</GradientText>, low
 					slippage, and highly competitive trading fees for our derivatives
 					markets.{' '}
 					<Box>
 						<Text mt="40px" as="div">
-							Stakers get <GradientText>rewarded</GradientText> for helping to
-							support a more robust ecosystem.
+							Depositors earn <GradientText>rewarded</GradientText> fees and incentives.
 						</Text>
 					</Box>
 				</Text>
