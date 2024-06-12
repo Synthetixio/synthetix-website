@@ -1,12 +1,4 @@
-import {
-	Flex,
-	Text,
-	Box,
-	Tag,
-	TagLabel,
-	LinkBox,
-	LinkOverlay,
-} from '@chakra-ui/react';
+import { Flex, Text, Box, LinkBox, LinkOverlay } from '@chakra-ui/react';
 import { Logo } from 'src/components';
 import { ArrowDiagonal } from 'src/svg';
 import { links } from 'src/utils/constants';
@@ -72,7 +64,7 @@ export const Interfaces = () => {
 									lineHeight="20px"
 									color="cyan.500"
 								>
-									Stake on V2
+									Stake SNX
 								</Text>
 							</LinkOverlay>
 							<ArrowDiagonal ml={2} />
@@ -93,17 +85,6 @@ export const Interfaces = () => {
 				>
 					<Flex width="100%" justifyContent="space-between">
 						<Logo small />
-						<Tag bgColor="whiteAlpha.300">
-							<TagLabel
-								color="white"
-								fontSize="12px"
-								lineHeight="16px"
-								fontWeight={500}
-								fontFamily="heading"
-							>
-								COMING SOON
-							</TagLabel>
-						</Tag>
 					</Flex>
 					<Text
 						my="16px"
@@ -123,6 +104,30 @@ export const Interfaces = () => {
 						with greater flexibility over which pools and markets you have
 						exposure to.
 					</Text>
+					<LinkBox mt="16px">
+						<Flex
+							alignItems="center"
+							p="10px 16px"
+							bg="transparent"
+							border="1px"
+							borderColor="cyan.500"
+							borderRadius="4px"
+							width="fit-content"
+						>
+							<LinkOverlay href={links.liquidityApp} target="_blank">
+								<Text
+									fontSize="14px"
+									fontFamily="heading"
+									fontWeight={700}
+									lineHeight="20px"
+									color="cyan.500"
+								>
+									Deposit Liquidity
+								</Text>
+							</LinkOverlay>
+							<ArrowDiagonal ml={2} />
+						</Flex>
+					</LinkBox>
 				</Flex>
 			</Flex>
 		</Box>
