@@ -34,8 +34,8 @@ const data: {
 
 const externalButtons = [
 	{
-		externalLink: 'https://staking.synthetix.io',
-		label: 'Staking App',
+		externalLink: 'https://liquidity.synthetix.eth.limo/',
+		label: 'Liquidity App',
 	},
 ];
 
