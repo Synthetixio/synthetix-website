@@ -13,7 +13,7 @@ export const Interfaces = () => {
 				lineHeight="28px"
 				mb="16px"
 			>
-				STAKING INTERFACES
+				LIQUIDITY INTERFACES
 			</Text>
 			<Flex
 				flexDirection={{ base: 'column', md: 'row' }}
@@ -34,7 +34,7 @@ export const Interfaces = () => {
 				>
 					<Logo small />
 					<Text my="16px" fontFamily="heading" textStyle="heading-xl">
-						Staking Interface V2
+						Staking for V2
 					</Text>
 					<Text
 						fontFamily="heading"
@@ -42,9 +42,8 @@ export const Interfaces = () => {
 						lineHeight="24px"
 						color="gray.500"
 					>
-						Stake your collateral via the Synthetix staking dapp to provide
-						liquidity to the Synthetix ecosystem. Earn weekly inflation
-						incentives and fees generated from your liquidity.
+						Stake SNX to provide liquidity to the Synthetix 
+						ecosystem, and earn incentives and fees.
 					</Text>
 					<LinkBox mt="16px">
 						<Flex
@@ -92,7 +91,7 @@ export const Interfaces = () => {
 						fontFamily="heading"
 						textStyle="heading-xl"
 					>
-						Liquidity Interface for V3
+						Liquidity for V3
 					</Text>
 					<Text
 						fontFamily="heading"
@@ -100,9 +99,8 @@ export const Interfaces = () => {
 						lineHeight="24px"
 						color="gray.500"
 					>
-						V3 staking is now live. Provide liquidity directly to the V3 system
-						with greater flexibility over which pools and markets you have
-						exposure to.
+						Deposit popular assets including SNX, USDC, ETH, and choose 
+						your exposure to earn rewards and fees.
 					</Text>
 					<LinkBox mt="16px">
 						<Flex
