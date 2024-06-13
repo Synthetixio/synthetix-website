@@ -1,12 +1,4 @@
-import {
-	Flex,
-	Text,
-	Box,
-	Tag,
-	TagLabel,
-	LinkBox,
-	LinkOverlay,
-} from '@chakra-ui/react';
+import { Flex, Text, Box, LinkBox, LinkOverlay } from '@chakra-ui/react';
 import { Logo } from 'src/components';
 import { ArrowDiagonal } from 'src/svg';
 import { links } from 'src/utils/constants';
@@ -21,7 +13,7 @@ export const Interfaces = () => {
 				lineHeight="28px"
 				mb="16px"
 			>
-				STAKING INTERFACES
+				LIQUIDITY INTERFACES
 			</Text>
 			<Flex
 				flexDirection={{ base: 'column', md: 'row' }}
@@ -42,7 +34,7 @@ export const Interfaces = () => {
 				>
 					<Logo small />
 					<Text my="16px" fontFamily="heading" textStyle="heading-xl">
-						Staking Interface V2
+						Staking for V2
 					</Text>
 					<Text
 						fontFamily="heading"
@@ -50,9 +42,8 @@ export const Interfaces = () => {
 						lineHeight="24px"
 						color="gray.500"
 					>
-						Stake your collateral via the Synthetix staking dapp to provide
-						liquidity to the Synthetix ecosystem. Earn weekly inflation
-						incentives and fees generated from your liquidity.
+						Stake SNX to provide liquidity to the Synthetix 
+						ecosystem, and earn incentives and fees.
 					</Text>
 					<LinkBox mt="16px">
 						<Flex
@@ -72,7 +63,7 @@ export const Interfaces = () => {
 									lineHeight="20px"
 									color="cyan.500"
 								>
-									Stake on V2
+									Stake SNX
 								</Text>
 							</LinkOverlay>
 							<ArrowDiagonal ml={2} />
@@ -93,17 +84,6 @@ export const Interfaces = () => {
 				>
 					<Flex width="100%" justifyContent="space-between">
 						<Logo small />
-						<Tag bgColor="whiteAlpha.300">
-							<TagLabel
-								color="white"
-								fontSize="12px"
-								lineHeight="16px"
-								fontWeight={500}
-								fontFamily="heading"
-							>
-								COMING SOON
-							</TagLabel>
-						</Tag>
 					</Flex>
 					<Text
 						my="16px"
@@ -111,7 +91,7 @@ export const Interfaces = () => {
 						fontFamily="heading"
 						textStyle="heading-xl"
 					>
-						Liquidity Interface for V3
+						Liquidity for V3
 					</Text>
 					<Text
 						fontFamily="heading"
@@ -119,10 +99,33 @@ export const Interfaces = () => {
 						lineHeight="24px"
 						color="gray.500"
 					>
-						V3 staking is now live. Provide liquidity directly to the V3 system
-						with greater flexibility over which pools and markets you have
-						exposure to.
+						Deposit popular assets including SNX, USDC, ETH, and choose 
+						your exposure to earn rewards and fees.
 					</Text>
+					<LinkBox mt="16px">
+						<Flex
+							alignItems="center"
+							p="10px 16px"
+							bg="transparent"
+							border="1px"
+							borderColor="cyan.500"
+							borderRadius="4px"
+							width="fit-content"
+						>
+							<LinkOverlay href={links.liquidityApp} target="_blank">
+								<Text
+									fontSize="14px"
+									fontFamily="heading"
+									fontWeight={700}
+									lineHeight="20px"
+									color="cyan.500"
+								>
+									Deposit Liquidity
+								</Text>
+							</LinkOverlay>
+							<ArrowDiagonal ml={2} />
+						</Flex>
+					</LinkBox>
 				</Flex>
 			</Flex>
 		</Box>
