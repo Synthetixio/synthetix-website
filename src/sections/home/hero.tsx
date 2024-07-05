@@ -49,7 +49,7 @@ export const Hero = () => {
 					borderRadius="4px"
 					width="fit-content"
 					onClick={() =>
-						window.open('https://liquidity.synthetix.eth.limo/', '_blank')
+						window.open('https://liquidity-synthetix.on.fleek.co/', '_blank')
 					}
 					size={{ base: 'lg', md: 'md' }}
 				>
