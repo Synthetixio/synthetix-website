@@ -48,10 +48,12 @@ export const Hero = () => {
 					p="10px 16px"
 					borderRadius="4px"
 					width="fit-content"
-					onClick={() => window.open('https://liquidity.synthetix.eth.limo/', '_blank')}
+					onClick={() =>
+						window.open('https://liquidity-synthetix.on.fleek.co/', '_blank')
+					}
 					size={{ base: 'lg', md: 'md' }}
 				>
-					Liquidity App 
+					Liquidity App
 				</Button>
 			</Flex>
 			<Box
