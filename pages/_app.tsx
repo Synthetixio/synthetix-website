@@ -151,18 +151,7 @@ export default function MyApp({ Component, pageProps }: AppProps) {
 					name="description"
 					content="Synthetix is a derivatives liquidity protocol providing the backbone for derivatives trading in DeFi, allowing anyone, anywhere to gain on-chain exposure to a vast range of assets."
 				/>
-
-				<meta property="og:title" content="Synthetix" />
-				<meta property="og:description" content="The Liquidity Layer of DeFi" />
-				<meta property="og:image" content="https://synthetix.io/metatag.png" />
-
-				<meta name="twitter:card" content="summary_large_image" />
-				<meta name="twitter:title" content="Synthetix" />
-				<meta
-					name="twitter:description"
-					content="The Liquidity Layer of DeFi"
-				/>
-				<meta name="twitter:image" content="https://synthetix.io/metatag.png" />
+				<meta name="og:image" content="/public/logo-x.png" />
 			</Head>
 			<GlobalStyle />
 			<Fonts />
