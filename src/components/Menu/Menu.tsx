@@ -34,7 +34,7 @@ const data: {
 
 const externalButtons = [
 	{
-		externalLink: 'https://liquidity-synthetix.on.fleek.co/',
+		externalLink: 'https://liquidity.synthetix.eth.limo/',
 		label: 'Liquidity App',
 	},
 ];
