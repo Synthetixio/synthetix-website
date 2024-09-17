@@ -19,18 +19,13 @@ export const Partners = () => {
 			>
 				<Image alt="blocknative" src="/blocknative.svg" mr="20px" mt="16px" />
 				<Image alt="cannon" src="/cannon.svg" mr="20px" mt="16px" />
-				<Image alt="chainlink" src="/chainlinkText.svg" mr="20px" mt="16px" />
+				<Image alt="chainlink" src="/chainlink.svg" mr="20px" mt="16px" />
 				<Image alt="infura" src="/infura.svg" mr="20px" mt="16px" />
-				<Image
-					height="54px"
-					alt="iosiro"
-					src="/iosiro.svg"
-					mr="20px"
-					mt="16px"
-				/>
+				<Image alt="iosiro" src="/iosiro.svg" mr="20px" mt="16px" />
 				<Image alt="macro" src="/macro.svg" mr="20px" mt="16px" />
 				<Image alt="optimism" src="/optimism.svg" mr="20px" mt="16px" />
-				<Image alt="pyth" src="/pythText.svg" mr="20px" mt="16px" />
+				<Image alt="pyth" src="/pyth.svg" mr="20px" mt="16px" />
+				<Image alt="wormhole" src="/wormhole.svg" mt="16px" />
 			</Flex>
 		</Box>
 	);
