@@ -43,7 +43,7 @@ const footerMenu = [
 		{ title: 'About' },
 		{
 			title: 'Careers',
-			link: 'https://jobs.paradigm.xyz/companies/synthetix',
+			link: 'https://snx.breezy.hr',
 		},
 		{
 			title: 'Brand Assets',
