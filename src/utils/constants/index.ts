@@ -5,5 +5,5 @@ export const links = {
 	liquidityApp: 'https://liquidity.synthetix.eth.limo/',
 	stakingGuide: 'https://docs.synthetix.io/staking/staking-guide',
 	v3IntegrationGuide: 'https://docs.synthetix.io/v/v3/',
-	governanceApp: 'https://governance.synthetix.io/',
+	governanceApp: 'https://governance.synthetix.io/ff',
 };
