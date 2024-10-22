@@ -1,12 +1,4 @@
-import {
-	Button,
-	Flex,
-	Link,
-	Show,
-	Text,
-	Image,
-	Heading,
-} from '@chakra-ui/react';
+import { Button, Flex, Heading, Link, Text } from '@chakra-ui/react';
 import { InterestedLooper } from 'src/svg/InterestedLooper';
 import { links } from 'src/utils/constants';
 
@@ -51,7 +43,8 @@ export const Vision = () => {
 				maxW={{ lg: '399px', xl: '700px' }}
 			>
 				Our new roadmap and vision realign our efforts, increase awareness in
-				the crypto community, and set clear objectives for Synthetix's future.
+				the crypto community, and set clear objectives for Synthetix&apos;s
+				future.
 			</Text>
 
 			<Link href={links.vision} target="_blank">

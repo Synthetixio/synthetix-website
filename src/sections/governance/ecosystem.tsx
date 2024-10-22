@@ -174,7 +174,7 @@ export default function GovernanceEcosystem() {
 					description={
 						<>
 							Provides expert guidance and diverse perspectives to the council,
-							offering insights on various aspects of the protocol&squot;s
+							offering insights on various aspects of the protocol&apos;s
 							governance, development, and ecosystem growth.
 						</>
 					}
@@ -192,7 +192,7 @@ export default function GovernanceEcosystem() {
 				<SeatCard
 					icon={
 						<>
-							<Image alt="Strategy Seat" {...StrategyIcon} />{' '}
+							<Image alt="Strategy Seat" {...StrategyIcon} />
 						</>
 					}
 					title="1 Strategy Seat"
@@ -201,14 +201,14 @@ export default function GovernanceEcosystem() {
 						<>
 							Leads the strategic direction of Synthetix, focusing on long-term
 							vision and high-level decision-making to ensure the
-							protocol&squot;s growth and relevance in the DeFi ecosystem.
+							protocol&apos;s growth and relevance in the DeFi ecosystem.
 						</>
 					}
 				/>
 				<SeatCard
 					icon={
 						<>
-							<Image alt="Technical Seat" {...TechnicalIcon} />{' '}
+							<Image alt="Technical Seat" {...TechnicalIcon} />
 						</>
 					}
 					title="1 Technical Seat"
@@ -225,7 +225,7 @@ export default function GovernanceEcosystem() {
 				<SeatCard
 					icon={
 						<>
-							<Image alt="Operations Seat" {...OperationsIcon} />{' '}
+							<Image alt="Operations Seat" {...OperationsIcon} />
 						</>
 					}
 					title="1 Operations Seat"
