@@ -59,9 +59,9 @@ export const Docs = () => {
 						mb="24px"
 					>
 						Explore Synthetix&apos;s governance system. Learn how decisions are
-						made through our community-elected councils and proposals (SIPs and
-						SCCPs) by visiting our documentation and joining the conversation on
-						Discord.
+						made through our community-elected councils and proposals (SIPs,
+						SCCPs, STPs and SRs) by visiting our documentation and joining the
+						conversation on Discord.
 					</Text>
 					<Link href={links.governanceDocs} target="_blank">
 						<Button
