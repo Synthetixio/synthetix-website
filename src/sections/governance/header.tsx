@@ -31,7 +31,7 @@ export default function GovernanceHeader() {
 				zIndex={10}
 				maxW={{ md: '483px' }}
 			>
-				A New Era of Synthetix Governance{' '}
+				A New Era of Synthetix Governance
 			</Heading>
 			<Text
 				fontSize={{ base: '16px' }}
