@@ -31,7 +31,7 @@ export default function GovernanceHeader() {
 				zIndex={10}
 				maxW={{ md: '483px' }}
 			>
-				A Decentralized Governance
+				A New Era of Synthetix Governance
 			</Heading>
 			<Text
 				fontSize={{ base: '16px' }}
@@ -41,9 +41,9 @@ export default function GovernanceHeader() {
 				zIndex={10}
 				maxW={{ md: '483px' }}
 			>
-				Synthetix is a decentralized protocol run by governance, with
-				representative councils elected by the community, ensuring every
-				decision reflects the collective voice of its users.
+				Synthetix is a decentralized protocol governed by a streamlined Spartan
+				Council, combining community-elected members with appointed experts to
+				ensure every decision reflects the collective voice of its users
 			</Text>
 			<Link href="https://governance.synthetix.io/" rel="noopener noreferrer">
 				<Button mt={{ base: 6 }} w="fit-content" h={{ base: 12 }} zIndex={10}>

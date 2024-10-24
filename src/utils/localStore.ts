@@ -17,8 +17,3 @@ export function get<T>(key: string): T | null {
 	}
 	return null;
 }
-
-export default {
-	set,
-	get,
-};
