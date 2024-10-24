@@ -42,8 +42,8 @@ export const Interfaces = () => {
 						lineHeight="24px"
 						color="gray.500"
 					>
-						Stake SNX to provide liquidity to the Synthetix 
-						ecosystem, and earn incentives and fees.
+						Stake SNX to provide liquidity to the Synthetix ecosystem, and earn
+						incentives and fees.
 					</Text>
 					<LinkBox mt="16px">
 						<Flex
@@ -99,8 +99,8 @@ export const Interfaces = () => {
 						lineHeight="24px"
 						color="gray.500"
 					>
-						Deposit popular assets including SNX, USDC, ETH, and choose 
-						your exposure to earn rewards and fees.
+						Deposit popular assets including SNX, USDC, ETH, and choose your
+						exposure to earn rewards and fees.
 					</Text>
 					<LinkBox mt="16px">
 						<Flex

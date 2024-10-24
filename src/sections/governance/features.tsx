@@ -1,45 +1,22 @@
 import { Box, Flex, Heading, Text } from '@chakra-ui/react';
+import { Docs } from 'src/sections/governance/docs';
 
 const FEATURES = [
 	{
-		title: 'Voting Power',
+		title: 'Council Composition',
 		description:
-			"By staking SNX tokens, users gain the authority to vote within the Synthetix protocol, directly influencing its future direction. This voting power is crucial in electing representative councils that align with their vision for Synthetix's evolution.",
+			'7 seats: Strategy, Ops, Technical, Treasury, and 3 Advisory roles. Each seat carries equal voting weight of 1.00.',
 	},
 	{
-		title: 'Nomination Process',
+		title: 'Decision Making',
 		description: [
-			'The nomination is open to all; anyone interested can self-nominate for a position on one of the four councils. Candidates must use the',
-			' governance app ',
-			'during the specified election period, providing details about their qualifications and experience.',
+			'4/7 signatures required for approval of SIPs, SCCPs, STPs, and Treasury Transactions, ensuring thorough consideration of all proposals.',
 		],
 	},
 	{
 		title: 'Election Cycle',
 		description:
-			'Elections occur every epoch, a period spanning four months. During this phase, SNX stakers cast their votes, selecting the individuals they believe are best suited to guide each council.',
-	},
-	{
-		title: 'Decision-Making on Proposals',
-		description: [
-			'Once elected, Spartan Councillors have the responsibility to deliberate on',
-			' Synthetix Improvement Proposals ',
-			'(SIPs) and',
-			' Synthetix Configuration Change Proposals ',
-			'(SCCPs). These decisions are made after considering presentations and feedback from the community, gathered through the',
-			' Synthetix Discord',
-			'.',
-		],
-	},
-	{
-		title: 'Initiatives by Non-Governing Bodies ',
-		description:
-			"Apart from the governing councils, non-governing DAOs like the Treasury Council, Ambassadors, and Grants Committee undertake various initiatives within each epoch. These initiatives include allocating new grants, fostering partnerships, and managing the treasury's assets.",
-	},
-	{
-		title: 'Ongoing Cycle',
-		description:
-			'The Synthetix governance cycle is continuous, with each epoch marking the beginning of a new phase. This cycle includes the nomination of candidates, the electoral process, and the ongoing execution of roles, ensuring the constant evolution and management of the Synthetix Protocol.',
+			'6-month terms for elected seats, with elections held in October and April, balancing continuity with fresh perspectives.',
 	},
 ];
 
@@ -132,6 +109,7 @@ export default function GovernanceFeatures() {
 					);
 				})}
 			</Flex>
+			<Docs />
 		</Flex>
 	);
 }

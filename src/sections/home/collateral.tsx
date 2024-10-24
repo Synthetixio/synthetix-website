@@ -33,9 +33,8 @@ export const Collateral = () => {
 					width={{ base: '100%' }}
 				>
 					<GradientText>Depositing Collateral</GradientText> with Synthetix{' '}
-					<GradientText>supports deep liquidity</GradientText>, low
-					slippage, and highly competitive trading fees for our derivatives
-					markets.{' '}
+					<GradientText>supports deep liquidity</GradientText>, low slippage,
+					and highly competitive trading fees for our derivatives markets.{' '}
 					<Box>
 						<Text mt="40px" as="div">
 							Depositors <GradientText>earn</GradientText> fees and incentives.
