@@ -38,7 +38,7 @@ export const IntegratorCardPerps = ({
 		>
 			<Hide above="md">
 				<Flex alignItems="center" h="40px" mb="16px">
-					<Image src={uri} h={{ base: '40px', xl: '50px' }} />
+					<Image src={uri} h={{ base: '40px', xl: '50px' }} alt="Integrator" />
 					<Text
 						my="16px"
 						fontSize="lg"
@@ -63,7 +63,7 @@ export const IntegratorCardPerps = ({
 				</Text>
 			</Hide>
 			<Show above="md">
-				<Image src={uri} h={{ base: '40px', xl: '50px' }} />
+				<Image src={uri} h={{ base: '40px', xl: '50px' }} alt="Integrator" />
 				<Heading my="16px" fontSize="18px">
 					{name}
 				</Heading>

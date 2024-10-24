@@ -1,4 +1,5 @@
 import { Link, LinkProps } from '@chakra-ui/react';
+import Image from 'next/image';
 
 interface LogoProps extends LinkProps {
 	small?: boolean;
@@ -9,7 +10,7 @@ export const Logo = ({ small, ...rest }: LogoProps) => {
 
 	return (
 		<Link href="/" {...rest}>
-			<img src={src} alt="synthetix" />
+			<Image src={src} alt="Synthetix" />
 		</Link>
 	);
 };
