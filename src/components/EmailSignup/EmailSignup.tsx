@@ -11,7 +11,10 @@ import {
 import { AppEvents, initialState, reducer } from './reducer';
 import { emailRegex } from 'src/utils/validation';
 import { MARKETING_URI } from 'src/constants/urls';
-import localStore from 'src/utils/localStore';
+import {
+	get as localStoreGet,
+	set as localStoreSet,
+} from 'src/utils/localStore';
 
 interface EmailSignupProps extends FlexProps {
 	page?: string;
@@ -25,7 +28,7 @@ export const EmailSignup = ({ page = 'home', ...props }: EmailSignupProps) => {
 
 	useEffect(() => {
 		const previouslySubmitted =
-			localStore.get('marketing-form-submission') === true;
+			localStoreGet('marketing-form-submission') === true;
 
 		if (previouslySubmitted) {
 			dispatch({ type: AppEvents.SUBMIT });
@@ -53,7 +56,7 @@ export const EmailSignup = ({ page = 'home', ...props }: EmailSignupProps) => {
 				});
 
 				dispatch({ type: AppEvents.SUBMIT });
-				localStore.set('marketing-form-submission', true);
+				localStoreSet('marketing-form-submission', true);
 				inputRef!.current!.value = '';
 			} catch (error) {
 				dispatch({

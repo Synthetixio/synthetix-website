@@ -1,5 +1,3 @@
-import localStore from 'src/utils/localStore';
-
 type FormState = {
 	errorMessage: string | null;
 	submitted: boolean;

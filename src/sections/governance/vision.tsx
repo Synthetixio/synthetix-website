@@ -43,7 +43,8 @@ export const Vision = () => {
 				maxW={{ lg: '399px', xl: '700px' }}
 			>
 				Our new roadmap and vision realigns our efforts, increases awareness in
-				the crypto community, and sets clear objectives for Synthetix's future.
+				the crypto community, and sets clear objectives for Synthetix&apos;s
+				future.
 			</Text>
 
 			<Link href={links.vision} target="_blank">

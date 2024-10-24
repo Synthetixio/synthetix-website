@@ -5,7 +5,6 @@ export * from './Footer';
 export * from './Button';
 export * from './Logo';
 export * from './PageLayout';
-export * from './ArrowPath';
 export * from './BoxLink';
 export * from './IntegratorCard';
 export * from './PageLayout';
