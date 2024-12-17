@@ -7535,7 +7535,7 @@
   }
 
   .text-color-orange-500 {
-    text-align: center;
+    text-align: left;
     letter-spacing: normal;
     vertical-align: baseline;
     width: 100%;
@@ -7712,7 +7712,7 @@
   .button-primary-5 {
     justify-content: center;
     align-items: center;
-    width: 100%;
+    width: auto;
   }
 
   .button-primary-large-email-capture {
@@ -7764,6 +7764,10 @@
 
   .title-wrapper-partners {
     margin-bottom: 30px;
+  }
+
+  .button-outline-get-started {
+    width: 100%;
   }
 
   .earn-copy {
