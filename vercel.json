@@ -1,4 +1,10 @@
 {
+  "framework": null,
+  "devCommand": null,
+  "trailingSlash": false,
+  "rewrites": [
+    {"source": "/(.*)", "destination": "/index.html"}
+  ],
 	"headers": [
 		{
 			"source": "/(.*)",
