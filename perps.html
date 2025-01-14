@@ -1,4 +1,4 @@
-<!DOCTYPE html><!--  This site was created in Webflow. https://webflow.com  --><!--  Last Published: Tue Dec 17 2024 23:13:26 GMT+0000 (Coordinated Universal Time)  -->
+<!DOCTYPE html><!--  This site was created in Webflow. https://webflow.com  --><!--  Last Published: Thu Jan 09 2025 22:43:13 GMT+0000 (Coordinated Universal Time)  -->
 <html data-wf-page="6723f25dc543c11fed408201" data-wf-site="671654fc11deedf0b921d140">
 <head>
   <meta charset="utf-8">
@@ -33,6 +33,25 @@ _.parentNode.insertBefore(r,_);})(window, document, 'script', 'https://static.ma
 var ml_account = ml('accounts', '1130930', 'b3w8m6s6a3', 'load');
 </script>
   <!--  End MailerLite Universal  -->
+  <!--  Matomo  -->
+  <script>
+      var _paq = (window._paq = window._paq || []);
+      /* tracker methods like "setCustomDimension" should be called before "trackPageView" */
+      _paq.push(['trackPageView']);
+      _paq.push(['enableLinkTracking']);
+      (function () {
+        var u = 'https://analytics.synthetix.io/';
+        _paq.push(['setTrackerUrl', u + 'matomo.php']);
+        _paq.push(['setSiteId', '1']);
+        var d = document,
+          g = d.createElement('script'),
+          s = d.getElementsByTagName('script')[0];
+        g.async = true;
+        g.src = u + 'matomo.js';
+        s.parentNode.insertBefore(g, s);
+      })();
+    </script>
+  <!--  End Matomo Code  -->
 </head>
 <body class="body">
   <div class="navigation-wrapper">
@@ -56,7 +75,7 @@ var ml_account = ml('accounts', '1130930', 'b3w8m6s6a3', 'load');
         <div class="navigation-wrapper-large">
           <a href="index.html" class="navigation-logo-link w-inline-block"><img width="200" sizes="(max-width: 479px) 53vw, (max-width: 767px) 160px, 200px" alt="Synthetix Blue Logo" src="images/full-synthetix-logo_blue.png" loading="lazy" srcset="images/full-synthetix-logo_blue-p-500.png 500w, images/full-synthetix-logo_blue-p-800.png 800w, images/full-synthetix-logo_blue-p-1080.png 1080w, images/full-synthetix-logo_blue-p-1600.png 1600w, images/full-synthetix-logo_blue.png 2500w" class="navigation-logo-image"></a>
           <nav role="navigation" class="navigation-menu w-nav-menu">
-            <a href="https://exchange.synthetix.io/" target="_blank" class="navigation-link w-nav-link">Trade</a>
+            <a href="https://exchange.synthetix.io/market/" target="_blank" class="navigation-link w-nav-link">Trade</a>
             <a href="https://liquidity.synthetix.io/" target="_blank" class="navigation-link w-nav-link">Earn</a>
             <a href="https://leverage.synthetix.io/" target="_blank" class="navigation-link w-nav-link">Leverage</a>
             <a href="https://docs.synthetix.io/synthetix-v3-user-documentation" target="_blank" class="navigation-link w-nav-link">Build</a>
@@ -70,7 +89,16 @@ var ml_account = ml('accounts', '1130930', 'b3w8m6s6a3', 'load');
                   <div class="navigation-base">
                     <div class="navigation-grid-wrapper">
                       <div class="w-layout-grid navigation-link-grid">
-                        <a id="w-node-_1d18194e-dc86-428e-037c-3acc36ca4438-e6f98712" href="governance.html" class="navigation-dropdown-link w-inline-block"><img src="images/Frame-39579-2.svg" loading="lazy" alt="" class="image-27">
+                        <a id="w-node-_1d18194e-dc86-428e-037c-3acc36ca4438-e6f98712" href="https://blog.synthetix.io/" target="_blank" class="navigation-dropdown-link w-inline-block">
+                          <div class="icon-embed-xxsmall-26 w-embed"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" role="img" class="iconify iconify--ic" width="100%" height="100%" preserveaspectratio="xMidYMid meet" viewbox="0 0 24 24">
+                              <path fill="currentColor" d="m15 16l-4 4h10v-4zm-2.94-8.81L3 16.25V20h3.75l9.06-9.06zm1.072-1.067l2.539-2.539l3.747 3.748L16.88 9.87z"></path>
+                            </svg></div>
+                          <div class="column-tiny-3">
+                            <div class="navigation-link-title">Blog</div>
+                            <div class="paragraph-small-15 text-color-gray-100">News &amp; updates on our eco-system</div>
+                          </div>
+                        </a>
+                        <a id="w-node-_64692744-290c-cda0-bad4-04b4f8889648-e6f98712" href="governance.html" class="navigation-dropdown-link w-inline-block"><img src="images/Frame-39579-2.svg" loading="lazy" alt="" class="image-27">
                           <div class="column-tiny-3">
                             <div class="navigation-link-title">Governance</div>
                             <div class="paragraph-small-15 text-color-gray-100">A new era of Synthetix governance</div>
@@ -104,7 +132,7 @@ var ml_account = ml('accounts', '1130930', 'b3w8m6s6a3', 'load');
         </div>
         <div class="navigation-button-group">
           <div class="navigation-button-wrapper">
-            <a href="https://exchange.synthetix.io/" target="_blank" class="button-primary-2 icon-right w-inline-block">
+            <a href="https://exchange.synthetix.io/market/" target="_blank" class="button-primary-2 icon-right w-inline-block">
               <div class="text-block-6">Trade now</div>
             </a>
           </div>
@@ -195,6 +223,24 @@ var ml_account = ml('accounts', '1130930', 'b3w8m6s6a3', 'load');
     </div>
     <div class="code-embed w-embed w-script"><!--  Flowbase Booster [Carousel Ticker]  -->
       <script src="https://cdn.jsdelivr.net/npm/@flowbase-co/boosters-carousel-ticker@1/dist/carousel-ticker.min.js" type="text/javascript"></script>
+      <script>
+  document.addEventListener('DOMContentLoaded', function() {
+    // Wait for the carousel elements to be loaded
+    setTimeout(function() {
+      const carousels = document.querySelectorAll('[fb-booster="carousel-ticker"]');
+      carousels.forEach(carousel => {
+        // Modify the speed settings
+        carousel.setAttribute('speed', '0.2'); // Reduce speed (default is 1)
+        carousel.setAttribute('spacing', '40'); // Adjust spacing if needed
+        // Reinitialize the carousel with new settings
+        if (window.Webflow) {
+          window.Webflow.require('carousel-ticker').destroy();
+          window.Webflow.require('carousel-ticker').ready();
+        }
+      });
+    }, 100);
+  });
+</script>
     </div>
     <div class="logo-carousel-container">
       <div class="logo-carousel-wrapper-2">
@@ -202,7 +248,7 @@ var ml_account = ml('accounts', '1130930', 'b3w8m6s6a3', 'load');
           <div fb-carousel-content="true" class="logo-carousel-content"><img src="images/usecannon-logo.png" loading="lazy" width="200" alt="" class="logo-icon-2"><img src="images/iosiro-logo.png" loading="lazy" sizes="(max-width: 991px) 100vw, 6vw" srcset="images/iosiro-logo-p-500.png 500w, images/iosiro-logo-p-800.png 800w, images/iosiro-logo.png 1233w" alt="" class="logo-icon-2"><img src="images/Chainlink-Coin-01.png" loading="lazy" sizes="(max-width: 991px) 100vw, 6vw" srcset="images/Chainlink-Coin-01-p-500.png 500w, images/Chainlink-Coin-01-p-800.png 800w, images/Chainlink-Coin-01.png 822w" alt="Chainlink Logo" class="logo-icon-2"><img src="images/coinbase.avif" loading="lazy" alt="" class="logo-icon-2"><img src="images/parfifi.png" loading="lazy" sizes="(max-width: 991px) 100vw, 6vw" srcset="images/parfifi-p-500.png 500w, images/parfifi.png 638w" alt="Parfifi Logo White" class="logo-icon-2"><img src="images/Toros.png" loading="lazy" sizes="(max-width: 991px) 100vw, 6vw" srcset="images/Toros-p-500.png 500w, images/Toros.png 564w" alt="Toros Logo" class="logo-icon-2"><img src="images/dhedge.png" loading="lazy" sizes="(max-width: 991px) 100vw, 6vw" srcset="images/dhedge-p-500.png 500w, images/dhedge-p-800.png 800w, images/dhedge.png 1006w" alt="dHedge logo white" class="logo-icon-2"><img src="images/infinex.png" loading="lazy" sizes="(max-width: 991px) 100vw, 6vw" srcset="images/infinex-p-500.png 500w, images/infinex.png 546w" alt="Infinex Logo White" class="logo-icon-2"><img src="images/AlchemyLogo-Black.png" loading="lazy" sizes="(max-width: 991px) 100vw, 6vw" srcset="images/AlchemyLogo-Black-p-500.png 500w, images/AlchemyLogo-Black.png 635w" alt="Alchemy logo" class="logo-icon-2"></div>
         </div>
         <div fb-carousel-overflow-size="0" fb-carousel="true" fb-carousel-direction="right" fb-carousel-speed="40000" fb-carousel-delay="200" fb-carousel-pauseable="false" fb-carousel-overflow="false" class="logo-carousel">
-          <div fb-carousel-content="true" class="logo-carousel-content"><img src="images/mass-money.png" loading="lazy" sizes="(max-width: 991px) 100vw, 6vw" srcset="images/mass-money-p-500.png 500w, images/mass-money-p-800.png 800w, images/mass-money-p-1080.png 1080w, images/mass-money.png 1479w" alt="mass money logo white" class="logo-icon-2"><img src="images/TLX.png" loading="lazy" sizes="(max-width: 991px) 100vw, 6vw" srcset="images/TLX-p-500.png 500w, images/TLX-p-800.png 800w, images/TLX.png 862w" alt="" class="logo-icon-2"><img src="images/Socket-Logo-White.png" loading="lazy" sizes="(max-width: 991px) 100vw, 6vw" srcset="images/Socket-Logo-White-p-500.png 500w, images/Socket-Logo-White-p-800.png 800w, images/Socket-Logo-White.png 1000w" alt="Socket Protocol logo" class="logo-icon-2"><img src="images/Pyth-Network.png" loading="lazy" sizes="(max-width: 991px) 100vw, 6vw" srcset="images/Pyth-Network-p-500.png 500w, images/Pyth-Network-p-800.png 800w, images/Pyth-Network-p-1080.png 1080w, images/Pyth-Network-p-1600.png 1600w, images/Pyth-Network-p-2000.png 2000w, images/Pyth-Network.png 2427w" alt="Pyth logo" class="logo-icon-2"><img src="images/blocknative-logo.png" loading="lazy" sizes="(max-width: 991px) 100vw, 6vw" srcset="images/blocknative-logo-p-500.png 500w, images/blocknative-logo-p-800.png 800w, images/blocknative-logo.png 959w" alt="Blocknative logo" class="logo-icon-2"><img src="images/Wordmark-White.png" loading="lazy" sizes="(max-width: 991px) 100vw, 6vw" srcset="images/Wordmark-White-p-500.png 500w, images/Wordmark-White-p-800.png 800w, images/Wordmark-White.png 1248w" alt="Wormhole logo" class="logo-icon-2"><img src="images/s-infura.png" loading="lazy" alt="Infura logo" class="logo-icon-2"><img src="images/Optimism-logo.png" loading="lazy" sizes="(max-width: 991px) 100vw, 6vw" srcset="images/Optimism-logo-p-500.png 500w, images/Optimism-logo-p-800.png 800w, images/Optimism-logo-p-1080.png 1080w, images/Optimism-logo-p-1600.png 1600w, images/Optimism-logo-p-2000.png 2000w, images/Optimism-logo-p-2600.png 2600w, images/Optimism-logo-p-3200.png 3200w, images/Optimism-logo.png 4500w" alt="Optimism logo" class="logo-icon-2"><img src="images/biconomy-logo.png" loading="lazy" alt="biconomy logo" class="logo-icon-2"></div>
+          <div fb-carousel-content="true" class="logo-carousel-content"><img src="images/mass-money.png" loading="lazy" sizes="(max-width: 991px) 100vw, 6vw" srcset="images/mass-money-p-500.png 500w, images/mass-money-p-800.png 800w, images/mass-money-p-1080.png 1080w, images/mass-money.png 1479w" alt="mass money logo white" class="logo-icon-2"><img src="images/TLX.png" loading="lazy" sizes="(max-width: 991px) 100vw, 6vw" srcset="images/TLX-p-500.png 500w, images/TLX-p-800.png 800w, images/TLX.png 862w" alt="" class="logo-icon-2"><img src="images/Socket-Logo-White.png" loading="lazy" sizes="(max-width: 991px) 100vw, 6vw" srcset="images/Socket-Logo-White-p-500.png 500w, images/Socket-Logo-White-p-800.png 800w, images/Socket-Logo-White-p-1080.png 1080w, images/Socket-Logo-White.png 1178w" alt="" class="logo-icon-2"><img src="images/Pyth-Network.png" loading="lazy" sizes="(max-width: 991px) 100vw, 6vw" srcset="images/Pyth-Network-p-500.png 500w, images/Pyth-Network-p-800.png 800w, images/Pyth-Network-p-1080.png 1080w, images/Pyth-Network-p-1600.png 1600w, images/Pyth-Network-p-2000.png 2000w, images/Pyth-Network.png 2427w" alt="Pyth logo" class="logo-icon-2"><img src="images/blocknative-logo.png" loading="lazy" sizes="(max-width: 991px) 100vw, 6vw" srcset="images/blocknative-logo-p-500.png 500w, images/blocknative-logo-p-800.png 800w, images/blocknative-logo.png 959w" alt="Blocknative logo" class="logo-icon-2"><img src="images/Wordmark-White.png" loading="lazy" sizes="(max-width: 991px) 100vw, 6vw" srcset="images/Wordmark-White-p-500.png 500w, images/Wordmark-White-p-800.png 800w, images/Wordmark-White.png 1248w" alt="Wormhole logo" class="logo-icon-2"><img src="images/s-infura.png" loading="lazy" alt="Infura logo" class="logo-icon-2"><img src="images/Optimism-logo.png" loading="lazy" sizes="(max-width: 991px) 100vw, 6vw" srcset="images/Optimism-logo-p-500.png 500w, images/Optimism-logo-p-800.png 800w, images/Optimism-logo-p-1080.png 1080w, images/Optimism-logo-p-1600.png 1600w, images/Optimism-logo-p-2000.png 2000w, images/Optimism-logo-p-2600.png 2600w, images/Optimism-logo-p-3200.png 3200w, images/Optimism-logo.png 4500w" alt="Optimism logo" class="logo-icon-2"><img src="images/biconomy-logo.png" loading="lazy" alt="biconomy logo" class="logo-icon-2"></div>
         </div>
       </div>
     </div>
@@ -210,7 +256,7 @@ var ml_account = ml('accounts', '1130930', 'b3w8m6s6a3', 'load');
       <div class="container-regular-5"></div>
     </div>
     <div class="w-layout-grid partner-with-buttons-home">
-      <a id="w-node-_551bf9ae-e9f6-7182-0a31-ab2e06450522-064504bb" href="https://liquidity.synthetix.io/" target="_blank" class="button-primary-5 w-button">Become a partner</a>
+      <a id="w-node-_551bf9ae-e9f6-7182-0a31-ab2e06450522-064504bb" href="https://discord.gg/synthetix" target="_blank" class="button-primary-5 w-button">Become a partner</a>
       <a href="https://docs.synthetix.io/v3/for-developers/technical-architecture" target="_blank" class="button-outline-5 w-button">Build on Synthetix</a>
     </div>
   </section>
@@ -250,7 +296,7 @@ var ml_account = ml('accounts', '1130930', 'b3w8m6s6a3', 'load');
           <div id="w-node-_215d802d-a879-7a10-5583-87ac893c3430-893c3400" class="column-x-large-3">
             <div class="subheading-large-3">Trade</div>
             <div class="column-regular-3">
-              <a href="http://exchange.synthetix.io" target="_blank" class="footer-link">Trade now</a>
+              <a href="https://exchange.synthetix.io/market/" target="_blank" class="footer-link">Trade now</a>
               <a href="https://docs.synthetix.io/synthetix-v3-user-documentation/using-synthetix/trading-synthetix-perps-v3" target="_blank" class="footer-link">How to trade</a>
               <a href="http://stats.synthetix.io" target="_blank" class="footer-link">Stats</a>
             </div>
@@ -311,7 +357,7 @@ var ml_account = ml('accounts', '1130930', 'b3w8m6s6a3', 'load');
               </a>
             </div>
             <div class="footer-button-wrapper">
-              <a href="https://exchange.synthetix.io/" target="_blank" class="button-primary-large-2 w-button">Trade now</a>
+              <a href="https://exchange.synthetix.io/market/" target="_blank" class="button-primary-large-2 w-button">Trade now</a>
             </div>
           </div>
         </div>
@@ -320,7 +366,7 @@ var ml_account = ml('accounts', '1130930', 'b3w8m6s6a3', 'load');
         <div class="text-color-gray-600">© 2024 Synthetix. All rights reserved</div>
         <div class="footer-legal-links">
           <a href="https://discord.com/channels/413890591840272394/479848672289488906" target="_blank" class="footer-legal-link">Help</a>
-          <a href="https://staking.synthetix.io/terms/" target="_blank" class="footer-legal-link">Terms and Conditions</a>
+          <a href="https://staking.synthetix.io/term" target="_blank" class="footer-legal-link">Terms of Use</a>
         </div>
       </div>
     </div>
