@@ -19,6 +19,13 @@
   display: grid;
 }
 
+body {
+  color: #333;
+  font-family: Arial, Helvetica Neue, Helvetica, sans-serif;
+  font-size: 14px;
+  line-height: 20px;
+}
+
 .body {
   background-color: var(--background-dark-navy);
   overflow: visible;
@@ -27,7 +34,6 @@
 .image-cover {
   vertical-align: super;
   object-fit: cover;
-  border: 1px #000;
   width: 100%;
   height: 100%;
   display: inline-block;
@@ -2561,8 +2567,9 @@
 }
 
 .image-12 {
-  border: 1px solid var(--snx-dark-gray);
+  border: 1px none var(--snx-dark-gray);
   border-radius: 99px;
+  width: 60px;
 }
 
 .trade-name-two-colums {
@@ -2614,6 +2621,7 @@
 .go-to-arrow {
   justify-content: flex-start;
   align-items: stretch;
+  text-decoration: none;
   display: flex;
 }
 
@@ -6187,7 +6195,7 @@
   grid-column-gap: 32px;
   grid-row-gap: 32px;
   flex-flow: column;
-  width: 56%;
+  width: 60%;
   display: flex;
 }
 
@@ -6242,6 +6250,42 @@
   width: 2rem;
   height: 2rem;
   display: flex;
+}
+
+.column-large-home-banner {
+  grid-column-gap: 24px;
+  grid-row-gap: 24px;
+  flex-flow: column;
+  justify-content: flex-start;
+  align-self: auto;
+  align-items: flex-start;
+  display: flex;
+}
+
+.card-link-block {
+  text-decoration: none;
+}
+
+@media screen and (min-width: 1280px) {
+  .column-x-large-home-banner {
+    width: 56%;
+  }
+}
+
+@media screen and (min-width: 1440px) {
+  .column-x-large-home-banner {
+    width: 56%;
+  }
+
+  .column-large-home-banner {
+    width: 80%;
+  }
+}
+
+@media screen and (min-width: 1920px) {
+  .column-x-large-home-banner {
+    width: 44%;
+  }
 }
 
 @media screen and (max-width: 991px) {
@@ -7978,6 +8022,11 @@
     width: 100%;
     font-size: 14px;
     line-height: 18px;
+  }
+
+  .column-large-home-banner {
+    justify-content: flex-start;
+    align-items: flex-start;
   }
 }
 
