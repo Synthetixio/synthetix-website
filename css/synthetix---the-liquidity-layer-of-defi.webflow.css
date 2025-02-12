@@ -3721,7 +3721,7 @@ body {
   background-image: linear-gradient(90deg, var(--snx-pink), var(--real-snx-purple));
   color: #fff;
   padding: 10px 5%;
-  display: none;
+  display: block;
 }
 
 .container-regular-9 {
